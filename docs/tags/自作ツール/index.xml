@@ -9,10 +9,10 @@
     <lastBuildDate>Sat, 18 Jul 2020 18:30:28 +0000</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C%E3%83%84%E3%83%BC%E3%83%AB/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>【Excel】非マクロのメール作成ツールを作成した</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020-07-19-excel%E9%9D%9E%E3%83%9E%E3%82%AF%E3%83%AD%E3%81%AE%E3%83%A1%E3%83%BC%E3%83%AB%E4%BD%9C%E6%88%90%E3%83%84%E3%83%BC%E3%83%AB%E3%82%92%E4%BD%9C%E6%88%90%E3%81%97%E3%81%9F/</link>
+      <link>https://dede-20191130.github.io/learnerBlog/2020-07-18-create-nomarco-tool/</link>
       <pubDate>Sat, 18 Jul 2020 18:30:28 +0000</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020-07-19-excel%E9%9D%9E%E3%83%9E%E3%82%AF%E3%83%AD%E3%81%AE%E3%83%A1%E3%83%BC%E3%83%AB%E4%BD%9C%E6%88%90%E3%83%84%E3%83%BC%E3%83%AB%E3%82%92%E4%BD%9C%E6%88%90%E3%81%97%E3%81%9F/</guid>
+      <guid>https://dede-20191130.github.io/learnerBlog/2020-07-18-create-nomarco-tool/</guid>
       <description>この記事について 以前作成した非マクロのメール作成ツールについての紹介記事。
 こちら（Github）からツールをダウンロードできます。
 概要 テーブルでデータを管理。
@@ -26,10 +26,10 @@
     
     <item>
       <title>【VBA】見積書作成ツールを作成した</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020-07-16-vba%E8%A6%8B%E7%A9%8D%E6%9B%B8%E4%BD%9C%E6%88%90%E3%83%84%E3%83%BC%E3%83%AB%E3%82%92%E4%BD%9C%E6%88%90%E3%81%97%E3%81%9F/</link>
+      <link>https://dede-20191130.github.io/learnerBlog/2020-07-16-create-estm/</link>
       <pubDate>Thu, 16 Jul 2020 08:05:13 +0000</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020-07-16-vba%E8%A6%8B%E7%A9%8D%E6%9B%B8%E4%BD%9C%E6%88%90%E3%83%84%E3%83%BC%E3%83%AB%E3%82%92%E4%BD%9C%E6%88%90%E3%81%97%E3%81%9F/</guid>
+      <guid>https://dede-20191130.github.io/learnerBlog/2020-07-16-create-estm/</guid>
       <description>この記事について 以前作成した見積書作成ツール（Excel VBA）についての紹介記事。
 こちら（Github）からツールをダウンロードできます。
 概要 一枚～複数枚の見積書を作成する。
