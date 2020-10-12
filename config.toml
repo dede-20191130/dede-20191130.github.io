@@ -2,7 +2,8 @@ baseURL = "https://dede-20191130.github.io/learnerBlog"
 languageCode = "ja"
 title = "学習者のブログ　◆プログラミング等"
 theme = "Clarity"
-
+# Deploy
+publishDir = "docs"
 # DefaultContentLanguage = "ja"
 
 [params]
@@ -40,5 +41,4 @@ codeLineNumbers = true
       unsafe = true
 
 
-# Deploy
-publishDir = "docs"
+

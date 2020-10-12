@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>プログラミング on 学習者のブログ　◆プログラミング等</title>
+    <link>https://dede-20191130.github.io/learnerBlog/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</link>
+    <description>Recent content in プログラミング on 学習者のブログ　◆プログラミング等</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Thu, 16 Jul 2020 08:05:13 +0000</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【VBA】見積書作成ツールを作成した</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2020-07-16-vba%E8%A6%8B%E7%A9%8D%E6%9B%B8%E4%BD%9C%E6%88%90%E3%83%84%E3%83%BC%E3%83%AB%E3%82%92%E4%BD%9C%E6%88%90%E3%81%97%E3%81%9F/</link>
+      <pubDate>Thu, 16 Jul 2020 08:05:13 +0000</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020-07-16-vba%E8%A6%8B%E7%A9%8D%E6%9B%B8%E4%BD%9C%E6%88%90%E3%83%84%E3%83%BC%E3%83%AB%E3%82%92%E4%BD%9C%E6%88%90%E3%81%97%E3%81%9F/</guid>
+      <description>この記事について 以前作成した見積書作成ツール（Excel VBA）についての紹介記事。
+こちら（Github）からツールをダウンロードできます。
+概要 一枚～複数枚の見積書を作成する。
+テンプレート見積書に設定したデータを挿入し、見積書格納先の別ブックを作成。
+画像例 使用方法詳細 仕様、使用方法などは、
+こちら（Github）に記載しています。</description>
+    </item>
+    
+    <item>
+      <title>Excelのツール開発：関数（非マクロ）ツールとVBA使用ツールの比較</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2020-07-16-excel%E3%81%AE%E3%83%84%E3%83%BC%E3%83%AB%E9%96%8B%E7%99%BA%E9%96%A2%E6%95%B0%E9%9D%9E%E3%83%9E%E3%82%AF%E3%83%AD%E3%83%84%E3%83%BC%E3%83%AB%E3%81%A8vba%E4%BD%BF%E7%94%A8%E3%83%84/</link>
+      <pubDate>Thu, 16 Jul 2020 06:14:50 +0000</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020-07-16-excel%E3%81%AE%E3%83%84%E3%83%BC%E3%83%AB%E9%96%8B%E7%99%BA%E9%96%A2%E6%95%B0%E9%9D%9E%E3%83%9E%E3%82%AF%E3%83%AD%E3%83%84%E3%83%BC%E3%83%AB%E3%81%A8vba%E4%BD%BF%E7%94%A8%E3%83%84/</guid>
+      <description>この記事について Excelでデータ管理したりドキュメントを出力したりするツール（機能の多寡を問わず）を作成しようとする際に、
+大別すると、次のような選択肢があるかと思われる。
+ 関数（マクロを使用しない。標準搭載の関数のみで実装）ツール VBA使用ツール  それぞれにメリット・デメリットがあるが、
+個人的な見解として
+それらをまとめてみたい。
+サマリ（表） 最初にまとめとして表を記す。
+    関数（非マクロ）ツール   VBAツール     開発難度   低   高     自由度   低   高     できること   データの管理（手入力、
+データベースとの連携）
+帳票等成果物の出力
+・プリンター印刷
+・PDF
+メール作成、WebサイトのURL管理、ファイルパスの管理   データの管理（手入力、オリジナルフォームの入力、ファイル読み込み、データベースとの連携）
+帳票等成果物の出力
+・プリンター印刷
+・PDF
+・csvファイル
+・その他、だいたいどのような形式でも可能
+メール作成、WebサイトのURL管理、ファイルパスの管理（より高度なレベルで）
+Webサイトのスクレイピング
+Webサイトに対するHTTPリクエスト、レスポンス取得     作業精度向上のレベル   低   高     作業効率化のレベル   低   高     動作安定性   高   低     メンテナンス性   高   低      比較 作りやすさ エクセル関数は義務教育の関数の知識があれば使いやすいだろう。</description>
+    </item>
+    
+  </channel>
+</rss>
