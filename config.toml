@@ -1,4 +1,4 @@
-baseURL = "https://dede-20191130.github.io/learnerBlog"
+baseURL = "https://dede-20191130.github.io/learnerBlog/"
 languageCode = "ja"
 title = "学習者のブログ　◆プログラミング等"
 theme = "Clarity"
@@ -38,7 +38,20 @@ codeLineNumbers = true
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
-      unsafe = true
-
+      hardWraps = false
+      unsafe = true # change to false to disable inclusion of rawHTML and math functions
+      xhtml = false
+    [markup.goldmark.extensions]
+      typographer = false
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    hl_Lines = "--"
+    lineNoStart = 1
+    lineNos = true # always set to true # else line numbers won't show at all! even when you toggle them on in the UI
+    lineNumbersInTable = false # toggling this on (i.e to true) or deleting this line will break the code blocks functionality. Will
+    noClasses = false
+    # style = "monokai"
+    tabWidth = 2
 
 
