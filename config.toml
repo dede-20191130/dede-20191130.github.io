@@ -38,3 +38,7 @@ codeLineNumbers = true
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+
+
+# Deploy
+publishDir = "docs"
