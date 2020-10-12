@@ -16,7 +16,7 @@ introDescription = "VBAから入り、プログラミング、コンピュータ
 numberOfTagsShown = 14
 
 # Google analytics Id
-ga_analytics = "UA-110309082-2"
+ga_analytics = "UA-110309082-3"
 
 # directory(s) where your articles are located
 mainSections = ["posts"] # see config details here https://gohugo.io/functions/where/#mainsections
