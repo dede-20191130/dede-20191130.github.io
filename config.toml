@@ -55,3 +55,7 @@ codeLineNumbers = true
     tabWidth = 2
 
 
+[permalinks]
+    posts = "/:sections/:year/:month/:day/:slug/"
+    # blogs = "/:sections/:year/:month/:day/:slug/"
+    # news = "/:sections/:year/:month/:day/:slug/"

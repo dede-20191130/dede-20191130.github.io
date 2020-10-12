@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="en" data-figures="" class="page">
-  <head>  <title>【Excel】非マクロのメール作成ツールを作成した | 学習者のブログ　◆プログラミング等</title>
+  <head>  <title>Excelのツール開発：関数（非マクロ）ツールとVBA使用ツールの比較 | 学習者のブログ　◆プログラミング等</title>
   <meta charset="utf-8">
   <meta name="generator" content="Hugo 0.76.0" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -17,25 +17,17 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="この記事について 以前作成した非マクロのメール作成ツールについての紹介記事。
-こちら（Github）からツールをダウンロードできます。
-概要 テーブルでデータを管理。
-管理したデータからメールを作成。
-画像紹介 記事：非マクロ（VBAの使用なし）であることの利点 こちらにまとめています。
-⇛Excelのツール開発
-関 …">
+<meta name="description" content="この記事について Excelでデータ管理したりドキュメントを出力したりするツール（機能の多寡を問わず）を作成しようとする際に、
+大別すると、次のような選択肢があるかと思われる。
+ 関数（マクロを使用しない。標準搭載の関数のみで実装）ツール VBA使用ツール  それぞれにメリット・デメリットがあるが、 …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="@D20191130">
-<meta name="twitter:title" content="【Excel】非マクロのメール作成ツールを作成した" />
-<meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/2020-07-18-create-nomarco-tool/" />
-<meta property="og:title" content="【Excel】非マクロのメール作成ツールを作成した" />
-<meta property="og:description" content="この記事について 以前作成した非マクロのメール作成ツールについての紹介記事。
-こちら（Github）からツールをダウンロードできます。
-概要 テーブルでデータを管理。
-管理したデータからメールを作成。
-画像紹介 記事：非マクロ（VBAの使用なし）であることの利点 こちらにまとめています。
-⇛Excelのツール開発
-関 …" />
+<meta name="twitter:title" content="Excelのツール開発：関数（非マクロ）ツールとVBA使用ツールの比較" />
+<meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/posts/2020/07/16/cmpr-tools/" />
+<meta property="og:title" content="Excelのツール開発：関数（非マクロ）ツールとVBA使用ツールの比較" />
+<meta property="og:description" content="この記事について Excelでデータ管理したりドキュメントを出力したりするツール（機能の多寡を問わず）を作成しようとする際に、
+大別すると、次のような選択肢があるかと思われる。
+ 関数（マクロを使用しない。標準搭載の関数のみで実装）ツール VBA使用ツール  それぞれにメリット・デメリットがあるが、 …" />
 <meta property="og:image" content="https://dede-20191130.github.io/learnerBlog/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://dede-20191130.github.io/learnerBlog/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://dede-20191130.github.io/learnerBlog/icons/favicon-32x32.png'>
@@ -45,7 +37,7 @@
 <meta name="msapplication-TileColor" content="#002538">
 <meta name="theme-color" content="#002538">
 
-  <link rel="canonical" href="https://dede-20191130.github.io/learnerBlog/2020-07-18-create-nomarco-tool/">
+  <link rel="canonical" href="https://dede-20191130.github.io/learnerBlog/posts/2020/07/16/cmpr-tools/">
 
     
 
@@ -125,31 +117,29 @@
   
 <div class="grid-inverse wrap content">
   <article class="post_content">
-    <h1 class="post_title">【Excel】非マクロのメール作成ツールを作成した</h1><div class="post_meta">
+    <h1 class="post_title">Excelのツール開発：関数（非マクロ）ツールとVBA使用ツールの比較</h1><div class="post_meta">
   <svg class="icon">
   <use xlink:href="#calendar"></use>
 </svg>
   <span class="post_date">
-    Jul 18, 2020</span>
+    Jul 16, 2020</span>
   <a href='https://dede-20191130.github.io/learnerBlog/tags/excel' class="post_tag button button_translucent">Excel
   </a>
-  <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%83%84%E3%83%BC%E3%83%AB' class="post_tag button button_translucent">ツール
+  <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' class="post_tag button button_translucent">VBA
   </a>
-  <a href='https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E5%8B%95%E5%8C%96' class="post_tag button button_translucent">自動化
-  </a>
-  <a href='https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C%E3%83%84%E3%83%BC%E3%83%AB' class="post_tag button button_translucent">自作ツール
+  <a href='https://dede-20191130.github.io/learnerBlog/tags/excel%E9%96%A2%E6%95%B0' class="post_tag button button_translucent">Excel関数
   </a>
 </div>
 
     
 <div class="post_share">
   Share on:
-  <a href="https://twitter.com/intent/tweet?text=%e3%80%90Excel%e3%80%91%e9%9d%9e%e3%83%9e%e3%82%af%e3%83%ad%e3%81%ae%e3%83%a1%e3%83%bc%e3%83%ab%e4%bd%9c%e6%88%90%e3%83%84%e3%83%bc%e3%83%ab%e3%82%92%e4%bd%9c%e6%88%90%e3%81%97%e3%81%9f&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2f2020-07-18-create-nomarco-tool%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
+  <a href="https://twitter.com/intent/tweet?text=Excel%e3%81%ae%e3%83%84%e3%83%bc%e3%83%ab%e9%96%8b%e7%99%ba%ef%bc%9a%e9%96%a2%e6%95%b0%ef%bc%88%e9%9d%9e%e3%83%9e%e3%82%af%e3%83%ad%ef%bc%89%e3%83%84%e3%83%bc%e3%83%ab%e3%81%a8VBA%e4%bd%bf%e7%94%a8%e3%83%84%e3%83%bc%e3%83%ab%e3%81%ae%e6%af%94%e8%bc%83&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f07%2f16%2fcmpr-tools%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
     <svg class="icon">
   <use xlink:href="#twitter"></use>
 </svg>
   </a>
-  <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2f2020-07-18-create-nomarco-tool%2f&t=%e3%80%90Excel%e3%80%91%e9%9d%9e%e3%83%9e%e3%82%af%e3%83%ad%e3%81%ae%e3%83%a1%e3%83%bc%e3%83%ab%e4%bd%9c%e6%88%90%e3%83%84%e3%83%bc%e3%83%ab%e3%82%92%e4%bd%9c%e6%88%90%e3%81%97%e3%81%9f" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
+  <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f07%2f16%2fcmpr-tools%2f&t=Excel%e3%81%ae%e3%83%84%e3%83%bc%e3%83%ab%e9%96%8b%e7%99%ba%ef%bc%9a%e9%96%a2%e6%95%b0%ef%bc%88%e9%9d%9e%e3%83%9e%e3%82%af%e3%83%ad%ef%bc%89%e3%83%84%e3%83%bc%e3%83%ab%e3%81%a8VBA%e4%bd%bf%e7%94%a8%e3%83%84%e3%83%bc%e3%83%ab%e3%81%ae%e6%af%94%e8%bc%83" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
     <svg class="icon">
   <use xlink:href="#facebook"></use>
 </svg>
@@ -159,7 +149,7 @@
   <use xlink:href="#linkedin"></use>
 </svg>
   </a>
-  <a href="https://dede-20191130.github.io/learnerBlog/2020-07-18-create-nomarco-tool/" title="Copy Link" class="link link_yank">
+  <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/07/16/cmpr-tools/" title="Copy Link" class="link link_yank">
     <svg class="icon">
   <use xlink:href="#yank"></use>
 </svg>
@@ -172,29 +162,162 @@
     <nav id="TableOfContents">
   <ul>
     <li><a href="#この記事について">この記事について</a></li>
-    <li><a href="#概要">概要</a></li>
-    <li><a href="#画像紹介">画像紹介</a></li>
-    <li><a href="#span-idvba記事非マクロvbaの使用なしであることの利点"><span id="VBA">記事：非マクロ（VBAの使用なし）であることの利点</a></li>
-    <li><a href="#使用方法詳細">使用方法詳細</a></li>
+    <li><a href="#サマリ表">サマリ（表）</a></li>
+    <li><a href="#比較">比較</a>
+      <ul>
+        <li><a href="#作りやすさ">作りやすさ</a></li>
+        <li><a href="#自由度とできること">自由度とできること</a></li>
+        <li><a href="#自動化のもたらす利益の比較">自動化のもたらす利益の比較</a></li>
+        <li><a href="#安定性">安定性</a></li>
+        <li><a href="#メンテナンス">メンテナンス</a></li>
+      </ul>
+    </li>
+    <li><a href="#まとめ">まとめ</a></li>
   </ul>
 </nav>
     <h2 id="この記事について">この記事について</h2>
-<p>以前作成した非マクロのメール作成ツールについての紹介記事。<br>
-<a href="https://github.com/dede-20191130/My_VBA_Tools/tree/master/%E9%9D%9E%E3%83%9E%E3%82%AF%E3%83%AD%E3%83%84%E3%83%BC%E3%83%AB/NOVBA0001_%E4%BD%9C%E6%A5%AD%E8%A8%98%E9%8C%B2%E7%AE%A1%E7%90%86%E7%B0%BF_%E5%85%BC_%E3%83%A1%E3%83%BC%E3%83%AB%E4%BD%9C%E6%88%90%E3%83%84%E3%83%BC%E3%83%AB">こちら（Github）</a>からツールをダウンロードできます。</p>
-<h2 id="概要">概要</h2>
-<p>テーブルでデータを管理。</p>
-<p>管理したデータからメールを作成。</p>
-<h2 id="画像紹介">画像紹介</h2>
-<p><img src="https://github.com/dede-20191130/My_VBA_Tools/blob/master/_ImageForMarkdown/NOVBA0001/image_1.png?raw=true" alt="入力欄"></p>
-<p><img src="https://github.com/dede-20191130/My_VBA_Tools/blob/master/_ImageForMarkdown/NOVBA0001/image_5.png?raw=true" alt="プルダウン項目の自動設定"></p>
-<p><img src="https://github.com/dede-20191130/My_VBA_Tools/blob/master/_ImageForMarkdown/NOVBA0001/image_7.png?raw=true" alt="自動作成メール"></p>
-<h2 id="span-idvba記事非マクロvbaの使用なしであることの利点"><span id="VBA">記事：非マクロ（VBAの使用なし）であることの利点</h2>
-<p>こちらにまとめています。</p>
-<p>⇛<a href="../2020-07-16-excel%E3%81%AE%E3%83%84%E3%83%BC%E3%83%AB%E9%96%8B%E7%99%BA%E9%96%A2%E6%95%B0%E9%9D%9E%E3%83%9E%E3%82%AF%E3%83%AD%E3%83%84%E3%83%BC%E3%83%AB%E3%81%A8vba%E4%BD%BF%E7%94%A8%E3%83%84/">Excelのツール開発<br>
-関数（非マクロ）ツールとVBA使用ツールの比較</a></p>
-<h2 id="使用方法詳細">使用方法詳細</h2>
-<p>仕様、使用方法などは、<br>
-<a href="https://github.com/dede-20191130/My_VBA_Tools/tree/master/T0001_%E8%A6%8B%E7%A9%8D%E6%9B%B8%E4%BD%9C%E6%88%90%E3%83%84%E3%83%BC%E3%83%AB">こちら（Github）</a>に記載しています。</p>
+<p>Excelでデータ管理したりドキュメントを出力したりするツール（機能の多寡を問わず）を作成しようとする際に、<br>
+大別すると、次のような選択肢があるかと思われる。</p>
+<ul>
+<li>関数（マクロを使用しない。標準搭載の関数のみで実装）ツール</li>
+<li>VBA使用ツール</li>
+</ul>
+<p>それぞれにメリット・デメリットがあるが、<br>
+個人的な見解として<br>
+それらをまとめてみたい。</p>
+<h2 id="サマリ表">サマリ（表）</h2>
+<p>最初にまとめとして表を記す。</p>
+<div class="wp-block-group">
+  <div class="wp-block-group__inner-container">
+    <table class="has-fixed-layout">
+      <tr>
+        <td>
+        </td>
+        <td>
+          関数（非マクロ）ツール
+        </td>
+        <td>
+          VBAツール
+        </td>
+      </tr>
+      <tr>
+        <td>
+          開発難度
+        </td>
+        <td>
+          低
+        </td>
+        <td>
+          高
+        </td>
+      </tr>
+      <tr>
+        <td>
+          自由度
+        </td>
+        <td>
+          低
+        </td>
+        <td>
+          高
+        </td>
+      </tr>
+      <tr>
+        <td>
+          できること
+        </td>
+        <td>
+          データの管理（手入力、<br />データベースとの連携）<br /><br />帳票等成果物の出力<br />　・プリンター印刷<br />　・PDF<br /><br />メール作成、WebサイトのURL管理、ファイルパスの管理
+        </td>
+        <td>
+          データの管理（手入力、オリジナルフォームの入力、ファイル読み込み、データベースとの連携）<br /><br />帳票等成果物の出力<br />　・プリンター印刷<br />　・PDF<br />　・csvファイル<br />　・その他、だいたいどのような形式でも可能<br /><br />メール作成、WebサイトのURL管理、ファイルパスの管理（より高度なレベルで）<br /><br />Webサイトのスクレイピング<br /><br />Webサイトに対するHTTPリクエスト、レスポンス取得
+        </td>
+      </tr>
+      <tr>
+        <td>
+          作業精度向上のレベル
+        </td>
+        <td>
+          低
+        </td>
+        <td>
+          高
+        </td>
+      </tr>
+      <tr>
+        <td>
+          作業効率化のレベル
+        </td>
+        <td>
+          低
+        </td>
+        <td>
+          高
+        </td>
+      </tr>
+      <tr>
+        <td>
+          動作安定性
+        </td>
+        <td>
+          高
+        </td>
+        <td>
+          低
+        </td>
+      </tr>
+      <tr>
+        <td>
+          メンテナンス性
+        </td>
+        <td>
+          高
+        </td>
+        <td>
+          低
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+<h2 id="比較">比較</h2>
+<h3 id="作りやすさ">作りやすさ</h3>
+<p>エクセル関数は義務教育の関数の知識があれば使いやすいだろう。<br>
+IF関数やVLOOKUP、OFFSET関数などはプログラミング的な発想や知識が必要かもしれない。</p>
+<p>一方、VBAはVisual Basicを用いたプログラミング作業が必要のため、<br>
+プログラミング未経験者にとって難易度は高い。</p>
+<h3 id="自由度とできること">自由度とできること</h3>
+<p>エクセル関数によってできるのは、データの管理、整形、入出力、<br>
+文書の作成、出力、メール送信などに限られる。<br>
+外部のアプリケーションの操作などはできない。</p>
+<p>VBAの場合、MS Officeのアプリはもちろん、<br>
+テキストファイル、バイナリファイルを操作可能。<br>
+Sendkey関数でキー操作をエミュレートして他のアプリを操作する荒業もある。<br>
+ブラウザを操作する場合、Seleniumを用いる。</p>
+<p>VBAでできることは非常に多岐にわたるが、複雑なことをしようとすればするほど<br>
+バグや不安定さも増大する。</p>
+<h3 id="自動化のもたらす利益の比較">自動化のもたらす利益の比較</h3>
+<p>自由度が高く、一連の作業を精度高く素早く行うことができるVBAツールは<br>
+自動化による恩恵を最大化することができる。</p>
+<h3 id="安定性">安定性</h3>
+<p>エクセル関数はあらかじめ動作の決まった部品の組み合わせのため、<br>
+破壊的な動作をもたらすバグの可能性は極めて少なく、<br>
+関数入力先セルに　#VALUE!　等の表記でエラーが表示される。<br>
+そのため、エラーの発生がわかりやすい。</p>
+<p>VBAツールの場合、<br>
+プログラムの書き方次第でExcel自体が強制終了したり、<br>
+編集先テキストファイルのデータを汚染したりする。</p>
+<p>例えばテキストファイル編集中に<br>
+不正な処理によりエラー落ちすると、<br>
+望まないデータが書き込まれているかもしれない。</p>
+<h3 id="メンテナンス">メンテナンス</h3>
+<p>VBAのメンテンナンスはVBのコードを読める人間が必要になる。<br>
+そのため、保守できる人材が退職あるいは異動したばあい、<br>
+今いる人間ではメンテ不可能になる恐れがある。</p>
+<p>そのため、簡易なものでもいいから内部の仕様のドキュメントを作成しておくことが重要である。</p>
+<h2 id="まとめ">まとめ</h2>
+<p>非マクロツールは保守性や安定性が高いが、自動化への寄与は劣る。<br>
+VBAツールを作成した場合、仕様のドキュメントは常に残しておくようにしたい。</p>
 
     
       
@@ -215,10 +338,10 @@
     <ul class="flex-column">
       
       <li>
-        <a href="https://dede-20191130.github.io/learnerBlog/2020-07-16-create-estm/" class="nav-link">【VBA】見積書作成ツールを作成した</a>
+        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/07/18/create-nomarco-tool/" class="nav-link">【Excel】非マクロのメール作成ツールを作成した</a>
       </li>
       <li>
-        <a href="https://dede-20191130.github.io/learnerBlog/2020-07-16-cmpr-tools/" class="nav-link">Excelのツール開発：関数（非マクロ）ツールとVBA使用ツールの比較</a>
+        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/07/16/create-estm/" class="nav-link">【VBA】見積書作成ツールを作成した</a>
       </li>
     </ul> 
     
