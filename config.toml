@@ -6,6 +6,8 @@ theme = "Clarity"
 publishDir = "docs"
 # DefaultContentLanguage = "ja"
 
+disqusShortname = "learnerblog"
+
 [params]
 author = "dede-20191130"
 twitter = "@D20191130"
