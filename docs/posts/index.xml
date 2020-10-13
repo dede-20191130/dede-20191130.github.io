@@ -25,6 +25,7 @@ T_01をサブフォームに組み込んで、このようなフォームF_01（
 また、あたらしくsize typeテキスト列を追加し、
 sizeの値ごとにS,M,Lのサイズ記号を示す文字列「This is ○ type for he/she&#39;s size.」を格納したい。
 こちらの列幅も自動で調整したい。
+環境 Microsoft Access 2019
 実装 サブフォームのResizeプロシージャで
 各々のテキストボックスに対して
 列幅を指定した。
@@ -50,7 +51,7 @@ sizeの値ごとにS,M,Lのサイズ記号を示す文字列「This is ○ type 
     </item>
     
     <item>
-      <title>【VBA】見積書作成ツールを作成した</title>
+      <title>【Excel VBA】見積書作成ツールを作成した</title>
       <link>https://dede-20191130.github.io/learnerBlog/posts/2020/07/16/create-estm/</link>
       <pubDate>Thu, 16 Jul 2020 08:05:13 +0000</pubDate>
       
