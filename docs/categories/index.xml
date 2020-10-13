@@ -6,22 +6,31 @@
     <description>Recent content in Categories on 学習者のブログ　◆プログラミング等</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 18 Jul 2020 18:30:28 +0000</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 13 Oct 2020 09:37:47 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>アプリケーション</title>
-      <link>https://dede-20191130.github.io/learnerBlog/categories/%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3/</link>
-      <pubDate>Sat, 18 Jul 2020 18:30:28 +0000</pubDate>
+      <title>トラブルシューティング</title>
+      <link>https://dede-20191130.github.io/learnerBlog/categories/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/</link>
+      <pubDate>Tue, 13 Oct 2020 09:37:47 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/categories/%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3/</guid>
+      <guid>https://dede-20191130.github.io/learnerBlog/categories/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/</guid>
       <description></description>
     </item>
     
     <item>
       <title>プログラミング</title>
       <link>https://dede-20191130.github.io/learnerBlog/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</link>
-      <pubDate>Thu, 16 Jul 2020 08:05:13 +0000</pubDate>
+      <pubDate>Tue, 13 Oct 2020 09:37:47 +0900</pubDate>
       
       <guid>https://dede-20191130.github.io/learnerBlog/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>アプリケーション</title>
+      <link>https://dede-20191130.github.io/learnerBlog/categories/%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3/</link>
+      <pubDate>Sat, 18 Jul 2020 18:30:28 +0000</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/categories/%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3/</guid>
       <description></description>
     </item>
     

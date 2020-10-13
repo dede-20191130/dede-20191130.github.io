@@ -6,7 +6,32 @@
     <description>Recent content in Posts on 学習者のブログ　◆プログラミング等</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 18 Jul 2020 18:30:28 +0000</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 13 Oct 2020 09:37:47 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Access VBA] コントロールソースにユーザ定義関数を用いると列幅の自動調整が想定通りに機能しない問題の解決</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/10/13/access-controlsource/</link>
+      <pubDate>Tue, 13 Oct 2020 09:37:47 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/10/13/access-controlsource/</guid>
+      <description>この記事について Accessでフォーム（データシート型）を使用する際、 テキストボックスのコントロールソースとして文字列を返すユーザ定義関数を指定すると、 フォームの列幅の自動調整の動作が想定通りにならない問題がある。
+例えば、ユーザ定義関数で長い文字列を取得すると、文字列がフィールドに収まりきらず見切れてしまう。
+その解決策を模索した。
+要約 ユーザ定義関数の呼び出しタイミングが FormのResizeプロシージャよりも後であるため、 対象のテキストボックスに関しては、
+1Private Sub Form_Resize() 2 3 &amp;#39;...code 4 5 ctl.ColumnWidth = -2 6 7 &amp;#39;...code 8 9End Sub による自動調整が機能しない。
+そのため、下記のいずれかの措置をとる。
+ ユーザ定義関数の処理にControl.ColumnWidth = -2が追加された関数を作成する。 Resizeする際に長さを明示的に指定。  本文 前提 このようなテーブルT_01がある。
+T_01をサブフォームに組み込んで、このようなフォームF_01（およびサブフォームSubF_01）を表示する。
+このとき、各列ID、_Name、sizeの列幅を自動で調整したい。
+また、あたらしくsize typeテキスト列を追加し、
+sizeの値ごとにS,M,Lのサイズ記号を示す文字列「This is ○ type for he/she&#39;s size.」を格納したい。
+こちらの列幅も自動で調整したい。
+実装 サブフォームのResizeプロシージャで
+各々のテキストボックスに対して
+列幅を指定した。
+コントロールのColumnWidthの値を-2と指定することで列幅が自動調整される。
+1&amp;#39;****************************************************************************************** 2&amp;#39;*関数名 ：リサイズ 3&amp;#39;*機能 ： 4&amp;#39;*引数(1) ： 5&amp;#39;****************************************************************************************** 6Private Sub Form_Resize() 7 8 &amp;#39;定数 9 Const FUNC_NAME As String = &amp;#34;Form_Resize&amp;#34; 10 11 &amp;#39;変数 12 Dim ctl As Access.</description>
+    </item>
+    
     <item>
       <title>【Excel】非マクロのメール作成ツールを作成した</title>
       <link>https://dede-20191130.github.io/learnerBlog/posts/2020/07/18/create-nomarco-tool/</link>

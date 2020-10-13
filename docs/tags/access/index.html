@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="en" data-figures="">
-  <head>  <title>ツール | 学習者のブログ　◆プログラミング等</title>
+  <head>  <title>Access | 学習者のブログ　◆プログラミング等</title>
   <meta charset="utf-8">
   <meta name="generator" content="Hugo 0.76.0" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -19,9 +19,9 @@
 <meta name="description" content="">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="@D20191130">
-<meta name="twitter:title" content="ツール" />
-<meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/tags/%E3%83%84%E3%83%BC%E3%83%AB/" />
-<meta property="og:title" content="ツール" />
+<meta name="twitter:title" content="Access" />
+<meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/tags/access/" />
+<meta property="og:title" content="Access" />
 <meta property="og:description" content="" />
 <meta property="og:image" content="https://dede-20191130.github.io/learnerBlog/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://dede-20191130.github.io/learnerBlog/icons/apple-touch-icon.png'>
@@ -32,7 +32,7 @@
 <meta name="msapplication-TileColor" content="#002538">
 <meta name="theme-color" content="#002538">
 
-  <link rel="canonical" href="https://dede-20191130.github.io/learnerBlog/tags/%E3%83%84%E3%83%BC%E3%83%AB/">
+  <link rel="canonical" href="https://dede-20191130.github.io/learnerBlog/tags/access/">
 
     
 
@@ -116,37 +116,29 @@
   <div class="excerpt">
     <div class="excerpt_header">
       <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/07/18/create-nomarco-tool/">【Excel】非マクロのメール作成ツールを作成した</a>
+        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/10/13/access-controlsource/">[Access VBA] コントロールソースにユーザ定義関数を用いると列幅の自動調整が想定通りに機能しない問題の解決</a>
       </h3>
       <div class="post_meta">
   <svg class="icon">
   <use xlink:href="#calendar"></use>
 </svg>
   <span class="post_date">
-    Jul 18, 2020</span>
-  <a href='https://dede-20191130.github.io/learnerBlog/tags/excel' class="post_tag button button_translucent">Excel
+    Oct 13, 2020</span>
+  <a href='https://dede-20191130.github.io/learnerBlog/tags/access' class="post_tag button button_translucent">Access
   </a>
-  <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%83%84%E3%83%BC%E3%83%AB' class="post_tag button button_translucent">ツール
-  </a>
-  <a href='https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E5%8B%95%E5%8C%96' class="post_tag button button_translucent">自動化
-  </a>
-  <a href='https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C%E3%83%84%E3%83%BC%E3%83%AB' class="post_tag button button_translucent">自作ツール
+  <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' class="post_tag button button_translucent">VBA
   </a>
 </div>
 
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">この記事について 以前作成した非マクロのメール作成ツールについての紹介記事。
-こちら（Github）からツールをダウンロードできます。
-概要 テーブルでデータを管理。
-管理したデータからメールを作成。
-画像紹介 記事：非マクロ（VBAの使用なし）であることの利点 こちらにまとめています。
-⇛Excelのツール開発
-関数（非マクロ）ツールとVBA使用ツールの比較
-使用方法詳細 仕様、使用方法などは、
-こちら（Github）に記載しています。</p>
-          <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/07/18/create-nomarco-tool/" class="excerpt_more button">Read More</a>
+          <p class="pale">この記事について Accessでフォーム（データシート型）を使用する際、 テキストボックスのコントロールソースとして文字列を返すユーザ定義関数を指定すると、 フォームの列幅の自動調整の動作が想定通りにならない問題がある。
+例えば、ユーザ定義関数で長い文字列を取得すると、文字列がフィールドに収まりきらず見切れてしまう。
+その解決策を模索した。
+要約 ユーザ定義関数の呼び出しタイミングが FormのResizeプロシージャよりも後であるため、 対象のテキストボックスに関しては、
+1Private Sub Form_Resize() 2 3 &#39;...code 4 5 ctl.ColumnWidth = -2 6 7 …</p>
+          <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/10/13/access-controlsource/" class="excerpt_more button">Read More</a>
         </div>
       </div>
     </div>
