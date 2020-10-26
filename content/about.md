@@ -6,7 +6,7 @@ aliases: ["about-us", "about-hugo", "contact"]
 ---
 
 
-お問い合わせは下記メールアドレスからお願いします。
+お問い合わせは下記メールアドレスへお願いします。
 
 [1044adad@gmail.com][1]。
 
