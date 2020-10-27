@@ -6,7 +6,34 @@
     <description>Recent content in ツール on 学習者のブログ　◆プログラミング等</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 18 Jul 2020 18:30:28 +0000</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/tags/%E3%83%84%E3%83%BC%E3%83%AB/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 27 Oct 2020 20:29:45 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/tags/%E3%83%84%E3%83%BC%E3%83%AB/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Access VBA] デザインビューのテーブル定義を表形式でエクスポートするAccessツールを作成した</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/10/27/access-tabledef-tool/</link>
+      <pubDate>Tue, 27 Oct 2020 20:29:45 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/10/27/access-tabledef-tool/</guid>
+      <description>概要 以前の記事で説明したエクスポート関数をツール化したもの（こちら）
+ツール化することで、VBEを開いて関数をペーストする必要が無くなった。
+また、他のAccessデータベースファイルの定義をエクスポートできるようになった。
+画面で指定したAccessファイル（.mdb、.accdb）について、
+すべてのテーブルのテーブル定義を表形式でエクスポートする。
+エクスポート先は新規エクセルブック。テーブルデータがシートごとに格納される。
+ツールはこちらからダウンロードできます。
+また、ソースコードもこちらに置いてあります。
+動作環境 Microsoft Officeが動作する環境。
+32bit、64bitいずれも可。
+機能一覧  テーブル定義の表形式でのエクスポート機能  ツールとしての長所  テーブル定義の一覧化および目視での把握が容易にできます。 手作業で表を作成するよりも効率的です。  使用方法 1. エクスポートするAccessファイルパスの選択 いずれかの方法で選択します。
+1.エクスポート画面のテキストボックスに直接入力します。
+2.参照ボタンをクリックします。
+ファイル選択ダイアログにおいて出力対象のファイルを選択します。
+テキストボックスにファイルパスが格納されます。
+2. エクスポート エクスポートボタンを押下します。
+対象のAccessファイルと同階層のフォルダに
+次のようにエクセルファイルが出力されます。
+デザインビュー表示に似せた様式で各情報が一覧できます。</description>
+    </item>
+    
     <item>
       <title>【Excel】非マクロのメール作成ツールを作成した</title>
       <link>https://dede-20191130.github.io/learnerBlog/posts/2020/07/18/create-nomarco-tool/</link>
