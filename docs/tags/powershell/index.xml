@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Powershell on 学習者のブログ　◆プログラミング等</title>
+    <link>https://dede-20191130.github.io/learnerBlog/tags/powershell/</link>
+    <description>Recent content in Powershell on 学習者のブログ　◆プログラミング等</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Fri, 30 Oct 2020 00:00:04 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/tags/powershell/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Powershell] Windowsで更新日時が〇〇以降のファイルのパスの一覧を取得するには</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/10/30/ps-refinement-last/</link>
+      <pubDate>Fri, 30 Oct 2020 00:00:04 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/10/30/ps-refinement-last/</guid>
+      <description>この記事について 普段と別のPC（Windows）での作業をする機会があった。
+作業後にもとのPCに持っていく必要のある、差分あり（作業による変更あり）のファイルを選別する必要があり、
+作業フォルダにおいて、更新日時が本日の9:00以降であるファイルを絞りこむコマンドが欲しかった。
+Git等のバージョン管理アプリがインストールされているPCならば、
+変更内容を適宜コミットしておけばアプリが自動的にうまい具合にやってくれるので、
+このようなコマンドは必要ないのだけれど。
+使用環境 PSVersion 5.1
+コマンド コンソールに出力
+1ls -r -File | ?{$_.LastWriteTime -gt [Datetime]&amp;#34;2020/10/27 9:00:00&amp;#34;} | select  FullName ファイルに出力して見やすくする
+1ls -r -File | ?{$_.LastWriteTime -gt [Datetime]&amp;#34;2020/10/27 9:00:00&amp;#34;} | select  FullName | ft  -A &amp;gt; &amp;#34;C:\temp\output.txt&amp;#34; エイリアス無しコマンドVer
+1Get-ChildItem -Recurse -File | Where-Object{$_.LastWriteTime -gt [Datetime]&amp;#34;2020/10/27 18:00:00&amp;#34;} | Select-Object FullName | Format-Table -AutoSize &amp;gt; &amp;#34;C:\temp\output.txt&amp;#34;  Get-ChildItem -Recurse -File &amp;lt;- 再帰的にファイルのみの情報一覧を取得 $_.LastWriteTime -gt [Datetime]&amp;quot;2020/10/27 18:00:00&amp;quot; &amp;lt;- 日付文字列をDatetime型にキャストしてファイル情報と比較  </description>
+    </item>
+    
+  </channel>
+</rss>

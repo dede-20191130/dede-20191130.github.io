@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
-<html lang="en" data-figures="">
-  <head>  <title>学習者のブログ　◆プログラミング等</title>
+<html lang="en" data-figures="" class="page">
+  <head>  <title>[Powershell] Windowsで更新日時が〇〇以降のファイルのパスの一覧を取得するには | 学習者のブログ　◆プログラミング等</title>
   <meta charset="utf-8">
   <meta name="generator" content="Hugo 0.76.0" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -13,16 +13,23 @@
   gtag('js', new Date());
   gtag('config', 'UA-110309082-3');
 </script>
+  
 <meta property="og:locale" content="en" />
 
-<meta property="og:type" content="website">
-<meta name="description" content="">
+<meta property="og:type" content="article">
+<meta name="description" content="この記事について 普段と別のPC（Windows）での作業をする機会があった。
+作業後にもとのPCに持っていく必要のある、差分あり（作業による変更あり）のファイルを選別する必要があり、
+作業フォルダにおいて、更新日時が本日の9:00以降であるファイルを絞りこむコマンドが欲しかった。
+Git等のバージョン管理アプリがイン …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="@D20191130">
-<meta name="twitter:title" content="学習者のブログ　◆プログラミング等" />
-<meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/" />
-<meta property="og:title" content="学習者のブログ　◆プログラミング等" />
-<meta property="og:description" content="" />
+<meta name="twitter:title" content="[Powershell] Windowsで更新日時が〇〇以降のファイルのパスの一覧を取得するには" />
+<meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/posts/2020/10/30/ps-refinement-last/" />
+<meta property="og:title" content="[Powershell] Windowsで更新日時が〇〇以降のファイルのパスの一覧を取得するには" />
+<meta property="og:description" content="この記事について 普段と別のPC（Windows）での作業をする機会があった。
+作業後にもとのPCに持っていく必要のある、差分あり（作業による変更あり）のファイルを選別する必要があり、
+作業フォルダにおいて、更新日時が本日の9:00以降であるファイルを絞りこむコマンドが欲しかった。
+Git等のバージョン管理アプリがイン …" />
 <meta property="og:image" content="https://dede-20191130.github.io/learnerBlog/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://dede-20191130.github.io/learnerBlog/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://dede-20191130.github.io/learnerBlog/icons/favicon-32x32.png'>
@@ -32,7 +39,7 @@
 <meta name="msapplication-TileColor" content="#002538">
 <meta name="theme-color" content="#002538">
 
-  <link rel="canonical" href="https://dede-20191130.github.io/learnerBlog/">
+  <link rel="canonical" href="https://dede-20191130.github.io/learnerBlog/posts/2020/10/30/ps-refinement-last/">
 
     
 
@@ -109,18 +116,10 @@
 </header>
 
     <main>
-
   
-
 <div class="grid-inverse wrap content">
-  <ul class="posts" id="posts">
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/10/30/ps-refinement-last/">[Powershell] Windowsで更新日時が〇〇以降のファイルのパスの一覧を取得するには</a>
-      </h3>
-      <div class="post_meta">
+  <article class="post_content">
+    <h1 class="post_title">[Powershell] Windowsで更新日時が〇〇以降のファイルのパスの一覧を取得するには</h1><div class="post_meta">
   <svg class="icon">
   <use xlink:href="#calendar"></use>
 </svg>
@@ -130,256 +129,85 @@
   </a>
 </div>
 
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">この記事について 普段と別のPC（Windows）での作業をする機会があった。
-作業後にもとのPCに持っていく必要のある、差分あり（作業による変更あり）のファイルを選別する必要があり、
-作業フォルダにおいて、更新日時が本日の9:00以降であるファイルを絞りこむコマンドが欲しかった。
-Git等のバージョン管理アプリがインストールされているPCならば、
-変更内容を適宜コミットしておけばアプリが自動的にうまい具合にやってくれるので、
-このようなコマンドは必要ないのだけれど。
-使用環境 PSVersion 5.1
-コマンド コンソールに出力
-1ls -r -File | ?{$_.LastWriteTime -gt …</p>
-          <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/10/30/ps-refinement-last/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/10/27/access-tabledef-tool/">[Access VBA] デザインビューのテーブル定義を表形式でエクスポートするAccessツールを作成した</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
+    
+<div class="post_share">
+  Share on:
+  <a href="https://twitter.com/intent/tweet?text=%5bPowershell%5d%20Windows%e3%81%a7%e6%9b%b4%e6%96%b0%e6%97%a5%e6%99%82%e3%81%8c%e3%80%87%e3%80%87%e4%bb%a5%e9%99%8d%e3%81%ae%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e3%83%91%e3%82%b9%e3%81%ae%e4%b8%80%e8%a6%a7%e3%82%92%e5%8f%96%e5%be%97%e3%81%99%e3%82%8b%e3%81%ab%e3%81%af&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f10%2f30%2fps-refinement-last%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
+    <svg class="icon">
+  <use xlink:href="#twitter"></use>
 </svg>
-  <span class="post_date">
-    Oct 27, 2020</span>
-  <a href='https://dede-20191130.github.io/learnerBlog/tags/access' class="post_tag button button_translucent">Access
   </a>
-  <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' class="post_tag button button_translucent">VBA
+  <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f10%2f30%2fps-refinement-last%2f&t=%5bPowershell%5d%20Windows%e3%81%a7%e6%9b%b4%e6%96%b0%e6%97%a5%e6%99%82%e3%81%8c%e3%80%87%e3%80%87%e4%bb%a5%e9%99%8d%e3%81%ae%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e3%83%91%e3%82%b9%e3%81%ae%e4%b8%80%e8%a6%a7%e3%82%92%e5%8f%96%e5%be%97%e3%81%99%e3%82%8b%e3%81%ab%e3%81%af" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
+    <svg class="icon">
+  <use xlink:href="#facebook"></use>
+</svg>
   </a>
-  <a href='https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C' class="post_tag button button_translucent">自作
+  <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
+    <svg class="icon">
+  <use xlink:href="#linkedin"></use>
+</svg>
   </a>
-  <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%83%84%E3%83%BC%E3%83%AB' class="post_tag button button_translucent">ツール
+  <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/10/30/ps-refinement-last/" title="Copy Link" class="link link_yank">
+    <svg class="icon">
+  <use xlink:href="#yank"></use>
+</svg>
   </a>
 </div>
 
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">概要 以前の記事で説明したエクスポート関数をツール化したもの（こちら）
-ツール化することで、VBEを開いて関数をペーストする必要が無くなった。
-また、他のAccessデータベースファイルの定義をエクスポートできるようになった。
-画面で指定したAccessファイル（.mdb、.accdb）について、
-すべてのテーブルのテーブル定義を表形式でエクスポートする。
-エクスポート先は新規エクセルブック。テーブルデータがシートごとに格納される。
-ツールはこちらからダウンロードできます。
-また、ソースコードもこちらに置いてあります。
-動作環境 Microsoft Officeが動作する環境。
-32bit、64bitいずれも可。
-機能一覧  テーブ …</p>
-          <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/10/27/access-tabledef-tool/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/10/25/access-tabledef/">[Access VBA] デザインビューのテーブル定義を表形式でエクスポートする関数を作成した</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Oct 25, 2020</span>
-  <a href='https://dede-20191130.github.io/learnerBlog/tags/access' class="post_tag button button_translucent">Access
-  </a>
-  <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' class="post_tag button button_translucent">VBA
-  </a>
-  <a href='https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C' class="post_tag button button_translucent">自作
-  </a>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">この記事について Accessの各々のテーブルの内容をエクスポートする方法として、
- ナビゲーションバーのテーブルの右クリックメニューからエクスポート -&gt; Excel、テキスト等形式を選択して出力 データベースツールタブのデータベース構造の解析 -&gt; テーブル指定 -&gt; 印刷、またはExcel、PDF等形式を選択して出力  の選択肢がある。
-しかし、
-前者は、フィールドの型や主キーの有無など、テーブルの詳細な情報はエクスポートできず、
-後者は、詳細な情報をエクスポートできるが、各フィールドごとに単票形式でエクスポートデータが得られるため、デザインビューのように一覧としてテーブルの設定を把握することが難しい。
-よっ …</p>
-          <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/10/25/access-tabledef/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/10/13/access-controlsource/">[Access VBA] コントロールソースにユーザ定義関数を用いると列幅の自動調整が想定通りに機能しない問題の解決</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Oct 13, 2020</span>
-  <a href='https://dede-20191130.github.io/learnerBlog/tags/access' class="post_tag button button_translucent">Access
-  </a>
-  <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' class="post_tag button button_translucent">VBA
-  </a>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">この記事について Accessでフォーム（データシート型）を使用する際、 テキストボックスのコントロールソースとして文字列を返すユーザ定義関数を指定すると、 フォームの列幅の自動調整の動作が想定通りにならない問題がある。
-例えば、ユーザ定義関数で長い文字列を取得すると、文字列がフィールドに収まりきらず見切れてしまう。
-その解決策を模索した。
-要約 ユーザ定義関数の呼び出しタイミングが FormのResizeプロシージャよりも後であるため、 対象のテキストボックスに関しては、
-1Private Sub Form_Resize() 2 3 &#39;...code 4 5 ctl.ColumnWidth = -2 6 7 …</p>
-          <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/10/13/access-controlsource/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/07/18/create-nomarco-tool/">【Excel】非マクロのメール作成ツールを作成した</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Jul 18, 2020</span>
-  <a href='https://dede-20191130.github.io/learnerBlog/tags/excel' class="post_tag button button_translucent">Excel
-  </a>
-  <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%83%84%E3%83%BC%E3%83%AB' class="post_tag button button_translucent">ツール
-  </a>
-  <a href='https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E5%8B%95%E5%8C%96' class="post_tag button button_translucent">自動化
-  </a>
-  <a href='https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C' class="post_tag button button_translucent">自作
-  </a>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">この記事について 以前作成した非マクロのメール作成ツールについての紹介記事。
-こちら（Github）からツールをダウンロードできます。
-概要 テーブルでデータを管理。
-管理したデータからメールを作成。
-画像紹介 記事：非マクロ（VBAの使用なし）であることの利点 こちらにまとめています。
-⇛Excelのツール開発
-関数（非マクロ）ツールとVBA使用ツールの比較
-使用方法詳細 仕様、使用方法などは、
-こちら（Github）に記載しています。</p>
-          <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/07/18/create-nomarco-tool/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/07/16/create-estm/">【Excel VBA】見積書作成ツールを作成した</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Jul 16, 2020</span>
-  <a href='https://dede-20191130.github.io/learnerBlog/tags/excel' class="post_tag button button_translucent">Excel
-  </a>
-  <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' class="post_tag button button_translucent">VBA
-  </a>
-  <a href='https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C' class="post_tag button button_translucent">自作
-  </a>
-  <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%83%84%E3%83%BC%E3%83%AB' class="post_tag button button_translucent">ツール
-  </a>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">この記事について 以前作成した見積書作成ツール（Excel VBA）についての紹介記事。
-こちら（Github）からツールをダウンロードできます。
-概要 一枚～複数枚の見積書を作成する。
-テンプレート見積書に設定したデータを挿入し、見積書格納先の別ブックを作成。
-画像例 使用方法詳細 仕様、使用方法などは、
-こちら（Github）に記載しています。</p>
-          <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/07/16/create-estm/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/07/16/cmpr-tools/">Excelのツール開発：関数（非マクロ）ツールとVBA使用ツールの比較</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Jul 16, 2020</span>
-  <a href='https://dede-20191130.github.io/learnerBlog/tags/excel' class="post_tag button button_translucent">Excel
-  </a>
-  <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' class="post_tag button button_translucent">VBA
-  </a>
-  <a href='https://dede-20191130.github.io/learnerBlog/tags/excel%E9%96%A2%E6%95%B0' class="post_tag button button_translucent">Excel関数
-  </a>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">この記事について Excelでデータ管理したりドキュメントを出力したりするツール（機能の多寡を問わず）を作成しようとする際に、
-大別すると、次のような選択肢があるかと思われる。
- 関数（マクロを使用しない。標準搭載の関数のみで実装）ツール VBA使用ツール  それぞれにメリット・デメリットがあるが、
-個人的な見解として
-それらをまとめてみたい。
-サマリ（表） 最初にまとめとして表を記す。
-    関数（非マクロ）ツール   VBAツール     開発難度   低   高     自由度   低   高     できること   データの管理（手入力、
-データベースとの連携）
-帳票等成果物の出力
-・プリンター印刷
-・PDF
-メール作 …</p>
-          <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/07/16/cmpr-tools/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-    <li>
-
-
-    </li>
+    
+    
+    <h2>Overview</h2>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#この記事について">この記事について</a></li>
+    <li><a href="#使用環境">使用環境</a></li>
+    <li><a href="#コマンド">コマンド</a></li>
   </ul>
+</nav>
+    <h2 id="この記事について">この記事について</h2>
+<p>普段と別のPC（Windows）での作業をする機会があった。<br>
+作業後にもとのPCに持っていく必要のある、差分あり（作業による変更あり）のファイルを選別する必要があり、<br>
+作業フォルダにおいて、更新日時が本日の9:00以降であるファイルを絞りこむコマンドが欲しかった。</p>
+<p>Git等のバージョン管理アプリがインストールされているPCならば、<br>
+変更内容を適宜コミットしておけばアプリが自動的にうまい具合にやってくれるので、<br>
+このようなコマンドは必要ないのだけれど。</p>
+<h2 id="使用環境">使用環境</h2>
+<p>PSVersion                      5.1</p>
+<h2 id="コマンド">コマンド</h2>
+<p>コンソールに出力</p>
+<div class="highlight"><pre class="chroma"><code class="language-Powershell" data-lang="Powershell"><span class="ln">1</span><span class="nb">ls </span><span class="n">-r</span>  <span class="o">-File</span> <span class="p">|</span> <span class="p">?{</span><span class="nv">$_</span><span class="p">.</span><span class="n">LastWriteTime</span> <span class="o">-gt</span> <span class="no">[Datetime]</span><span class="s2">&#34;2020/10/27 9:00:00&#34;</span><span class="p">}</span> <span class="p">|</span> <span class="nb">select </span>  <span class="n">FullName</span>
+</code></pre></div><p>ファイルに出力して見やすくする</p>
+<div class="highlight"><pre class="chroma"><code class="language-Powershell" data-lang="Powershell"><span class="ln">1</span><span class="nb">ls </span><span class="n">-r</span>  <span class="o">-File</span> <span class="p">|</span> <span class="p">?{</span><span class="nv">$_</span><span class="p">.</span><span class="n">LastWriteTime</span> <span class="o">-gt</span> <span class="no">[Datetime]</span><span class="s2">&#34;2020/10/27 9:00:00&#34;</span><span class="p">}</span> <span class="p">|</span> <span class="nb">select </span>  <span class="n">FullName</span> <span class="p">|</span> <span class="nb">ft </span> <span class="n">-A</span>   <span class="p">&gt;</span> <span class="s2">&#34;C:\temp\output.txt&#34;</span>
+</code></pre></div><p>エイリアス無しコマンドVer</p>
+<div class="highlight"><pre class="chroma"><code class="language-Powershell" data-lang="Powershell"><span class="ln">1</span><span class="nb">Get-ChildItem</span> <span class="n">-Recurse</span>  <span class="o">-File</span> <span class="p">|</span> <span class="nb">Where-Object</span><span class="p">{</span><span class="nv">$_</span><span class="p">.</span><span class="n">LastWriteTime</span> <span class="o">-gt</span> <span class="no">[Datetime]</span><span class="s2">&#34;2020/10/27 18:00:00&#34;</span><span class="p">}</span> <span class="p">|</span> <span class="nb">Select-Object</span>   <span class="n">FullName</span> <span class="p">|</span> <span class="nb">Format-Table</span>  <span class="n">-AutoSize</span>   <span class="p">&gt;</span> <span class="s2">&#34;C:\temp\output.txt&#34;</span>
+</code></pre></div><ul>
+<li>Get-ChildItem -Recurse  -File &lt;- 再帰的にファイルのみの情報一覧を取得</li>
+<li>$_.LastWriteTime -gt [Datetime]&quot;2020/10/27 18:00:00&quot; &lt;- 日付文字列をDatetime型にキャストしてファイル情報と比較</li>
+</ul>
+
+    
+      <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "learnerblog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+  </article>
 <aside class="sidebar">
   <section class="sidebar_inner">
     <h2>dede-20191130</h2>
@@ -394,9 +222,6 @@ Git等のバージョン管理アプリがインストールされているPCな
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       
-      <li>
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/10/30/ps-refinement-last/" class="nav-link">[Powershell] Windowsで更新日時が〇〇以降のファイルのパスの一覧を取得するには</a>
-      </li>
       <li>
         <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/10/27/access-tabledef-tool/" class="nav-link">[Access VBA] デザインビューのテーブル定義を表形式でエクスポートするAccessツールを作成した</a>
       </li>
@@ -499,8 +324,6 @@ Git等のバージョン管理アプリがインストールされているPCな
 </aside>
 
 </div>
-
-
     </main><svg width="0" height="0" class="hidden">
   <symbol viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" id="facebook">
     <path d="M437 0H75C33.648 0 0 33.648 0 75v362c0 41.352 33.648 75 75 75h151V331h-60v-90h60v-61c0-49.629 40.371-90 90-90h91v90h-91v61h91l-15 90h-76v181h121c41.352 0 75-33.648 75-75V75c0-41.352-33.648-75-75-75zm0 0"></path>
