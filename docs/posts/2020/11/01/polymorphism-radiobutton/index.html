@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="en" data-figures="" class="page">
-  <head>  <title>[Access VBA] コントロールソースにユーザ定義関数を用いると列幅の自動調整が想定通りに機能しない問題の解決 | 学習者のブログ　◆プログラミング等</title>
+  <head>  <title>[Excel VBA]ポリモーフィズムを用いて、IF文を使わずラジオボタンごとの処理分岐を行う | 学習者のブログ　◆プログラミング等</title>
   <meta charset="utf-8">
   <meta name="generator" content="Hugo 0.76.0" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -17,17 +17,19 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="この記事について Accessでフォーム（データシート型）を使用する際、 テキストボックスのコントロールソースとして文字列を返すユーザ定義関数を指定すると、 フォームの列幅の自動調整の動作が想定通りにならない問題がある。
-例えば、ユーザ定義関数で長い文字列を取得すると、文字列がフィールドに収まりきらず見切れてしまう。
- …">
+<meta name="description" content="この記事について CallByName関数によるポリモーフィズムの考え方と、
+ラジオボタン（オプションボタン）オブジェクトのtagプロパティを用いて、
+IFステートメントやSelect Caseステートメントを使わずに処理分岐を行う実装例。
+説明のために作成したExcelファイルとソースコードはこちらでダウンロードでき …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="@D20191130">
-<meta name="twitter:title" content="[Access VBA] コントロールソースにユーザ定義関数を用いると列幅の自動調整が想定通りに機能しない問題の解決" />
-<meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/posts/2020/10/13/access-controlsource/" />
-<meta property="og:title" content="[Access VBA] コントロールソースにユーザ定義関数を用いると列幅の自動調整が想定通りに機能しない問題の解決" />
-<meta property="og:description" content="この記事について Accessでフォーム（データシート型）を使用する際、 テキストボックスのコントロールソースとして文字列を返すユーザ定義関数を指定すると、 フォームの列幅の自動調整の動作が想定通りにならない問題がある。
-例えば、ユーザ定義関数で長い文字列を取得すると、文字列がフィールドに収まりきらず見切れてしまう。
- …" />
+<meta name="twitter:title" content="[Excel VBA]ポリモーフィズムを用いて、IF文を使わずラジオボタンごとの処理分岐を行う" />
+<meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/polymorphism-radiobutton/" />
+<meta property="og:title" content="[Excel VBA]ポリモーフィズムを用いて、IF文を使わずラジオボタンごとの処理分岐を行う" />
+<meta property="og:description" content="この記事について CallByName関数によるポリモーフィズムの考え方と、
+ラジオボタン（オプションボタン）オブジェクトのtagプロパティを用いて、
+IFステートメントやSelect Caseステートメントを使わずに処理分岐を行う実装例。
+説明のために作成したExcelファイルとソースコードはこちらでダウンロードでき …" />
 <meta property="og:image" content="https://dede-20191130.github.io/learnerBlog/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://dede-20191130.github.io/learnerBlog/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://dede-20191130.github.io/learnerBlog/icons/favicon-32x32.png'>
@@ -37,7 +39,7 @@
 <meta name="msapplication-TileColor" content="#002538">
 <meta name="theme-color" content="#002538">
 
-  <link rel="canonical" href="https://dede-20191130.github.io/learnerBlog/posts/2020/10/13/access-controlsource/">
+  <link rel="canonical" href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/polymorphism-radiobutton/">
 
     
 
@@ -114,27 +116,29 @@
   
 <div class="grid-inverse wrap content">
   <article class="post_content">
-    <h1 class="post_title">[Access VBA] コントロールソースにユーザ定義関数を用いると列幅の自動調整が想定通りに機能しない問題の解決</h1><div class="post_meta">
+    <h1 class="post_title">[Excel VBA]ポリモーフィズムを用いて、IF文を使わずラジオボタンごとの処理分岐を行う</h1><div class="post_meta">
   <svg class="icon">
   <use xlink:href="#calendar"></use>
 </svg>
   <span class="post_date">
-    Oct 13, 2020</span>
-  <a href='https://dede-20191130.github.io/learnerBlog/tags/access' class="post_tag button button_translucent">Access
+    Nov 1, 2020</span>
+  <a href='https://dede-20191130.github.io/learnerBlog/tags/excel' class="post_tag button button_translucent">Excel
   </a>
   <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' class="post_tag button button_translucent">VBA
+  </a>
+  <a href='https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C' class="post_tag button button_translucent">自作
   </a>
 </div>
 
     
 <div class="post_share">
   Share on:
-  <a href="https://twitter.com/intent/tweet?text=%5bAccess%20VBA%5d%20%e3%82%b3%e3%83%b3%e3%83%88%e3%83%ad%e3%83%bc%e3%83%ab%e3%82%bd%e3%83%bc%e3%82%b9%e3%81%ab%e3%83%a6%e3%83%bc%e3%82%b6%e5%ae%9a%e7%be%a9%e9%96%a2%e6%95%b0%e3%82%92%e7%94%a8%e3%81%84%e3%82%8b%e3%81%a8%e5%88%97%e5%b9%85%e3%81%ae%e8%87%aa%e5%8b%95%e8%aa%bf%e6%95%b4%e3%81%8c%e6%83%b3%e5%ae%9a%e9%80%9a%e3%82%8a%e3%81%ab%e6%a9%9f%e8%83%bd%e3%81%97%e3%81%aa%e3%81%84%e5%95%8f%e9%a1%8c%e3%81%ae%e8%a7%a3%e6%b1%ba&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f10%2f13%2faccess-controlsource%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
+  <a href="https://twitter.com/intent/tweet?text=%5bExcel%20VBA%5d%e3%83%9d%e3%83%aa%e3%83%a2%e3%83%bc%e3%83%95%e3%82%a3%e3%82%ba%e3%83%a0%e3%82%92%e7%94%a8%e3%81%84%e3%81%a6%e3%80%81IF%e6%96%87%e3%82%92%e4%bd%bf%e3%82%8f%e3%81%9a%e3%83%a9%e3%82%b8%e3%82%aa%e3%83%9c%e3%82%bf%e3%83%b3%e3%81%94%e3%81%a8%e3%81%ae%e5%87%a6%e7%90%86%e5%88%86%e5%b2%90%e3%82%92%e8%a1%8c%e3%81%86&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f11%2f01%2fpolymorphism-radiobutton%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
     <svg class="icon">
   <use xlink:href="#twitter"></use>
 </svg>
   </a>
-  <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f10%2f13%2faccess-controlsource%2f&t=%5bAccess%20VBA%5d%20%e3%82%b3%e3%83%b3%e3%83%88%e3%83%ad%e3%83%bc%e3%83%ab%e3%82%bd%e3%83%bc%e3%82%b9%e3%81%ab%e3%83%a6%e3%83%bc%e3%82%b6%e5%ae%9a%e7%be%a9%e9%96%a2%e6%95%b0%e3%82%92%e7%94%a8%e3%81%84%e3%82%8b%e3%81%a8%e5%88%97%e5%b9%85%e3%81%ae%e8%87%aa%e5%8b%95%e8%aa%bf%e6%95%b4%e3%81%8c%e6%83%b3%e5%ae%9a%e9%80%9a%e3%82%8a%e3%81%ab%e6%a9%9f%e8%83%bd%e3%81%97%e3%81%aa%e3%81%84%e5%95%8f%e9%a1%8c%e3%81%ae%e8%a7%a3%e6%b1%ba" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
+  <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f11%2f01%2fpolymorphism-radiobutton%2f&t=%5bExcel%20VBA%5d%e3%83%9d%e3%83%aa%e3%83%a2%e3%83%bc%e3%83%95%e3%82%a3%e3%82%ba%e3%83%a0%e3%82%92%e7%94%a8%e3%81%84%e3%81%a6%e3%80%81IF%e6%96%87%e3%82%92%e4%bd%bf%e3%82%8f%e3%81%9a%e3%83%a9%e3%82%b8%e3%82%aa%e3%83%9c%e3%82%bf%e3%83%b3%e3%81%94%e3%81%a8%e3%81%ae%e5%87%a6%e7%90%86%e5%88%86%e5%b2%90%e3%82%92%e8%a1%8c%e3%81%86" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
     <svg class="icon">
   <use xlink:href="#facebook"></use>
 </svg>
@@ -144,7 +148,7 @@
   <use xlink:href="#linkedin"></use>
 </svg>
   </a>
-  <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/10/13/access-controlsource/" title="Copy Link" class="link link_yank">
+  <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/polymorphism-radiobutton/" title="Copy Link" class="link link_yank">
     <svg class="icon">
   <use xlink:href="#yank"></use>
 </svg>
@@ -157,144 +161,183 @@
     <nav id="TableOfContents">
   <ul>
     <li><a href="#この記事について">この記事について</a></li>
-    <li><a href="#要約">要約</a></li>
-    <li><a href="#本文">本文</a>
+    <li><a href="#作成環境">作成環境</a></li>
+    <li><a href="#前提">前提</a></li>
+    <li><a href="#オブジェクトのプロパティ">オブジェクトのプロパティ</a></li>
+    <li><a href="#関数概要">関数概要</a></li>
+    <li><a href="#コード">コード</a>
       <ul>
-        <li><a href="#前提">前提</a></li>
-        <li><a href="#環境">環境</a></li>
-        <li><a href="#実装">実装</a></li>
-        <li><a href="#トラブル">トラブル</a></li>
-        <li><a href="#解決措置">解決措置</a></li>
+        <li><a href="#btn_execute_click">[btn_execute_Click]</a></li>
+        <li><a href="#btn_execute_click_current">[btn_execute_Click_Current]</a></li>
+        <li><a href="#btn_execute_click_user">[btn_execute_Click_User]</a></li>
+        <li><a href="#btn_execute_click_greeting">[btn_execute_Click_Greeting]</a></li>
       </ul>
     </li>
   </ul>
 </nav>
     <h2 id="この記事について">この記事について</h2>
-<p>Accessでフォーム（データシート型）を使用する際、
-テキストボックスのコントロールソースとして文字列を返すユーザ定義関数を指定すると、
-フォームの列幅の自動調整の動作が想定通りにならない問題がある。</p>
-<p>例えば、ユーザ定義関数で長い文字列を取得すると、文字列がフィールドに収まりきらず見切れてしまう。</p>
-<p>その解決策を模索した。</p>
-<h2 id="要約">要約</h2>
-<p>ユーザ定義関数の呼び出しタイミングが
-FormのResizeプロシージャよりも後であるため、
-対象のテキストボックスに関しては、</p>
-<div class="highlight"><pre class="chroma"><code class="language-vb" data-lang="vb"><span class="ln">1</span><span class="k">Private</span> <span class="k">Sub</span> <span class="nf">Form_Resize</span><span class="p">()</span>
-<span class="ln">2</span>    
-<span class="ln">3</span>    <span class="c">&#39;...code
-</span><span class="ln">4</span><span class="c"></span>
-<span class="ln">5</span>    <span class="n">ctl</span><span class="p">.</span><span class="n">ColumnWidth</span> <span class="o">=</span> <span class="o">-</span><span class="n">2</span>
-<span class="ln">6</span>    
-<span class="ln">7</span>    <span class="c">&#39;...code
-</span><span class="ln">8</span><span class="c"></span>
-<span class="ln">9</span><span class="k">End</span> <span class="k">Sub</span>
-</code></pre></div><p>による自動調整が機能しない。</p>
-<p>そのため、下記のいずれかの措置をとる。</p>
-<ul>
-<li>ユーザ定義関数の処理にControl.ColumnWidth = -2が追加された関数を作成する。</li>
-<li>Resizeする際に長さを明示的に指定。</li>
-</ul>
-<h2 id="本文">本文</h2>
-<h3 id="前提">前提</h3>
-<p>このようなテーブルT_01がある。<br>
-<img src="./image01.png" alt="T_01"></p>
-<p>T_01をサブフォームに組み込んで、このようなフォームF_01（およびサブフォームSubF_01）を表示する。<br>
-<img src="./image02.png" alt="F_01"></p>
-<p>このとき、各列ID、_Name、sizeの列幅を自動で調整したい。<br>
-また、あたらしくsize typeテキスト列を追加し、<br>
-sizeの値ごとにS,M,Lのサイズ記号を示す文字列「This is ○ type for he/she's size.」を格納したい。<br>
-こちらの列幅も自動で調整したい。</p>
-<h3 id="環境">環境</h3>
-<p>Microsoft Access 2019</p>
-<h3 id="実装">実装</h3>
-<p>サブフォームのResizeプロシージャで<br>
-各々のテキストボックスに対して<br>
-列幅を指定した。</p>
-<p>コントロールのColumnWidthの値を-2と指定することで列幅が自動調整される。</p>
+<p>CallByName関数によるポリモーフィズムの考え方と、<br>
+ラジオボタン（オプションボタン）オブジェクトのtagプロパティを用いて、<br>
+IFステートメントやSelect Caseステートメントを使わずに処理分岐を行う実装例。</p>
+<p><a href="https://github.com/dede-20191130/My_VBA_Tools/tree/master/Public/2020/11/Polymorphism-RadioButton">説明のために作成したExcelファイルとソースコードはこちらでダウンロードできます。</a></p>
+<h2 id="作成環境">作成環境</h2>
+<p>Windows10<br>
+MSOffice 2016</p>
+<h2 id="前提">前提</h2>
+<p>下のような画面があり、<br>
+ラジオボタンを選択し、実行ボタンを押下することで<br>
+ラジオボタンの種類に応じた処理を行う。</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>画像</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>フォーム</strong></td>
+<td><img src="./image01.png" alt="エクスポート画面"></td>
+</tr>
+<tr>
+<td><strong>現在時刻を表示するラジオボタンを選択</strong></td>
+<td><img src="./image02.png" alt="エクスポート画面"></td>
+</tr>
+<tr>
+<td><strong>ユーザ名を表示するラジオボタンを選択</strong></td>
+<td><img src="./image03.png" alt="エクスポート画面"></td>
+</tr>
+<tr>
+<td><strong>あいさつを表示するラジオボタンを選択</strong></td>
+<td><img src="./image04.png" alt="エクスポート画面"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="オブジェクトのプロパティ">オブジェクトのプロパティ</h2>
+<table>
+<thead>
+<tr>
+<th>名前</th>
+<th>種類</th>
+<th>Caption</th>
+<th>GourpName</th>
+<th>Tag</th>
+<th>Value（初期値）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rdo_showCurrent</td>
+<td>ラジオボタン</td>
+<td>現在時刻を表示する</td>
+<td>Group01</td>
+<td>Current</td>
+<td>True</td>
+</tr>
+<tr>
+<td>rdo_showUser</td>
+<td>ラジオボタン</td>
+<td>ユーザ名を表示する</td>
+<td>Group01</td>
+<td>User</td>
+<td>False</td>
+</tr>
+<tr>
+<td>rdo_showGreeting</td>
+<td>ラジオボタン</td>
+<td>あいさつを表示する</td>
+<td>Group01</td>
+<td>Greeting</td>
+<td>False</td>
+</tr>
+<tr>
+<td>btn_execute</td>
+<td>コマンドボタン</td>
+<td>実行</td>
+<td>--</td>
+<td>--</td>
+<td>--</td>
+</tr>
+</tbody>
+</table>
+<h2 id="関数概要">関数概要</h2>
+<table>
+<thead>
+<tr>
+<th>名前</th>
+<th>所属モジュール/クラス</th>
+<th>種類</th>
+<th>機能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>btn_execute_Click</td>
+<td>F_Main</td>
+<td>Subプロシージャ</td>
+<td>btn_executeのClickメソッド<br>ラジオボタンの種類に応じた処理を実行する</td>
+</tr>
+<tr>
+<td>btn_execute_Click_Current</td>
+<td>clsPolymo</td>
+<td>Functionプロシージャ</td>
+<td>現在時刻を表示する</td>
+</tr>
+<tr>
+<td>btn_execute_Click_User</td>
+<td>clsPolymo</td>
+<td>Functionプロシージャ</td>
+<td>ユーザ名を表示する</td>
+</tr>
+<tr>
+<td>btn_execute_Click_Greeting</td>
+<td>clsPolymo</td>
+<td>Functionプロシージャ</td>
+<td>あいさつを表示する</td>
+</tr>
+</tbody>
+</table>
+<h2 id="コード">コード</h2>
+<h3 id="btn_execute_click">[btn_execute_Click]</h3>
 <div class="highlight"><pre class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span><span class="c">&#39;******************************************************************************************
-</span><span class="ln"> 2</span><span class="c">&#39;*関数名    ：リサイズ
+</span><span class="ln"> 2</span><span class="c">&#39;*関数名    ：btn_execute_Click
 </span><span class="ln"> 3</span><span class="c">&#39;*機能      ：
 </span><span class="ln"> 4</span><span class="c">&#39;*引数(1)   ：
 </span><span class="ln"> 5</span><span class="c">&#39;******************************************************************************************
-</span><span class="ln"> 6</span><span class="c"></span><span class="k">Private</span> <span class="k">Sub</span> <span class="nf">Form_Resize</span><span class="p">()</span>
+</span><span class="ln"> 6</span><span class="c"></span><span class="k">Private</span> <span class="k">Sub</span> <span class="nf">btn_execute_Click</span><span class="p">()</span>
 <span class="ln"> 7</span>    
 <span class="ln"> 8</span>    <span class="c">&#39;定数
-</span><span class="ln"> 9</span><span class="c"></span>    <span class="k">Const</span> <span class="n">FUNC_NAME</span> <span class="ow">As</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&#34;Form_Resize&#34;</span>
+</span><span class="ln"> 9</span><span class="c"></span>    <span class="k">Const</span> <span class="n">FUNC_NAME</span> <span class="ow">As</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&#34;btn_execute_Click&#34;</span>
 <span class="ln">10</span>    
 <span class="ln">11</span>    <span class="c">&#39;変数
-</span><span class="ln">12</span><span class="c"></span>    <span class="k">Dim</span> <span class="n">ctl</span> <span class="ow">As</span> <span class="n">Access</span><span class="p">.</span><span class="n">Control</span>
-<span class="ln">13</span>    
-<span class="ln">14</span>    <span class="k">On</span> <span class="k">Error</span> <span class="k">GoTo</span> <span class="n">ErrorHandler</span>
-<span class="ln">15</span>    <span class="c">&#39;---以下に処理を記述---
-</span><span class="ln">16</span><span class="c"></span>    
-<span class="ln">17</span>    <span class="k">For</span> <span class="k">Each</span> <span class="n">ctl</span> <span class="ow">In</span> <span class="k">Me</span><span class="p">.</span><span class="n">Controls</span>
-<span class="ln">18</span>        <span class="k">If</span> <span class="n">ctl</span><span class="p">.</span><span class="n">ControlType</span> <span class="o">=</span> <span class="n">acTextBox</span> <span class="k">Then</span>
-<span class="ln">19</span>            <span class="n">ctl</span><span class="p">.</span><span class="n">ColumnWidth</span> <span class="o">=</span> <span class="o">-</span><span class="n">2</span>
-<span class="ln">20</span>        <span class="k">End</span> <span class="k">If</span>
-<span class="ln">21</span>    <span class="k">Next</span>
-<span class="ln">22</span>    
-<span class="ln">23</span><span class="n">ExitHandler</span><span class="p">:</span>
-<span class="ln">24</span>
-<span class="ln">25</span>    <span class="k">Exit</span> <span class="k">Sub</span>
-<span class="ln">26</span>    
-<span class="ln">27</span><span class="nf">ErrorHandler</span><span class="p">:</span>
-<span class="ln">28</span>
-<span class="ln">29</span>    <span class="n">MsgBox</span> <span class="s">&#34;エラーが発生しましたのでマクロを終了します。&#34;</span> <span class="o">&amp;</span> _
-<span class="ln">30</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
-<span class="ln">31</span>           <span class="s">&#34;関数名：&#34;</span> <span class="o">&amp;</span> <span class="n">FUNC_NAME</span> <span class="o">&amp;</span> _
-<span class="ln">32</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
-<span class="ln">33</span>           <span class="s">&#34;エラー番号：&#34;</span> <span class="o">&amp;</span> <span class="n">Err</span><span class="p">.</span><span class="n">Number</span> <span class="o">&amp;</span> <span class="n">vbNewLine</span> <span class="o">&amp;</span> _
-<span class="ln">34</span>           <span class="n">Err</span><span class="p">.</span><span class="n">Description</span><span class="p">,</span> <span class="n">vbCritical</span><span class="p">,</span> <span class="n">Tool_Name</span>
-<span class="ln">35</span>        
-<span class="ln">36</span>    <span class="k">GoTo</span> <span class="n">ExitHandler</span>
-<span class="ln">37</span>        
-<span class="ln">38</span><span class="k">End</span> <span class="k">Sub</span>
-</code></pre></div><p>また、size typeテキスト列については、<br>
-sizeの値の範囲ごとにS,M,Lのサイズ記号を分けたい。</p>
-<p>そのため、<br>
-コントロールソースとして次の値を指定し、<br>
-ユーザ定義関数getSizeTypeを作成した。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span># コントロールソース式
-<span class="ln">2</span>=getSizeType([size])
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span><span class="c">&#39;******************************************************************************************
-</span><span class="ln"> 2</span><span class="c">&#39;*関数名    ：サイズ・タイプ取得
-</span><span class="ln"> 3</span><span class="c">&#39;*機能      ：
-</span><span class="ln"> 4</span><span class="c">&#39;*引数(1)   ：サイズ数字
-</span><span class="ln"> 5</span><span class="c">&#39;*戻り値    ：サイズ・タイプ
-</span><span class="ln"> 6</span><span class="c">&#39;******************************************************************************************
-</span><span class="ln"> 7</span><span class="c"></span><span class="k">Public</span> <span class="k">Function</span> <span class="nf">getSizeType</span><span class="p">(</span><span class="k">ByVal</span> <span class="n">sizeNum</span> <span class="ow">As</span> <span class="kt">Long</span><span class="p">)</span> <span class="ow">As</span> <span class="kt">String</span>
-<span class="ln"> 8</span>    
-<span class="ln"> 9</span>    <span class="c">&#39;定数
-</span><span class="ln">10</span><span class="c"></span>    <span class="k">Const</span> <span class="n">FUNC_NAME</span> <span class="ow">As</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&#34;getSizeType&#34;</span>
-<span class="ln">11</span>    
-<span class="ln">12</span>    <span class="c">&#39;変数
-</span><span class="ln">13</span><span class="c"></span>    <span class="k">Dim</span> <span class="n">rtn</span> <span class="ow">As</span> <span class="kt">String</span>
+</span><span class="ln">12</span><span class="c"></span>    <span class="k">Dim</span> <span class="n">suffix</span> <span class="ow">As</span> <span class="kt">String</span>
+<span class="ln">13</span>    <span class="k">Dim</span> <span class="n">objPolymo</span> <span class="ow">As</span> <span class="n">clsPolymo</span>
 <span class="ln">14</span>    
 <span class="ln">15</span>    <span class="k">On</span> <span class="k">Error</span> <span class="k">GoTo</span> <span class="n">ErrorHandler</span>
 <span class="ln">16</span>    
-<span class="ln">17</span>    <span class="n">getSizeType</span> <span class="o">=</span> <span class="s">&#34;&#34;</span>
+<span class="ln">17</span>    <span class="k">Set</span> <span class="n">objPolymo</span> <span class="o">=</span> <span class="k">New</span> <span class="n">clsPolymo</span>
 <span class="ln">18</span>    
-<span class="ln">19</span>    <span class="c">&#39;～169      ：S
-</span><span class="ln">20</span><span class="c"></span>    <span class="c">&#39;170～175   ：M
-</span><span class="ln">21</span><span class="c"></span>    <span class="c">&#39;～176      ：L
-</span><span class="ln">22</span><span class="c"></span>    <span class="k">Select</span> <span class="k">Case</span> <span class="k">True</span>
-<span class="ln">23</span>    <span class="k">Case</span> <span class="n">sizeNum</span> <span class="o">&lt;</span> <span class="n">169</span>
-<span class="ln">24</span>        <span class="n">rtn</span> <span class="o">=</span> <span class="s">&#34;This is S type for he/she&#39;s size.&#34;</span>
-<span class="ln">25</span>    <span class="k">Case</span> <span class="n">176</span> <span class="o">&lt;</span> <span class="n">sizeNum</span>
-<span class="ln">26</span>        <span class="n">rtn</span> <span class="o">=</span> <span class="s">&#34;This is L type for he/she&#39;s size.&#34;</span>
-<span class="ln">27</span>    <span class="k">Case</span> <span class="k">Else</span>
-<span class="ln">28</span>        <span class="n">rtn</span> <span class="o">=</span> <span class="s">&#34;This is M type for he/she&#39;s size.&#34;</span>
-<span class="ln">29</span>    <span class="k">End</span> <span class="k">Select</span>
+<span class="ln">19</span>    <span class="c">&#39;選択された処理を取得
+</span><span class="ln">20</span><span class="c"></span>    <span class="c">&#39;再帰的なファイル検索の有無
+</span><span class="ln">21</span><span class="c"></span>    <span class="n">suffix</span> <span class="o">=</span> _
+<span class="ln">22</span>           <span class="n">WorksheetFunction</span><span class="p">.</span><span class="n">Rept</span><span class="p">(</span><span class="k">Me</span><span class="p">.</span><span class="n">rdo_showCurrent</span><span class="p">.</span><span class="n">Tag</span><span class="p">,</span> <span class="n">Abs</span><span class="p">(</span><span class="k">CLng</span><span class="p">(</span><span class="k">CBool</span><span class="p">(</span><span class="k">Me</span><span class="p">.</span><span class="n">rdo_showCurrent</span><span class="p">.</span><span class="n">Value</span><span class="p">))))</span> <span class="o">&amp;</span> _
+<span class="ln">23</span>           <span class="n">WorksheetFunction</span><span class="p">.</span><span class="n">Rept</span><span class="p">(</span><span class="k">Me</span><span class="p">.</span><span class="n">rdo_showUser</span><span class="p">.</span><span class="n">Tag</span><span class="p">,</span> <span class="n">Abs</span><span class="p">(</span><span class="k">CLng</span><span class="p">(</span><span class="k">CBool</span><span class="p">(</span><span class="k">Me</span><span class="p">.</span><span class="n">rdo_showUser</span><span class="p">.</span><span class="n">Value</span><span class="p">))))</span> <span class="o">&amp;</span> _
+<span class="ln">24</span>           <span class="n">WorksheetFunction</span><span class="p">.</span><span class="n">Rept</span><span class="p">(</span><span class="k">Me</span><span class="p">.</span><span class="n">rdo_showGreeting</span><span class="p">.</span><span class="n">Tag</span><span class="p">,</span> <span class="n">Abs</span><span class="p">(</span><span class="k">CLng</span><span class="p">(</span><span class="k">CBool</span><span class="p">(</span><span class="k">Me</span><span class="p">.</span><span class="n">rdo_showGreeting</span><span class="p">.</span><span class="n">Value</span><span class="p">))))</span>
+<span class="ln">25</span>    <span class="k">If</span> <span class="n">suffix</span> <span class="o">=</span> <span class="s">&#34;&#34;</span> <span class="k">Then</span> <span class="n">MsgBox</span> <span class="s">&#34;ラジオボタンの選択が不正です&#34;</span><span class="p">,</span> <span class="n">vbCritical</span><span class="p">,</span> <span class="n">Tool_Name</span><span class="p">:</span> <span class="k">GoTo</span> <span class="n">ExitHandler</span>
+<span class="ln">26</span>    
+<span class="ln">27</span>    <span class="c">&#39;処理関数の呼出
+</span><span class="ln">28</span><span class="c"></span>    <span class="k">If</span> <span class="k">Not</span> <span class="n">CallByName</span><span class="p">(</span><span class="n">objPolymo</span><span class="p">,</span> <span class="n">FUNC_NAME</span> <span class="o">&amp;</span> <span class="s">&#34;_&#34;</span> <span class="o">&amp;</span> <span class="n">suffix</span><span class="p">,</span> <span class="n">VbMethod</span><span class="p">)</span> <span class="k">Then</span> <span class="k">GoTo</span> <span class="n">ExitHandler</span>
+<span class="ln">29</span>    
 <span class="ln">30</span>
-<span class="ln">31</span>    <span class="n">getSizeType</span> <span class="o">=</span> <span class="n">rtn</span>
+<span class="ln">31</span><span class="n">ExitHandler</span><span class="p">:</span>
 <span class="ln">32</span>    
-<span class="ln">33</span><span class="n">ExitHandler</span><span class="p">:</span>
-<span class="ln">34</span>
-<span class="ln">35</span>    <span class="k">Exit</span> <span class="k">Function</span>
+<span class="ln">33</span>    <span class="k">Set</span> <span class="n">objPolymo</span> <span class="o">=</span> <span class="k">Nothing</span>
+<span class="ln">34</span>    
+<span class="ln">35</span>    <span class="k">Exit</span> <span class="k">Sub</span>
 <span class="ln">36</span>    
 <span class="ln">37</span><span class="nf">ErrorHandler</span><span class="p">:</span>
 <span class="ln">38</span>
-<span class="ln">39</span>    <span class="n">MsgBox</span> <span class="s">&#34;エラーが発生しましたのでマクロを終了します。&#34;</span> <span class="o">&amp;</span> _
+<span class="ln">39</span>    <span class="n">MsgBox</span> <span class="s">&#34;エラーが発生したため、マクロを終了します。&#34;</span> <span class="o">&amp;</span> _
 <span class="ln">40</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
 <span class="ln">41</span>           <span class="s">&#34;関数名：&#34;</span> <span class="o">&amp;</span> <span class="n">FUNC_NAME</span> <span class="o">&amp;</span> _
 <span class="ln">42</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
@@ -303,127 +346,143 @@ sizeの値の範囲ごとにS,M,Lのサイズ記号を分けたい。</p>
 <span class="ln">45</span>        
 <span class="ln">46</span>    <span class="k">GoTo</span> <span class="n">ExitHandler</span>
 <span class="ln">47</span>        
-<span class="ln">48</span><span class="k">End</span> <span class="k">Function</span>
-</code></pre></div><h3 id="トラブル">トラブル</h3>
-<h4 id="フィールドの見切れ">フィールドの見切れ</h4>
-<p>テーブルに既存のフィールドであるID、_Name、sizeについては<br>
-正常に列幅が調整されているが、<br>
-size type列については見切れが発生している。</p>
-<p>文字列が長すぎるために、Form_Resize()で列幅が調整される想定であったが、<br>
-うまく機能していない。</p>
-<p><img src="./image03.png" alt="見切れ"></p>
-<h4 id="関数の呼び出し順序">関数の呼び出し順序</h4>
-<p>各関数に次のようにデバッグ出力を設定して<br>
-実行したところ、<br>
-関数の呼び出し順序は<br>
-①サブフォームForm_Resize → ②親フォームForm_Resize → ③getSizeType<br>
-であった</p>
-<div class="highlight"><pre class="chroma"><code class="language-vb" data-lang="vb"><span class="ln">1</span><span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="n">FUNC_NAME</span>
-</code></pre></div><h3 id="解決措置">解決措置</h3>
-<h4 id="ユーザ定義関数の修正">①ユーザ定義関数の修正</h4>
-<p>Form_Resize()では対応できないため、<br>
-ユーザ定義関数の処理にControl.ColumnWidth = -2を追加する必要がある。</p>
-<p>そのため、getSizeType()をラッピングする新しい関数getSizeTypeForSubF01Tb()を作成し、
-比較のために別のコントロールソースを持つ新しいテキストボックスsize type ver2を作成した。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span># コントロールソース式
-<span class="ln">2</span>=getSizeTypeForSubF01Tb([size],&#34;txtSizeTypeVer2&#34;)
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span><span class="c">&#39;******************************************************************************************
-</span><span class="ln"> 2</span><span class="c">&#39;*関数名    ：サイズ・タイプ取得 SubF01用
-</span><span class="ln"> 3</span><span class="c">&#39;*機能      ：
-</span><span class="ln"> 4</span><span class="c">&#39;*引数(1)   ：サイズ数字
-</span><span class="ln"> 5</span><span class="c">&#39;*引数(2)   ：コントロール名
-</span><span class="ln"> 6</span><span class="c">&#39;*戻り値    ：サイズ・タイプ
-</span><span class="ln"> 7</span><span class="c">&#39;******************************************************************************************
-</span><span class="ln"> 8</span><span class="c"></span><span class="k">Public</span> <span class="k">Function</span> <span class="nf">getSizeTypeForSubF01Tb</span><span class="p">(</span><span class="k">ByVal</span> <span class="n">sizeNum</span> <span class="ow">As</span> <span class="kt">Long</span><span class="p">,</span> <span class="k">ByVal</span> <span class="n">ctlName</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">)</span> <span class="ow">As</span> <span class="kt">String</span>
-<span class="ln"> 9</span>    
-<span class="ln">10</span>    <span class="c">&#39;定数
-</span><span class="ln">11</span><span class="c"></span>    <span class="k">Const</span> <span class="n">FUNC_NAME</span> <span class="ow">As</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&#34;getSizeTypeForSubF01Tb&#34;</span>
-<span class="ln">12</span>    
-<span class="ln">13</span>    <span class="c">&#39;変数
-</span><span class="ln">14</span><span class="c"></span>    <span class="k">Dim</span> <span class="n">rtn</span> <span class="ow">As</span> <span class="kt">String</span>
-<span class="ln">15</span>    
-<span class="ln">16</span>    <span class="k">On</span> <span class="k">Error</span> <span class="k">GoTo</span> <span class="n">ErrorHandler</span>
-<span class="ln">17</span>    
-<span class="ln">18</span>    <span class="n">getSizeTypeForSubF01Tb</span> <span class="o">=</span> <span class="s">&#34;&#34;</span>
-<span class="ln">19</span>    
-<span class="ln">20</span>    <span class="n">rtn</span> <span class="o">=</span> <span class="n">Module_ManageFormControls</span><span class="p">.</span><span class="n">getSizeType</span><span class="p">(</span><span class="n">sizeNum</span><span class="p">)</span>
-<span class="ln">21</span>
-<span class="ln">22</span>    <span class="c">&#39;列幅を再設定
-</span><span class="ln">23</span><span class="c"></span>    <span class="k">If</span> <span class="n">SysCmd</span><span class="p">(</span><span class="n">acSysCmdGetObjectState</span><span class="p">,</span> <span class="n">acForm</span><span class="p">,</span> <span class="n">Form_F_01</span><span class="p">.</span><span class="n">Name</span><span class="p">)</span> <span class="o">&lt;&gt;</span> <span class="n">0</span> <span class="k">Then</span> <span class="n">Form_SubF_01</span><span class="p">.</span><span class="n">Controls</span><span class="p">(</span><span class="n">ctlName</span><span class="p">).</span><span class="n">ColumnWidth</span> <span class="o">=</span> <span class="o">-</span><span class="n">2</span>
-<span class="ln">24</span>
-<span class="ln">25</span>    <span class="n">getSizeTypeForSubF01Tb</span> <span class="o">=</span> <span class="n">rtn</span>
-<span class="ln">26</span>    
-<span class="ln">27</span><span class="n">ExitHandler</span><span class="p">:</span>
-<span class="ln">28</span>
-<span class="ln">29</span>    <span class="k">Exit</span> <span class="k">Function</span>
-<span class="ln">30</span>    
-<span class="ln">31</span><span class="nf">ErrorHandler</span><span class="p">:</span>
-<span class="ln">32</span>
-<span class="ln">33</span>    <span class="n">MsgBox</span> <span class="s">&#34;エラーが発生しましたのでマクロを終了します。&#34;</span> <span class="o">&amp;</span> _
-<span class="ln">34</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
-<span class="ln">35</span>           <span class="s">&#34;関数名：&#34;</span> <span class="o">&amp;</span> <span class="n">FUNC_NAME</span> <span class="o">&amp;</span> _
-<span class="ln">36</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
-<span class="ln">37</span>           <span class="s">&#34;エラー番号：&#34;</span> <span class="o">&amp;</span> <span class="n">Err</span><span class="p">.</span><span class="n">Number</span> <span class="o">&amp;</span> <span class="n">vbNewLine</span> <span class="o">&amp;</span> _
-<span class="ln">38</span>           <span class="n">Err</span><span class="p">.</span><span class="n">Description</span><span class="p">,</span> <span class="n">vbCritical</span><span class="p">,</span> <span class="n">Tool_Name</span>
-<span class="ln">39</span>        
-<span class="ln">40</span>    <span class="k">GoTo</span> <span class="n">ExitHandler</span>
-<span class="ln">41</span>        
-<span class="ln">42</span><span class="k">End</span> <span class="k">Function</span>
-</code></pre></div><p>結果、列幅の自動調整がsize type ver2についても機能するようになった。</p>
-<p><img src="./image04.png" alt="size type ver2の列幅の調整"></p>
-<h4 id="長さを明示的に指定">②長さを明示的に指定</h4>
-<p>Form_Resize()について、<br>
-ループの後に一部のコントロール幅の数値をハードコーディングした。</p>
+<span class="ln">48</span><span class="k">End</span> <span class="k">Sub</span>
+</code></pre></div><p>WorksheetFunction.Rept関数は<br>
+①引数の文字列を②引数の数だけ繰り返た文字列を返す。</p>
+<div class="highlight"><pre class="chroma"><code class="language-vb" data-lang="vb"><span class="ln">1</span><span class="c">&#39;abcabcabc
+</span><span class="ln">2</span><span class="c"></span><span class="n">WorksheetFunction</span><span class="p">.</span><span class="n">Rept</span><span class="p">(</span><span class="s">&#34;abc&#34;</span><span class="p">,</span><span class="n">3</span><span class="p">)</span>
+</code></pre></div><p>Abs(CLng(CBool(Me.rdo_showCurrent.Value)))は、<br>
+ラジオボタンが選択された状態であれば、<strong>1</strong>を、<br>
+非選択の状態であれば、<strong>0</strong>を返す。</p>
+<p>よって、<br>
+suffix変数には、選択されたラジオボタンのみのTagプロパティの文字列が<br>
+代入される。</p>
+<p>CallByName関数によって、<br>
+clsPolymoクラスに用意されている、<br>
+btn_execute_Click＋〇〇（Tagの文字）の関数が呼び出される。</p>
+<h3 id="btn_execute_click_current">[btn_execute_Click_Current]</h3>
 <div class="highlight"><pre class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span><span class="c">&#39;******************************************************************************************
-</span><span class="ln"> 2</span><span class="c">&#39;*関数名    ：リサイズ
-</span><span class="ln"> 3</span><span class="c">&#39;*機能      ：
+</span><span class="ln"> 2</span><span class="c">&#39;*関数名    ：btn_execute_Click_Current
+</span><span class="ln"> 3</span><span class="c">&#39;*機能      ：現在時刻を表示する
 </span><span class="ln"> 4</span><span class="c">&#39;*引数(1)   ：
-</span><span class="ln"> 5</span><span class="c">&#39;******************************************************************************************
-</span><span class="ln"> 6</span><span class="c"></span><span class="k">Private</span> <span class="k">Sub</span> <span class="nf">Form_Resize</span><span class="p">()</span>
-<span class="ln"> 7</span>    
-<span class="ln"> 8</span>    <span class="c">&#39;定数
-</span><span class="ln"> 9</span><span class="c"></span>    <span class="k">Const</span> <span class="n">FUNC_NAME</span> <span class="ow">As</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&#34;Form_Resize&#34;</span>
-<span class="ln">10</span>    
-<span class="ln">11</span>    <span class="c">&#39;変数
-</span><span class="ln">12</span><span class="c"></span>    <span class="k">Dim</span> <span class="n">ctl</span> <span class="ow">As</span> <span class="n">Access</span><span class="p">.</span><span class="n">Control</span>
-<span class="ln">13</span>    
+</span><span class="ln"> 5</span><span class="c">&#39;*戻り値    ：True &gt; 正常終了、False &gt; 異常終了
+</span><span class="ln"> 6</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln"> 7</span><span class="c"></span><span class="k">Public</span> <span class="k">Function</span> <span class="nf">btn_execute_Click_Current</span><span class="p">()</span> <span class="ow">As</span> <span class="kt">Boolean</span>
+<span class="ln"> 8</span>    
+<span class="ln"> 9</span>    <span class="c">&#39;定数
+</span><span class="ln">10</span><span class="c"></span>    <span class="k">Const</span> <span class="n">FUNC_NAME</span> <span class="ow">As</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&#34;btn_execute_Click_Current&#34;</span>
+<span class="ln">11</span>    
+<span class="ln">12</span>    <span class="c">&#39;変数
+</span><span class="ln">13</span><span class="c"></span>    
 <span class="ln">14</span>    <span class="k">On</span> <span class="k">Error</span> <span class="k">GoTo</span> <span class="n">ErrorHandler</span>
-<span class="ln">15</span>    <span class="c">&#39;---以下に処理を記述---
-</span><span class="ln">16</span><span class="c"></span>    
-<span class="ln">17</span>    <span class="c">&#39;ループ
-</span><span class="ln">18</span><span class="c"></span>    <span class="k">For</span> <span class="k">Each</span> <span class="n">ctl</span> <span class="ow">In</span> <span class="k">Me</span><span class="p">.</span><span class="n">Controls</span>
-<span class="ln">19</span>        <span class="k">If</span> <span class="n">ctl</span><span class="p">.</span><span class="n">ControlType</span> <span class="o">=</span> <span class="n">acTextBox</span> <span class="k">Then</span>
-<span class="ln">20</span>            <span class="n">ctl</span><span class="p">.</span><span class="n">ColumnWidth</span> <span class="o">=</span> <span class="o">-</span><span class="n">2</span>
-<span class="ln">21</span>        <span class="k">End</span> <span class="k">If</span>
-<span class="ln">22</span>    <span class="k">Next</span>
-<span class="ln">23</span>
-<span class="ln">24</span>    <span class="c">&#39;size type ver2列の幅を明示的に指定（下記例では最低8cmの長さとなること）
-</span><span class="ln">25</span><span class="c"></span>    <span class="k">if</span> <span class="k">Me</span><span class="p">.</span><span class="n">txtSizeTypeVer2</span><span class="p">.</span><span class="n">ColumnWidth</span> <span class="o">&lt;</span> <span class="n">8</span> <span class="o">*</span> <span class="n">567</span> <span class="k">then</span> <span class="k">Me</span><span class="p">.</span><span class="n">txtSizeTypeVer2</span><span class="p">.</span><span class="n">ColumnWidth</span> <span class="o">=</span> <span class="n">8</span> <span class="o">*</span> <span class="n">567</span>
+<span class="ln">15</span>
+<span class="ln">16</span>    <span class="n">btn_execute_Click_Current</span> <span class="o">=</span> <span class="k">False</span>
+<span class="ln">17</span>    
+<span class="ln">18</span>    <span class="c">&#39;現在時刻を表示する
+</span><span class="ln">19</span><span class="c"></span>    <span class="n">MsgBox</span> <span class="s">&#34;現在時刻：&#34;</span> <span class="o">&amp;</span> <span class="n">Now</span><span class="p">,</span> <span class="p">,</span> <span class="n">Tool_Name</span>
+<span class="ln">20</span>
+<span class="ln">21</span>    <span class="n">btn_execute_Click_Current</span> <span class="o">=</span> <span class="k">True</span>
+<span class="ln">22</span>    
+<span class="ln">23</span><span class="n">ExitHandler</span><span class="p">:</span>
+<span class="ln">24</span>
+<span class="ln">25</span>    <span class="k">Exit</span> <span class="k">Function</span>
 <span class="ln">26</span>    
-<span class="ln">27</span><span class="n">ExitHandler</span><span class="p">:</span>
+<span class="ln">27</span><span class="nf">ErrorHandler</span><span class="p">:</span>
 <span class="ln">28</span>
-<span class="ln">29</span>    <span class="k">Exit</span> <span class="k">Sub</span>
-<span class="ln">30</span>    
-<span class="ln">31</span><span class="nf">ErrorHandler</span><span class="p">:</span>
-<span class="ln">32</span>
-<span class="ln">33</span>    <span class="n">MsgBox</span> <span class="s">&#34;エラーが発生しましたのでマクロを終了します。&#34;</span> <span class="o">&amp;</span> _
+<span class="ln">29</span>    <span class="n">MsgBox</span> <span class="s">&#34;エラーが発生したため、マクロを終了します。&#34;</span> <span class="o">&amp;</span> _
+<span class="ln">30</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
+<span class="ln">31</span>           <span class="s">&#34;関数名：&#34;</span> <span class="o">&amp;</span> <span class="n">FUNC_NAME</span> <span class="o">&amp;</span> _
+<span class="ln">32</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
+<span class="ln">33</span>           <span class="s">&#34;エラー番号：&#34;</span> <span class="o">&amp;</span> <span class="n">Err</span><span class="p">.</span><span class="n">Number</span> <span class="o">&amp;</span> <span class="n">vbNewLine</span> <span class="o">&amp;</span> _
+<span class="ln">34</span>           <span class="n">Err</span><span class="p">.</span><span class="n">Description</span><span class="p">,</span> <span class="n">vbCritical</span><span class="p">,</span> <span class="n">Tool_Name</span>
+<span class="ln">35</span>        
+<span class="ln">36</span>    <span class="k">GoTo</span> <span class="n">ExitHandler</span>
+<span class="ln">37</span>        
+<span class="ln">38</span><span class="k">End</span> <span class="k">Function</span>
+</code></pre></div><h3 id="btn_execute_click_user">[btn_execute_Click_User]</h3>
+<div class="highlight"><pre class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln"> 2</span><span class="c">&#39;*関数名    ：btn_execute_Click_User
+</span><span class="ln"> 3</span><span class="c">&#39;*機能      ：ユーザ名を表示する
+</span><span class="ln"> 4</span><span class="c">&#39;*引数(1)   ：
+</span><span class="ln"> 5</span><span class="c">&#39;*戻り値    ：True &gt; 正常終了、False &gt; 異常終了
+</span><span class="ln"> 6</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln"> 7</span><span class="c"></span><span class="k">Public</span> <span class="k">Function</span> <span class="nf">btn_execute_Click_User</span><span class="p">()</span> <span class="ow">As</span> <span class="kt">Boolean</span>
+<span class="ln"> 8</span>    
+<span class="ln"> 9</span>    <span class="c">&#39;定数
+</span><span class="ln">10</span><span class="c"></span>    <span class="k">Const</span> <span class="n">FUNC_NAME</span> <span class="ow">As</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&#34;btn_execute_Click_User&#34;</span>
+<span class="ln">11</span>    
+<span class="ln">12</span>    <span class="c">&#39;変数
+</span><span class="ln">13</span><span class="c"></span>    
+<span class="ln">14</span>    <span class="k">On</span> <span class="k">Error</span> <span class="k">GoTo</span> <span class="n">ErrorHandler</span>
+<span class="ln">15</span>
+<span class="ln">16</span>    <span class="n">btn_execute_Click_User</span> <span class="o">=</span> <span class="k">False</span>
+<span class="ln">17</span>    
+<span class="ln">18</span>    <span class="k">With</span> <span class="n">CreateObject</span><span class="p">(</span><span class="s">&#34;WScript.Network&#34;</span><span class="p">)</span>
+<span class="ln">19</span>        <span class="c">&#39;ユーザ名を表示する
+</span><span class="ln">20</span><span class="c"></span>        <span class="n">MsgBox</span> <span class="s">&#34;ユーザ名：&#34;</span> <span class="o">&amp;</span> <span class="p">.</span><span class="n">UserName</span><span class="p">,</span> <span class="p">,</span> <span class="n">Tool_Name</span>
+<span class="ln">21</span>    <span class="k">End</span> <span class="k">With</span>
+<span class="ln">22</span>
+<span class="ln">23</span>    <span class="n">btn_execute_Click_User</span> <span class="o">=</span> <span class="k">True</span>
+<span class="ln">24</span>    
+<span class="ln">25</span><span class="n">ExitHandler</span><span class="p">:</span>
+<span class="ln">26</span>
+<span class="ln">27</span>    <span class="k">Exit</span> <span class="k">Function</span>
+<span class="ln">28</span>    
+<span class="ln">29</span><span class="nf">ErrorHandler</span><span class="p">:</span>
+<span class="ln">30</span>
+<span class="ln">31</span>    <span class="n">MsgBox</span> <span class="s">&#34;エラーが発生したため、マクロを終了します。&#34;</span> <span class="o">&amp;</span> _
+<span class="ln">32</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
+<span class="ln">33</span>           <span class="s">&#34;関数名：&#34;</span> <span class="o">&amp;</span> <span class="n">FUNC_NAME</span> <span class="o">&amp;</span> _
 <span class="ln">34</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
-<span class="ln">35</span>           <span class="s">&#34;関数名：&#34;</span> <span class="o">&amp;</span> <span class="n">FUNC_NAME</span> <span class="o">&amp;</span> _
-<span class="ln">36</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
-<span class="ln">37</span>           <span class="s">&#34;エラー番号：&#34;</span> <span class="o">&amp;</span> <span class="n">Err</span><span class="p">.</span><span class="n">Number</span> <span class="o">&amp;</span> <span class="n">vbNewLine</span> <span class="o">&amp;</span> _
-<span class="ln">38</span>           <span class="n">Err</span><span class="p">.</span><span class="n">Description</span><span class="p">,</span> <span class="n">vbCritical</span><span class="p">,</span> <span class="n">Tool_Name</span>
+<span class="ln">35</span>           <span class="s">&#34;エラー番号：&#34;</span> <span class="o">&amp;</span> <span class="n">Err</span><span class="p">.</span><span class="n">Number</span> <span class="o">&amp;</span> <span class="n">vbNewLine</span> <span class="o">&amp;</span> _
+<span class="ln">36</span>           <span class="n">Err</span><span class="p">.</span><span class="n">Description</span><span class="p">,</span> <span class="n">vbCritical</span><span class="p">,</span> <span class="n">Tool_Name</span>
+<span class="ln">37</span>        
+<span class="ln">38</span>    <span class="k">GoTo</span> <span class="n">ExitHandler</span>
 <span class="ln">39</span>        
-<span class="ln">40</span>    <span class="k">GoTo</span> <span class="n">ExitHandler</span>
-<span class="ln">41</span>        
-<span class="ln">42</span><span class="k">End</span> <span class="k">Sub</span>
-</code></pre></div><p>こちらについても、<br>
-列幅の自動調整がsize type ver2についても機能するようになった。</p>
-<h4 id="およびの比較">①および②の比較</h4>
-<p>①の方法は関数の数は増えないが、<br>
-長さをハードコードしているため、<br>
-getSizeTypeで返す文字列が変更した場合、メンテナンスの必要がある。</p>
-<p>②の方法はすべての列幅を自動で調整できるが、<br>
-関数の数が増え、コントロールソースの処理が若干煩雑になる。</p>
+<span class="ln">40</span><span class="k">End</span> <span class="k">Function</span>
+<span class="ln">41</span>
+</code></pre></div><h3 id="btn_execute_click_greeting">[btn_execute_Click_Greeting]</h3>
+<div class="highlight"><pre class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln"> 2</span><span class="c">&#39;*関数名    ：btn_execute_Click_Greeting
+</span><span class="ln"> 3</span><span class="c">&#39;*機能      ：あいさつを表示する
+</span><span class="ln"> 4</span><span class="c">&#39;*引数(1)   ：
+</span><span class="ln"> 5</span><span class="c">&#39;*戻り値    ：True &gt; 正常終了、False &gt; 異常終了
+</span><span class="ln"> 6</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln"> 7</span><span class="c"></span><span class="k">Public</span> <span class="k">Function</span> <span class="nf">btn_execute_Click_Greeting</span><span class="p">()</span> <span class="ow">As</span> <span class="kt">Boolean</span>
+<span class="ln"> 8</span>    
+<span class="ln"> 9</span>    <span class="c">&#39;定数
+</span><span class="ln">10</span><span class="c"></span>    <span class="k">Const</span> <span class="n">FUNC_NAME</span> <span class="ow">As</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&#34;btn_execute_Click_Greeting&#34;</span>
+<span class="ln">11</span>    
+<span class="ln">12</span>    <span class="c">&#39;変数
+</span><span class="ln">13</span><span class="c"></span>    
+<span class="ln">14</span>    <span class="k">On</span> <span class="k">Error</span> <span class="k">GoTo</span> <span class="n">ErrorHandler</span>
+<span class="ln">15</span>
+<span class="ln">16</span>    <span class="n">btn_execute_Click_Greeting</span> <span class="o">=</span> <span class="k">False</span>
+<span class="ln">17</span>    
+<span class="ln">18</span>    <span class="n">MsgBox</span> <span class="s">&#34;こんにちは。&#34;</span><span class="p">,</span> <span class="p">,</span> <span class="n">Tool_Name</span>
+<span class="ln">19</span>    
+<span class="ln">20</span>    <span class="n">btn_execute_Click_Greeting</span> <span class="o">=</span> <span class="k">True</span>
+<span class="ln">21</span>    
+<span class="ln">22</span><span class="n">ExitHandler</span><span class="p">:</span>
+<span class="ln">23</span>
+<span class="ln">24</span>    <span class="k">Exit</span> <span class="k">Function</span>
+<span class="ln">25</span>    
+<span class="ln">26</span><span class="nf">ErrorHandler</span><span class="p">:</span>
+<span class="ln">27</span>
+<span class="ln">28</span>    <span class="n">MsgBox</span> <span class="s">&#34;エラーが発生したため、マクロを終了します。&#34;</span> <span class="o">&amp;</span> _
+<span class="ln">29</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
+<span class="ln">30</span>           <span class="s">&#34;関数名：&#34;</span> <span class="o">&amp;</span> <span class="n">FUNC_NAME</span> <span class="o">&amp;</span> _
+<span class="ln">31</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
+<span class="ln">32</span>           <span class="s">&#34;エラー番号：&#34;</span> <span class="o">&amp;</span> <span class="n">Err</span><span class="p">.</span><span class="n">Number</span> <span class="o">&amp;</span> <span class="n">vbNewLine</span> <span class="o">&amp;</span> _
+<span class="ln">33</span>           <span class="n">Err</span><span class="p">.</span><span class="n">Description</span><span class="p">,</span> <span class="n">vbCritical</span><span class="p">,</span> <span class="n">Tool_Name</span>
+<span class="ln">34</span>        
+<span class="ln">35</span>    <span class="k">GoTo</span> <span class="n">ExitHandler</span>
+<span class="ln">36</span>        
+<span class="ln">37</span><span class="k">End</span> <span class="k">Function</span>
+</code></pre></div><p>ポリモーフィズムによって、<br>
+clsPolymoから呼び出される関数が<br>
+suffixの値に従って決定されるため、<br>
+IFステートメントの使用無しで処理分岐を実行できる。</p>
 
     
       <div id="disqus_thread"></div>
@@ -463,9 +522,6 @@ getSizeTypeで返す文字列が変更した場合、メンテナンスの必要
     <ul class="flex-column">
       
       <li>
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/polymorphism-radiobutton/" class="nav-link">[Excel VBA]ポリモーフィズムを用いて、IF文を使わずラジオボタンごとの処理分岐を行う</a>
-      </li>
-      <li>
         <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/excel-a1-tool/" class="nav-link">[Excel VBA]選択フォルダ配下のエクセルブックの全シートでA1にカーソル移動させるツールを作成した</a>
       </li>
       <li>
@@ -476,6 +532,9 @@ getSizeTypeで返す文字列が変更した場合、メンテナンスの必要
       </li>
       <li>
         <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/10/25/access-tabledef/" class="nav-link">[Access VBA] デザインビューのテーブル定義を表形式でエクスポートする関数を作成した</a>
+      </li>
+      <li>
+        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/10/13/access-controlsource/" class="nav-link">[Access VBA] コントロールソースにユーザ定義関数を用いると列幅の自動調整が想定通りに機能しない問題の解決</a>
       </li>
       <li>
         <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/07/18/create-nomarco-tool/" class="nav-link">【Excel】非マクロのメール作成ツールを作成した</a>

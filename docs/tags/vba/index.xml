@@ -6,7 +6,25 @@
     <description>Recent content in VBA on 学習者のブログ　◆プログラミング等</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 01 Nov 2020 12:05:43 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/tags/vba/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 Nov 2020 16:44:24 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/tags/vba/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Excel VBA]ポリモーフィズムを用いて、IF文を使わずラジオボタンごとの処理分岐を行う</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/polymorphism-radiobutton/</link>
+      <pubDate>Sun, 01 Nov 2020 16:44:24 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/polymorphism-radiobutton/</guid>
+      <description>この記事について CallByName関数によるポリモーフィズムの考え方と、
+ラジオボタン（オプションボタン）オブジェクトのtagプロパティを用いて、
+IFステートメントやSelect Caseステートメントを使わずに処理分岐を行う実装例。
+説明のために作成したExcelファイルとソースコードはこちらでダウンロードできます。
+作成環境 Windows10
+MSOffice 2016
+前提 下のような画面があり、
+ラジオボタンを選択し、実行ボタンを押下することで
+ラジオボタンの種類に応じた処理を行う。
+   名称 画像     フォーム    現在時刻を表示するラジオボタンを選択    ユーザ名を表示するラジオボタンを選択    あいさつを表示するラジオボタンを選択     オブジェクトのプロパティ    名前 種類 Caption GourpName Tag Value（初期値）     rdo_showCurrent ラジオボタン 現在時刻を表示する Group01 Current True   rdo_showUser ラジオボタン ユーザ名を表示する Group01 User False   rdo_showGreeting ラジオボタン あいさつを表示する Group01 Greeting False   btn_execute コマンドボタン 実行 -- -- --    関数概要    名前 所属モジュール/クラス 種類 機能     btn_execute_Click F_Main Subプロシージャ btn_executeのClickメソッド</description>
+    </item>
+    
     <item>
       <title>[Excel VBA]選択フォルダ配下のエクセルブックの全シートでA1にカーソル移動させるツールを作成した</title>
       <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/excel-a1-tool/</link>
