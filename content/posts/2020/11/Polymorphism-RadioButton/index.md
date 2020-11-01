@@ -110,7 +110,7 @@ End Sub
 
 
 WorksheetFunction.Rept関数は  
-①引数の文字列を②引数の数だけ繰り返た文字列を返す。
+①引数の文字列を②引数の数だけ繰り返した文字列を返す。
 ```vb
 'abcabcabc
 WorksheetFunction.Rept("abc",3)
