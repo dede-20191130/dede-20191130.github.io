@@ -5,7 +5,7 @@ date: 2020-11-01T16:44:24+09:00
 slug: Polymorphism-RadioButton
 draft: false
 toc: true
-tags: ['Excel', 'VBA','自作']
+tags: ['Excel', 'VBA','自作', 'オブジェクト指向']
 categories: ['プログラミング']
 ---
 
