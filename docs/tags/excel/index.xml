@@ -13,7 +13,7 @@
       <pubDate>Sun, 01 Nov 2020 12:05:43 +0900</pubDate>
       
       <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/excel-a1-tool/</guid>
-      <description>このツールについて 下記記事のプログラムを、フォルダ配下のExcelブックに対して再帰的に/非再帰的に適用できるように
+      <description>このツールについて 下記Qiita記事のプログラムを、フォルダ配下のExcelブックに対して再帰的に/非再帰的に適用できるように
 機能をもたせたツールです。
 ------記事------
 ツールはこちらからダウンロードできます。
