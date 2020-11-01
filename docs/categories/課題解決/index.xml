@@ -6,23 +6,7 @@
     <description>Recent content in 課題解決 on 学習者のブログ　◆プログラミング等</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 01 Nov 2020 12:05:43 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/categories/%E8%AA%B2%E9%A1%8C%E8%A7%A3%E6%B1%BA/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>[Excel VBA]選択フォルダ配下のエクセルブックの全シートでA1にカーソル移動させるツールを作成した</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/excel-a1-tool/</link>
-      <pubDate>Sun, 01 Nov 2020 12:05:43 +0900</pubDate>
-      
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/excel-a1-tool/</guid>
-      <description>このツールについて 下記Qiita記事のプログラムを、フォルダ配下のExcelブックに対して再帰的に/非再帰的に適用できるように
-機能をもたせたツールです。
-記事リンク
-ツールはこちらからダウンロードできます。
-また、ソースコードもこちらに置いてあります。
-作成環境 Windows10
-MSOffice 2016
-機能  エクセルブックに対して、すべてのシートのカーソルを左上セル（A1セル）に合わせ、一番左のシートをアクティブにした状態にする。 ダイアログで選択したフォルダ配下のすべてのエクセルブック（xls,xlsx,xlsm）に対して処理を行う。 ファイル探索を再帰的に、または非再帰的に行う  画面    名称 画像     起動後に表示されるフォーム     </description>
-    </item>
-    
+    <lastBuildDate>Fri, 30 Oct 2020 00:00:04 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/categories/%E8%AA%B2%E9%A1%8C%E8%A7%A3%E6%B1%BA/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Powershell] Windowsで更新日時が〇〇以降のファイルのパスの一覧を取得するには</title>
       <link>https://dede-20191130.github.io/learnerBlog/posts/2020/10/30/ps-refinement-last/</link>

@@ -6,7 +6,7 @@ slug: Excel-A1-Tool
 draft: false
 toc: true
 tags: ['Excel', 'VBA','自作' ,'ツール']
-categories: ['課題解決', 'プログラミング']
+categories: ['アプリケーション', 'プログラミング']
 ---
 
 ## このツールについて
