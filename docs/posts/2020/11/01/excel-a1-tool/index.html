@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="en" data-figures="" class="page">
-  <head>  <title>お問い合わせ | 学習者のブログ　◆プログラミング等</title>
+  <head>  <title>[Excel VBA]選択フォルダ配下のエクセルブックの全シートでA1にカーソル移動させるツールを作成した | 学習者のブログ　◆プログラミング等</title>
   <meta charset="utf-8">
   <meta name="generator" content="Hugo 0.76.0" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -17,15 +17,25 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="お問い合わせは下記メールアドレスへお願いします。
-1044adad@gmail.com。">
+<meta name="description" content="このツールについて 下記記事のプログラムを、フォルダ配下のExcelブックに対して再帰的に/非再帰的に適用できるように
+機能をもたせたツールです。
+------記事------
+ツールはこちらからダウンロードできます。
+また、ソースコードもこちらに置いてあります。
+作成環境 Windows10
+MSOffice …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="@D20191130">
-<meta name="twitter:title" content="お問い合わせ" />
-<meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/about/" />
-<meta property="og:title" content="お問い合わせ" />
-<meta property="og:description" content="お問い合わせは下記メールアドレスへお願いします。
-1044adad@gmail.com。" />
+<meta name="twitter:title" content="[Excel VBA]選択フォルダ配下のエクセルブックの全シートでA1にカーソル移動させるツールを作成した" />
+<meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/excel-a1-tool/" />
+<meta property="og:title" content="[Excel VBA]選択フォルダ配下のエクセルブックの全シートでA1にカーソル移動させるツールを作成した" />
+<meta property="og:description" content="このツールについて 下記記事のプログラムを、フォルダ配下のExcelブックに対して再帰的に/非再帰的に適用できるように
+機能をもたせたツールです。
+------記事------
+ツールはこちらからダウンロードできます。
+また、ソースコードもこちらに置いてあります。
+作成環境 Windows10
+MSOffice …" />
 <meta property="og:image" content="https://dede-20191130.github.io/learnerBlog/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://dede-20191130.github.io/learnerBlog/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://dede-20191130.github.io/learnerBlog/icons/favicon-32x32.png'>
@@ -35,7 +45,7 @@
 <meta name="msapplication-TileColor" content="#002538">
 <meta name="theme-color" content="#002538">
 
-  <link rel="canonical" href="https://dede-20191130.github.io/learnerBlog/about/">
+  <link rel="canonical" href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/excel-a1-tool/">
 
     
 
@@ -80,7 +90,7 @@
   <div class="nav_parent">
     <a href="https://dede-20191130.github.io/" class="nav_item">Home </a>
   </div>
-  <div class="nav_parent nav_active">
+  <div class="nav_parent">
     <a href="https://dede-20191130.github.io/learnerBlog/about/" class="nav_item">About </a>
   </div>
       
@@ -115,23 +125,31 @@
   
 <div class="grid-inverse wrap content">
   <article class="post_content">
-    <h1 class="post_title">お問い合わせ</h1><div class="post_meta">
+    <h1 class="post_title">[Excel VBA]選択フォルダ配下のエクセルブックの全シートでA1にカーソル移動させるツールを作成した</h1><div class="post_meta">
   <svg class="icon">
   <use xlink:href="#calendar"></use>
 </svg>
   <span class="post_date">
-    Jul 15, 2020</span>
+    Nov 1, 2020</span>
+  <a href='https://dede-20191130.github.io/learnerBlog/tags/excel' class="post_tag button button_translucent">Excel
+  </a>
+  <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' class="post_tag button button_translucent">VBA
+  </a>
+  <a href='https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C' class="post_tag button button_translucent">自作
+  </a>
+  <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%83%84%E3%83%BC%E3%83%AB' class="post_tag button button_translucent">ツール
+  </a>
 </div>
 
     
 <div class="post_share">
   Share on:
-  <a href="https://twitter.com/intent/tweet?text=%e3%81%8a%e5%95%8f%e3%81%84%e5%90%88%e3%82%8f%e3%81%9b&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fabout%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
+  <a href="https://twitter.com/intent/tweet?text=%5bExcel%20VBA%5d%e9%81%b8%e6%8a%9e%e3%83%95%e3%82%a9%e3%83%ab%e3%83%80%e9%85%8d%e4%b8%8b%e3%81%ae%e3%82%a8%e3%82%af%e3%82%bb%e3%83%ab%e3%83%96%e3%83%83%e3%82%af%e3%81%ae%e5%85%a8%e3%82%b7%e3%83%bc%e3%83%88%e3%81%a7A1%e3%81%ab%e3%82%ab%e3%83%bc%e3%82%bd%e3%83%ab%e7%a7%bb%e5%8b%95%e3%81%95%e3%81%9b%e3%82%8b%e3%83%84%e3%83%bc%e3%83%ab%e3%82%92%e4%bd%9c%e6%88%90%e3%81%97%e3%81%9f&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f11%2f01%2fexcel-a1-tool%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
     <svg class="icon">
   <use xlink:href="#twitter"></use>
 </svg>
   </a>
-  <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fabout%2f&t=%e3%81%8a%e5%95%8f%e3%81%84%e5%90%88%e3%82%8f%e3%81%9b" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
+  <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f11%2f01%2fexcel-a1-tool%2f&t=%5bExcel%20VBA%5d%e9%81%b8%e6%8a%9e%e3%83%95%e3%82%a9%e3%83%ab%e3%83%80%e9%85%8d%e4%b8%8b%e3%81%ae%e3%82%a8%e3%82%af%e3%82%bb%e3%83%ab%e3%83%96%e3%83%83%e3%82%af%e3%81%ae%e5%85%a8%e3%82%b7%e3%83%bc%e3%83%88%e3%81%a7A1%e3%81%ab%e3%82%ab%e3%83%bc%e3%82%bd%e3%83%ab%e7%a7%bb%e5%8b%95%e3%81%95%e3%81%9b%e3%82%8b%e3%83%84%e3%83%bc%e3%83%ab%e3%82%92%e4%bd%9c%e6%88%90%e3%81%97%e3%81%9f" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
     <svg class="icon">
   <use xlink:href="#facebook"></use>
 </svg>
@@ -141,7 +159,7 @@
   <use xlink:href="#linkedin"></use>
 </svg>
   </a>
-  <a href="https://dede-20191130.github.io/learnerBlog/about/" title="Copy Link" class="link link_yank">
+  <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/excel-a1-tool/" title="Copy Link" class="link link_yank">
     <svg class="icon">
   <use xlink:href="#yank"></use>
 </svg>
@@ -149,8 +167,46 @@
 </div>
 
     
-    <p>お問い合わせは下記メールアドレスへお願いします。</p>
-<p><a href="mailto:1044adad@gmail.com">1044adad@gmail.com</a>。</p>
+    
+    <h2>Overview</h2>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#このツールについて">このツールについて</a></li>
+    <li><a href="#作成環境">作成環境</a></li>
+    <li><a href="#機能">機能</a></li>
+    <li><a href="#画面">画面</a></li>
+  </ul>
+</nav>
+    <h2 id="このツールについて">このツールについて</h2>
+<p>下記記事のプログラムを、フォルダ配下のExcelブックに対して再帰的に/非再帰的に適用できるように<br>
+機能をもたせたツールです。</p>
+<p><a href="https://qiita.com/dede-20191130/items/1fef61cd238e7b724dc1#3-1%E3%82%A8%E3%82%AF%E3%82%BB%E3%83%AB%E3%83%96%E3%83%83%E3%82%AF%E3%81%AE%E4%BD%93%E8%A3%81%E3%82%92%E6%95%B4%E3%81%88%E3%82%8B%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0">------記事------</a></p>
+<p><a href="https://github.com/dede-20191130/My_VBA_Tools/tree/master/%E3%81%9D%E3%81%AE%E4%BB%96%E3%83%84%E3%83%BC%E3%83%AB/Other_0001_%E3%82%A8%E3%82%AF%E3%82%BB%E3%83%AB%E3%83%96%E3%83%83%E3%82%AFA1%E3%82%AB%E3%83%BC%E3%82%BD%E3%83%AB%E7%A7%BB%E5%8B%95">ツールはこちらからダウンロードできます。<br>
+また、ソースコードもこちらに置いてあります。</a></p>
+<h2 id="作成環境">作成環境</h2>
+<p>Windows10<br>
+MSOffice 2016</p>
+<h2 id="機能">機能</h2>
+<ul>
+<li>エクセルブックに対して、すべてのシートのカーソルを左上セル（A1セル）に合わせ、一番左のシートをアクティブにした状態にする。</li>
+<li>ダイアログで選択したフォルダ配下のすべてのエクセルブック（xls,xlsx,xlsm）に対して処理を行う。</li>
+<li>ファイル探索を再帰的に、または非再帰的に行う</li>
+</ul>
+<h2 id="画面">画面</h2>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>画像</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>起動後に表示されるフォーム</strong></td>
+<td><img src="../../_ImageForMarkdown/Other_0001/image01.png" alt="エクスポート画面"></td>
+</tr>
+</tbody>
+</table>
 
     
       <div id="disqus_thread"></div>
@@ -189,9 +245,6 @@
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       
-      <li>
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/excel-a1-tool/" class="nav-link">[Excel VBA]選択フォルダ配下のエクセルブックの全シートでA1にカーソル移動させるツールを作成した</a>
-      </li>
       <li>
         <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/10/30/ps-refinement-last/" class="nav-link">[Powershell] Windowsで更新日時が〇〇以降のファイルのパスの一覧を取得するには</a>
       </li>
