@@ -175,13 +175,17 @@ Webサイトに対するHTTPリクエスト、レスポンス取得     作業�
     </item>
     
     <item>
-      <title>お問い合わせ</title>
+      <title>このサイトについて</title>
       <link>https://dede-20191130.github.io/learnerBlog/about/</link>
       <pubDate>Wed, 15 Jul 2020 17:03:36 +0000</pubDate>
       
       <guid>https://dede-20191130.github.io/learnerBlog/about/</guid>
-      <description>お問い合わせは下記メールアドレスへお願いします。
-1044adad@gmail.com。</description>
+      <description>このサイトについて Hugoという静的サイトジェネレータを用いて
+作成しています。
+運営者について author: dede-20191130
+property:VBAから入り、プログラミング、コンピュータ科学等を勉強中。
+お問い合わせ お問い合わせは下記メールアドレスへお願いします。
+mailto:1044adad@gmail.com</description>
     </item>
     
   </channel>
