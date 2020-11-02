@@ -13,7 +13,8 @@
       <pubDate>Sun, 01 Nov 2020 16:44:24 +0900</pubDate>
       
       <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/polymorphism-radiobutton/</guid>
-      <description>この記事について CallByName関数によるポリモーフィズムの考え方と、
+      <description>この記事について VBAにおいてポリモーフィズムの考え方によりコーディングを行う一例。
+CallByName関数によるポリモーフィズムの考え方と、
 ラジオボタン（オプションボタン）オブジェクトのtagプロパティを用いて、
 IFステートメントやSelect Caseステートメントを使わずに処理分岐を行う実装例。
 説明のために作成したExcelファイルとソースコードはこちらでダウンロードできます。
