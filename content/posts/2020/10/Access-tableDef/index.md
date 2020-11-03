@@ -7,6 +7,9 @@ draft: False
 toc: true
 tags: ['Access', 'VBA','自作']
 categories: ['課題解決', 'プログラミング']
+archives:
+    - 2020
+    - 2020-10
 ---
 
 ## この記事について

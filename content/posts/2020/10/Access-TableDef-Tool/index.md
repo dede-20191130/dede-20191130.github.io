@@ -7,6 +7,9 @@ draft: false
 toc: true
 tags: ['Access', 'VBA','自作','ツール']
 categories: ['アプリケーション', 'プログラミング']
+archives:
+    - 2020
+    - 2020-10
 ---
 
 ## 概要

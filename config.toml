@@ -4,7 +4,7 @@ title = "学習者のブログ　◆プログラミング等"
 theme = "Clarity"
 # Deploy
 publishDir = "docs"
-# DefaultContentLanguage = "ja"
+DefaultContentLanguage = "ja"
 
 disqusShortname = "learnerblog"
 
@@ -61,3 +61,9 @@ codeLineNumbers = true
     posts = "/:sections/:year/:month/:day/:slug/"
     # blogs = "/:sections/:year/:month/:day/:slug/"
     # news = "/:sections/:year/:month/:day/:slug/"
+
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  archive = "archives"

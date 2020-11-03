@@ -7,6 +7,9 @@ draft: false
 toc: true
 tags: ['Access', 'VBA']
 categories: ['トラブルシューティング', 'プログラミング']
+archives:
+    - 2020
+    - 2020-10
 ---
 
 ## この記事について

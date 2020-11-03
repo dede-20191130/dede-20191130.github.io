@@ -8,6 +8,15 @@
     <language>ja</language>
     <lastBuildDate>Sun, 01 Nov 2020 16:44:24 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>アーカイブ</title>
+      <link>https://dede-20191130.github.io/learnerBlog/archives/</link>
+      <pubDate>Tue, 03 Nov 2020 14:11:17 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/archives/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>[Excel VBA]ポリモーフィズムを用いて、IF文を使わずラジオボタンごとの処理分岐を行う</title>
       <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/polymorphism-radiobutton/</link>
       <pubDate>Sun, 01 Nov 2020 16:44:24 +0900</pubDate>

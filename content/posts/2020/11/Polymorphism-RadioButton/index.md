@@ -7,6 +7,9 @@ draft: false
 toc: true
 tags: ['Excel', 'VBA','自作', 'オブジェクト指向']
 categories: ['プログラミング']
+archives:
+    - 2020
+    - 2020-11
 ---
 
 ## この記事について

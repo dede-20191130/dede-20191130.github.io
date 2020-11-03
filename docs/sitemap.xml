@@ -3,7 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://dede-20191130.github.io/learnerBlog/archives/</loc>
+    <lastmod>2020-11-03T14:11:17+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dede-20191130.github.io/learnerBlog/archives/2020/</loc>
+    <lastmod>2020-11-01T16:44:24+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dede-20191130.github.io/learnerBlog/archives/2020-11/</loc>
+    <lastmod>2020-11-01T16:44:24+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/polymorphism-radiobutton/</loc>
+    <lastmod>2020-11-01T16:44:24+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dede-20191130.github.io/learnerBlog/archives/</loc>
     <lastmod>2020-11-01T16:44:24+09:00</lastmod>
   </url>
   
@@ -68,6 +88,11 @@
   </url>
   
   <url>
+    <loc>https://dede-20191130.github.io/learnerBlog/archives/2020-10/</loc>
+    <lastmod>2020-10-30T00:00:04+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://dede-20191130.github.io/learnerBlog/posts/2020/10/30/ps-refinement-last/</loc>
     <lastmod>2020-10-30T00:00:04+09:00</lastmod>
   </url>
@@ -105,6 +130,11 @@
   <url>
     <loc>https://dede-20191130.github.io/learnerBlog/categories/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/</loc>
     <lastmod>2020-10-13T09:37:47+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dede-20191130.github.io/learnerBlog/archives/2020-07/</loc>
+    <lastmod>2020-07-18T18:30:28+00:00</lastmod>
   </url>
   
   <url>

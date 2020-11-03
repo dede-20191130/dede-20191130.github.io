@@ -1,8 +1,8 @@
   
 # - name: Home
 #   link: /learnerBlog
-# - name: Archives
-#   link: post/rich-content/
+- name: Archives
+  link: archives/
 # - name: Mus
 #   link: /categories/music/
 # - name: Links

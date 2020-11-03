@@ -1,0 +1,28 @@
+{{- define "main" }}
+{{- $scratch := newScratch }}
+{{- if isset .Params "image" }}
+{{- $scratch.Set "image" .Params.image }}
+{{- else }}
+{{ $scratch.Set "image" .Site.Params.fallBackOgImage }}
+{{- end }}
+{{- $image := $scratch.Get "image" }}
+{{- $bg := (path.Join "images" $image | absLangURL) }}
+<div class="grid-inverse wrap content">
+    <article class="post">
+        {{- partial "i18nlist" . }}
+        <h1 class="post_title">{{ .Title }}</h1>
+        {{- partial "post-meta" . }}
+        {{ partial "share" . }}
+        {{ with .Params.featureImage }}
+        <img src="{{ . }}" class="image_featured">
+        {{ end }}
+        <ul>
+            {{ range $name, $items := .Site.Taxonomies.archives }}
+            <h3>{{ $name }} </h3>
+            <li><a href="{{ $.Site.BaseURL }}archives/{{ $name | urlize | lower }}">{{ .Count }} articles</a></li>
+            {{ end }}
+        </ul>
+    </article>
+    {{- partial "sidebar" . }}
+</div>
+{{- end }}
