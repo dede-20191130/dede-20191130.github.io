@@ -6,7 +6,37 @@
     <description>Recent content in Excel on 学習者のブログ　◆プログラミング等</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 01 Nov 2020 16:44:24 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/tags/excel/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 05 Nov 2020 00:48:58 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/tags/excel/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Excel VBA] 個人的に作業がはかどった自作Excelショートカット</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/05/own-excel-shortcut/</link>
+      <pubDate>Thu, 05 Nov 2020 00:48:58 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/05/own-excel-shortcut/</guid>
+      <description>この記事について Excelから文章を別のファイルや文書に移したり、
+Excelのシート上で四角形や矢印などの図形の切り貼りや、図形でフローチャート、模式図を作成する機会はわりと多いかと思う。
+そうした際に、
+VBAを用いて、Excelにもともと備わっていないショートカットをいくつか登録しておくと、作業スピードが上がったため、
+紹介したい。
+ちなみに、クイックアクセスツールバーを用いて、
+[Altキー　+　数字] でいくつかのショートカットキーを拡張することはできるが、
+個人的にAltキーからの数字キー押下はあまり押しやすいキーではないため、最小限でしか登録はしていない。
+また、クイックアクセスツールバーで対応が難しいショートカットも存在する。
+一覧 このようなショートカットを作成した。
+   機能 どんなときに使う？ 割り当てたキー     対象のセルから
+テキストのみコピーする 文字列両端の
+ダブルクォーテーション無しで
+セルの文章を取得したいとき Ctrl + Shift + K   選択したオブジェクト（画像、図形等）の
+最前面化・最背面化 入り組んだ模式図などを
+作成するとき Ctrl + Shift + B   Excelのイベント一時停止 マクロ有ブックで、
+開くと自動的にフォームなどが開かれるExcelブックを、
+それらの処理なしで開きたいとき Ctrl + Shift + M    自作ショートカットのためのマクロ登録方法 こちらに分かりやすい記事がありました。
+&amp;quot;エクセル初心者も出来る！マクロでショートカットキーを作成する方法&amp;quot;
+①Alt + F11キーでVBEを開く。
+②標準モジュールにプロシージャを記入する。
+③ブックの画面に戻り、Alt + F8を押して、マクロの設定画面を開く。</description>
+    </item>
+    
     <item>
       <title>[Excel VBA]ポリモーフィズムを用いて、IF文を使わずラジオボタンごとの処理分岐を行う</title>
       <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/polymorphism-radiobutton/</link>
