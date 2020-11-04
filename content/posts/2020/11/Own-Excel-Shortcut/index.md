@@ -5,7 +5,7 @@ date: 2020-11-05T00:48:58+09:00
 slug: Own-Excel-Shortcut
 draft: false
 toc: true
-tags: ['Excel', 'VBA','自作' ,'ツール']
+tags: ['Excel', 'VBA','自作']
 categories: ['アプリケーション', 'プログラミング']
 archives:
     - 2020
