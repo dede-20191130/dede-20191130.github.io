@@ -1,0 +1,840 @@
+
+<!DOCTYPE html>
+<html lang="ja" data-figures="" class="page">
+  <head>  <title>[Access VBA] フォームのコントロールに対してWithEventsでイベントリスナークラスを作成する際に気をつけなければならないこと | 学習者のブログ　◆プログラミング等</title>
+  <meta charset="utf-8">
+  <meta name="generator" content="Hugo 0.76.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-110309082-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-110309082-3');
+</script>
+  
+<meta property="og:locale" content="ja" />
+
+<meta property="og:type" content="article">
+<meta name="description" content="この記事について Accessでフォーム上のコントロール（テキストボックス、コンボボックスなど）で、 イベント処理を共通化するためにWithEventsステートメントを用いてイベントリスナークラスを作成することを考える。
+その際に、ExcelでWitheventsを使用するときと同じようなコードで作成すると、
+せっかく …">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:creator" content="@D20191130">
+<meta name="twitter:title" content="[Access VBA] フォームのコントロールに対してWithEventsでイベントリスナークラスを作成する際に気をつけなければならないこと" />
+<meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/posts/2020/11/08/access-control-withevents/" />
+<meta property="og:title" content="[Access VBA] フォームのコントロールに対してWithEventsでイベントリスナークラスを作成する際に気をつけなければならないこと" />
+<meta property="og:description" content="この記事について Accessでフォーム上のコントロール（テキストボックス、コンボボックスなど）で、 イベント処理を共通化するためにWithEventsステートメントを用いてイベントリスナークラスを作成することを考える。
+その際に、ExcelでWitheventsを使用するときと同じようなコードで作成すると、
+せっかく …" />
+<meta property="og:image" content="https://dede-20191130.github.io/learnerBlog/" />
+<link rel="apple-touch-icon" sizes="180x180" href='https://dede-20191130.github.io/learnerBlog/icons/apple-touch-icon.png'>
+<link rel="icon" type="image/png" sizes="32x32" href='https://dede-20191130.github.io/learnerBlog/icons/favicon-32x32.png'>
+<link rel="icon" type="image/png" sizes="16x16" href='https://dede-20191130.github.io/learnerBlog/icons/favicon-16x16.png'>
+<link rel="manifest" href='https://dede-20191130.github.io/learnerBlog/icons/site.webmanifest'>
+<link rel="mask-icon" href='https://dede-20191130.github.io/learnerBlog/safari-pinned-tab.svg' color="#002538">
+<meta name="msapplication-TileColor" content="#002538">
+<meta name="theme-color" content="#002538">
+
+  <link rel="canonical" href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/08/access-control-withevents/">
+
+    
+
+    
+    
+    <link rel="preload" href="https://dede-20191130.github.io/learnerBlog/css/styles.d319dcbc396d2779ebc0dba44b1cbf18cafe50c539cffd0b31d1e8546d1b059471ee0edc969247e647ee2c3e5993f035d1a5e9b893dcac3e23adf3b74a1e04e3.css" integrity = "sha512-0xncvDltJ3nrwNukSxy/GMr&#43;UMU5z/0LMdHoVG0bBZRx7g7clpJH5kfuLD5Zk/A10aXpuJPcrD4jrfO3Sh4E4w==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://dede-20191130.github.io/learnerBlog/js/bundle.min.ffed9b74e404b9690cff8e7d385df3c00c8d672ca1e0a81a6b97d821afd6c2b32da1a9200082366229f536baf22ec19dbd389d77f11eb43b554b00d65b563b61.js" as="script" integrity=
+    "sha512-/&#43;2bdOQEuWkM/459OF3zwAyNZyyh4Kgaa5fYIa/WwrMtoakgAII2Yin1NrryLsGdvTidd/EetDtVSwDWW1Y7YQ==" crossorigin="anonymous">
+
+    
+    <link rel="stylesheet" type="text/css" href="https://dede-20191130.github.io/learnerBlog/css/styles.d319dcbc396d2779ebc0dba44b1cbf18cafe50c539cffd0b31d1e8546d1b059471ee0edc969247e647ee2c3e5993f035d1a5e9b893dcac3e23adf3b74a1e04e3.css" integrity="sha512-0xncvDltJ3nrwNukSxy/GMr&#43;UMU5z/0LMdHoVG0bBZRx7g7clpJH5kfuLD5Zk/A10aXpuJPcrD4jrfO3Sh4E4w==" crossorigin="anonymous">
+    
+  </head>
+  
+  
+  
+    
+  
+  <body data-code="20" data-lines="true" id="documentTop">
+
+<header class="nav_header" >
+  <nav class="nav">
+    <a href='https://dede-20191130.github.io/learnerBlog/' class="nav_brand nav_item">
+        学習者のブログ　◆プログラミング等
+      <div class="nav_close">
+        <div>
+          <svg class="icon">
+            <use xlink:href="#open-menu"></use>
+          </svg>
+          <svg class="icon">
+            <use xlink:href="#closeme"></use>
+          </svg>
+        </div>
+      </div>
+    </a>
+    <div class='nav_body nav_body_left'>
+      
+      
+      
+        
+
+  <div class="nav_parent">
+    <a href="https://dede-20191130.github.io/learnerBlog/my-archives/" class="nav_item">Archives </a>
+  </div>
+  <div class="nav_parent">
+    <a href="https://dede-20191130.github.io/learnerBlog/about/" class="nav_item">About </a>
+  </div>
+      
+<div class='follow'>
+  <a href="https://github.com/dede-20191130">
+    <svg class="icon">
+  <use xlink:href="#github"></use>
+</svg>
+  </a>
+  <a href="https://twitter.com/D20191130">
+    <svg class="icon">
+  <use xlink:href="#twitter"></use>
+</svg>
+  </a>
+  
+  <a href="https://dede-20191130.github.io/learnerBlog/index.xml">
+    <svg class="icon">
+  <use xlink:href="#rss"></use>
+</svg>
+  </a>
+<div class="color_mode">
+  <input type="checkbox" class="color_choice" id="mode">
+</div>
+
+</div>
+
+    </div>
+  </nav>
+</header>
+
+    <main>
+  
+<div class="grid-inverse wrap content">
+  <article class="post_content">
+    <h1 class="post_title">[Access VBA] フォームのコントロールに対してWithEventsでイベントリスナークラスを作成する際に気をつけなければならないこと</h1><div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Nov 8, 2020</span>
+  <a href='https://dede-20191130.github.io/learnerBlog/tags/access' class="post_tag button button_translucent">Access
+  </a>
+  <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' class="post_tag button button_translucent">VBA
+  </a>
+  <a href='https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C' class="post_tag button button_translucent">自作
+  </a>
+  <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91' class="post_tag button button_translucent">オブジェクト指向
+  </a>
+</div>
+
+    
+<div class="post_share">
+  Share on:
+  <a href="https://twitter.com/intent/tweet?text=%5bAccess%20VBA%5d%20%e3%83%95%e3%82%a9%e3%83%bc%e3%83%a0%e3%81%ae%e3%82%b3%e3%83%b3%e3%83%88%e3%83%ad%e3%83%bc%e3%83%ab%e3%81%ab%e5%af%be%e3%81%97%e3%81%a6WithEvents%e3%81%a7%e3%82%a4%e3%83%99%e3%83%b3%e3%83%88%e3%83%aa%e3%82%b9%e3%83%8a%e3%83%bc%e3%82%af%e3%83%a9%e3%82%b9%e3%82%92%e4%bd%9c%e6%88%90%e3%81%99%e3%82%8b%e9%9a%9b%e3%81%ab%e6%b0%97%e3%82%92%e3%81%a4%e3%81%91%e3%81%aa%e3%81%91%e3%82%8c%e3%81%b0%e3%81%aa%e3%82%89%e3%81%aa%e3%81%84%e3%81%93%e3%81%a8&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f11%2f08%2faccess-control-withevents%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
+    <svg class="icon">
+  <use xlink:href="#twitter"></use>
+</svg>
+  </a>
+  <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f11%2f08%2faccess-control-withevents%2f&t=%5bAccess%20VBA%5d%20%e3%83%95%e3%82%a9%e3%83%bc%e3%83%a0%e3%81%ae%e3%82%b3%e3%83%b3%e3%83%88%e3%83%ad%e3%83%bc%e3%83%ab%e3%81%ab%e5%af%be%e3%81%97%e3%81%a6WithEvents%e3%81%a7%e3%82%a4%e3%83%99%e3%83%b3%e3%83%88%e3%83%aa%e3%82%b9%e3%83%8a%e3%83%bc%e3%82%af%e3%83%a9%e3%82%b9%e3%82%92%e4%bd%9c%e6%88%90%e3%81%99%e3%82%8b%e9%9a%9b%e3%81%ab%e6%b0%97%e3%82%92%e3%81%a4%e3%81%91%e3%81%aa%e3%81%91%e3%82%8c%e3%81%b0%e3%81%aa%e3%82%89%e3%81%aa%e3%81%84%e3%81%93%e3%81%a8" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
+    <svg class="icon">
+  <use xlink:href="#facebook"></use>
+</svg>
+  </a>
+  <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
+    <svg class="icon">
+  <use xlink:href="#linkedin"></use>
+</svg>
+  </a>
+  <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/08/access-control-withevents/" title="Copy Link" class="link link_yank">
+    <svg class="icon">
+  <use xlink:href="#yank"></use>
+</svg>
+  </a>
+</div>
+
+    
+    
+    <h2>Overview</h2>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#この記事について">この記事について</a></li>
+    <li><a href="#事例">事例</a>
+      <ul>
+        <li><a href="#画面">画面</a></li>
+        <li><a href="#オブジェクトのプロパティ">オブジェクトのプロパティ</a></li>
+        <li><a href="#コード">コード</a></li>
+      </ul>
+    </li>
+    <li><a href="#トラブル">トラブル</a></li>
+    <li><a href="#解決方法">解決方法</a>
+      <ul>
+        <li><a href="#i-フォームモジュールの方にもkeydownイベント関数を追加する">i. フォームモジュールの方にもKeyDownイベント関数を追加する</a></li>
+        <li><a href="#ii-comboboxオブジェクト変数のonkeydownプロパティにevent-procedureと設定する">ii. ComboBoxオブジェクト変数のOnKeyDownプロパティに[Event Procedure]と設定する</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    <h2 id="この記事について">この記事について</h2>
+<p>Accessでフォーム上のコントロール（テキストボックス、コンボボックスなど）で、
+イベント処理を共通化するためにWithEventsステートメントを用いてイベントリスナークラスを作成することを考える。</p>
+<p>その際に、ExcelでWitheventsを使用するときと同じようなコードで作成すると、<br>
+せっかく設定したクラス側のイベントが発火してくれない事態が生じた。</p>
+<p>その事例と、講じた対策二種類について記したい。</p>
+<p><a href="https://github.com/dede-20191130/My_VBA_Tools/tree/master/Public/2020/11/Access-Control-WithEvents">説明のために作成したAccessファイルとソースコードはこちらでダウンロードできます。</a></p>
+<h2 id="事例">事例</h2>
+<p>次のような画面とコードで、<br>
+丸囲みのコンボボックスをキーボード入力できないようにする。 <br>
+（先に<span style="color: red; ">正常に動かない</span>コードのほうを示す）</p>
+<p>共通化のために、<br>
+コンボボックスのKeyDownイベント関数をクラス化する。</p>
+<p>検証のために、コンボボックスのイベント発火をトレースし、<br>
+テキストボックスにログを出力できるようにした。</p>
+<h3 id="画面">画面</h3>
+<p><img src="./image01.png" alt="画面"></p>
+<h3 id="オブジェクトのプロパティ">オブジェクトのプロパティ</h3>
+<table>
+<thead>
+<tr>
+<th>名前</th>
+<th>種類</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cmb_withEventsTest</td>
+<td>コンボボックス</td>
+<td>直接のキーボード入力を禁止する</td>
+</tr>
+<tr>
+<td>txt_EventLog</td>
+<td>テキストボックス</td>
+<td>コンボボックスの<br>イベントログが表示される</td>
+</tr>
+</tbody>
+</table>
+<h3 id="コード">コード</h3>
+<p>下記コードは<span style="color: red; ">正常に動かない</span>（myComboBox_KeyDown関数が発火しない）</p>
+<h4 id="フォームモジュールmainform">フォームモジュール：MainForm</h4>
+<div class="highlight"><pre class="chroma"><code class="language-vb" data-lang="vb"><span class="ln">  1</span><span class="k">Option</span> <span class="n">Compare</span> <span class="n">Database</span>
+<span class="ln">  2</span><span class="k">Option</span> <span class="n">Explicit</span>
+<span class="ln">  3</span>
+<span class="ln">  4</span><span class="c">&#39;**************************
+</span><span class="ln">  5</span><span class="c">&#39;*MainForm
+</span><span class="ln">  6</span><span class="c">&#39;**************************
+</span><span class="ln">  7</span><span class="c"></span>
+<span class="ln">  8</span><span class="c">&#39;定数
+</span><span class="ln">  9</span><span class="c"></span>
+<span class="ln"> 10</span>
+<span class="ln"> 11</span><span class="c">&#39;変数
+</span><span class="ln"> 12</span><span class="c"></span><span class="k">Private</span> <span class="n">objCmbListener</span> <span class="ow">As</span> <span class="n">clsCmbListener</span>
+<span class="ln"> 13</span>
+<span class="ln"> 14</span>
+<span class="ln"> 15</span>
+<span class="ln"> 16</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln"> 17</span><span class="c">&#39;*getter/setter
+</span><span class="ln"> 18</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln"> 19</span><span class="c"></span>
+<span class="ln"> 20</span>
+<span class="ln"> 21</span>
+<span class="ln"> 22</span>
+<span class="ln"> 23</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln"> 24</span><span class="c">&#39;*関数名    ：Form_Load
+</span><span class="ln"> 25</span><span class="c">&#39;*機能      ：
+</span><span class="ln"> 26</span><span class="c">&#39;*引数(1)   ：
+</span><span class="ln"> 27</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln"> 28</span><span class="c"></span><span class="k">Private</span> <span class="k">Sub</span> <span class="nf">Form_Load</span><span class="p">()</span>
+<span class="ln"> 29</span>    
+<span class="ln"> 30</span>    <span class="c">&#39;定数
+</span><span class="ln"> 31</span><span class="c"></span>    <span class="k">Const</span> <span class="n">FUNC_NAME</span> <span class="ow">As</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&#34;Form_Load&#34;</span>
+<span class="ln"> 32</span>    
+<span class="ln"> 33</span>    <span class="c">&#39;変数
+</span><span class="ln"> 34</span><span class="c"></span>    <span class="k">Dim</span> <span class="n">dicInfo</span> <span class="ow">As</span> <span class="kt">Object</span>
+<span class="ln"> 35</span>    
+<span class="ln"> 36</span>    <span class="k">On</span> <span class="k">Error</span> <span class="k">GoTo</span> <span class="n">ErrorHandler</span>
+<span class="ln"> 37</span>
+<span class="ln"> 38</span>    <span class="c">&#39;イベントクラス設定
+</span><span class="ln"> 39</span><span class="c"></span>    <span class="k">Set</span> <span class="n">objCmbListener</span> <span class="o">=</span> <span class="k">New</span> <span class="n">clsCmbListener</span><span class="p">:</span> <span class="k">Set</span> <span class="n">objCmbListener</span><span class="p">.</span><span class="n">ComboBox</span> <span class="o">=</span> <span class="k">Me</span><span class="p">.</span><span class="n">cmb_withEventsTest</span>
+<span class="ln"> 40</span>    <span class="c">&#39;イベントログ設定
+</span><span class="ln"> 41</span><span class="c"></span>    <span class="k">Set</span> <span class="n">M_EventLog</span><span class="p">.</span><span class="n">targetTxtBox</span> <span class="o">=</span> <span class="k">Me</span><span class="p">.</span><span class="n">txt_EventLog</span>
+<span class="ln"> 42</span>    
+<span class="ln"> 43</span><span class="n">ExitHandler</span><span class="p">:</span>
+<span class="ln"> 44</span>
+<span class="ln"> 45</span>    <span class="k">Exit</span> <span class="k">Sub</span>
+<span class="ln"> 46</span>    
+<span class="ln"> 47</span><span class="nf">ErrorHandler</span><span class="p">:</span>
+<span class="ln"> 48</span>
+<span class="ln"> 49</span>    <span class="n">MsgBox</span> <span class="s">&#34;エラーが発生したため、マクロを終了します。&#34;</span> <span class="o">&amp;</span> _
+<span class="ln"> 50</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
+<span class="ln"> 51</span>           <span class="s">&#34;関数名：&#34;</span> <span class="o">&amp;</span> <span class="n">FUNC_NAME</span> <span class="o">&amp;</span> _
+<span class="ln"> 52</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
+<span class="ln"> 53</span>           <span class="s">&#34;エラー番号：&#34;</span> <span class="o">&amp;</span> <span class="n">Err</span><span class="p">.</span><span class="n">Number</span> <span class="o">&amp;</span> <span class="n">vbNewLine</span> <span class="o">&amp;</span> _
+<span class="ln"> 54</span>           <span class="n">Err</span><span class="p">.</span><span class="n">Description</span><span class="p">,</span> <span class="n">vbCritical</span><span class="p">,</span> <span class="s">&#34;Access-Control-WithEvents&#34;</span>
+<span class="ln"> 55</span>        
+<span class="ln"> 56</span>    <span class="k">GoTo</span> <span class="n">ExitHandler</span>
+<span class="ln"> 57</span>        
+<span class="ln"> 58</span><span class="k">End</span> <span class="k">Sub</span>
+<span class="ln"> 59</span>
+<span class="ln"> 60</span>
+<span class="ln"> 61</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln"> 62</span><span class="c">&#39;*関数名    ：cmb_withEventsTest_BeforeUpdate
+</span><span class="ln"> 63</span><span class="c">&#39;*機能      ：
+</span><span class="ln"> 64</span><span class="c">&#39;*引数(1)   ：
+</span><span class="ln"> 65</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln"> 66</span><span class="c"></span><span class="k">Private</span> <span class="k">Sub</span> <span class="nf">cmb_withEventsTest_BeforeUpdate</span><span class="p">(</span><span class="n">Cancel</span> <span class="ow">As</span> <span class="kt">Integer</span><span class="p">)</span>
+<span class="ln"> 67</span>    
+<span class="ln"> 68</span>    <span class="c">&#39;定数
+</span><span class="ln"> 69</span><span class="c"></span>    <span class="k">Const</span> <span class="n">FUNC_NAME</span> <span class="ow">As</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&#34;cmb_withEventsTest_BeforeUpdate&#34;</span>
+<span class="ln"> 70</span>    
+<span class="ln"> 71</span>    <span class="c">&#39;変数
+</span><span class="ln"> 72</span><span class="c"></span>    
+<span class="ln"> 73</span>    <span class="k">On</span> <span class="k">Error</span> <span class="k">GoTo</span> <span class="n">ErrorHandler</span>
+<span class="ln"> 74</span>
+<span class="ln"> 75</span>    <span class="c">&#39;ログに記入
+</span><span class="ln"> 76</span><span class="c"></span>    <span class="k">If</span> <span class="k">Not</span> <span class="n">M_EventLog</span><span class="p">.</span><span class="n">writeEventLogs</span><span class="p">(</span><span class="n">FUNC_NAME</span><span class="p">)</span> <span class="k">Then</span> <span class="k">GoTo</span> <span class="n">ExitHandler</span>
+<span class="ln"> 77</span>
+<span class="ln"> 78</span><span class="n">ExitHandler</span><span class="p">:</span>
+<span class="ln"> 79</span>
+<span class="ln"> 80</span>    <span class="k">Exit</span> <span class="k">Sub</span>
+<span class="ln"> 81</span>    
+<span class="ln"> 82</span><span class="nf">ErrorHandler</span><span class="p">:</span>
+<span class="ln"> 83</span>
+<span class="ln"> 84</span>    <span class="n">MsgBox</span> <span class="s">&#34;エラーが発生したため、マクロを終了します。&#34;</span> <span class="o">&amp;</span> _
+<span class="ln"> 85</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
+<span class="ln"> 86</span>           <span class="s">&#34;関数名：&#34;</span> <span class="o">&amp;</span> <span class="n">FUNC_NAME</span> <span class="o">&amp;</span> _
+<span class="ln"> 87</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
+<span class="ln"> 88</span>           <span class="s">&#34;エラー番号：&#34;</span> <span class="o">&amp;</span> <span class="n">Err</span><span class="p">.</span><span class="n">Number</span> <span class="o">&amp;</span> <span class="n">vbNewLine</span> <span class="o">&amp;</span> _
+<span class="ln"> 89</span>           <span class="n">Err</span><span class="p">.</span><span class="n">Description</span><span class="p">,</span> <span class="n">vbCritical</span><span class="p">,</span> <span class="s">&#34;Access-Control-WithEvents&#34;</span>
+<span class="ln"> 90</span>        
+<span class="ln"> 91</span>    <span class="k">GoTo</span> <span class="n">ExitHandler</span>
+<span class="ln"> 92</span>        
+<span class="ln"> 93</span><span class="k">End</span> <span class="k">Sub</span>
+<span class="ln"> 94</span>
+<span class="ln"> 95</span>
+<span class="ln"> 96</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln"> 97</span><span class="c">&#39;*関数名    ：cmb_selectedRcd_AfterUpdate
+</span><span class="ln"> 98</span><span class="c">&#39;*機能      ：
+</span><span class="ln"> 99</span><span class="c">&#39;*引数(1)   ：
+</span><span class="ln">100</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln">101</span><span class="c"></span><span class="k">Private</span> <span class="k">Sub</span> <span class="nf">cmb_withEventsTest_AfterUpdate</span><span class="p">()</span>
+<span class="ln">102</span>    
+<span class="ln">103</span>    <span class="c">&#39;定数
+</span><span class="ln">104</span><span class="c"></span>    <span class="k">Const</span> <span class="n">FUNC_NAME</span> <span class="ow">As</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&#34;cmb_selectedRcd_AfterUpdate&#34;</span>
+<span class="ln">105</span>    
+<span class="ln">106</span>    <span class="c">&#39;変数
+</span><span class="ln">107</span><span class="c"></span>    
+<span class="ln">108</span>    <span class="k">On</span> <span class="k">Error</span> <span class="k">GoTo</span> <span class="n">ErrorHandler</span>
+<span class="ln">109</span>    
+<span class="ln">110</span>    <span class="c">&#39;ログに記入
+</span><span class="ln">111</span><span class="c"></span>    <span class="k">If</span> <span class="k">Not</span> <span class="n">M_EventLog</span><span class="p">.</span><span class="n">writeEventLogs</span><span class="p">(</span><span class="n">FUNC_NAME</span><span class="p">)</span> <span class="k">Then</span> <span class="k">GoTo</span> <span class="n">ExitHandler</span>
+<span class="ln">112</span>    <span class="k">If</span> <span class="k">Not</span> <span class="n">M_EventLog</span><span class="p">.</span><span class="n">writeEventLogs</span><span class="p">(</span><span class="s">&#34;&#34;&#34;&#34;</span> <span class="o">&amp;</span> <span class="k">Me</span><span class="p">.</span><span class="n">cmb_withEventsTest</span><span class="p">.</span><span class="n">Value</span> <span class="o">&amp;</span> <span class="s">&#34;&#34;&#34;&#34;</span> <span class="o">&amp;</span> <span class="s">&#34;Selected&#34;</span><span class="p">)</span> <span class="k">Then</span> <span class="k">GoTo</span> <span class="n">ExitHandler</span>
+<span class="ln">113</span>
+<span class="ln">114</span><span class="n">ExitHandler</span><span class="p">:</span>
+<span class="ln">115</span>
+<span class="ln">116</span>    <span class="k">Exit</span> <span class="k">Sub</span>
+<span class="ln">117</span>    
+<span class="ln">118</span><span class="nf">ErrorHandler</span><span class="p">:</span>
+<span class="ln">119</span>
+<span class="ln">120</span>    <span class="n">MsgBox</span> <span class="s">&#34;エラーが発生したため、マクロを終了します。&#34;</span> <span class="o">&amp;</span> _
+<span class="ln">121</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
+<span class="ln">122</span>           <span class="s">&#34;関数名：&#34;</span> <span class="o">&amp;</span> <span class="n">FUNC_NAME</span> <span class="o">&amp;</span> _
+<span class="ln">123</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
+<span class="ln">124</span>           <span class="s">&#34;エラー番号：&#34;</span> <span class="o">&amp;</span> <span class="n">Err</span><span class="p">.</span><span class="n">Number</span> <span class="o">&amp;</span> <span class="n">vbNewLine</span> <span class="o">&amp;</span> _
+<span class="ln">125</span>           <span class="n">Err</span><span class="p">.</span><span class="n">Description</span><span class="p">,</span> <span class="n">vbCritical</span><span class="p">,</span> <span class="s">&#34;Access-Control-WithEvents&#34;</span>
+<span class="ln">126</span>        
+<span class="ln">127</span>    <span class="k">GoTo</span> <span class="n">ExitHandler</span>
+<span class="ln">128</span>        
+<span class="ln">129</span><span class="k">End</span> <span class="k">Sub</span>
+<span class="ln">130</span>
+<span class="ln">131</span>
+<span class="ln">132</span><span class="c">&#39;Private Sub cmb_selectedRcd_KeyDown(KeyCode As Integer, Shift As Integer)
+</span><span class="ln">133</span><span class="c">&#39;&#39;
+</span><span class="ln">134</span><span class="c">&#39;End Sub
+</span><span class="ln">135</span><span class="c"></span>
+<span class="ln">136</span>
+<span class="ln">137</span>
+<span class="ln">138</span>
+</code></pre></div><p><br><br></p>
+<h4 id="クラスclscmblistener">クラス：clsCmbListener</h4>
+<div class="highlight"><pre class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span><span class="k">Option</span> <span class="n">Compare</span> <span class="n">Database</span>
+<span class="ln"> 2</span><span class="k">Option</span> <span class="n">Explicit</span>
+<span class="ln"> 3</span>
+<span class="ln"> 4</span><span class="c">&#39;**************************
+</span><span class="ln"> 5</span><span class="c">&#39;*コンボボックスイベントリスナー
+</span><span class="ln"> 6</span><span class="c">&#39;**************************
+</span><span class="ln"> 7</span><span class="c"></span>
+<span class="ln"> 8</span><span class="c">&#39;定数
+</span><span class="ln"> 9</span><span class="c"></span>
+<span class="ln">10</span><span class="c">&#39;変数
+</span><span class="ln">11</span><span class="c"></span><span class="k">Private</span> <span class="k">WithEvents</span> <span class="n">myComboBox</span> <span class="ow">As</span> <span class="n">Access</span><span class="p">.</span><span class="n">ComboBox</span>
+<span class="ln">12</span>
+<span class="ln">13</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln">14</span><span class="c">&#39;*getter/setter
+</span><span class="ln">15</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln">16</span><span class="c"></span><span class="k">Public</span> <span class="k">Property</span> <span class="nf">Set</span> <span class="n">ComboBox</span><span class="p">(</span><span class="k">ByRef</span> <span class="n">cmb</span> <span class="ow">As</span> <span class="n">Access</span><span class="p">.</span><span class="n">ComboBox</span><span class="p">)</span>
+<span class="ln">17</span>    <span class="k">Set</span> <span class="n">myComboBox</span> <span class="o">=</span> <span class="n">cmb</span>
+<span class="ln">18</span><span class="k">End</span> <span class="k">Property</span>
+<span class="ln">19</span>
+<span class="ln">20</span>
+<span class="ln">21</span>
+<span class="ln">22</span>
+<span class="ln">23</span>
+<span class="ln">24</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln">25</span><span class="c">&#39;*関数名    ：myComboBox_KeyDown
+</span><span class="ln">26</span><span class="c">&#39;*機能      ：キー入力を無効にする
+</span><span class="ln">27</span><span class="c">&#39;*引数(1)   ：
+</span><span class="ln">28</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln">29</span><span class="c"></span><span class="k">Private</span> <span class="k">Sub</span> <span class="nf">myComboBox_KeyDown</span><span class="p">(</span><span class="n">KeyCode</span> <span class="ow">As</span> <span class="kt">Integer</span><span class="p">,</span> <span class="n">Shift</span> <span class="ow">As</span> <span class="kt">Integer</span><span class="p">)</span>
+<span class="ln">30</span>    
+<span class="ln">31</span>    <span class="c">&#39;定数
+</span><span class="ln">32</span><span class="c"></span>    <span class="k">Const</span> <span class="n">FUNC_NAME</span> <span class="ow">As</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&#34;myComboBox_KeyDown&#34;</span>
+<span class="ln">33</span>    
+<span class="ln">34</span>    <span class="c">&#39;変数
+</span><span class="ln">35</span><span class="c"></span>    
+<span class="ln">36</span>    <span class="k">On</span> <span class="k">Error</span> <span class="k">GoTo</span> <span class="n">ErrorHandler</span>
+<span class="ln">37</span>    
+<span class="ln">38</span>    <span class="c">&#39;キー入力を無効にする(Enter/Tab/Esc以外)
+</span><span class="ln">39</span><span class="c"></span>    <span class="k">If</span> <span class="n">KeyCode</span> <span class="o">=</span> <span class="n">vbKeyReturn</span> <span class="k">Then</span> <span class="k">GoTo</span> <span class="n">ExitHandler</span>
+<span class="ln">40</span>    <span class="k">If</span> <span class="n">KeyCode</span> <span class="o">=</span> <span class="n">vbKeyTab</span> <span class="k">Then</span> <span class="k">GoTo</span> <span class="n">ExitHandler</span>
+<span class="ln">41</span>    <span class="k">If</span> <span class="n">KeyCode</span> <span class="o">=</span> <span class="n">vbKeyEscape</span> <span class="k">Then</span> <span class="k">GoTo</span> <span class="n">ExitHandler</span>
+<span class="ln">42</span>    
+<span class="ln">43</span>    <span class="n">KeyCode</span> <span class="o">=</span> <span class="n">0</span>
+<span class="ln">44</span>    
+<span class="ln">45</span>    <span class="k">If</span> <span class="k">Not</span> <span class="n">M_EventLog</span><span class="p">.</span><span class="n">writeEventLogs</span><span class="p">(</span><span class="n">FUNC_NAME</span><span class="p">)</span> <span class="k">Then</span> <span class="k">GoTo</span> <span class="n">ExitHandler</span>
+<span class="ln">46</span>    
+<span class="ln">47</span><span class="n">ExitHandler</span><span class="p">:</span>
+<span class="ln">48</span>
+<span class="ln">49</span>    <span class="k">Exit</span> <span class="k">Sub</span>
+<span class="ln">50</span>    
+<span class="ln">51</span><span class="nf">ErrorHandler</span><span class="p">:</span>
+<span class="ln">52</span>
+<span class="ln">53</span>    <span class="n">MsgBox</span> <span class="s">&#34;エラーが発生したため、マクロを終了します。&#34;</span> <span class="o">&amp;</span> _
+<span class="ln">54</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
+<span class="ln">55</span>           <span class="s">&#34;関数名：&#34;</span> <span class="o">&amp;</span> <span class="n">FUNC_NAME</span> <span class="o">&amp;</span> _
+<span class="ln">56</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
+<span class="ln">57</span>           <span class="s">&#34;エラー番号：&#34;</span> <span class="o">&amp;</span> <span class="n">Err</span><span class="p">.</span><span class="n">Number</span> <span class="o">&amp;</span> <span class="n">vbNewLine</span> <span class="o">&amp;</span> _
+<span class="ln">58</span>           <span class="n">Err</span><span class="p">.</span><span class="n">Description</span><span class="p">,</span> <span class="n">vbCritical</span><span class="p">,</span> <span class="s">&#34;Access-Control-WithEvents&#34;</span>
+<span class="ln">59</span>        
+<span class="ln">60</span>    <span class="k">GoTo</span> <span class="n">ExitHandler</span>
+<span class="ln">61</span>        
+<span class="ln">62</span><span class="k">End</span> <span class="k">Sub</span>
+<span class="ln">63</span>
+<span class="ln">64</span>
+</code></pre></div><p><br><br></p>
+<h4 id="モジュールm_eventlog">モジュール：M_EventLog</h4>
+<div class="highlight"><pre class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span><span class="k">Option</span> <span class="n">Compare</span> <span class="n">Database</span>
+<span class="ln"> 2</span><span class="k">Option</span> <span class="n">Explicit</span>
+<span class="ln"> 3</span>
+<span class="ln"> 4</span>
+<span class="ln"> 5</span><span class="c">&#39;**************************
+</span><span class="ln"> 6</span><span class="c">&#39;*イベントログModule
+</span><span class="ln"> 7</span><span class="c">&#39;**************************
+</span><span class="ln"> 8</span><span class="c"></span>
+<span class="ln"> 9</span><span class="c">&#39;定数
+</span><span class="ln">10</span><span class="c"></span>
+<span class="ln">11</span>
+<span class="ln">12</span><span class="c">&#39;変数
+</span><span class="ln">13</span><span class="c"></span><span class="k">Public</span> <span class="n">targetTxtBox</span> <span class="ow">As</span> <span class="n">Access</span><span class="p">.</span><span class="n">TextBox</span>
+<span class="ln">14</span>
+<span class="ln">15</span>
+<span class="ln">16</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln">17</span><span class="c">&#39;*関数名    ：writeEventLogs
+</span><span class="ln">18</span><span class="c">&#39;*機能      ：テキストボックスにイベントログを書き込む
+</span><span class="ln">19</span><span class="c">&#39;*引数(1)   ：記入文字列
+</span><span class="ln">20</span><span class="c">&#39;*戻り値    ：True &gt; 正常終了、False &gt; 異常終了
+</span><span class="ln">21</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln">22</span><span class="c"></span><span class="k">Public</span> <span class="k">Function</span> <span class="nf">writeEventLogs</span><span class="p">(</span><span class="k">ByVal</span> <span class="n">logTxt</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">)</span> <span class="ow">As</span> <span class="kt">Boolean</span>
+<span class="ln">23</span>    
+<span class="ln">24</span>    <span class="c">&#39;定数
+</span><span class="ln">25</span><span class="c"></span>    <span class="k">Const</span> <span class="n">FUNC_NAME</span> <span class="ow">As</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&#34;writeEventLogs&#34;</span>
+<span class="ln">26</span>    
+<span class="ln">27</span>    <span class="c">&#39;変数
+</span><span class="ln">28</span><span class="c"></span>    
+<span class="ln">29</span>    <span class="k">On</span> <span class="k">Error</span> <span class="k">GoTo</span> <span class="n">ErrorHandler</span>
+<span class="ln">30</span>
+<span class="ln">31</span>    <span class="n">writeEventLogs</span> <span class="o">=</span> <span class="k">False</span>
+<span class="ln">32</span>    
+<span class="ln">33</span>    <span class="k">If</span> <span class="n">Nz</span><span class="p">(</span><span class="n">targetTxtBox</span><span class="p">.</span><span class="n">Value</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">)</span> <span class="o">&lt;&gt;</span> <span class="s">&#34;&#34;</span> <span class="k">Then</span> <span class="n">targetTxtBox</span><span class="p">.</span><span class="n">Value</span> <span class="o">=</span> <span class="n">targetTxtBox</span><span class="p">.</span><span class="n">Value</span> <span class="o">&amp;</span> <span class="n">vbNewLine</span>
+<span class="ln">34</span>    <span class="n">targetTxtBox</span><span class="p">.</span><span class="n">Value</span> <span class="o">=</span> <span class="n">targetTxtBox</span><span class="p">.</span><span class="n">Value</span> <span class="o">&amp;</span> _
+<span class="ln">35</span>                         <span class="n">Now</span> <span class="o">&amp;</span> _
+<span class="ln">36</span>                         <span class="s">&#34; : &#34;</span> <span class="o">&amp;</span> _
+<span class="ln">37</span>                         <span class="n">logTxt</span>
+<span class="ln">38</span>    
+<span class="ln">39</span>    <span class="n">writeEventLogs</span> <span class="o">=</span> <span class="k">True</span>
+<span class="ln">40</span>    
+<span class="ln">41</span><span class="n">ExitHandler</span><span class="p">:</span>
+<span class="ln">42</span>
+<span class="ln">43</span>    <span class="k">Exit</span> <span class="k">Function</span>
+<span class="ln">44</span>    
+<span class="ln">45</span><span class="nf">ErrorHandler</span><span class="p">:</span>
+<span class="ln">46</span>
+<span class="ln">47</span>    <span class="n">MsgBox</span> <span class="s">&#34;エラーが発生したため、マクロを終了します。&#34;</span> <span class="o">&amp;</span> _
+<span class="ln">48</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
+<span class="ln">49</span>           <span class="s">&#34;関数名：&#34;</span> <span class="o">&amp;</span> <span class="n">FUNC_NAME</span> <span class="o">&amp;</span> _
+<span class="ln">50</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
+<span class="ln">51</span>           <span class="s">&#34;エラー番号：&#34;</span> <span class="o">&amp;</span> <span class="n">Err</span><span class="p">.</span><span class="n">Number</span> <span class="o">&amp;</span> <span class="n">vbNewLine</span> <span class="o">&amp;</span> _
+<span class="ln">52</span>           <span class="n">Err</span><span class="p">.</span><span class="n">Description</span><span class="p">,</span> <span class="n">vbCritical</span><span class="p">,</span> <span class="s">&#34;Access-Control-WithEvents&#34;</span>
+<span class="ln">53</span>        
+<span class="ln">54</span>    <span class="k">GoTo</span> <span class="n">ExitHandler</span>
+<span class="ln">55</span>        
+<span class="ln">56</span><span class="k">End</span> <span class="k">Function</span>
+<span class="ln">57</span>
+<span class="ln">58</span>
+<span class="ln">59</span>
+<span class="ln">60</span>
+</code></pre></div><h2 id="トラブル">トラブル</h2>
+<p>コンボボックスのKeyDownイベントは、WithEventsによって<br>
+[clsCmbListener]クラスのもつmyComboBox_KeyDown関数で補足され、<br>
+EnterやTabなどの一部のキー以外はキー入力が禁止されるはずである。</p>
+<p>ところが、コンボボックスに直接のキーボード入力ができてしまう。</p>
+<p><img src="./image02.gif" alt="入力できてしまう"></p>
+<p>さらに、テキストボックスに<br>
+myComboBox_KeyDown関数が呼出されたログが表示されていないため、<br>
+そもそもWithEventsの想定通りの動作が起こっていないことになる。</p>
+<p>ExcelのWithEventsの場合は、上に記したようなコードで動作したため、<br>
+しばらくどう対応したものか悩んだ。</p>
+<h2 id="解決方法">解決方法</h2>
+<h3 id="i-フォームモジュールの方にもkeydownイベント関数を追加する">i. フォームモジュールの方にもKeyDownイベント関数を追加する</h3>
+<h4 id="内容">内容</h4>
+<p>つまり、下記のように処理が空である関数を追加する。</p>
+<div class="highlight"><pre class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span><span class="k">Option</span> <span class="n">Compare</span> <span class="n">Database</span>
+<span class="ln"> 2</span><span class="k">Option</span> <span class="n">Explicit</span>
+<span class="ln"> 3</span>
+<span class="ln"> 4</span><span class="c">&#39;**************************
+</span><span class="ln"> 5</span><span class="c">&#39;*MainForm
+</span><span class="ln"> 6</span><span class="c">&#39;**************************
+</span><span class="ln"> 7</span><span class="c"></span>
+<span class="ln"> 8</span><span class="c">&#39;定数
+</span><span class="ln"> 9</span><span class="c"></span>
+<span class="ln">10</span>
+<span class="ln">11</span><span class="c">&#39;変数
+</span><span class="ln">12</span><span class="c"></span><span class="k">Private</span> <span class="n">objCmbListener</span> <span class="ow">As</span> <span class="n">clsCmbListener</span>
+<span class="ln">13</span>
+<span class="ln">14</span><span class="c">&#39;~~~~~~~~略~~~~~~~~
+</span><span class="ln">15</span><span class="c"></span>
+<span class="ln">16</span><span class="k">Private</span> <span class="k">Sub</span> <span class="nf">cmb_withEventsTest_KeyDown</span><span class="p">(</span><span class="n">KeyCode</span> <span class="ow">As</span> <span class="kt">Integer</span><span class="p">,</span> <span class="n">Shift</span> <span class="ow">As</span> <span class="kt">Integer</span><span class="p">)</span>
+<span class="ln">17</span><span class="c">&#39;
+</span><span class="ln">18</span><span class="c"></span><span class="k">End</span> <span class="k">Sub</span>
+</code></pre></div><p>こうすることで、<br>
+クラスのKeyDownイベントが呼出されるようになった。</p>
+<p><img src="./image03.gif" alt="キーボード入力が不可となった"></p>
+<h4 id="問題点">問題点</h4>
+<p>しかし、このやり方には問題がある。</p>
+<p>上記のcmb_withEventsTest_KeyDown関数は、<br>
+空欄のままだと<br>
+VBEのデバッグ-&gt;コンパイルを実行すると<br>
+VBEが不要とみなして自動的に削除してしまう。</p>
+<p>そのため、
+あえてコメント行をはさんで削除されないようにしているが、<br>
+コードとしてメンテナンス性に欠ける<br>
+（他の人がこのコードを見たときに、不要とみなして削除してしまうかもしれない）。</p>
+<div class="highlight"><pre class="chroma"><code class="language-vb" data-lang="vb"><span class="ln">1</span><span class="k">Private</span> <span class="k">Sub</span> <span class="nf">cmb_withEventsTest_KeyDown</span><span class="p">(</span><span class="n">KeyCode</span> <span class="ow">As</span> <span class="kt">Integer</span><span class="p">,</span> <span class="n">Shift</span> <span class="ow">As</span> <span class="kt">Integer</span><span class="p">)</span>
+<span class="ln">2</span><span class="c">&#39;
+</span><span class="ln">3</span><span class="c"></span><span class="k">End</span> <span class="k">Sub</span>
+</code></pre></div><h3 id="ii-comboboxオブジェクト変数のonkeydownプロパティにevent-procedureと設定する">ii. ComboBoxオブジェクト変数のOnKeyDownプロパティに[Event Procedure]と設定する</h3>
+<p><a href="https://stackoverflow.com/questions/23522230/creating-a-class-to-handle-access-form-control-events">参考にしたstackoverflow</a></p>
+<p>stackoverflow中の、</p>
+<div class="highlight"><pre class="chroma"><code class="language-vb" data-lang="vb"><span class="ln">1</span><span class="n">listener</span><span class="p">.</span><span class="n">ct</span><span class="p">.</span><span class="n">OnClick</span> <span class="o">=</span> <span class="s">&#34;[Event Procedure]&#34;</span>  <span class="c">&#39;&lt;------- Assigned the event handler
+</span></code></pre></div><p>の部分で、おそらくこの文言を追加すれば良いのかと思い、 <br>
+下記のように、クラスのmyComboBoxのsetterメソッドにおいて<br>
+コードに適用してみた。</p>
+<div class="highlight"><pre class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span><span class="k">Option</span> <span class="n">Compare</span> <span class="n">Database</span>
+<span class="ln"> 2</span><span class="k">Option</span> <span class="n">Explicit</span>
+<span class="ln"> 3</span>
+<span class="ln"> 4</span><span class="c">&#39;**************************
+</span><span class="ln"> 5</span><span class="c">&#39;*コンボボックスイベントリスナー
+</span><span class="ln"> 6</span><span class="c">&#39;**************************
+</span><span class="ln"> 7</span><span class="c"></span>
+<span class="ln"> 8</span><span class="c">&#39;定数
+</span><span class="ln"> 9</span><span class="c"></span>
+<span class="ln">10</span><span class="c">&#39;変数
+</span><span class="ln">11</span><span class="c"></span><span class="k">Private</span> <span class="k">WithEvents</span> <span class="n">myComboBox</span> <span class="ow">As</span> <span class="n">Access</span><span class="p">.</span><span class="n">ComboBox</span>
+<span class="ln">12</span>
+<span class="ln">13</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln">14</span><span class="c">&#39;*getter/setter
+</span><span class="ln">15</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln">16</span><span class="c"></span><span class="k">Public</span> <span class="k">Property</span> <span class="nf">Set</span> <span class="n">ComboBox</span><span class="p">(</span><span class="k">ByRef</span> <span class="n">cmb</span> <span class="ow">As</span> <span class="n">Access</span><span class="p">.</span><span class="n">ComboBox</span><span class="p">)</span>
+<span class="ln">17</span>    <span class="k">Set</span> <span class="n">myComboBox</span> <span class="o">=</span> <span class="n">cmb</span>
+<span class="ln">18</span>    <span class="n">myComboBox</span><span class="p">.</span><span class="n">OnKeyDown</span> <span class="o">=</span> <span class="s">&#34;[Event Procedure]&#34;</span>
+<span class="ln">19</span><span class="k">End</span> <span class="k">Property</span>
+<span class="ln">20</span>
+<span class="ln">21</span>
+<span class="ln">22</span><span class="c">&#39;~~~~~~~~~以下略~~~~~~~~
+</span><span class="ln">23</span><span class="c"></span>
+</code></pre></div><p>これで想定通りに動くようになった。</p>
+
+    
+      <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "learnerblog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+  </article>
+<aside class="sidebar">
+  <section class="sidebar_inner">
+    <h2>dede-20191130</h2>
+    <div>
+      VBAから入り、プログラミング、コンピュータ科学等を勉強中。
+    </div>
+    <a href='https://dede-20191130.github.io/learnerBlog/about/' class="button mt-1" role="button">Read More</a>
+    <h2 class="mt-4">Featured Posts</h2>
+    <ul>
+    
+    </ul>
+    <h2 class="mt-4">Recent Posts</h2>
+    <ul class="flex-column">
+      
+      <li>
+        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/05/own-excel-shortcut/" class="nav-link">[Excel VBA] 個人的に作業がはかどった自作Excelショートカット</a>
+      </li>
+      <li>
+        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/03/learn-by-podcast/" class="nav-link">Podcastを使っていろいろと勉強を始めたこと</a>
+      </li>
+      <li>
+        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/polymorphism-radiobutton/" class="nav-link">[Excel VBA]ポリモーフィズムを用いて、IF文を使わずラジオボタンごとの処理分岐を行う</a>
+      </li>
+      <li>
+        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/excel-a1-tool/" class="nav-link">[Excel VBA]選択フォルダ配下のエクセルブックの全シートでA1にカーソル移動させるツールを作成した</a>
+      </li>
+      <li>
+        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/10/30/ps-refinement-last/" class="nav-link">[Powershell] Windowsで更新日時が〇〇以降のファイルのパスの一覧を取得するには</a>
+      </li>
+      <li>
+        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/10/27/access-tabledef-tool/" class="nav-link">[Access VBA] デザインビューのテーブル定義を表形式でエクスポートするAccessツールを作成した</a>
+      </li>
+      <li>
+        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/10/25/access-tabledef/" class="nav-link">[Access VBA] デザインビューのテーブル定義を表形式でエクスポートする関数を作成した</a>
+      </li>
+    </ul> 
+    
+    
+    <div>
+      <h2 class="mt-4 taxonomy" id="archives-section">archives</h2>
+      <nav class="tags_nav">
+        <a href='https://dede-20191130.github.io/learnerBlog/archives/2020/' class="post_tag button button_translucent">
+          2020
+          <span class="button_tally">12</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/archives/2020-11/' class="post_tag button button_translucent">
+          2020-11
+          <span class="button_tally">5</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/archives/2020-10/' class="post_tag button button_translucent">
+          2020-10
+          <span class="button_tally">4</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/archives/2020-07/' class="post_tag button button_translucent">
+          2020-07
+          <span class="button_tally">3</span>
+        </a>
+        
+        
+      </nav>
+    </div>
+    
+    
+    
+    <div>
+      <h2 class="mt-4 taxonomy" id="categories-section">Categories</h2>
+      <nav class="tags_nav">
+        <a href='https://dede-20191130.github.io/learnerBlog/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/' class="post_tag button button_translucent">
+          プログラミング
+          <span class="button_tally">9</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/categories/%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3/' class="post_tag button button_translucent">
+          アプリケーション
+          <span class="button_tally">6</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/categories/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/' class="post_tag button button_translucent">
+          トラブルシューティング
+          <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/categories/%E8%AA%B2%E9%A1%8C%E8%A7%A3%E6%B1%BA/' class="post_tag button button_translucent">
+          課題解決
+          <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/categories/%E5%B7%A5%E5%AD%A6%E4%B8%80%E8%88%AC/' class="post_tag button button_translucent">
+          工学一般
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/categories/%E6%AD%B4%E5%8F%B2/' class="post_tag button button_translucent">
+          歴史
+          <span class="button_tally">1</span>
+        </a>
+        
+        
+      </nav>
+    </div>
+    
+    
+    
+    <div>
+      <h2 class="mt-4 taxonomy" id="tags-section">Tags</h2>
+      <nav class="tags_nav">
+        <a href='https://dede-20191130.github.io/learnerBlog/tags/vba/' class="post_tag button button_translucent">
+          VBA
+          <span class="button_tally">9</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C/' class="post_tag button button_translucent">
+          自作
+          <span class="button_tally">8</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/tags/excel/' class="post_tag button button_translucent">
+          EXCEL
+          <span class="button_tally">6</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/tags/access/' class="post_tag button button_translucent">
+          ACCESS
+          <span class="button_tally">4</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%83%84%E3%83%BC%E3%83%AB/' class="post_tag button button_translucent">
+          ツール
+          <span class="button_tally">4</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91/' class="post_tag button button_translucent">
+          オブジェクト指向
+          <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/tags/excel%E9%96%A2%E6%95%B0/' class="post_tag button button_translucent">
+          EXCEL関数
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/tags/powershell/' class="post_tag button button_translucent">
+          POWERSHELL
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E5%8B%95%E5%8C%96/' class="post_tag button button_translucent">
+          自動化
+          <span class="button_tally">1</span>
+        </a>
+        
+        
+      </nav>
+    </div>
+    
+    
+  </section>
+</aside>
+
+</div>
+    </main><svg width="0" height="0" class="hidden">
+  <symbol viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" id="facebook">
+    <path d="M437 0H75C33.648 0 0 33.648 0 75v362c0 41.352 33.648 75 75 75h151V331h-60v-90h60v-61c0-49.629 40.371-90 90-90h91v90h-91v61h91l-15 90h-76v181h121c41.352 0 75-33.648 75-75V75c0-41.352-33.648-75-75-75zm0 0"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18.001 18.001" id="twitter">
+    <path d="M15.891 4.013c.808-.496 1.343-1.173 1.605-2.034a8.68 8.68 0 0 1-2.351.861c-.703-.756-1.593-1.14-2.66-1.14-1.043 0-1.924.366-2.643 1.078a3.56 3.56 0 0 0-1.076 2.605c0 .309.039.585.117.819-3.076-.105-5.622-1.381-7.628-3.837-.34.601-.51 1.213-.51 1.846 0 1.301.549 2.332 1.645 3.089-.625-.053-1.176-.211-1.645-.47 0 .929.273 1.705.82 2.388a3.623 3.623 0 0 0 2.115 1.291c-.312.08-.641.118-.979.118-.312 0-.533-.026-.664-.083.23.757.664 1.371 1.291 1.841a3.652 3.652 0 0 0 2.152.743C4.148 14.173 2.625 14.69.902 14.69c-.422 0-.721-.006-.902-.038 1.697 1.102 3.586 1.649 5.676 1.649 2.139 0 4.029-.542 5.674-1.626 1.645-1.078 2.859-2.408 3.639-3.974a10.77 10.77 0 0 0 1.172-4.892v-.468a7.788 7.788 0 0 0 1.84-1.921 8.142 8.142 0 0 1-2.11.593z"
+      ></path>
+  </symbol>
+  <symbol aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="mail">
+    <path  d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="calendar">
+    <path d="M452 40h-24V0h-40v40H124V0H84v40H60C26.916 40 0 66.916 0 100v352c0 33.084 26.916 60 60 60h392c33.084 0 60-26.916 60-60V100c0-33.084-26.916-60-60-60zm20 412c0 11.028-8.972 20-20 20H60c-11.028 0-20-8.972-20-20V188h432v264zm0-304H40v-48c0-11.028 8.972-20 20-20h24v40h40V80h264v40h40V80h24c11.028 0 20 8.972 20 20v48z"></path>
+    <path d="M76 230h40v40H76zm80 0h40v40h-40zm80 0h40v40h-40zm80 0h40v40h-40zm80 0h40v40h-40zM76 310h40v40H76zm80 0h40v40h-40zm80 0h40v40h-40zm80 0h40v40h-40zM76 390h40v40H76zm80 0h40v40h-40zm80 0h40v40h-40zm80 0h40v40h-40zm80-80h40v40h-40z"></path>
+  </symbol>
+  <symbol viewBox="-21 0 512 512" xmlns="http://www.w3.org/2000/svg" id="yank">
+    <path d="M410.668 405.332H165.332c-32.363 0-58.664-26.3-58.664-58.664v-288c0-32.363 26.3-58.668 58.664-58.668h181.504c21.059 0 41.687 8.535 56.555 23.445l42.496 42.496c15.125 15.125 23.445 35.223 23.445 56.575v224.152c0 32.363-26.3 58.664-58.664 58.664zM165.332 32c-14.7 0-26.664 11.969-26.664 26.668v288c0 14.7 11.965 26.664 26.664 26.664h245.336c14.7 0 26.664-11.965 26.664-26.664V122.516c0-12.82-4.992-24.871-14.059-33.942l-42.496-42.496C371.84 37.121 359.488 32 346.836 32zm0 0"></path>
+    <path d="M314.668 512h-256C26.305 512 0 485.695 0 453.332V112c0-32.363 26.305-58.668 58.668-58.668h10.664c8.832 0 16 7.168 16 16s-7.168 16-16 16H58.668C43.968 85.332 32 97.301 32 112v341.332C32 468.032 43.969 480 58.668 480h256c14.7 0 26.664-11.969 26.664-26.668v-10.664c0-8.832 7.168-16 16-16s16 7.168 16 16v10.664c0 32.363-26.3 58.668-58.664 58.668zM368 181.332H208c-8.832 0-16-7.168-16-16s7.168-16 16-16h160c8.832 0 16 7.168 16 16s-7.168 16-16 16zm0 0"></path>
+    <path d="M368 245.332H208c-8.832 0-16-7.168-16-16s7.168-16 16-16h160c8.832 0 16 7.168 16 16s-7.168 16-16 16zm0 64H208c-8.832 0-16-7.168-16-16s7.168-16 16-16h160c8.832 0 16 7.168 16 16s-7.168 16-16 16zm0 0"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="github">
+    <path d="M255.968 5.329C114.624 5.329 0 120.401 0 262.353c0 113.536 73.344 209.856 175.104 243.872 12.8 2.368 17.472-5.568 17.472-12.384 0-6.112-.224-22.272-.352-43.712-71.2 15.52-86.24-34.464-86.24-34.464-11.616-29.696-28.416-37.6-28.416-37.6-23.264-15.936 1.728-15.616 1.728-15.616 25.696 1.824 39.2 26.496 39.2 26.496 22.848 39.264 59.936 27.936 74.528 21.344 2.304-16.608 8.928-27.936 16.256-34.368-56.832-6.496-116.608-28.544-116.608-127.008 0-28.064 9.984-51.008 26.368-68.992-2.656-6.496-11.424-32.64 2.496-68 0 0 21.504-6.912 70.4 26.336 20.416-5.696 42.304-8.544 64.096-8.64 21.728.128 43.648 2.944 64.096 8.672 48.864-33.248 70.336-26.336 70.336-26.336 13.952 35.392 5.184 61.504 2.56 68 16.416 17.984 26.304 40.928 26.304 68.992 0 98.72-59.84 120.448-116.864 126.816 9.184 7.936 17.376 23.616 17.376 47.584 0 34.368-.32 62.08-.32 70.496 0 6.88 4.608 14.88 17.6 12.352C438.72 472.145 512 375.857 512 262.353 512 120.401 397.376 5.329 255.968 5.329z"></path>
+  </symbol>
+  <symbol viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="rss">
+    <circle cx="3.429" cy="20.571" r="3.429"></circle>
+    <path d="M11.429 24h4.57C15.999 15.179 8.821 8.001 0 8v4.572c6.302.001 11.429 5.126 11.429 11.428z"></path>
+    <path d="M24 24C24 10.766 13.234 0 0 0v4.571c10.714 0 19.43 8.714 19.43 19.429z"></path>
+  </symbol>
+  <symbol viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" id="linkedin">
+    <path d="M437 0H75C33.648 0 0 33.648 0 75v362c0 41.352 33.648 75 75 75h362c41.352 0 75-33.648 75-75V75c0-41.352-33.648-75-75-75zM181 406h-60V196h60zm0-240h-60v-60h60zm210 240h-60V286c0-16.54-13.46-30-30-30s-30 13.46-30 30v120h-60V196h60v11.309C286.719 202.422 296.93 196 316 196c40.691.043 75 36.547 75 79.688zm0 0"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 612 612" id="arrow">
+    <path d="M604.501 440.509L325.398 134.956c-5.331-5.357-12.423-7.627-19.386-7.27-6.989-.357-14.056 1.913-19.387 7.27L7.499 440.509c-9.999 10.024-9.999 26.298 0 36.323s26.223 10.024 36.222 0l262.293-287.164L568.28 476.832c9.999 10.024 26.222 10.024 36.221 0 9.999-10.023 9.999-26.298 0-36.323z"></path>
+  </symbol>
+  <symbol viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" id="carly">
+    <path d="M504.971 239.029L448 182.059V84c0-46.317-37.682-84-84-84h-44c-13.255 0-24 10.745-24 24s10.745 24 24 24h44c19.851 0 36 16.149 36 36v108c0 6.365 2.529 12.47 7.029 16.971L454.059 256l-47.029 47.029A24.002 24.002 0 0 0 400 320v108c0 19.851-16.149 36-36 36h-44c-13.255 0-24 10.745-24 24s10.745 24 24 24h44c46.318 0 84-37.683 84-84v-98.059l56.971-56.971c9.372-9.372 9.372-24.568 0-33.941zM112 192V84c0-19.851 16.149-36 36-36h44c13.255 0 24-10.745 24-24S205.255 0 192 0h-44c-46.318 0-84 37.683-84 84v98.059l-56.971 56.97c-9.373 9.373-9.373 24.568 0 33.941L64 329.941V428c0 46.317 37.682 84 84 84h44c13.255 0 24-10.745 24-24s-10.745-24-24-24h-44c-19.851 0-36-16.149-36-36V320c0-6.365-2.529-12.47-7.029-16.971L57.941 256l47.029-47.029A24.002 24.002 0 0 0 112 192z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="copy">
+    <path d="M366.345 406.069H66.207c-9.751 0-17.655-7.904-17.655-17.655V17.655C48.552 7.904 56.456 0 66.207 0h300.138C376.096 0 384 7.904 384 17.655v370.759c0 9.751-7.904 17.655-17.655 17.655z" fill="#f1f4fb"></path>
+    <path d="M384 388.414v-76.992c-.907.322-1.869.494-2.751.882-6.307-6.593-14.733-11.025-24.111-11.964a40.49 40.49 0 0 0-8.448.039v-92.93c0-21.903-17.82-39.723-39.723-39.724a40.5 40.5 0 0 0-4.036.202c-20.012 2.004-35.689 19.916-35.689 40.781v101.773l-21.581 21.581c-15.241 15.241-21.393 36.866-16.456 57.847l3.802 16.16h131.338c9.75 0 17.655-7.905 17.655-17.655z"
+      fill="#d5dced"></path>
+    <circle cx="128" cy="105.931" r="26.483" fill="#b4e66e"></circle>
+    <circle cx="128" cy="203.034" r="26.483" fill="#dae169"></circle>
+    <circle cx="128" cy="300.138" r="26.483" fill="#ffdc64"></circle>
+    <path d="M331.034 229.517H189.793c-4.879 0-8.828-3.953-8.828-8.828s3.948-8.828 8.828-8.828h141.241c4.879 0 8.828 3.953 8.828 8.828s-3.948 8.828-8.828 8.828z" fill="#7f8499"></path>
+    <path d="M295.724 194.207H189.793a8.826 8.826 0 0 1-8.828-8.828 8.826 8.826 0 0 1 8.828-8.828h105.931a8.826 8.826 0 0 1 8.828 8.828 8.826 8.826 0 0 1-8.828 8.828z" fill="#5b5d6e"></path>
+    <path d="M331.034 326.621H189.793c-4.879 0-8.828-3.953-8.828-8.828s3.948-8.828 8.828-8.828h141.241c4.879 0 8.828 3.953 8.828 8.828s-3.948 8.828-8.828 8.828z" fill="#7f8499"></path>
+    <path d="M295.724 291.31H189.793c-4.879 0-8.828-3.953-8.828-8.828s3.948-8.828 8.828-8.828h105.931c4.879 0 8.828 3.953 8.828 8.828s-3.948 8.828-8.828 8.828z" fill="#5b5d6e"></path>
+    <path d="M331.034 132.414H189.793a8.826 8.826 0 0 1-8.828-8.828 8.826 8.826 0 0 1 8.828-8.828h141.241a8.826 8.826 0 0 1 8.828 8.828 8.826 8.826 0 0 1-8.828 8.828z" fill="#7f8499"></path>
+    <path d="M295.724 97.103H189.793a8.826 8.826 0 0 1-8.828-8.828 8.826 8.826 0 0 1 8.828-8.828h105.931a8.826 8.826 0 0 1 8.828 8.828 8.825 8.825 0 0 1-8.828 8.828z" fill="#5b5d6e"></path>
+    <path d="M443.656 335.563c-13.21-1.323-24.345 9.015-24.345 21.954v-7.569c0-11.544-8.306-22.063-19.794-23.213-13.209-1.323-24.344 9.015-24.344 21.954v-7.569c0-11.544-8.306-22.063-19.794-23.213-13.209-1.323-24.344 9.015-24.344 21.954V207.448c0-12.939-11.135-23.277-24.345-21.954-11.486 1.15-19.793 11.669-19.793 23.213v109.086l-26.752 26.752a44.14 44.14 0 0 0-11.754 41.32l18.47 78.495c6.567 27.913 31.475 47.64 60.15 47.64h74.645c34.127 0 61.793-27.666 61.793-61.793v-91.431c-.001-11.544-8.306-22.063-19.793-23.213z"
+      fill="#f0c087"></path>
+    <path d="M339.862 361.377a8.829 8.829 0 0 0 8.828-8.828v-34.194c-10.052 2.061-17.655 10.844-17.655 21.506v12.687a8.827 8.827 0 0 0 8.827 8.829zM384 370.205a8.829 8.829 0 0 0 8.828-8.828v-34.194c-10.052 2.061-17.655 10.844-17.655 21.506v12.687a8.827 8.827 0 0 0 8.827 8.829zm44.138 8.827a8.829 8.829 0 0 0 8.828-8.828V336.01c-10.052 2.061-17.655 10.844-17.655 21.506v12.687a8.827 8.827 0 0 0 8.827 8.829zM288.885 464.36l-20.467-86.985a28.482 28.482 0 0 1 7.585-26.663l10.893-10.894v22.113a8.829 8.829 0 0 0 17.656 0V185.933c-10.344 2.173-17.655 11.972-17.655 22.773v109.087l-26.752 26.752a44.14 44.14 0 0 0-11.754 41.32l18.47 78.495c6.567 27.913 31.475 47.64 60.15 47.64h22.026c-28.677 0-53.584-19.727-60.152-47.64z"
+      fill="#e6af78"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512.001 512.001" id="closeme">
+    <path d="M284.286 256.002L506.143 34.144c7.811-7.811 7.811-20.475 0-28.285-7.811-7.81-20.475-7.811-28.285 0L256 227.717 34.143 5.859c-7.811-7.811-20.475-7.811-28.285 0-7.81 7.811-7.811 20.475 0 28.285l221.857 221.857L5.858 477.859c-7.811 7.811-7.811 20.475 0 28.285a19.938 19.938 0 0 0 14.143 5.857 19.94 19.94 0 0 0 14.143-5.857L256 284.287l221.857 221.857c3.905 3.905 9.024 5.857 14.143 5.857s10.237-1.952 14.143-5.857c7.811-7.811 7.811-20.475 0-28.285L284.286 256.002z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="open-menu">
+    <path d="M492 236H20c-11.046 0-20 8.954-20 20s8.954 20 20 20h472c11.046 0 20-8.954 20-20s-8.954-20-20-20zm0-160H20C8.954 76 0 84.954 0 96s8.954 20 20 20h472c11.046 0 20-8.954 20-20s-8.954-20-20-20zm0 320H20c-11.046 0-20 8.954-20 20s8.954 20 20 20h472c11.046 0 20-8.954 20-20s-8.954-20-20-20z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="instagram">
+    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id=youtube>
+    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+  </symbol>
+</svg>
+<footer class="footer">
+  <div class="footer_inner wrap pale">
+    <img src='https://dede-20191130.github.io/learnerBlog/icons/apple-touch-icon.png' class="icon icon_2 transparent">
+    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;学習者のブログ　◆プログラミング等. All Rights Reserved</p><a class="to_top" href="#documentTop">
+  <svg class="icon">
+  <use xlink:href="#arrow"></use>
+</svg>
+</a>
+
+  </div>
+</footer>
+    <script type="text/javascript" src="https://dede-20191130.github.io/learnerBlog/js/bundle.min.ffed9b74e404b9690cff8e7d385df3c00c8d672ca1e0a81a6b97d821afd6c2b32da1a9200082366229f536baf22ec19dbd389d77f11eb43b554b00d65b563b61.js" integrity="sha512-/&#43;2bdOQEuWkM/459OF3zwAyNZyyh4Kgaa5fYIa/WwrMtoakgAII2Yin1NrryLsGdvTidd/EetDtVSwDWW1Y7YQ==" crossorigin="anonymous"></script>
+    
+  </body>
+</html>

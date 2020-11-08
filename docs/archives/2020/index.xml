@@ -6,7 +6,29 @@
     <description>Recent content in 2020 on 学習者のブログ　◆プログラミング等</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 05 Nov 2020 00:48:58 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/archives/2020/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 Nov 2020 10:26:29 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/archives/2020/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Access VBA] フォームのコントロールに対してWithEventsでイベントリスナークラスを作成する際に気をつけなければならないこと</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/08/access-control-withevents/</link>
+      <pubDate>Sun, 08 Nov 2020 10:26:29 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/08/access-control-withevents/</guid>
+      <description>この記事について Accessでフォーム上のコントロール（テキストボックス、コンボボックスなど）で、 イベント処理を共通化するためにWithEventsステートメントを用いてイベントリスナークラスを作成することを考える。
+その際に、ExcelでWitheventsを使用するときと同じようなコードで作成すると、
+せっかく設定したクラス側のイベントが発火してくれない事態が生じた。
+その事例と、講じた対策二種類について記したい。
+説明のために作成したAccessファイルとソースコードはこちらでダウンロードできます。
+事例 次のような画面とコードで、
+丸囲みのコンボボックスをキーボード入力できないようにする。 （先に正常に動かないコードのほうを示す）
+共通化のために、
+コンボボックスのKeyDownイベント関数をクラス化する。
+検証のために、コンボボックスのイベント発火をトレースし、
+テキストボックスにログを出力できるようにした。
+画面 オブジェクトのプロパティ    名前 種類 説明     cmb_withEventsTest コンボボックス 直接のキーボード入力を禁止する   txt_EventLog テキストボックス コンボボックスの
+イベントログが表示される    コード 下記コードは正常に動かない（myComboBox_KeyDown関数が発火しない）
+フォームモジュール：MainForm 1Option Compare Database 2Option Explicit 3 4&amp;#39;************************** 5&amp;#39;*MainForm 6&amp;#39;************************** 7 8&amp;#39;定数 9 10 11&amp;#39;変数 12Private objCmbListener As clsCmbListener 13 14 15 16&amp;#39;****************************************************************************************** 17&amp;#39;*getter/setter 18&amp;#39;****************************************************************************************** 19 20 21 22 23&amp;#39;****************************************************************************************** 24&amp;#39;*関数名 ：Form_Load 25&amp;#39;*機能 ： 26&amp;#39;*引数(1) ： 27&amp;#39;****************************************************************************************** 28Private Sub Form_Load() 29 30 &amp;#39;定数 31 Const FUNC_NAME As String = &amp;#34;Form_Load&amp;#34; 32 33 &amp;#39;変数 34 Dim dicInfo As Object 35 36 On Error GoTo ErrorHandler 37 38 &amp;#39;イベントクラス設定 39 Set objCmbListener = New clsCmbListener: Set objCmbListener.</description>
+    </item>
+    
     <item>
       <title>[Excel VBA] 個人的に作業がはかどった自作Excelショートカット</title>
       <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/05/own-excel-shortcut/</link>

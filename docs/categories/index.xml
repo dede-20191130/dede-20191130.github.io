@@ -6,22 +6,31 @@
     <description>Recent content in Categories on 学習者のブログ　◆プログラミング等</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 05 Nov 2020 00:48:58 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 Nov 2020 10:26:29 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>アプリケーション</title>
-      <link>https://dede-20191130.github.io/learnerBlog/categories/%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3/</link>
-      <pubDate>Thu, 05 Nov 2020 00:48:58 +0900</pubDate>
+      <title>トラブルシューティング</title>
+      <link>https://dede-20191130.github.io/learnerBlog/categories/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/</link>
+      <pubDate>Sun, 08 Nov 2020 10:26:29 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/categories/%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3/</guid>
+      <guid>https://dede-20191130.github.io/learnerBlog/categories/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/</guid>
       <description></description>
     </item>
     
     <item>
       <title>プログラミング</title>
       <link>https://dede-20191130.github.io/learnerBlog/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</link>
-      <pubDate>Thu, 05 Nov 2020 00:48:58 +0900</pubDate>
+      <pubDate>Sun, 08 Nov 2020 10:26:29 +0900</pubDate>
       
       <guid>https://dede-20191130.github.io/learnerBlog/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>アプリケーション</title>
+      <link>https://dede-20191130.github.io/learnerBlog/categories/%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3/</link>
+      <pubDate>Thu, 05 Nov 2020 00:48:58 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/categories/%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3/</guid>
       <description></description>
     </item>
     
@@ -49,15 +58,6 @@
       <pubDate>Fri, 30 Oct 2020 00:00:04 +0900</pubDate>
       
       <guid>https://dede-20191130.github.io/learnerBlog/categories/%E8%AA%B2%E9%A1%8C%E8%A7%A3%E6%B1%BA/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>トラブルシューティング</title>
-      <link>https://dede-20191130.github.io/learnerBlog/categories/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/</link>
-      <pubDate>Tue, 13 Oct 2020 09:37:47 +0900</pubDate>
-      
-      <guid>https://dede-20191130.github.io/learnerBlog/categories/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/</guid>
       <description></description>
     </item>
     
