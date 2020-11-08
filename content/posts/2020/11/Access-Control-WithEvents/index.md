@@ -186,12 +186,6 @@ ErrorHandler:
 End Sub
 
 
-'Private Sub cmb_selectedRcd_KeyDown(KeyCode As Integer, Shift As Integer)
-''
-'End Sub
-
-
-
 
 ```
 
