@@ -6,7 +6,36 @@
     <description>Recent content in 2020 on 学習者のブログ　◆プログラミング等</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 08 Nov 2020 10:26:29 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/archives/2020/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 10 Nov 2020 22:41:51 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/archives/2020/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Podcastで語られていた西洋世界・中国・日本の皇帝の特徴と違い</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/10/difference-between-emperor/</link>
+      <pubDate>Tue, 10 Nov 2020 22:41:51 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/10/difference-between-emperor/</guid>
+      <description>この記事について こちらのPodcast番組で
+西洋の皇帝と東洋の皇帝について意味の違いや成り立ちが説明されていた。
+         オカモトの歴史実況中継
+「王室」で読み解く世界史 #2 ヨーロッパの皇帝たち（link）     東西の皇帝に違いがあるなんて知らなかったため、興味深かった。
+自分なりに表にまとめてみようと思う。
+表にまとめた   西洋世界の皇帝 中華世界の皇帝 日本の天皇   出自 古代ローマのユリウス・カエサル
+彼の死後、「カエサル」という言葉自体が皇帝（emperor）という言葉の語源となった。 始皇帝が自称し始めたことから始まる。
+古代中国の始祖たる「三皇五帝」にちなんだ。 聖徳太子が遣唐使に国書をもたせた際に
+「日出ずる処の天子」などの
+天子・天皇を意味する言葉で日本の王を現した。   役割 元老院の第一人者。
+専制君主的な意味はもともと無かった。
+また、王よりも上であるという立場ではない。 春秋戦国時代を乗り越えて
+中華世界最初の統一国家である秦の始皇帝は、
+複数の民族のそれぞれの諸侯の王の「上」に立つ、王の中の王という役割を自負した。 日本という単一民族の中の支配者であるため、役割としては他の土地の「王」に近い。   血縁関係・
+血統 カエサルの意志を継ぐものという立場上、
+先代皇帝の血縁関係の者しか皇帝になれないなどということはなく、優秀な者が帝位を引き継いだ。 血縁関係が最重視され、絶対的な権力を持つという性質上苛烈な皇位争いが繰り広げられた。 万世一系という言葉が表すように、血縁を持たなければ天皇になることはできない。   変遷 西ローマ帝国・東ローマ帝国、
+それらの流れを継いだ国々が各自で皇帝を擁立し、ローマの正当なる後継国を名乗った。
+15世紀にハプスブルク家が勃興すると、皇帝の役は彼ら有力者のうちうちで回すようになり、
+血統主義の面が生まれた。 共和制である中華民国が清国を倒すことにより、
+中華世界における皇帝は終わった。 現在に至るまでその立場は続いている。   
+ナポレオンという男 彼はフランス国王ではなく皇帝の座についた。</description>
+    </item>
+    
     <item>
       <title>[Access VBA] フォームのコントロールに対してWithEventsでイベントリスナークラスを作成する際に気をつけなければならないこと</title>
       <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/08/access-control-withevents/</link>
