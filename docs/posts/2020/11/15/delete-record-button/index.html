@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
-<html lang="ja" data-figures="">
-  <head>  <title>Tags | 学習者のブログ　◆プログラミング等</title>
+<html lang="ja" data-figures="" class="page">
+  <head>  <title>[Access VBA] サブフォーム上のレコードを挿入、削除する簡単なサンプル | 学習者のブログ　◆プログラミング等</title>
   <meta charset="utf-8">
   <meta name="generator" content="Hugo 0.76.0" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -13,16 +13,25 @@
   gtag('js', new Date());
   gtag('config', 'UA-110309082-3');
 </script>
+  
 <meta property="og:locale" content="ja" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="">
+<meta name="description" content="この記事について 作成動機は、
+下記の記事で起こっていたカレントレコードなしエラー(エラー番号:3021)のケースが
+サブフォームにおいても起こるかどうかを確かめたかったため。
+■T&#39;sWare Access Tips #674 ～フォームを閉じるときのカレントレコードなしエラーの回避法～
+サブフォームに対するレコード …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="@D20191130">
-<meta name="twitter:title" content="Tags" />
-<meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/tags/" />
-<meta property="og:title" content="Tags" />
-<meta property="og:description" content="" />
+<meta name="twitter:title" content="[Access VBA] サブフォーム上のレコードを挿入、削除する簡単なサンプル" />
+<meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/posts/2020/11/15/delete-record-button/" />
+<meta property="og:title" content="[Access VBA] サブフォーム上のレコードを挿入、削除する簡単なサンプル" />
+<meta property="og:description" content="この記事について 作成動機は、
+下記の記事で起こっていたカレントレコードなしエラー(エラー番号:3021)のケースが
+サブフォームにおいても起こるかどうかを確かめたかったため。
+■T&#39;sWare Access Tips #674 ～フォームを閉じるときのカレントレコードなしエラーの回避法～
+サブフォームに対するレコード …" />
 <meta property="og:image" content="https://dede-20191130.github.io/learnerBlog/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://dede-20191130.github.io/learnerBlog/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://dede-20191130.github.io/learnerBlog/icons/favicon-32x32.png'>
@@ -32,7 +41,7 @@
 <meta name="msapplication-TileColor" content="#002538">
 <meta name="theme-color" content="#002538">
 
-  <link rel="canonical" href="https://dede-20191130.github.io/learnerBlog/tags/">
+  <link rel="canonical" href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/15/delete-record-button/">
 
     
 
@@ -109,230 +118,111 @@
 </header>
 
     <main>
-
+  
 <div class="grid-inverse wrap content">
-  <ul class="posts" id="posts">
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/tags/access/">Access</a>
-      </h3>
-      <div class="post_meta">
+  <article class="post_content">
+    <h1 class="post_title">[Access VBA] サブフォーム上のレコードを挿入、削除する簡単なサンプル</h1><div class="post_meta">
   <svg class="icon">
   <use xlink:href="#calendar"></use>
 </svg>
   <span class="post_date">
     Nov 15, 2020</span>
+  <a href='https://dede-20191130.github.io/learnerBlog/tags/access' class="post_tag button button_translucent">Access
+  </a>
+  <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' class="post_tag button button_translucent">VBA
+  </a>
+  <a href='https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C' class="post_tag button button_translucent">自作
+  </a>
 </div>
 
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale"></p>
-          <a href="https://dede-20191130.github.io/learnerBlog/tags/access/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/tags/vba/">VBA</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
+    
+<div class="post_share">
+  Share on:
+  <a href="https://twitter.com/intent/tweet?text=%5bAccess%20VBA%5d%20%e3%82%b5%e3%83%96%e3%83%95%e3%82%a9%e3%83%bc%e3%83%a0%e4%b8%8a%e3%81%ae%e3%83%ac%e3%82%b3%e3%83%bc%e3%83%89%e3%82%92%e6%8c%bf%e5%85%a5%e3%80%81%e5%89%8a%e9%99%a4%e3%81%99%e3%82%8b%e7%b0%a1%e5%8d%98%e3%81%aa%e3%82%b5%e3%83%b3%e3%83%97%e3%83%ab&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f11%2f15%2fdelete-record-button%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
+    <svg class="icon">
+  <use xlink:href="#twitter"></use>
 </svg>
-  <span class="post_date">
-    Nov 15, 2020</span>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale"></p>
-          <a href="https://dede-20191130.github.io/learnerBlog/tags/vba/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C/">自作</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
+  </a>
+  <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f11%2f15%2fdelete-record-button%2f&t=%5bAccess%20VBA%5d%20%e3%82%b5%e3%83%96%e3%83%95%e3%82%a9%e3%83%bc%e3%83%a0%e4%b8%8a%e3%81%ae%e3%83%ac%e3%82%b3%e3%83%bc%e3%83%89%e3%82%92%e6%8c%bf%e5%85%a5%e3%80%81%e5%89%8a%e9%99%a4%e3%81%99%e3%82%8b%e7%b0%a1%e5%8d%98%e3%81%aa%e3%82%b5%e3%83%b3%e3%83%97%e3%83%ab" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
+    <svg class="icon">
+  <use xlink:href="#facebook"></use>
 </svg>
-  <span class="post_date">
-    Nov 15, 2020</span>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale"></p>
-          <a href="https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/tags/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91/">オブジェクト指向</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
+  </a>
+  <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
+    <svg class="icon">
+  <use xlink:href="#linkedin"></use>
 </svg>
-  <span class="post_date">
-    Nov 8, 2020</span>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale"></p>
-          <a href="https://dede-20191130.github.io/learnerBlog/tags/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/tags/excel/">Excel</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
+  </a>
+  <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/15/delete-record-button/" title="Copy Link" class="link link_yank">
+    <svg class="icon">
+  <use xlink:href="#yank"></use>
 </svg>
-  <span class="post_date">
-    Nov 5, 2020</span>
+  </a>
 </div>
 
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale"></p>
-          <a href="https://dede-20191130.github.io/learnerBlog/tags/excel/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/tags/%E3%83%84%E3%83%BC%E3%83%AB/">ツール</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Nov 1, 2020</span>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale"></p>
-          <a href="https://dede-20191130.github.io/learnerBlog/tags/%E3%83%84%E3%83%BC%E3%83%AB/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/tags/powershell/">Powershell</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Oct 30, 2020</span>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale"></p>
-          <a href="https://dede-20191130.github.io/learnerBlog/tags/powershell/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E5%8B%95%E5%8C%96/">自動化</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Jul 18, 2020</span>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale"></p>
-          <a href="https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E5%8B%95%E5%8C%96/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/tags/excel%E9%96%A2%E6%95%B0/">Excel関数</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Jul 16, 2020</span>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale"></p>
-          <a href="https://dede-20191130.github.io/learnerBlog/tags/excel%E9%96%A2%E6%95%B0/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-    <li>
-
-
-    </li>
+    
+    
+    <h2>Overview</h2>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#この記事について">この記事について</a></li>
+    <li><a href="#作成環境">作成環境</a></li>
+    <li><a href="#動画">動画</a></li>
+    <li><a href="#終わりに">終わりに</a></li>
   </ul>
+</nav>
+    <h2 id="この記事について">この記事について</h2>
+<p>作成動機は、<br>
+下記の記事で起こっていたカレントレコードなしエラー(エラー番号:3021)のケースが<br>
+サブフォームにおいても起こるかどうかを確かめたかったため。</p>
+<p><a href="https://tsware.jp/tips/tips_674.htm">■T'sWare Access Tips #674 ～フォームを閉じるときのカレントレコードなしエラーの回避法～</a></p>
+<p>サブフォームに対するレコード削除機能をもたせたテストファイルを作成した。</p>
+<p>・・・結果は、サブフォームの場合ではエラーは起こらなかった。<br>
+しかし、上記サイト様のほうで</p>
+<blockquote>
+<p>ただし、そのような処理をすると常に発生するわけではなく、<br>
+テーブル/クエリやフォームとのいろいろな条件が揃ったときに発生するようで、<br>
+かなり似た構成の作りであってもエラーが発生しないこともあります。<br>
+またAccessのバージョンやビルドなど一時的な問題の可能性もあります。</p>
+</blockquote>
+<p>とあるように、たまたま私のオブジェクト構成・コードでは起こらなかっただけかもしれない。</p>
+<p>せっかくなので、レコード挿入機能も追加し、<br>
+レコードを挿入、削除する簡単なサンプルコードを持つファイルとして作成し直した。</p>
+<p><a href="https://github.com/dede-20191130/My_VBA_Tools/tree/master/Public/2020/11/Delete-Record-Button"><span id="srcURL"><u>ファイルはこちらからダウンロードできます（LINK）。<br>
+また、ソースコードもこちらに置いてあります。</u></span></a></p>
+<h2 id="作成環境">作成環境</h2>
+<p>Windows10<br>
+MSOffice 2019</p>
+<h2 id="動画">動画</h2>
+<p>こんな感じ。</p>
+<p><img src="./image01.gif" alt="挿入サンプル"></p>
+<p><img src="./image02.gif" alt="削除サンプル"></p>
+<h2 id="終わりに">終わりに</h2>
+<p>詳細な動きは、<a href="#srcURL">ソースコード</a>を参照ください。</p>
+
+    
+      <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "learnerblog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+  </article>
 <aside class="sidebar">
   <section class="sidebar_inner">
     <h2>dede-20191130</h2>
@@ -347,9 +237,6 @@
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       
-      <li>
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/15/delete-record-button/" class="nav-link">[Access VBA] サブフォーム上のレコードを挿入、削除する簡単なサンプル</a>
-      </li>
       <li>
         <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/10/difference-between-emperor/" class="nav-link">Podcastで語られていた西洋世界・中国・日本の皇帝の特徴と違い</a>
       </li>
@@ -499,8 +386,6 @@
 </aside>
 
 </div>
-
-
     </main><svg width="0" height="0" class="hidden">
   <symbol viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" id="facebook">
     <path d="M437 0H75C33.648 0 0 33.648 0 75v362c0 41.352 33.648 75 75 75h151V331h-60v-90h60v-61c0-49.629 40.371-90 90-90h91v90h-91v61h91l-15 90h-76v181h121c41.352 0 75-33.648 75-75V75c0-41.352-33.648-75-75-75zm0 0"></path>
