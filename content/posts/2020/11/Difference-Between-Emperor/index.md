@@ -5,7 +5,7 @@ date: 2020-11-10T22:41:51+09:00
 slug: Difference-Between-Emperor
 draft: false
 toc: true
-tags: []
+tags: ['歴史一般']
 categories: ['歴史']
 archives:
     - 2020
