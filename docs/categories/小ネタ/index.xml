@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>小ネタ on 学習者のブログ　◆プログラミング等</title>
+    <link>https://dede-20191130.github.io/learnerBlog/categories/%E5%B0%8F%E3%83%8D%E3%82%BF/</link>
+    <description>Recent content in 小ネタ on 学習者のブログ　◆プログラミング等</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sun, 15 Nov 2020 02:41:13 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/categories/%E5%B0%8F%E3%83%8D%E3%82%BF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[小ネタ] ExcelやAccessのフォームがWindows10の録画機能で録画できない。　そんなときは・・・</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/15/msoffice-form-capture/</link>
+      <pubDate>Sun, 15 Nov 2020 02:41:13 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/15/msoffice-form-capture/</guid>
+      <description>この記事について Windows10には録画機能（名称：ゲームバー）があり、
+通常のアプリケーションであればこれで録画が可能である。
+ところが、
+ExcelやAccessのフォームはなぜか画面判定されず、
+録画ができないことがわかった。
+（ゲームバーで範囲指定による録画ができない。
+もしできるようになる設定があれば教えてほしいです。）
+そのため、いろいろ模索していたが、
+PowerPointの録画機能でフォームを録画できたため、ここに記したい。
+方法 i. PowerPointを開く ii. 挿入タブ-&amp;gt;画面録画を選択 iii. 録画範囲を選択し、録画ボタンを押す iv. スライドショーに保存された動画を保存する サンプル こちらで紹介しているファイルのgifは
+上の方法で作成された動画を元にしている。
+（mp4動画のgif化はffmpegを使用した）
+[Access VBA] フォームのコントロールに対してWithEventsでイベントリスナークラスを作成する際に気をつけなければならないこと</description>
+    </item>
+    
+  </channel>
+</rss>
