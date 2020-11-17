@@ -51,9 +51,10 @@ hugoコマンドで生成するファイルに
 
 ## 作成環境
 
-Windows10  
-git version 2.29.2.windows.2  
-Hugo Static Site Generator v0.76.0/extended windows/amd64
+- Windows10
+- git version 2.29.2.windows.2  
+- Hugo Static Site Generator v0.76.0/extended windows/amd64
+
 
 ## コードとその内容
 ### コード
