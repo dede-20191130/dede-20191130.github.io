@@ -5,6 +5,7 @@ date: {{ .Date }}
 slug: foobar
 draft: true
 toc: true
+featured: false
 tags: []
 categories: []
 archives:
