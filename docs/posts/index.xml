@@ -13,7 +13,7 @@
       <pubDate>Tue, 17 Nov 2020 10:00:34 +0900</pubDate>
       
       <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/17/script-hugo-commit/</guid>
-      <description>この記事について Hugoによるブログのデプロイまでの流れ このブログはHugoという静的サイトジェネレータで管理している。
+      <description>この記事について Hugoによるブログ記事作成のデプロイまでの流れ このブログはHugoという静的サイトジェネレータで管理している。
 デプロイ先は、
 GitHub Pagesという、GitHubに対して静的なウェブサイトをホスティングできるサービス。
 大まかにはこのような流れ。
