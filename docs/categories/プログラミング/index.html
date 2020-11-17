@@ -38,12 +38,12 @@
 
     
     
-    <link rel="preload" href="https://dede-20191130.github.io/learnerBlog/css/styles.d319dcbc396d2779ebc0dba44b1cbf18cafe50c539cffd0b31d1e8546d1b059471ee0edc969247e647ee2c3e5993f035d1a5e9b893dcac3e23adf3b74a1e04e3.css" integrity = "sha512-0xncvDltJ3nrwNukSxy/GMr&#43;UMU5z/0LMdHoVG0bBZRx7g7clpJH5kfuLD5Zk/A10aXpuJPcrD4jrfO3Sh4E4w==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://dede-20191130.github.io/learnerBlog/css/styles.53b86b230641c38c212999a8d81f7b4ba03d11dfff80f7578eff07ba511f14b55a7a5a7197c97abb56448be77985ccf22a516d38d4997ee0388b2f63ebdd1396.css" integrity = "sha512-U7hrIwZBw4whKZmo2B97S6A9Ed//gPdXjv8HulEfFLVaelpxl8l6u1ZEi&#43;d5hczyKlFtONSZfuA4iy9j690Tlg==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://dede-20191130.github.io/learnerBlog/js/bundle.min.ffed9b74e404b9690cff8e7d385df3c00c8d672ca1e0a81a6b97d821afd6c2b32da1a9200082366229f536baf22ec19dbd389d77f11eb43b554b00d65b563b61.js" as="script" integrity=
     "sha512-/&#43;2bdOQEuWkM/459OF3zwAyNZyyh4Kgaa5fYIa/WwrMtoakgAII2Yin1NrryLsGdvTidd/EetDtVSwDWW1Y7YQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://dede-20191130.github.io/learnerBlog/css/styles.d319dcbc396d2779ebc0dba44b1cbf18cafe50c539cffd0b31d1e8546d1b059471ee0edc969247e647ee2c3e5993f035d1a5e9b893dcac3e23adf3b74a1e04e3.css" integrity="sha512-0xncvDltJ3nrwNukSxy/GMr&#43;UMU5z/0LMdHoVG0bBZRx7g7clpJH5kfuLD5Zk/A10aXpuJPcrD4jrfO3Sh4E4w==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://dede-20191130.github.io/learnerBlog/css/styles.53b86b230641c38c212999a8d81f7b4ba03d11dfff80f7578eff07ba511f14b55a7a5a7197c97abb56448be77985ccf22a516d38d4997ee0388b2f63ebdd1396.css" integrity="sha512-U7hrIwZBw4whKZmo2B97S6A9Ed//gPdXjv8HulEfFLVaelpxl8l6u1ZEi&#43;d5hczyKlFtONSZfuA4iy9j690Tlg==" crossorigin="anonymous">
     
   </head>
   
@@ -112,6 +112,47 @@
 
 <div class="grid-inverse wrap content">
   <ul class="posts" id="posts">
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
+        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/17/script-hugo-commit/">[Hugo] Hugoで生成されるデプロイ対象ファイルのコミットまでをスクリプトで一括処理にした</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Nov 17, 2020</span>
+  <a href='https://dede-20191130.github.io/learnerBlog/tags/hugo' class="post_tag button button_translucent">Hugo
+  </a>
+  <a href='https://dede-20191130.github.io/learnerBlog/tags/git' class="post_tag button button_translucent">Git
+  </a>
+  <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88' class="post_tag button button_translucent">スクリプト
+  </a>
+  <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%82%B7%E3%82%A7%E3%83%AB%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88' class="post_tag button button_translucent">シェルスクリプト
+  </a>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">この記事について Hugoによるブログのデプロイまでの流れ このブログはHugoという静的サイトジェネレータで管理している。
+デプロイ先は、
+GitHub Pagesという、GitHubに対して静的なウェブサイトをホスティングできるサービス。
+大まかにはこのような流れ。
+Hugoの記事ファイル等を作成・編集する。 hugoコマンドを用いてhtmlファイル等を自動生成する。 gitでコミットする。 GitHubのリポジトリにプッシュして
+ブログを公開する。  コマンドの実行やファイルの管理のターミナルは
+git bashを使用している。
+コミットメッセージは必要か？ このとき、
+hugoコマンドで生成するファイルに
+いちいち丁寧なコミ …</p>
+          <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/17/script-hugo-commit/" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
       <li class="post_item">
   <div class="excerpt">
     <div class="excerpt_header">
@@ -454,48 +495,27 @@ MSOffice 2016
     </div>
   </li>
 
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/07/16/cmpr-tools/">Excelのツール開発：関数（非マクロ）ツールとVBA使用ツールの比較</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Jul 16, 2020</span>
-  <a href='https://dede-20191130.github.io/learnerBlog/tags/excel' class="post_tag button button_translucent">Excel
-  </a>
-  <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' class="post_tag button button_translucent">VBA
-  </a>
-  <a href='https://dede-20191130.github.io/learnerBlog/tags/excel%E9%96%A2%E6%95%B0' class="post_tag button button_translucent">Excel関数
-  </a>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">この記事について Excelでデータ管理したりドキュメントを出力したりするツール（機能の多寡を問わず）を作成しようとする際に、
-大別すると、次のような選択肢があるかと思われる。
- 関数（マクロを使用しない。標準搭載の関数のみで実装）ツール VBA使用ツール  それぞれにメリット・デメリットがあるが、
-個人的な見解として
-それらをまとめてみたい。
-サマリ（表） 最初にまとめとして表を記す。
-    関数（非マクロ）ツール   VBAツール     開発難度   低   高     自由度   低   高     できること   データの管理（手入力、
-データベースとの連携）
-帳票等成果物の出力
-・プリンター印刷
-・PDF
-メール作 …</p>
-          <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/07/16/cmpr-tools/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
     <li>
+<ul class="pagination">
+  <li class="page-item">
+    <a href="/learnerBlog/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+  </li>
+  <li class="page-item disabled">
+    <a  class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+  </li>
+  <li class="page-item active">
+    <a class="page-link" href="/learnerBlog/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">1</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/learnerBlog/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/page/2/">2</a>
+  </li>
+  <li class="page-item">
+    <a href="/learnerBlog/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/page/2/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a href="/learnerBlog/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/page/2/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+  </li>
+</ul>
 
 
     </li>
@@ -519,6 +539,9 @@ MSOffice 2016
     <ul class="flex-column">
       
       <li>
+        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/17/script-hugo-commit/" class="nav-link">[Hugo] Hugoで生成されるデプロイ対象ファイルのコミットまでをスクリプトで一括処理にした</a>
+      </li>
+      <li>
         <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/15/msoffice-form-capture/" class="nav-link">[小ネタ] ExcelやAccessのフォームがWindows10の録画機能で録画できない。　そんなときは・・・</a>
       </li>
       <li>
@@ -539,9 +562,6 @@ MSOffice 2016
       <li>
         <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/polymorphism-radiobutton/" class="nav-link">[Excel VBA]ポリモーフィズムを用いて、IF文を使わずラジオボタンごとの処理分岐を行う</a>
       </li>
-      <li>
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/excel-a1-tool/" class="nav-link">[Excel VBA]選択フォルダ配下のエクセルブックの全シートでA1にカーソル移動させるツールを作成した</a>
-      </li>
     </ul> 
     
     
@@ -550,12 +570,12 @@ MSOffice 2016
       <nav class="tags_nav">
         <a href='https://dede-20191130.github.io/learnerBlog/archives/2020/' class="post_tag button button_translucent">
           2020
-          <span class="button_tally">15</span>
+          <span class="button_tally">16</span>
         </a>
         
         <a href='https://dede-20191130.github.io/learnerBlog/archives/2020-11/' class="post_tag button button_translucent">
           2020-11
-          <span class="button_tally">8</span>
+          <span class="button_tally">9</span>
         </a>
         
         <a href='https://dede-20191130.github.io/learnerBlog/archives/2020-10/' class="post_tag button button_translucent">
@@ -579,7 +599,7 @@ MSOffice 2016
       <nav class="tags_nav">
         <a href='https://dede-20191130.github.io/learnerBlog/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/' class="post_tag button button_translucent">
           プログラミング
-          <span class="button_tally">10</span>
+          <span class="button_tally">11</span>
         </a>
         
         <a href='https://dede-20191130.github.io/learnerBlog/categories/%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3/' class="post_tag button button_translucent">
@@ -661,8 +681,28 @@ MSOffice 2016
           <span class="button_tally">1</span>
         </a>
         
+        <a href='https://dede-20191130.github.io/learnerBlog/tags/git/' class="post_tag button button_translucent">
+          GIT
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/tags/hugo/' class="post_tag button button_translucent">
+          HUGO
+          <span class="button_tally">1</span>
+        </a>
+        
         <a href='https://dede-20191130.github.io/learnerBlog/tags/powershell/' class="post_tag button button_translucent">
           POWERSHELL
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%82%B7%E3%82%A7%E3%83%AB%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88/' class="post_tag button button_translucent">
+          シェルスクリプト
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88/' class="post_tag button button_translucent">
+          スクリプト
           <span class="button_tally">1</span>
         </a>
         
@@ -671,11 +711,78 @@ MSOffice 2016
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E5%8B%95%E5%8C%96/' class="post_tag button button_translucent">
-          自動化
-          <span class="button_tally">1</span>
-        </a>
         
+        <br>
+        <div class="post_tags_toggle button">All Tags</div>
+        <div class="post_tags">
+          <div class="tags_list">
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/tags/access/' class=" post_tag button button_translucent" data-position=5>ACCESS<span class="button_tally">5</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/tags/excel/' class=" post_tag button button_translucent" data-position=6>EXCEL<span class="button_tally">6</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/tags/excel%E9%96%A2%E6%95%B0/' class=" post_tag button button_translucent" data-position=1>EXCEL関数<span class="button_tally">1</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/tags/git/' class=" post_tag button button_translucent" data-position=1>GIT<span class="button_tally">1</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/tags/hugo/' class=" post_tag button button_translucent" data-position=1>HUGO<span class="button_tally">1</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/tags/powershell/' class=" post_tag button button_translucent" data-position=1>POWERSHELL<span class="button_tally">1</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/tags/vba/' class=" post_tag button button_translucent" data-position=10>VBA<span class="button_tally">10</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91/' class=" post_tag button button_translucent" data-position=2>オブジェクト指向<span class="button_tally">2</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%82%B7%E3%82%A7%E3%83%AB%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88/' class=" post_tag button button_translucent" data-position=1>シェルスクリプト<span class="button_tally">1</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88/' class=" post_tag button button_translucent" data-position=1>スクリプト<span class="button_tally">1</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%83%84%E3%83%BC%E3%83%AB/' class=" post_tag button button_translucent" data-position=4>ツール<span class="button_tally">4</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/tags/%E5%B7%A5%E5%AD%A6%E4%B8%80%E8%88%AC/' class=" post_tag button button_translucent" data-position=1>工学一般<span class="button_tally">1</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/tags/%E6%AD%B4%E5%8F%B2%E4%B8%80%E8%88%AC/' class=" post_tag button button_translucent" data-position=2>歴史一般<span class="button_tally">2</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C/' class=" post_tag button button_translucent" data-position=9>自作<span class="button_tally">9</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E5%8B%95%E5%8C%96/' class=" post_tag button button_translucent" data-position=1>自動化<span class="button_tally">1</span>
+            </a>
+            
+            <div class="tags_sort"><span title="sort alphabetically">[A~Z]</span><span title="sort by count">[0~9]</span>
+            </div>
+            <span class="tags_hide"><svg class="icon">
+            <use xlink:href="#closeme"></use>
+          </svg></span>
+          </div>
+        </div>
         
       </nav>
     </div>

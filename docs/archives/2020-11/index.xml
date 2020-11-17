@@ -6,7 +6,36 @@
     <description>Recent content in 2020-11 on 学習者のブログ　◆プログラミング等</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 15 Nov 2020 02:41:13 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/archives/2020-11/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 Nov 2020 10:00:34 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/archives/2020-11/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Hugo] Hugoで生成されるデプロイ対象ファイルのコミットまでをスクリプトで一括処理にした</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/17/script-hugo-commit/</link>
+      <pubDate>Tue, 17 Nov 2020 10:00:34 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/17/script-hugo-commit/</guid>
+      <description>この記事について Hugoによるブログのデプロイまでの流れ このブログはHugoという静的サイトジェネレータで管理している。
+デプロイ先は、
+GitHub Pagesという、GitHubに対して静的なウェブサイトをホスティングできるサービス。
+大まかにはこのような流れ。
+Hugoの記事ファイル等を作成・編集する。 hugoコマンドを用いてhtmlファイル等を自動生成する。 gitでコミットする。 GitHubのリポジトリにプッシュして
+ブログを公開する。  コマンドの実行やファイルの管理のターミナルは
+git bashを使用している。
+コミットメッセージは必要か？ このとき、
+hugoコマンドで生成するファイルに
+いちいち丁寧なコミットメッセージをつけたりする必要が無いんじゃないかと思いはじめた。
+（自動生成されたファイルの整理や変更、ましてやタイプミスやバグ修正などは全く必要ないため。それらはJavascriptファイルや記事ファイルのほうで対応する）
+コミットメッセージは別にすべて「Hugo」で構わないように思える。
+よって、Hugoのコマンド実行の準備からコミットまでの一連の流れを一括処理できる
+シェルスクリプトを作成した。
+前提 記事を作成・編集し、hugoコマンドを実行する前
+作成環境 Windows10
+git version 2.29.2.windows.2
+Hugo Static Site Generator v0.76.0/extended windows/amd64
+コードとその内容 コード git bashの環境設定ファイル（.bashrc あるいは.bash_profile）に
+下記のように記入する。
+1# エイリアス 2alias ga=&amp;#39;git add &amp;#39; 3alias gc=&amp;#39;git commit&amp;#39; 4 5# gitのrootディレクトリ位置に戻る 6function groot() { 7 if git rev-parse --is-inside-work-tree &amp;gt; /dev/null 2&amp;gt;&amp;amp;1; then 8 cd `pwd`/`git rev-parse --show-cdup` 9 fi 10} 11 12# コミットまでの一括処理 13function hugo_commit(){ 14 groot 15 hugo 16 ga .</description>
+    </item>
+    
     <item>
       <title>[小ネタ] ExcelやAccessのフォームがWindows10の録画機能で録画できない。　そんなときは・・・</title>
       <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/15/msoffice-form-capture/</link>
