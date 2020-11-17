@@ -28,10 +28,7 @@ hugoコマンドで生成するファイルに
 よって、Hugoのコマンド実行の準備からコミットまでの一連の流れを一括処理できる
 シェルスクリプトを作成した。
 前提 記事を作成・編集し、hugoコマンドを実行する前
-作成環境 Windows10
-git version 2.29.2.windows.2
-Hugo Static Site Generator v0.76.0/extended windows/amd64
-コードとその内容 コード git bashの環境設定ファイル（.bashrc あるいは.bash_profile）に
+作成環境  Windows10 git version 2.29.2.windows.2 Hugo Static Site Generator v0.76.0/extended windows/amd64  コードとその内容 コード git bashの環境設定ファイル（.bashrc あるいは.bash_profile）に
 下記のように記入する。
 1# エイリアス 2alias ga=&amp;#39;git add &amp;#39; 3alias gc=&amp;#39;git commit&amp;#39; 4 5# gitのrootディレクトリ位置に戻る 6function groot() { 7 if git rev-parse --is-inside-work-tree &amp;gt; /dev/null 2&amp;gt;&amp;amp;1; then 8 cd `pwd`/`git rev-parse --show-cdup` 9 fi 10} 11 12# コミットまでの一括処理 13function hugo_commit(){ 14 groot 15 hugo 16 ga .</description>
     </item>
