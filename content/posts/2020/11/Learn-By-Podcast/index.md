@@ -19,6 +19,8 @@ archives:
 Podcastで勉強をし始めたことの発端や利点、  
 面白かった番組等にフォーカスして話したい。
 
+良い番組を見つけたら随時更新する予定。
+
 ## 発端
 
 日常生活を送っていると、  
@@ -65,6 +67,12 @@ Podcastで勉強をし始めたことの発端や利点、
 
 ||||
 |--|--|--|
-|歴史を面白く学ぶコテンラジオ （COTEN RADIO）<br>-日本史から世界史まで、個人の偉人のエピソードから世界経済の勃興と仕組みまで幅広く学べる。| ![](https://is4-ssl.mzstatic.com/image/thumb/Podcasts123/v4/ce/34/d1/ce34d17b-9ad4-b24e-3c77-59e1defd5d7e/mza_7508077453423916317.jpg/313x0w.jpg) | [link](https://podcasts.apple.com/jp/podcast/%E6%AD%B4%E5%8F%B2%E3%82%92%E9%9D%A2%E7%99%BD%E3%81%8F%E5%AD%A6%E3%81%B6%E3%82%B3%E3%83%86%E3%83%B3%E3%83%A9%E3%82%B8%E3%82%AA-coten-radio/id1450522865)|
-|オカモトの歴史実況中継<br>-軽妙な語りで世界史を学べる。<br>個人的に殷王朝から近代中国までの中国史が面白かった。| ![](https://is2-ssl.mzstatic.com/image/thumb/Podcasts123/v4/d9/09/5f/d9095f9b-6036-d263-e3c1-acd46d0989e7/mza_14145798432919201540.jpg/313x0w.jpg) | [link](https://podcasts.apple.com/jp/podcast/%E3%82%AA%E3%82%AB%E3%83%A2%E3%83%88%E3%81%AE%E6%AD%B4%E5%8F%B2%E5%AE%9F%E6%B3%81%E4%B8%AD%E7%B6%99/id1498835161)|
-|#01「原子炉工学」　（オープン教材の作成・活用による実践的原子力バックエンド教育プログラム ）<br>-北海道大学の工学分野講座シリーズのよう。<br>北大はこれ以外にも色々と講義を開放している。動画付き。| ![](https://is1-ssl.mzstatic.com/image/thumb/CobaltPublic111/v4/da/6f/06/da6f065a-021e-ce5d-4990-e35eff15327d/mza_6174366598953783834.jpg/626x0w.jpg) | [link](https://podcasts.apple.com/jp/podcast/01-%E5%8E%9F%E5%AD%90%E7%82%89%E5%B7%A5%E5%AD%A6-%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3%E6%95%99%E6%9D%90%E3%81%AE%E4%BD%9C%E6%88%90-%E6%B4%BB%E7%94%A8%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%B7%B5%E7%9A%84%E5%8E%9F%E5%AD%90%E5%8A%9B%E3%83%90%E3%83%83%E3%82%AF%E3%82%A8%E3%83%B3%E3%83%89%E6%95%99%E8%82%B2%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0/id1213685639)|
+|歴史を面白く学ぶコテンラジオ （COTEN RADIO）<br><br>---日本史から世界史まで、個人の偉人のエピソードから世界経済の勃興と仕組みまで幅広く学べる。<br><br>おすすめエピソード<br><ul><li>アメリカ開拓史</li><li>お金の歴史</li></ul>| ![](https://is4-ssl.mzstatic.com/image/thumb/Podcasts123/v4/ce/34/d1/ce34d17b-9ad4-b24e-3c77-59e1defd5d7e/mza_7508077453423916317.jpg/313x0w.jpg) | [LINK](https://podcasts.apple.com/jp/podcast/%E6%AD%B4%E5%8F%B2%E3%82%92%E9%9D%A2%E7%99%BD%E3%81%8F%E5%AD%A6%E3%81%B6%E3%82%B3%E3%83%86%E3%83%B3%E3%83%A9%E3%82%B8%E3%82%AA-coten-radio/id1450522865)|
+|オカモトの歴史実況中継<br><br>---軽妙な語りで世界史を学べる。<br>個人的に殷王朝から近代中国までの中国史が面白かった。| ![](https://is2-ssl.mzstatic.com/image/thumb/Podcasts123/v4/d9/09/5f/d9095f9b-6036-d263-e3c1-acd46d0989e7/mza_14145798432919201540.jpg/313x0w.jpg) | [LINK](https://podcasts.apple.com/jp/podcast/%E3%82%AA%E3%82%AB%E3%83%A2%E3%83%88%E3%81%AE%E6%AD%B4%E5%8F%B2%E5%AE%9F%E6%B3%81%E4%B8%AD%E7%B6%99/id1498835161)|
+|#01「原子炉工学」　（オープン教材の作成・活用による実践的原子力バックエンド教育プログラム ）<br><br>---北海道大学の工学分野講座シリーズのよう。<br>北大はこれ以外にも色々と講義を開放している。動画付き。| ![](https://is1-ssl.mzstatic.com/image/thumb/CobaltPublic111/v4/da/6f/06/da6f065a-021e-ce5d-4990-e35eff15327d/mza_6174366598953783834.jpg/626x0w.jpg) | [LINK](https://podcasts.apple.com/jp/podcast/01-%E5%8E%9F%E5%AD%90%E7%82%89%E5%B7%A5%E5%AD%A6-%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3%E6%95%99%E6%9D%90%E3%81%AE%E4%BD%9C%E6%88%90-%E6%B4%BB%E7%94%A8%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%B7%B5%E7%9A%84%E5%8E%9F%E5%AD%90%E5%8A%9B%E3%83%90%E3%83%83%E3%82%AF%E3%82%A8%E3%83%B3%E3%83%89%E6%95%99%E8%82%B2%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0/id1213685639)|
+|歴史と文明 2012<br><br>---慶応大学の講義。<br>儒学の歴史の変遷というテーマを軸に、古代中国から清朝までの中国史を詳細に論じている。<br><br>儒学といってもその立場が対局にある学派などがあり、儒学が及ぼした精神的な影響の深さも興味深い。| ![](https://is5-ssl.mzstatic.com/image/thumb/Podcasts/v4/d4/0e/df/d40edf5f-e901-21aa-b546-dd90fa260665/mza_2090864478410764653.png/313x0w.webp) | [LINK](https://podcasts.apple.com/jp/podcast/%E6%AD%B4%E5%8F%B2%E3%81%A8%E6%96%87%E6%98%8E-2012/id565854437)|
+
+## 更新履歴
+
+2020/11/3   記事作成  
+2020/11/19  追加　歴史と文明 2012
