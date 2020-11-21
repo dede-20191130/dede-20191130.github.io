@@ -55,6 +55,10 @@ codeLineNumbers = true
     noClasses = false
     # style = "monokai"
     tabWidth = 2
+  [markup.tableOfContents]
+  endLevel = 5
+  ordered = false
+  startLevel = 2
 
 
 [permalinks]
