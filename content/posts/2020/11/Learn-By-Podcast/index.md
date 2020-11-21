@@ -6,7 +6,7 @@ slug: Learn-By-Podcast
 draft: false
 toc: true
 tags: ['歴史一般', '工学一般']
-categories: ['歴史', '工学']
+categories: ['歴史', '工学','Podcast']
 archives:
     - 2020
     - 2020-11

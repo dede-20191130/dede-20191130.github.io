@@ -6,7 +6,7 @@ slug: Difference-Between-Emperor
 draft: false
 toc: true
 tags: ['歴史一般']
-categories: ['歴史']
+categories: ['歴史','Podcast']
 archives:
     - 2020
     - 2020-11
