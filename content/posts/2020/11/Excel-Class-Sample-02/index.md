@@ -3,7 +3,7 @@ title: "[VBA] クラスを利用するメリットと方法について & 簡単
 author: dede-20191130
 date: 2020-11-22T14:07:24+09:00
 slug: Excel-Class-Sample-02
-draft: true
+draft: false
 toc: true
 featured: true
 tags: ['Access', 'VBA','自作', 'オブジェクト指向']
