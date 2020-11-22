@@ -6,7 +6,39 @@
     <description>Recent content in 自作 on 学習者のブログ　◆プログラミング等</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 20 Nov 2020 23:47:25 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 22 Nov 2020 14:07:24 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[VBA] クラスを利用するメリットと方法について &amp; 簡単なサンプル（２）</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/22/excel-class-sample-02/</link>
+      <pubDate>Sun, 22 Nov 2020 14:07:24 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/22/excel-class-sample-02/</guid>
+      <description>この記事について この記事は、
+[VBA] クラスを利用するメリットと方法について &amp;amp; 簡単なサンプル（１）の続きの記事。
+（１）とは違ったサンプルを用いて、前回とは違ったクラスの利用方法やそのメリットを記したい。
+TableCreaterの例だと、カプセル化の恩恵や初期化処理・終了処理を必ず実行できることの恩恵が十分には表現できなかったように思えるため、
+本記事のサンプル（clsCreateNewExcel）でそれらを表現しようと思う。
+説明のために作成したAccessファイルとソースコードはこちらでダウンロードできます。
+作成環境 Windows10
+MSOffice 2019
+サンプルの概要 Accessファイルで、内部に商品テーブルを持つ。
+次のような画面から、
+ボタンにより異なった処理を呼び出し実行する。
+いずれのボタンのイベントも、共通処理として、
+ デスクトップに新しいExcelブックを作成する（ファイル名：Test-Excel-Class-日付時刻.xlsx）  を持つ。
+個別の処理として、
+ 商品テーブルから単価が１００００を超える商品のデータを抽出し、
+作成したExcelブックのシートに転記する。 商品テーブルからコードがBから始まる商品のデータを抽出し、
+作成したExcelブックのシートに転記する。 WebAPIより商品データのJsonデータを取得し、
+テーブル形式にパースしたのち、Excelブックのシートに転記する。  を持つ。
+Excelブック作成とブック関連オブジェクトの管理のために、
+clsCreateNewExcelクラスというクラスモジュールを作成した。
+clsCreateNewExcelクラス 役割 clsCreateNewExcelクラスは新規Excelアプリケーションのインタフェースと新規Excelブックを生成し、
+それぞれのオブジェクトを取得することを許す。
+また、呼び出されるたびにブックにワークシートを追加する関数を持つ。
+コード 1&amp;#39;@Folder(&amp;#34;class&amp;#34;) 2Option Compare Database 3Option Explicit 4 5&amp;#39;************************** 6&amp;#39;*Excelブック作成クラス 7&amp;#39;************************** 8 9&amp;#39;定数 10Private currentSheetNum As Long 11 12&amp;#39;変数 13Private myXlApp As Object 14Private myWorkBook As Object 15Private dicWorkSheet As Dictionary 16 17 18&amp;#39;****************************************************************************************** 19&amp;#39;*getter/setter 20&amp;#39;****************************************************************************************** 21Public Property Get xlApplication() As Object 22 Set xlApplication = myXlApp 23End Property 24 25 26Public Property Get Workbook() As Object 27 Set Workbook = myWorkBook 28End Property 29 30 31Public Property Get WorkSheets(ByVal num As Long) As Object 32 If Not dicWorkSheet.</description>
+    </item>
+    
     <item>
       <title>[VBA] クラスを利用するメリットと方法について &amp; 簡単なサンプル（１）</title>
       <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/20/excel-class-sample-01/</link>
