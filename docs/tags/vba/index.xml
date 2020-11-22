@@ -6,7 +6,54 @@
     <description>Recent content in VBA on 学習者のブログ　◆プログラミング等</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 15 Nov 2020 00:54:01 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/tags/vba/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 20 Nov 2020 23:47:25 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/tags/vba/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[VBA] クラスを利用するメリットと方法について &amp; 簡単なサンプル（１）</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/20/excel-class-sample-01/</link>
+      <pubDate>Fri, 20 Nov 2020 23:47:25 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/20/excel-class-sample-01/</guid>
+      <description>この記事について VBAにおけるクラスっていまいちマイナーで使いにくい存在だと思っている。
+理由はいくつかあって、
+ Javaなどと違ってクラスを使わなければ何も書けないという言語ではなく、
+書こうと思えばクラスを使わなくても手続き型で全て書けてしまう クラスの持つ機能が後発の言語に比べて弱いので（後述）、あえて使うメリットが見出しにくい。 モジュールにPublicとして書けば何もせずとも呼び出せる関数でも、クラスの関数の場合はクラスのインスタンスを生成してからでないと利用できない。  ただ、
+クラスを利用したほうがずっと安全で、保守性も高く、バグも少なくコーディングできる場面ももちろん存在するため、
+この記事においてクラスを利用するメリットと方法についてを記したい。
+また、クラスを利用した簡単なサンプルも合わせて記載したい。
+説明のために作成したExcelファイルとソースコードはこちらでダウンロードできます。
+クラスを利用する方法 クラスとは？ クラスとは、
+利用するデータ（変数・定数）と、そのクラスが持つ処理内容（関数）をひとつの箱（クラスモジュール）にまとめたもの。
+といっても、無作為に適当な変数や関数を一緒にまとめれば良いというものではなく、
+そのクラスが指す一つの存在を定め、その存在に属するものとしての変数や関数でなければならない。
+クラスの例 例えば、
+ヒトという存在をクラスと定めれば、
+ヒトは目、口、胴体などのデータ（変数）と、
+走る、食べる、喋るなどの処理内容（関数）を持つ。
+MSOffice風に言えば、
+ExcelのRangeオブジェクトは
+Addressプロパティ（参照範囲）やRowプロパティ（行の数値）、Valueプロパティ（セルの値）などの変数を持ち、
+Selectメソッド（範囲にカーソルを合わせる）や、
+AutoFitメソッド（範囲の行幅、列幅を自動調整する）などの関数を持つ、
+典型的なクラスのオブジェクトである。
+また、ある一定の機能を持つモノという抽象的な概念もクラスとしてまとめ得る。
+例えば、ExcelのRangeオブジェクトを取込み、
+表のように、罫線を引き、
+ヘッダーの強調を行い、
+小計列の合計をセルに書き込むという一連の処理を担当するモノが挙げられる。
+これを、TableCreaterと命名しよう。
+   存在 変数・定数 関数     ヒト 目
+口
+胴体 走る
+食べる
+喋る   Excel
+Rangeオブジェクト Address
+Row
+Value Select
+AutoFit   TableCreater 対象のRangeオブジェクト
+小計列の列番号
+ヘッダーセルの色 罫線を引く</description>
+    </item>
+    
     <item>
       <title>[Access VBA] サブフォーム上のレコードを挿入、削除する簡単なサンプル</title>
       <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/15/delete-record-button/</link>

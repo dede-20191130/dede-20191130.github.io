@@ -4,26 +4,71 @@
   
   <url>
     <loc>https://dede-20191130.github.io/learnerBlog/archives/2020/</loc>
-    <lastmod>2020-11-17T10:00:34+09:00</lastmod>
+    <lastmod>2020-11-20T23:47:25+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://dede-20191130.github.io/learnerBlog/archives/2020-11/</loc>
-    <lastmod>2020-11-17T10:00:34+09:00</lastmod>
+    <lastmod>2020-11-20T23:47:25+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2020/11/17/script-hugo-commit/</loc>
-    <lastmod>2020-11-17T10:00:34+09:00</lastmod>
+    <loc>https://dede-20191130.github.io/learnerBlog/posts/2020/11/20/excel-class-sample-01/</loc>
+    <lastmod>2020-11-20T23:47:25+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://dede-20191130.github.io/learnerBlog/archives/</loc>
-    <lastmod>2020-11-17T10:00:34+09:00</lastmod>
+    <lastmod>2020-11-20T23:47:25+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://dede-20191130.github.io/learnerBlog/categories/</loc>
+    <lastmod>2020-11-20T23:47:25+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dede-20191130.github.io/learnerBlog/tags/excel/</loc>
+    <lastmod>2020-11-20T23:47:25+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dede-20191130.github.io/learnerBlog/posts/</loc>
+    <lastmod>2020-11-20T23:47:25+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dede-20191130.github.io/learnerBlog/tags/</loc>
+    <lastmod>2020-11-20T23:47:25+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dede-20191130.github.io/learnerBlog/tags/vba/</loc>
+    <lastmod>2020-11-20T23:47:25+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dede-20191130.github.io/learnerBlog/tags/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91/</loc>
+    <lastmod>2020-11-20T23:47:25+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dede-20191130.github.io/learnerBlog/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</loc>
+    <lastmod>2020-11-20T23:47:25+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dede-20191130.github.io/learnerBlog/</loc>
+    <lastmod>2020-11-20T23:47:25+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C/</loc>
+    <lastmod>2020-11-20T23:47:25+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dede-20191130.github.io/learnerBlog/posts/2020/11/17/script-hugo-commit/</loc>
     <lastmod>2020-11-17T10:00:34+09:00</lastmod>
   </url>
   
@@ -38,32 +83,12 @@
   </url>
   
   <url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/</loc>
-    <lastmod>2020-11-17T10:00:34+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dede-20191130.github.io/learnerBlog/tags/</loc>
-    <lastmod>2020-11-17T10:00:34+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://dede-20191130.github.io/learnerBlog/tags/%E3%82%B7%E3%82%A7%E3%83%AB%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88/</loc>
     <lastmod>2020-11-17T10:00:34+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://dede-20191130.github.io/learnerBlog/tags/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88/</loc>
-    <lastmod>2020-11-17T10:00:34+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dede-20191130.github.io/learnerBlog/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</loc>
-    <lastmod>2020-11-17T10:00:34+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dede-20191130.github.io/learnerBlog/</loc>
     <lastmod>2020-11-17T10:00:34+09:00</lastmod>
   </url>
   
@@ -88,13 +113,8 @@
   </url>
   
   <url>
-    <loc>https://dede-20191130.github.io/learnerBlog/tags/vba/</loc>
-    <lastmod>2020-11-15T00:54:01+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C/</loc>
-    <lastmod>2020-11-15T00:54:01+09:00</lastmod>
+    <loc>https://dede-20191130.github.io/learnerBlog/categories/podcast/</loc>
+    <lastmod>2020-11-10T22:41:51+09:00</lastmod>
   </url>
   
   <url>
@@ -118,22 +138,12 @@
   </url>
   
   <url>
-    <loc>https://dede-20191130.github.io/learnerBlog/tags/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91/</loc>
-    <lastmod>2020-11-08T10:26:29+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://dede-20191130.github.io/learnerBlog/categories/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/</loc>
     <lastmod>2020-11-08T10:26:29+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://dede-20191130.github.io/learnerBlog/posts/2020/11/05/own-excel-shortcut/</loc>
-    <lastmod>2020-11-05T00:48:58+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dede-20191130.github.io/learnerBlog/tags/excel/</loc>
     <lastmod>2020-11-05T00:48:58+09:00</lastmod>
   </url>
   
