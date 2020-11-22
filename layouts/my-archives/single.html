@@ -19,7 +19,9 @@
         <ul>
             {{ range $name, $items := .Site.Taxonomies.archives }}
             <h3>{{ $name }} </h3>
-            <li><a href="{{ $.Site.BaseURL }}archives/{{ $name | urlize | lower }}">{{ .Count }} articles</a></li>
+            <li class="post_content">
+                <a href="{{ $.Site.BaseURL }}archives/{{ $name | urlize | lower }}">{{ .Count }} articles</a>
+            </li>
             {{ end }}
         </ul>
     </article>
