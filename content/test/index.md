@@ -5,12 +5,7 @@ date: 2020-11-23T14:45:27+09:00
 slug: test
 draft: true
 toc: true
-featured: false
-tags: []
-categories: []
-archives:
-    - 2020
-    - 2020-11
+type: test
 ---
 
 ## a

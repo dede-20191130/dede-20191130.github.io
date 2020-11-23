@@ -17,9 +17,15 @@
     <img src="{{ . }}" class="image_featured">
     {{ end }}
     {{ if .Params.toc }}
-    <h2>Overview</h2>
+    <h2>Overview 20201123</h2>
     {{ .TableOfContents }}
     {{ end }}
+    <!-- partial -->
+    {{ partial "share" . }}<br>
+    {{ partial "share"  . }}
+    <!-- relref -->
+    
+    <p>{{ relref . "about" }}</p>
     {{- .Content }}
     {{ if and ( ne .Site.Params.comment false ) ( ne .Params.comment false ) }}
       {{ partial "comments" . }}
