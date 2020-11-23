@@ -1,9 +1,9 @@
 {{- define "main" }}
 {{- $scratch := newScratch }}
 {{- if isset .Params "image" }}
-  {{- $scratch.Set "image" .Params.image }}
+{{- $scratch.Set "image" .Params.image }}
 {{- else }}
-  {{ $scratch.Set "image" .Site.Params.fallBackOgImage }}
+{{ $scratch.Set "image" .Site.Params.fallBackOgImage }}
 {{- end }}
 {{- $image := $scratch.Get "image" }}
 {{- $bg := (path.Join "images" $image | absLangURL) }}
@@ -24,11 +24,27 @@
     {{ partial "share" . }}<br>
     {{ partial "share"  . }}
     <!-- relref -->
-    
     <p>{{ relref . "about" }}</p>
+    <!-- summary -->
+    <!-- {aaa{ partial "excerpt"  "about" }} -->
+    <!-- {{ .Summary }} -->
+    <!-- range -->
+    {{ range .Data.Pages }}
+    <a href="{{ .Permalink }}">{{ .Title }}</a>
+    {{ end }}
+    <!-- if and eq -->
+    {{ if eq 1 1 }}
+    <p> 同じi</p>
+    {{ end }}
+    {{ if eq 1 2 }}
+    <p> 同じii</p>
+    {{ end }}
+    <!-- baseurl -->
+    {{ .Page.Site.BaseURL }}
+
     {{- .Content }}
     {{ if and ( ne .Site.Params.comment false ) ( ne .Params.comment false ) }}
-      {{ partial "comments" . }}
+    {{ partial "comments" . }}
     {{ end }}
   </article>
   {{- partial "sidebar" . }}
