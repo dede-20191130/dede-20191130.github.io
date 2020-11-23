@@ -13,17 +13,7 @@
       <pubDate>Fri, 30 Oct 2020 00:00:04 +0900</pubDate>
       
       <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/10/30/ps-refinement-last/</guid>
-      <description>この記事について 普段と別のPC（Windows）での作業をする機会があった。
-作業後にもとのPCに持っていく必要のある、差分あり（作業による変更あり）のファイルを選別する必要があり、
-作業フォルダにおいて、更新日時が本日の9:00以降であるファイルを絞りこむコマンドが欲しかった。
-Git等のバージョン管理アプリがインストールされているPCならば、
-変更内容を適宜コミットしておけばアプリが自動的にうまい具合にやってくれるので、
-このようなコマンドは必要ないのだけれど。
-使用環境 PSVersion 5.1
-コマンド コンソールに出力
-1ls -r -File | ?{$_.LastWriteTime -gt [Datetime]&amp;#34;2020/10/27 9:00:00&amp;#34;} | select  FullName ファイルに出力して見やすくする
-1ls -r -File | ?{$_.LastWriteTime -gt [Datetime]&amp;#34;2020/10/27 9:00:00&amp;#34;} | select  FullName | ft  -A &amp;gt; &amp;#34;C:\temp\output.txt&amp;#34; エイリアス無しコマンドVer
-1Get-ChildItem -Recurse -File | Where-Object{$_.LastWriteTime -gt [Datetime]&amp;#34;2020/10/27 18:00:00&amp;#34;} | Select-Object FullName | Format-Table -AutoSize &amp;gt; &amp;#34;C:\temp\output.txt&amp;#34;  Get-ChildItem -Recurse -File &amp;lt;- 再帰的にファイルのみの情報一覧を取得 $_.LastWriteTime -gt [Datetime]&amp;quot;2020/10/27 18:00:00&amp;quot; &amp;lt;- 日付文字列をDatetime型にキャストしてファイル情報と比較  </description>
+      <description>この記事について 普段と別のPC（Windows）での作業をする機会があった。 作業後にもとのPCに持っていく必要のある、差分あり（作業による変</description>
     </item>
     
     <item>
@@ -32,18 +22,7 @@ Git等のバージョン管理アプリがインストールされているPCな
       <pubDate>Sun, 25 Oct 2020 22:01:43 +0900</pubDate>
       
       <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/10/25/access-tabledef/</guid>
-      <description>この記事について Accessの各々のテーブルの内容をエクスポートする方法として、
- ナビゲーションバーのテーブルの右クリックメニューからエクスポート -&amp;gt; Excel、テキスト等形式を選択して出力 データベースツールタブのデータベース構造の解析 -&amp;gt; テーブル指定 -&amp;gt; 印刷、またはExcel、PDF等形式を選択して出力  の選択肢がある。
-しかし、
-前者は、フィールドの型や主キーの有無など、テーブルの詳細な情報はエクスポートできず、
-後者は、詳細な情報をエクスポートできるが、各フィールドごとに単票形式でエクスポートデータが得られるため、デザインビューのように一覧としてテーブルの設定を把握することが難しい。
-よって、既存の機能で対応できないため、
-デザインビューのテーブル定義を表形式でエクスポートする関数を作成した。
-作成環境 Microsoft Office 2019
-機能 カレントプロジェクト（コードが貼り付けてあるAccessファイル）の
-すべてのテーブルのテーブル定義を表形式でエクスポートする。
-エクスポート先は新規エクセルブック。テーブルデータがシートごとに格納される。
-関数概要    名前 種類 機能     exportTableDefTablesMain Subプロシージャ テーブル定義情報表形式エクスポートのMain関数   getTableDefArray Functionプロシージャ テーブルの定義情報を取得   getFieldTypeString Functionプロシージャ 引数フィールドのデータ型文字列を取得   getPKs Functionプロシージャ テーブルの主キーであるフィールド名を辞書として取得   getFKs Functionプロシージャ テーブルの外部キーであるフィールド名を辞書として取得   setWSName Functionプロシージャ 引数で指定されたエクセルシートの名前をセット    呼び出し関係  exportTableDefTablesMain  呼出 -&amp;gt; getTableDefArray  呼出 -&amp;gt; getFieldTypeString 呼出 -&amp;gt; getPKs 呼出 -&amp;gt; getFKs   呼出 -&amp;gt; setWSName    コード [exportTableDefTablesMain] 1&amp;#39;****************************************************************************************** 2&amp;#39;*関数名 ：exportTableDefTablesMain 3&amp;#39;*機能 ：テーブル定義情報テーブルを作成 4&amp;#39;*引数(1) ： 5&amp;#39;****************************************************************************************** 6Public Sub exportTableDefTablesMain() 7 8 &amp;#39;定数 9 Const FUNC_NAME As String = &amp;#34;exportTableDefTablesMain&amp;#34; 10 11 &amp;#39;変数 12 Dim xlApp As Object 13 Dim wb As Object 14 Dim tdf As DAO.</description>
+      <description>この記事について Accessの各々のテーブルの内容をエクスポートする方法として、 ナビゲーションバーのテーブルの右クリックメニューからエクスポ</description>
     </item>
     
   </channel>

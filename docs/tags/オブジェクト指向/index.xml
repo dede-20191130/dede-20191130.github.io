@@ -13,30 +13,7 @@
       <pubDate>Sun, 22 Nov 2020 14:07:24 +0900</pubDate>
       
       <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/22/excel-class-sample-02/</guid>
-      <description>この記事について この記事は、
-[VBA] クラスを利用するメリットと方法について &amp;amp; 簡単なサンプル（１）の続きの記事。
-（１）とは違ったサンプルを用いて、前回とは違ったクラスの利用方法やそのメリットを記したい。
-TableCreaterの例だと、カプセル化の恩恵や初期化処理・終了処理を必ず実行できることの恩恵が十分には表現できなかったように思えるため、
-本記事のサンプル（clsCreateNewExcel）でそれらを表現しようと思う。
-説明のために作成したAccessファイルとソースコードはこちらでダウンロードできます。
-作成環境 Windows10
-MSOffice 2019
-サンプルの概要 Accessファイルで、内部に商品テーブルを持つ。
-次のような画面から、
-ボタンにより異なった処理を呼び出し実行する。
-いずれのボタンのイベントも、共通処理として、
- デスクトップに新しいExcelブックを作成する（ファイル名：Test-Excel-Class-日付時刻.xlsx）  を持つ。
-個別の処理として、
- 商品テーブルから単価が１００００を超える商品のデータを抽出し、
-作成したExcelブックのシートに転記する。 商品テーブルからコードがBから始まる商品のデータを抽出し、
-作成したExcelブックのシートに転記する。 WebAPIより商品データのJsonデータを取得し、
-テーブル形式にパースしたのち、Excelブックのシートに転記する。  を持つ。
-Excelブック作成とブック関連オブジェクトの管理のために、
-clsCreateNewExcelクラスというクラスモジュールを作成した。
-clsCreateNewExcelクラス 役割 clsCreateNewExcelクラスは新規Excelアプリケーションのインタフェースと新規Excelブックを生成し、
-それぞれのオブジェクトを取得することを許す。
-また、呼び出されるたびにブックにワークシートを追加する関数を持つ。
-コード 1&amp;#39;@Folder(&amp;#34;class&amp;#34;) 2Option Compare Database 3Option Explicit 4 5&amp;#39;************************** 6&amp;#39;*Excelブック作成クラス 7&amp;#39;************************** 8 9&amp;#39;定数 10Private currentSheetNum As Long 11 12&amp;#39;変数 13Private myXlApp As Object 14Private myWorkBook As Object 15Private dicWorkSheet As Dictionary 16 17 18&amp;#39;****************************************************************************************** 19&amp;#39;*getter/setter 20&amp;#39;****************************************************************************************** 21Public Property Get xlApplication() As Object 22 Set xlApplication = myXlApp 23End Property 24 25 26Public Property Get Workbook() As Object 27 Set Workbook = myWorkBook 28End Property 29 30 31Public Property Get WorkSheets(ByVal num As Long) As Object 32 If Not dicWorkSheet.</description>
+      <description>この記事について この記事は、 [VBA] クラスを利用するメリットと方法について &amp;amp; 簡単なサンプル（１）の続きの記事。 （１）とは違ったサンプルを用いて、前</description>
     </item>
     
     <item>
@@ -45,45 +22,7 @@ clsCreateNewExcelクラス 役割 clsCreateNewExcelクラスは新規Excelアプ
       <pubDate>Fri, 20 Nov 2020 23:47:25 +0900</pubDate>
       
       <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/20/excel-class-sample-01/</guid>
-      <description>この記事について VBAにおけるクラスっていまいちマイナーで使いにくい存在だと思っている。
-理由はいくつかあって、
- Javaなどと違ってクラスを使わなければ何も書けないという言語ではなく、
-書こうと思えばクラスを使わなくても手続き型で全て書けてしまう クラスの持つ機能が後発の言語に比べて弱いので（後述）、あえて使うメリットが見出しにくい。 モジュールにPublicとして書けば何もせずとも呼び出せる関数でも、クラスの関数の場合はクラスのインスタンスを生成してからでないと利用できない。  ただ、
-クラスを利用したほうがずっと安全で、保守性も高く、バグも少なくコーディングできる場面ももちろん存在するため、
-この記事においてクラスを利用するメリットと方法についてを記したい。
-また、クラスを利用した簡単なサンプルも合わせて記載したい。
-説明のために作成したExcelファイルとソースコードはこちらでダウンロードできます。
-クラスを利用する方法 クラスとは？ クラスとは、
-利用するデータ（変数・定数）と、そのクラスが持つ処理内容（関数）をひとつの箱（クラスモジュール）にまとめたもの。
-といっても、無作為に適当な変数や関数を一緒にまとめれば良いというものではなく、
-そのクラスが指す一つの存在を定め、その存在に属するものとしての変数や関数でなければならない。
-クラスの例 例えば、
-ヒトという存在をクラスと定めれば、
-ヒトは目、口、胴体などのデータ（変数）と、
-走る、食べる、喋るなどの処理内容（関数）を持つ。
-MSOffice風に言えば、
-ExcelのRangeオブジェクトは
-Addressプロパティ（参照範囲）やRowプロパティ（行の数値）、Valueプロパティ（セルの値）などの変数を持ち、
-Selectメソッド（範囲にカーソルを合わせる）や、
-AutoFitメソッド（範囲の行幅、列幅を自動調整する）などの関数を持つ、
-典型的なクラスのオブジェクトである。
-また、ある一定の機能を持つモノという抽象的な概念もクラスとしてまとめ得る。
-例えば、ExcelのRangeオブジェクトを取込み、
-表のように、罫線を引き、
-ヘッダーの強調を行い、
-小計列の合計をセルに書き込むという一連の処理を担当するモノが挙げられる。
-これを、TableCreaterと命名しよう。
-   存在 変数・定数 関数     ヒト 目
-口
-胴体 走る
-食べる
-喋る   Excel
-Rangeオブジェクト Address
-Row
-Value Select
-AutoFit   TableCreater 対象のRangeオブジェクト
-小計列の列番号
-ヘッダーセルの色 罫線を引く</description>
+      <description>この記事について VBAにおけるクラスっていまいちマイナーで使いにくい存在だと思っている。 理由はいくつかあって、 Javaなどと違ってクラスを使</description>
     </item>
     
     <item>
@@ -92,20 +31,7 @@ AutoFit   TableCreater 対象のRangeオブジェクト
       <pubDate>Sun, 08 Nov 2020 10:26:29 +0900</pubDate>
       
       <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/08/access-control-withevents/</guid>
-      <description>この記事について Accessでフォーム上のコントロール（テキストボックス、コンボボックスなど）で、 イベント処理を共通化するためにWithEventsステートメントを用いてイベントリスナークラスを作成することを考える。
-その際に、ExcelでWitheventsを使用するときと同じようなコードで作成すると、
-せっかく設定したクラス側のイベントが発火してくれない事態が生じた。
-その事例と、講じた対策二種類について記したい。
-説明のために作成したAccessファイルとソースコードはこちらでダウンロードできます。
-事例 次のような画面とコードで、
-丸囲みのコンボボックスをキーボード入力できないようにする。 （先に正常に動かないコードのほうを示す）
-共通化のために、
-コンボボックスのKeyDownイベント関数をクラス化する。
-検証のために、コンボボックスのイベント発火をトレースし、
-テキストボックスにログを出力できるようにした。
-画面 オブジェクトのプロパティ    名前 種類 説明     cmb_withEventsTest コンボボックス 直接のキーボード入力を禁止する   txt_EventLog テキストボックス コンボボックスの
-イベントログが表示される    コード 下記コードは正常に動かない（myComboBox_KeyDown関数が発火しない）
-フォームモジュール：MainForm 1Option Compare Database 2Option Explicit 3 4&amp;#39;************************** 5&amp;#39;*MainForm 6&amp;#39;************************** 7 8&amp;#39;定数 9 10 11&amp;#39;変数 12Private objCmbListener As clsCmbListener 13 14 15 16&amp;#39;****************************************************************************************** 17&amp;#39;*getter/setter 18&amp;#39;****************************************************************************************** 19 20 21 22 23&amp;#39;****************************************************************************************** 24&amp;#39;*関数名 ：Form_Load 25&amp;#39;*機能 ： 26&amp;#39;*引数(1) ： 27&amp;#39;****************************************************************************************** 28Private Sub Form_Load() 29 30 &amp;#39;定数 31 Const FUNC_NAME As String = &amp;#34;Form_Load&amp;#34; 32 33 &amp;#39;変数 34 Dim dicInfo As Object 35 36 On Error GoTo ErrorHandler 37 38 &amp;#39;イベントクラス設定 39 Set objCmbListener = New clsCmbListener: Set objCmbListener.</description>
+      <description>この記事について Accessでフォーム上のコントロール（テキストボックス、コンボボックスなど）で、 イベント処理を共通化するためにWithEv</description>
     </item>
     
     <item>
@@ -114,17 +40,7 @@ AutoFit   TableCreater 対象のRangeオブジェクト
       <pubDate>Sun, 01 Nov 2020 16:44:24 +0900</pubDate>
       
       <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/polymorphism-radiobutton/</guid>
-      <description>この記事について VBAにおいてポリモーフィズムの考え方によりコーディングを行う一例。
-CallByName関数によるポリモーフィズムの考え方と、
-ラジオボタン（オプションボタン）オブジェクトのtagプロパティを用いて、
-IFステートメントやSelect Caseステートメントを使わずに処理分岐を行う実装例。
-説明のために作成したExcelファイルとソースコードはこちらでダウンロードできます。
-作成環境 Windows10
-MSOffice 2016
-前提 下のような画面があり、
-ラジオボタンを選択し、実行ボタンを押下することで
-ラジオボタンの種類に応じた処理を行う。
-   名称 画像     フォーム    現在時刻を表示するラジオボタンを選択    ユーザ名を表示するラジオボタンを選択    あいさつを表示するラジオボタンを選択     オブジェクトのプロパティ    名前 種類 Caption GourpName Tag Value（初期値）     rdo_showCurrent ラジオボタン 現在時刻を表示する Group01 Current True   rdo_showUser ラジオボタン ユーザ名を表示する Group01 User False   rdo_showGreeting ラジオボタン あいさつを表示する Group01 Greeting False   btn_execute コマンドボタン 実行 -- -- --    関数概要    名前 所属モジュール/クラス 種類 機能     btn_execute_Click F_Main Subプロシージャ btn_executeのClickメソッド</description>
+      <description>この記事について VBAにおいてポリモーフィズムの考え方によりコーディングを行う一例。 CallByName関数によるポリモーフィズムの考え方と</description>
     </item>
     
   </channel>
