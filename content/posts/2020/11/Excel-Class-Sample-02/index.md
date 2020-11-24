@@ -72,9 +72,9 @@ Option Explicit
 '**************************
 
 '定数
-Private currentSheetNum As Long
 
 '変数
+Private currentSheetNum As Long
 Private myXlApp As Object
 Private myWorkBook As Object
 Private dicWorkSheet As Dictionary
