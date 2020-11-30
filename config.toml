@@ -7,6 +7,7 @@ publishDir = "docs"
 DefaultContentLanguage = "ja"
 disqusShortname = "learnerblog"
 hasCJKLanguage = true
+enableGitInfo = true
 
 [params]
   author = "dede-20191130"
