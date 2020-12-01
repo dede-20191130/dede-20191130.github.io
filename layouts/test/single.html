@@ -40,7 +40,11 @@
     <p> 同じii</p>
     {{ end }}
     <!-- baseurl -->
+    <p>baseurl</p>
     {{ .Page.Site.BaseURL }}
+    <!-- lastmod -->
+    <p>lastmod</p>
+    {{ $.Param "lastmod" }}
 
     {{- .Content }}
     {{ if and ( ne .Site.Params.comment false ) ( ne .Params.comment false ) }}
