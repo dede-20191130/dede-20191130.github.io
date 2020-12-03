@@ -57,9 +57,9 @@ enableGitInfo = true
     # style = "monokai"
     tabWidth = 2
   [markup.tableOfContents]
-  endLevel = 5
   ordered = false
   startLevel = 2
+  endLevel = 5
 
 
 [permalinks]
