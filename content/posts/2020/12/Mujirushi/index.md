@@ -37,6 +37,9 @@ By the way... "Muji" means that it is a No-Name brand.
 
 ### 指導をしないという名の指導
 
+上の矛盾の内容は、無印（No-Name brand）良品と名のブランドということである。  
+{{< colored-span color="#fb9700">}}ノーブランドなのに、ブランド？  {{< /colored-span >}}
+
 〇〇をしないという名の〇〇　というイディオムに似ている。
 
 - 指導をしないという名の指導  
