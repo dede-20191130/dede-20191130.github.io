@@ -6,7 +6,16 @@
     <description>Recent content in プログラミング on 学習者のブログ　◆プログラミング等</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 22 Nov 2020 14:07:24 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 05 Dec 2020 18:02:12 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[VBA] 例外処理の典型的なパターン＆使用例サンプル</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/12/05/vba-exception-handle/</link>
+      <pubDate>Sat, 05 Dec 2020 18:02:12 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/12/05/vba-exception-handle/</guid>
+      <description>この記事について プログラミングにおいて、想定内のエラーが発生した場合に （あるいは自作のエラーを定義し、そのエラーが発生した際に） 例外として専</description>
+    </item>
+    
     <item>
       <title>[VBA] クラスを利用するメリットと方法について &amp; 簡単なサンプル（２）</title>
       <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/22/excel-class-sample-02/</link>
