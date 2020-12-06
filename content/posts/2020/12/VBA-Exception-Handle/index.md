@@ -5,7 +5,7 @@ date: 2020-12-05T18:02:12+09:00
 slug: VBA-Exception-Handle
 draft: false
 toc: true
-featured: false
+featured: true
 tags: ['Excel', 'VBA','自作']
 categories: ['プログラミング']
 archives:
