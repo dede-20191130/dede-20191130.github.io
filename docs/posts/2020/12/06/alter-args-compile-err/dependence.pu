@@ -1,0 +1,10 @@
+@startuml
+title 関数依存関係
+participant callingFunc01
+participant callingFunc02
+participant calledFunc
+callingFunc01 -> calledFunc: 計算の呼び出し
+calledFunc --> callingFunc01: 結果の返却
+callingFunc02 -> calledFunc: 計算の呼び出し
+calledFunc --> callingFunc02: 結果の返却
+@enduml

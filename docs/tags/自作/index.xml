@@ -6,7 +6,16 @@
     <description>Recent content in 自作 on 学習者のブログ　◆プログラミング等</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 05 Dec 2020 18:02:12 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 06 Dec 2020 16:59:25 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[VBA] 関数の引数を変更した場合にコンパイルエラーが多発するのを防ぐテクニック</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/12/06/alter-args-compile-err/</link>
+      <pubDate>Sun, 06 Dec 2020 16:59:25 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/12/06/alter-args-compile-err/</guid>
+      <description>この記事について プログラミングにおいて、 コードの保守性（他人や未来の自分から見て理解のしやすさ・変更の容易さ）を向上させるため、 外部から見た</description>
+    </item>
+    
     <item>
       <title>[VBA] 例外処理の典型的なパターン＆使用例サンプル</title>
       <link>https://dede-20191130.github.io/learnerBlog/posts/2020/12/05/vba-exception-handle/</link>
