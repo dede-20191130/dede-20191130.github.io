@@ -358,7 +358,7 @@ funcSample02プロシージャの動作：
 
 #### 使用環境
 
-Windows 10 Home(64bit)
+Windows 10 Home(64bit)  
 MSOffice 2016
 
 #### Excelファイルとテスト用データについて
