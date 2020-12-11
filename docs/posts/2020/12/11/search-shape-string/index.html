@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="ja" data-figures="" class="page">
-  <head>  <title>[小ネタ] 「無印良品」を英語でどう説明する？？ | 学習者のブログ　◆プログラミング等</title>
+  <head>  <title>[VBA] ブック内の図形内のテキストを検索・置換するマクロ（Qiitaの記事の拡張） | 学習者のブログ　◆プログラミング等</title>
   <meta charset="utf-8">
   <meta name="generator" content="Hugo 0.76.0" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -17,13 +17,13 @@
 <meta property="og:locale" content="ja" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="無印良品はノーブランドか？ 無印良品って名前からノーブランド1 と最初は思うけれど、 たとえロゴがなくても一見して無印良品の商品とわかることも多い">
+<meta name="description" content="この記事について Qiitaで見たこちらの記事を参考に、 ブック内のすべての図形で検索できるように拡張したマクロです。 RelaxTools Addinを利用できない">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="@D20191130">
-<meta name="twitter:title" content="[小ネタ] 「無印良品」を英語でどう説明する？？" />
-<meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/posts/2020/12/05/mujirushi/" />
-<meta property="og:title" content="[小ネタ] 「無印良品」を英語でどう説明する？？" />
-<meta property="og:description" content="無印良品はノーブランドか？ 無印良品って名前からノーブランド1 と最初は思うけれど、 たとえロゴがなくても一見して無印良品の商品とわかることも多い" />
+<meta name="twitter:title" content="[VBA] ブック内の図形内のテキストを検索・置換するマクロ（Qiitaの記事の拡張）" />
+<meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/posts/2020/12/11/search-shape-string/" />
+<meta property="og:title" content="[VBA] ブック内の図形内のテキストを検索・置換するマクロ（Qiitaの記事の拡張）" />
+<meta property="og:description" content="この記事について Qiitaで見たこちらの記事を参考に、 ブック内のすべての図形で検索できるように拡張したマクロです。 RelaxTools Addinを利用できない" />
 <meta property="og:image" content="https://dede-20191130.github.io/learnerBlog/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://dede-20191130.github.io/learnerBlog/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://dede-20191130.github.io/learnerBlog/icons/favicon-32x32.png'>
@@ -33,7 +33,7 @@
 <meta name="msapplication-TileColor" content="#002538">
 <meta name="theme-color" content="#002538">
 
-  <link rel="canonical" href="https://dede-20191130.github.io/learnerBlog/posts/2020/12/05/mujirushi/">
+  <link rel="canonical" href="https://dede-20191130.github.io/learnerBlog/posts/2020/12/11/search-shape-string/">
 
     
 
@@ -113,23 +113,27 @@
   
 <div class="grid-inverse wrap content">
   <article class="post_content">
-    <h1 class="post_title">[小ネタ] 「無印良品」を英語でどう説明する？？</h1><div class="post_meta">
+    <h1 class="post_title">[VBA] ブック内の図形内のテキストを検索・置換するマクロ（Qiitaの記事の拡張）</h1><div class="post_meta">
   <svg class="icon">
   <use xlink:href="#calendar"></use>
 </svg>
   <span class="post_date">
-    Dec 5, 2020</span>
+    Dec 11, 2020</span>
+  <a href='https://dede-20191130.github.io/learnerBlog/tags/excel' class="post_tag button button_translucent">Excel
+  </a>
+  <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' class="post_tag button button_translucent">VBA
+  </a>
 </div>
 
     
 <div class="post_share">
   Share on:
-  <a href="https://twitter.com/intent/tweet?text=%5b%e5%b0%8f%e3%83%8d%e3%82%bf%5d%20%e3%80%8c%e7%84%a1%e5%8d%b0%e8%89%af%e5%93%81%e3%80%8d%e3%82%92%e8%8b%b1%e8%aa%9e%e3%81%a7%e3%81%a9%e3%81%86%e8%aa%ac%e6%98%8e%e3%81%99%e3%82%8b%ef%bc%9f%ef%bc%9f&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f12%2f05%2fmujirushi%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
+  <a href="https://twitter.com/intent/tweet?text=%5bVBA%5d%20%e3%83%96%e3%83%83%e3%82%af%e5%86%85%e3%81%ae%e5%9b%b3%e5%bd%a2%e5%86%85%e3%81%ae%e3%83%86%e3%82%ad%e3%82%b9%e3%83%88%e3%82%92%e6%a4%9c%e7%b4%a2%e3%83%bb%e7%bd%ae%e6%8f%9b%e3%81%99%e3%82%8b%e3%83%9e%e3%82%af%e3%83%ad%ef%bc%88Qiita%e3%81%ae%e8%a8%98%e4%ba%8b%e3%81%ae%e6%8b%a1%e5%bc%b5%ef%bc%89&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f12%2f11%2fsearch-shape-string%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
     <svg class="icon">
   <use xlink:href="#twitter"></use>
 </svg>
   </a>
-  <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f12%2f05%2fmujirushi%2f&t=%5b%e5%b0%8f%e3%83%8d%e3%82%bf%5d%20%e3%80%8c%e7%84%a1%e5%8d%b0%e8%89%af%e5%93%81%e3%80%8d%e3%82%92%e8%8b%b1%e8%aa%9e%e3%81%a7%e3%81%a9%e3%81%86%e8%aa%ac%e6%98%8e%e3%81%99%e3%82%8b%ef%bc%9f%ef%bc%9f" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
+  <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f12%2f11%2fsearch-shape-string%2f&t=%5bVBA%5d%20%e3%83%96%e3%83%83%e3%82%af%e5%86%85%e3%81%ae%e5%9b%b3%e5%bd%a2%e5%86%85%e3%81%ae%e3%83%86%e3%82%ad%e3%82%b9%e3%83%88%e3%82%92%e6%a4%9c%e7%b4%a2%e3%83%bb%e7%bd%ae%e6%8f%9b%e3%81%99%e3%82%8b%e3%83%9e%e3%82%af%e3%83%ad%ef%bc%88Qiita%e3%81%ae%e8%a8%98%e4%ba%8b%e3%81%ae%e6%8b%a1%e5%bc%b5%ef%bc%89" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
     <svg class="icon">
   <use xlink:href="#facebook"></use>
 </svg>
@@ -139,7 +143,7 @@
   <use xlink:href="#linkedin"></use>
 </svg>
   </a>
-  <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/12/05/mujirushi/" title="Copy Link" class="link link_yank">
+  <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/12/11/search-shape-string/" title="Copy Link" class="link link_yank">
     <svg class="icon">
   <use xlink:href="#yank"></use>
 </svg>
@@ -151,71 +155,229 @@
     <h2>Overview</h2>
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#無印良品はノーブランドか">無印良品はノーブランドか？</a></li>
-    <li><a href="#英語表現">英語表現</a>
+    <li><a href="#この記事について">この記事について</a></li>
+    <li><a href="#コード">コード</a>
       <ul>
-        <li><a href="#英語表現-1">英語表現</a></li>
-        <li><a href="#指導をしないという名の指導">指導をしないという名の指導</a></li>
+        <li><a href="#モジュール内定数変数">モジュール内定数・変数</a></li>
+        <li><a href="#searchshapetext">searchShapeText</a></li>
+        <li><a href="#searchreplaceshapetext">searchReplaceShapeText</a></li>
       </ul>
     </li>
-    <li><a href="#ノーブランドとは">ノーブランドとは</a></li>
-    <li><a href="#自己をうまくブランディングした無印良品">自己をうまくブランディングした無印良品</a></li>
   </ul>
 </nav>
-    <h2 id="無印良品はノーブランドか">無印良品はノーブランドか？</h2>
-<p>無印良品って名前からノーブランド<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>
-と最初は思うけれど、<br>
-たとえロゴがなくても一見して無印良品の商品とわかることも多いので、<br>
-ノーブランドとは言えないと思う。<br>
-さらに、スキンケアや家具などの有名な商品はその特徴も合わせて知れ渡っているのでなおさらだ。</p>
-<p>もし無印良品というブランドを英語圏の方に説明する場合、<br>
-ちょっと奇妙な表現になるかもしれない。</p>
-<h2 id="英語表現">英語表現</h2>
-<h3 id="英語表現-1">英語表現</h3>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>MUJI is a popular private brand in Japan and it&#39;s especially famous for its furniture and clothes.
-<span class="ln">2</span>By the way... &#34;Muji&#34; means that it is a No-Name brand.
-</code></pre></div><p>なんか矛盾しているように聞こえる。</p>
-<h3 id="指導をしないという名の指導">指導をしないという名の指導</h3>
-<p>上の矛盾の内容は、無印（No-Name brand）良品と名のブランドということである。<br>
-
-
-<span style="color: #fb9700;">
-    ノーブランドなのに、ブランド？  
-</span></p>
-<p>〇〇をしないという名の〇〇　というイディオムに似ている。</p>
-<ul>
-<li>指導をしないという名の指導</li>
-<li>倹約をしないという名の倹約</li>
-<li>コミュニケーションを拒否することによるコミュニケーション</li>
-<li>シンプルさ故の複雑さ</li>
-</ul>
-<p>こういう表現、たまにある。</p>
-<h2 id="ノーブランドとは">ノーブランドとは</h2>
-<p>ノーブランドとはどういう特徴を持ったものであるかというと、</p>
-<blockquote>
-<p>ノーブランドは、ブランド（商標）を大きく掲げずに、法的に定められた事項と一般名称のみを記した商品。ジェネリック・ブランドともいわれる。また、その商品のことをノーブランド商品、無印品という。<br>
-無駄をなるべく排除することにより低価格化を図り、また商品の本来の機能を特化させようというのが共通的な考えになる。<br>
-ただ、通常のブランド商品に比べ、価値の低いものとして見られたり、仕入れをする業者が少ないという欠点もある。<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
-</blockquote>
-<p>翻って無印良品を見ると、<br>
-低価格かと言われると微妙な価格であり、<br>
-商品の本来の機能を特化という点ではこれ以上無く合致している。</p>
-<h2 id="自己をうまくブランディングした無印良品">自己をうまくブランディングした無印良品</h2>
-<p>もとは西友のPB関連商品だった無印も、<br>
-高品質、安定感、シンプルで迷いのない機能などの点で売出し、<br>
-名前の矛盾を持ちながら発展したブランドのよう。</p>
-<section class="footnotes" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn:1" role="doc-endnote">
-<p>商標の記載がない商品。百円均一店の皿など <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-<li id="fn:2" role="doc-endnote">
-<p>Quoted: <a href="https://ja.wikipedia.org/wiki/%E3%83%8E%E3%83%BC%E3%83%96%E3%83%A9%E3%83%B3%E3%83%89">https://ja.wikipedia.org/wiki/%E3%83%8E%E3%83%BC%E3%83%96%E3%83%A9%E3%83%B3%E3%83%89</a> <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-</ol>
-</section>
-
+    <h2 id="この記事について">この記事について</h2>
+<p>Qiitaで見たこちらの記事を参考に、<br>
+ブック内のすべての図形で検索できるように拡張したマクロです。<br>
+<a href="https://software.opensquare.net/relaxtools/about/">RelaxTools Addin</a>を利用できない環境や、検索機能だけほしい場合に、<br>
+自分で使えたら便利かなと思い作成しました。</p>
+<p><a href="https://qiita.com/s-hchika/items/dda585fa0bdb829e9713">参考元：[Excel]図形内のテキストを検索・置換したい</a></p>
+<p><a href="https://github.com/dede-20191130/My_VBA_Tools/tree/master/Public/2020/12/Search-Shape-String"><span id="srcURL"><u>説明のために作成したExcelファイルとソースコードはこちらでダウンロードできます。</u></span></a></p>
+<h2 id="コード">コード</h2>
+<p>ほぼそのまんまです。<br>
+違いといえば例外処理のいくつかの流れの変更と、<br>
+未発見フラグと終了フラグの管理を自分的にわかりやすくしたところくらい。</p>
+<h3 id="モジュール内定数変数">モジュール内定数・変数</h3>
+<div class="highlight"><pre class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span><span class="k">Option</span> <span class="n">Explicit</span>
+<span class="ln"> 2</span><span class="c">&#39;**************************
+</span><span class="ln"> 3</span><span class="c">&#39;*図形の文字列検索・置換
+</span><span class="ln"> 4</span><span class="c">&#39;*
+</span><span class="ln"> 5</span><span class="c">&#39;*referencing https://qiita.com/s-hchika/items/dda585fa0bdb829e9713
+</span><span class="ln"> 6</span><span class="c">&#39;**************************
+</span><span class="ln"> 7</span><span class="c"></span>
+<span class="ln"> 8</span><span class="c">&#39;定数
+</span><span class="ln"> 9</span><span class="c">&#39;ポップアップの名前
+</span><span class="ln">10</span><span class="c"></span><span class="k">Private</span> <span class="k">Const</span> <span class="n">TITLE_SEARCH_SHAPE_TEXT</span> <span class="ow">As</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&#34;オートシェイプ検索&#34;</span>
+<span class="ln">11</span>
+<span class="ln">12</span><span class="c">&#39;変数
+</span><span class="ln">13</span><span class="c">&#39;無し
+</span><span class="ln">14</span><span class="c"></span>
+<span class="ln">15</span>
+</code></pre></div><h3 id="searchshapetext">searchShapeText</h3>
+<div class="highlight"><pre class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln"> 2</span><span class="c">&#39;*関数名    ：文字検索関数
+</span><span class="ln"> 3</span><span class="c">&#39;*機能      ：
+</span><span class="ln"> 4</span><span class="c">&#39;*引数      ：
+</span><span class="ln"> 5</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln"> 6</span><span class="c"></span><span class="k">Public</span> <span class="k">Sub</span> <span class="nf">searchShapeText</span><span class="p">()</span>
+<span class="ln"> 7</span>
+<span class="ln"> 8</span>    
+<span class="ln"> 9</span>    <span class="c">&#39;定数
+</span><span class="ln">10</span><span class="c"></span>    <span class="k">Const</span> <span class="n">FUNC_NAME</span> <span class="ow">As</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&#34;searchShapeText&#34;</span>
+<span class="ln">11</span>    
+<span class="ln">12</span>    <span class="c">&#39;変数
+</span><span class="ln">13</span><span class="c"></span>    <span class="k">Dim</span> <span class="n">mySheets</span> <span class="ow">As</span> <span class="kt">Variant</span>                     <span class="c">&#39;ワークシートの集合体
+</span><span class="ln">14</span><span class="c"></span>    <span class="k">Dim</span> <span class="n">sheet</span> <span class="ow">As</span> <span class="kt">Variant</span>
+<span class="ln">15</span>    <span class="k">Dim</span> <span class="n">searchWord</span> <span class="ow">As</span> <span class="kt">String</span>                     <span class="c">&#39;検索ワード
+</span><span class="ln">16</span><span class="c"></span>    <span class="k">Dim</span> <span class="n">flgTerminate</span> <span class="ow">As</span> <span class="kt">Boolean</span>
+<span class="ln">17</span>    <span class="k">Dim</span> <span class="n">flgFound</span> <span class="ow">As</span> <span class="kt">Boolean</span>
+<span class="ln">18</span>    
+<span class="ln">19</span>    <span class="k">On</span> <span class="k">Error</span> <span class="k">GoTo</span> <span class="n">ErrorHandler</span>
+<span class="ln">20</span>    
+<span class="ln">21</span>    <span class="c">&#39;ブック内検索orシート検索
+</span><span class="ln">22</span><span class="c"></span>    <span class="k">If</span> <span class="n">MsgBox</span><span class="p">(</span><span class="s">&#34;ブック全体を検索場所としますか。&#34;</span><span class="p">,</span> <span class="n">vbYesNo</span><span class="p">,</span> <span class="n">TITLE_SEARCH_SHAPE_TEXT</span><span class="p">)</span> <span class="o">=</span> <span class="n">vbYes</span> <span class="k">Then</span>
+<span class="ln">23</span>        <span class="c">&#39;対象のワークシートを現在開いているブックの全てのシートとする
+</span><span class="ln">24</span><span class="c"></span>        <span class="k">Set</span> <span class="n">mySheets</span> <span class="o">=</span> <span class="n">ActiveWorkbook</span><span class="p">.</span><span class="n">Worksheets</span>
+<span class="ln">25</span>    <span class="k">Else</span>
+<span class="ln">26</span>        <span class="c">&#39;対象のワークシートを現在開いているシートのみとする
+</span><span class="ln">27</span><span class="c"></span>        <span class="n">mySheets</span> <span class="o">=</span> <span class="n">Array</span><span class="p">(</span><span class="n">ActiveSheet</span><span class="p">)</span>
+<span class="ln">28</span>    <span class="k">End</span> <span class="k">If</span>
+<span class="ln">29</span>    
+<span class="ln">30</span>    <span class="c">&#39;検索ワード入力ポップアップを表示する
+</span><span class="ln">31</span><span class="c"></span>    <span class="n">searchWord</span> <span class="o">=</span> <span class="n">Trim</span><span class="p">(</span><span class="n">InputBox</span><span class="p">(</span><span class="s">&#34;検索したいワードを入力して下さい。&#34;</span><span class="p">,</span> <span class="n">TITLE_SEARCH_SHAPE_TEXT</span><span class="p">))</span>
+<span class="ln">32</span>
+<span class="ln">33</span>    <span class="k">If</span> <span class="n">searchWord</span> <span class="o">=</span> <span class="s">&#34;&#34;</span> <span class="k">Then</span> <span class="k">GoTo</span> <span class="n">ExitHandler</span>
+<span class="ln">34</span>    
+<span class="ln">35</span>    <span class="c">&#39;検索
+</span><span class="ln">36</span><span class="c"></span>    <span class="k">For</span> <span class="k">Each</span> <span class="n">sheet</span> <span class="ow">In</span> <span class="n">mySheets</span>
+<span class="ln">37</span>        <span class="n">sheet</span><span class="p">.</span><span class="n">Activate</span>
+<span class="ln">38</span>        <span class="k">If</span> <span class="k">Not</span> <span class="n">searchReplaceShapeText</span><span class="p">(</span><span class="n">sheet</span><span class="p">.</span><span class="n">Shapes</span><span class="p">,</span> <span class="n">searchWord</span><span class="p">,</span> <span class="n">flgTerminate</span><span class="p">,</span> <span class="n">flgFound</span><span class="p">)</span> <span class="k">Then</span> <span class="k">GoTo</span> <span class="n">ExitHandler</span>
+<span class="ln">39</span>        <span class="c">&#39;終了フラグTrueの場合
+</span><span class="ln">40</span><span class="c"></span>        <span class="k">If</span> <span class="n">flgTerminate</span> <span class="k">Then</span> <span class="k">GoTo</span> <span class="n">ExitHandler</span>
+<span class="ln">41</span>    <span class="k">Next</span> <span class="n">sheet</span>
+<span class="ln">42</span>    
+<span class="ln">43</span>    <span class="c">&#39;すべての検索範囲で未発見の場合
+</span><span class="ln">44</span><span class="c"></span>    <span class="k">If</span> <span class="k">Not</span> <span class="n">flgFound</span> <span class="k">Then</span> <span class="n">MsgBox</span> <span class="s">&#34;「&#34;</span> <span class="o">&amp;</span> <span class="n">searchWord</span> <span class="o">&amp;</span> <span class="s">&#34;」が見つかりません。&#34;</span><span class="p">,</span> <span class="n">vbExclamation</span><span class="p">,</span> <span class="n">TITLE_SEARCH_SHAPE_TEXT</span>
+<span class="ln">45</span>    
+<span class="ln">46</span><span class="n">ExitHandler</span><span class="p">:</span>
+<span class="ln">47</span>
+<span class="ln">48</span>    <span class="k">Exit</span> <span class="k">Sub</span>
+<span class="ln">49</span>    
+<span class="ln">50</span><span class="nf">ErrorHandler</span><span class="p">:</span>
+<span class="ln">51</span>
+<span class="ln">52</span>    <span class="n">MsgBox</span> <span class="s">&#34;エラーが発生したため、マクロを終了します。&#34;</span> <span class="o">&amp;</span> _
+<span class="ln">53</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
+<span class="ln">54</span>           <span class="s">&#34;関数名：&#34;</span> <span class="o">&amp;</span> <span class="n">FUNC_NAME</span> <span class="o">&amp;</span> _
+<span class="ln">55</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
+<span class="ln">56</span>           <span class="s">&#34;エラー番号：&#34;</span> <span class="o">&amp;</span> <span class="n">Err</span><span class="p">.</span><span class="n">Number</span> <span class="o">&amp;</span> <span class="n">vbNewLine</span> <span class="o">&amp;</span> _
+<span class="ln">57</span>           <span class="n">Err</span><span class="p">.</span><span class="n">Description</span><span class="p">,</span> <span class="n">vbCritical</span><span class="p">,</span> <span class="n">TITLE_SEARCH_SHAPE_TEXT</span>
+<span class="ln">58</span>        
+<span class="ln">59</span>    <span class="k">GoTo</span> <span class="n">ExitHandler</span>
+<span class="ln">60</span>        
+<span class="ln">61</span><span class="k">End</span> <span class="k">Sub</span>
+<span class="ln">62</span>
+</code></pre></div><h3 id="searchreplaceshapetext">searchReplaceShapeText</h3>
+<div class="highlight"><pre class="chroma"><code class="language-vb" data-lang="vb"><span class="ln">  1</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln">  2</span><span class="c">&#39;*関数名    ：searchReplaceShapeText
+</span><span class="ln">  3</span><span class="c">&#39;*機能      ：図形内検索置換関数
+</span><span class="ln">  4</span><span class="c">&#39;*引数      ：worksheetShapes Worksheetの図形コレクション
+</span><span class="ln">  5</span><span class="c">&#39;*引数      ：searchWord      検索文字
+</span><span class="ln">  6</span><span class="c">&#39;*引数      ：flgTerminate      探索終了フラグ
+</span><span class="ln">  7</span><span class="c">&#39;*引数      ：flgFound      文字列発見フラグ
+</span><span class="ln">  8</span><span class="c">&#39;*戻り値    ：True &gt; 正常終了、False &gt; 異常終了
+</span><span class="ln">  9</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln"> 10</span><span class="c"></span><span class="k">Private</span> <span class="k">Function</span> <span class="nf">searchReplaceShapeText</span><span class="p">(</span><span class="k">ByVal</span> <span class="n">worksheetShapes</span> <span class="ow">As</span> <span class="kt">Object</span><span class="p">,</span> <span class="k">ByVal</span> <span class="n">searchWord</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">,</span> _
+<span class="ln"> 11</span>                                        <span class="k">ByRef</span> <span class="n">flgTerminate</span> <span class="ow">As</span> <span class="kt">Boolean</span><span class="p">,</span> <span class="k">ByRef</span> <span class="n">flgFound</span> <span class="ow">As</span> <span class="kt">Boolean</span><span class="p">)</span> <span class="ow">As</span> <span class="kt">Boolean</span>
+<span class="ln"> 12</span>
+<span class="ln"> 13</span>    
+<span class="ln"> 14</span>    <span class="c">&#39;定数
+</span><span class="ln"> 15</span><span class="c"></span>    <span class="k">Const</span> <span class="n">FUNC_NAME</span> <span class="ow">As</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&#34;searchReplaceShapeText&#34;</span>
+<span class="ln"> 16</span>    
+<span class="ln"> 17</span>    <span class="c">&#39;変数
+</span><span class="ln"> 18</span><span class="c"></span>    <span class="k">Dim</span> <span class="n">targetShape</span>  <span class="ow">As</span> <span class="n">Excel</span><span class="p">.</span><span class="n">Shape</span>              <span class="c">&#39;ワークシート内の図形
+</span><span class="ln"> 19</span><span class="c"></span>    <span class="k">Dim</span> <span class="n">shapeText</span>   <span class="ow">As</span> <span class="kt">String</span>                    <span class="c">&#39;図形内の文字
+</span><span class="ln"> 20</span><span class="c"></span>    <span class="k">Dim</span> <span class="n">discoveryWord</span> <span class="ow">As</span> <span class="kt">Long</span>                    <span class="c">&#39;検索ワード発見位置
+</span><span class="ln"> 21</span><span class="c"></span>    <span class="k">Dim</span> <span class="n">replaceWord</span> <span class="ow">As</span> <span class="kt">String</span>                    <span class="c">&#39;置換後の文字
+</span><span class="ln"> 22</span><span class="c"></span>    <span class="k">Dim</span> <span class="n">replacePopupMsg</span> <span class="ow">As</span> <span class="kt">String</span>                <span class="c">&#39;置換ポップアップメッセージ
+</span><span class="ln"> 23</span><span class="c"></span>    <span class="k">Dim</span> <span class="n">searchWordCnt</span> <span class="ow">As</span> <span class="kt">Long</span><span class="p">:</span> <span class="n">searchWordCnt</span> <span class="o">=</span> <span class="n">1</span> <span class="c">&#39;図形内検索ワード数
+</span><span class="ln"> 24</span><span class="c"></span>    
+<span class="ln"> 25</span>    <span class="k">On</span> <span class="k">Error</span> <span class="k">GoTo</span> <span class="n">ErrorHandler</span>
+<span class="ln"> 26</span>
+<span class="ln"> 27</span>
+<span class="ln"> 28</span>    <span class="c">&#39;ワークシートに図形が存在する間ループ
+</span><span class="ln"> 29</span><span class="c"></span>    <span class="k">For</span> <span class="k">Each</span> <span class="n">targetShape</span> <span class="ow">In</span> <span class="n">worksheetShapes</span>
+<span class="ln"> 30</span>        <span class="k">Do</span>
+<span class="ln"> 31</span>
+<span class="ln"> 32</span>            <span class="c">&#39;クループ化された図形の時
+</span><span class="ln"> 33</span><span class="c"></span>            <span class="k">If</span> <span class="p">(</span><span class="n">targetShape</span><span class="p">.</span><span class="n">Type</span> <span class="o">=</span> <span class="n">msoGroup</span><span class="p">)</span> <span class="k">Then</span>
+<span class="ln"> 34</span>    
+<span class="ln"> 35</span>                <span class="k">If</span> <span class="k">Not</span> <span class="p">(</span><span class="n">searchReplaceShapeText</span><span class="p">(</span><span class="n">targetShape</span><span class="p">.</span><span class="n">GroupItems</span><span class="p">,</span> <span class="n">searchWord</span><span class="p">,</span> <span class="n">flgTerminate</span><span class="p">,</span> <span class="n">flgFound</span><span class="p">))</span> <span class="k">Then</span> <span class="k">GoTo</span> <span class="n">ExitHandler</span>
+<span class="ln"> 36</span>                <span class="c">&#39;終了フラグTrueの場合
+</span><span class="ln"> 37</span><span class="c"></span>                <span class="k">If</span> <span class="n">flgTerminate</span> <span class="k">Then</span> <span class="k">GoTo</span> <span class="n">TruePoint</span>
+<span class="ln"> 38</span>    
+<span class="ln"> 39</span>                <span class="c">&#39;コメントの時
+</span><span class="ln"> 40</span><span class="c"></span>            <span class="k">ElseIf</span> <span class="p">(</span><span class="n">targetShape</span><span class="p">.</span><span class="n">Type</span> <span class="o">=</span> <span class="n">msoComment</span><span class="p">)</span> <span class="k">Then</span>
+<span class="ln"> 41</span>                <span class="k">Exit</span> <span class="k">Do</span>
+<span class="ln"> 42</span>            <span class="k">Else</span>
+<span class="ln"> 43</span>                <span class="c">&#39;指定したテキストフレームにテキストがあるかどうかを返す
+</span><span class="ln"> 44</span><span class="c"></span>                <span class="k">If</span> <span class="p">(</span><span class="n">targetShape</span><span class="p">.</span><span class="n">TextFrame2</span><span class="p">.</span><span class="n">HasText</span><span class="p">)</span> <span class="k">Then</span>
+<span class="ln"> 45</span>    
+<span class="ln"> 46</span>                    <span class="c">&#39;図形内のテキストを取得
+</span><span class="ln"> 47</span><span class="c"></span>                    <span class="n">shapeText</span> <span class="o">=</span> <span class="n">targetShape</span><span class="p">.</span><span class="n">TextFrame2</span><span class="p">.</span><span class="n">TextRange</span><span class="p">.</span><span class="n">Text</span>
+<span class="ln"> 48</span>    
+<span class="ln"> 49</span>                    <span class="c">&#39;図形内の文字列から検索
+</span><span class="ln"> 50</span><span class="c"></span>                    <span class="n">discoveryWord</span> <span class="o">=</span> <span class="n">InStr</span><span class="p">(</span><span class="n">shapeText</span><span class="p">,</span> <span class="n">searchWord</span><span class="p">)</span>
+<span class="ln"> 51</span>    
+<span class="ln"> 52</span>                    <span class="c">&#39;検索ワードが見つかったとき、置換の処理を行う
+</span><span class="ln"> 53</span><span class="c"></span>                    <span class="k">If</span> <span class="p">(</span><span class="n">discoveryWord</span> <span class="o">&gt;</span> <span class="n">0</span><span class="o">&amp;</span><span class="p">)</span> <span class="k">Then</span>
+<span class="ln"> 54</span>                        
+<span class="ln"> 55</span>                        <span class="c">&#39;文字列発見フラグTrue
+</span><span class="ln"> 56</span><span class="c"></span>                        <span class="n">flgFound</span> <span class="o">=</span> <span class="k">True</span>
+<span class="ln"> 57</span>                        
+<span class="ln"> 58</span>                        <span class="c">&#39;ウィンドウを図形の位置にスクロール
+</span><span class="ln"> 59</span><span class="c"></span>                        <span class="n">ActiveWindow</span><span class="p">.</span><span class="n">ScrollRow</span> <span class="o">=</span> <span class="n">targetShape</span><span class="p">.</span><span class="n">TopLeftCell</span><span class="p">.</span><span class="n">Row</span>
+<span class="ln"> 60</span>                        <span class="n">ActiveWindow</span><span class="p">.</span><span class="n">ScrollColumn</span> <span class="o">=</span> <span class="n">targetShape</span><span class="p">.</span><span class="n">TopLeftCell</span><span class="p">.</span><span class="n">Column</span>
+<span class="ln"> 61</span>    
+<span class="ln"> 62</span>                        <span class="k">Do</span> <span class="k">While</span> <span class="p">(</span><span class="n">discoveryWord</span> <span class="o">&gt;</span> <span class="n">0</span><span class="o">&amp;</span><span class="p">)</span>
+<span class="ln"> 63</span>                            
+<span class="ln"> 64</span>                            <span class="c">&#39;テキスト範囲選択を解除するため、カレントセルを選択する
+</span><span class="ln"> 65</span><span class="c"></span>                            <span class="n">targetShape</span><span class="p">.</span><span class="n">TopLeftCell</span><span class="p">.</span><span class="n">Select</span>
+<span class="ln"> 66</span>    
+<span class="ln"> 67</span>                            <span class="n">targetShape</span><span class="p">.</span><span class="n">TextFrame2</span><span class="p">.</span><span class="n">TextRange</span><span class="p">.</span><span class="n">Characters</span><span class="p">(</span><span class="n">discoveryWord</span><span class="p">,</span> <span class="n">Len</span><span class="p">(</span><span class="n">searchWord</span><span class="p">)).</span><span class="n">Select</span>
+<span class="ln"> 68</span>    
+<span class="ln"> 69</span>                            <span class="n">replacePopupMsg</span> <span class="o">=</span> <span class="s">&#34;置換する場合、入力してください。&#34;</span> <span class="o">&amp;</span> <span class="n">vbNewLine</span> <span class="o">&amp;</span> <span class="n">vbNewLine</span> <span class="o">&amp;</span> <span class="s">&#34;置換前 : &#34;</span> <span class="o">&amp;</span> <span class="n">searchWord</span> <span class="o">&amp;</span> <span class="n">vbNewLine</span> <span class="o">&amp;</span> <span class="s">&#34;置換後&#34;</span>
+<span class="ln"> 70</span>    
+<span class="ln"> 71</span>                            <span class="c">&#39; 置換入力メッセージを出力する
+</span><span class="ln"> 72</span><span class="c"></span>                            <span class="n">replaceWord</span> <span class="o">=</span> <span class="n">InputBox</span><span class="p">(</span><span class="n">replacePopupMsg</span><span class="p">,</span> <span class="s">&#34;置換&#34;</span><span class="p">)</span>
+<span class="ln"> 73</span>    
+<span class="ln"> 74</span>                            <span class="k">If</span> <span class="k">Not</span> <span class="n">replaceWord</span> <span class="o">=</span> <span class="s">&#34;&#34;</span> <span class="k">Then</span>
+<span class="ln"> 75</span>                            
+<span class="ln"> 76</span>                                <span class="c">&#39;図形内の文字列を一箇所置換する
+</span><span class="ln"> 77</span><span class="c"></span>                                <span class="n">targetShape</span><span class="p">.</span><span class="n">TextFrame2</span><span class="p">.</span><span class="n">TextRange</span><span class="p">.</span><span class="n">Text</span> <span class="o">=</span> <span class="n">Replace</span><span class="p">(</span><span class="n">shapeText</span><span class="p">,</span> <span class="n">searchWord</span><span class="p">,</span> <span class="n">replaceWord</span><span class="p">,</span> <span class="n">1</span><span class="p">,</span> <span class="n">searchWordCnt</span><span class="p">)</span>
+<span class="ln"> 78</span>                                <span class="n">targetShape</span><span class="p">.</span><span class="n">TopLeftCell</span><span class="p">.</span><span class="n">Select</span>
+<span class="ln"> 79</span>    
+<span class="ln"> 80</span>                            <span class="k">End</span> <span class="k">If</span>
+<span class="ln"> 81</span>    
+<span class="ln"> 82</span>                            <span class="c">&#39;検索を継続するかどうか
+</span><span class="ln"> 83</span><span class="c"></span>                            <span class="k">If</span> <span class="p">(</span><span class="n">MsgBox</span><span class="p">(</span><span class="s">&#34;continue?&#34;</span><span class="p">,</span> <span class="n">vbQuestion</span> <span class="ow">Or</span> <span class="n">vbOKCancel</span><span class="p">,</span> <span class="n">TITLE_SEARCH_SHAPE_TEXT</span><span class="p">)</span> <span class="o">&lt;&gt;</span> <span class="n">vbOK</span><span class="p">)</span> <span class="k">Then</span>
+<span class="ln"> 84</span>                                <span class="n">flgTerminate</span> <span class="o">=</span> <span class="k">True</span>
+<span class="ln"> 85</span>                                <span class="k">GoTo</span> <span class="n">TruePoint</span>
+<span class="ln"> 86</span>    
+<span class="ln"> 87</span>                                <span class="c">&#39;同じ図形内で文字検索
+</span><span class="ln"> 88</span><span class="c"></span>                            <span class="k">Else</span>
+<span class="ln"> 89</span>                                <span class="n">discoveryWord</span> <span class="o">=</span> <span class="n">InStr</span><span class="p">(</span><span class="n">discoveryWord</span> <span class="o">+</span> <span class="n">1</span><span class="o">&amp;</span><span class="p">,</span> <span class="n">shapeText</span><span class="p">,</span> <span class="n">searchWord</span><span class="p">)</span>
+<span class="ln"> 90</span>                            <span class="k">End</span> <span class="k">If</span>
+<span class="ln"> 91</span>    
+<span class="ln"> 92</span>                        <span class="k">Loop</span>
+<span class="ln"> 93</span>    
+<span class="ln"> 94</span>                    <span class="k">End</span> <span class="k">If</span>
+<span class="ln"> 95</span>                <span class="k">End</span> <span class="k">If</span>
+<span class="ln"> 96</span>            <span class="k">End</span> <span class="k">If</span>
+<span class="ln"> 97</span>        <span class="k">Loop</span> <span class="k">While</span> <span class="k">False</span>
+<span class="ln"> 98</span>    <span class="k">Next</span>
+<span class="ln"> 99</span>    
+<span class="ln">100</span>
+<span class="ln">101</span><span class="n">TruePoint</span><span class="p">:</span>
+<span class="ln">102</span>
+<span class="ln">103</span>    <span class="n">searchReplaceShapeText</span> <span class="o">=</span> <span class="k">True</span>
+<span class="ln">104</span>
+<span class="ln">105</span><span class="n">ExitHandler</span><span class="p">:</span>
+<span class="ln">106</span>    
+<span class="ln">107</span>    
+<span class="ln">108</span>    <span class="k">Exit</span> <span class="k">Function</span>
+<span class="ln">109</span>    
+<span class="ln">110</span><span class="nf">ErrorHandler</span><span class="p">:</span>
+<span class="ln">111</span>
+<span class="ln">112</span>    <span class="n">MsgBox</span> <span class="s">&#34;エラーが発生したため、マクロを終了します。&#34;</span> <span class="o">&amp;</span> _
+<span class="ln">113</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
+<span class="ln">114</span>           <span class="s">&#34;関数名：&#34;</span> <span class="o">&amp;</span> <span class="n">FUNC_NAME</span> <span class="o">&amp;</span> _
+<span class="ln">115</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
+<span class="ln">116</span>           <span class="s">&#34;エラー番号：&#34;</span> <span class="o">&amp;</span> <span class="n">Err</span><span class="p">.</span><span class="n">Number</span> <span class="o">&amp;</span> <span class="n">vbNewLine</span> <span class="o">&amp;</span> _
+<span class="ln">117</span>           <span class="n">Err</span><span class="p">.</span><span class="n">Description</span><span class="p">,</span> <span class="n">vbCritical</span><span class="p">,</span> <span class="n">TITLE_SEARCH_SHAPE_TEXT</span>
+<span class="ln">118</span>        
+<span class="ln">119</span>    <span class="k">GoTo</span> <span class="n">ExitHandler</span>
+<span class="ln">120</span>        
+<span class="ln">121</span><span class="k">End</span> <span class="k">Function</span>
+</code></pre></div>
     
       <div id="disqus_thread"></div>
 <script type="application/javascript">
@@ -266,13 +428,13 @@
     <ul class="flex-column">
       
       <li>
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/12/11/search-shape-string/" class="nav-link">[VBA] ブック内の図形内のテキストを検索・置換するマクロ（Qiitaの記事の拡張）</a>
-      </li>
-      <li>
         <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/12/06/alter-args-compile-err/" class="nav-link">[VBA] 関数の引数を変更した場合にコンパイルエラーが多発するのを防ぐテクニック</a>
       </li>
       <li>
         <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/12/05/vba-exception-handle/" class="nav-link">[VBA] 例外処理の典型的なパターン＆使用例サンプル</a>
+      </li>
+      <li>
+        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/12/05/mujirushi/" class="nav-link">[小ネタ] 「無印良品」を英語でどう説明する？？</a>
       </li>
       <li>
         <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/22/excel-class-sample-02/" class="nav-link">[VBA] クラスを利用するメリットと方法について &amp; 簡単なサンプル（２）</a>
