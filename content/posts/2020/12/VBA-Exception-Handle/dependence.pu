@@ -1,0 +1,42 @@
+@startuml
+title 関数処理フロー
+participant subSample
+participant funcSample01
+entity FilePathシート as FPSt
+participant funcSample02
+participant ファイルパスの指す各Excelブック as WB
+
+
+subSample -> funcSample01: 存在しないシートを引数として呼び出す
+activate funcSample01
+funcSample01 -> funcSample01: エラーの発生
+funcSample01 --> subSample: <color:#118888>Nullの返却
+deactivate funcSample01
+subSample -> subSample: 「ファイルパス配列の取得に失敗しました」メッセージの表示
+
+subSample -> funcSample01: FilePathシートの名前を引数として呼び出す
+activate funcSample01
+funcSample01 -> FPSt: シートのセルの参照
+FPSt --> funcSample01: ファイルパス文字列配列の取得
+funcSample01 --> subSample: ファイルパス文字列配列の返却
+deactivate funcSample01
+
+loop それぞれのファイルパス
+    subSample -> funcSample02: ファイルパスを渡す
+    activate funcSample02
+    funcSample02 -> WB: Excelブックを開く
+    alt すでにA1セルに文字が書き込まれていた場合
+        funcSample02 -> subSample: <color:#118888>カスタムエラーを発火させる
+    else
+    funcSample02 -> WB: 一枚目シートのA1に時刻を書き込み
+    opt 二枚目シートが存在する
+        funcSample02 -> WB: 二枚目シートのA1に「完了」と書き込む
+    end
+    funcSample02 -> WB: シートの保存
+    end
+    funcSample02 -> WB: <color:#118888>ブックを閉じる\n<color:#118888>正常終了時でもエラーが起きた場合でも、\n<color:#118888>必ず実行される
+    deactivate funcSample02
+end
+
+
+@enduml
