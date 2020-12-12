@@ -33,8 +33,8 @@ Call Sheets(Array("社員", "勤怠")).Delete
 
 ちなみにstackoverflowなどには  
 これについていくつか記事が存在した。  
-[https://stackoverflow.com/questions/55776641/excel-vba-unhiding-sheets-in-array-run-time-error-13-type-mismatch](https://stackoverflow.com/questions/55776641/excel-vba-unhiding-sheets-in-array-run-time-error-13-type-mismatch)  
-[https://answers.microsoft.com/en-us/msoffice/forum/msoffice_excel-msoffice_custom-mso_2007/hide-and-unhide-and-array-of-worksheets/d9e14ebe-eb5f-4339-bff8-8354afe79b64?auth=1](https://answers.microsoft.com/en-us/msoffice/forum/msoffice_excel-msoffice_custom-mso_2007/hide-and-unhide-and-array-of-worksheets/d9e14ebe-eb5f-4339-bff8-8354afe79b64?auth=1)
+- [https://stackoverflow.com/questions/55776641/excel-vba-unhiding-sheets-in-array-run-time-error-13-type-mismatch](https://stackoverflow.com/questions/55776641/excel-vba-unhiding-sheets-in-array-run-time-error-13-type-mismatch)  
+- [https://answers.microsoft.com/en-us/msoffice/forum/msoffice_excel-msoffice_custom-mso_2007/hide-and-unhide-and-array-of-worksheets/d9e14ebe-eb5f-4339-bff8-8354afe79b64?auth=1](https://answers.microsoft.com/en-us/msoffice/forum/msoffice_excel-msoffice_custom-mso_2007/hide-and-unhide-and-array-of-worksheets/d9e14ebe-eb5f-4339-bff8-8354afe79b64?auth=1)
 
 ## 検証
 
