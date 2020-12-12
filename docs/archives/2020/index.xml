@@ -6,7 +6,16 @@
     <description>Recent content in 2020 on 学習者のブログ　◆プログラミング等</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 11 Dec 2020 16:27:07 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/archives/2020/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 12 Dec 2020 11:49:05 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/archives/2020/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[VBA] Excelの複数シートをループを使わず一行の処理で非表示・再表示にすることはできる？？</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/12/12/sheet-array-visible/</link>
+      <pubDate>Sat, 12 Dec 2020 11:49:05 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/12/12/sheet-array-visible/</guid>
+      <description>この記事について Excelのシートに対する一括処理は、 次のようにシート名の配列としてSheetsオブジェクトを生成することで ループを使わず一</description>
+    </item>
+    
     <item>
       <title>[VBA] ブック内の図形内のテキストを検索・置換するマクロ（Qiitaの記事の拡張）</title>
       <link>https://dede-20191130.github.io/learnerBlog/posts/2020/12/11/search-shape-string/</link>
