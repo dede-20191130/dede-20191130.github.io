@@ -20,51 +20,8 @@
     <h2>Overview 20201123</h2>
     {{ .TableOfContents }}
     {{ end }}
-    <!-- partial -->
-    {{ partial "share" . }}<br>
-    {{ partial "share"  . }}
-    <!-- relref -->
-    <p>{{ relref . "about" }}</p>
-    <!-- summary -->
-    <!-- {aaa{ partial "excerpt"  "about" }} -->
-    <!-- {{ .Summary }} -->
-    <!-- range -->
-    {{ range .Data.Pages }}
-    <a href="{{ .Permalink }}">{{ .Title }}</a>
-    {{ end }}
-    <!-- if and eq -->
-    {{ if eq 1 1 }}
-    <p> 同じi</p>
-    {{ end }}
-    {{ if eq 1 2 }}
-    <p> 同じii</p>
-    {{ end }}
-    <!-- baseurl -->
-    <p>baseurl</p>
-    {{ .Page.Site.BaseURL }}
-    <!-- lastmod -->
-    <p>lastmod : {{ $.Param "lastmod" }}</p>
-    <!-- range -->
-    {{ $var := slice 1 2 3 4 5  }}
-    <ul>
-    {{ range $var }}
-        <li>{{ . }}</li>
-    {{ end }}
-    </ul>
-    <!-- delimit -->
-    <p>
-      {{ delimit (slice "foo" "bar" "buzz") "__■__" }}
-    </p>
-    <!-- _define -->
-    <!-- scratch -->
-    <p>
-      {{ $scr := newScratch }}
-      {{ $scr.Set "a" "b" }}
-      {{ if true }}
-          {{ $scr.Add "a" "aa" }}
-      {{ end }}
-      {{ $scr.Get "a" }} -> baa
-    </p>
+    <!-- add test codes -->
+    <!-- here -->
     {{- .Content }}
     {{ if and ( ne .Site.Params.comment false ) ( ne .Params.comment false ) }}
     {{ partial "comments" . }}
