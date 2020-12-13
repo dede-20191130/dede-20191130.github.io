@@ -1,18 +1,24 @@
-{{ range .Data.Pages }}
-<li>
-    <a href="{{ .Permalink }}">{{ .Title }}</a>
-    <div class="meta">{{ .Date.Format "Mon, Jan 2, 2006" }}</div>
-    <p> {{ .Params.animal }}</p>
-</li>
-{{ end }}
-<!-- {{ range .Data.Pages }}
-<a href="{{ .Permalink }}">{{ .Title }}</a>
-{{ end }} -->
-<hr>
-{{ range  where  .Data.Pages "Params.animal" "dog" }}
-<P>where animal is dog</P>
-<li>
-    <a href="{{ .Permalink }}">{{ .Title }}</a>
-    <div class="meta">{{ .Date.Format "Mon, Jan 2, 2006" }}</div>
-</li>
+{{- define "main" }}
+    <div class="content">
+        {{ range .Data.Pages }}
+        <li>
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+            <div class="meta">{{ .Date.Format "Mon, Jan 2, 2006" }}</div>
+            <p> {{ .Params.animal }}</p>
+        </li>
+        {{ end }}
+        <!-- {{ range .Data.Pages }}
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+        {{ end }} -->
+        <hr>
+        {{ range  where  .Data.Pages "Params.animal" "dog" }}
+        <P>where animal is dog</P>
+        <li>
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+            <div class="meta">{{ .Date.Format "Mon, Jan 2, 2006" }}</div>
+        </li>
+        {{ end }}
+        <p>Content below</p>
+        {{- .Content }}
+    </div>
 {{ end }}

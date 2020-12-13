@@ -43,9 +43,28 @@
     <p>baseurl</p>
     {{ .Page.Site.BaseURL }}
     <!-- lastmod -->
-    <p>lastmod</p>
-    {{ $.Param "lastmod" }}
-
+    <p>lastmod : {{ $.Param "lastmod" }}</p>
+    <!-- range -->
+    {{ $var := slice 1 2 3 4 5  }}
+    <ul>
+    {{ range $var }}
+        <li>{{ . }}</li>
+    {{ end }}
+    </ul>
+    <!-- delimit -->
+    <p>
+      {{ delimit (slice "foo" "bar" "buzz") "__■__" }}
+    </p>
+    <!-- _define -->
+    <!-- scratch -->
+    <p>
+      {{ $scr := newScratch }}
+      {{ $scr.Set "a" "b" }}
+      {{ if true }}
+          {{ $scr.Add "a" "aa" }}
+      {{ end }}
+      {{ $scr.Get "a" }} -> baa
+    </p>
     {{- .Content }}
     {{ if and ( ne .Site.Params.comment false ) ( ne .Params.comment false ) }}
     {{ partial "comments" . }}
