@@ -20,8 +20,36 @@
     <h2>Overview 20201123</h2>
     {{ .TableOfContents }}
     {{ end }}
-    <!-- add test codes -->
-    <!-- here -->
+    <!-- ##add test codes -->
+    <!-- attribute escape -->
+    <p>
+      {{ $variable := "javascript:alert('Hello');" }}
+      <a href="{{ $variable }}">alert link</a><br>
+      <a {{ printf "href=%q" $variable | safeHTMLAttr }}>alert link</a><br>
+      <a href={{ $variable | safeHTMLAttr }}>alert link</a>
+    </p>
+    <!-- renderstring -->
+    <p>
+      {{ "**Bold Markdown  <br>~~太字~~**" | .RenderString }}
+    </p>
+    {{ $optBlock := dict "display" "block" }}
+    {{ "**Bold Block Markdown**" | .RenderString  $optBlock }}
+    <!-- eq -->
+    <!-- */ 従来の比較 /* -->
+    {{ $test := "bonjour" }}
+    {{ $bool01 :=  in (slice "bonjour" "goodbye" "ciao") $test }}
+    {{ $bool02 :=  in (slice "ok" "goodbye" "ciao") $test }}
+
+    <!-- */ 一行で比較 /* -->
+    {{ $bool03 :=  eq $test "bonjour" "goodbye" "ciao" }}
+    {{ $bool04 :=  eq $test "Yahh" "goodbye" "ciao" }}
+    <p>
+      $bool01 {{ $bool01 }} <br>
+      $bool02 {{ $bool02 }} <br>
+      $bool03 {{ $bool03 }} <br>
+      $bool04 {{ $bool04 }} <br>
+    </p>
+    <!-- ##here -->
     {{- .Content }}
     {{ if and ( ne .Site.Params.comment false ) ( ne .Params.comment false ) }}
     {{ partial "comments" . }}
