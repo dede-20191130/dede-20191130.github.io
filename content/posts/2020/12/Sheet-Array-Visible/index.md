@@ -6,8 +6,8 @@ slug: Sheet-Array-Visible
 draft: false
 toc: true
 featured: false
-tags: []
-categories: []
+tags: ['Excel', 'VBA']
+categories: ['プログラミング']
 archives:
     - 2020
     - 2020-12
