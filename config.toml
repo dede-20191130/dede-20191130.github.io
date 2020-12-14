@@ -18,6 +18,9 @@ enableGitInfo = true
 
   numberOfTagsShown = 14
 
+  # will be used on share >> twitter, facebook, linkedin
+  fallBackOgImage = "images/thumbnail.png" 
+  
   # Google analytics Id
   ga_analytics = "UA-110309082-3"
 
