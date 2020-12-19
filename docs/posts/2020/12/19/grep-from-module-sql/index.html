@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="ja" data-figures="" class="page">
   <head>
-<title>[Access VBA] Accessのモジュール・クラスやクエリのSQLから特定文字列を抽出するためのテクニック | 学習者のブログ | プログラミング等</title>
+<title>[VBA, PowerShell] Accessのモジュール・クラスやクエリのSQLから特定文字列を抽出するためのテクニック | 学習者のブログ | プログラミング等</title>
 <meta charset="utf-8">
 <meta name="generator" content="Hugo 0.76.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -21,9 +21,9 @@
 <meta name="description" content="この記事について AccessのVBAツールを作成していると、 主にリファクタリングや機能追加のタイミングで、 モジュール、クラス、あるいはクエリ">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="@D20191130">
-<meta name="twitter:title" content="[Access VBA] Accessのモジュール・クラスやクエリのSQLから特定文字列を抽出するためのテクニック" />
+<meta name="twitter:title" content="[VBA, PowerShell] Accessのモジュール・クラスやクエリのSQLから特定文字列を抽出するためのテクニック" />
 <meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/posts/2020/12/19/grep-from-module-sql/" />
-<meta property="og:title" content="[Access VBA] Accessのモジュール・クラスやクエリのSQLから特定文字列を抽出するためのテクニック" />
+<meta property="og:title" content="[VBA, PowerShell] Accessのモジュール・クラスやクエリのSQLから特定文字列を抽出するためのテクニック" />
 <meta property="og:description" content="この記事について AccessのVBAツールを作成していると、 主にリファクタリングや機能追加のタイミングで、 モジュール、クラス、あるいはクエリ" />
 <meta property="og:image" content="https://dede-20191130.github.io/learnerBlog/images/thumbnail.png" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://dede-20191130.github.io/learnerBlog/icons/apple-touch-icon.png'>
@@ -113,7 +113,7 @@
   
 <div class="grid-inverse wrap content">
   <article class="post_content">
-    <h1 class="post_title">[Access VBA] Accessのモジュール・クラスやクエリのSQLから特定文字列を抽出するためのテクニック</h1><div class="post_meta">
+    <h1 class="post_title">[VBA, PowerShell] Accessのモジュール・クラスやクエリのSQLから特定文字列を抽出するためのテクニック</h1><div class="post_meta">
   <svg class="icon">
   <use xlink:href="#calendar"></use>
 </svg>
@@ -123,6 +123,8 @@
     </a>
     <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' class="post_tag button button_translucent">VBA
     </a>
+    <a href='https://dede-20191130.github.io/learnerBlog/tags/powershell' class="post_tag button button_translucent">PowerShell
+    </a>
     <a href='https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C' class="post_tag button button_translucent">自作
     </a>
 </div>
@@ -130,12 +132,12 @@
     
 <div class="post_share">
   Share on:
-  <a href="https://twitter.com/intent/tweet?text=%5bAccess%20VBA%5d%20Access%e3%81%ae%e3%83%a2%e3%82%b8%e3%83%a5%e3%83%bc%e3%83%ab%e3%83%bb%e3%82%af%e3%83%a9%e3%82%b9%e3%82%84%e3%82%af%e3%82%a8%e3%83%aa%e3%81%aeSQL%e3%81%8b%e3%82%89%e7%89%b9%e5%ae%9a%e6%96%87%e5%ad%97%e5%88%97%e3%82%92%e6%8a%bd%e5%87%ba%e3%81%99%e3%82%8b%e3%81%9f%e3%82%81%e3%81%ae%e3%83%86%e3%82%af%e3%83%8b%e3%83%83%e3%82%af&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f12%2f19%2fgrep-from-module-sql%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
+  <a href="https://twitter.com/intent/tweet?text=%5bVBA%2c%20PowerShell%5d%20Access%e3%81%ae%e3%83%a2%e3%82%b8%e3%83%a5%e3%83%bc%e3%83%ab%e3%83%bb%e3%82%af%e3%83%a9%e3%82%b9%e3%82%84%e3%82%af%e3%82%a8%e3%83%aa%e3%81%aeSQL%e3%81%8b%e3%82%89%e7%89%b9%e5%ae%9a%e6%96%87%e5%ad%97%e5%88%97%e3%82%92%e6%8a%bd%e5%87%ba%e3%81%99%e3%82%8b%e3%81%9f%e3%82%81%e3%81%ae%e3%83%86%e3%82%af%e3%83%8b%e3%83%83%e3%82%af&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f12%2f19%2fgrep-from-module-sql%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
     <svg class="icon">
   <use xlink:href="#twitter"></use>
 </svg>
   </a>
-  <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f12%2f19%2fgrep-from-module-sql%2f&t=%5bAccess%20VBA%5d%20Access%e3%81%ae%e3%83%a2%e3%82%b8%e3%83%a5%e3%83%bc%e3%83%ab%e3%83%bb%e3%82%af%e3%83%a9%e3%82%b9%e3%82%84%e3%82%af%e3%82%a8%e3%83%aa%e3%81%aeSQL%e3%81%8b%e3%82%89%e7%89%b9%e5%ae%9a%e6%96%87%e5%ad%97%e5%88%97%e3%82%92%e6%8a%bd%e5%87%ba%e3%81%99%e3%82%8b%e3%81%9f%e3%82%81%e3%81%ae%e3%83%86%e3%82%af%e3%83%8b%e3%83%83%e3%82%af" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
+  <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f12%2f19%2fgrep-from-module-sql%2f&t=%5bVBA%2c%20PowerShell%5d%20Access%e3%81%ae%e3%83%a2%e3%82%b8%e3%83%a5%e3%83%bc%e3%83%ab%e3%83%bb%e3%82%af%e3%83%a9%e3%82%b9%e3%82%84%e3%82%af%e3%82%a8%e3%83%aa%e3%81%aeSQL%e3%81%8b%e3%82%89%e7%89%b9%e5%ae%9a%e6%96%87%e5%ad%97%e5%88%97%e3%82%92%e6%8a%bd%e5%87%ba%e3%81%99%e3%82%8b%e3%81%9f%e3%82%81%e3%81%ae%e3%83%86%e3%82%af%e3%83%8b%e3%83%83%e3%82%af" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
     <svg class="icon">
   <use xlink:href="#facebook"></use>
 </svg>
@@ -544,6 +546,11 @@ Accessファイルの置かれているディレクトリの「src_Accessファ�
           <span class="button_tally">4</span>
         </a>
         
+        <a href='https://dede-20191130.github.io/learnerBlog/tags/powershell/' class="post_tag button button_translucent">
+          POWERSHELL
+          <span class="button_tally">2</span>
+        </a>
+        
         <a href='https://dede-20191130.github.io/learnerBlog/tags/%E6%AD%B4%E5%8F%B2%E4%B8%80%E8%88%AC/' class="post_tag button button_translucent">
           歴史一般
           <span class="button_tally">2</span>
@@ -561,11 +568,6 @@ Accessファイルの置かれているディレクトリの「src_Accessファ�
         
         <a href='https://dede-20191130.github.io/learnerBlog/tags/hugo/' class="post_tag button button_translucent">
           HUGO
-          <span class="button_tally">1</span>
-        </a>
-        
-        <a href='https://dede-20191130.github.io/learnerBlog/tags/powershell/' class="post_tag button button_translucent">
-          POWERSHELL
           <span class="button_tally">1</span>
         </a>
         
@@ -610,7 +612,7 @@ Accessファイルの置かれているディレクトリの「src_Accessファ�
             </a>
             
             
-            <a href='https://dede-20191130.github.io/learnerBlog/tags/powershell/' class=" post_tag button button_translucent" data-position=1>POWERSHELL<span class="button_tally">1</span>
+            <a href='https://dede-20191130.github.io/learnerBlog/tags/powershell/' class=" post_tag button button_translucent" data-position=2>POWERSHELL<span class="button_tally">2</span>
             </a>
             
             
