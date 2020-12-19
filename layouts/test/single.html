@@ -49,6 +49,40 @@
       $bool03 {{ $bool03 }} <br>
       $bool04 {{ $bool04 }} <br>
     </p>
+    <!-- 'if' statement one-line -->
+    <p>
+      {{ if ne 1 "1" }}{{ .Site.Title }}{{ end }}
+    </p>
+    <p>
+      {{$url01 :=  .Site.BaseURL | printf "%scategories/podcast/"}}
+      {{ if ne 1  (int "1")  }}{{ .Site.Title }}{{ else }}<a href="{{ $url01  }}"> {{ $url01  }}</a>{{ end }}
+    </p>
+    <!-- 'site' access -->
+    <p>
+      {{ .Site.Params.introDescription }}
+    </p>
+    <!-- getpage -->
+    <p>
+      {{ with .Site.GetPage "/my-archives" }}■{{ .Title }}■{{ end }}
+    </p>
+    <!-- %s -->
+    {{ with .Site.Params.fallBackOgImage }}
+        <p>
+          www:{{ printf "%s" . }}
+        </p>
+        <p>
+          qqq:{{ absURL . }}
+        </p>
+        <p>
+          eee:<img class="m-aside-widget__profile-avatar-img" src="{{ absURL .  }}" />
+        </p>
+        {{ if fileExists (printf "/static/%s" . ) }}
+            {{ $profile_image := resources.Get . }}
+            {{ with $profile_image }}
+              <img class="m-aside-widget__profile-avatar-img" src="{{ .Permalink }}" />
+            {{ end }}   
+        {{ end }}
+    {{ end }}
     <!-- ##here -->
     {{- .Content }}
     {{ if and ( ne .Site.Params.comment false ) ( ne .Params.comment false ) }}
