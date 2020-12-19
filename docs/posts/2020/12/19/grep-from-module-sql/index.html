@@ -1,8 +1,8 @@
 
 <!DOCTYPE html>
-<html lang="ja" data-figures="">
+<html lang="ja" data-figures="" class="page">
   <head>
-<title>VBA | 学習者のブログ | プログラミング等</title>
+<title>[Access VBA] Accessのモジュール・クラスやクエリのSQLから特定文字列を抽出するためのテクニック | 学習者のブログ | プログラミング等</title>
 <meta charset="utf-8">
 <meta name="generator" content="Hugo 0.76.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -14,16 +14,17 @@
   gtag('js', new Date());
   gtag('config', 'UA-110309082-3');
 </script>
+  
 <meta property="og:locale" content="ja" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="">
+<meta name="description" content="この記事について AccessのVBAツールを作成していると、 主にリファクタリングや機能追加のタイミングで、 モジュール、クラス、あるいはクエリ">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="@D20191130">
-<meta name="twitter:title" content="VBA" />
-<meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/tags/vba/" />
-<meta property="og:title" content="VBA" />
-<meta property="og:description" content="" />
+<meta name="twitter:title" content="[Access VBA] Accessのモジュール・クラスやクエリのSQLから特定文字列を抽出するためのテクニック" />
+<meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/posts/2020/12/19/grep-from-module-sql/" />
+<meta property="og:title" content="[Access VBA] Accessのモジュール・クラスやクエリのSQLから特定文字列を抽出するためのテクニック" />
+<meta property="og:description" content="この記事について AccessのVBAツールを作成していると、 主にリファクタリングや機能追加のタイミングで、 モジュール、クラス、あるいはクエリ" />
 <meta property="og:image" content="https://dede-20191130.github.io/learnerBlog/images/thumbnail.png" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://dede-20191130.github.io/learnerBlog/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://dede-20191130.github.io/learnerBlog/icons/favicon-32x32.png'>
@@ -32,8 +33,7 @@
 <meta name="msapplication-TileColor" content="#002538">
 <meta name="theme-color" content="#002538">
 
-<link rel="canonical" href="https://dede-20191130.github.io/learnerBlog/tags/vba/">
-<link rel="alternate" type="application/rss+xml" href="https://dede-20191130.github.io/learnerBlog/tags/vba/index.xml" title="学習者のブログ | プログラミング等" />
+<link rel="canonical" href="https://dede-20191130.github.io/learnerBlog/posts/2020/12/19/grep-from-module-sql/">
 
     
 
@@ -110,117 +110,15 @@
 </header>
 
     <main>
-
+  
 <div class="grid-inverse wrap content">
-  <ul class="posts" id="posts">
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/polymorphism-radiobutton/">[Excel VBA]ポリモーフィズムを用いて、IF文を使わずラジオボタンごとの処理分岐を行う</a>
-      </h3>
-      <div class="post_meta">
+  <article class="post_content">
+    <h1 class="post_title">[Access VBA] Accessのモジュール・クラスやクエリのSQLから特定文字列を抽出するためのテクニック</h1><div class="post_meta">
   <svg class="icon">
   <use xlink:href="#calendar"></use>
 </svg>
   <span class="post_date">
-    Nov 1, 2020</span>
-    <a href='https://dede-20191130.github.io/learnerBlog/tags/excel' class="post_tag button button_translucent">Excel
-    </a>
-    <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' class="post_tag button button_translucent">VBA
-    </a>
-    <a href='https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C' class="post_tag button button_translucent">自作
-    </a>
-    <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91' class="post_tag button button_translucent">オブジェクト指向
-    </a>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">この記事について VBAにおいてポリモーフィズムの考え方によりコーディングを行う一例。 CallByName関数によるポリモーフィズムの考え方と</p>
-          <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/polymorphism-radiobutton/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/excel-a1-tool/">[Excel VBA]選択フォルダ配下のエクセルブックの全シートでA1にカーソル移動させるツールを作成した</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Nov 1, 2020</span>
-    <a href='https://dede-20191130.github.io/learnerBlog/tags/excel' class="post_tag button button_translucent">Excel
-    </a>
-    <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' class="post_tag button button_translucent">VBA
-    </a>
-    <a href='https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C' class="post_tag button button_translucent">自作
-    </a>
-    <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%83%84%E3%83%BC%E3%83%AB' class="post_tag button button_translucent">ツール
-    </a>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">このツールについて 下記Qiita記事のプログラムを、フォルダ配下のExcelブックに対して再帰的に/非再帰的に適用できるように 機能をもたせた</p>
-          <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/excel-a1-tool/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/10/27/access-tabledef-tool/">[Access VBA] デザインビューのテーブル定義を表形式でエクスポートするAccessツールを作成した</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Oct 27, 2020</span>
-    <a href='https://dede-20191130.github.io/learnerBlog/tags/access' class="post_tag button button_translucent">Access
-    </a>
-    <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' class="post_tag button button_translucent">VBA
-    </a>
-    <a href='https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C' class="post_tag button button_translucent">自作
-    </a>
-    <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%83%84%E3%83%BC%E3%83%AB' class="post_tag button button_translucent">ツール
-    </a>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">概要 以前の記事で説明したエクスポート関数をツール化したもの（こちら） ツール化することで、VBEを開いて関数をペーストする必要が無くなった。 ま</p>
-          <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/10/27/access-tabledef-tool/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/10/25/access-tabledef/">[Access VBA] デザインビューのテーブル定義を表形式でエクスポートする関数を作成した</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Oct 25, 2020</span>
+    Dec 19, 2020</span>
     <a href='https://dede-20191130.github.io/learnerBlog/tags/access' class="post_tag button button_translucent">Access
     </a>
     <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' class="post_tag button button_translucent">VBA
@@ -229,131 +127,267 @@
     </a>
 </div>
 
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">この記事について Accessの各々のテーブルの内容をエクスポートする方法として、 ナビゲーションバーのテーブルの右クリックメニューからエクスポ</p>
-          <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/10/25/access-tabledef/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/10/13/access-controlsource/">[Access VBA] コントロールソースにユーザ定義関数を用いると列幅の自動調整が想定通りに機能しない問題の解決</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
+    
+<div class="post_share">
+  Share on:
+  <a href="https://twitter.com/intent/tweet?text=%5bAccess%20VBA%5d%20Access%e3%81%ae%e3%83%a2%e3%82%b8%e3%83%a5%e3%83%bc%e3%83%ab%e3%83%bb%e3%82%af%e3%83%a9%e3%82%b9%e3%82%84%e3%82%af%e3%82%a8%e3%83%aa%e3%81%aeSQL%e3%81%8b%e3%82%89%e7%89%b9%e5%ae%9a%e6%96%87%e5%ad%97%e5%88%97%e3%82%92%e6%8a%bd%e5%87%ba%e3%81%99%e3%82%8b%e3%81%9f%e3%82%81%e3%81%ae%e3%83%86%e3%82%af%e3%83%8b%e3%83%83%e3%82%af&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f12%2f19%2fgrep-from-module-sql%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
+    <svg class="icon">
+  <use xlink:href="#twitter"></use>
 </svg>
-  <span class="post_date">
-    Oct 13, 2020</span>
-    <a href='https://dede-20191130.github.io/learnerBlog/tags/access' class="post_tag button button_translucent">Access
-    </a>
-    <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' class="post_tag button button_translucent">VBA
-    </a>
+  </a>
+  <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f12%2f19%2fgrep-from-module-sql%2f&t=%5bAccess%20VBA%5d%20Access%e3%81%ae%e3%83%a2%e3%82%b8%e3%83%a5%e3%83%bc%e3%83%ab%e3%83%bb%e3%82%af%e3%83%a9%e3%82%b9%e3%82%84%e3%82%af%e3%82%a8%e3%83%aa%e3%81%aeSQL%e3%81%8b%e3%82%89%e7%89%b9%e5%ae%9a%e6%96%87%e5%ad%97%e5%88%97%e3%82%92%e6%8a%bd%e5%87%ba%e3%81%99%e3%82%8b%e3%81%9f%e3%82%81%e3%81%ae%e3%83%86%e3%82%af%e3%83%8b%e3%83%83%e3%82%af" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
+    <svg class="icon">
+  <use xlink:href="#facebook"></use>
+</svg>
+  </a>
+  <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
+    <svg class="icon">
+  <use xlink:href="#linkedin"></use>
+</svg>
+  </a>
+  <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/12/19/grep-from-module-sql/" title="Copy Link" class="link link_yank">
+    <svg class="icon">
+  <use xlink:href="#copy"></use>
+</svg>
+  </a>
 </div>
 
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">この記事について Accessでフォーム（データシート型）を使用する際、 テキストボックスのコントロールソースとして文字列を返すユーザ定義関数を</p>
-          <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/10/13/access-controlsource/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/07/16/create-estm/">【Excel VBA】見積書作成ツールを作成した</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Jul 16, 2020</span>
-    <a href='https://dede-20191130.github.io/learnerBlog/tags/excel' class="post_tag button button_translucent">Excel
-    </a>
-    <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' class="post_tag button button_translucent">VBA
-    </a>
-    <a href='https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C' class="post_tag button button_translucent">自作
-    </a>
-    <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%83%84%E3%83%BC%E3%83%AB' class="post_tag button button_translucent">ツール
-    </a>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">この記事について 以前作成した見積書作成ツール（Excel VBA）についての紹介記事。 こちら（Github）からツールをダウンロードできます。</p>
-          <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/07/16/create-estm/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/07/16/cmpr-tools/">Excelのツール開発：関数（非マクロ）ツールとVBA使用ツールの比較</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Jul 16, 2020</span>
-    <a href='https://dede-20191130.github.io/learnerBlog/tags/excel' class="post_tag button button_translucent">Excel
-    </a>
-    <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' class="post_tag button button_translucent">VBA
-    </a>
-    <a href='https://dede-20191130.github.io/learnerBlog/tags/excel%E9%96%A2%E6%95%B0' class="post_tag button button_translucent">Excel関数
-    </a>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">この記事について Excelでデータ管理したりドキュメントを出力したりするツール（機能の多寡を問わず）を作成しようとする際に、 大別すると、次の</p>
-          <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/07/16/cmpr-tools/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-    <li>
-<ul class="pagination">
-  <li class="page-item">
-    <a href="/learnerBlog/tags/vba/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
-  </li>
-  <li class="page-item">
-    <a href="/learnerBlog/tags/vba/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
-  </li>
-  <li class="page-item">
-    <a class="page-link" href="/learnerBlog/tags/vba/">1</a>
-  </li>
-  <li class="page-item active">
-    <a class="page-link" href="/learnerBlog/tags/vba/page/2/">2</a>
-  </li>
-  <li class="page-item disabled">
-    <a  class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-  </li>
-  <li class="page-item">
-    <a href="/learnerBlog/tags/vba/page/2/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
-  </li>
-</ul>
-
-
+    
+    
+    <h2>Overview</h2>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#この記事について">この記事について</a></li>
+    <li><a href="#作成環境">作成環境</a></li>
+    <li><a href="#テクニック">テクニック</a>
+      <ul>
+        <li><a href="#それぞれのデータをファイルとして取り出す">それぞれのデータをファイルとして取り出す</a>
+          <ul>
+            <li><a href="#about">about</a></li>
+            <li><a href="#コード">コード</a></li>
+          </ul>
+        </li>
+        <li><a href="#powershellのコマンドで文字列を抽出する">PowerShellのコマンドで文字列を抽出する</a>
+          <ul>
+            <li><a href="#about-1">about</a></li>
+            <li><a href="#例">例</a></li>
+          </ul>
+        </li>
+      </ul>
     </li>
   </ul>
+</nav>
+    <h2 id="この記事について">この記事について</h2>
+<p>AccessのVBAツールを作成していると、<br>
+主にリファクタリングや機能追加のタイミングで、<br>
+モジュール、クラス、あるいはクエリのソース（SQL）から<br>
+特定の文字列をサーチして抽出したいことがあるかもしれない。</p>
+<p>モジュール・クラスの場合はVBエディタ画面でctrl+Fを実行すれば可能だが、一覧でヒットした箇所を表示できないため、<br>
+全体を把握するのが大変だ。<br>
+また、クエリのSQLからサーチする機能は無いかと思う。</p>
+<p>そのため、私は以下のようにして、<br>
+一度それぞれのデータをファイルとして取り出したあとに<br>
+PowerShellのコマンドでLinuxのGrepコマンド風に文字列を抽出している。</p>
+<h2 id="作成環境">作成環境</h2>
+<ul>
+<li>Windows10 Home</li>
+<li>MSOffice 2019</li>
+<li>PowerShell 5.1</li>
+</ul>
+<h2 id="テクニック">テクニック</h2>
+<h3 id="それぞれのデータをファイルとして取り出す">それぞれのデータをファイルとして取り出す</h3>
+<h4 id="about">about</h4>
+<p>モジュールやクラスは、<br>
+VBAを用いてすべて一括でファイルとして取り出すことができる。<br>
+VBComponentオブジェクトのExportメソッドを使用すれば良い。</p>
+
+
+
+
+<div class="inner-article" style="color: #fb9700;">
+    ただ、RubberDuckなどの拡張アドインをいれている場合は、  <br>
+そちらのエクスポート機能を使用したほうが手早い。
+</div>
+
+<p>また、<br>
+この関数で、 <br>
+クエリのSQLも同時にsqlファイルとして取り出す。</p>
+<h4 id="コード">コード</h4>
+<div class="highlight"><pre class="chroma"><code class="language-vb" data-lang="vb"><span class="ln">  1</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln">  2</span><span class="c">&#39;*関数名    ：exportCodesSQLs
+</span><span class="ln">  3</span><span class="c">&#39;*機能      ：モジュール・クラスのコード及びクエリのSQLの出力
+</span><span class="ln">  4</span><span class="c">&#39;*引数      ：
+</span><span class="ln">  5</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln">  6</span><span class="c"></span><span class="k">Sub</span> <span class="nf">exportCodesSQLs</span><span class="p">()</span>
+<span class="ln">  7</span>    
+<span class="ln">  8</span>    <span class="c">&#39;定数
+</span><span class="ln">  9</span><span class="c"></span>    <span class="k">Const</span> <span class="n">FUNC_NAME</span> <span class="ow">As</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&#34;XXX&#34;</span>
+<span class="ln"> 10</span>    
+<span class="ln"> 11</span>    <span class="c">&#39;変数
+</span><span class="ln"> 12</span><span class="c"></span>    <span class="k">Dim</span> <span class="n">outputDir</span> <span class="ow">As</span> <span class="kt">String</span>
+<span class="ln"> 13</span>    <span class="k">Dim</span> <span class="n">vbcmp</span> <span class="ow">As</span> <span class="kt">Object</span>
+<span class="ln"> 14</span>    <span class="k">Dim</span> <span class="n">fileName</span> <span class="ow">As</span> <span class="kt">String</span>
+<span class="ln"> 15</span>    <span class="k">Dim</span> <span class="n">ext</span> <span class="ow">As</span> <span class="kt">String</span>
+<span class="ln"> 16</span>    <span class="k">Dim</span> <span class="n">qry</span> <span class="ow">As</span> <span class="n">QueryDef</span>
+<span class="ln"> 17</span>    <span class="k">Dim</span> <span class="n">qName</span> <span class="ow">As</span> <span class="kt">String</span>
+<span class="ln"> 18</span>    
+<span class="ln"> 19</span>    
+<span class="ln"> 20</span>    
+<span class="ln"> 21</span>    <span class="k">On</span> <span class="k">Error</span> <span class="k">GoTo</span> <span class="n">ErrorHandler</span>
+<span class="ln"> 22</span>    
+<span class="ln"> 23</span>    <span class="n">outputDir</span> <span class="o">=</span> _
+<span class="ln"> 24</span>        <span class="n">Access</span><span class="p">.</span><span class="n">CurrentProject</span><span class="p">.</span><span class="n">Path</span> <span class="o">&amp;</span> _
+<span class="ln"> 25</span>        <span class="s">&#34;\&#34;</span> <span class="o">&amp;</span> _
+<span class="ln"> 26</span>        <span class="s">&#34;src_&#34;</span> <span class="o">&amp;</span> _
+<span class="ln"> 27</span>        <span class="n">Left</span><span class="p">(</span><span class="n">Access</span><span class="p">.</span><span class="n">CurrentProject</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">InStrRev</span><span class="p">(</span><span class="n">Access</span><span class="p">.</span><span class="n">CurrentProject</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span> <span class="s">&#34;.&#34;</span><span class="p">)</span> <span class="o">-</span> <span class="n">1</span><span class="p">)</span>
+<span class="ln"> 28</span>    <span class="k">If</span> <span class="n">Dir</span><span class="p">(</span><span class="n">outputDir</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#34;&#34;</span> <span class="k">Then</span> <span class="n">MkDir</span> <span class="n">outputDir</span>
+<span class="ln"> 29</span>    
+<span class="ln"> 30</span>    <span class="c">&#39;モジュール・クラスの出力
+</span><span class="ln"> 31</span><span class="c"></span>    <span class="k">For</span> <span class="k">Each</span> <span class="n">vbcmp</span> <span class="ow">In</span> <span class="n">VBE</span><span class="p">.</span><span class="n">ActiveVBProject</span><span class="p">.</span><span class="n">VBComponents</span>
+<span class="ln"> 32</span>        <span class="k">With</span> <span class="n">vbcmp</span>
+<span class="ln"> 33</span>            <span class="c">&#39;拡張子
+</span><span class="ln"> 34</span><span class="c"></span>            <span class="k">Select</span> <span class="k">Case</span> <span class="p">.</span><span class="n">Type</span>
+<span class="ln"> 35</span>            <span class="k">Case</span> <span class="n">1</span>
+<span class="ln"> 36</span>                <span class="n">ext</span> <span class="o">=</span> <span class="s">&#34;.bas&#34;</span>
+<span class="ln"> 37</span>            <span class="k">Case</span> <span class="n">2</span><span class="p">,</span> <span class="n">100</span>
+<span class="ln"> 38</span>                <span class="n">ext</span> <span class="o">=</span> <span class="s">&#34;.cls&#34;</span>
+<span class="ln"> 39</span>            <span class="k">Case</span> <span class="n">3</span>
+<span class="ln"> 40</span>                <span class="n">ext</span> <span class="o">=</span> <span class="s">&#34;.frm&#34;</span>
+<span class="ln"> 41</span>            <span class="k">End</span> <span class="k">Select</span>
+<span class="ln"> 42</span>                        
+<span class="ln"> 43</span>            <span class="n">fileName</span> <span class="o">=</span> <span class="p">.</span><span class="n">Name</span> <span class="o">&amp;</span> <span class="n">ext</span>
+<span class="ln"> 44</span>            <span class="n">fileName</span> <span class="o">=</span> <span class="n">gainStrNameSafe</span><span class="p">(</span><span class="n">fileName</span><span class="p">)</span> <span class="c">&#39;ファイル名に使用できない文字を置換
+</span><span class="ln"> 45</span><span class="c"></span>            <span class="k">If</span> <span class="n">fileName</span> <span class="o">=</span> <span class="s">&#34;&#34;</span> <span class="k">Then</span> <span class="k">GoTo</span> <span class="n">ExitHandler</span>
+<span class="ln"> 46</span>            
+<span class="ln"> 47</span>            <span class="c">&#39;output
+</span><span class="ln"> 48</span><span class="c"></span>            <span class="p">.</span><span class="n">Export</span> <span class="n">outputDir</span> <span class="o">&amp;</span> <span class="s">&#34;\&#34;</span> <span class="o">&amp;</span> <span class="n">fileName</span>
+<span class="ln"> 49</span>            
+<span class="ln"> 50</span>        <span class="k">End</span> <span class="k">With</span>
+<span class="ln"> 51</span>    <span class="k">Next</span> <span class="n">vbcmp</span>
+<span class="ln"> 52</span>    
+<span class="ln"> 53</span>    <span class="c">&#39;SQLの出力
+</span><span class="ln"> 54</span><span class="c"></span>    <span class="k">With</span> <span class="n">CreateObject</span><span class="p">(</span><span class="s">&#34;Scripting.FileSystemObject&#34;</span><span class="p">)</span>
+<span class="ln"> 55</span>        <span class="k">For</span> <span class="k">Each</span> <span class="n">qry</span> <span class="ow">In</span> <span class="n">CurrentDb</span><span class="p">.</span><span class="n">QueryDefs</span>
+<span class="ln"> 56</span>            <span class="k">Do</span>
+<span class="ln"> 57</span>                <span class="n">qName</span> <span class="o">=</span> <span class="n">gainStrNameSafe</span><span class="p">(</span><span class="n">qry</span><span class="p">.</span><span class="n">Name</span><span class="p">)</span> <span class="c">&#39;ファイル名に使用できない文字を置換
+</span><span class="ln"> 58</span><span class="c"></span>                <span class="k">If</span> <span class="n">qName</span> <span class="o">=</span> <span class="s">&#34;&#34;</span> <span class="k">Then</span> <span class="k">GoTo</span> <span class="n">ExitHandler</span>
+<span class="ln"> 59</span>                
+<span class="ln"> 60</span>                <span class="k">If</span> <span class="n">qName</span> <span class="ow">Like</span> <span class="s">&#34;Msys*&#34;</span> <span class="k">Then</span> <span class="k">Exit</span> <span class="k">Do</span> <span class="c">&#39;システム関連クエリは除外
+</span><span class="ln"> 61</span><span class="c"></span>                
+<span class="ln"> 62</span>                <span class="k">With</span> <span class="p">.</span><span class="n">CreateTextFile</span><span class="p">(</span><span class="n">outputDir</span> <span class="o">&amp;</span> <span class="s">&#34;\&#34;</span> <span class="o">&amp;</span> <span class="n">qName</span> <span class="o">&amp;</span> <span class="s">&#34;.sql&#34;</span><span class="p">)</span>
+<span class="ln"> 63</span>                    <span class="p">.</span><span class="n">write</span> <span class="n">qry</span><span class="p">.</span><span class="n">SQL</span>
+<span class="ln"> 64</span>                    <span class="p">.</span><span class="n">Close</span>
+<span class="ln"> 65</span>                <span class="k">End</span> <span class="k">With</span>
+<span class="ln"> 66</span>            <span class="k">Loop</span> <span class="k">While</span> <span class="k">False</span>
+<span class="ln"> 67</span>        <span class="k">Next</span> <span class="n">qry</span>
+<span class="ln"> 68</span>    <span class="k">End</span> <span class="k">With</span>
+<span class="ln"> 69</span>
+<span class="ln"> 70</span><span class="n">ExitHandler</span><span class="p">:</span>
+<span class="ln"> 71</span>
+<span class="ln"> 72</span>    <span class="k">Exit</span> <span class="k">Sub</span>
+<span class="ln"> 73</span>    
+<span class="ln"> 74</span><span class="nf">ErrorHandler</span><span class="p">:</span>
+<span class="ln"> 75</span>
+<span class="ln"> 76</span>    <span class="n">MsgBox</span> <span class="s">&#34;エラーが発生したため、マクロを終了します。&#34;</span> <span class="o">&amp;</span> _
+<span class="ln"> 77</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
+<span class="ln"> 78</span>           <span class="s">&#34;関数名：&#34;</span> <span class="o">&amp;</span> <span class="n">FUNC_NAME</span> <span class="o">&amp;</span> _
+<span class="ln"> 79</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
+<span class="ln"> 80</span>           <span class="s">&#34;エラー番号：&#34;</span> <span class="o">&amp;</span> <span class="n">err</span><span class="p">.</span><span class="n">Number</span> <span class="o">&amp;</span> <span class="n">vbNewLine</span> <span class="o">&amp;</span> _
+<span class="ln"> 81</span>           <span class="n">err</span><span class="p">.</span><span class="n">description</span><span class="p">,</span> <span class="n">vbCritical</span><span class="p">,</span> <span class="s">&#34;マクロ&#34;</span>
+<span class="ln"> 82</span>        
+<span class="ln"> 83</span>    <span class="k">GoTo</span> <span class="n">ExitHandler</span>
+<span class="ln"> 84</span>        
+<span class="ln"> 85</span><span class="k">End</span> <span class="k">Sub</span>
+<span class="ln"> 86</span>
+<span class="ln"> 87</span>
+<span class="ln"> 88</span>
+<span class="ln"> 89</span>
+<span class="ln"> 90</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln"> 91</span><span class="c">&#39;*関数名    ：gainStrNameSafe
+</span><span class="ln"> 92</span><span class="c">&#39;*機能      ：ファイル名に使用できない文字をアンダースコアに置換する
+</span><span class="ln"> 93</span><span class="c">&#39;*引数      ：対象の文字列
+</span><span class="ln"> 94</span><span class="c">&#39;*戻り値    ：置換後文字列
+</span><span class="ln"> 95</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln"> 96</span><span class="c"></span><span class="k">Public</span> <span class="k">Function</span> <span class="nf">gainStrNameSafe</span><span class="p">(</span><span class="k">ByVal</span> <span class="n">s</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">)</span> <span class="ow">As</span> <span class="kt">String</span>
+<span class="ln"> 97</span>    
+<span class="ln"> 98</span>    <span class="c">&#39;定数
+</span><span class="ln"> 99</span><span class="c"></span>    <span class="k">Const</span> <span class="n">FUNC_NAME</span> <span class="ow">As</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&#34;gainStrNameSafe&#34;</span>
+<span class="ln">100</span>    
+<span class="ln">101</span>    <span class="c">&#39;変数
+</span><span class="ln">102</span><span class="c"></span>    <span class="k">Dim</span> <span class="n">x</span> <span class="ow">As</span> <span class="kt">Variant</span>
+<span class="ln">103</span>    
+<span class="ln">104</span>    <span class="k">On</span> <span class="k">Error</span> <span class="k">GoTo</span> <span class="n">ErrorHandler</span>
+<span class="ln">105</span>
+<span class="ln">106</span>    <span class="n">gainStrNameSafe</span> <span class="o">=</span> <span class="s">&#34;&#34;</span>
+<span class="ln">107</span>    
+<span class="ln">108</span>    <span class="k">For</span> <span class="k">Each</span> <span class="n">x</span> <span class="ow">In</span> <span class="n">Split</span><span class="p">(</span><span class="s">&#34;\,/,:,*,?,&#34;&#34;,&lt;,&gt;,|&#34;</span><span class="p">,</span> <span class="s">&#34;,&#34;</span><span class="p">)</span> <span class="c">&#39;ファイル名に使用できない文字の配列
+</span><span class="ln">109</span><span class="c"></span>        <span class="n">s</span> <span class="o">=</span> <span class="n">Replace</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s">&#34;_&#34;</span><span class="p">)</span>
+<span class="ln">110</span>    <span class="k">Next</span> <span class="n">x</span>
+<span class="ln">111</span>    
+<span class="ln">112</span>    <span class="n">gainStrNameSafe</span> <span class="o">=</span> <span class="n">s</span>
+<span class="ln">113</span>
+<span class="ln">114</span><span class="n">ExitHandler</span><span class="p">:</span>
+<span class="ln">115</span>
+<span class="ln">116</span>    <span class="k">Exit</span> <span class="k">Function</span>
+<span class="ln">117</span>    
+<span class="ln">118</span><span class="nf">ErrorHandler</span><span class="p">:</span>
+<span class="ln">119</span>
+<span class="ln">120</span>    <span class="n">MsgBox</span> <span class="s">&#34;エラーが発生したため、マクロを終了します。&#34;</span> <span class="o">&amp;</span> _
+<span class="ln">121</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
+<span class="ln">122</span>           <span class="s">&#34;関数名：&#34;</span> <span class="o">&amp;</span> <span class="n">FUNC_NAME</span> <span class="o">&amp;</span> _
+<span class="ln">123</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
+<span class="ln">124</span>           <span class="s">&#34;エラー番号：&#34;</span> <span class="o">&amp;</span> <span class="n">err</span><span class="p">.</span><span class="n">Number</span> <span class="o">&amp;</span> <span class="n">vbNewLine</span> <span class="o">&amp;</span> _
+<span class="ln">125</span>           <span class="n">err</span><span class="p">.</span><span class="n">description</span><span class="p">,</span> <span class="n">vbCritical</span><span class="p">,</span> <span class="s">&#34;マクロ&#34;</span>
+<span class="ln">126</span>        
+<span class="ln">127</span>    <span class="k">GoTo</span> <span class="n">ExitHandler</span>
+<span class="ln">128</span>        
+<span class="ln">129</span><span class="k">End</span> <span class="k">Function</span>
+</code></pre></div><p>exportCodesSQLsを実行すれば、<br>
+Accessファイルの置かれているディレクトリの「src_Accessファイル名」フォルダに<br>
+各種ソースファイルが格納される。</p>
+<p><img src="./image01.png" alt="エクスポートされたファイル"></p>
+<h3 id="powershellのコマンドで文字列を抽出する">PowerShellのコマンドで文字列を抽出する</h3>
+<h4 id="about-1">about</h4>
+<p>PowerShellを起動し、<br>
+エクスポートされたファイルのディレクトリに移動する。</p>
+<p>LinuxのGrep風に<br>
+文字列をサーチして一覧表示するコマンドは、<br>
+以下のようにした。</p>
+<div class="highlight"><pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="ln">1</span><span class="nb">Get-ChildItem</span> <span class="p">|</span> <span class="k">ForEach</span><span class="n">-Object</span><span class="p">{</span> <span class="nb">Write-Output</span>  <span class="p">(</span><span class="nv">$_</span><span class="p">.</span><span class="n">Name</span> <span class="p">+</span> <span class="s2">&#34;</span><span class="se">`r`n</span><span class="s2">------&#34;</span><span class="p">)</span> <span class="p">;</span> <span class="p">(</span><span class="nb">Get-Content</span> <span class="nv">$_</span>   <span class="p">|</span> <span class="nb">Select-String</span> <span class="s2">&#34;ここにサーチしたい文字列を記入する&#34;</span>  <span class="p">)</span>  <span class="p">|</span> <span class="k">ForEach</span><span class="n">-Object</span><span class="p">{</span><span class="nb">Write-Output</span> <span class="p">(</span><span class="nv">$_</span><span class="p">.</span><span class="n">lineNumber</span><span class="p">.</span><span class="n">Tostring</span><span class="p">()</span> <span class="p">+</span> <span class="s2">&#34;:&#34;</span> <span class="p">+</span> <span class="nv">$_</span><span class="p">)</span> <span class="p">}</span> <span class="p">;</span><span class="nb">Write-Output</span> <span class="s2">&#34;------&#34;</span>  <span class="p">}</span> 
+</code></pre></div><p>最初にサーチ対象ファイル名が表示され、ヒットした行番号とその行の文字列が出力される。<br>
+これをファイルごとにループさせる。</p>
+<h4 id="例">例</h4>
+<p>例えば、全てのファイルから<br>
+「ID」という文字列をサーチして一覧で表示したい場合、<br>
+次のようにコマンドを実行する。</p>
+<div class="highlight"><pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="ln">1</span><span class="nb">Get-ChildItem</span> <span class="p">|</span> <span class="k">ForEach</span><span class="n">-Object</span><span class="p">{</span> <span class="nb">Write-Output</span>  <span class="p">(</span><span class="nv">$_</span><span class="p">.</span><span class="n">Name</span> <span class="p">+</span> <span class="s2">&#34;</span><span class="se">`r`n</span><span class="s2">------&#34;</span><span class="p">)</span> <span class="p">;</span> <span class="p">(</span><span class="nb">Get-Content</span> <span class="nv">$_</span>   <span class="p">|</span> <span class="nb">Select-String</span> <span class="s2">&#34;ID&#34;</span>  <span class="p">)</span>  <span class="p">|</span> <span class="k">ForEach</span><span class="n">-Object</span><span class="p">{</span><span class="nb">Write-Output</span> <span class="p">(</span><span class="nv">$_</span><span class="p">.</span><span class="n">lineNumber</span><span class="p">.</span><span class="n">Tostring</span><span class="p">()</span> <span class="p">+</span> <span class="s2">&#34;:&#34;</span> <span class="p">+</span> <span class="nv">$_</span><span class="p">)</span> <span class="p">}</span> <span class="p">;</span><span class="nb">Write-Output</span> <span class="s2">&#34;------&#34;</span>  <span class="p">}</span>  
+</code></pre></div><p>結果は例えばこのようになる。</p>
+<p><img src="./image02.png" alt="Grep結果01"></p>
+<p><img src="./image03.png" alt="Grep結果02"></p>
+
+    
+      <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "learnerblog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+  </article>
 <aside class="sidebar">
   <section class="sidebar_inner">
     <h2>dede-20191130</h2>
@@ -376,9 +410,6 @@
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/12/19/grep-from-module-sql/" class="nav-link">[Access VBA] Accessのモジュール・クラスやクエリのSQLから特定文字列を抽出するためのテクニック</a>
-      </li>
-      <li>
         <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/12/12/sheet-array-visible/" class="nav-link">[VBA] Excelの複数シートをループを使わず一行の処理で非表示・再表示にすることはできる？？</a>
       </li>
       <li>
@@ -398,6 +429,9 @@
       </li>
       <li>
         <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/20/excel-class-sample-01/" class="nav-link">[VBA] クラスを利用するメリットと方法について &amp; 簡単なサンプル（１）</a>
+      </li>
+      <li>
+        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/17/script-hugo-commit/" class="nav-link">[Hugo] Hugoで生成されるデプロイ対象ファイルのコミットまでをスクリプトで一括処理にした</a>
       </li>
     </ul>
     <div>
@@ -628,8 +662,6 @@
 </aside>
 
 </div>
-
-
     </main><svg width="0" height="0" class="hidden">
   <symbol viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" id="facebook">
     <path d="M437 0H75C33.648 0 0 33.648 0 75v362c0 41.352 33.648 75 75 75h151V331h-60v-90h60v-61c0-49.629 40.371-90 90-90h91v90h-91v61h91l-15 90h-76v181h121c41.352 0 75-33.648 75-75V75c0-41.352-33.648-75-75-75zm0 0"></path>

@@ -6,7 +6,16 @@
     <description>Recent content in 自作 on 学習者のブログ | プログラミング等</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 06 Dec 2020 16:59:25 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 19 Dec 2020 03:18:51 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Access VBA] Accessのモジュール・クラスやクエリのSQLから特定文字列を抽出するためのテクニック</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/12/19/grep-from-module-sql/</link>
+      <pubDate>Sat, 19 Dec 2020 03:18:51 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/12/19/grep-from-module-sql/</guid>
+      <description>この記事について AccessのVBAツールを作成していると、 主にリファクタリングや機能追加のタイミングで、 モジュール、クラス、あるいはクエリ</description>
+    </item>
+    
     <item>
       <title>[VBA] 関数の引数を変更した場合にコンパイルエラーが多発するのを防ぐテクニック</title>
       <link>https://dede-20191130.github.io/learnerBlog/posts/2020/12/06/alter-args-compile-err/</link>

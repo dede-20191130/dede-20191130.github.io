@@ -6,7 +6,16 @@
     <description>Recent content in 2020-12 on 学習者のブログ | プログラミング等</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 12 Dec 2020 11:49:05 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/archives/2020-12/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 19 Dec 2020 03:18:51 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/archives/2020-12/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Access VBA] Accessのモジュール・クラスやクエリのSQLから特定文字列を抽出するためのテクニック</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/12/19/grep-from-module-sql/</link>
+      <pubDate>Sat, 19 Dec 2020 03:18:51 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/12/19/grep-from-module-sql/</guid>
+      <description>この記事について AccessのVBAツールを作成していると、 主にリファクタリングや機能追加のタイミングで、 モジュール、クラス、あるいはクエリ</description>
+    </item>
+    
     <item>
       <title>[VBA] Excelの複数シートをループを使わず一行の処理で非表示・再表示にすることはできる？？</title>
       <link>https://dede-20191130.github.io/learnerBlog/posts/2020/12/12/sheet-array-visible/</link>
