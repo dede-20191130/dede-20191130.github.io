@@ -1,12 +1,12 @@
 ---
-title: "[Access VBA] Accessのモジュール・クラスやクエリのSQLから特定文字列を抽出するためのテクニック"
+title: "[VBA, PowerShell] Accessのモジュール・クラスやクエリのSQLから特定文字列を抽出するためのテクニック"
 author: dede-20191130
 date: 2020-12-19T03:18:51+09:00
 slug: Grep-From-Module-Sql
 draft: false
 toc: true
 featured: false
-tags: ['Access', 'VBA','自作']
+tags: ['Access', 'VBA','PowerShell','自作']
 categories: ['プログラミング']
 archives:
     - 2020
