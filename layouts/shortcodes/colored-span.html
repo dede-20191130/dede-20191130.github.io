@@ -3,5 +3,5 @@
 {{ errorf "missing value for param 'color': ％s" .Position }}
 {{ end }}
 <span style="color: {{ $colorVal | safeCSS}};">
-    {{ .Inner }}
+    {{ .Inner | markdownify}}
 </span>

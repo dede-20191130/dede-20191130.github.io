@@ -47,8 +47,10 @@ VBComponentオブジェクトのExportメソッドを使用すれば良い。
 
 
 
-{{< inner-article-div color="#fb9700" >}}ただ、RubberDuckなどの拡張アドインをいれている場合は、  <br>
-そちらのエクスポート機能を使用したほうが手早い。{{< /inner-article-div >}}
+{{< inner-article-div color="#fb9700" >}}
+ただ、RubberDuckなどの拡張アドインをいれている場合は、  
+そちらのエクスポート機能を使用したほうが手早い。
+{{< /inner-article-div >}}
 
 また、  
 この関数で、    
