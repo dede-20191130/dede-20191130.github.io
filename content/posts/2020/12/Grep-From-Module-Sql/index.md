@@ -86,7 +86,7 @@ Sub exportCodesSQLs()
         "\" & _
         "src_" & _
         Left(Access.CurrentProject.Name, InStrRev(Access.CurrentProject.Name, ".") - 1)
-    If Dir(outputDir) = "" Then MkDir outputDir
+    If Dir(outputDir, vbDirectory) = "" Then MkDir outputDir
     
     'モジュール・クラスの出力
     For Each vbcmp In VBE.ActiveVBProject.VBComponents
