@@ -1,5 +1,14 @@
 {{- define "main" }}
     <div class="content">
+        <!-- ## test base -->
+        <style>
+            .my-red{
+            color: red;
+            }
+        </style>
+        {{ $parent_url := .Section | absLangURL }}
+        <a href="{{ $parent_url  }}">{{ $parent_url  }}</a>
+        <!-- ## add test codes -->
         {{ range .Data.Pages }}
         <li>
             <a href="{{ .Permalink }}">{{ .Title }}</a>
@@ -7,9 +16,6 @@
             <p> {{ .Params.animal }}</p>
         </li>
         {{ end }}
-        <!-- {{ range .Data.Pages }}
-        <a href="{{ .Permalink }}">{{ .Title }}</a>
-        {{ end }} -->
         <hr>
         {{ range  where  .Data.Pages "Params.animal" "dog" }}
         <P>where animal is dog</P>
@@ -18,6 +24,19 @@
             <div class="meta">{{ .Date.Format "Mon, Jan 2, 2006" }}</div>
         </li>
         {{ end }}
+        <!-- kind -->
+        {{ partial "log" ( printf "%s" "(.Kind)") }} 
+        {{ partial "log" ( printf "%s" (.Kind)) }} 
+        <!-- section -->
+        {{ partial "log" ( printf "%s" "(.section)") }} 
+        {{ partial "log" ( printf "%s" (.Section)) }} 
+        <!-- cond -->
+        {{ partial "log" ( printf "%s" "cond") }} 
+        {{ partial "log" ( printf "%s" (cond (eq .CurrentSection.Section "") (.Title) (printf "%s: %s" .CurrentSection.Title .Title))) }} 
+        <!-- slice -->
+        {{ partial "log" ( printf "%s" "slice") }} 
+        {{ partial "log" ( printf "%v" (slice .)) }} 
+        <!-- ## here -->
         <p>Content below</p>
         {{- .Content }}
     </div>
