@@ -31,47 +31,7 @@
     <!-- ## add test codes -->
     <!-- partial_log -->
     {{ partial "log" ( printf "hoge: %s" "fuga" ) }} 
-    <!-- slice_index -->
-    {{ partial "log" ( printf "%s" "slice_index" ) }} 
-    {{ $arr := slice "AAA" "BBB" "CCC" }}
-    {{ partial "log" ( printf "%s" ( index $arr 0 ) ) }} 
-    {{ partial "log" ( printf "%s" ( index $arr 1 ) ) }} 
-    {{ partial "log" ( printf "%s" ( index $arr 2 ) ) }} 
-    {{ partial "log" ( printf "%s" ( index $arr 3 ) ) }} 
-    {{ range $index,$v := $arr }}
-      {{ partial "log" ( printf "%d:%s"   $index $v) }} 
-    {{ end }}
-    <!-- seq -->
-    {{ partial "log" ( printf "%s" "seq") }} 
-    {{ range after 10 (seq 20) }}
-      {{ partial "log" ( printf "%d" .  ) }} 
-    {{ end }}
-    <!-- kind -->
-    {{ partial "log" ( printf "%s" "(.Kind)") }} 
-    {{ partial "log" ( printf "%s" (.Kind)) }} 
-    <!-- section -->
-    {{ partial "log" ( printf "%s" "(.section)") }} 
-    {{ partial "log" ( printf "%s" (.Section)) }} 
-    <!-- sections -->
-    {{ partial "log" ( printf "%s" "(.sections)") }} 
-    {{ range .Sections }}
-      {{ partial "log" ( printf "%s:%s" .RelPermalink .Title) }} 
-    {{ end }}
-    {{ range .CurrentSection.Sections }}
-      {{ partial "log" ( printf "%s:%s" .RelPermalink .Title) }} 
-    {{ end }}
-    {{ range .Parent.CurrentSection.Sections }}
-      {{ partial "log" ( printf "%s:%s" .RelPermalink .Title) }} 
-    {{ end }}
-    {{ range .Parent.Parent.CurrentSection.Sections }}
-      {{ partial "log" ( printf "%s:%s" .RelPermalink .Title) }} 
-    {{ end }}
-    <!-- cond -->
-    {{ partial "log" ( printf "%s" "cond") }} 
-    {{ partial "log" ( printf "%s" (cond (eq .CurrentSection.Section "") (.Title) (printf "%s: %s" .CurrentSection.Title .Title))) }} 
-    <!-- slice -->
-    {{ partial "log" ( printf "%s" "slice") }} 
-    {{ partial "log" ( printf "%v" (slice .)) }} 
+    
     <!-- ## here -->
     {{- .Content }}
     {{ if and ( ne .Site.Params.comment false ) ( ne .Params.comment false ) }}
