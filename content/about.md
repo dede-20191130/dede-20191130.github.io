@@ -7,13 +7,24 @@ toc: true
 ---
 
 ## このサイトについて
+
+気になった技術的な関心事などをなるべく簡潔にまとめて記事にするブログです。
+
+{{< inner-article-div color="#033ee4" >}}
 Hugoという静的サイトジェネレータを用いて  
 作成しています。
+{{< /inner-article-div >}}
 
 
 ## 運営者について
-author: dede-20191130  
-property:VBAから入り、プログラミング、コンピュータ科学等を勉強中。
+
+|||
+|-|-|
+|Author|dede-20191130 |
+|Property|VBAから入り、プログラミング、コンピュータ科学等を勉強中。|
+|GitHub|{{< social-link item="github" >}}|
+|Twitter|{{< social-link item="twitter" >}}|
+
 
 ## お問い合わせ
 お問い合わせは下記メールアドレスへお願いします。
