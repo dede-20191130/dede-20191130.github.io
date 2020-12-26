@@ -1,0 +1,8 @@
+{{ $item :=  .Get "item"}}
+{{ if not $item }}
+  {{ errorf "missing value for param 'item': ％s" .Position }}
+{{ end }}
+{{ range  (where .Site.Data.social "item" $item)}}
+    {{ $url := absLangURL .url }}
+    <a href="{{ $url }}">{{ $url }}</a>
+{{ end }}
