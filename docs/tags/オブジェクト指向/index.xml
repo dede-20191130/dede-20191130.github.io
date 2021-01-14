@@ -6,7 +6,16 @@
     <description>Recent content in オブジェクト指向 on 学習者のブログ | プログラミング等</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 22 Nov 2020 14:07:24 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/tags/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 13 Jan 2021 19:49:08 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/tags/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[VBA] インタフェース継承を使用する際にクラス変数として配列を使用する方法</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/01/13/interface-array-member/</link>
+      <pubDate>Wed, 13 Jan 2021 19:49:08 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/01/13/interface-array-member/</guid>
+      <description>この記事について VBAではインタフェースを用いることによって、 オブジェクト指向のプログラミングをすることができる。 ただ、後述するように クラス</description>
+    </item>
+    
     <item>
       <title>[VBA] クラスを利用するメリットと方法について &amp; 簡単なサンプル（２）</title>
       <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/22/excel-class-sample-02/</link>

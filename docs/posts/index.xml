@@ -6,7 +6,16 @@
     <description>Recent content in Posts on 学習者のブログ | プログラミング等</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 19 Dec 2020 03:18:51 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 13 Jan 2021 19:49:08 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[VBA] インタフェース継承を使用する際にクラス変数として配列を使用する方法</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/01/13/interface-array-member/</link>
+      <pubDate>Wed, 13 Jan 2021 19:49:08 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/01/13/interface-array-member/</guid>
+      <description>この記事について VBAではインタフェースを用いることによって、 オブジェクト指向のプログラミングをすることができる。 ただ、後述するように クラス</description>
+    </item>
+    
     <item>
       <title>[VBA, PowerShell] Accessのモジュール・クラスやクエリのSQLから特定文字列を抽出するためのテクニック</title>
       <link>https://dede-20191130.github.io/learnerBlog/posts/2020/12/19/grep-from-module-sql/</link>

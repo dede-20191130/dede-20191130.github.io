@@ -1,0 +1,54 @@
+@startuml
+
+skinparam{
+    BackgroundColor #fefefe
+}
+
+interface clsAbsTeam<<インターフェース>>{
+    ..setter..
+    +arrayMenberName(ByVal idx As Long, ByVal name As String)
+    ..getter..
+    +arrayMenberName(ByVal idx As Long):string
+    ==
+    ..メソッド..
+    +getMemberName(ByVal idx As Long)
+}
+
+class clsAnalyzeTeam<<クラス>>{
+    ..プロパティ..
+    -myArrayMenberName:string()
+    ..setter..
+    -clsAbsTeam_arrayMenberName(ByVal idx As Long, ByVal name As String)
+    ..getter..
+    -clsAbsTeam_arrayMenberName(ByVal idx As Long):string
+    ==
+    ..メソッド..
+    -getMemberName(ByVal idx As Long)
+}
+class clsNewTeam<<クラス>>{
+    ..setter..
+    -clsAbsTeam_arrayMenberName(ByVal idx As Long, ByVal name As String)
+    ..getter..
+    -clsAbsTeam_arrayMenberName(ByVal idx As Long):string
+    ==
+    ..メソッド..
+    -getMemberName(ByVal idx As Long)
+}
+class M_Calling<<モジュール>><< (M,orchid) >>{
+    チームクラスから
+    情報取得する関数を持つ
+    モジュール
+    ==
+    ..関数..
+    +void testFunc()
+    -outputSelectedMemberName(
+        ByVal collTeam As Collection, ByVal idx As Long
+    ):Boolean
+}
+
+clsAbsTeam <|.. clsAnalyzeTeam
+clsAbsTeam <|.. clsNewTeam
+clsAnalyzeTeam -- M_Calling
+clsNewTeam -- M_Calling
+
+@enduml
