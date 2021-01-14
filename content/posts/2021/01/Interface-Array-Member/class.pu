@@ -1,0 +1,23 @@
+@startuml
+
+skinparam{
+    BackgroundColor #fefefe
+}
+
+interface clsAbsTeam<<インターフェース>>
+
+class clsAnalyzeTeam<<クラス>>
+class clsNewTeam<<クラス>>
+class M_Calling<<モジュール>><< (M,orchid) >>{
+    チームクラスから
+    情報取得する関数を持つ
+    モジュール
+    ==
+}
+
+clsAbsTeam <|.. clsAnalyzeTeam
+clsAbsTeam <|.. clsNewTeam
+clsAnalyzeTeam -- M_Calling
+clsNewTeam -- M_Calling
+
+@enduml
