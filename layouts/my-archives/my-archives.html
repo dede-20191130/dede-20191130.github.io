@@ -17,10 +17,10 @@
         <img src="{{ . }}" class="image_featured">
         {{ end }}
         <ul>
-            {{ range $name, $items := .Site.Taxonomies.archives }}
-            <h3>{{ $name }} </h3>
+            {{ range .Site.Taxonomies.archives.Alphabetical.Reverse }}
+            <h3>{{ .Name }} </h3>
             <li class="post_content">
-                <a href="{{ $.Site.BaseURL }}archives/{{ $name | urlize | lower }}">{{ .Count }} articles</a>
+                <a href="{{ $.Site.BaseURL }}archives/{{ .Name | urlize | lower }}">{{ .Count }} articles</a>
             </li>
             {{ end }}
         </ul>
