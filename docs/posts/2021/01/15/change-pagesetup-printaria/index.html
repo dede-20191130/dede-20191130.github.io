@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="ja" data-figures="" class="page">
   <head>
-<title>Podcastで語られていた西洋世界・中国・日本の皇帝の特徴と違い | 学習者のブログ | プログラミング等</title>
+<title>[VBA] PageSetup.PrintAreaによるシートの印刷範囲の変更を行うときにエラーになる場合＆その回避方法 | 学習者のブログ | プログラミング等</title>
 <meta charset="utf-8">
 <meta name="generator" content="Hugo 0.76.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -18,13 +18,13 @@
 <meta property="og:locale" content="ja" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="この記事について こちらのPodcast番組で 西洋の皇帝と東洋の皇帝について意味の違いや成り立ちが説明されていた。 オカモトの歴史実況中継 「王室">
+<meta name="description" content="この記事について ワークシートオブジェクトのPageSetup.PrintAreaプロパティを用いて 条件に従ってシートの印刷範囲を変更するよう">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="@D20191130">
-<meta name="twitter:title" content="Podcastで語られていた西洋世界・中国・日本の皇帝の特徴と違い" />
-<meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/posts/2020/11/10/difference-between-emperor/" />
-<meta property="og:title" content="Podcastで語られていた西洋世界・中国・日本の皇帝の特徴と違い" />
-<meta property="og:description" content="この記事について こちらのPodcast番組で 西洋の皇帝と東洋の皇帝について意味の違いや成り立ちが説明されていた。 オカモトの歴史実況中継 「王室" />
+<meta name="twitter:title" content="[VBA] PageSetup.PrintAreaによるシートの印刷範囲の変更を行うときにエラーになる場合＆その回避方法" />
+<meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/posts/2021/01/15/change-pagesetup-printaria/" />
+<meta property="og:title" content="[VBA] PageSetup.PrintAreaによるシートの印刷範囲の変更を行うときにエラーになる場合＆その回避方法" />
+<meta property="og:description" content="この記事について ワークシートオブジェクトのPageSetup.PrintAreaプロパティを用いて 条件に従ってシートの印刷範囲を変更するよう" />
 <meta property="og:image" content="https://dede-20191130.github.io/learnerBlog/images/thumbnail.png" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://dede-20191130.github.io/learnerBlog/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://dede-20191130.github.io/learnerBlog/icons/favicon-32x32.png'>
@@ -33,7 +33,7 @@
 <meta name="msapplication-TileColor" content="#002538">
 <meta name="theme-color" content="#002538">
 
-<link rel="canonical" href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/10/difference-between-emperor/">
+<link rel="canonical" href="https://dede-20191130.github.io/learnerBlog/posts/2021/01/15/change-pagesetup-printaria/">
 
     
 
@@ -113,25 +113,25 @@
   
 <div class="grid-inverse wrap content">
   <article class="post_content">
-    <h1 class="post_title">Podcastで語られていた西洋世界・中国・日本の皇帝の特徴と違い</h1><div class="post_meta">
+    <h1 class="post_title">[VBA] PageSetup.PrintAreaによるシートの印刷範囲の変更を行うときにエラーになる場合＆その回避方法</h1><div class="post_meta">
   <svg class="icon">
   <use xlink:href="#calendar"></use>
 </svg>
   <span class="post_date">
-    Nov 10, 2020</span>
-    <a href='https://dede-20191130.github.io/learnerBlog/tags/%E6%AD%B4%E5%8F%B2%E4%B8%80%E8%88%AC' class="post_tag button button_translucent">歴史一般
+    Jan 15, 2021</span>
+    <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' class="post_tag button button_translucent">VBA
     </a>
 </div>
 
     
 <div class="post_share">
   Share on:
-  <a href="https://twitter.com/intent/tweet?text=Podcast%e3%81%a7%e8%aa%9e%e3%82%89%e3%82%8c%e3%81%a6%e3%81%84%e3%81%9f%e8%a5%bf%e6%b4%8b%e4%b8%96%e7%95%8c%e3%83%bb%e4%b8%ad%e5%9b%bd%e3%83%bb%e6%97%a5%e6%9c%ac%e3%81%ae%e7%9a%87%e5%b8%9d%e3%81%ae%e7%89%b9%e5%be%b4%e3%81%a8%e9%81%95%e3%81%84&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f11%2f10%2fdifference-between-emperor%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
+  <a href="https://twitter.com/intent/tweet?text=%5bVBA%5d%20PageSetup.PrintArea%e3%81%ab%e3%82%88%e3%82%8b%e3%82%b7%e3%83%bc%e3%83%88%e3%81%ae%e5%8d%b0%e5%88%b7%e7%af%84%e5%9b%b2%e3%81%ae%e5%a4%89%e6%9b%b4%e3%82%92%e8%a1%8c%e3%81%86%e3%81%a8%e3%81%8d%e3%81%ab%e3%82%a8%e3%83%a9%e3%83%bc%e3%81%ab%e3%81%aa%e3%82%8b%e5%a0%b4%e5%90%88%ef%bc%86%e3%81%9d%e3%81%ae%e5%9b%9e%e9%81%bf%e6%96%b9%e6%b3%95&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2021%2f01%2f15%2fchange-pagesetup-printaria%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
     <svg class="icon">
   <use xlink:href="#twitter"></use>
 </svg>
   </a>
-  <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f11%2f10%2fdifference-between-emperor%2f&t=Podcast%e3%81%a7%e8%aa%9e%e3%82%89%e3%82%8c%e3%81%a6%e3%81%84%e3%81%9f%e8%a5%bf%e6%b4%8b%e4%b8%96%e7%95%8c%e3%83%bb%e4%b8%ad%e5%9b%bd%e3%83%bb%e6%97%a5%e6%9c%ac%e3%81%ae%e7%9a%87%e5%b8%9d%e3%81%ae%e7%89%b9%e5%be%b4%e3%81%a8%e9%81%95%e3%81%84" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
+  <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2021%2f01%2f15%2fchange-pagesetup-printaria%2f&t=%5bVBA%5d%20PageSetup.PrintArea%e3%81%ab%e3%82%88%e3%82%8b%e3%82%b7%e3%83%bc%e3%83%88%e3%81%ae%e5%8d%b0%e5%88%b7%e7%af%84%e5%9b%b2%e3%81%ae%e5%a4%89%e6%9b%b4%e3%82%92%e8%a1%8c%e3%81%86%e3%81%a8%e3%81%8d%e3%81%ab%e3%82%a8%e3%83%a9%e3%83%bc%e3%81%ab%e3%81%aa%e3%82%8b%e5%a0%b4%e5%90%88%ef%bc%86%e3%81%9d%e3%81%ae%e5%9b%9e%e9%81%bf%e6%96%b9%e6%b3%95" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
     <svg class="icon">
   <use xlink:href="#facebook"></use>
 </svg>
@@ -141,7 +141,7 @@
   <use xlink:href="#linkedin"></use>
 </svg>
   </a>
-  <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/10/difference-between-emperor/" title="Copy Link" class="link link_yank">
+  <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/01/15/change-pagesetup-printaria/" title="Copy Link" class="link link_yank">
     <svg class="icon">
   <use xlink:href="#copy"></use>
 </svg>
@@ -154,68 +154,225 @@
     <nav id="TableOfContents">
   <ul>
     <li><a href="#この記事について">この記事について</a></li>
-    <li><a href="#表にまとめた">表にまとめた</a></li>
-    <li><a href="#ナポレオンという男">ナポレオンという男</a></li>
+    <li><a href="#検証環境">検証環境</a></li>
+    <li><a href="#事例">事例</a>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#コード">コード</a></li>
+      </ul>
+    </li>
+    <li><a href="#r1c1参照形式だとエラー発生">R1C1参照形式だとエラー発生</a>
+      <ul>
+        <li><a href="#内容">内容</a></li>
+        <li><a href="#原因">原因</a></li>
+      </ul>
+    </li>
+    <li><a href="#回避方法">回避方法</a>
+      <ul>
+        <li><a href="#参照形式自体を切り替える">参照形式自体を切り替える</a></li>
+        <li><a href="#アドレス文字列を別の参照形式に変更する">アドレス文字列を別の参照形式に変更する</a></li>
+      </ul>
+    </li>
+    <li><a href="#終わりに">終わりに</a></li>
   </ul>
 </nav>
     <h2 id="この記事について">この記事について</h2>
-<p>こちらのPodcast番組で<br>
-西洋の皇帝と東洋の皇帝について意味の違いや成り立ちが説明されていた。</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>オカモトの歴史実況中継<br><a href="https://podcasts.apple.com/jp/podcast/%E7%8E%8B%E5%AE%A4-%E3%81%A7%E8%AA%AD%E3%81%BF%E8%A7%A3%E3%81%8F%E4%B8%96%E7%95%8C%E5%8F%B2-2-%E3%83%A8%E3%83%BC%E3%83%AD%E3%83%83%E3%83%91%E3%81%AE%E7%9A%87%E5%B8%9D%E3%81%9F%E3%81%A1/id1498835161?i=1000491862339">「王室」で読み解く世界史 #2 ヨーロッパの皇帝たち（link）</a></td>
-<td><img src="https://is2-ssl.mzstatic.com/image/thumb/Podcasts123/v4/d9/09/5f/d9095f9b-6036-d263-e3c1-acd46d0989e7/mza_14145798432919201540.jpg/313x0w.jpg" alt=""></td>
-</tr>
-</tbody>
-</table>
-<p>東西の皇帝に違いがあるなんて知らなかったため、興味深かった。<br>
-自分なりに表にまとめてみようと思う。</p>
-<h2 id="表にまとめた">表にまとめた</h2>
-<table border="1">
-    <tr>
-        <th style="width: 150px;"></th>
-        <th>西洋世界の皇帝</th>
-        <th>中華世界の皇帝</th>
-        <th>日本の天皇</th>
-    </tr>
-    <tr>
-        <th>出自</th>
-        <td>古代ローマのユリウス・カエサル<br>彼の死後、「カエサル」という言葉自体が皇帝（emperor）という言葉の語源となった。</td>
-        <td>始皇帝が自称し始めたことから始まる。<br>古代中国の始祖たる「三皇五帝」にちなんだ。</td>
-        <td>聖徳太子が遣唐使に国書をもたせた際に<br>「日出ずる処の天子」などの<br>天子・天皇を意味する言葉で当時の日本の支配者を表現した。</td>
-    </tr>
-    <tr>
-        <th>役割</th>
-        <td>元老院の第一人者。<br>専制君主的な意味はもともと無かった。<br>また、王よりも上であるという立場ではない。</td>
-        <td>春秋戦国時代を乗り越えて<br>中華世界最初の統一国家である秦の始皇帝は、<br>複数の民族のそれぞれの諸侯の王の「上」に立つ、王の中の王という役割を自負した。</td>
-        <td>日本という単一民族の中の支配者であるため、役割としては他の土地の「王」に近い。</td>
-    </tr>
-    <tr>
-        <th>血縁関係・<br>血統</th>
-        <td>カエサルの意志を継ぐものという立場上、<br>先代皇帝の血縁関係の者しか皇帝になれないなどということはなく、優秀な者が帝位を引き継いだ。</td>
-        <td>血縁関係が最重視され、絶対的な権力を持つという性質上苛烈な皇位争いが繰り広げられた。</td>
-        <td>万世一系という言葉が表すように、血縁を持たなければ天皇になることはできない。</td>
-    </tr>
-    <tr>
-        <th>変遷</th>
-        <td>西ローマ帝国・東ローマ帝国、<br>それらの流れを継いだ国々が各自で皇帝を擁立し、ローマの正当なる後継国を名乗った。<br>15世紀にハプスブルク家が勃興すると、皇帝の役は彼ら有力者のうちうちで回すようになり、<br>血統主義の面が生まれた。</td>
-        <td>共和制である中華民国が清国を倒すことにより、<br>中華世界における皇帝は終わった。</td>
-        <td>現在に至るまでその立場は続いている。</td>
-    </tr>
-</table>
-<p><br><br></p>
-<h2 id="ナポレオンという男">ナポレオンという男</h2>
-<p>彼はフランス国王ではなく皇帝の座についた。</p>
-<p>ナポレオンは高貴な生まれではないため、国王には成れなかった。<br>
-血統主義ではなく、（原義的には）有力なものがその座につくという皇帝になることはできた。</p>
-<p>しかし、暗黙的には血統を重んじる風潮があったため、フランスの他の有力者たちにおおきな反感を買う結果となった。</p>
+<p>ワークシートオブジェクトのPageSetup.PrintAreaプロパティを用いて<br>
+条件に従ってシートの印刷範囲を変更するような処理を実装したい場合があるかもしれない。</p>
+<p>そのとき、
+
+<span style="color: #fb9700;">
+    セルの参照形式
+</span>に気をつけないと、思わぬエラーになる可能性がある。</p>
+<p>この記事で、エラーの発生ケースとその二通りの回避方法について記したい。</p>
+<p><a href="https://github.com/dede-20191130/My_VBA_Tools/tree/master/Public/2021/01/Change-PageSetup-PrintAria"><span id="srcURL"><u>説明のために作成したExcelファイルとソースコード、テスト用データはこちらでダウンロードできます。</u></span></a></p>
+<h2 id="検証環境">検証環境</h2>
+<p>Windows 10 Home(64bit)<br>
+MSOffice 2016</p>
+<h2 id="事例">事例</h2>
+<h3 id="about">About</h3>
+<p>ブックのシートに印刷範囲が設定されている。</p>
+<p>その印刷範囲を、列は変えずに印刷範囲の下限をひとつ下の行に変更する処理をVBAで記述したい。<br>
+e.g. 印刷範囲が$A$1:$E$5ならば、関数実行後に印刷範囲が$A$1:$E$6となるようにしたい。</p>
+<h3 id="コード">コード</h3>
+<div class="highlight"><pre class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln"> 2</span><span class="c">&#39;*関数名    ：changePrintAreaBeforeRevised
+</span><span class="ln"> 3</span><span class="c">&#39;*機能      ：PrintAreaをひとつ下の行に変更する 修正前
+</span><span class="ln"> 4</span><span class="c">&#39;*引数      ：
+</span><span class="ln"> 5</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln"> 6</span><span class="c"></span><span class="k">Public</span> <span class="k">Sub</span> <span class="nf">changePrintAreaBeforeRevised</span><span class="p">()</span>
+<span class="ln"> 7</span>    
+<span class="ln"> 8</span>    <span class="c">&#39;定数
+</span><span class="ln"> 9</span><span class="c"></span>    <span class="k">Const</span> <span class="n">FUNC_NAME</span> <span class="ow">As</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&#34;changePrintAreaBeforeRevised&#34;</span>
+<span class="ln">10</span>    
+<span class="ln">11</span>    <span class="c">&#39;変数
+</span><span class="ln">12</span><span class="c"></span>    <span class="k">Dim</span> <span class="n">prePrintAreaAddress</span> <span class="ow">As</span> <span class="kt">String</span>
+<span class="ln">13</span>    
+<span class="ln">14</span>    <span class="k">On</span> <span class="k">Error</span> <span class="k">GoTo</span> <span class="n">ErrorHandler</span>
+<span class="ln">15</span>    
+<span class="ln">16</span>    <span class="k">With</span> <span class="n">ThisWorkbook</span><span class="p">.</span><span class="n">Worksheets</span><span class="p">(</span><span class="n">1</span><span class="p">)</span>
+<span class="ln">17</span>    
+<span class="ln">18</span>        <span class="c">&#39;現在の印刷範囲アドレス
+</span><span class="ln">19</span><span class="c"></span>        <span class="n">prePrintAreaAddress</span> <span class="o">=</span> <span class="p">.</span><span class="n">PageSetup</span><span class="p">.</span><span class="n">PrintArea</span>
+<span class="ln">20</span>        
+<span class="ln">21</span>        <span class="c">&#39;印刷範囲をひとつ下の行に変更する
+</span><span class="ln">22</span><span class="c"></span>        <span class="p">.</span><span class="n">PageSetup</span><span class="p">.</span><span class="n">PrintArea</span> <span class="o">=</span> <span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="n">prePrintAreaAddress</span><span class="p">).</span><span class="n">Resize</span><span class="p">(.</span><span class="n">Range</span><span class="p">(</span><span class="n">prePrintAreaAddress</span><span class="p">).</span><span class="n">Rows</span><span class="p">.</span><span class="n">Count</span> <span class="o">+</span> <span class="n">1</span><span class="p">).</span><span class="n">Address</span> <span class="c">&#39;★01
+</span><span class="ln">23</span><span class="c"></span>        
+<span class="ln">24</span>        <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="p">.</span><span class="n">PageSetup</span><span class="p">.</span><span class="n">PrintArea</span>
+<span class="ln">25</span>        
+<span class="ln">26</span>    <span class="k">End</span> <span class="k">With</span>
+<span class="ln">27</span>
+<span class="ln">28</span><span class="n">ExitHandler</span><span class="p">:</span>
+<span class="ln">29</span>
+<span class="ln">30</span>    <span class="k">Exit</span> <span class="k">Sub</span>
+<span class="ln">31</span>    
+<span class="ln">32</span><span class="nf">ErrorHandler</span><span class="p">:</span>
+<span class="ln">33</span>
+<span class="ln">34</span>    <span class="n">MsgBox</span> <span class="s">&#34;エラーが発生したため、マクロを終了します。&#34;</span> <span class="o">&amp;</span> _
+<span class="ln">35</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
+<span class="ln">36</span>           <span class="s">&#34;関数名：&#34;</span> <span class="o">&amp;</span> <span class="n">FUNC_NAME</span> <span class="o">&amp;</span> _
+<span class="ln">37</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
+<span class="ln">38</span>           <span class="s">&#34;エラー番号：&#34;</span> <span class="o">&amp;</span> <span class="n">Err</span><span class="p">.</span><span class="n">Number</span> <span class="o">&amp;</span> <span class="n">vbNewLine</span> <span class="o">&amp;</span> _
+<span class="ln">39</span>           <span class="n">Err</span><span class="p">.</span><span class="n">Description</span><span class="p">,</span> <span class="n">vbCritical</span><span class="p">,</span> <span class="n">SOURCE_NAME</span>
+<span class="ln">40</span>        
+<span class="ln">41</span>    <span class="k">GoTo</span> <span class="n">ExitHandler</span>
+<span class="ln">42</span>        
+<span class="ln">43</span><span class="k">End</span> <span class="k">Sub</span>
+</code></pre></div><h2 id="r1c1参照形式だとエラー発生">R1C1参照形式だとエラー発生</h2>
+<h3 id="内容">内容</h3>
+<p>上記は、<br>
+参照形式がデフォルト（A1参照形式）の場合はうまく動作する。</p>
+<p>しかし、<br>
+
+
+<span style="color: #fb9700;">
+    R1C1参照形式
+</span>を使用している場合、<br>
+★01の箇所でエラーとなる。</p>
+<p><img src="./image01.png" alt="エラー"></p>
+<h3 id="原因">原因</h3>
+<p>PageSetupオブジェクトのPrintAreaプロパティは、<br>
+コード実行時点の参照形式によって取得文字列が異なる。</p>
+<ul>
+<li>R1C1参照形式の場合はR1C1形式の文字列</li>
+<li>A1参照形式の場合はA1形式の文字列</li>
+</ul>
+<p>また、Rangeオブジェクトに指定する文字列は<br>
+A1参照形式のみ想定され、R1C1参照形式を許容していない。</p>
+<p>したがって、<br>
+prePrintAreaAddressにはR1C1参照形式のアドレス文字列が格納され、<br>
+Range(prePrintAreaAddress)としてRangeオブジェクトに格納する時点でエラーとなる。</p>
+<h2 id="回避方法">回避方法</h2>
+<h3 id="参照形式自体を切り替える">参照形式自体を切り替える</h3>
+<div class="highlight"><pre class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln"> 2</span><span class="c">&#39;*関数名    ：changePrintAreaBeforeRevised
+</span><span class="ln"> 3</span><span class="c">&#39;*機能      ：PrintAreaをひとつ下の行に変更する 修正01
+</span><span class="ln"> 4</span><span class="c">&#39;*引数      ：
+</span><span class="ln"> 5</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln"> 6</span><span class="c"></span><span class="k">Public</span> <span class="k">Sub</span> <span class="nf">changePrintAreaRevised01</span><span class="p">()</span>
+<span class="ln"> 7</span>    
+<span class="ln"> 8</span>    <span class="c">&#39;定数
+</span><span class="ln"> 9</span><span class="c"></span>    <span class="k">Const</span> <span class="n">FUNC_NAME</span> <span class="ow">As</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&#34;changePrintAreaRevised01&#34;</span>
+<span class="ln">10</span>    
+<span class="ln">11</span>    <span class="c">&#39;変数
+</span><span class="ln">12</span><span class="c"></span>    <span class="k">Dim</span> <span class="n">prePrintAreaAddress</span> <span class="ow">As</span> <span class="kt">String</span>
+<span class="ln">13</span>    <span class="k">Dim</span> <span class="n">currentStyle</span> <span class="ow">As</span> <span class="n">XlReferenceStyle</span>
+<span class="ln">14</span>
+<span class="ln">15</span>    <span class="k">On</span> <span class="k">Error</span> <span class="k">GoTo</span> <span class="n">ErrorHandler</span>
+<span class="ln">16</span>    
+<span class="ln">17</span>    <span class="k">With</span> <span class="n">ThisWorkbook</span><span class="p">.</span><span class="n">Worksheets</span><span class="p">(</span><span class="n">1</span><span class="p">)</span>
+<span class="ln">18</span>        
+<span class="ln">19</span>        <span class="c">&#39;セルの参照形式をA1形式に変更
+</span><span class="ln">20</span><span class="c"></span>        <span class="n">currentStyle</span> <span class="o">=</span> <span class="n">Application</span><span class="p">.</span><span class="n">ReferenceStyle</span>
+<span class="ln">21</span>        <span class="n">Application</span><span class="p">.</span><span class="n">ReferenceStyle</span> <span class="o">=</span> <span class="n">xlA1</span>
+<span class="ln">22</span>        
+<span class="ln">23</span>        <span class="c">&#39;現在の印刷範囲アドレス
+</span><span class="ln">24</span><span class="c"></span>        <span class="n">prePrintAreaAddress</span> <span class="o">=</span> <span class="p">.</span><span class="n">PageSetup</span><span class="p">.</span><span class="n">PrintArea</span>
+<span class="ln">25</span>        
+<span class="ln">26</span>        <span class="c">&#39;印刷範囲をひとつ下の行に変更する
+</span><span class="ln">27</span><span class="c"></span>        <span class="p">.</span><span class="n">PageSetup</span><span class="p">.</span><span class="n">PrintArea</span> <span class="o">=</span> <span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="n">prePrintAreaAddress</span><span class="p">).</span><span class="n">Resize</span><span class="p">(.</span><span class="n">Range</span><span class="p">(</span><span class="n">prePrintAreaAddress</span><span class="p">).</span><span class="n">Rows</span><span class="p">.</span><span class="n">Count</span> <span class="o">+</span> <span class="n">1</span><span class="p">).</span><span class="n">Address</span>
+<span class="ln">28</span>        
+<span class="ln">29</span>        <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="p">.</span><span class="n">PageSetup</span><span class="p">.</span><span class="n">PrintArea</span>
+<span class="ln">30</span>        
+<span class="ln">31</span>        <span class="c">&#39;セルの参照形式を復旧する
+</span><span class="ln">32</span><span class="c"></span>        <span class="n">Application</span><span class="p">.</span><span class="n">ReferenceStyle</span> <span class="o">=</span> <span class="n">currentStyle</span>
+<span class="ln">33</span>        
+<span class="ln">34</span>    <span class="k">End</span> <span class="k">With</span>
+<span class="ln">35</span>
+<span class="ln">36</span><span class="n">ExitHandler</span><span class="p">:</span>
+<span class="ln">37</span>
+<span class="ln">38</span>    <span class="k">Exit</span> <span class="k">Sub</span>
+<span class="ln">39</span>    
+<span class="ln">40</span><span class="nf">ErrorHandler</span><span class="p">:</span>
+<span class="ln">41</span>
+<span class="ln">42</span>    <span class="n">MsgBox</span> <span class="s">&#34;エラーが発生したため、マクロを終了します。&#34;</span> <span class="o">&amp;</span> _
+<span class="ln">43</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
+<span class="ln">44</span>           <span class="s">&#34;関数名：&#34;</span> <span class="o">&amp;</span> <span class="n">FUNC_NAME</span> <span class="o">&amp;</span> _
+<span class="ln">45</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
+<span class="ln">46</span>           <span class="s">&#34;エラー番号：&#34;</span> <span class="o">&amp;</span> <span class="n">Err</span><span class="p">.</span><span class="n">Number</span> <span class="o">&amp;</span> <span class="n">vbNewLine</span> <span class="o">&amp;</span> _
+<span class="ln">47</span>           <span class="n">Err</span><span class="p">.</span><span class="n">Description</span><span class="p">,</span> <span class="n">vbCritical</span><span class="p">,</span> <span class="n">SOURCE_NAME</span>
+<span class="ln">48</span>        
+<span class="ln">49</span>    <span class="k">GoTo</span> <span class="n">ExitHandler</span>
+<span class="ln">50</span>        
+<span class="ln">51</span><span class="k">End</span> <span class="k">Sub</span>
+<span class="ln">52</span>
+</code></pre></div><p>PrintArea取得・設定前後で<br>
+参照形式を強制的にA1参照形式に切り替える。</p>
+<p>欠点は、<br>
+切り替え・復旧の間に時間がかかる処理がある場合や、<br>
+この関数を何度も呼び出す場合、<br>
+ユーザ側の視点から、シートの参照形式の部分が交互に変わってチラつくように見えるかもしれない。</p>
+<h3 id="アドレス文字列を別の参照形式に変更する">アドレス文字列を別の参照形式に変更する</h3>
+<p>Application.ConvertFormulaを用いて<br>
+文字列だけを変更する。</p>
+<div class="highlight"><pre class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln"> 2</span><span class="c">&#39;*関数名    ：changePrintAreaBeforeRevised
+</span><span class="ln"> 3</span><span class="c">&#39;*機能      ：PrintAreaをひとつ下の行に変更する 修正02
+</span><span class="ln"> 4</span><span class="c">&#39;*引数      ：
+</span><span class="ln"> 5</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln"> 6</span><span class="c"></span><span class="k">Public</span> <span class="k">Sub</span> <span class="nf">changePrintAreaRevised02</span><span class="p">()</span>
+<span class="ln"> 7</span>    
+<span class="ln"> 8</span>    <span class="c">&#39;定数
+</span><span class="ln"> 9</span><span class="c"></span>    <span class="k">Const</span> <span class="n">FUNC_NAME</span> <span class="ow">As</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&#34;changePrintAreaRevised02&#34;</span>
+<span class="ln">10</span>    
+<span class="ln">11</span>    <span class="c">&#39;変数
+</span><span class="ln">12</span><span class="c"></span>    <span class="k">Dim</span> <span class="n">prePrintAreaAddress</span> <span class="ow">As</span> <span class="kt">String</span>
+<span class="ln">13</span>    
+<span class="ln">14</span>    <span class="k">On</span> <span class="k">Error</span> <span class="k">GoTo</span> <span class="n">ErrorHandler</span>
+<span class="ln">15</span>    
+<span class="ln">16</span>    <span class="k">With</span> <span class="n">ThisWorkbook</span><span class="p">.</span><span class="n">Worksheets</span><span class="p">(</span><span class="n">1</span><span class="p">)</span>
+<span class="ln">17</span>    
+<span class="ln">18</span>        <span class="c">&#39;現在の印刷範囲アドレス
+</span><span class="ln">19</span><span class="c"></span>        <span class="n">prePrintAreaAddress</span> <span class="o">=</span> <span class="p">.</span><span class="n">PageSetup</span><span class="p">.</span><span class="n">PrintArea</span>
+<span class="ln">20</span>        
+<span class="ln">21</span>        <span class="c">&#39;アドレスをxlA1参照形式のものに修正
+</span><span class="ln">22</span><span class="c"></span>        <span class="k">If</span> <span class="n">Application</span><span class="p">.</span><span class="n">ReferenceStyle</span> <span class="o">=</span> <span class="n">xlR1C1</span> <span class="k">Then</span> <span class="n">prePrintAreaAddress</span> <span class="o">=</span> <span class="n">Application</span><span class="p">.</span><span class="n">ConvertFormula</span><span class="p">(</span><span class="n">prePrintAreaAddress</span><span class="p">,</span> <span class="n">xlR1C1</span><span class="p">,</span> <span class="n">xlA1</span><span class="p">)</span>
+<span class="ln">23</span>        
+<span class="ln">24</span>        <span class="c">&#39;印刷範囲をひとつ下の行に変更する
+</span><span class="ln">25</span><span class="c"></span>        <span class="p">.</span><span class="n">PageSetup</span><span class="p">.</span><span class="n">PrintArea</span> <span class="o">=</span> <span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="n">prePrintAreaAddress</span><span class="p">).</span><span class="n">Resize</span><span class="p">(.</span><span class="n">Range</span><span class="p">(</span><span class="n">prePrintAreaAddress</span><span class="p">).</span><span class="n">Rows</span><span class="p">.</span><span class="n">Count</span> <span class="o">+</span> <span class="n">1</span><span class="p">).</span><span class="n">Address</span>
+<span class="ln">26</span>        
+<span class="ln">27</span>        <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="p">.</span><span class="n">PageSetup</span><span class="p">.</span><span class="n">PrintArea</span>
+<span class="ln">28</span>        
+<span class="ln">29</span>    <span class="k">End</span> <span class="k">With</span>
+<span class="ln">30</span>
+<span class="ln">31</span><span class="n">ExitHandler</span><span class="p">:</span>
+<span class="ln">32</span>
+<span class="ln">33</span>    <span class="k">Exit</span> <span class="k">Sub</span>
+<span class="ln">34</span>    
+<span class="ln">35</span><span class="nf">ErrorHandler</span><span class="p">:</span>
+<span class="ln">36</span>
+<span class="ln">37</span>    <span class="n">MsgBox</span> <span class="s">&#34;エラーが発生したため、マクロを終了します。&#34;</span> <span class="o">&amp;</span> _
+<span class="ln">38</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
+<span class="ln">39</span>           <span class="s">&#34;関数名：&#34;</span> <span class="o">&amp;</span> <span class="n">FUNC_NAME</span> <span class="o">&amp;</span> _
+<span class="ln">40</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
+<span class="ln">41</span>           <span class="s">&#34;エラー番号：&#34;</span> <span class="o">&amp;</span> <span class="n">Err</span><span class="p">.</span><span class="n">Number</span> <span class="o">&amp;</span> <span class="n">vbNewLine</span> <span class="o">&amp;</span> _
+<span class="ln">42</span>           <span class="n">Err</span><span class="p">.</span><span class="n">Description</span><span class="p">,</span> <span class="n">vbCritical</span><span class="p">,</span> <span class="n">SOURCE_NAME</span>
+<span class="ln">43</span>        
+<span class="ln">44</span>    <span class="k">GoTo</span> <span class="n">ExitHandler</span>
+<span class="ln">45</span>        
+<span class="ln">46</span><span class="k">End</span> <span class="k">Sub</span>
+</code></pre></div><h2 id="終わりに">終わりに</h2>
+<p>アドレス文字列を別の参照形式に変更する方法が最も自然で応用性も高いかと思う。</p>
 
     
       <div id="disqus_thread"></div>
@@ -262,9 +419,6 @@
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/01/15/change-pagesetup-printaria/" class="nav-link">[VBA] PageSetup.PrintAreaによるシートの印刷範囲の変更を行うときにエラーになる場合＆その回避方法</a>
-      </li>
-      <li>
         <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/01/13/interface-array-member/" class="nav-link">[VBA] インタフェース継承を使用する際にクラス変数として配列を使用する方法</a>
       </li>
       <li>
@@ -284,6 +438,9 @@
       </li>
       <li>
         <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/12/05/mujirushi/" class="nav-link">[小ネタ] 「無印良品」を英語でどう説明する？？</a>
+      </li>
+      <li>
+        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/22/excel-class-sample-02/" class="nav-link">[VBA] クラスを利用するメリットと方法について &amp; 簡単なサンプル（２）</a>
       </li>
     </ul>
     <div>
