@@ -216,8 +216,8 @@ e.g. 印刷範囲が$A$1:$E$5ならば、関数実行後に印刷範囲が$A$1:$
 </span><span class="ln">19</span><span class="c"></span>        <span class="n">prePrintAreaAddress</span> <span class="o">=</span> <span class="p">.</span><span class="n">PageSetup</span><span class="p">.</span><span class="n">PrintArea</span>
 <span class="ln">20</span>        
 <span class="ln">21</span>        <span class="c">&#39;印刷範囲をひとつ下の行に変更する
-</span><span class="ln">22</span><span class="c"></span>        <span class="p">.</span><span class="n">PageSetup</span><span class="p">.</span><span class="n">PrintArea</span> <span class="o">=</span> <span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="n">prePrintAreaAddress</span><span class="p">).</span><span class="n">Resize</span><span class="p">(.</span><span class="n">Range</span><span class="p">(</span><span class="n">prePrintAreaAddress</span><span class="p">).</span><span class="n">Rows</span><span class="p">.</span><span class="n">Count</span> <span class="o">+</span> <span class="n">1</span><span class="p">).</span><span class="n">Address</span> <span class="c">&#39;★01
-</span><span class="ln">23</span><span class="c"></span>        
+</span><span class="hl"><span class="ln">22</span><span class="c"></span>        <span class="p">.</span><span class="n">PageSetup</span><span class="p">.</span><span class="n">PrintArea</span> <span class="o">=</span> <span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="n">prePrintAreaAddress</span><span class="p">).</span><span class="n">Resize</span><span class="p">(.</span><span class="n">Range</span><span class="p">(</span><span class="n">prePrintAreaAddress</span><span class="p">).</span><span class="n">Rows</span><span class="p">.</span><span class="n">Count</span> <span class="o">+</span> <span class="n">1</span><span class="p">).</span><span class="n">Address</span> <span class="c">&#39;★01
+</span></span><span class="ln">23</span><span class="c"></span>        
 <span class="ln">24</span>        <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="p">.</span><span class="n">PageSetup</span><span class="p">.</span><span class="n">PrintArea</span>
 <span class="ln">25</span>        
 <span class="ln">26</span>    <span class="k">End</span> <span class="k">With</span>
@@ -283,9 +283,9 @@ Range(prePrintAreaAddress)としてRangeオブジェクトに格納する時点�
 <span class="ln">17</span>    <span class="k">With</span> <span class="n">ThisWorkbook</span><span class="p">.</span><span class="n">Worksheets</span><span class="p">(</span><span class="n">1</span><span class="p">)</span>
 <span class="ln">18</span>        
 <span class="ln">19</span>        <span class="c">&#39;セルの参照形式をA1形式に変更
-</span><span class="ln">20</span><span class="c"></span>        <span class="n">currentStyle</span> <span class="o">=</span> <span class="n">Application</span><span class="p">.</span><span class="n">ReferenceStyle</span>
-<span class="ln">21</span>        <span class="n">Application</span><span class="p">.</span><span class="n">ReferenceStyle</span> <span class="o">=</span> <span class="n">xlA1</span>
-<span class="ln">22</span>        
+</span><span class="hl"><span class="ln">20</span><span class="c"></span>        <span class="n">currentStyle</span> <span class="o">=</span> <span class="n">Application</span><span class="p">.</span><span class="n">ReferenceStyle</span>
+</span><span class="hl"><span class="ln">21</span>        <span class="n">Application</span><span class="p">.</span><span class="n">ReferenceStyle</span> <span class="o">=</span> <span class="n">xlA1</span>
+</span><span class="ln">22</span>        
 <span class="ln">23</span>        <span class="c">&#39;現在の印刷範囲アドレス
 </span><span class="ln">24</span><span class="c"></span>        <span class="n">prePrintAreaAddress</span> <span class="o">=</span> <span class="p">.</span><span class="n">PageSetup</span><span class="p">.</span><span class="n">PrintArea</span>
 <span class="ln">25</span>        
@@ -346,8 +346,8 @@ Range(prePrintAreaAddress)としてRangeオブジェクトに格納する時点�
 </span><span class="ln">19</span><span class="c"></span>        <span class="n">prePrintAreaAddress</span> <span class="o">=</span> <span class="p">.</span><span class="n">PageSetup</span><span class="p">.</span><span class="n">PrintArea</span>
 <span class="ln">20</span>        
 <span class="ln">21</span>        <span class="c">&#39;アドレスをxlA1参照形式のものに修正
-</span><span class="ln">22</span><span class="c"></span>        <span class="k">If</span> <span class="n">Application</span><span class="p">.</span><span class="n">ReferenceStyle</span> <span class="o">=</span> <span class="n">xlR1C1</span> <span class="k">Then</span> <span class="n">prePrintAreaAddress</span> <span class="o">=</span> <span class="n">Application</span><span class="p">.</span><span class="n">ConvertFormula</span><span class="p">(</span><span class="n">prePrintAreaAddress</span><span class="p">,</span> <span class="n">xlR1C1</span><span class="p">,</span> <span class="n">xlA1</span><span class="p">)</span>
-<span class="ln">23</span>        
+</span><span class="hl"><span class="ln">22</span><span class="c"></span>        <span class="k">If</span> <span class="n">Application</span><span class="p">.</span><span class="n">ReferenceStyle</span> <span class="o">=</span> <span class="n">xlR1C1</span> <span class="k">Then</span> <span class="n">prePrintAreaAddress</span> <span class="o">=</span> <span class="n">Application</span><span class="p">.</span><span class="n">ConvertFormula</span><span class="p">(</span><span class="n">prePrintAreaAddress</span><span class="p">,</span> <span class="n">xlR1C1</span><span class="p">,</span> <span class="n">xlA1</span><span class="p">)</span>
+</span><span class="ln">23</span>        
 <span class="ln">24</span>        <span class="c">&#39;印刷範囲をひとつ下の行に変更する
 </span><span class="ln">25</span><span class="c"></span>        <span class="p">.</span><span class="n">PageSetup</span><span class="p">.</span><span class="n">PrintArea</span> <span class="o">=</span> <span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="n">prePrintAreaAddress</span><span class="p">).</span><span class="n">Resize</span><span class="p">(.</span><span class="n">Range</span><span class="p">(</span><span class="n">prePrintAreaAddress</span><span class="p">).</span><span class="n">Rows</span><span class="p">.</span><span class="n">Count</span> <span class="o">+</span> <span class="n">1</span><span class="p">).</span><span class="n">Address</span>
 <span class="ln">26</span>        
