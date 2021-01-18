@@ -1,8 +1,8 @@
 
 <!DOCTYPE html>
-<html lang="ja" data-figures="">
+<html lang="ja" data-figures="" class="page">
   <head>
-<title>404 Page not found | 学習者のブログ | プログラミング等</title>
+<title>[VBA] 関係記事一覧 | 学習者のブログ | プログラミング等</title>
 <meta charset="utf-8">
 <meta name="generator" content="Hugo 0.76.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -14,16 +14,17 @@
   gtag('js', new Date());
   gtag('config', 'UA-110309082-3');
 </script>
+  
 <meta property="og:locale" content="ja" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="">
+<meta name="description" content="About 投稿したVBA関係の記事を、 分類別に一覧化しました。 分類別まとめ 一般論 Excelのツール開発：関数（非マクロ）ツールとVBA使用ツールの比">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="@D20191130">
-<meta name="twitter:title" content="404 Page not found" />
-<meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/404.html" />
-<meta property="og:title" content="404 Page not found" />
-<meta property="og:description" content="" />
+<meta name="twitter:title" content="[VBA] 関係記事一覧" />
+<meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/introductions/vba/" />
+<meta property="og:title" content="[VBA] 関係記事一覧" />
+<meta property="og:description" content="About 投稿したVBA関係の記事を、 分類別に一覧化しました。 分類別まとめ 一般論 Excelのツール開発：関数（非マクロ）ツールとVBA使用ツールの比" />
 <meta property="og:image" content="https://dede-20191130.github.io/learnerBlog/images/thumbnail.png" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://dede-20191130.github.io/learnerBlog/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://dede-20191130.github.io/learnerBlog/icons/favicon-32x32.png'>
@@ -32,7 +33,7 @@
 <meta name="msapplication-TileColor" content="#002538">
 <meta name="theme-color" content="#002538">
 
-<link rel="canonical" href="https://dede-20191130.github.io/learnerBlog/404.html">
+<link rel="canonical" href="https://dede-20191130.github.io/learnerBlog/introductions/vba/">
 
     
 
@@ -117,12 +118,208 @@
 </header>
 
     <main>
-<div class="never wrap">
-  <h1>Lost</h1>
-  <p class="pale">We couldn&#39;t find the page you&#39;re looking for</p><br>
-  <div class="button btn_back">Go Back</div>
+  
+<div class="wrap content">
+  <article class="post_content">
+    <h1 class="post_title">[VBA] 関係記事一覧</h1><div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Jan 18, 2021</span>
 </div>
 
+    
+<div class="post_share">
+  Share on:
+  <a href="https://twitter.com/intent/tweet?text=%5bVBA%5d%20%e9%96%a2%e4%bf%82%e8%a8%98%e4%ba%8b%e4%b8%80%e8%a6%a7&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fintroductions%2fvba%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
+    <svg class="icon">
+  <use xlink:href="#twitter"></use>
+</svg>
+  </a>
+  <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fintroductions%2fvba%2f&t=%5bVBA%5d%20%e9%96%a2%e4%bf%82%e8%a8%98%e4%ba%8b%e4%b8%80%e8%a6%a7" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
+    <svg class="icon">
+  <use xlink:href="#facebook"></use>
+</svg>
+  </a>
+  <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
+    <svg class="icon">
+  <use xlink:href="#linkedin"></use>
+</svg>
+  </a>
+  <a href="https://dede-20191130.github.io/learnerBlog/introductions/vba/" title="Copy Link" class="link link_yank">
+    <svg class="icon">
+  <use xlink:href="#copy"></use>
+</svg>
+  </a>
+</div>
+
+    
+    
+    <h2>Overview</h2>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#分類別まとめ">分類別まとめ</a>
+      <ul>
+        <li><a href="#一般論">一般論</a></li>
+        <li><a href="#vba仕様api仕様の調査と検証">VBA仕様・API仕様の調査と検証</a></li>
+        <li><a href="#オブジェクト指向コーディング">オブジェクト指向コーディング</a>
+          <ul>
+            <li><a href="#クラスの利用">クラスの利用</a></li>
+            <li><a href="#インタフェース継承">インタフェース・継承</a></li>
+            <li><a href="#その他">その他</a></li>
+          </ul>
+        </li>
+        <li><a href="#自作ツール">自作ツール</a>
+          <ul>
+            <li><a href="#事務処理支援">事務処理支援</a></li>
+            <li><a href="#ツール開発支援">ツール開発支援</a></li>
+          </ul>
+        </li>
+        <li><a href="#vbaコーディングサンプル">VBAコーディングサンプル</a></li>
+        <li><a href="#開発テクニック">開発テクニック</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    <h2 id="about">About</h2>
+<p>投稿したVBA関係の記事を、<br>
+分類別に一覧化しました。</p>
+<h2 id="分類別まとめ">分類別まとめ</h2>
+<h3 id="一般論">一般論</h3>
+<p><span></span>
+
+
+
+    <a href="/learnerBlog/posts/2020/07/16/cmpr-tools/" target="_blank" rel="noopener">Excelのツール開発：関数（非マクロ）ツールとVBA使用ツールの比較</a>
+</p>
+<h3 id="vba仕様api仕様の調査と検証">VBA仕様・API仕様の調査と検証</h3>
+<p>
+
+
+    <a href="/learnerBlog/posts/2020/10/13/access-controlsource/" target="_blank" rel="noopener">[Access VBA] コントロールソースにユーザ定義関数を用いると列幅の自動調整が想定通りに機能しない問題の解決</a>
+<br>
+
+
+
+    <a href="/learnerBlog/posts/2020/12/12/sheet-array-visible/" target="_blank" rel="noopener">[VBA] Excelの複数シートをループを使わず一行の処理で非表示・再表示にすることはできる？？</a>
+<br>
+
+
+
+    <a href="/learnerBlog/posts/2021/01/15/change-pagesetup-printaria/" target="_blank" rel="noopener">[VBA] PageSetup.PrintAreaによるシートの印刷範囲の変更を行うときにエラーになる場合＆その回避方法</a>
+</p>
+<h3 id="オブジェクト指向コーディング">オブジェクト指向コーディング</h3>
+<h4 id="クラスの利用">クラスの利用</h4>
+<p>
+
+
+    <a href="/learnerBlog/posts/2020/11/20/excel-class-sample-01/" target="_blank" rel="noopener">[VBA] クラスを利用するメリットと方法について &amp; 簡単なサンプル（１）</a>
+<br>
+
+
+
+    <a href="/learnerBlog/posts/2020/11/22/excel-class-sample-02/" target="_blank" rel="noopener">[VBA] クラスを利用するメリットと方法について &amp; 簡単なサンプル（２）</a>
+</p>
+<h4 id="インタフェース継承">インタフェース・継承</h4>
+<p><span></span>
+
+
+
+    <a href="/learnerBlog/posts/2021/01/13/interface-array-member/" target="_blank" rel="noopener">[VBA] インタフェース継承を使用する際にクラス変数として配列を使用する方法</a>
+</p>
+<h4 id="その他">その他</h4>
+<p>
+
+
+    <a href="/learnerBlog/posts/2020/11/01/polymorphism-radiobutton/" target="_blank" rel="noopener">[Excel VBA]ポリモーフィズムを用いて、IF文を使わずラジオボタンごとの処理分岐を行う</a>
+<br>
+
+
+
+    <a href="/learnerBlog/posts/2020/11/08/access-control-withevents/" target="_blank" rel="noopener">[Access VBA] フォームのコントロールに対してWithEventsでイベントリスナークラスを作成する際に気をつけなければならないこと</a>
+</p>
+<h3 id="自作ツール">自作ツール</h3>
+<h4 id="事務処理支援">事務処理支援</h4>
+<p>
+
+
+    <a href="/learnerBlog/posts/2020/07/16/create-estm/" target="_blank" rel="noopener">[Excel VBA] 見積書作成ツールを作成した</a>
+<br>
+
+
+
+    <a href="/learnerBlog/posts/2020/12/11/search-shape-string/" target="_blank" rel="noopener">[VBA] ブック内の図形内のテキストを検索・置換するマクロ（Qiitaの記事の拡張）</a>
+</p>
+<h4 id="ツール開発支援">ツール開発支援</h4>
+<p>
+
+
+    <a href="/learnerBlog/posts/2020/10/25/access-tabledef/" target="_blank" rel="noopener">[Access VBA] デザインビューのテーブル定義を表形式でエクスポートする関数を作成した</a>
+<br>
+
+
+
+    <a href="/learnerBlog/posts/2020/10/27/access-tabledef-tool/" target="_blank" rel="noopener">[Access VBA] デザインビューのテーブル定義を表形式でエクスポートするAccessツールを作成した</a>
+<br>
+
+
+
+    <a href="/learnerBlog/posts/2020/11/01/excel-a1-tool/" target="_blank" rel="noopener">[Excel VBA]選択フォルダ配下のエクセルブックの全シートでA1にカーソル移動させるツールを作成した</a>
+<br>
+
+
+
+    <a href="/learnerBlog/posts/2020/11/05/own-excel-shortcut/" target="_blank" rel="noopener">[Excel VBA] 個人的に作業がはかどった自作Excelショートカット</a>
+</p>
+<h3 id="vbaコーディングサンプル">VBAコーディングサンプル</h3>
+<p>
+
+
+    <a href="/learnerBlog/posts/2020/11/15/delete-record-button/" target="_blank" rel="noopener">[Access VBA] サブフォーム上のレコードを挿入、削除する簡単なサンプル</a>
+<br>
+
+
+
+    <a href="/learnerBlog/posts/2020/12/05/vba-exception-handle/" target="_blank" rel="noopener">[VBA] 例外処理の典型的なパターン＆使用例サンプル</a>
+</p>
+<h3 id="開発テクニック">開発テクニック</h3>
+<p>
+
+
+    <a href="/learnerBlog/posts/2020/12/06/alter-args-compile-err/" target="_blank" rel="noopener">[VBA] 関数の引数を変更した場合にコンパイルエラーが多発するのを防ぐテクニック</a>
+<br>
+
+
+
+    <a href="/learnerBlog/posts/2020/12/19/grep-from-module-sql/" target="_blank" rel="noopener">[VBA, PowerShell] Accessのモジュール・クラスやクエリのSQLから特定文字列を抽出するためのテクニック</a>
+</p>
+
+    
+      <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "learnerblog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+  </article>
+</div>
     </main><svg width="0" height="0" class="hidden">
   <symbol viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" id="facebook">
     <path d="M437 0H75C33.648 0 0 33.648 0 75v362c0 41.352 33.648 75 75 75h151V331h-60v-90h60v-61c0-49.629 40.371-90 90-90h91v90h-91v61h91l-15 90h-76v181h121c41.352 0 75-33.648 75-75V75c0-41.352-33.648-75-75-75zm0 0"></path>

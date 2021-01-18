@@ -6,7 +6,25 @@
     <description>Recent content on 学習者のブログ | プログラミング等</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 15 Jan 2021 23:38:43 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 18 Jan 2021 21:36:20 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>歴史系記事一覧</title>
+      <link>https://dede-20191130.github.io/learnerBlog/introductions/history/</link>
+      <pubDate>Mon, 18 Jan 2021 21:36:20 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/introductions/history/</guid>
+      <description>About 投稿した歴史関係の記事を 載せておきます。 Podcastを使っていろいろと勉強を始めたこと Podcastで語られていた西洋世界・中国・日本の</description>
+    </item>
+    
+    <item>
+      <title>[VBA] 関係記事一覧</title>
+      <link>https://dede-20191130.github.io/learnerBlog/introductions/vba/</link>
+      <pubDate>Mon, 18 Jan 2021 16:14:03 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/introductions/vba/</guid>
+      <description>About 投稿したVBA関係の記事を、 分類別に一覧化しました。 分類別まとめ 一般論 Excelのツール開発：関数（非マクロ）ツールとVBA使用ツールの比</description>
+    </item>
+    
     <item>
       <title>[VBA] PageSetup.PrintAreaによるシートの印刷範囲の変更を行うときにエラーになる場合＆その回避方法</title>
       <link>https://dede-20191130.github.io/learnerBlog/posts/2021/01/15/change-pagesetup-printaria/</link>
@@ -233,7 +251,7 @@
     </item>
     
     <item>
-      <title>【Excel VBA】見積書作成ツールを作成した</title>
+      <title>[Excel VBA] 見積書作成ツールを作成した</title>
       <link>https://dede-20191130.github.io/learnerBlog/posts/2020/07/16/create-estm/</link>
       <pubDate>Thu, 16 Jul 2020 08:05:13 +0000</pubDate>
       
