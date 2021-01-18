@@ -580,4 +580,4 @@ objTableCreater.で呼び出されるテキストを含むセンテンスは、
 TableCreaterの例だと、カプセル化の恩恵や初期化処理・終了処理を必ず実行できることの恩恵が十分には表現できなかったように思える。
 
 続きの記事を作成しました。  
-[[VBA] クラスを利用するメリットと方法について & 簡単なサンプル（２）]({{< relref  "Excel-Class-Sample-02\index.md" >}})
+{{< page-titled-link page="Excel-Class-Sample-02" >}}
