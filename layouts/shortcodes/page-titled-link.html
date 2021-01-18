@@ -1,0 +1,9 @@
+{{ $pageStr :=  .Get "page"}}
+{{ if not $pageStr }}
+{{ errorf "missing value for param 'pageStr': ％s" .Position }}
+{{ end }}
+{{ with .Site.GetPage $pageStr }}
+    <a href="{{ .RelPermalink }}" target="_blank" rel="noopener">{{ .Title }}</a>
+{{ else }} 
+    not found.
+{{ end }}
