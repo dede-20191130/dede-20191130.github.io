@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="ja" data-figures="" class="page">
   <head>
-<title>[VBA] PageSetup.PrintAreaによるシートの印刷範囲の変更を行うときにエラーになる場合＆その回避方法 | 学習者のブログ | プログラミング等</title>
+<title>[Excel VBA] PageSetup.PrintAreaによるシートの印刷範囲の変更を行うときにエラーになる場合＆その回避方法 | 学習者のブログ | プログラミング等</title>
 <meta charset="utf-8">
 <meta name="generator" content="Hugo 0.76.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -21,9 +21,9 @@
 <meta name="description" content="この記事について ワークシートオブジェクトのPageSetup.PrintAreaプロパティを用いて 条件に従ってシートの印刷範囲を変更するよう">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="@D20191130">
-<meta name="twitter:title" content="[VBA] PageSetup.PrintAreaによるシートの印刷範囲の変更を行うときにエラーになる場合＆その回避方法" />
+<meta name="twitter:title" content="[Excel VBA] PageSetup.PrintAreaによるシートの印刷範囲の変更を行うときにエラーになる場合＆その回避方法" />
 <meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/posts/2021/01/15/change-pagesetup-printaria/" />
-<meta property="og:title" content="[VBA] PageSetup.PrintAreaによるシートの印刷範囲の変更を行うときにエラーになる場合＆その回避方法" />
+<meta property="og:title" content="[Excel VBA] PageSetup.PrintAreaによるシートの印刷範囲の変更を行うときにエラーになる場合＆その回避方法" />
 <meta property="og:description" content="この記事について ワークシートオブジェクトのPageSetup.PrintAreaプロパティを用いて 条件に従ってシートの印刷範囲を変更するよう" />
 <meta property="og:image" content="https://dede-20191130.github.io/learnerBlog/images/thumbnail.png" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://dede-20191130.github.io/learnerBlog/icons/apple-touch-icon.png'>
@@ -121,7 +121,7 @@
   
 <div class="grid-inverse wrap content">
   <article class="post_content">
-    <h1 class="post_title">[VBA] PageSetup.PrintAreaによるシートの印刷範囲の変更を行うときにエラーになる場合＆その回避方法</h1><div class="post_meta">
+    <h1 class="post_title">[Excel VBA] PageSetup.PrintAreaによるシートの印刷範囲の変更を行うときにエラーになる場合＆その回避方法</h1><div class="post_meta">
   <svg class="icon">
   <use xlink:href="#calendar"></use>
 </svg>
@@ -129,17 +129,19 @@
     Jan 15, 2021</span>
     <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' class="post_tag button button_translucent">VBA
     </a>
+    <a href='https://dede-20191130.github.io/learnerBlog/tags/excel' class="post_tag button button_translucent">Excel
+    </a>
 </div>
 
     
 <div class="post_share">
   Share on:
-  <a href="https://twitter.com/intent/tweet?text=%5bVBA%5d%20PageSetup.PrintArea%e3%81%ab%e3%82%88%e3%82%8b%e3%82%b7%e3%83%bc%e3%83%88%e3%81%ae%e5%8d%b0%e5%88%b7%e7%af%84%e5%9b%b2%e3%81%ae%e5%a4%89%e6%9b%b4%e3%82%92%e8%a1%8c%e3%81%86%e3%81%a8%e3%81%8d%e3%81%ab%e3%82%a8%e3%83%a9%e3%83%bc%e3%81%ab%e3%81%aa%e3%82%8b%e5%a0%b4%e5%90%88%ef%bc%86%e3%81%9d%e3%81%ae%e5%9b%9e%e9%81%bf%e6%96%b9%e6%b3%95&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2021%2f01%2f15%2fchange-pagesetup-printaria%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
+  <a href="https://twitter.com/intent/tweet?text=%5bExcel%20VBA%5d%20PageSetup.PrintArea%e3%81%ab%e3%82%88%e3%82%8b%e3%82%b7%e3%83%bc%e3%83%88%e3%81%ae%e5%8d%b0%e5%88%b7%e7%af%84%e5%9b%b2%e3%81%ae%e5%a4%89%e6%9b%b4%e3%82%92%e8%a1%8c%e3%81%86%e3%81%a8%e3%81%8d%e3%81%ab%e3%82%a8%e3%83%a9%e3%83%bc%e3%81%ab%e3%81%aa%e3%82%8b%e5%a0%b4%e5%90%88%ef%bc%86%e3%81%9d%e3%81%ae%e5%9b%9e%e9%81%bf%e6%96%b9%e6%b3%95&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2021%2f01%2f15%2fchange-pagesetup-printaria%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
     <svg class="icon">
   <use xlink:href="#twitter"></use>
 </svg>
   </a>
-  <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2021%2f01%2f15%2fchange-pagesetup-printaria%2f&t=%5bVBA%5d%20PageSetup.PrintArea%e3%81%ab%e3%82%88%e3%82%8b%e3%82%b7%e3%83%bc%e3%83%88%e3%81%ae%e5%8d%b0%e5%88%b7%e7%af%84%e5%9b%b2%e3%81%ae%e5%a4%89%e6%9b%b4%e3%82%92%e8%a1%8c%e3%81%86%e3%81%a8%e3%81%8d%e3%81%ab%e3%82%a8%e3%83%a9%e3%83%bc%e3%81%ab%e3%81%aa%e3%82%8b%e5%a0%b4%e5%90%88%ef%bc%86%e3%81%9d%e3%81%ae%e5%9b%9e%e9%81%bf%e6%96%b9%e6%b3%95" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
+  <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2021%2f01%2f15%2fchange-pagesetup-printaria%2f&t=%5bExcel%20VBA%5d%20PageSetup.PrintArea%e3%81%ab%e3%82%88%e3%82%8b%e3%82%b7%e3%83%bc%e3%83%88%e3%81%ae%e5%8d%b0%e5%88%b7%e7%af%84%e5%9b%b2%e3%81%ae%e5%a4%89%e6%9b%b4%e3%82%92%e8%a1%8c%e3%81%86%e3%81%a8%e3%81%8d%e3%81%ab%e3%82%a8%e3%83%a9%e3%83%bc%e3%81%ab%e3%81%aa%e3%82%8b%e5%a0%b4%e5%90%88%ef%bc%86%e3%81%9d%e3%81%ae%e5%9b%9e%e9%81%bf%e6%96%b9%e6%b3%95" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
     <svg class="icon">
   <use xlink:href="#facebook"></use>
 </svg>
@@ -553,7 +555,7 @@ Range(prePrintAreaAddress)としてRangeオブジェクトに格納する時点�
         
         <a href='https://dede-20191130.github.io/learnerBlog/tags/excel/' class="post_tag button button_translucent">
           EXCEL
-          <span class="button_tally">11</span>
+          <span class="button_tally">12</span>
         </a>
         
         <a href='https://dede-20191130.github.io/learnerBlog/tags/access/' class="post_tag button button_translucent">
@@ -621,7 +623,7 @@ Range(prePrintAreaAddress)としてRangeオブジェクトに格納する時点�
             </a>
             
             
-            <a href='https://dede-20191130.github.io/learnerBlog/tags/excel/' class=" post_tag button button_translucent" data-position=11>EXCEL<span class="button_tally">11</span>
+            <a href='https://dede-20191130.github.io/learnerBlog/tags/excel/' class=" post_tag button button_translucent" data-position=12>EXCEL<span class="button_tally">12</span>
             </a>
             
             
