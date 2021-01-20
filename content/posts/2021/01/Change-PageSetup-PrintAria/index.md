@@ -1,12 +1,12 @@
 ---
-title: "[VBA] PageSetup.PrintAreaによるシートの印刷範囲の変更を行うときにエラーになる場合＆その回避方法"
+title: "[Excel VBA] PageSetup.PrintAreaによるシートの印刷範囲の変更を行うときにエラーになる場合＆その回避方法"
 author: dede-20191130
 date: 2021-01-15T23:38:43+09:00
 slug: Change-PageSetup-PrintAria
 draft: false
 toc: true
 featured: false
-tags: ['VBA']
+tags: ['VBA','Excel']
 categories: ['プログラミング','トラブルシューティング']
 archives:
     - 2021
