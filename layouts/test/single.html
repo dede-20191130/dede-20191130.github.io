@@ -31,7 +31,71 @@
     <!-- ## add test codes -->
     <!-- partial_log -->
     {{ partial "log" ( printf "hoge: %s" "fuga" ) }} 
-    
+    <!-- site_pages -->
+    <!-- {{ partial "log" ( printf "hoge: %s" "site_pages" ) }} 
+    {{ range .Site.Pages }}
+      {{ partial "log" ( printf "hoge: %s" .Title ) }} 
+    {{ end }} -->
+    <!-- site_sections -->
+    {{ partial "log" ( printf "hoge: %s" "site_sections" ) }} 
+    {{ range .Site.Sections }}
+      {{ partial "log" ( printf "hoge: %s" .Permalink  ) }} 
+    {{ end }}
+    <!-- site_home -->
+    {{ partial "log" ( printf "hoge: %s" "site_home" ) }} 
+    {{ range .Site.Home.RegularPages.ByTitle.Reverse   }}
+      {{ partial "log" ( printf "hoge: %s" .Permalink  ) }} 
+    {{ end }}
+    <!-- emojify  -->
+    {{ partial "log" ( printf "%s" "emojify ") }} 
+    <p>
+      {{ emojify ":open_file_folder:" }}
+    </p>
+    <!-- get-data -->
+    {{ partial "log" ( printf "%s" "get-data") }} 
+    {{ partial "log" ( printf "%s" ( where .Site.Data.social "item" "twitter")  ) }} 
+    {{ range  (where .Site.Data.social "item" "twitter")}}
+      {{ partial "log" ( printf "%s" .item  ) }} 
+      {{ partial "log" ( printf "%s" .url  ) }} 
+    {{ end }}
+    {{/*  taxonomy_archive  */}}
+    {{ partial "log" ( printf "%s" "taxonomy_archive") }} 
+
+    {{/*  {{ range .Site.Taxonomies.archives }}
+      {{ partial "log" ( printf "%s" .  ) }} 
+    {{ end }}  */}}
+
+    {{/*  {{ range $key, $taxonomy := .Site.Taxonomies.archives.Alphabetical.Reverse }}
+      {{ partial "log" ( printf "%s" $key ) }} 
+        {{ range $taxonomy.Pages }}
+          {{ partial "log" ( printf "%s" .Title) }} 
+        {{ end }}
+    {{ end }}  */}}
+
+    {{ range .Site.Taxonomies.archives.Alphabetical.Reverse }}
+      {{ partial "log" ( printf "%s" .Name  ) }} 
+        {{/*  {{ range .Pages }}
+          {{ partial "log" ( printf "%s" .Title) }} 
+        {{ end }}  */}}
+    {{ end }}
+
+    {{/*  homepage_reference  */}}
+    {{ partial "log" ( printf "%s" "homepage_reference") }} 
+    {{ $home := .Site.Home }}
+    {{ partial "log" ( printf "%#v" $home) }} 
+    {{ partial "log" ( printf "%s" (absLangURL $home)) }} 
+    {{ partial "log" ( printf "%s" $home.Permalink ) }} 
+    <!-- related -->
+    {{ partial "log" ( printf "%s" "related" ) }} 
+    {{ $page := .Site.GetPage "delete-record-button" }}
+    {{ partial "log" ( printf "%v" $page  ) }} 
+    {{ $related := .Site.RegularPages.Related $page  }}
+    {{ partial "log" ( printf "%v" $related  ) }} 
+    {{ with $related }}
+      {{ range . }}
+        {{ partial "log" ( printf "%s" .RelPermalink ) }} 
+      {{ end }}
+    {{ end }}
     <!-- ## here -->
     {{- .Content }}
     {{ if and ( ne .Site.Params.comment false ) ( ne .Params.comment false ) }}

@@ -7,6 +7,8 @@ draft: true
 toc: true
 # type: test
 animal: cat
+cost:
+    costAnhour: 120
 lastmod: 2020-11-05
 ---
 
@@ -72,3 +74,10 @@ www.example.com
 
 </div> -->
 
+{{< param Animal >}}<br>
+
+{{< param cost >}}  <br>
+
+{{< param cost.costAnhour >}}  <br>
+
+{{< param "cost.costAnhour" >}}  <br>

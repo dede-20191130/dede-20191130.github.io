@@ -36,6 +36,15 @@
         <!-- slice -->
         {{ partial "log" ( printf "%s" "slice") }} 
         {{ partial "log" ( printf "%v" (slice .)) }} 
+        <!-- pages_regularpages -->
+        {{ partial "log" ( printf "%s" "pages") }} 
+        {{ range .Pages }}
+            {{ partial "log" ( printf "hoge: %s" .Permalink  ) }} 
+        {{ end }}
+        {{ partial "log" ( printf "%s" "RegularPages") }} 
+        {{ range .RegularPages  }}
+            {{ partial "log" ( printf "hoge: %s" .Permalink  ) }} 
+        {{ end }}
         <!-- ## here -->
         <p>Content below</p>
         {{- .Content }}
