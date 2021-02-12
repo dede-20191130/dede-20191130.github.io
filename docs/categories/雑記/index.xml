@@ -6,7 +6,16 @@
     <description>Recent content in 雑記 on 学習者のブログ | プログラミング等</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 05 Dec 2020 01:30:30 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/categories/%E9%9B%91%E8%A8%98/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 12 Feb 2021 23:23:50 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/categories/%E9%9B%91%E8%A8%98/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Python] 久しぶりにpythonスクリプトを作成した。[ファイル区分けスクリプト]</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/02/12/python-note-01/</link>
+      <pubDate>Fri, 12 Feb 2021 23:23:50 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/02/12/python-note-01/</guid>
+      <description>About ストレージから移したファイル区分けのために久しぶりにPythonスクリプトを組んだ。 忘備録ついでに記したい。 Pythonは自由度が高いし I</description>
+    </item>
+    
     <item>
       <title>[雑記] 「無印良品」を英語でどう説明する？？</title>
       <link>https://dede-20191130.github.io/learnerBlog/posts/2020/12/05/mujirushi/</link>

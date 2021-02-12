@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>python on 学習者のブログ | プログラミング等</title>
-    <link>https://dede-20191130.github.io/learnerBlog/categories/python/</link>
+    <link>https://dede-20191130.github.io/learnerBlog/tags/python/</link>
     <description>Recent content in python on 学習者のブログ | プログラミング等</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 12 Feb 2021 23:23:50 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 12 Feb 2021 23:23:50 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Python] 久しぶりにpythonスクリプトを作成した。[ファイル区分けスクリプト]</title>
       <link>https://dede-20191130.github.io/learnerBlog/posts/2021/02/12/python-note-01/</link>
