@@ -6,7 +6,16 @@
     <description>Recent content in 2021 on 学習者のブログ | プログラミング等</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 15 Jan 2021 23:38:43 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/archives/2021/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 12 Feb 2021 23:23:50 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/archives/2021/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Python] 久しぶりにpythonスクリプトを作成した。[ファイル区分けスクリプト]</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/02/12/python-note-01/</link>
+      <pubDate>Fri, 12 Feb 2021 23:23:50 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/02/12/python-note-01/</guid>
+      <description>About ストレージから移したファイル区分けのために久しぶりにPythonスクリプトを組んだ。 忘備録ついでに記したい。 Pythonは自由度が高いし I</description>
+    </item>
+    
     <item>
       <title>[Excel VBA] PageSetup.PrintAreaによるシートの印刷範囲の変更を行うときにエラーになる場合＆その回避方法</title>
       <link>https://dede-20191130.github.io/learnerBlog/posts/2021/01/15/change-pagesetup-printaria/</link>

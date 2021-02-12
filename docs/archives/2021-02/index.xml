@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2021-02 on 学習者のブログ | プログラミング等</title>
+    <link>https://dede-20191130.github.io/learnerBlog/archives/2021-02/</link>
+    <description>Recent content in 2021-02 on 学習者のブログ | プログラミング等</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Fri, 12 Feb 2021 23:23:50 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/archives/2021-02/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Python] 久しぶりにpythonスクリプトを作成した。[ファイル区分けスクリプト]</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/02/12/python-note-01/</link>
+      <pubDate>Fri, 12 Feb 2021 23:23:50 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/02/12/python-note-01/</guid>
+      <description>About ストレージから移したファイル区分けのために久しぶりにPythonスクリプトを組んだ。 忘備録ついでに記したい。 Pythonは自由度が高いし I</description>
+    </item>
+    
+  </channel>
+</rss>
