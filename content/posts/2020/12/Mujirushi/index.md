@@ -1,5 +1,5 @@
 ---
-title: "[小ネタ] 「無印良品」を英語でどう説明する？？"
+title: "[雑記] 「無印良品」を英語でどう説明する？？"
 author: dede-20191130
 date: 2020-12-05T01:30:30+09:00
 slug: Mujirushi
@@ -7,7 +7,7 @@ draft: false
 toc: true
 featured: false
 tags: []
-categories: ["小ネタ"]
+categories: ["雑記"]
 archives:
     - 2020
     - 2020-12
