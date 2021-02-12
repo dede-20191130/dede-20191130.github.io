@@ -6,8 +6,8 @@ slug: python-note-01
 draft: false
 toc: true
 featured: false
-tags: []
-categories: ["python"]
+tags: ["python"]
+categories: ["雑記"]
 archives:
     - 2021
     - 2021-02
