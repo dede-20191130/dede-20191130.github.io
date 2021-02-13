@@ -216,8 +216,6 @@ Private Function redimPreserveFor1stDimension(ByVal arr As Variant, ByVal sLen A
         redimPreserveFor1stDimension = newArr
     End If
     
-    On Error GoTo ErrorHandler
-
 ExitHandler:
 
     Exit Function
