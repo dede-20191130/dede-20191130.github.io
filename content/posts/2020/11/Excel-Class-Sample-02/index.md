@@ -5,7 +5,7 @@ date: 2020-11-22T14:07:24+09:00
 slug: Excel-Class-Sample-02
 draft: false
 toc: true
-featured: true
+featured: false
 tags: ['Access', 'VBA','自作', 'オブジェクト指向']
 categories: ['プログラミング']
 archives:

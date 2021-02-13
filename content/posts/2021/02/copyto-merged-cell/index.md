@@ -5,7 +5,7 @@ date: 2021-02-13T11:32:30+09:00
 slug: copyto-merged-cell
 draft: false
 toc: true
-featured: false
+featured: true
 tags: ['Excel', 'VBA','自作']
 categories: ['プログラミング']
 archives:
@@ -266,16 +266,16 @@ name列にコピペできる。
 
 ![関数実行前](./image04.png)
 
-![関数実行語](./image05.png)
+![関数実行後](./image05.png)
 
 ### (ii) 結合セルから通常セルにコピー
 
 下記のように  
 表のNo1～No4のaddress列のデータを青色部分セルにコピペできる。
 
-![コピペ前](./image06.png)
+![関数実行前](./image06.png)
 
-![コピペ後](./image07.png)
+![関数実行後](./image07.png)
 
 ### (iii) 結合セルから結合セルにコピー
 
@@ -285,7 +285,7 @@ name列にコピペできる。
 オレンジ色部分の住所を、  
 表のNo5～No7のaddress列にコピペできる。
 
-![コピペ前](./image08.png)
+![関数実行前](./image08.png)
 
-![コピペ後](./image09.png)
+![関数実行後](./image09.png)
 
