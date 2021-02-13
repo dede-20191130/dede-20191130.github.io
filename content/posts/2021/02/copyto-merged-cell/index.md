@@ -227,7 +227,7 @@ ErrorHandler:
            "関数名：" & FUNC_NAME & _
            vbLf & _
            "エラー番号：" & Err.Number & vbNewLine & _
-           Err.Description, vbCritical, TOOL_NAME
+           Err.Description, vbCritical, "マクロ"
         
     GoTo ExitHandler
         
