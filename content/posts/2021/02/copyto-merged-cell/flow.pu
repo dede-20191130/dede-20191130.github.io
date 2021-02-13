@@ -1,0 +1,30 @@
+@startuml
+
+skinparam{
+    BackgroundColor #fefefe
+}
+
+title 処理フロー
+participant 結合セルにコピーSubプロシージャ as sub
+entity クリップボードのデータ as cDt
+entity データを格納した配列 as arr
+entity 選択中セル as c
+participant redimPreserveFor1stDimension as f
+
+sub -> cDt:クリップボードのデータが\nテキスト形式であるかチェック
+
+group データ取り込み
+    cDt -> sub:データを取得
+    sub -> f:配列の1次元目の要素数を変更する際に利用
+    f -> sub
+    sub -> arr:クリップボードから二次元配列にデータを移す
+end
+
+sub -> arr:空欄のみの行、空欄のみの列を記録し、\n貼り付けする際に除外する
+
+group データ貼り付け
+    sub -> c:選択しているセルを起点として配列を貼付する
+end
+
+
+@enduml
