@@ -42,12 +42,13 @@ featured: false
 {{< page-titled-link page="access-control-withevents" >}}  
 
 
-### 自作ツール
+### 自作ツール・自作マクロ
 
 #### 事務処理支援
 
 {{< page-titled-link page="2020-07-16-【vba】見積書作成ツールを作成した" >}}  
 {{< page-titled-link page="search-shape-string" >}}  
+{{< page-titled-link page="copyto-merged-cell" >}}  
 
 #### ツール開発支援
 
