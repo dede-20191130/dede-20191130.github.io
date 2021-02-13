@@ -243,7 +243,7 @@ End Function
 ![アドインに登録](./image03.png)
 
 アドインの登録方法については  
-こちらのサイト様に詳細な記事が参考になる。  
+こちらのサイト様の詳細な記事が参考になる。  
 [Excelアドインの作成と登録について｜VBA技術解説](https://excel-ubara.com/excelvba4/EXCEL297.html)
 
 ## 使用方法
