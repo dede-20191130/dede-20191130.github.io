@@ -1,0 +1,10 @@
+.em-txt{
+    text-shadow: 1px 1px 0 rgba(0,0,0,.1);
+    
+    color: #ff9100;
+}
+
+.hyoka{
+    font: 3rem bold; 
+    -webkit-text-stroke: 1px #000000;
+}
