@@ -2,7 +2,7 @@
 {{ if not $css_path }}
 {{ errorf "missing value for first param : ％s" .Position }}
 {{ end }}
-{{ $mycssbundle := $.Page.Resources.GetMatch "mycss.css" }}
+{{ $mycssbundle := $.Page.Resources.GetMatch $css_path }}
 {{ with $mycssbundle}}
     <link rel="stylesheet" href="{{ $mycssbundle.Permalink }}"></link>
 {{ end }}
