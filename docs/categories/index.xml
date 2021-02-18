@@ -8,6 +8,15 @@
     <language>ja</language>
     <lastBuildDate>Sat, 13 Feb 2021 22:49:28 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Podcast</title>
+      <link>https://dede-20191130.github.io/learnerBlog/categories/podcast/</link>
+      <pubDate>Sat, 13 Feb 2021 22:49:28 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/categories/podcast/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>歴史</title>
       <link>https://dede-20191130.github.io/learnerBlog/categories/%E6%AD%B4%E5%8F%B2/</link>
       <pubDate>Sat, 13 Feb 2021 22:49:28 +0900</pubDate>
@@ -49,15 +58,6 @@
       <pubDate>Sun, 15 Nov 2020 02:41:13 +0900</pubDate>
       
       <guid>https://dede-20191130.github.io/learnerBlog/categories/%E5%B0%8F%E3%83%8D%E3%82%BF/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Podcast</title>
-      <link>https://dede-20191130.github.io/learnerBlog/categories/podcast/</link>
-      <pubDate>Tue, 10 Nov 2020 22:41:51 +0900</pubDate>
-      
-      <guid>https://dede-20191130.github.io/learnerBlog/categories/podcast/</guid>
       <description></description>
     </item>
     
