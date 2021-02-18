@@ -17,7 +17,7 @@ featured: false
 
 ### 一般論
 <span></span>
-{{< page-titled-link page="2020-07-16-excelのツール開発関数（非マクロ）ツールとvba使用ツ" >}}  
+{{< page-titled-link page="cmpr-tools" >}}  
 
 ### VBA仕様・API仕様の調査と検証
 
@@ -46,7 +46,7 @@ featured: false
 
 #### 事務処理支援
 
-{{< page-titled-link page="2020-07-16-【vba】見積書作成ツールを作成した" >}}  
+{{< page-titled-link page="create-estm" >}}  
 {{< page-titled-link page="search-shape-string" >}}  
 {{< page-titled-link page="copyto-merged-cell" >}}  
 
