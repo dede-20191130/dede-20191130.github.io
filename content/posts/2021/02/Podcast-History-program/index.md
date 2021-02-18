@@ -7,7 +7,7 @@ draft: false
 toc: true
 featured: false
 tags: ["歴史一般"]
-categories: ["歴史"]
+categories: ["歴史",'Podcast']
 archives:
     - 2021
     - 2021-02
