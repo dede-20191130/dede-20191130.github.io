@@ -21,6 +21,10 @@ aaa
 
 fff
 
+### specification
 
+{{< specific-tag-taxo  tag_name="VBA" taxo_name="specification" >}}
 
-## b
+### class_how_to
+
+{{< specific-tag-taxo  tag_name="VBA" taxo_name="class_how_to" >}}
