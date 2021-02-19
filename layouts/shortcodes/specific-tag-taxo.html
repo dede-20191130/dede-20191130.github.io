@@ -8,7 +8,6 @@
     {{ $tag_taxo_pages =  where $tag_taxo_pages ".Params.tags" "intersect" (slice $tag_name) }}
     {{ $tag_taxo_pages =  where $tag_taxo_pages (printf ".Params.%s_taxo" (lower $tag_name)) "=" $taxo_name }}
     {{ $tag_taxo_pages =  sort $tag_taxo_pages ".Params.date" "asc" }}
-    {{/*  {{- range sort (where (where (where $.Page.Site.RegularPages "Type" "posts") ".Params.tags" "intersect" (slice $tag_name)) (printf ".Params.%s_taxo" (lower $tag_name)) "=" $taxo_name)  ".Params.date" "asc" -}}  */}}
     {{ range  $tag_taxo_pages}}
         <a href="{{ .RelPermalink }}" target="_blank" rel="noopener">{{ .Title }}</a><br>
     {{ end }}
