@@ -1,0 +1,15 @@
+{{ $tag_name :=  .Get "tag_name"}}
+{{ $taxo_name :=  .Get "taxo_name"}}
+{{ if or (not $tag_name ) (not $taxo_name ) }}
+    {{ errorf "missing value for param 'color': ％s" .Position }}
+{{ end }}
+<p>
+    {{ $tag_taxo_pages := where $.Page.Site.RegularPages "Type" "posts" }}
+    {{ $tag_taxo_pages =  where $tag_taxo_pages ".Params.tags" "intersect" (slice $tag_name) }}
+    {{ $tag_taxo_pages =  where $tag_taxo_pages (printf ".Params.%s_taxo" (lower $tag_name)) "=" $taxo_name }}
+    {{ $tag_taxo_pages =  sort $tag_taxo_pages ".Params.date" "asc" }}
+    {{/*  {{- range sort (where (where (where $.Page.Site.RegularPages "Type" "posts") ".Params.tags" "intersect" (slice $tag_name)) (printf ".Params.%s_taxo" (lower $tag_name)) "=" $taxo_name)  ".Params.date" "asc" -}}  */}}
+    {{ range  $tag_taxo_pages}}
+        <a href="{{ .RelPermalink }}" target="_blank" rel="noopener">{{ .Title }}</a><br>
+    {{ end }}
+</p>
