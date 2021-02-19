@@ -8,6 +8,7 @@ toc: true
 featured: true
 tags: ['Excel', 'VBA','自作']
 categories: ['プログラミング']
+vba_taxo: vba_coding_sample
 archives:
     - 2020
     - 2020-12

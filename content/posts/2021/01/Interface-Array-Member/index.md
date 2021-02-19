@@ -8,6 +8,7 @@ toc: true
 featured: false
 tags: ['VBA','オブジェクト指向']
 categories: ['プログラミング']
+vba_taxo: inheritance
 archives:
     - 2021
     - 2021-01

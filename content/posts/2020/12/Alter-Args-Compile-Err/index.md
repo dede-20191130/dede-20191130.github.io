@@ -8,6 +8,7 @@ toc: true
 featured: false
 tags: ['Excel', 'VBA','自作']
 categories: ['プログラミング']
+vba_taxo: technique_develop
 archives:
     - 2020
     - 2020-12

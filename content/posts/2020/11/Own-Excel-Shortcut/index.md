@@ -7,6 +7,7 @@ draft: false
 toc: true
 tags: ['Excel', 'VBA','自作']
 categories: ['アプリケーション', 'プログラミング']
+vba_taxo: help_develop
 archives:
     - 2020
     - 2020-11

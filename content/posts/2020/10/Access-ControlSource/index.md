@@ -7,6 +7,7 @@ draft: false
 toc: true
 tags: ['Access', 'VBA']
 categories: ['トラブルシューティング', 'プログラミング']
+vba_taxo: specification
 archives:
     - 2020
     - 2020-10

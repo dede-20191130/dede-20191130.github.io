@@ -8,6 +8,7 @@ toc: true
 featured: true
 tags: ['Excel', 'VBA','自作']
 categories: ['プログラミング']
+vba_taxo: help_office
 archives:
     - 2021
     - 2021-02

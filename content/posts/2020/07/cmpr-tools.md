@@ -6,6 +6,7 @@ slug: cmpr-tools
 draft: false
 tags: ['Excel', 'VBA',  'Excel関数']
 categories: ['アプリケーション', 'プログラミング']
+vba_taxo: general
 toc: true
 archives:
     - 2020

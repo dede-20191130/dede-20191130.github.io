@@ -8,6 +8,7 @@ toc: true
 featured: false
 tags: ['Access', 'VBA','PowerShell','自作']
 categories: ['プログラミング']
+vba_taxo: technique_develop
 archives:
     - 2020
     - 2020-12

@@ -8,6 +8,7 @@ toc: true
 featured: false
 tags: ['Access', 'VBA','自作', 'オブジェクト指向']
 categories: ['トラブルシューティング', 'プログラミング']
+vba_taxo: oop_others
 archives:
     - 2020
     - 2020-11

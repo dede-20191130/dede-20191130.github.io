@@ -12,6 +12,7 @@ tags:
   - VBA
   - 自作
   - ツール
+vba_taxo: help_office
 toc: true
 archives:
     - 2020

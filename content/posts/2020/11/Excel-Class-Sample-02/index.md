@@ -8,6 +8,7 @@ toc: true
 featured: false
 tags: ['Access', 'VBA','自作', 'オブジェクト指向']
 categories: ['プログラミング']
+vba_taxo: class_how_to
 archives:
     - 2020
     - 2020-11

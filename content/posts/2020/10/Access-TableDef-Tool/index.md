@@ -7,6 +7,7 @@ draft: false
 toc: true
 tags: ['Access', 'VBA','自作','ツール']
 categories: ['アプリケーション', 'プログラミング']
+vba_taxo: help_develop
 archives:
     - 2020
     - 2020-10
