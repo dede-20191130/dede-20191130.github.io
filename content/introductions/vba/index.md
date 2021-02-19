@@ -16,54 +16,43 @@ featured: false
 ## 分類別まとめ
 
 ### 一般論
-<span></span>
-{{< page-titled-link page="cmpr-tools" >}}  
+
+{{< specific-tag-taxo  tag_name="VBA" taxo_name="general" >}}
 
 ### VBA仕様・API仕様の調査と検証
 
-{{< page-titled-link page="access-controlsource" >}}  
-{{< page-titled-link page="sheet-array-visible" >}}  
-{{< page-titled-link page="change-pagesetup-printaria" >}}  
+{{< specific-tag-taxo  tag_name="VBA" taxo_name="specification" >}}
 
 ### オブジェクト指向コーディング
 
 #### クラスの利用
 
-{{< page-titled-link page="excel-class-sample-01" >}}  
-{{< page-titled-link page="excel-class-sample-02" >}}  
+{{< specific-tag-taxo  tag_name="VBA" taxo_name="class_how_to" >}} 
 
 #### インタフェース・継承
-<span></span>
-{{< page-titled-link page="interface-array-member" >}}  
+
+{{< specific-tag-taxo  tag_name="VBA" taxo_name="inheritance" >}}
 
 #### その他
 
-{{< page-titled-link page="polymorphism-radiobutton" >}}  
-{{< page-titled-link page="access-control-withevents" >}}  
+{{< specific-tag-taxo  tag_name="VBA" taxo_name="oop_others" >}}
 
 
 ### 自作ツール・自作マクロ
 
 #### 事務処理支援
 
-{{< page-titled-link page="create-estm" >}}  
-{{< page-titled-link page="search-shape-string" >}}  
-{{< page-titled-link page="copyto-merged-cell" >}}  
+{{< specific-tag-taxo  tag_name="VBA" taxo_name="help_office" >}}
 
 #### ツール開発支援
 
-{{< page-titled-link page="access-tabledef" >}}  
-{{< page-titled-link page="access-tabledef-tool" >}}  
-{{< page-titled-link page="excel-a1-tool" >}}  
-{{< page-titled-link page="own-excel-shortcut" >}}  
-
+{{< specific-tag-taxo  tag_name="VBA" taxo_name="help_develop" >}}
 
 ### VBAコーディングサンプル
 
-{{< page-titled-link page="delete-record-button" >}}  
-{{< page-titled-link page="vba-exception-handle" >}}  
+{{< specific-tag-taxo  tag_name="VBA" taxo_name="vba_coding_sample" >}}
 
- ### 開発テクニック
+### 開発テクニック
 
- {{< page-titled-link page="alter-args-compile-err" >}}  
- {{< page-titled-link page="grep-from-module-sql" >}}  
+{{< specific-tag-taxo  tag_name="VBA" taxo_name="technique_develop" >}}
+
