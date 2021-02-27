@@ -1,7 +1,7 @@
 {{ $tag_name :=  .Get "tag_name"}}
 {{ $taxo_name :=  .Get "taxo_name"}}
 {{ if or (not $tag_name ) (not $taxo_name ) }}
-    {{ errorf "missing value for param 'color': ％s" .Position }}
+    {{ errorf "missing value for either param : ％s" .Position }}
 {{ end }}
 <ul>
     {{ $tag_taxo_pages := where $.Page.Site.RegularPages "Type" "posts" }}
