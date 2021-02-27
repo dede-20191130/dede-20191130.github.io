@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ツール on 学習者のブログ | プログラミング等</title>
+    <title>ツール on 学習者dedeのブログ | プログラミング等</title>
     <link>https://dede-20191130.github.io/learnerBlog/tags/%E3%83%84%E3%83%BC%E3%83%AB/</link>
-    <description>Recent content in ツール on 学習者のブログ | プログラミング等</description>
+    <description>Recent content in ツール on 学習者dedeのブログ | プログラミング等</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Sun, 01 Nov 2020 12:05:43 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/tags/%E3%83%84%E3%83%BC%E3%83%AB/index.xml" rel="self" type="application/rss+xml" />
@@ -40,7 +40,7 @@
       <pubDate>Thu, 16 Jul 2020 08:05:13 +0000</pubDate>
       
       <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/07/16/create-estm/</guid>
-      <description>この記事について 以前作成した見積書作成ツール（Excel VBA）についての紹介記事。 こちら（Github）からツールをダウンロードできます。</description>
+      <description>この記事について 以前作成した見積書作成ツール（Excel VBA）についての紹介記事。 こちら（Github） からツールをダウンロードできます。</description>
     </item>
     
   </channel>
