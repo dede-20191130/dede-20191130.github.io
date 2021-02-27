@@ -4,5 +4,5 @@
 {{ end }}
 {{ range  (where .Site.Data.social "item" $item)}}
     {{ $url := absLangURL .url }}
-    <a href="{{ $url }}">{{ $url }}</a>
+    <a href="{{ $url }}" target="_blank" rel="noopener">{{ $url }}</a>
 {{ end }}
