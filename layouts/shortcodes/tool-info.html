@@ -6,12 +6,7 @@
 {{ range  (where .Site.Data.tools "type" $type)}}
     {{ range (where .items "name" $name ) }}
         {{ $url := absLangURL .url }}
-        {{ $scr := newScratch }}
-        {{ $scr.Set "txt" $url }}
-        {{ with $.Inner }}
-            {{ $scr.Set "txt" . }}
-        {{ end }}
-        
-        <a href="{{ $url }}" target="_blank" rel="noopener">{{ $scr.Get "txt" | markdownify}}</a>    
+        {{ $txt_link := default $url $.Inner  }}
+        <a href="{{ $url }}" target="_blank" rel="noopener">{{ $txt_link | markdownify}}</a>
     {{ end }}
 {{ end }}  
