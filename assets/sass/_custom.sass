@@ -4,6 +4,7 @@
 $margin-min: 1
 $margin-max: 20
 
+// TOC style
 #TableOfContents
     background-color: #e3ffcc73
     border-radius: 20px
@@ -13,12 +14,9 @@ $margin-max: 20
         a
             color: #0300b8
 
-img
-    &.wdtMiddle
-        width: 500px
-
+// article adjustment
 article.post_content
-    > p,div.inner-article,ul,ol,dl
+    > p,div.inner-article,div.box-with-title,ul,ol,dl
         margin-left: 1.5rem
     h2
         padding: 0.4em 0.5em;/*文字の上下 左右の余白*/
@@ -31,6 +29,43 @@ article.post_content
     h4,h5,h6
         border-bottom: solid 1px black
 
+// Image style
+img
+    &.wdtMiddle
+        width: 500px
+
+// designed box
+.box-with-title
+    border: 2px solid #0094D6
+    border-radius: 5px
+    position: relative
+    margin: 2rem 0 1.5rem 0
+    width: 40rem
+    overflow-wrap: break-word
+
+    p
+        position: absolute
+        right: 0
+        left: 3rem
+        top: -1.6rem
+
+    span
+        padding: 0 0.5rem 0 0.5rem
+        background: #FFF
+        color: #0094D6
+
+    .inner
+        padding: 1.2rem 1.5rem .5rem
+
+    a
+        &:visited
+            // color: initial
+
+        &:hover
+            color: red
+
+
+// iteratable margin
 @for  $i  from $margin-min through $margin-max
     .mt-#{$i}
         margin-top: #{$i * 0.1}rem
