@@ -29,7 +29,12 @@ Accessの各々のテーブルの内容をエクスポートする方法とし�
   
 よって、既存の機能で対応できないため、  
 デザインビューのテーブル定義を表形式でエクスポートする関数を作成した。  
-  
+
+{{< colored-span color="#fb9700" >}}※本記事の関数の内容をもとにツール化したものも作成しました。🔽🔽 {{< /colored-span >}}  
+{{< page-titled-link page="access-tabledef-tool" >}}
+
+
+
 ## 作成環境
 Microsoft Office 2019
 
