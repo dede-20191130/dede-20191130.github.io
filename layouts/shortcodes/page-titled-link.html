@@ -3,7 +3,8 @@
 {{ errorf "missing value for param 'pageStr': ％s" .Position }}
 {{ end }}
 {{ with .Site.GetPage $pageStr }}
-    <a href="{{ .RelPermalink }}" target="_blank" rel="noopener">{{ .Title }}</a>
+{{ $linkTitle :=  $.Get "title" | default .Title}}
+<a href="{{ .RelPermalink }}" target="_blank" rel="noopener">{{ $linkTitle }}</a>
 {{ else }} 
-    not found.
+not found.
 {{ end }}
