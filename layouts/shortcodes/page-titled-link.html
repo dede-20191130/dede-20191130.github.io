@@ -1,8 +1,15 @@
+{{/*  
+arg page: ページパス
+arg title: アンカータグ内の文言
+arg relative: ショートコード使用ファイルからの相対パスを使用するbool値
+return: アンカータグ  
+*/}}
 {{ $pageStr :=  .Get "page"}}
 {{ if not $pageStr }}
 {{ errorf "missing value for param 'pageStr': ％s" .Position }}
 {{ end }}
-{{ with .Site.GetPage $pageStr }}
+{{ $origin := cond (eq (.Get "relative") true)  $.Page .Site  }}
+{{ with $origin.GetPage $pageStr }}
 {{ $linkTitle :=  $.Get "title" | default .Title}}
 <a href="{{ .RelPermalink }}" target="_blank" rel="noopener">{{ $linkTitle }}</a>
 {{ else }} 
