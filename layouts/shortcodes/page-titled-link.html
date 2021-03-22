@@ -13,5 +13,6 @@ return: アンカータグ
 {{ $linkTitle :=  $.Get "title" | default .Title}}
 <a href="{{ .RelPermalink }}" target="_blank" rel="noopener">{{ $linkTitle }}</a>
 {{ else }} 
+{{ warnf "missing page : ％s" .Position  }}
 not found.
 {{ end }}
