@@ -1,0 +1,29 @@
+{{/*  
+arg img_name: 画像名前/画像パス
+arg origin: 探索始点ページ
+arg alt: img属性
+arg width: img属性
+arg height: img属性
+return: imgタグ  
+*/}}
+{{ $img_name :=  .Get "img_name"}}
+{{ if not $img_name }}
+{{ errorf "missing value for param 'img_name': ％s" .Position }}
+{{ end }}
+{{ $origin := .Page.GetPage (.Get "origin") | default .Page  }}
+{{/* trace of verification
+ <p>{{ $origin.RelPermalink }}</p>
+<p>{{ $img_name }}</p>
+<div style="font-size: 5px;">
+    {{ range $origin.Resources }}
+        {{ .RelPermalink }}
+    {{ end }}
+</div> 
+ */}}
+{{ with $origin.Resources.GetMatch $img_name }}
+<img src="{{ .RelPermalink }}" alt='{{ $.Get "alt" | default "alt"}}' 
+    width='{{ $.Get "width" | safeCSS | default ""}}' height='{{ $.Get "height" | safeCSS | default ""}}'>
+{{ else }} 
+{{ warnf "missing img object : ％s" .Position  }}
+not found.
+{{ end }}
