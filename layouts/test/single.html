@@ -28,12 +28,36 @@
     </style>
     {{ $parent_url := .Section | absLangURL }}
     <a href="{{ $parent_url  }}">{{ $parent_url  }}</a>
+
+
+
     <!-- ## add test codes -->
-    
+    {{ partial "log" "*** test:site.data & index ***" }}
+    {{ $data_key := "social" }}
+    {{ $item := "twitter" }}
+    {{ range  (where (index .Site.Data $data_key) "item" $item)}}
+      {{ partial "log" (printf "%s" (.url | absLangURL)  ) }}
+    {{ end }}
+    {{ $data_key = "tools" }}
+    {{ range  (where (index .Site.Data $data_key) "type" "vba")}}
+      {{ partial "log" (printf "%v" .items  ) }}
+    {{ end }}
+    {{ range  (where .Site.Data.tools "type" "vba")}}
+      {{ range  (where .items "name" "T0001_01_見積書作成ツール_ExcelVer" ) }}
+        {{ partial "log" (printf "%s_|_%s" .name .url  ) }}
+      {{ end }}
+    {{ end }}
+    {{ partial "log" (printf "%v"  (index (where .Site.Data.tools "type" "vba") 0).items  ) }}
+    {{ partial "log" "*** test:getpage ***" }}
+    {{ $page := .Site.GetPage "slides" }}
+    {{ partial "log" (printf "%v"  (.Site.GetPage  "/posts/2021")  ) }}
     <!-- ## here -->
+
+
+
     {{- .Content }}
     {{ if and ( ne .Site.Params.comment false ) ( ne .Params.comment false ) }}
-    {{ partial "comments" . }}
+      {{ partial "comments" . }}
     {{ end }}
   </article>
   {{- partial "sidebar" . }}
