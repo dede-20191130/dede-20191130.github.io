@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Title</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <!-- Tile view -->
+  <link href='{{ absURL "css/tile-view.css"}}' type="text/css" rel="stylesheet">
+  {{/*  remark custom design  */}}
+  {{- $options := (dict "targetPath" "css/remark.css" "outputStyle" "compressed" "enableSourceMap" "true") -}}
+  {{ $remarkScss :=  "scss/remark.scss" }}
+  {{- $styles := resources.Get $remarkScss | resources.ExecuteAsTemplate $remarkScss . | resources.ToCSS $options | resources.Fingerprint "sha512" }}
+  {{- $popupjs := resources.Get "js/popup.js" | resources.Minify | resources.Fingerprint "sha512" }}
+  <link rel="preload" href="{{ $styles.Permalink }}" integrity = "{{ $styles.Data.Integrity }}" as="style" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="popup" id="js-popup">
+    <div class="inner">
+      <div class="close-btn" id="js-close-btn"><span class="dli-close"></span></div>
+      <img id="js-popup-img" src="" alt="popup-image">
+    </div>
+    <div class="black-background" id="js-black-bg"></div>
+  </div>
+  <textarea id="source">
+{{- range sort (.Resources.Match (printf "%s/*.md" .Params.slide_src ) ) ".File.BaseFileName"  -}}
+  {{- if eq .Params.contentType "md" -}}
+    {{- .RawContent -}}
+  {{- else if eq .Params.contentType "sc"  -}}
+    {{- .Content -}}
+  {{- end -}}
+{{- end -}}
+  </textarea>
+  <script src="https://remarkjs.com/downloads/remark-latest.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    var slideshow = remark.create({
+      countIncrementalSlides: false,
+      navigation: {
+        click: false,
+      },
+    });
+
+  </script>
+  <!-- Tile view -->
+  {{/*  https://github.com/StephenHesperus/remark-hook  */}}
+  <script src='{{ absURL "js/jquery-3.6.0.slim.min.js"}}' type="text/javascript"></script>
+  <script src='{{ absURL "js/tile-view.js"}}' type="text/javascript"></script>
+  <script type="text/javascript" src="{{ $popupjs.Permalink }}" integrity="{{ $popupjs.Data.Integrity }}" crossorigin="anonymous"></script>
+</body>
+
+</html>

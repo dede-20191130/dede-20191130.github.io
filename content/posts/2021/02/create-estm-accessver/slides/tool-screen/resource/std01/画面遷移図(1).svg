@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="319px" preserveAspectRatio="none" style="width:384px;height:319px;" version="1.1" viewBox="0 0 384 319" width="384px" zoomAndPan="magnify"><defs><filter height="300%" id="f12vfvmoysibid" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacing" textLength="112" x="129.5" y="18.6855">画面遷移図(1)</text><g id="見積書作成処理系"><rect fill="#FFFF77" filter="url(#f12vfvmoysibid)" height="50" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="132" x="7" y="255.6406"/><line style="stroke:#A80036;stroke-width:1.5;" x1="7" x2="139" y1="283.25" y2="283.25"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="112" x="17" y="275.1738">見積書作成処理系</text></g><g id="メンテナンス系"><rect fill="#FFFF77" filter="url(#f12vfvmoysibid)" height="50" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="118" x="194" y="255.6406"/><line style="stroke:#A80036;stroke-width:1.5;" x1="194" x2="312" y1="283.25" y2="283.25"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="98" x="204" y="275.1738">メンテナンス系</text></g><ellipse cx="163" cy="38.6406" fill="#000000" filter="url(#f12vfvmoysibid)" rx="10" ry="10" style="stroke:none;stroke-width:1.0;"/><g id="メニュー"><rect fill="#FEFECE" filter="url(#f12vfvmoysibid)" height="67.7969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="114" x="106" y="109.6406"/><line style="stroke:#A80036;stroke-width:1.5;" x1="106" x2="220" y1="137.25" y2="137.25"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="56" x="135" y="129.1738">メニュー</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="78" x="111" y="154.707">entry/初期表示</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="94" x="111" y="169.8008">exit/ツールの終了</text></g><!--MD5=[a23fe11e5a12654961537fecf28ae01f]
+link *start to メニュー--><path d="M163,48.7806 C163,61.2206 163,84.2306 163,104.3506 " fill="none" id="*start-to-メニュー" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="163,109.4006,167,100.4006,163,104.4006,159,100.4006,163,109.4006" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[f537c04220c40a1cdf434101f4b21fb3]
+link メニュー to 見積書作成処理系--><path d="M105.8,170.8406 C91.54,180.3006 78.04,192.4806 70,207.6406 C63.11,220.6306 63.18,236.8806 65.27,250.6506 " fill="none" id="メニュー-to-見積書作成処理系" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="66.12,255.6006,68.5188,246.0484,65.2633,250.6746,60.6371,247.4191,66.12,255.6006" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="138" x="71" y="222.1357">[見積書作成]ボタン押下</text><!--MD5=[09cbffec695c1ccdbc65d7bfb18ad825]
+link メニュー to メンテナンス系--><path d="M191.71,177.7706 C199.32,187.1606 207.28,197.5706 214,207.6406 C223.15,221.3406 232,237.4006 238.96,250.8606 " fill="none" id="メニュー-to-メンテナンス系" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="241.24,255.3206,240.7046,245.4863,238.9639,250.8687,233.5816,249.128,241.24,255.3206" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="151" x="225" y="222.1357">[〇〇設定画面]ボタン押下</text><!--MD5=[412b52af0ecd0e60f21f965eec3b9bfb]
+@startuml
+
+title 画面遷移図(1)
+
+state 見積書作成処理系 #FFFF77
+state メンテナンス系 #FFFF77
+
+[*] - -> メニュー
+メニュー: entry/初期表示
+メニュー: exit/ツールの終了
+メニュー - -> 見積書作成処理系: [見積書作成]ボタン押下
+メニュー - -> メンテナンス系: [〇〇設定画面]ボタン押下
+
+
+@enduml
+
+PlantUML version 1.2021.00(Sun Jan 10 19:25:05 JST 2021)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: MS932
+Language: ja
+Country: JP
+--></g></svg>
