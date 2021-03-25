@@ -58,8 +58,6 @@ www.example.com
 
 <p><del>やあ</del> こんにちは</p>
 
-- [ ] hoge
-- [x] fuga
 
 <ul>
     <li><input disabled="" type="checkbox">hoge</li>
