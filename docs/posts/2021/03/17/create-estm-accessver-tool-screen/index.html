@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Title</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  
+  <link href='https://dede-20191130.github.io/learnerBlog/css/tile-view.css' type="text/css" rel="stylesheet">
+  
+  <link rel="preload" href="https://dede-20191130.github.io/learnerBlog/css/remark.154372eaf4e625b9ad27990bc7473566e91a1e7274cc30990c4cc4b196372c91f3d83312a6a37c438a4c46f26eadec3c04cf81172066e08c8d03131dbbfb29cc.css" integrity = "sha512-FUNy6vTmJbmtJ5kLx0c1ZukaHnJ0zDCZDEzEsZY3LJHz2DMSpqN8Q4pMRvJurew8BM&#43;BFyBm4IyNAxMdu/spzA==" as="style" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="https://dede-20191130.github.io/learnerBlog/css/remark.154372eaf4e625b9ad27990bc7473566e91a1e7274cc30990c4cc4b196372c91f3d83312a6a37c438a4c46f26eadec3c04cf81172066e08c8d03131dbbfb29cc.css" integrity="sha512-FUNy6vTmJbmtJ5kLx0c1ZukaHnJ0zDCZDEzEsZY3LJHz2DMSpqN8Q4pMRvJurew8BM&#43;BFyBm4IyNAxMdu/spzA==" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="popup" id="js-popup">
+    <div class="inner">
+      <div class="close-btn" id="js-close-btn"><span class="dli-close"></span></div>
+      <img id="js-popup-img" src="" alt="popup-image">
+    </div>
+    <div class="black-background" id="js-black-bg"></div>
+  </div>
+  <textarea id="source">class: middle,bkg,blue
+
+.center.text.white[
+# ツール外観  
+Powered by &lt;a href=&#34;https://github.com/gnab/remark#remark&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;remark&lt;/a&gt;
+]
+
+---
+layout: true
+class: slide-hd
+
+.announce-key.text.white[
+    Press \[T\] To Show Slide-List
+]
+
+---
+
+## 画面一覧
+
+.mt-4[
+|画面名|機能|
+|--|--|
+|メニュー画面|メニュー|
+|見積書項目設定画面|見積書作成|
+|会社名選択画面|見積書作成|
+|担当者選択画面|見積書作成|
+|見積書項目データ利用画面|見積書作成|
+|見積書_項目リスト作成画面|見積書作成|
+|見積書_項目リストレコード追加画面|見積書作成|
+|商品詳細表示画面|見積書作成|
+|見積書_項目リストレコード削除画面|見積書作成|
+|〇〇（基礎データ）設定画面|データ管理|
+|〇〇（基礎データ）登録画面|データ管理|
+|〇〇（基礎データ）編集画面|データ管理|
+]
+---
+
+## 画面遷移図（１）
+&lt;p&gt;.center.js-show-popup[
+
+
+
+
+
+&lt;img src=&#34;/learnerBlog/posts/2021/03/17/create-estm-accessver-tool-screen/resource/std01/%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3%281%29.svg&#34; alt=&#39;alt&#39; 
+    width=&#39;600px&#39; height=&#39;&#39;&gt;
+
+]&lt;/p&gt;
+---
+## 画面遷移図（２）
+&lt;p&gt;.center.js-show-popup[
+
+
+
+
+
+&lt;img src=&#34;/learnerBlog/posts/2021/03/17/create-estm-accessver-tool-screen/resource/std02/%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3%282%29.svg&#34; alt=&#39;alt&#39; 
+    width=&#39;750px&#39; height=&#39;&#39;&gt;
+
+]&lt;/p&gt;
+---
+## 画面遷移図（３）
+&lt;p&gt;.center.js-show-popup[
+
+
+
+
+
+&lt;img src=&#34;/learnerBlog/posts/2021/03/17/create-estm-accessver-tool-screen/resource/std03/%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3%283%29.svg&#34; alt=&#39;alt&#39; 
+    width=&#39;600px&#39; height=&#39;&#39;&gt;
+
+]&lt;/p&gt;
+---
+
+## メニュー画面
+
+.rect.flex.round-lg[
+
+.rect.flex.img-box.round-lg.border.bddashed.bdred01.width-60.max-height-550.js-show-popup[
+![](./resource/screens/01.png)
+]
+.rect.flex.round-lg.border.bddashed.bdred01.width-30.inner-left[
+【機能】  
+メニューを表示する
+]
+]
+
+---
+
+## 見積書項目設定画面
+
+.rect.flex.round-lg[
+
+.rect.flex.img-box.round-lg.border.bddashed.bdred01.width-60.max-height-550.js-show-popup[
+![](./resource/screens/02.png)
+]
+.rect.flex.round-lg.border.bddashed.bdred01.width-30.inner-left[
+【機能】  
+.fontsize-10[作成する見積書に挿入する各種情報を設定する。]
+.fontsize-8[
+- 基礎データから  
+送付先会社名等のデータを取得する画面に移動する
+- 作成済みの見積書から  
+データを再利用する画面に移動する
+- 見積書のテンプレートの  
+プレビュー（Excelブック）を開く
+]
+]
+]
+
+---
+
+## 会社名検索画面
+
+.rect.flex.round-lg[
+
+.rect.flex.img-box.round-lg.border.bddashed.bdred01.width-60.max-height-550.js-show-popup[
+![](./resource/screens/03.png)
+]
+.rect.flex.round-lg.border.bddashed.bdred01.width-30.inner-left[
+【機能】  
+.fontsize-10[見積書項目設定画面で利用する送付先会社名を取得する]
+.fontsize-8[
+- メンテナンスにて作成した  
+会社情報が一覧表示される
+- 選択した会社名が見積書項目設定画面に反映される
+]
+]
+]
+
+---
+
+## 担当者検索画面
+
+.rect.flex.round-lg[
+
+.rect.flex.img-box.round-lg.border.bddashed.bdred01.width-60.max-height-550.js-show-popup[
+![](./resource/screens/04.png)
+]
+.rect.flex.round-lg.border.bddashed.bdred01.width-30.inner-left[
+【機能】  
+.fontsize-10[見積書項目設定画面で利用する送付先会社の&lt;br&gt;担当者を取得する]
+.fontsize-8[
+- メンテナンスにて作成した  
+人物情報が一覧表示される
+- 選択した人名が見積書項目設定画面に反映される
+]
+]
+]
+
+---
+
+## 見積書項目データ利用画面
+
+.rect.flex.round-lg[
+
+.rect.flex.img-box.round-lg.border.bddashed.bdred01.width-60.max-height-550.js-show-popup[
+![](./resource/screens/05.png)
+]
+.rect.flex.round-lg.border.bddashed.bdred01.width-30.inner-left[
+【機能】  
+.fontsize-10[作成済みの見積書から&lt;br&gt;データを再利用する]
+.fontsize-8[
+- 作成した  
+見積書の各種データが一覧表示される
+- チェックボックスで反映項目を絞り込む
+- 選択した人名が見積書項目設定画面に反映される
+]
+]
+]
+
+---
+
+## 見積書_項目リスト作成画面
+
+.rect.flex.round-lg[
+
+.rect.flex.img-box.round-lg.border.bddashed.bdred01.width-60.max-height-550.js-show-popup[
+![](./resource/screens/06.png)
+]
+.rect.flex.round-lg.border.bddashed.bdred01.width-30.inner-left[
+【機能】  
+.fontsize-10[作成する見積書に挿入する&lt;br&gt;商品・サービスのリストを作成、管理する]
+.fontsize-8[
+- 作成した商品・サービスの  
+リストのレコードが一覧表示される
+- レコード追加画面に移動する
+- レコードを削除する画面に移動する
+- フォルダを指定し、見積書を作成する
+]
+]
+]
+
+---
+
+## 見積書_項目リストレコード追加画面
+
+.rect.flex.round-lg[
+
+.rect.flex.img-box.round-lg.border.bddashed.bdred01.width-60.max-height-550.js-show-popup[
+![](./resource/screens/07.png)
+]
+.rect.flex.round-lg.border.bddashed.bdred01.width-30.inner-left[
+【機能】  
+.fontsize-10[商品・サービスのリストを追加する]
+.fontsize-8[
+- 各項目を入力し、追加を実行して  
+見積書_項目リスト作成画面に反映する
+- 商品詳細を表示する画面に移動する
+]
+]
+]
+
+---
+
+## 商品詳細表示画面
+
+.rect.flex.img-box.round-lg[
+
+.rect.flex.round-lg.border.bddashed.bdred01.width-60.max-height-550.js-show-popup[
+![](./resource/screens/08.png)
+]
+.rect.flex.round-lg.border.bddashed.bdred01.width-30.inner-left[
+【機能】  
+.fontsize-10[選択した名前の商品の詳細情報が表示される]
+]
+]
+
+---
+
+## 見積書_項目リストレコード削除画面
+
+.rect.flex.img-box.round-lg[
+
+.rect.flex.round-lg.border.bddashed.bdred01.width-60.max-height-550.js-show-popup[
+![](./resource/screens/09.png)
+]
+.rect.flex.round-lg.border.bddashed.bdred01.width-30.inner-left[
+【機能】  
+.fontsize-10[商品・サービスの&lt;br&gt;リストのうち、&lt;br&gt;指定した番号のレコードを削除する]
+]
+]
+
+---
+
+## 〇〇（基礎データ）設定画面
+
+.rect.flex.round-lg[
+
+.rect.flex.img-box.round-lg.border.bddashed.bdred01.width-60.max-height-550.js-show-popup[
+![](./resource/screens/10.png)
+]
+.rect.flex.round-lg.border.bddashed.bdred01.width-30.inner-left[
+【機能】  
+.fontsize-10[基礎データの一覧表示およびデータ設定のターミナル画面]
+.fontsize-8[
+- 作成した基礎データを一覧表示する
+- 基礎データの新規作成を行う画面に移動する
+- 選択中のレコードのデータの編集を行う画面に移動する
+- 選択中のレコードのデータを削除する
+
+.rect.flex.round-lg.border.bddashed.yellow.line-height-2[
+基礎データ：
+- 消費税率
+- 数量単位
+- 取引先会社データ
+- 人名データ
+- 商品データ
+]
+]
+]
+]
+
+---
+
+## 〇〇（基礎データ）登録画面
+
+.rect.flex.round-lg[
+
+.rect.flex.img-box.round-lg.border.bddashed.bdred01.width-60.max-height-550.js-show-popup[
+![](./resource/screens/11.png)
+]
+.rect.flex.round-lg.border.bddashed.bdred01.width-30.inner-left[
+【機能】  
+.fontsize-10[基礎データの種類に従って&lt;br&gt;項目を入力し、&lt;br&gt;レコードを登録する]
+.fontsize-8[
+画像は消費税率の例。
+]
+]
+]
+
+---
+
+## 〇〇（基礎データ）登録画面
+
+.rect.flex.round-lg.js-show-popup[
+
+.width-90[
+.fontsize-20[**各基礎データごとの登録画面**]    
+]
+
+.rect.flex.img-box.round-lg.border.bddashed.bdred01.width-30.max-height-550[
+![](./resource/screens/13.png)
+]
+.rect.flex.img-box.round-lg.border.bddashed.bdred01.width-30.max-height-550[
+![](./resource/screens/15.png)
+]
+.rect.flex.img-box.round-lg.border.bddashed.bdred01.width-30.max-height-550[
+![](./resource/screens/17.png)
+]
+.rect.flex.img-box.round-lg.border.bddashed.bdred01.width-30.max-height-550[
+![](./resource/screens/19.png)
+]
+]
+
+---
+
+## 〇〇（基礎データ）編集画面
+
+.rect.flex.round-lg[
+
+.rect.flex.img-box.round-lg.border.bddashed.bdred01.width-60.max-height-550.js-show-popup[
+![](./resource/screens/12.png)
+]
+.rect.flex.round-lg.border.bddashed.bdred01.width-30.inner-left[
+【機能】  
+.fontsize-10[項目を必要に応じて修正し、&lt;br&gt;レコードを編集し再登録する]
+.fontsize-8[
+画像は消費税率の例。
+]
+]
+]
+
+---
+
+## 〇〇（基礎データ）編集画面
+
+.rect.flex.round-lg.js-show-popup[
+
+.width-90[
+.fontsize-20[**各基礎データごとの編集画面**]
+]
+
+.rect.flex.img-box.round-lg.border.bddashed.bdred01.width-30.max-height-550[
+![](./resource/screens/14.png)
+]
+.rect.flex.img-box.round-lg.border.bddashed.bdred01.width-30.max-height-550[
+![](./resource/screens/16.png)
+]
+.rect.flex.img-box.round-lg.border.bddashed.bdred01.width-30.max-height-550[
+![](./resource/screens/18.png)
+]
+.rect.flex.img-box.round-lg.border.bddashed.bdred01.width-30.max-height-550[
+![](./resource/screens/20.png)
+]
+]</textarea>
+  <script src="https://remarkjs.com/downloads/remark-latest.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    var slideshow = remark.create({
+      countIncrementalSlides: false,
+      navigation: {
+        click: false,
+      },
+    });
+
+  </script>
+  
+  
+  <script src='https://dede-20191130.github.io/learnerBlog/js/jquery-3.6.0.slim.min.js' type="text/javascript"></script>
+  <script src='https://dede-20191130.github.io/learnerBlog/js/tile-view.js' type="text/javascript"></script>
+  <script type="text/javascript" src="https://dede-20191130.github.io/learnerBlog/js/popup.min.0dc7cd47b41c517124acaefff85470606363c0e2dd66af3a80f5ef81447988d080323ae65efe97272a9bc2ca52ba43f76fe357c0f5f1c07db3bbb26f1c1a3663.js" integrity="sha512-DcfNR7QcUXEkrK7/&#43;FRwYGNjwOLdZq86gPXvgUR5iNCAMjrmXv6XJyqbwspSukP3b&#43;NXwPXxwH2zu7JvHBo2Yw==" crossorigin="anonymous"></script>
+</body>
+
+</html>

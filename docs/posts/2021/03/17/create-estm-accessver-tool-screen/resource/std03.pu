@@ -1,0 +1,35 @@
+@startuml
+
+title 画面遷移図(3)
+
+state メンテナンス系 #FFFF77{
+    note  as targetItems
+        設定可能項目
+        ----
+        * 消費税率
+        * 数量単位
+        * 取引先会社データ
+        * 人名データ
+        * 商品データ
+    end note
+    state "〇〇設定画面" as setting
+    state "〇〇登録画面" as registering
+    state "〇〇編集画面" as editting
+    [*] -[#blue,bold]-> setting
+    setting:entry/該当項目のレコード一覧表示
+    setting:do/選択したレコードの削除処理
+    setting:exit/メニューに戻る
+    setting -l-> registering: 新規登録ボタン押下
+    registering:entry/初期表示
+    registering:exit/設定画面に戻る
+    registering -r-> setting: 登録ボタン押下
+    setting -d-> editting: 編集ボタン押下
+    editting:entry/選択レコードの各項目取得
+    editting:exit/設定画面に戻る
+    editting -u-> setting: 編集ボタン押下
+}
+
+メンテナンス系 -[#blue,bold]-> [*]: メニュー
+
+
+@enduml

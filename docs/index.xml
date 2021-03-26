@@ -6,7 +6,34 @@
     <description>Recent content on 学習者dedeのブログ | プログラミング等</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 13 Feb 2021 22:49:28 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 24 Mar 2021 22:29:10 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>機能紹介</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/03/24/create-estm-accessver-tool-faculty/</link>
+      <pubDate>Wed, 24 Mar 2021 22:29:10 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/03/24/create-estm-accessver-tool-faculty/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ツール外観</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/03/17/create-estm-accessver-tool-screen/</link>
+      <pubDate>Wed, 17 Mar 2021 15:09:04 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/03/17/create-estm-accessver-tool-screen/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>[Access VBA] 見積書作成ツール（Accessバージョン）を作成した</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/02/28/create-estm-accessver/</link>
+      <pubDate>Sun, 28 Feb 2021 00:34:49 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/02/28/create-estm-accessver/</guid>
+      <description>この記事について 以前、 こちらの記事で紹介したように、 Excelベースの見積書作成ツールを作成した。 記事： [Excel VBA] 見積書作成ツールを作成した 今回、</description>
+    </item>
+    
     <item>
       <title>Podcastの「歴史系番組」の比較＆おすすめの紹介</title>
       <link>https://dede-20191130.github.io/learnerBlog/posts/2021/02/13/podcast-history-program/</link>

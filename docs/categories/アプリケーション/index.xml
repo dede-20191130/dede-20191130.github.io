@@ -6,7 +6,16 @@
     <description>Recent content in アプリケーション on 学習者dedeのブログ | プログラミング等</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 05 Nov 2020 00:48:58 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/categories/%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 Feb 2021 00:34:49 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/categories/%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Access VBA] 見積書作成ツール（Accessバージョン）を作成した</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/02/28/create-estm-accessver/</link>
+      <pubDate>Sun, 28 Feb 2021 00:34:49 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/02/28/create-estm-accessver/</guid>
+      <description>この記事について 以前、 こちらの記事で紹介したように、 Excelベースの見積書作成ツールを作成した。 記事： [Excel VBA] 見積書作成ツールを作成した 今回、</description>
+    </item>
+    
     <item>
       <title>[Excel VBA] 個人的に作業がはかどった自作Excelショートカット</title>
       <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/05/own-excel-shortcut/</link>

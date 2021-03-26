@@ -6,7 +6,16 @@
     <description>Recent content in Access on 学習者dedeのブログ | プログラミング等</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 19 Dec 2020 03:18:51 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/tags/access/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 Feb 2021 00:34:49 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/tags/access/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Access VBA] 見積書作成ツール（Accessバージョン）を作成した</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/02/28/create-estm-accessver/</link>
+      <pubDate>Sun, 28 Feb 2021 00:34:49 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/02/28/create-estm-accessver/</guid>
+      <description>この記事について 以前、 こちらの記事で紹介したように、 Excelベースの見積書作成ツールを作成した。 記事： [Excel VBA] 見積書作成ツールを作成した 今回、</description>
+    </item>
+    
     <item>
       <title>[VBA, PowerShell] Accessのモジュール・クラスやクエリのSQLから特定文字列を抽出するためのテクニック</title>
       <link>https://dede-20191130.github.io/learnerBlog/posts/2020/12/19/grep-from-module-sql/</link>

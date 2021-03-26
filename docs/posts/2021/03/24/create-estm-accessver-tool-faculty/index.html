@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Title</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  
+  <link href='https://dede-20191130.github.io/learnerBlog/css/tile-view.css' type="text/css" rel="stylesheet">
+  
+  <link rel="preload" href="https://dede-20191130.github.io/learnerBlog/css/remark.154372eaf4e625b9ad27990bc7473566e91a1e7274cc30990c4cc4b196372c91f3d83312a6a37c438a4c46f26eadec3c04cf81172066e08c8d03131dbbfb29cc.css" integrity = "sha512-FUNy6vTmJbmtJ5kLx0c1ZukaHnJ0zDCZDEzEsZY3LJHz2DMSpqN8Q4pMRvJurew8BM&#43;BFyBm4IyNAxMdu/spzA==" as="style" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="https://dede-20191130.github.io/learnerBlog/css/remark.154372eaf4e625b9ad27990bc7473566e91a1e7274cc30990c4cc4b196372c91f3d83312a6a37c438a4c46f26eadec3c04cf81172066e08c8d03131dbbfb29cc.css" integrity="sha512-FUNy6vTmJbmtJ5kLx0c1ZukaHnJ0zDCZDEzEsZY3LJHz2DMSpqN8Q4pMRvJurew8BM&#43;BFyBm4IyNAxMdu/spzA==" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="popup" id="js-popup">
+    <div class="inner">
+      <div class="close-btn" id="js-close-btn"><span class="dli-close"></span></div>
+      <img id="js-popup-img" src="" alt="popup-image">
+    </div>
+    <div class="black-background" id="js-black-bg"></div>
+  </div>
+  <textarea id="source">class: middle,bkg,blue
+
+.center.text.white[
+# 機能紹介  
+Powered by &lt;a href=&#34;https://github.com/gnab/remark#remark&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;remark&lt;/a&gt;
+]
+
+---
+layout: true
+class: slide-hd
+
+.announce-key.text.white[
+    Press \[T\] To Show Slide-List
+]
+
+---
+
+## 機能一覧
+
+&lt;table class=&#34;mt-4&#34;&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;大機能&lt;/th&gt;
+            &lt;th&gt;小機能&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td rowspan=&#34;2&#34;&gt;文書作成&lt;/td&gt;
+            &lt;td&gt;見積書作成機能&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;データ入力補助、ミス低減機能&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td rowspan=&#34;3&#34;&gt;データ管理機能&lt;/td&gt;
+            &lt;td&gt;取引先会社データ管理&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;商品データ管理&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;etc.&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+
+
+
+---
+
+
+## 見積書作成機能
+
+.abs-elem.top-15.left-10.width-30.height-30.tight.js-show-popup[
+![](./resource/esti-item.png)
+]
+
+.abs-elem.top-25.left-20.width-30.height-30.tight.js-show-popup[
+![](./resource/esti-list.png)
+]
+
+.abs-elem.top-65.left-10.width-30.height-30.tight[
+![](./resource/arrow.png)
+]
+
+.abs-elem.top-65.left-30.width-30.height-30.tight.border.js-show-popup[
+![](./resource/esti-output.png)
+]
+
+.abs-elem.top-80.left-7.border.round-lg.tight.bkg.white.z-index-1[
+出力フォルダの指定
+]
+
+.abs-elem.top-15.left-60.width-30.height-30.border[
+.ml-1[
+**画面の手順に従い、  
+見積書を作成する。**  
+.fontsize-8[挿入するデータは  
+メンテナンス画面、あるいは  
+過去作成した見積書の  
+データの再利用が可能。
+]
+]  
+]
+
+---
+class: img-box,js-show-popup
+
+## データ入力補助、ミス低減機能
+
+.rect.round-lg.border.bddashed.bdred01.abs-elem.top-13.width-40.max-height-550.tight[
+.mb-1[
+.fontsize-10[過去作成データの利用]
+]
+![](./resource/support-past.png)
+]
+
+.rect.round-lg.border.bddashed.bdred01.abs-elem.top-13.left-55.width-40.height-30.inner-left[
+.ml-1[
+**データの再利用および    
+入力制限によるミスの低減**  
+
+.fontsize-8[
+過去に作成した見積書と同様のデータを再利用可能。  
+また、メンテナンスされた基礎データの利用によって  
+入力を制限し、ミスを低減する。
+]
+]  
+]
+
+.rect.round-lg.border.bddashed.bdred01.abs-elem.top-43.width-40.max-height-550.tight[
+.mb-1[
+.fontsize-10[項目選択補助・制限]
+]
+![](./resource/support-selected.png)
+]
+
+---
+class: img-box
+
+## 各種データ管理機能
+
+.abs-elem.top-15.left-17.width-30.height-30.tight.js-show-popup[
+![](./resource/mante-main.png)
+]
+
+.abs-elem.top-68.left-7.width-15.height-15.tight.js-show-popup[
+![](./resource/mante-regi.png)
+]
+
+.abs-elem.top-68.left-40.width-15.height-15.tight.js-show-popup[
+![](./resource/mante-edit.png)
+]
+
+.abs-elem.top-43.left-15.width-10.height-5.tight[
+![](./resource/arrow-curve-left.png)
+]
+
+.abs-elem.top-43.left-37.width-10.height-5.tight[
+![](./resource/arrow-curve-right.png)
+]
+
+.abs-elem.top-20.left-51.width-10.height-10.tight[
+![](./resource/arrow-curve-circle.png)
+]
+
+.abs-elem.top-48.left-21.border.round-lg.tight.bkg.white.z-index-1[
+登録
+]
+
+.abs-elem.top-48.left-36.border.round-lg.tight.bkg.white.z-index-1[
+編集
+]
+
+.abs-elem.top-24.left-57.border.round-lg.tight.bkg.white.z-index-1[
+削除
+]
+
+.abs-elem.top-18.left-63.width-30.height-30.border[
+.ml-1[
+**文書作成に関連するデータを管理する。  **  
+.fontsize-8[
+各データごとの  
+定められた書式に従って  
+データを登録・編集する。  
+
+不要なデータを削除する。
+]
+]  
+]</textarea>
+  <script src="https://remarkjs.com/downloads/remark-latest.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    var slideshow = remark.create({
+      countIncrementalSlides: false,
+      navigation: {
+        click: false,
+      },
+    });
+
+  </script>
+  
+  
+  <script src='https://dede-20191130.github.io/learnerBlog/js/jquery-3.6.0.slim.min.js' type="text/javascript"></script>
+  <script src='https://dede-20191130.github.io/learnerBlog/js/tile-view.js' type="text/javascript"></script>
+  <script type="text/javascript" src="https://dede-20191130.github.io/learnerBlog/js/popup.min.0dc7cd47b41c517124acaefff85470606363c0e2dd66af3a80f5ef81447988d080323ae65efe97272a9bc2ca52ba43f76fe357c0f5f1c07db3bbb26f1c1a3663.js" integrity="sha512-DcfNR7QcUXEkrK7/&#43;FRwYGNjwOLdZq86gPXvgUR5iNCAMjrmXv6XJyqbwspSukP3b&#43;NXwPXxwH2zu7JvHBo2Yw==" crossorigin="anonymous"></script>
+</body>
+
+</html>

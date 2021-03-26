@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="553px" preserveAspectRatio="none" style="width:571px;height:553px;" version="1.1" viewBox="0 0 571 553" width="571px" zoomAndPan="magnify"><defs><filter height="300%" id="fcoms3urgyx6j" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacing" textLength="112" x="223.25" y="18.6855">画面遷移図(3)</text><ellipse cx="283" cy="531.6406" fill="none" filter="url(#fcoms3urgyx6j)" rx="10" ry="10" style="stroke:#000000;stroke-width:1.0;"/><ellipse cx="283.5" cy="532.1406" fill="#000000" rx="6" ry="6" style="stroke:none;stroke-width:1.0;"/><rect fill="#FFFF77" filter="url(#fcoms3urgyx6j)" height="414.4063" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="552.5" x="7" y="29.6406"/><rect fill="#FFFFFF" height="380.7969" rx="12.5" ry="12.5" style="stroke:#FFFFFF;stroke-width:1.0;" width="546.5" x="10" y="60.25"/><line style="stroke:#A80036;stroke-width:1.5;" x1="7" x2="559.5" y1="57.25" y2="57.25"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="98" x="234.25" y="49.1738">メンテナンス系</text><path d="M413.5,68.25 L413.5,184.3594 L550.5,184.3594 L550.5,78.25 L540.5,68.25 L413.5,68.25 " fill="#FBFB77" filter="url(#fcoms3urgyx6j)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M540.5,68.25 L540.5,78.25 L550.5,78.25 L540.5,68.25 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="78" x="419.5" y="86.7451">設定可能項目</text><line style="stroke:#A80036;stroke-width:1.0;" x1="414.5" x2="549.5" y1="89.6016" y2="89.6016"/><ellipse cx="425" cy="102.4531" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="52" x="431.5" y="107.0967">消費税率</text><ellipse cx="425" cy="118.8047" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="52" x="431.5" y="123.4482">数量単位</text><ellipse cx="425" cy="135.1563" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="104" x="431.5" y="139.7998">取引先会社データ</text><ellipse cx="425" cy="151.5078" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="65" x="431.5" y="156.1514">人名データ</text><ellipse cx="425" cy="167.8594" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="65" x="431.5" y="172.5029">商品データ</text><g id="メンテナンス系.setting"><rect fill="#FEFECE" filter="url(#fcoms3urgyx6j)" height="82.8906" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="206" x="282" y="221.25"/><line style="stroke:#A80036;stroke-width:1.5;" x1="282" x2="488" y1="248.8594" y2="248.8594"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="84" x="343" y="240.7832">〇〇設定画面</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="186" x="287" y="266.3164">entry/該当項目のレコード一覧表示</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="173" x="287" y="281.4102">do/選択したレコードの削除処理</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="106" x="287" y="296.5039">exit/メニューに戻る</text></g><g id="メンテナンス系.registering"><rect fill="#FEFECE" filter="url(#fcoms3urgyx6j)" height="67.7969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="126" x="19" y="228.75"/><line style="stroke:#A80036;stroke-width:1.5;" x1="19" x2="145" y1="256.3594" y2="256.3594"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="84" x="40" y="248.2832">〇〇登録画面</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="78" x="24" y="273.8164">entry/初期表示</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="106" x="24" y="288.9102">exit/設定画面に戻る</text></g><g id="メンテナンス系.editting"><rect fill="#FEFECE" filter="url(#fcoms3urgyx6j)" height="67.7969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="194" x="288" y="358.25"/><line style="stroke:#A80036;stroke-width:1.5;" x1="288" x2="482" y1="385.8594" y2="385.8594"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="84" x="343" y="377.7832">〇〇編集画面</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="174" x="293" y="403.3164">entry/選択レコードの各項目取得</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="106" x="293" y="418.4102">exit/設定画面に戻る</text></g><ellipse cx="385" cy="126.25" fill="#000000" filter="url(#fcoms3urgyx6j)" rx="10" ry="10" style="stroke:none;stroke-width:1.0;"/><!--MD5=[e37cab302365dcfe6880f33c91da435c]
+link *start*メンテナンス系 to setting--><path d="M385,136.49 C385,152.7 385,187.23 385,215.95 " fill="none" id="*start*メンテナンス系-to-setting" style="stroke:#0000FF;stroke-width:2.0;"/><polygon fill="#0000FF" points="385,221.23,389,212.23,385,216.23,381,212.23,385,221.23" style="stroke:#0000FF;stroke-width:2.0;"/><!--MD5=[2a9da37388464e8b520c44ce12a6ca3d]
+reverse link registering to setting--><path d="M150.31,262.75 C189.14,262.75 238.53,262.75 281.98,262.75 " fill="none" id="registering-backto-setting" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="145.15,262.75,154.15,266.75,150.15,262.75,154.15,258.75,145.15,262.75" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="117" x="155" y="256.2451">新規登録ボタン押下</text><!--MD5=[605213d959a2ffe909f6bd2bba3e7918]
+link registering to setting--><path d="M145.28,280.16 C152.56,281.63 159.91,282.89 167,283.75 C202.61,288.08 241.59,286.37 276.62,282.48 " fill="none" id="registering-to-setting" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="281.75,281.89,272.3521,278.9439,276.7827,282.461,273.2656,286.8916,281.75,281.89" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="91" x="168" y="280.2451">登録ボタン押下</text><!--MD5=[657d9488f023ccdbc1817342b165fbc9]
+link setting to editting--><path d="M338.34,304.36 C334.17,309.95 330.56,315.94 328,322.25 C323.39,333.58 327.01,344.48 334.23,354.12 " fill="none" id="setting-to-editting" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="337.54,358.18,334.9691,348.6726,334.387,354.2994,328.7602,353.7173,337.54,358.18" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="91" x="329" y="336.7451">編集ボタン押下</text><!--MD5=[a3c5fd7ec3da8f00bb42a1dbb4dd54e7]
+reverse link setting to editting--><path d="M418.85,309.46 C422.71,319.41 424.24,330.03 421,340.25 C419.03,346.45 416.01,352.54 412.53,358.24 " fill="none" id="setting-backto-editting" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="416.78,304.63,416.6487,314.478,418.7496,309.2257,424.0019,311.3266,416.78,304.63" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="91" x="423" y="336.7451">編集ボタン押下</text><!--MD5=[e80c1bc22745b8504944c30457480aec]
+link メンテナンス系 to *end--><path d="M283,443.9206 C283,474.4006 283,500.7106 283,516.1306 " fill="none" id="メンテナンス系-to-*end" style="stroke:#0000FF;stroke-width:2.0;"/><polygon fill="#0000FF" points="283,521.3006,287,512.3006,283,516.3006,279,512.3006,283,521.3006" style="stroke:#0000FF;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="52" x="284" y="488.1357">メニュー</text><!--MD5=[29a7c9b9afe6a3fab11a4dd81ae99b75]
+@startuml
+
+title 画面遷移図(3)
+
+state メンテナンス系 #FFFF77{
+    note  as targetItems
+        設定可能項目
+        - - - -
+        * 消費税率
+        * 数量単位
+        * 取引先会社データ
+        * 人名データ
+        * 商品データ
+    end note
+    state "〇〇設定画面" as setting
+    state "〇〇登録画面" as registering
+    state "〇〇編集画面" as editting
+    [*] -[#blue,bold]-> setting
+    setting:entry/該当項目のレコード一覧表示
+    setting:do/選択したレコードの削除処理
+    setting:exit/メニューに戻る
+    setting -l-> registering: 新規登録ボタン押下
+    registering:entry/初期表示
+    registering:exit/設定画面に戻る
+    registering -r-> setting: 登録ボタン押下
+    setting -d-> editting: 編集ボタン押下
+    editting:entry/選択レコードの各項目取得
+    editting:exit/設定画面に戻る
+    editting -u-> setting: 編集ボタン押下
+}
+
+メンテナンス系 -[#blue,bold]-> [*]: メニュー
+
+
+@enduml
+
+PlantUML version 1.2021.00(Sun Jan 10 19:25:05 JST 2021)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: MS932
+Language: ja
+Country: JP
+--></g></svg>
