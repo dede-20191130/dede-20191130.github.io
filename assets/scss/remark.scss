@@ -2,15 +2,20 @@
 @import "popup.scss";
 
 // variables
-$margin-min: 1;
+$margin-min: 0;
 $margin-max: 20;
 $width-freq-min: 1;
 $width-freq-max: 20;
+$pos-freq-min: 1;
+$pos-freq-max: 100;
 
 .remark-slide {
     .bkg {
         &.blue {
             background-color: rgb(61, 107, 255);
+        }
+        &.white {
+            background-color: white;
         }
     }
     .text {
@@ -70,27 +75,29 @@ $width-freq-max: 20;
         border-spacing: 0;
     }
 
+    .border {
+        border-width: 1px;
+        border-style: solid;
+        &.bddashed {
+            border-style: dashed;
+        }
+        &.bdred01 {
+            border-color: rgb(255, 99, 99);
+        }
+    }
     .rect {
         position: relative;
         padding: 0.3rem 0.4rem;
-        line-height: 1rem;
+        // line-height: 1rem;//todo
         border-width: 1px;
         margin: 0.3rem;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: flex-start;
         text-align: center;
         break-inside: avoid;
-        &.border {
-            border-width: 1px;
-            border-style: solid;
-            &.bddashed {
-                border-style: dashed;
-            }
-            &.bdred01 {
-                border-color: rgb(255, 99, 99);
-            }
+        &.flex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
         }
         &.img-box {
             p {
@@ -99,7 +106,6 @@ $width-freq-max: 20;
                     margin: 0.5rem auto;
                     max-width: 80%;
                     max-height: 80%;
-                    cursor: pointer;
                 }
             }
         }
@@ -114,6 +120,17 @@ $width-freq-max: 20;
         &.yellow {
             background-color: #fcff5c;
             border-color: #fcff5c;
+        }
+    }
+    .abs-elem {
+        position: absolute;
+    }
+    .tight {
+        p {
+            margin: 0;
+        }
+        img {
+            max-width: 100%;
         }
     }
 }
@@ -165,5 +182,28 @@ $width-freq-max: 20;
 @for $i from 1 to 5 {
     .line-height-#{$i * 5} {
         line-height: #{($i * (0.5))}rem;
+    }
+}
+
+// positioner
+@for $i from $pos-freq-min through $pos-freq-max {
+    .top-#{$i} {
+        top: percentage($i / 100);
+    }
+    .left-#{$i} {
+        left: percentage($i / 100);
+    }
+    .bottom-#{$i} {
+        bottom: percentage($i / 100);
+    }
+    .right-#{$i} {
+        right: percentage($i / 100);
+    }
+}
+
+// z-index
+@for $i from 1 through 10 {
+    .z-index-#{$i} {
+        z-index: $i;
     }
 }
