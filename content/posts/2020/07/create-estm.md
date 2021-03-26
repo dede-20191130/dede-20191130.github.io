@@ -53,10 +53,10 @@ archives:
  [3]: https://github.com/dede-20191130/My_VBA_Tools/raw/master/_ImageForMarkdown/T0001/image_6.png
  [4]: https://github.com/dede-20191130/My_VBA_Tools/raw/master/_ImageForMarkdown/T0001/image_7.png
 
- ## 追記：Accessバージョンのツールについて
+ ## 追記：Accessバージョンのツールの作成について
 
- Accessバージョンのツールを作成しました。
+Accessバージョンのツールを作成しました。
 
  {{< box-with-title title="記事：" >}} 
-    {{< page-titled-link page="create-estm-accessver" >}}
+    {{< page-titled-link page="posts/2021/02/create-estm-accessver/main" >}}
 {{< /box-with-title >}}
