@@ -6,13 +6,13 @@ return: アンカータグ
 */}}
 {{ $pageStr :=  .Get "page"}}
 {{ if not $pageStr }}
-{{ errorf "missing value for param 'pageStr': ％s" .Position }}
+{{ errorf "missing value for param 'pageStr': %s" .Position }}
 {{ end }}
 {{ $origin := cond (eq (.Get "relative") true)  $.Page .Site  }}
 {{ with $origin.GetPage $pageStr }}
 {{ $linkTitle :=  $.Get "title" | default .Title}}
 <a href="{{ .RelPermalink }}" target="_blank" rel="noopener">{{ $linkTitle }}</a>
 {{ else }} 
-{{ warnf "missing page : ％s" .Position  }}
+{{ warnf "missing page : %s" .Position  }}
 not found.
 {{ end }}

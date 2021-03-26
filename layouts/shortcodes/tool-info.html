@@ -1,7 +1,7 @@
 {{ $type :=  .Get "type"}}
 {{ $name :=  .Get "name"}}
 {{ if or (not $type ) (not $name ) }}
-  {{ errorf "missing value for either param : ％s" .Position }}
+  {{ errorf "missing value for either param : %s" .Position }}
 {{ end }}
 {{ range  (where .Site.Data.tools "type" $type)}}
     {{ range (where .items "name" $name ) }}

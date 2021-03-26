@@ -8,7 +8,7 @@ return: imgタグ
 */}}
 {{ $img_name :=  .Get "img_name"}}
 {{ if not $img_name }}
-{{ errorf "missing value for param 'img_name': ％s" .Position }}
+{{ errorf "missing value for param 'img_name': %s" .Position }}
 {{ end }}
 {{ $origin := .Page.GetPage (.Get "origin") | default .Page  }}
 {{ with $origin.Resources.GetMatch $img_name }}

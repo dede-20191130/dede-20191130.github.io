@@ -1,6 +1,6 @@
 {{ $colorVal :=  .Get "color"}}
 {{ if not $colorVal }}
-  {{ errorf "missing value for param 'color': ％s" .Position }}
+  {{ errorf "missing value for param 'color': %s" .Position }}
 {{ end }}
 <div class="inner-article" style="color: {{ $colorVal | safeCSS}};">
     {{ .Inner | markdownify }}

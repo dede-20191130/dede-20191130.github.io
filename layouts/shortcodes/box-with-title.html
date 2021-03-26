@@ -1,6 +1,6 @@
 {{ $title :=  .Get "title"}}
 {{ if not $title  }}
-  {{ errorf "missing value for either param : ％s" .Position }}
+  {{ errorf "missing value for either param : %s" .Position }}
 {{ end }}
 {{ if not $.Inner  }}
   {{ errorf "missing value for .Inner : ％s" .Position }}

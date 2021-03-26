@@ -1,6 +1,6 @@
 {{ $css_path :=  .Get 0 }}
 {{ if not $css_path }}
-{{ errorf "missing value for first param : ％s" .Position }}
+{{ errorf "missing value for first param : %s" .Position }}
 {{ end }}
 {{ $mycssbundle := $.Page.Resources.GetMatch $css_path }}
 {{ with $mycssbundle}}
