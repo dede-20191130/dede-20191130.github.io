@@ -10,10 +10,9 @@ toc: true
 
 気になった技術的な関心事などをなるべく簡潔にまとめて記事にするブログです。
 
-{{< inner-article-div color="#033ee4" >}}
-Hugoという静的サイトジェネレータを用いて  
+[Hugo](https://gohugo.io/)
+という静的サイトジェネレータを用いて  
 作成しています。
-{{< /inner-article-div >}}
 
 
 ## 運営者について
