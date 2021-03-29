@@ -6,7 +6,16 @@
     <description>Recent content in 2021 on 学習者dedeのブログ | プログラミング等</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 28 Feb 2021 00:34:49 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/archives/2021/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 29 Mar 2021 16:04:41 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/archives/2021/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Excel VBA] 年度に関わらず営業日数を算出する方法について紹介</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/03/29/wsfunc-networkday/</link>
+      <pubDate>Mon, 29 Mar 2021 16:04:41 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/03/29/wsfunc-networkday/</guid>
+      <description>この記事について About Excel VBAで営業日数を計算する場合、 自作関数で細かく営業日条件を設定して計算する以外に、 組み込み関数のNetworkDays</description>
+    </item>
+    
     <item>
       <title>[Access VBA] 見積書作成ツール（Accessバージョン）を作成した</title>
       <link>https://dede-20191130.github.io/learnerBlog/posts/2021/02/28/create-estm-accessver/</link>

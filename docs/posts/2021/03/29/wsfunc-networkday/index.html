@@ -1,8 +1,8 @@
 
 <!DOCTYPE html>
-<html lang="ja" data-figures="">
+<html lang="ja" data-figures="" class="page">
   <head>
-<title>Excel関数 | 学習者dedeのブログ | プログラミング等</title>
+<title>[Excel VBA] 年度に関わらず営業日数を算出する方法について紹介 | 学習者dedeのブログ | プログラミング等</title>
 <meta charset="utf-8">
 <meta name="generator" content="Hugo 0.76.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -14,16 +14,17 @@
   gtag('js', new Date());
   gtag('config', 'UA-110309082-3');
 </script>
+  
 <meta property="og:locale" content="ja" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="">
+<meta name="description" content="この記事について About Excel VBAで営業日数を計算する場合、 自作関数で細かく営業日条件を設定して計算する以外に、 組み込み関数のNetworkDays">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="@D20191130">
-<meta name="twitter:title" content="Excel関数" />
-<meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/tags/excel%E9%96%A2%E6%95%B0/" />
-<meta property="og:title" content="Excel関数" />
-<meta property="og:description" content="" />
+<meta name="twitter:title" content="[Excel VBA] 年度に関わらず営業日数を算出する方法について紹介" />
+<meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/posts/2021/03/29/wsfunc-networkday/" />
+<meta property="og:title" content="[Excel VBA] 年度に関わらず営業日数を算出する方法について紹介" />
+<meta property="og:description" content="この記事について About Excel VBAで営業日数を計算する場合、 自作関数で細かく営業日条件を設定して計算する以外に、 組み込み関数のNetworkDays" />
 <meta property="og:image" content="https://dede-20191130.github.io/learnerBlog/images/thumbnail.png" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://dede-20191130.github.io/learnerBlog/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://dede-20191130.github.io/learnerBlog/icons/favicon-32x32.png'>
@@ -32,8 +33,7 @@
 <meta name="msapplication-TileColor" content="#002538">
 <meta name="theme-color" content="#002538">
 
-<link rel="canonical" href="https://dede-20191130.github.io/learnerBlog/tags/excel%E9%96%A2%E6%95%B0/">
-<link rel="alternate" type="application/rss+xml" href="https://dede-20191130.github.io/learnerBlog/tags/excel%E9%96%A2%E6%95%B0/index.xml" title="学習者dedeのブログ | プログラミング等" />
+<link rel="canonical" href="https://dede-20191130.github.io/learnerBlog/posts/2021/03/29/wsfunc-networkday/">
 
     
 
@@ -118,44 +118,301 @@
 </header>
 
     <main>
-
+  
 <div class="grid-inverse wrap content">
-  <ul class="posts" id="posts">
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/07/16/cmpr-tools/">Excelのツール開発：関数（非マクロ）ツールとVBA使用ツールの比較</a>
-      </h3>
-      <div class="post_meta">
+  <article class="post_content">
+    <h1 class="post_title">[Excel VBA] 年度に関わらず営業日数を算出する方法について紹介</h1><div class="post_meta">
   <svg class="icon">
   <use xlink:href="#calendar"></use>
 </svg>
   <span class="post_date">
-    Jul 16, 2020</span>
+    Mar 29, 2021</span>
     <a href='https://dede-20191130.github.io/learnerBlog/tags/excel' class="post_tag button button_translucent">Excel
     </a>
     <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' class="post_tag button button_translucent">VBA
     </a>
-    <a href='https://dede-20191130.github.io/learnerBlog/tags/excel%E9%96%A2%E6%95%B0' class="post_tag button button_translucent">Excel関数
-    </a>
 </div>
 
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">この記事について Excelでデータ管理したりドキュメントを出力したりするツール（機能の多寡を問わず）を作成しようとする際に、 大別すると、次の</p>
-          <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/07/16/cmpr-tools/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
+    
+<div class="post_share">
+  Share on:
+  <a href="https://twitter.com/intent/tweet?text=%5bExcel%20VBA%5d%20%e5%b9%b4%e5%ba%a6%e3%81%ab%e9%96%a2%e3%82%8f%e3%82%89%e3%81%9a%e5%96%b6%e6%a5%ad%e6%97%a5%e6%95%b0%e3%82%92%e7%ae%97%e5%87%ba%e3%81%99%e3%82%8b%e6%96%b9%e6%b3%95%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6%e7%b4%b9%e4%bb%8b&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2021%2f03%2f29%2fwsfunc-networkday%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
+    <svg class="icon">
+  <use xlink:href="#twitter"></use>
+</svg>
+  </a>
+  <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2021%2f03%2f29%2fwsfunc-networkday%2f&t=%5bExcel%20VBA%5d%20%e5%b9%b4%e5%ba%a6%e3%81%ab%e9%96%a2%e3%82%8f%e3%82%89%e3%81%9a%e5%96%b6%e6%a5%ad%e6%97%a5%e6%95%b0%e3%82%92%e7%ae%97%e5%87%ba%e3%81%99%e3%82%8b%e6%96%b9%e6%b3%95%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6%e7%b4%b9%e4%bb%8b" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
+    <svg class="icon">
+  <use xlink:href="#facebook"></use>
+</svg>
+  </a>
+  <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
+    <svg class="icon">
+  <use xlink:href="#linkedin"></use>
+</svg>
+  </a>
+  <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/03/29/wsfunc-networkday/" title="Copy Link" class="link link_yank">
+    <svg class="icon">
+  <use xlink:href="#copy"></use>
+</svg>
+  </a>
+</div>
 
-    <li>
-
-
+    
+    
+    <h2>Overview</h2>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#この記事について">この記事について</a>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#使用例">使用例</a></li>
+        <li><a href="#課題点">課題点</a></li>
+      </ul>
     </li>
+    <li><a href="#方法">方法</a>
+      <ul>
+        <li><a href="#networkdays関数の祝日引数はセル範囲だけではない">NetworkDays関数の[祝日]引数はセル範囲だけではない</a></li>
+        <li><a href="#配列変数取得用のclassを作成">配列変数取得用のClassを作成</a></li>
+        <li><a href="#営業日の計算">営業日の計算</a></li>
+      </ul>
+    </li>
+    <li><a href="#furthermore">Furthermore</a></li>
   </ul>
+</nav>
+    <h2 id="この記事について">この記事について</h2>
+<h3 id="about">About</h3>
+<p>Excel VBAで営業日数を計算する場合、<br>
+自作関数で細かく営業日条件を設定して計算する以外に、<br>
+組み込み関数の<code>NetworkDays</code>を使用する方法がある。</p>
+
+
+
+<div class="box-with-title">
+    <p><span>書式：</span></p>
+    <div class="inner">
+         
+    <code>WorksheetFunction.NetworkDays(開始日, 終了日, [祝日])</code><br>
+    (<a href="https://docs.microsoft.com/ja-jp/office/vba/api/excel.worksheetfunction.networkdays" target="_blank" rel="noopener">NetworkDaysの仕様</a>)
+
+    </div>
+</div>
+<h3 id="使用例">使用例</h3>
+<p>使用例としては、通常、次のようになる。</p>
+<ol>
+<li>祝日（土日以外）のリストをいずれかのシート上に作成する。</li>
+<li>VBAコード上で、上記リストのセル範囲を祝日引数として指定し、営業日数を算出する。</li>
+</ol>
+<p><img src="./img01.png" alt="祝日リスト"></p>
+<div class="highlight"><pre class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln"> 2</span><span class="c">&#39;*機能      ：営業日の計算　祝日としてセル範囲使用
+</span><span class="ln"> 3</span><span class="c">&#39;*引数      ：
+</span><span class="ln"> 4</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln"> 5</span><span class="c"></span><span class="k">Public</span> <span class="k">Sub</span> <span class="nf">CalcWorkDayUseRange</span><span class="p">()</span>
+<span class="ln"> 6</span>    
+<span class="ln"> 7</span>    <span class="c">&#39;定数
+</span><span class="ln"> 8</span><span class="c"></span>    <span class="k">Const</span> <span class="n">FUNC_NAME</span> <span class="ow">As</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&#34;CalcWorkDayUseRange&#34;</span>
+<span class="ln"> 9</span>    
+<span class="ln">10</span>    <span class="c">&#39;変数
+</span><span class="ln">11</span><span class="c"></span>    
+<span class="ln">12</span>    <span class="c">&#39;営業日：祝日を除く月～金曜日とする
+</span><span class="ln">13</span><span class="c"></span>    <span class="c">&#39;ex.1)2019/12/29から2020/1/6までの営業日を計算する
+</span><span class="ln">14</span><span class="c"></span>    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="n">WorksheetFunction</span><span class="p">.</span><span class="n">NetworkDays</span><span class="p">(#</span><span class="n">12</span><span class="o">/</span><span class="n">29</span><span class="o">/</span><span class="n">2019</span><span class="p">#,</span> <span class="p">#</span><span class="n">1</span><span class="o">/</span><span class="n">6</span><span class="o">/</span><span class="n">2020</span><span class="p">#,</span> <span class="n">ThisWorkbook</span><span class="p">.</span><span class="n">Worksheets</span><span class="p">(</span><span class="s">&#34;祝日&#34;</span><span class="p">).</span><span class="n">Range</span><span class="p">(</span><span class="s">&#34;B2:B9&#34;</span><span class="p">))</span> <span class="c">&#39;=3
+</span><span class="ln">15</span><span class="c"></span>    <span class="c">&#39;ex.2)2020/6/14から2020/6/16までの営業日を計算する
+</span><span class="ln">16</span><span class="c"></span>    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="n">WorksheetFunction</span><span class="p">.</span><span class="n">NetworkDays</span><span class="p">(#</span><span class="n">6</span><span class="o">/</span><span class="n">14</span><span class="o">/</span><span class="n">2020</span><span class="p">#,</span> <span class="p">#</span><span class="n">6</span><span class="o">/</span><span class="n">16</span><span class="o">/</span><span class="n">2020</span><span class="p">#,</span> <span class="n">ThisWorkbook</span><span class="p">.</span><span class="n">Worksheets</span><span class="p">(</span><span class="s">&#34;祝日&#34;</span><span class="p">).</span><span class="n">Range</span><span class="p">(</span><span class="s">&#34;B2:B9&#34;</span><span class="p">))</span> <span class="c">&#39;=1
+</span><span class="ln">17</span><span class="c"></span>    
+<span class="ln">18</span>    <span class="c">&#39;note)祝日シートには2020年の祝日カレンダーしかないため、
+</span><span class="ln">19</span><span class="c"></span>    <span class="c">&#39;   他の年の祝日をまたぐ営業日の計算するためには、対象年のカレンダーを追加する必要がある
+</span><span class="ln">20</span><span class="c"></span>    <span class="c">&#39;   ex)2021/6/14から2021/6/16までの営業日を計算すると、6/15（会社設立記念日）が祝日判定されず、3が返る
+</span><span class="hl"><span class="ln">21</span><span class="c"></span>    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="n">WorksheetFunction</span><span class="p">.</span><span class="n">NetworkDays</span><span class="p">(#</span><span class="n">6</span><span class="o">/</span><span class="n">14</span><span class="o">/</span><span class="n">2021</span><span class="p">#,</span> <span class="p">#</span><span class="n">6</span><span class="o">/</span><span class="n">16</span><span class="o">/</span><span class="n">2021</span><span class="p">#,</span> <span class="n">ThisWorkbook</span><span class="p">.</span><span class="n">Worksheets</span><span class="p">(</span><span class="s">&#34;祝日&#34;</span><span class="p">).</span><span class="n">Range</span><span class="p">(</span><span class="s">&#34;B2:B9&#34;</span><span class="p">))</span> <span class="c">&#39;=3
+</span></span><span class="ln">22</span><span class="c"></span>    
+<span class="ln">23</span>    
+<span class="ln">24</span><span class="n">ExitHandler</span><span class="p">:</span>
+<span class="ln">25</span>
+<span class="ln">26</span>    <span class="k">Exit</span> <span class="k">Sub</span>
+<span class="ln">27</span>    
+<span class="ln">28</span><span class="nf">End</span> <span class="k">Sub</span>
+<span class="ln">29</span>
+</code></pre></div><h3 id="課題点">課題点</h3>
+<p>上のコードのハイライトで示されているように、<br>
+上記の方法だと、<br>
+祝日シートに記述されていない年（2019年以前、2021年以降）の祝日またぎの計算は苦手である。</p>
+<p>各年ごとの祝日をシートに準備しなければならないが、<br>
+それが作業量とミスの可能性を増やすため、<br>
+この記事では年度に関わらず営業日数を算出する方法を紹介したい。</p>
+<h2 id="方法">方法</h2>
+<h3 id="networkdays関数の祝日引数はセル範囲だけではない">NetworkDays関数の[祝日]引数はセル範囲だけではない</h3>
+<p>NetworkDays関数の第三引数（[祝日]）として<br>
+セル範囲の他に、配列引数や
+
+<span style="color: #fb9700;">
+    Date型の配列変数
+</span>をとることができる。</p>
+<p>VBAにおいては、<br>
+
+
+<span style="color: #fb9700;">
+    Date型の配列変数
+</span>を利用すると  、
+年に依らない日数の計算が容易になるかと考えられる。</p>
+<p>よって、以下では、<br>
+シートに祝日を記述するのではなく、<br>
+配列としてVBA上にハードコードすることを基本方針としている。</p>
+<h3 id="配列変数取得用のclassを作成">配列変数取得用のClassを作成</h3>
+<p>まず、それぞれの祝日を格納している配列変数を取得するClassを作成した。</p>
+<div class="highlight"><pre class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span><span class="c">&#39;@Folder(&#34;Class&#34;)
+</span><span class="ln"> 2</span><span class="c"></span><span class="k">Option</span> <span class="n">Explicit</span>
+<span class="ln"> 3</span>
+<span class="ln"> 4</span><span class="c">&#39;**************************
+</span><span class="ln"> 5</span><span class="c">&#39;クラス名：ClsSpecialHoliday
+</span><span class="ln"> 6</span><span class="c">&#39;*祝祭日の設定・取得
+</span><span class="ln"> 7</span><span class="c">&#39;**************************
+</span><span class="ln"> 8</span><span class="c"></span>
+<span class="ln"> 9</span><span class="c">&#39;定数欄
+</span><span class="ln">10</span><span class="c"></span><span class="k">Private</span> <span class="k">Const</span> <span class="n">SOURCE_NAME</span> <span class="ow">As</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&#34;&#34;</span>
+<span class="ln">11</span>
+<span class="ln">12</span><span class="c">&#39;変数欄
+</span><span class="ln">13</span><span class="c"></span><span class="k">Private</span> <span class="n">lArrHoliday</span><span class="p">()</span> <span class="ow">As</span> <span class="kt">String</span> <span class="c">&#39;祝祭日（月日のみ）格納先
+</span><span class="ln">14</span><span class="c"></span>
+<span class="ln">15</span>
+<span class="ln">16</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln">17</span><span class="c">&#39;*getter/setter欄
+</span><span class="ln">18</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln">19</span><span class="c"></span>
+<span class="ln">20</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln">21</span><span class="c">&#39;*引数      ：対象年
+</span><span class="ln">22</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln">23</span><span class="c"></span><span class="k">Public</span> <span class="k">Property</span> <span class="nf">Get</span> <span class="n">arrHoliday</span><span class="p">(</span><span class="k">ByVal</span> <span class="n">yy</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">)</span> <span class="ow">As</span> <span class="kt">Date</span><span class="p">()</span>
+<span class="ln">24</span>    <span class="k">Dim</span> <span class="n">dateArr</span><span class="p">()</span> <span class="ow">As</span> <span class="kt">Date</span>
+<span class="ln">25</span>    <span class="k">Dim</span> <span class="n">i</span> <span class="ow">As</span> <span class="kt">Long</span>
+<span class="ln">26</span>    <span class="k">ReDim</span> <span class="n">dateArr</span><span class="p">(</span><span class="n">0</span> <span class="k">To</span> <span class="n">UBound</span><span class="p">(</span><span class="n">lArrHoliday</span><span class="p">))</span>
+<span class="ln">27</span>    
+<span class="ln">28</span>    <span class="k">For</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span> <span class="k">To</span> <span class="n">UBound</span><span class="p">(</span><span class="n">lArrHoliday</span><span class="p">)</span>
+<span class="ln">29</span>        <span class="n">dateArr</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="k">CDate</span><span class="p">(</span><span class="n">yy</span> <span class="o">&amp;</span> <span class="s">&#34;/&#34;</span> <span class="o">&amp;</span> <span class="n">lArrHoliday</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span class="ln">30</span>    <span class="k">Next</span> <span class="n">i</span>
+<span class="ln">31</span>    <span class="n">arrHoliday</span> <span class="o">=</span> <span class="n">dateArr</span>
+<span class="ln">32</span><span class="k">End</span> <span class="k">Property</span>
+<span class="ln">33</span>
+<span class="ln">34</span>
+<span class="ln">35</span>
+<span class="ln">36</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln">37</span><span class="c">&#39;*機能      ：Class_Initialize
+</span><span class="ln">38</span><span class="c">&#39;*引数      ：
+</span><span class="ln">39</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln">40</span><span class="c"></span><span class="k">Private</span> <span class="k">Sub</span> <span class="nf">Class_Initialize</span><span class="p">()</span>
+<span class="ln">41</span>
+<span class="ln">42</span>    <span class="c">&#39;定数
+</span><span class="ln">43</span><span class="c"></span>    <span class="k">Const</span> <span class="n">FUNC_NAME</span> <span class="ow">As</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&#34;Class_Initialize&#34;</span>
+<span class="ln">44</span>    
+<span class="ln">45</span>    <span class="c">&#39;変数
+</span><span class="ln">46</span><span class="c"></span>    
+<span class="ln">47</span>    <span class="c">&#39;***ここで通年の祝祭日を設定します（○月/○日）***
+</span><span class="ln">48</span><span class="c"></span>    <span class="k">ReDim</span> <span class="n">lArrHoliday</span><span class="p">(</span><span class="n">0</span> <span class="k">To</span> <span class="n">7</span><span class="p">)</span>
+<span class="hl"><span class="ln">49</span>    <span class="n">lArrHoliday</span><span class="p">(</span><span class="n">0</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#34;1/1&#34;</span>
+</span><span class="hl"><span class="ln">50</span>    <span class="n">lArrHoliday</span><span class="p">(</span><span class="n">1</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#34;1/2&#34;</span>
+</span><span class="hl"><span class="ln">51</span>    <span class="n">lArrHoliday</span><span class="p">(</span><span class="n">2</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#34;1/3&#34;</span>
+</span><span class="hl"><span class="ln">52</span>    <span class="n">lArrHoliday</span><span class="p">(</span><span class="n">3</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#34;4/29&#34;</span>
+</span><span class="hl"><span class="ln">53</span>    <span class="n">lArrHoliday</span><span class="p">(</span><span class="n">4</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#34;5/3&#34;</span>
+</span><span class="hl"><span class="ln">54</span>    <span class="n">lArrHoliday</span><span class="p">(</span><span class="n">5</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#34;5/4&#34;</span>
+</span><span class="hl"><span class="ln">55</span>    <span class="n">lArrHoliday</span><span class="p">(</span><span class="n">6</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#34;5/5&#34;</span>
+</span><span class="hl"><span class="ln">56</span>    <span class="n">lArrHoliday</span><span class="p">(</span><span class="n">7</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#34;6/15&#34;</span>
+</span><span class="ln">57</span>    <span class="c">&#39;*************************************
+</span><span class="ln">58</span><span class="c"></span>    
+<span class="ln">59</span>
+<span class="ln">60</span><span class="n">ExitHandler</span><span class="p">:</span>
+<span class="ln">61</span>
+<span class="ln">62</span>    <span class="k">Exit</span> <span class="k">Sub</span>
+<span class="ln">63</span>    
+<span class="ln">64</span>        
+<span class="ln">65</span><span class="nf">End</span> <span class="k">Sub</span>
+<span class="ln">66</span>
+<span class="ln">67</span>
+</code></pre></div><p>クラスの利用時は、<br>
+インスタンスを生成した後に<br>
+<code>配列変数 = object.arrHoliday(string: 対象年)</code>というように利用する。</p>
+<p>もし祝日を追加/削除したければ、<br>
+上のコードでハイライトした配列の設定部分を追加したり削除したりすればいい。</p>
+<h3 id="営業日の計算">営業日の計算</h3>
+<p>営業日の計算用の関数を書き直すと、<br>
+以下のようになる。</p>
+<div class="highlight"><pre class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln"> 2</span><span class="c">&#39;*機能      ：営業日の計算　祝日としてハードコードされた値を使用
+</span><span class="ln"> 3</span><span class="c">&#39;*引数      ：
+</span><span class="ln"> 4</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln"> 5</span><span class="c"></span><span class="k">Public</span> <span class="k">Sub</span> <span class="nf">CalcWorkDay</span><span class="p">()</span>
+<span class="ln"> 6</span>    
+<span class="ln"> 7</span>    <span class="c">&#39;定数
+</span><span class="ln"> 8</span><span class="c"></span>    <span class="k">Const</span> <span class="n">FUNC_NAME</span> <span class="ow">As</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&#34;CalcWorkDay&#34;</span>
+<span class="ln"> 9</span>    
+<span class="ln">10</span>    <span class="c">&#39;変数
+</span><span class="ln">11</span><span class="c"></span>    <span class="k">Dim</span> <span class="n">objSpecialHoliday</span> <span class="ow">As</span> <span class="k">New</span> <span class="n">ClsSpecialHoliday</span>
+<span class="ln">12</span>    
+<span class="ln">13</span>    <span class="c">&#39;営業日：祝日を除く月～金曜日とする
+</span><span class="ln">14</span><span class="c"></span>    <span class="c">&#39;ex.1)2019/12/29から2020/1/6までの営業日を計算する
+</span><span class="ln">15</span><span class="c"></span>    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="n">WorksheetFunction</span><span class="p">.</span><span class="n">NetworkDays</span><span class="p">(#</span><span class="n">12</span><span class="o">/</span><span class="n">29</span><span class="o">/</span><span class="n">2019</span><span class="p">#,</span> <span class="p">#</span><span class="n">1</span><span class="o">/</span><span class="n">6</span><span class="o">/</span><span class="n">2020</span><span class="p">#,</span> <span class="n">objSpecialHoliday</span><span class="p">.</span><span class="n">arrHoliday</span><span class="p">(</span><span class="s">&#34;2020&#34;</span><span class="p">))</span> <span class="c">&#39;=3
+</span><span class="ln">16</span><span class="c"></span>    <span class="c">&#39;ex.2)2020/6/14から2020/6/16までの営業日を計算する
+</span><span class="ln">17</span><span class="c"></span>    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="n">WorksheetFunction</span><span class="p">.</span><span class="n">NetworkDays</span><span class="p">(#</span><span class="n">6</span><span class="o">/</span><span class="n">14</span><span class="o">/</span><span class="n">2020</span><span class="p">#,</span> <span class="p">#</span><span class="n">6</span><span class="o">/</span><span class="n">16</span><span class="o">/</span><span class="n">2020</span><span class="p">#,</span> <span class="n">objSpecialHoliday</span><span class="p">.</span><span class="n">arrHoliday</span><span class="p">(</span><span class="s">&#34;2020&#34;</span><span class="p">))</span> <span class="c">&#39;=1
+</span><span class="ln">18</span><span class="c"></span>    
+<span class="ln">19</span>    <span class="c">&#39;ex.3)2021/6/14から2021/6/16までの営業日を計算する
+</span><span class="ln">20</span><span class="c"></span>    <span class="c">&#39;   引数として2021を渡せば2021年の祝日として配列を取得できるため、
+</span><span class="ln">21</span><span class="c"></span>    <span class="c">&#39;   6/15（会社設立記念日）が祝日判定され、2が返る
+</span><span class="ln">22</span><span class="c"></span>    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="n">WorksheetFunction</span><span class="p">.</span><span class="n">NetworkDays</span><span class="p">(#</span><span class="n">6</span><span class="o">/</span><span class="n">14</span><span class="o">/</span><span class="n">2021</span><span class="p">#,</span> <span class="p">#</span><span class="n">6</span><span class="o">/</span><span class="n">16</span><span class="o">/</span><span class="n">2021</span><span class="p">#,</span> <span class="n">objSpecialHoliday</span><span class="p">.</span><span class="n">arrHoliday</span><span class="p">(</span><span class="s">&#34;2021&#34;</span><span class="p">))</span> <span class="c">&#39;=2
+</span><span class="ln">23</span><span class="c"></span>    
+<span class="ln">24</span>    
+<span class="ln">25</span><span class="n">ExitHandler</span><span class="p">:</span>
+<span class="ln">26</span>
+<span class="ln">27</span>    <span class="k">Exit</span> <span class="k">Sub</span>
+<span class="ln">28</span>    
+<span class="ln">29</span><span class="nf">End</span> <span class="k">Sub</span>
+<span class="ln">30</span>
+</code></pre></div><p>書き直し前とは異なり、<br>
+2021/6/14から2021/6/16までの営業日がかんたんに計算できている。</p>
+<h2 id="furthermore">Furthermore</h2>
+<p>今回ClsSpecialHolidayクラスにハードコードした祝日配列の内容を<br>
+ファイルから取得したりデータベースを利用したりすれば、<br>
+さらにメンテナンス性は向上するかと思う。</p>
+
+    
+    
+    
+    <h3>関連記事</h3>
+    <ul>
+        
+        <li><a href="/learnerBlog/posts/2021/02/13/copyto-merged-cell/">[Excel VBA] 結合セルにコピーペーストするマクロ</a></li>
+        
+        <li><a href="/learnerBlog/posts/2021/01/15/change-pagesetup-printaria/">[Excel VBA] PageSetup.PrintAreaによるシートの印刷範囲の変更を行うときにエラーになる場合＆その回避方法</a></li>
+        
+        <li><a href="/learnerBlog/posts/2020/12/12/sheet-array-visible/">[VBA] Excelの複数シートをループを使わず一行の処理で非表示・再表示にすることはできる？？</a></li>
+        
+        <li><a href="/learnerBlog/posts/2020/12/11/search-shape-string/">[VBA] ブック内の図形内のテキストを検索・置換するマクロ（Qiitaの記事の拡張）</a></li>
+        
+        <li><a href="/learnerBlog/posts/2020/12/06/alter-args-compile-err/">[VBA] 関数の引数を変更した場合にコンパイルエラーが多発するのを防ぐテクニック</a></li>
+        
+    </ul>
+    
+    
+      <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "learnerblog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+  </article>
 <aside class="sidebar">
   <section class="sidebar_inner">
     <h2>dede-20191130</h2>
@@ -178,9 +435,6 @@
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/03/29/wsfunc-networkday/" class="nav-link">[Excel VBA] 年度に関わらず営業日数を算出する方法について紹介</a>
-      </li>
-      <li>
         <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/02/28/create-estm-accessver/" class="nav-link">[Access VBA] 見積書作成ツール（Accessバージョン）を作成した</a>
       </li>
       <li>
@@ -200,6 +454,9 @@
       </li>
       <li>
         <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/12/19/grep-from-module-sql/" class="nav-link">[VBA, PowerShell] Accessのモジュール・クラスやクエリのSQLから特定文字列を抽出するためのテクニック</a>
+      </li>
+      <li>
+        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/12/12/sheet-array-visible/" class="nav-link">[VBA] Excelの複数シートをループを使わず一行の処理で非表示・再表示にすることはできる？？</a>
       </li>
     </ul>
     <div>
@@ -471,8 +728,6 @@
 </aside>
 
 </div>
-
-
     </main><svg width="0" height="0" class="hidden">
   <symbol viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" id="facebook">
     <path d="M437 0H75C33.648 0 0 33.648 0 75v362c0 41.352 33.648 75 75 75h151V331h-60v-90h60v-61c0-49.629 40.371-90 90-90h91v90h-91v61h91l-15 90h-76v181h121c41.352 0 75-33.648 75-75V75c0-41.352-33.648-75-75-75zm0 0"></path>
