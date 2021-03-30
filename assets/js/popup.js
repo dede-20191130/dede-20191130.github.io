@@ -11,7 +11,7 @@ function popupImage() {
     for (const e of showElems) {
         createPopUp(e);
     }
-    
+
     function closePopUp(elem) {
         if (!elem) return;
         elem.addEventListener('click', () => {
@@ -22,7 +22,7 @@ function popupImage() {
     }
     function createPopUp(elem) {
         if (!elem) return;
-        const imgElems = elem.getElementsByTagName("img")
+        const imgElems = elem.getElementsByTagName("img");
         for (const imgElem of imgElems) {
             imgElem.addEventListener('click', () => {
                 const src = imgElem.src;
