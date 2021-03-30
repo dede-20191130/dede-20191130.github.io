@@ -6,8 +6,9 @@ slug: wsfunc-networkday
 draft: false
 toc: true
 featured: false
-tags: ['Excel', 'VBA']
 categories: ['プログラミング']
+tags: ['Excel', 'VBA']
+vba_taxo: vba_coding_sample
 archives:
     - 2021
     - 2021-03
