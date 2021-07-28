@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {{- partial "head" . }}
+    {{- range (.Resources.Match "style/*.css" ) -}}
+    <link rel="stylesheet" type="text/css" href="{{ .Permalink }}" integrity="{{ .Data.Integrity }}"
+        crossorigin="anonymous">
+    {{- end }}
+</head>
+
+<body>
+    {{ .Content }}
+    {{- range (.Resources.Match "js/*.js" ) -}}
+    <script type="text/javascript" src="{{ .Permalink }}" integrity="{{ .Data.Integrity }}"
+        crossorigin="anonymous"></script>
+    {{- end }}
+</body>
+
+</html>
