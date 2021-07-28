@@ -8,11 +8,20 @@
     <language>ja</language>
     <lastBuildDate>Tue, 27 Jul 2021 22:52:15 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>プログラミング</title>
-      <link>https://dede-20191130.github.io/learnerBlog/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</link>
+      <title>Javascript</title>
+      <link>https://dede-20191130.github.io/learnerBlog/tags/javascript/</link>
       <pubDate>Tue, 27 Jul 2021 22:52:15 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</guid>
+      <guid>https://dede-20191130.github.io/learnerBlog/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>フロントエンド</title>
+      <link>https://dede-20191130.github.io/learnerBlog/tags/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%83%89/</link>
+      <pubDate>Tue, 27 Jul 2021 22:52:15 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/tags/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%83%89/</guid>
       <description></description>
     </item>
     

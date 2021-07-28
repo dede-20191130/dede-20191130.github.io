@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Javascript on 学習者dedeのブログ | プログラミング等</title>
-    <link>https://dede-20191130.github.io/learnerBlog/categories/javascript/</link>
-    <description>Recent content in Javascript on 学習者dedeのブログ | プログラミング等</description>
+    <title>フロントエンド on 学習者dedeのブログ | プログラミング等</title>
+    <link>https://dede-20191130.github.io/learnerBlog/tags/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%83%89/</link>
+    <description>Recent content in フロントエンド on 学習者dedeのブログ | プログラミング等</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Tue, 27 Jul 2021 22:52:15 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/categories/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 27 Jul 2021 22:52:15 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/tags/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%83%89/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Javascript] IE11でRadioボタングループのvalueを取得できない事象＆対策</title>
       <link>https://dede-20191130.github.io/learnerBlog/posts/2021/07/27/ie11-radio-group-value/</link>
