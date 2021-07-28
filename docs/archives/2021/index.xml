@@ -6,7 +6,25 @@
     <description>Recent content in 2021 on 学習者dedeのブログ | プログラミング等</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Mon, 29 Mar 2021 16:04:41 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/archives/2021/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 28 Jul 2021 19:14:46 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/archives/2021/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Javascript] IE11でRadioボタングループの値を取得できない事象＆対策 NGデモ</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/07/28/ie11-radio-group-value-demo-ng/</link>
+      <pubDate>Wed, 28 Jul 2021 19:14:46 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/07/28/ie11-radio-group-value-demo-ng/</guid>
+      <description>県庁所在地の表示 富山県 石川県 福井県 ※IE11では下記に県庁所在地が表示されません。 表示</description>
+    </item>
+    
+    <item>
+      <title>[Javascript] IE11でRadioボタングループのvalueを取得できない事象＆対策</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/07/27/ie11-radio-group-value/</link>
+      <pubDate>Tue, 27 Jul 2021 22:52:15 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/07/27/ie11-radio-group-value/</guid>
+      <description>この記事について Javascriptを書き、各ブラウザ対応をしたい（特にOldブラウザで動くようにしたい）場合、 Babelを導入・実行するこ</description>
+    </item>
+    
     <item>
       <title>[Excel VBA] 年度に関わらず営業日数を算出する方法について紹介</title>
       <link>https://dede-20191130.github.io/learnerBlog/posts/2021/03/29/wsfunc-networkday/</link>
