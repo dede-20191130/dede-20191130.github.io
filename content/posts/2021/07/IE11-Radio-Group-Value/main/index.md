@@ -6,8 +6,8 @@ slug: IE11-Radio-Group-Value
 draft: false
 toc: true
 featured: false
-tags: ["プログラミング"]
-categories: ["Javascript","フロントエンド"]
+categories: ["プログラミング"]
+tags: ["Javascript","フロントエンド"]
 archives:
     - 2021
     - 2021-07
