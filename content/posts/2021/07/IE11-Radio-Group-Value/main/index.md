@@ -133,7 +133,10 @@ Object.defineProperty(HTMLCollection.prototype, "value", {
 
 #### Cons（短所）
 
-コメントで実装の意味を記しておかないと  
+- 今後のブラウザのアップデートで  
+HTMLCollectionにvalueプロパティ（orアクセッサ）が定義された場合、  
+衝突を起こして想定外の挙動となるかもしれない。
+- コメントで実装の意味を記しておかないと  
 実装者以外が意図を測りかねるかもしれない。
 
 ### CSSセレクターで要素を取得する
