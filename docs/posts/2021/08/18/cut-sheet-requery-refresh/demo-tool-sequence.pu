@@ -1,0 +1,48 @@
+@startuml "demo-tool-sequence"
+title "デモツール　動作シーケンス"
+
+actor "ユーザ" as u
+participant "商品管理フォーム" as fm
+entity "商品テーブル" as t
+
+group 表示切り替え
+    u->fm: 商品名選択コンボボックス\n表示したい商品名を選択
+    fm-> t: 問い合わせ
+    t--> fm: 選択した項目のIDに一致するレコードデータ
+end
+
+group 編集開始・終了
+    u->fm: 編集モード開始ボタン
+    activate  fm
+    fm->fm: 各テキストボックス\n編集可能にする
+    u->fm: 値の編集
+    fm-> t: データ変更
+    t-->fm
+    fm-->u
+
+    u->fm: 編集完了ボタン
+    fm->fm: 各テキストボックス\n編集不可にする
+    group ラジオボタンの選択で条件分岐 [フォームに対してRequery実行]
+        
+        fm->fm: Form.Requeryメソッド実行
+        fm-> t: 画面上のデータ更新
+        t-->fm
+
+        else フォームに対してRefresh実行
+        fm->fm: Form.Refreshメソッド実行
+        fm-> t: 画面上のデータ更新
+        t-->fm
+        else 商品名選択コンボボックスに対してRequery実行
+        fm->fm: ComboBox.Requeryメソッド実行
+        fm-> t: コンボボックスのデータのみ更新
+        t-->fm
+        else 何もしない
+        fm->fm: 何もしない
+
+    end
+
+    deactivate fm
+    fm-->u
+
+end
+@enduml
