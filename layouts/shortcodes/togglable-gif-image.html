@@ -1,0 +1,31 @@
+{{- $src := .Get "src"}}
+{{- if not $src }}
+{{- errorf "missing value for src : %s" .Position }}
+{{- end }}
+<!-- //引数で絶対パスが指定されていればサイト名を付与する -->
+{{- if ne (substr $src 0 1) "." }}
+{{ $src = absLangURL $src}}
+{{- end }}
+
+{{- $data_before := .Get "data_before"}}
+{{- if not $data_before }}
+{{- $data_before = printf "" }}
+{{- end }}
+<!-- //引数で絶対パスが指定されていればサイト名を付与する -->
+{{- if ne (substr $data_before 0 1) "." }}
+{{ $data_before = absLangURL $data_before}}
+{{- end }}
+
+{{- $width := .Get "width"}}
+{{- if not $width }}
+{{- $width = printf "" }}
+{{- end }}
+
+{{- $height := .Get "height"}}
+{{- if not $height }}
+{{- $height = printf "" }}
+{{- end }}
+
+<!-- <img class="togglable-gif-image" src="{{  $src }}" data-before="{{ $data_before }}" width="{{ $width }}"
+    height="{{  $height }}" /> -->
+<img class="togglable-gif-image" src="{{  $src }}" data-before="{{ $data_before }}" style="width: {{ $width }}px;height:{{ $height }}px; " />
