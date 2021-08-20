@@ -1,6 +1,6 @@
 baseURL = "https://dede-20191130.github.io/learnerBlog/"
 languageCode = "ja"
-title = "学習者dedeのブログ | プログラミング等"
+title = "学習者dedeのブログ ~プログラミング等~"
 theme = "Clarity"
 # Deploy
 publishDir = "docs"
