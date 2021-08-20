@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Javascript on 学習者dedeのブログ | プログラミング等</title>
+    <title>Javascript on 学習者dedeのブログ ~プログラミング等~</title>
     <link>https://dede-20191130.github.io/learnerBlog/tags/javascript/</link>
-    <description>Recent content in Javascript on 学習者dedeのブログ | プログラミング等</description>
+    <description>Recent content in Javascript on 学習者dedeのブログ ~プログラミング等~</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Tue, 27 Jul 2021 22:52:15 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
