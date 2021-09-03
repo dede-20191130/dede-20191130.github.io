@@ -39,12 +39,12 @@
 
     
     
-    <link rel="preload" href="https://dede-20191130.github.io/learnerBlog/css/styles.4477e9cb32a47a2aa65b39cbe89ed8e30a5e84bf26cd6b2188dbff209b34590915fbeb7ce20c564ad1870e176aa79cb460c696aee55d5521cdb1449c609c50ac.css" integrity = "sha512-RHfpyzKkeiqmWznL6J7Y4wpehL8mzWshiNv/IJs0WQkV&#43;&#43;t84gxWStGHDhdqp5y0YMaWruVdVSHNsUScYJxQrA==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://dede-20191130.github.io/learnerBlog/css/styles.90e2b25076b838356b2a85f2eaf3a17ab26e70ec15f7308921ffc9904dba17947e4ebf7a8417e30e3ac01a1c4e8390e9cfdba2ff99d03552a19eb99b4d6a017d.css" integrity = "sha512-kOKyUHa4ODVrKoXy6vOherJucOwV9zCJIf/JkE26F5R&#43;Tr96hBfjDjrAGhxOg5Dpz9ui/5nQNVKhnrmbTWoBfQ==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://dede-20191130.github.io/learnerBlog/js/bundle.min.dc798f34022771ae83a557e6aa0bb14a67eaca4cd1085fd41c43a751ebbf3e2d4e496b3d6ebaf9b9e83591f276a429d76413c99937a21f32171cfadd00e20002.js" as="script" integrity=
     "sha512-3HmPNAInca6DpVfmqguxSmfqykzRCF/UHEOnUeu/Pi1OSWs9brr5ueg1kfJ2pCnXZBPJmTeiHzIXHPrdAOIAAg==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://dede-20191130.github.io/learnerBlog/css/styles.4477e9cb32a47a2aa65b39cbe89ed8e30a5e84bf26cd6b2188dbff209b34590915fbeb7ce20c564ad1870e176aa79cb460c696aee55d5521cdb1449c609c50ac.css" integrity="sha512-RHfpyzKkeiqmWznL6J7Y4wpehL8mzWshiNv/IJs0WQkV&#43;&#43;t84gxWStGHDhdqp5y0YMaWruVdVSHNsUScYJxQrA==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://dede-20191130.github.io/learnerBlog/css/styles.90e2b25076b838356b2a85f2eaf3a17ab26e70ec15f7308921ffc9904dba17947e4ebf7a8417e30e3ac01a1c4e8390e9cfdba2ff99d03552a19eb99b4d6a017d.css" integrity="sha512-kOKyUHa4ODVrKoXy6vOherJucOwV9zCJIf/JkE26F5R&#43;Tr96hBfjDjrAGhxOg5Dpz9ui/5nQNVKhnrmbTWoBfQ==" crossorigin="anonymous">
     
   </head>
   
@@ -345,13 +345,10 @@
 <p>したがって、<br>
 何もしなければ、<br>
 コンボボックスのソースが更新されることはない。</p>
-
-
-
-
-
-<img class="togglable-gif-image" src="https://dede-20191130.github.io/learnerBlog/images/play-mark.png" data-before="./img03-nothing-to-do.gif"
-    style="width: 598px;height:514px;cursor: pointer; " />
+<video preload="metadata" controls style='max-width: 600px;'>
+    <source src='./01-nothing-to-do.webm' type="video/mp4">
+    Your browser does not support the video tag.
+</video>
 <p>せっかく商品名を変えたのに、選択肢に変更した名前が現れないので、ユーザは混乱するだろう。</p>
 <h3 id="ii-フォームに対してrequery実行する場合">ii. フォームに対してRequery実行する場合</h3>
 <p>編集完了ボタンを押下した後、<br>
@@ -360,13 +357,10 @@
 フォームに対するRequeryの意味するところが、<br>
 フォームの属するレコードソース（テーブルあるいはクエリ）の再読み込みを意味するためである。<br>
 すべてのレコードを読み込むため、カレントレコードは先頭に移動する。</p>
-
-
-
-
-
-<img class="togglable-gif-image" src="https://dede-20191130.github.io/learnerBlog/images/play-mark.png" data-before="./img04-form-requery.gif"
-    style="width: 598px;height:514px;cursor: pointer; " />
+<video preload="metadata" controls style='max-width: 600px;'>
+    <source src='./02-form-requery.webm' type="video/mp4">
+    Your browser does not support the video tag.
+</video>
 <p>「i. 何もしない場合」と異なり<br>
 コンボボックスの項目リストは更新されているが、<br>
 いきなり先頭のレコードに飛ぶため、ユーザは戸惑うかもしれない。</p>
@@ -380,13 +374,10 @@
 フォームに対するRefreshの意味するところが、<br>
 カレントレコードの更新であり、<br>
 他のレコード部分はタッチしないからである。</p>
-
-
-
-
-
-<img class="togglable-gif-image" src="https://dede-20191130.github.io/learnerBlog/images/play-mark.png" data-before="./img05-form-refresh.gif"
-    style="width: 598px;height:514px;cursor: pointer; " />
+<video preload="metadata" controls style='max-width: 600px;'>
+    <source src='./03-form-refresh.webm' type="video/mp4">
+    Your browser does not support the video tag.
+</video>
 <p>実行速度の観点からも、<br>
 このような編集の場合はこの方法がベストソリューションかと思う。</p>
 <h3 id="iv-商品名選択コンボボックスに対してrequery実行する場合">iv. 商品名選択コンボボックスに対してRequery実行する場合</h3>
@@ -397,13 +388,10 @@
 <p>コンボボックスを展開しても、項目リストは以前のままである。</p>
 <p>ここでコンボボックスをネジに変更すると、<br>
 コンボボックスの項目リストは更新されている。</p>
-
-
-
-
-
-<img class="togglable-gif-image" src="https://dede-20191130.github.io/learnerBlog/images/play-mark.png" data-before="./img06-combobox-requery.gif"
-    style="width: 598px;height:514px;cursor: pointer; " />
+<video preload="metadata" controls style='max-width: 600px;'>
+    <source src='./04-combobox-requery.webm' type="video/mp4">
+    Your browser does not support the video tag.
+</video>
 <p>商品名選択コンボボックスに対してのみRequeryメソッドを実行しているため、<br>
 内部で項目リスト自体は更新されているが、<br>
 画面上での表示は更新されないため、リストが更新されていないように見える。</p>
