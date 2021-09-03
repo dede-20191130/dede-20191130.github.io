@@ -1,0 +1,135 @@
+// variables
+$margin-min: 1;
+$margin-max: 20;
+$breakpoints: (
+    "sm": "screen and (min-width: 425px)",
+    "md": "screen and (min-width: 768px)",
+    "lg": "screen and (min-width: 1024px)",
+    "xl": "screen and (min-width: 1440px)",
+) !default;
+
+// mixins
+@mixin mq($breakpoint) {
+    @media #{map-get($breakpoints, $breakpoint)} {
+        @content;
+    }
+}
+
+// TOC style
+#TableOfContents {
+    background-color: #e3ffcc73;
+    border-radius: 20px;
+
+    ul {
+        margin-left: 1rem;
+    }
+
+    li {
+        a {
+            color: #0300b8;
+        }
+    }
+}
+
+// article adjustment
+article.post_content {
+    > a,
+    p,
+    div.inner-article,
+    div.box-with-title,
+    ul,
+    ol,
+    dl {
+        @include mq(lg){
+            margin-left: 1.5rem;
+
+        }
+    }
+
+    h2 {
+        padding: 0.4em 0.5em;
+        color: #494949;
+        background: #f4f4f4;
+        border-left: solid 5px #7db4e6;
+        border-bottom: solid 3px #d7d7d7;
+    }
+
+    h3 {
+        border-bottom: double 3px #78aeff;
+    }
+
+    h4,
+    h5,
+    h6 {
+        border-bottom: solid 1px black;
+    }
+
+    img {
+        border-width: 2px;
+        border-color: #a2a2a2;
+        border-style: solid;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    video {
+        // responsive
+        width: 100%;
+    }
+}
+
+// Image style
+// null
+
+// designed box
+.box-with-title {
+    border: 2px solid #0094d6;
+    border-radius: 5px;
+    position: relative;
+    margin: 2rem 0 1.5rem 0;
+    overflow-wrap: break-word;
+    @include mq(lg){
+        max-width: 80%;
+    }
+
+    p {
+        position: absolute;
+        right: 0;
+        left: 3rem;
+        top: -1.6rem;
+    }
+
+    span {
+        padding: 0 0.5rem 0 0.5rem;
+        background: #fff;
+        color: #0094d6;
+    }
+
+    .inner {
+        padding: 1.2rem 1.5rem 0.5rem;
+    }
+
+    a {
+        &:hover {
+            color: red;
+        }
+    }
+}
+
+// iteratable margin
+@for $i from $margin-min through $margin-max {
+    .mt-#{$i} {
+        margin-top: #{$i * 0.1}rem;
+    }
+
+    .mr-#{$i} {
+        margin-right: #{$i * 0.1}rem;
+    }
+
+    .mb-#{$i} {
+        margin-bottom: #{$i * 0.1}rem;
+    }
+
+    .ml-#{$i} {
+        margin-left: #{$i * 0.1}rem;
+    }
+}
