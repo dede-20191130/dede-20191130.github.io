@@ -198,7 +198,7 @@ ORDER BY PRODUCT_TABLE.ID;
 何もしなければ、  
 コンボボックスのソースが更新されることはない。
 
-{{< video src="./01-nothing-to-do.webm" max_width=600px >}}
+{{< video src="01-nothing-to-do" max_width=600px >}}
 
 せっかく商品名を変えたのに、選択肢に変更した名前が現れないので、ユーザは混乱するだろう。
 
@@ -212,7 +212,7 @@ ORDER BY PRODUCT_TABLE.ID;
 フォームの属するレコードソース（テーブルあるいはクエリ）の再読み込みを意味するためである。  
 すべてのレコードを読み込むため、カレントレコードは先頭に移動する。
 
-{{< video src="./02-form-requery.webm" max_width=600px >}}
+{{< video src="02-form-requery" max_width=600px >}}
 
 「i. 何もしない場合」と異なり  
 コンボボックスの項目リストは更新されているが、  
@@ -233,7 +233,7 @@ ORDER BY PRODUCT_TABLE.ID;
 カレントレコードの更新であり、  
 他のレコード部分はタッチしないからである。
 
-{{< video src="./03-form-refresh.webm" max_width=600px >}}
+{{< video src="03-form-refresh" max_width=600px >}}
 
 実行速度の観点からも、  
 このような編集の場合はこの方法がベストソリューションかと思う。
@@ -252,7 +252,7 @@ ORDER BY PRODUCT_TABLE.ID;
 ここでコンボボックスをネジに変更すると、  
 コンボボックスの項目リストは更新されている。
 
-{{< video src="./04-combobox-requery.webm" max_width=600px >}}
+{{< video src="04-combobox-requery" max_width=600px >}}
 
 商品名選択コンボボックスに対してのみRequeryメソッドを実行しているため、  
 内部で項目リスト自体は更新されているが、  

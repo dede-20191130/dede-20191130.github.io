@@ -1,4 +1,22 @@
+{{/*  @arg src:拡張子なしファイル名  */}}
+{{- $src := .Get "src"}}
+{{- if not $src }}
+{{- errorf "missing value for src : %s" .Position }}
+{{- end }}
+
+{{/*  Bundleの動画ファイルを利用  */}}
 <video preload="metadata" controls style='max-width: {{ .Get "max_width" }};'>
-    <source src='{{ .Get "src" }}' type="video/mp4">
+    {{/* webmファイル */}}
+    {{- $ext_attached := printf "%s.webm" $src }}
+    {{ with $.Page.Resources.GetMatch $ext_attached }}
+    <source src='{{ .Permalink  }}' type="video/webm">
+    {{ end }}
+
+    {{/* mp4ファイル */}}
+    {{- $ext_attached = printf "%s.mp4" $src }}
+    {{ with $.Page.Resources.GetMatch $ext_attached }}
+    <source src='{{ .Permalink  }}' type="video/mp4">
+    {{ end }}
+    
     Your browser does not support the video tag.
 </video>
