@@ -1,8 +1,8 @@
 
 <!DOCTYPE html>
-<html lang="ja" data-figures="" class="page">
+<html lang="ja" data-figures="">
   <head>
-<title>[Excel VBA] PageSetup.PrintAreaによるシートの印刷範囲の変更を行うときにエラーになる場合＆その回避方法 | 学習者dedeのブログ ~プログラミング等~</title>
+<title>2021-09 | 学習者dedeのブログ ~プログラミング等~</title>
 <meta charset="utf-8">
 <meta name="generator" content="Hugo 0.76.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -14,17 +14,16 @@
   gtag('js', new Date());
   gtag('config', 'UA-110309082-3');
 </script>
-  
 <meta property="og:locale" content="ja" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="この記事について ワークシートオブジェクトのPageSetup.PrintAreaプロパティを用いて 条件に従ってシートの印刷範囲を変更するよう">
+<meta name="description" content="">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="@D20191130">
-<meta name="twitter:title" content="[Excel VBA] PageSetup.PrintAreaによるシートの印刷範囲の変更を行うときにエラーになる場合＆その回避方法" />
-<meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/posts/2021/01/15/change-pagesetup-printaria/" />
-<meta property="og:title" content="[Excel VBA] PageSetup.PrintAreaによるシートの印刷範囲の変更を行うときにエラーになる場合＆その回避方法" />
-<meta property="og:description" content="この記事について ワークシートオブジェクトのPageSetup.PrintAreaプロパティを用いて 条件に従ってシートの印刷範囲を変更するよう" />
+<meta name="twitter:title" content="2021-09" />
+<meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/archives/2021-09/" />
+<meta property="og:title" content="2021-09" />
+<meta property="og:description" content="" />
 <meta property="og:image" content="https://dede-20191130.github.io/learnerBlog/images/thumbnail.png" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://dede-20191130.github.io/learnerBlog/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://dede-20191130.github.io/learnerBlog/icons/favicon-32x32.png'>
@@ -33,7 +32,8 @@
 <meta name="msapplication-TileColor" content="#002538">
 <meta name="theme-color" content="#002538">
 
-<link rel="canonical" href="https://dede-20191130.github.io/learnerBlog/posts/2021/01/15/change-pagesetup-printaria/">
+<link rel="canonical" href="https://dede-20191130.github.io/learnerBlog/archives/2021-09/">
+<link rel="alternate" type="application/rss+xml" href="https://dede-20191130.github.io/learnerBlog/archives/2021-09/index.xml" title="学習者dedeのブログ ~プログラミング等~" />
 
     
 
@@ -118,313 +118,23 @@
 </header>
 
     <main>
-  
+
 <div class="grid-inverse wrap content">
-  <article class="post_content">
-    <h1 class="post_title">[Excel VBA] PageSetup.PrintAreaによるシートの印刷範囲の変更を行うときにエラーになる場合＆その回避方法</h1><div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Jan 15, 2021</span>
-    <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' class="post_tag button button_translucent">VBA
-    </a>
-    <a href='https://dede-20191130.github.io/learnerBlog/tags/excel' class="post_tag button button_translucent">Excel
-    </a>
-</div>
-
-    
-<div class="post_share">
-  Share on:
-  <a href="https://twitter.com/intent/tweet?text=%5bExcel%20VBA%5d%20PageSetup.PrintArea%e3%81%ab%e3%82%88%e3%82%8b%e3%82%b7%e3%83%bc%e3%83%88%e3%81%ae%e5%8d%b0%e5%88%b7%e7%af%84%e5%9b%b2%e3%81%ae%e5%a4%89%e6%9b%b4%e3%82%92%e8%a1%8c%e3%81%86%e3%81%a8%e3%81%8d%e3%81%ab%e3%82%a8%e3%83%a9%e3%83%bc%e3%81%ab%e3%81%aa%e3%82%8b%e5%a0%b4%e5%90%88%ef%bc%86%e3%81%9d%e3%81%ae%e5%9b%9e%e9%81%bf%e6%96%b9%e6%b3%95&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2021%2f01%2f15%2fchange-pagesetup-printaria%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
-    <svg class="icon">
-  <use xlink:href="#twitter"></use>
-</svg>
-  </a>
-  <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2021%2f01%2f15%2fchange-pagesetup-printaria%2f&t=%5bExcel%20VBA%5d%20PageSetup.PrintArea%e3%81%ab%e3%82%88%e3%82%8b%e3%82%b7%e3%83%bc%e3%83%88%e3%81%ae%e5%8d%b0%e5%88%b7%e7%af%84%e5%9b%b2%e3%81%ae%e5%a4%89%e6%9b%b4%e3%82%92%e8%a1%8c%e3%81%86%e3%81%a8%e3%81%8d%e3%81%ab%e3%82%a8%e3%83%a9%e3%83%bc%e3%81%ab%e3%81%aa%e3%82%8b%e5%a0%b4%e5%90%88%ef%bc%86%e3%81%9d%e3%81%ae%e5%9b%9e%e9%81%bf%e6%96%b9%e6%b3%95" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
-    <svg class="icon">
-  <use xlink:href="#facebook"></use>
-</svg>
-  </a>
-  <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
-    <svg class="icon">
-  <use xlink:href="#linkedin"></use>
-</svg>
-  </a>
-  <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/01/15/change-pagesetup-printaria/" title="Copy Link" class="link link_yank">
-    <svg class="icon">
-  <use xlink:href="#copy"></use>
-</svg>
-  </a>
-</div>
-
-    
-    
-    <h2>Overview</h2>
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#この記事について">この記事について</a></li>
-    <li><a href="#検証環境">検証環境</a></li>
-    <li><a href="#事例">事例</a>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#コード">コード</a></li>
-      </ul>
-    </li>
-    <li><a href="#r1c1参照形式だとエラー発生">R1C1参照形式だとエラー発生</a>
-      <ul>
-        <li><a href="#内容">内容</a></li>
-        <li><a href="#原因">原因</a></li>
-      </ul>
-    </li>
-    <li><a href="#回避方法">回避方法</a>
-      <ul>
-        <li><a href="#参照形式自体を切り替える">参照形式自体を切り替える</a></li>
-        <li><a href="#アドレス文字列を別の参照形式に変更する">アドレス文字列を別の参照形式に変更する</a></li>
-      </ul>
-    </li>
-    <li><a href="#終わりに">終わりに</a></li>
-  </ul>
-</nav>
-    <h2 id="この記事について">この記事について</h2>
-<p>ワークシートオブジェクトのPageSetup.PrintAreaプロパティを用いて<br>
-条件に従ってシートの印刷範囲を変更するような処理を実装したい場合があるかもしれない。</p>
-<p>そのとき、
-
-<span style="color: #fb9700;">
-    セルの参照形式
-</span>に気をつけないと、思わぬエラーになる可能性がある。</p>
-<p>この記事で、エラーの発生ケースとその二通りの回避方法について記したい。</p>
-<p><a href="https://github.com/dede-20191130/My_VBA_Tools/tree/master/Public/2021/01/Change-PageSetup-PrintAria"><span id="srcURL"><u>説明のために作成したExcelファイルとソースコード、テスト用データはこちらでダウンロードできます。</u></span></a></p>
-<h2 id="検証環境">検証環境</h2>
-<p>Windows 10 Home(64bit)<br>
-MSOffice 2016</p>
-<h2 id="事例">事例</h2>
-<h3 id="about">About</h3>
-<p>ブックのシートに印刷範囲が設定されている。</p>
-<p>その印刷範囲を、列は変えずに印刷範囲の下限をひとつ下の行に変更する処理をVBAで記述したい。<br>
-e.g. 印刷範囲が$A$1:$E$5ならば、関数実行後に印刷範囲が$A$1:$E$6となるようにしたい。</p>
-<h3 id="コード">コード</h3>
-<div class="highlight"><pre class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span><span class="c">&#39;******************************************************************************************
-</span><span class="ln"> 2</span><span class="c">&#39;*関数名    ：changePrintAreaBeforeRevised
-</span><span class="ln"> 3</span><span class="c">&#39;*機能      ：PrintAreaをひとつ下の行に変更する 修正前
-</span><span class="ln"> 4</span><span class="c">&#39;*引数      ：
-</span><span class="ln"> 5</span><span class="c">&#39;******************************************************************************************
-</span><span class="ln"> 6</span><span class="c"></span><span class="k">Public</span> <span class="k">Sub</span> <span class="nf">changePrintAreaBeforeRevised</span><span class="p">()</span>
-<span class="ln"> 7</span>    
-<span class="ln"> 8</span>    <span class="c">&#39;定数
-</span><span class="ln"> 9</span><span class="c"></span>    <span class="k">Const</span> <span class="n">FUNC_NAME</span> <span class="ow">As</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&#34;changePrintAreaBeforeRevised&#34;</span>
-<span class="ln">10</span>    
-<span class="ln">11</span>    <span class="c">&#39;変数
-</span><span class="ln">12</span><span class="c"></span>    <span class="k">Dim</span> <span class="n">prePrintAreaAddress</span> <span class="ow">As</span> <span class="kt">String</span>
-<span class="ln">13</span>    
-<span class="ln">14</span>    <span class="k">On</span> <span class="k">Error</span> <span class="k">GoTo</span> <span class="n">ErrorHandler</span>
-<span class="ln">15</span>    
-<span class="ln">16</span>    <span class="k">With</span> <span class="n">ThisWorkbook</span><span class="p">.</span><span class="n">Worksheets</span><span class="p">(</span><span class="n">1</span><span class="p">)</span>
-<span class="ln">17</span>    
-<span class="ln">18</span>        <span class="c">&#39;現在の印刷範囲アドレス
-</span><span class="ln">19</span><span class="c"></span>        <span class="n">prePrintAreaAddress</span> <span class="o">=</span> <span class="p">.</span><span class="n">PageSetup</span><span class="p">.</span><span class="n">PrintArea</span>
-<span class="ln">20</span>        
-<span class="ln">21</span>        <span class="c">&#39;印刷範囲をひとつ下の行に変更する
-</span><span class="hl"><span class="ln">22</span><span class="c"></span>        <span class="p">.</span><span class="n">PageSetup</span><span class="p">.</span><span class="n">PrintArea</span> <span class="o">=</span> <span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="n">prePrintAreaAddress</span><span class="p">).</span><span class="n">Resize</span><span class="p">(.</span><span class="n">Range</span><span class="p">(</span><span class="n">prePrintAreaAddress</span><span class="p">).</span><span class="n">Rows</span><span class="p">.</span><span class="n">Count</span> <span class="o">+</span> <span class="n">1</span><span class="p">).</span><span class="n">Address</span> <span class="c">&#39;★01
-</span></span><span class="ln">23</span><span class="c"></span>        
-<span class="ln">24</span>        <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="p">.</span><span class="n">PageSetup</span><span class="p">.</span><span class="n">PrintArea</span>
-<span class="ln">25</span>        
-<span class="ln">26</span>    <span class="k">End</span> <span class="k">With</span>
-<span class="ln">27</span>
-<span class="ln">28</span><span class="n">ExitHandler</span><span class="p">:</span>
-<span class="ln">29</span>
-<span class="ln">30</span>    <span class="k">Exit</span> <span class="k">Sub</span>
-<span class="ln">31</span>    
-<span class="ln">32</span><span class="nf">ErrorHandler</span><span class="p">:</span>
-<span class="ln">33</span>
-<span class="ln">34</span>    <span class="n">MsgBox</span> <span class="s">&#34;エラーが発生したため、マクロを終了します。&#34;</span> <span class="o">&amp;</span> _
-<span class="ln">35</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
-<span class="ln">36</span>           <span class="s">&#34;関数名：&#34;</span> <span class="o">&amp;</span> <span class="n">FUNC_NAME</span> <span class="o">&amp;</span> _
-<span class="ln">37</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
-<span class="ln">38</span>           <span class="s">&#34;エラー番号：&#34;</span> <span class="o">&amp;</span> <span class="n">Err</span><span class="p">.</span><span class="n">Number</span> <span class="o">&amp;</span> <span class="n">vbNewLine</span> <span class="o">&amp;</span> _
-<span class="ln">39</span>           <span class="n">Err</span><span class="p">.</span><span class="n">Description</span><span class="p">,</span> <span class="n">vbCritical</span><span class="p">,</span> <span class="n">SOURCE_NAME</span>
-<span class="ln">40</span>        
-<span class="ln">41</span>    <span class="k">GoTo</span> <span class="n">ExitHandler</span>
-<span class="ln">42</span>        
-<span class="ln">43</span><span class="k">End</span> <span class="k">Sub</span>
-</code></pre></div><h2 id="r1c1参照形式だとエラー発生">R1C1参照形式だとエラー発生</h2>
-<h3 id="内容">内容</h3>
-<p>上記は、<br>
-参照形式がデフォルト（A1参照形式）の場合はうまく動作する。</p>
-<p>しかし、<br>
-
-
-<span style="color: #fb9700;">
-    R1C1参照形式
-</span>を使用している場合、<br>
-★01の箇所でエラーとなる。</p>
-<p><img src="./image01.png" alt="エラー"></p>
-<h3 id="原因">原因</h3>
-<p>PageSetupオブジェクトのPrintAreaプロパティは、<br>
-コード実行時点の参照形式によって取得文字列が異なる。</p>
-<ul>
-<li>R1C1参照形式の場合はR1C1形式の文字列</li>
-<li>A1参照形式の場合はA1形式の文字列</li>
-</ul>
-<p>また、Rangeオブジェクトに指定する文字列は<br>
-A1参照形式のみ想定され、R1C1参照形式を許容していない。</p>
-<p>したがって、<br>
-prePrintAreaAddressにはR1C1参照形式のアドレス文字列が格納され、<br>
-Range(prePrintAreaAddress)としてRangeオブジェクトに格納する時点でエラーとなる。</p>
-<h2 id="回避方法">回避方法</h2>
-<h3 id="参照形式自体を切り替える">参照形式自体を切り替える</h3>
-<div class="highlight"><pre class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span><span class="c">&#39;******************************************************************************************
-</span><span class="ln"> 2</span><span class="c">&#39;*関数名    ：changePrintAreaBeforeRevised
-</span><span class="ln"> 3</span><span class="c">&#39;*機能      ：PrintAreaをひとつ下の行に変更する 修正01
-</span><span class="ln"> 4</span><span class="c">&#39;*引数      ：
-</span><span class="ln"> 5</span><span class="c">&#39;******************************************************************************************
-</span><span class="ln"> 6</span><span class="c"></span><span class="k">Public</span> <span class="k">Sub</span> <span class="nf">changePrintAreaRevised01</span><span class="p">()</span>
-<span class="ln"> 7</span>    
-<span class="ln"> 8</span>    <span class="c">&#39;定数
-</span><span class="ln"> 9</span><span class="c"></span>    <span class="k">Const</span> <span class="n">FUNC_NAME</span> <span class="ow">As</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&#34;changePrintAreaRevised01&#34;</span>
-<span class="ln">10</span>    
-<span class="ln">11</span>    <span class="c">&#39;変数
-</span><span class="ln">12</span><span class="c"></span>    <span class="k">Dim</span> <span class="n">prePrintAreaAddress</span> <span class="ow">As</span> <span class="kt">String</span>
-<span class="ln">13</span>    <span class="k">Dim</span> <span class="n">currentStyle</span> <span class="ow">As</span> <span class="n">XlReferenceStyle</span>
-<span class="ln">14</span>
-<span class="ln">15</span>    <span class="k">On</span> <span class="k">Error</span> <span class="k">GoTo</span> <span class="n">ErrorHandler</span>
-<span class="ln">16</span>    
-<span class="ln">17</span>    <span class="k">With</span> <span class="n">ThisWorkbook</span><span class="p">.</span><span class="n">Worksheets</span><span class="p">(</span><span class="n">1</span><span class="p">)</span>
-<span class="ln">18</span>        
-<span class="ln">19</span>        <span class="c">&#39;セルの参照形式をA1形式に変更
-</span><span class="hl"><span class="ln">20</span><span class="c"></span>        <span class="n">currentStyle</span> <span class="o">=</span> <span class="n">Application</span><span class="p">.</span><span class="n">ReferenceStyle</span>
-</span><span class="hl"><span class="ln">21</span>        <span class="n">Application</span><span class="p">.</span><span class="n">ReferenceStyle</span> <span class="o">=</span> <span class="n">xlA1</span>
-</span><span class="ln">22</span>        
-<span class="ln">23</span>        <span class="c">&#39;現在の印刷範囲アドレス
-</span><span class="ln">24</span><span class="c"></span>        <span class="n">prePrintAreaAddress</span> <span class="o">=</span> <span class="p">.</span><span class="n">PageSetup</span><span class="p">.</span><span class="n">PrintArea</span>
-<span class="ln">25</span>        
-<span class="ln">26</span>        <span class="c">&#39;印刷範囲をひとつ下の行に変更する
-</span><span class="ln">27</span><span class="c"></span>        <span class="p">.</span><span class="n">PageSetup</span><span class="p">.</span><span class="n">PrintArea</span> <span class="o">=</span> <span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="n">prePrintAreaAddress</span><span class="p">).</span><span class="n">Resize</span><span class="p">(.</span><span class="n">Range</span><span class="p">(</span><span class="n">prePrintAreaAddress</span><span class="p">).</span><span class="n">Rows</span><span class="p">.</span><span class="n">Count</span> <span class="o">+</span> <span class="n">1</span><span class="p">).</span><span class="n">Address</span>
-<span class="ln">28</span>        
-<span class="ln">29</span>        <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="p">.</span><span class="n">PageSetup</span><span class="p">.</span><span class="n">PrintArea</span>
-<span class="ln">30</span>        
-<span class="ln">31</span>        <span class="c">&#39;セルの参照形式を復旧する
-</span><span class="ln">32</span><span class="c"></span>        <span class="n">Application</span><span class="p">.</span><span class="n">ReferenceStyle</span> <span class="o">=</span> <span class="n">currentStyle</span>
-<span class="ln">33</span>        
-<span class="ln">34</span>    <span class="k">End</span> <span class="k">With</span>
-<span class="ln">35</span>
-<span class="ln">36</span><span class="n">ExitHandler</span><span class="p">:</span>
-<span class="ln">37</span>
-<span class="ln">38</span>    <span class="k">Exit</span> <span class="k">Sub</span>
-<span class="ln">39</span>    
-<span class="ln">40</span><span class="nf">ErrorHandler</span><span class="p">:</span>
-<span class="ln">41</span>
-<span class="ln">42</span>    <span class="n">MsgBox</span> <span class="s">&#34;エラーが発生したため、マクロを終了します。&#34;</span> <span class="o">&amp;</span> _
-<span class="ln">43</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
-<span class="ln">44</span>           <span class="s">&#34;関数名：&#34;</span> <span class="o">&amp;</span> <span class="n">FUNC_NAME</span> <span class="o">&amp;</span> _
-<span class="ln">45</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
-<span class="ln">46</span>           <span class="s">&#34;エラー番号：&#34;</span> <span class="o">&amp;</span> <span class="n">Err</span><span class="p">.</span><span class="n">Number</span> <span class="o">&amp;</span> <span class="n">vbNewLine</span> <span class="o">&amp;</span> _
-<span class="ln">47</span>           <span class="n">Err</span><span class="p">.</span><span class="n">Description</span><span class="p">,</span> <span class="n">vbCritical</span><span class="p">,</span> <span class="n">SOURCE_NAME</span>
-<span class="ln">48</span>        
-<span class="ln">49</span>    <span class="k">GoTo</span> <span class="n">ExitHandler</span>
-<span class="ln">50</span>        
-<span class="ln">51</span><span class="k">End</span> <span class="k">Sub</span>
-<span class="ln">52</span>
-</code></pre></div><p>PrintArea取得・設定前後で<br>
-参照形式を強制的にA1参照形式に切り替える。</p>
-<p>欠点は、<br>
-切り替え・復旧の間に時間がかかる処理がある場合や、<br>
-この関数を何度も呼び出す場合、<br>
-ユーザ側の視点から、シートの参照形式の部分が交互に変わってチラつくように見えるかもしれない。</p>
-<h3 id="アドレス文字列を別の参照形式に変更する">アドレス文字列を別の参照形式に変更する</h3>
-<p>Application.ConvertFormulaを用いて<br>
-文字列だけを変更する。</p>
-<div class="highlight"><pre class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span><span class="c">&#39;******************************************************************************************
-</span><span class="ln"> 2</span><span class="c">&#39;*関数名    ：changePrintAreaBeforeRevised
-</span><span class="ln"> 3</span><span class="c">&#39;*機能      ：PrintAreaをひとつ下の行に変更する 修正02
-</span><span class="ln"> 4</span><span class="c">&#39;*引数      ：
-</span><span class="ln"> 5</span><span class="c">&#39;******************************************************************************************
-</span><span class="ln"> 6</span><span class="c"></span><span class="k">Public</span> <span class="k">Sub</span> <span class="nf">changePrintAreaRevised02</span><span class="p">()</span>
-<span class="ln"> 7</span>    
-<span class="ln"> 8</span>    <span class="c">&#39;定数
-</span><span class="ln"> 9</span><span class="c"></span>    <span class="k">Const</span> <span class="n">FUNC_NAME</span> <span class="ow">As</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&#34;changePrintAreaRevised02&#34;</span>
-<span class="ln">10</span>    
-<span class="ln">11</span>    <span class="c">&#39;変数
-</span><span class="ln">12</span><span class="c"></span>    <span class="k">Dim</span> <span class="n">prePrintAreaAddress</span> <span class="ow">As</span> <span class="kt">String</span>
-<span class="ln">13</span>    
-<span class="ln">14</span>    <span class="k">On</span> <span class="k">Error</span> <span class="k">GoTo</span> <span class="n">ErrorHandler</span>
-<span class="ln">15</span>    
-<span class="ln">16</span>    <span class="k">With</span> <span class="n">ThisWorkbook</span><span class="p">.</span><span class="n">Worksheets</span><span class="p">(</span><span class="n">1</span><span class="p">)</span>
-<span class="ln">17</span>    
-<span class="ln">18</span>        <span class="c">&#39;現在の印刷範囲アドレス
-</span><span class="ln">19</span><span class="c"></span>        <span class="n">prePrintAreaAddress</span> <span class="o">=</span> <span class="p">.</span><span class="n">PageSetup</span><span class="p">.</span><span class="n">PrintArea</span>
-<span class="ln">20</span>        
-<span class="ln">21</span>        <span class="c">&#39;アドレスをxlA1参照形式のものに修正
-</span><span class="hl"><span class="ln">22</span><span class="c"></span>        <span class="k">If</span> <span class="n">Application</span><span class="p">.</span><span class="n">ReferenceStyle</span> <span class="o">=</span> <span class="n">xlR1C1</span> <span class="k">Then</span> <span class="n">prePrintAreaAddress</span> <span class="o">=</span> <span class="n">Application</span><span class="p">.</span><span class="n">ConvertFormula</span><span class="p">(</span><span class="n">prePrintAreaAddress</span><span class="p">,</span> <span class="n">xlR1C1</span><span class="p">,</span> <span class="n">xlA1</span><span class="p">)</span>
-</span><span class="ln">23</span>        
-<span class="ln">24</span>        <span class="c">&#39;印刷範囲をひとつ下の行に変更する
-</span><span class="ln">25</span><span class="c"></span>        <span class="p">.</span><span class="n">PageSetup</span><span class="p">.</span><span class="n">PrintArea</span> <span class="o">=</span> <span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="n">prePrintAreaAddress</span><span class="p">).</span><span class="n">Resize</span><span class="p">(.</span><span class="n">Range</span><span class="p">(</span><span class="n">prePrintAreaAddress</span><span class="p">).</span><span class="n">Rows</span><span class="p">.</span><span class="n">Count</span> <span class="o">+</span> <span class="n">1</span><span class="p">).</span><span class="n">Address</span>
-<span class="ln">26</span>        
-<span class="ln">27</span>        <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="p">.</span><span class="n">PageSetup</span><span class="p">.</span><span class="n">PrintArea</span>
-<span class="ln">28</span>        
-<span class="ln">29</span>    <span class="k">End</span> <span class="k">With</span>
-<span class="ln">30</span>
-<span class="ln">31</span><span class="n">ExitHandler</span><span class="p">:</span>
-<span class="ln">32</span>
-<span class="ln">33</span>    <span class="k">Exit</span> <span class="k">Sub</span>
-<span class="ln">34</span>    
-<span class="ln">35</span><span class="nf">ErrorHandler</span><span class="p">:</span>
-<span class="ln">36</span>
-<span class="ln">37</span>    <span class="n">MsgBox</span> <span class="s">&#34;エラーが発生したため、マクロを終了します。&#34;</span> <span class="o">&amp;</span> _
-<span class="ln">38</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
-<span class="ln">39</span>           <span class="s">&#34;関数名：&#34;</span> <span class="o">&amp;</span> <span class="n">FUNC_NAME</span> <span class="o">&amp;</span> _
-<span class="ln">40</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
-<span class="ln">41</span>           <span class="s">&#34;エラー番号：&#34;</span> <span class="o">&amp;</span> <span class="n">Err</span><span class="p">.</span><span class="n">Number</span> <span class="o">&amp;</span> <span class="n">vbNewLine</span> <span class="o">&amp;</span> _
-<span class="ln">42</span>           <span class="n">Err</span><span class="p">.</span><span class="n">Description</span><span class="p">,</span> <span class="n">vbCritical</span><span class="p">,</span> <span class="n">SOURCE_NAME</span>
-<span class="ln">43</span>        
-<span class="ln">44</span>    <span class="k">GoTo</span> <span class="n">ExitHandler</span>
-<span class="ln">45</span>        
-<span class="ln">46</span><span class="k">End</span> <span class="k">Sub</span>
-</code></pre></div><h2 id="終わりに">終わりに</h2>
-<p>アドレス文字列を別の参照形式に変更する方法が最も自然で応用性も高いかと思う。</p>
-
-    
-    
-    
-    <h3>関連記事</h3>
-    <ul>
+    <article class="post">
+        <h3>アーカイブ：2021-09</h3>
+        </pre>
         
-        <li><a href="/learnerBlog/posts/2020/12/12/sheet-array-visible/">[VBA] Excelの複数シートをループを使わず一行の処理で非表示・再表示にすることはできる？？</a></li>
-        
-        <li><a href="/learnerBlog/posts/2020/12/11/search-shape-string/">[VBA] ブック内の図形内のテキストを検索・置換するマクロ（Qiitaの記事の拡張）</a></li>
-        
-        <li><a href="/learnerBlog/posts/2020/12/06/alter-args-compile-err/">[VBA] 関数の引数を変更した場合にコンパイルエラーが多発するのを防ぐテクニック</a></li>
-        
-        <li><a href="/learnerBlog/posts/2020/12/05/vba-exception-handle/">[VBA] 例外処理の典型的なパターン＆使用例サンプル</a></li>
-        
-        <li><a href="/learnerBlog/posts/2020/11/20/excel-class-sample-01/">[VBA] クラスを利用するメリットと方法について &amp; 簡単なサンプル（１）</a></li>
-        
-    </ul>
-    
-    
-      <div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "learnerblog" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-    
-  </article>
+        <li>
+            <span class="date">2021.09.04 (Sat)</span>
+            <p class="ml-15 post_content">
+                <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/09/04/access-change-control-test/">[Access VBA] フォームのコントロール操作系の関数をどのようにユニットテストするかの方法メモ</a><br>
+                <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' class="post_tag button button_translucent">VBA
+                </a>
+                <a href='https://dede-20191130.github.io/learnerBlog/tags/access' class="post_tag button button_translucent">Access
+                </a>
+            </p>
+        </li>
+    </article>
 <aside class="sidebar">
   <section class="sidebar_inner">
     <h2>dede-20191130</h2>
