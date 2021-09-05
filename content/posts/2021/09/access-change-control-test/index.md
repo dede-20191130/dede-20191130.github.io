@@ -235,7 +235,6 @@ Public Sub テスト_changeCmbBoxItems()
     Debug.Assert cmb.Column(0, 0) = "ピザ"
     Debug.Assert cmb.Column(0, 1) = "そば"
     Debug.Assert cmb.Column(0, 2) = "焼き肉"
-    Debug.Print cmb.ListCount
         
     '//■テスト02：飲み物のリスト設定
     '////関数呼び出し
@@ -245,7 +244,6 @@ Public Sub テスト_changeCmbBoxItems()
     Debug.Assert cmb.Column(0, 0) = "コーラ"
     Debug.Assert cmb.Column(0, 1) = "緑茶"
     Debug.Assert cmb.Column(0, 2) = "水"
-    Debug.Print cmb.ListCount
     
     '//フォームビューを閉じる
     DoCmd.Close , , acSaveNo
@@ -363,6 +361,9 @@ Public Sub テスト_changeTextBoxesEnabled()
     
 ExitHandler:
 
+    '//テスト完了
+    Debug.Print Now & ":Finish " & FUNC_NAME
+    
     Exit Sub
     
 ErrorHandler:
@@ -433,7 +434,6 @@ Debug.Assert cmb.ListCount = 3
 Debug.Assert cmb.Column(0, 0) = "ピザ"
 Debug.Assert cmb.Column(0, 1) = "そば"
 Debug.Assert cmb.Column(0, 2) = "焼き肉"
-Debug.Print cmb.ListCount
     
 '//■テスト02：飲み物のリスト設定
 '////関数呼び出し
@@ -443,7 +443,6 @@ Debug.Assert cmb.ListCount = 3
 Debug.Assert cmb.Column(0, 0) = "コーラ"
 Debug.Assert cmb.Column(0, 1) = "緑茶"
 Debug.Assert cmb.Column(0, 2) = "水"
-Debug.Print cmb.ListCount
 
 '//フォームビューを閉じる
 DoCmd.Close , , acSaveNo
