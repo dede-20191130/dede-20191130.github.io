@@ -572,16 +572,16 @@ Mainフォーム上でテストするとMainフォーム自体の何かを変更
 <span class="ln">15</span>    
 <span class="ln">16</span><span class="c">&#39;//■テスト02：飲み物のリスト設定
 </span><span class="ln">17</span><span class="c">&#39;////関数呼び出し
-</span><span class="ln">18</span><span class="c"></span><span class="k">Call</span> <span class="n">changeCmbBoxItems</span><span class="p">(</span><span class="n">2</span><span class="p">,</span> <span class="n">cmb</span><span class="p">)</span>
-<span class="hl"><span class="ln">19</span><span class="c">&#39;////アサーション
-</span></span><span class="ln">20</span><span class="c"></span><span class="n">Debug</span><span class="p">.</span><span class="n">Assert</span> <span class="n">cmb</span><span class="p">.</span><span class="n">ListCount</span> <span class="o">=</span> <span class="n">3</span>
+</span><span class="hl"><span class="ln">18</span><span class="c"></span><span class="k">Call</span> <span class="n">changeCmbBoxItems</span><span class="p">(</span><span class="n">2</span><span class="p">,</span> <span class="n">cmb</span><span class="p">)</span>
+</span><span class="ln">19</span><span class="c">&#39;////アサーション
+</span><span class="ln">20</span><span class="c"></span><span class="n">Debug</span><span class="p">.</span><span class="n">Assert</span> <span class="n">cmb</span><span class="p">.</span><span class="n">ListCount</span> <span class="o">=</span> <span class="n">3</span>
 <span class="ln">21</span><span class="n">Debug</span><span class="p">.</span><span class="n">Assert</span> <span class="n">cmb</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="n">0</span><span class="p">,</span> <span class="n">0</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#34;コーラ&#34;</span>
 <span class="ln">22</span><span class="n">Debug</span><span class="p">.</span><span class="n">Assert</span> <span class="n">cmb</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="n">0</span><span class="p">,</span> <span class="n">1</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#34;緑茶&#34;</span>
 <span class="ln">23</span><span class="n">Debug</span><span class="p">.</span><span class="n">Assert</span> <span class="n">cmb</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="n">0</span><span class="p">,</span> <span class="n">2</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#34;水&#34;</span>
 <span class="ln">24</span>
 <span class="ln">25</span><span class="c">&#39;//フォームビューを閉じる
-</span><span class="ln">26</span><span class="c"></span><span class="n">DoCmd</span><span class="p">.</span><span class="n">Close</span> <span class="p">,</span> <span class="p">,</span> <span class="n">acSaveNo</span>
-</code></pre></div><h4 id="ビュー変更の際に参照がリセットされるため再度参照を設定し直す">ビュー変更の際に参照がリセットされるため、再度参照を設定し直す</h4>
+</span><span class="hl"><span class="ln">26</span><span class="c"></span><span class="n">DoCmd</span><span class="p">.</span><span class="n">Close</span> <span class="p">,</span> <span class="p">,</span> <span class="n">acSaveNo</span>
+</span></code></pre></div><h4 id="ビュー変更の際に参照がリセットされるため再度参照を設定し直す">ビュー変更の際に参照がリセットされるため、再度参照を設定し直す</h4>
 <p>次のように、<br>
 フォームビューを開いた後に変数<code>cmb</code>のコンボボックスに対しての参照を<br>
 復旧させないといけない。</p>
