@@ -387,45 +387,43 @@ Mainフォーム上でテストするとMainフォーム自体の何かを変更
 <span class="ln">45</span>    <span class="n">Debug</span><span class="p">.</span><span class="n">Assert</span> <span class="n">cmb</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="n">0</span><span class="p">,</span> <span class="n">0</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#34;ピザ&#34;</span>
 <span class="ln">46</span>    <span class="n">Debug</span><span class="p">.</span><span class="n">Assert</span> <span class="n">cmb</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="n">0</span><span class="p">,</span> <span class="n">1</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#34;そば&#34;</span>
 <span class="ln">47</span>    <span class="n">Debug</span><span class="p">.</span><span class="n">Assert</span> <span class="n">cmb</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="n">0</span><span class="p">,</span> <span class="n">2</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#34;焼き肉&#34;</span>
-<span class="ln">48</span>    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="n">cmb</span><span class="p">.</span><span class="n">ListCount</span>
-<span class="ln">49</span>        
-<span class="ln">50</span>    <span class="c">&#39;//■テスト02：飲み物のリスト設定
-</span><span class="ln">51</span><span class="c"></span>    <span class="c">&#39;////関数呼び出し
-</span><span class="ln">52</span><span class="c"></span>    <span class="k">Call</span> <span class="n">changeCmbBoxItems</span><span class="p">(</span><span class="n">2</span><span class="p">,</span> <span class="n">cmb</span><span class="p">)</span>
-<span class="ln">53</span>    <span class="c">&#39;////アサーション
-</span><span class="ln">54</span><span class="c"></span>    <span class="n">Debug</span><span class="p">.</span><span class="n">Assert</span> <span class="n">cmb</span><span class="p">.</span><span class="n">ListCount</span> <span class="o">=</span> <span class="n">3</span>
-<span class="ln">55</span>    <span class="n">Debug</span><span class="p">.</span><span class="n">Assert</span> <span class="n">cmb</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="n">0</span><span class="p">,</span> <span class="n">0</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#34;コーラ&#34;</span>
-<span class="ln">56</span>    <span class="n">Debug</span><span class="p">.</span><span class="n">Assert</span> <span class="n">cmb</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="n">0</span><span class="p">,</span> <span class="n">1</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#34;緑茶&#34;</span>
-<span class="ln">57</span>    <span class="n">Debug</span><span class="p">.</span><span class="n">Assert</span> <span class="n">cmb</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="n">0</span><span class="p">,</span> <span class="n">2</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#34;水&#34;</span>
-<span class="ln">58</span>    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="n">cmb</span><span class="p">.</span><span class="n">ListCount</span>
-<span class="ln">59</span>    
-<span class="ln">60</span>    <span class="c">&#39;//フォームビューを閉じる
-</span><span class="ln">61</span><span class="c"></span>    <span class="n">DoCmd</span><span class="p">.</span><span class="n">Close</span> <span class="p">,</span> <span class="p">,</span> <span class="n">acSaveNo</span>
-<span class="ln">62</span>    
-<span class="ln">63</span>    <span class="c">&#39;//動的生成したフォームを削除
-</span><span class="ln">64</span><span class="c"></span>    <span class="n">DoCmd</span><span class="p">.</span><span class="n">DeleteObject</span> <span class="n">acForm</span><span class="p">,</span> <span class="n">fName</span>
+<span class="ln">48</span>        
+<span class="ln">49</span>    <span class="c">&#39;//■テスト02：飲み物のリスト設定
+</span><span class="ln">50</span><span class="c"></span>    <span class="c">&#39;////関数呼び出し
+</span><span class="ln">51</span><span class="c"></span>    <span class="k">Call</span> <span class="n">changeCmbBoxItems</span><span class="p">(</span><span class="n">2</span><span class="p">,</span> <span class="n">cmb</span><span class="p">)</span>
+<span class="ln">52</span>    <span class="c">&#39;////アサーション
+</span><span class="ln">53</span><span class="c"></span>    <span class="n">Debug</span><span class="p">.</span><span class="n">Assert</span> <span class="n">cmb</span><span class="p">.</span><span class="n">ListCount</span> <span class="o">=</span> <span class="n">3</span>
+<span class="ln">54</span>    <span class="n">Debug</span><span class="p">.</span><span class="n">Assert</span> <span class="n">cmb</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="n">0</span><span class="p">,</span> <span class="n">0</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#34;コーラ&#34;</span>
+<span class="ln">55</span>    <span class="n">Debug</span><span class="p">.</span><span class="n">Assert</span> <span class="n">cmb</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="n">0</span><span class="p">,</span> <span class="n">1</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#34;緑茶&#34;</span>
+<span class="ln">56</span>    <span class="n">Debug</span><span class="p">.</span><span class="n">Assert</span> <span class="n">cmb</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="n">0</span><span class="p">,</span> <span class="n">2</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#34;水&#34;</span>
+<span class="ln">57</span>    
+<span class="ln">58</span>    <span class="c">&#39;//フォームビューを閉じる
+</span><span class="ln">59</span><span class="c"></span>    <span class="n">DoCmd</span><span class="p">.</span><span class="n">Close</span> <span class="p">,</span> <span class="p">,</span> <span class="n">acSaveNo</span>
+<span class="ln">60</span>    
+<span class="ln">61</span>    <span class="c">&#39;//動的生成したフォームを削除
+</span><span class="ln">62</span><span class="c"></span>    <span class="n">DoCmd</span><span class="p">.</span><span class="n">DeleteObject</span> <span class="n">acForm</span><span class="p">,</span> <span class="n">fName</span>
+<span class="ln">63</span>    
+<span class="ln">64</span><span class="n">ExitHandler</span><span class="p">:</span>
 <span class="ln">65</span>    
-<span class="ln">66</span><span class="n">ExitHandler</span><span class="p">:</span>
-<span class="ln">67</span>    
-<span class="ln">68</span>    <span class="c">&#39;//テスト完了
-</span><span class="ln">69</span><span class="c"></span>    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="n">Now</span> <span class="o">&amp;</span> <span class="s">&#34;:Finish &#34;</span> <span class="o">&amp;</span> <span class="n">FUNC_NAME</span>
+<span class="ln">66</span>    <span class="c">&#39;//テスト完了
+</span><span class="ln">67</span><span class="c"></span>    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="n">Now</span> <span class="o">&amp;</span> <span class="s">&#34;:Finish &#34;</span> <span class="o">&amp;</span> <span class="n">FUNC_NAME</span>
+<span class="ln">68</span>    
+<span class="ln">69</span>    <span class="k">Exit</span> <span class="k">Sub</span>
 <span class="ln">70</span>    
-<span class="ln">71</span>    <span class="k">Exit</span> <span class="k">Sub</span>
-<span class="ln">72</span>    
-<span class="ln">73</span><span class="nf">ErrorHandler</span><span class="p">:</span>
-<span class="ln">74</span>
-<span class="ln">75</span>    <span class="n">MsgBox</span> <span class="s">&#34;エラーが発生したため、マクロを終了します。&#34;</span> <span class="o">&amp;</span> _
+<span class="ln">71</span><span class="nf">ErrorHandler</span><span class="p">:</span>
+<span class="ln">72</span>
+<span class="ln">73</span>    <span class="n">MsgBox</span> <span class="s">&#34;エラーが発生したため、マクロを終了します。&#34;</span> <span class="o">&amp;</span> _
+<span class="ln">74</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
+<span class="ln">75</span>           <span class="s">&#34;関数名：&#34;</span> <span class="o">&amp;</span> <span class="n">FUNC_NAME</span> <span class="o">&amp;</span> _
 <span class="ln">76</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
-<span class="ln">77</span>           <span class="s">&#34;関数名：&#34;</span> <span class="o">&amp;</span> <span class="n">FUNC_NAME</span> <span class="o">&amp;</span> _
+<span class="ln">77</span>           <span class="s">&#34;クラス名：&#34;</span> <span class="o">&amp;</span> <span class="n">SOURCE_NAME</span> <span class="o">&amp;</span> _
 <span class="ln">78</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
-<span class="ln">79</span>           <span class="s">&#34;クラス名：&#34;</span> <span class="o">&amp;</span> <span class="n">SOURCE_NAME</span> <span class="o">&amp;</span> _
-<span class="ln">80</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
-<span class="ln">81</span>           <span class="s">&#34;エラー番号：&#34;</span> <span class="o">&amp;</span> <span class="n">Err</span><span class="p">.</span><span class="n">Number</span> <span class="o">&amp;</span> <span class="n">vbNewLine</span> <span class="o">&amp;</span> _
-<span class="ln">82</span>           <span class="n">Err</span><span class="p">.</span><span class="n">Description</span><span class="p">,</span> <span class="n">vbCritical</span>
+<span class="ln">79</span>           <span class="s">&#34;エラー番号：&#34;</span> <span class="o">&amp;</span> <span class="n">Err</span><span class="p">.</span><span class="n">Number</span> <span class="o">&amp;</span> <span class="n">vbNewLine</span> <span class="o">&amp;</span> _
+<span class="ln">80</span>           <span class="n">Err</span><span class="p">.</span><span class="n">Description</span><span class="p">,</span> <span class="n">vbCritical</span>
+<span class="ln">81</span>        
+<span class="ln">82</span>    <span class="k">GoTo</span> <span class="n">ExitHandler</span>
 <span class="ln">83</span>        
-<span class="ln">84</span>    <span class="k">GoTo</span> <span class="n">ExitHandler</span>
-<span class="ln">85</span>        
-<span class="ln">86</span><span class="k">End</span> <span class="k">Sub</span>
+<span class="ln">84</span><span class="k">End</span> <span class="k">Sub</span>
 </code></pre></div><p>【サンプル②のテスト】</p>
 <div class="highlight"><pre class="chroma"><code class="language-vb" data-lang="vb"><span class="ln">  1</span><span class="c">&#39;******************************************************************************************
 </span><span class="ln">  2</span><span class="c">&#39;*機能      ：テスト　テキストボックスの使用可能状態の変更関数
@@ -510,24 +508,27 @@ Mainフォーム上でテストするとMainフォーム自体の何かを変更
 <span class="ln"> 81</span>    
 <span class="ln"> 82</span><span class="n">ExitHandler</span><span class="p">:</span>
 <span class="ln"> 83</span>
-<span class="ln"> 84</span>    <span class="k">Exit</span> <span class="k">Sub</span>
-<span class="ln"> 85</span>    
-<span class="ln"> 86</span><span class="nf">ErrorHandler</span><span class="p">:</span>
-<span class="ln"> 87</span>
-<span class="ln"> 88</span>    <span class="n">MsgBox</span> <span class="s">&#34;エラーが発生したため、マクロを終了します。&#34;</span> <span class="o">&amp;</span> _
-<span class="ln"> 89</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
-<span class="ln"> 90</span>           <span class="s">&#34;関数名：&#34;</span> <span class="o">&amp;</span> <span class="n">FUNC_NAME</span> <span class="o">&amp;</span> _
-<span class="ln"> 91</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
-<span class="ln"> 92</span>           <span class="s">&#34;クラス名：&#34;</span> <span class="o">&amp;</span> <span class="n">SOURCE_NAME</span> <span class="o">&amp;</span> _
-<span class="ln"> 93</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
-<span class="ln"> 94</span>           <span class="s">&#34;エラー番号：&#34;</span> <span class="o">&amp;</span> <span class="n">Err</span><span class="p">.</span><span class="n">Number</span> <span class="o">&amp;</span> <span class="n">vbNewLine</span> <span class="o">&amp;</span> _
-<span class="ln"> 95</span>           <span class="n">Err</span><span class="p">.</span><span class="n">Description</span><span class="p">,</span> <span class="n">vbCritical</span>
-<span class="ln"> 96</span>        
-<span class="ln"> 97</span>    <span class="k">GoTo</span> <span class="n">ExitHandler</span>
-<span class="ln"> 98</span>        
-<span class="ln"> 99</span><span class="k">End</span> <span class="k">Sub</span>
-<span class="ln">100</span>
-<span class="ln">101</span>
+<span class="ln"> 84</span>    <span class="c">&#39;//テスト完了
+</span><span class="ln"> 85</span><span class="c"></span>    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="n">Now</span> <span class="o">&amp;</span> <span class="s">&#34;:Finish &#34;</span> <span class="o">&amp;</span> <span class="n">FUNC_NAME</span>
+<span class="ln"> 86</span>    
+<span class="ln"> 87</span>    <span class="k">Exit</span> <span class="k">Sub</span>
+<span class="ln"> 88</span>    
+<span class="ln"> 89</span><span class="nf">ErrorHandler</span><span class="p">:</span>
+<span class="ln"> 90</span>
+<span class="ln"> 91</span>    <span class="n">MsgBox</span> <span class="s">&#34;エラーが発生したため、マクロを終了します。&#34;</span> <span class="o">&amp;</span> _
+<span class="ln"> 92</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
+<span class="ln"> 93</span>           <span class="s">&#34;関数名：&#34;</span> <span class="o">&amp;</span> <span class="n">FUNC_NAME</span> <span class="o">&amp;</span> _
+<span class="ln"> 94</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
+<span class="ln"> 95</span>           <span class="s">&#34;クラス名：&#34;</span> <span class="o">&amp;</span> <span class="n">SOURCE_NAME</span> <span class="o">&amp;</span> _
+<span class="ln"> 96</span>           <span class="n">vbLf</span> <span class="o">&amp;</span> _
+<span class="ln"> 97</span>           <span class="s">&#34;エラー番号：&#34;</span> <span class="o">&amp;</span> <span class="n">Err</span><span class="p">.</span><span class="n">Number</span> <span class="o">&amp;</span> <span class="n">vbNewLine</span> <span class="o">&amp;</span> _
+<span class="ln"> 98</span>           <span class="n">Err</span><span class="p">.</span><span class="n">Description</span><span class="p">,</span> <span class="n">vbCritical</span>
+<span class="ln"> 99</span>        
+<span class="ln">100</span>    <span class="k">GoTo</span> <span class="n">ExitHandler</span>
+<span class="ln">101</span>        
+<span class="ln">102</span><span class="k">End</span> <span class="k">Sub</span>
+<span class="ln">103</span>
+<span class="ln">104</span>
 </code></pre></div><h3 id="気をつけなければならなかったこと">気をつけなければならなかったこと</h3>
 <h4 id="ビューによって設定可能な部分が異なる">ビューによって設定可能な部分が異なる</h4>
 <p>私自身まだあまりAccessのビューごとの性質の違いについて<br>
@@ -568,21 +569,19 @@ Mainフォーム上でテストするとMainフォーム自体の何かを変更
 <span class="ln">12</span><span class="n">Debug</span><span class="p">.</span><span class="n">Assert</span> <span class="n">cmb</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="n">0</span><span class="p">,</span> <span class="n">0</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#34;ピザ&#34;</span>
 <span class="ln">13</span><span class="n">Debug</span><span class="p">.</span><span class="n">Assert</span> <span class="n">cmb</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="n">0</span><span class="p">,</span> <span class="n">1</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#34;そば&#34;</span>
 <span class="ln">14</span><span class="n">Debug</span><span class="p">.</span><span class="n">Assert</span> <span class="n">cmb</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="n">0</span><span class="p">,</span> <span class="n">2</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#34;焼き肉&#34;</span>
-<span class="ln">15</span><span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="n">cmb</span><span class="p">.</span><span class="n">ListCount</span>
-<span class="ln">16</span>    
-<span class="ln">17</span><span class="c">&#39;//■テスト02：飲み物のリスト設定
-</span><span class="ln">18</span><span class="c">&#39;////関数呼び出し
-</span><span class="hl"><span class="ln">19</span><span class="c"></span><span class="k">Call</span> <span class="n">changeCmbBoxItems</span><span class="p">(</span><span class="n">2</span><span class="p">,</span> <span class="n">cmb</span><span class="p">)</span>
-</span><span class="ln">20</span><span class="c">&#39;////アサーション
-</span><span class="ln">21</span><span class="c"></span><span class="n">Debug</span><span class="p">.</span><span class="n">Assert</span> <span class="n">cmb</span><span class="p">.</span><span class="n">ListCount</span> <span class="o">=</span> <span class="n">3</span>
-<span class="ln">22</span><span class="n">Debug</span><span class="p">.</span><span class="n">Assert</span> <span class="n">cmb</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="n">0</span><span class="p">,</span> <span class="n">0</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#34;コーラ&#34;</span>
-<span class="ln">23</span><span class="n">Debug</span><span class="p">.</span><span class="n">Assert</span> <span class="n">cmb</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="n">0</span><span class="p">,</span> <span class="n">1</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#34;緑茶&#34;</span>
-<span class="ln">24</span><span class="n">Debug</span><span class="p">.</span><span class="n">Assert</span> <span class="n">cmb</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="n">0</span><span class="p">,</span> <span class="n">2</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#34;水&#34;</span>
-<span class="ln">25</span><span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="n">cmb</span><span class="p">.</span><span class="n">ListCount</span>
-<span class="ln">26</span>
-<span class="ln">27</span><span class="c">&#39;//フォームビューを閉じる
-</span><span class="hl"><span class="ln">28</span><span class="c"></span><span class="n">DoCmd</span><span class="p">.</span><span class="n">Close</span> <span class="p">,</span> <span class="p">,</span> <span class="n">acSaveNo</span>
-</span></code></pre></div><h4 id="ビュー変更の際に参照がリセットされるため再度参照を設定し直す">ビュー変更の際に参照がリセットされるため、再度参照を設定し直す</h4>
+<span class="ln">15</span>    
+<span class="ln">16</span><span class="c">&#39;//■テスト02：飲み物のリスト設定
+</span><span class="ln">17</span><span class="c">&#39;////関数呼び出し
+</span><span class="ln">18</span><span class="c"></span><span class="k">Call</span> <span class="n">changeCmbBoxItems</span><span class="p">(</span><span class="n">2</span><span class="p">,</span> <span class="n">cmb</span><span class="p">)</span>
+<span class="hl"><span class="ln">19</span><span class="c">&#39;////アサーション
+</span></span><span class="ln">20</span><span class="c"></span><span class="n">Debug</span><span class="p">.</span><span class="n">Assert</span> <span class="n">cmb</span><span class="p">.</span><span class="n">ListCount</span> <span class="o">=</span> <span class="n">3</span>
+<span class="ln">21</span><span class="n">Debug</span><span class="p">.</span><span class="n">Assert</span> <span class="n">cmb</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="n">0</span><span class="p">,</span> <span class="n">0</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#34;コーラ&#34;</span>
+<span class="ln">22</span><span class="n">Debug</span><span class="p">.</span><span class="n">Assert</span> <span class="n">cmb</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="n">0</span><span class="p">,</span> <span class="n">1</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#34;緑茶&#34;</span>
+<span class="ln">23</span><span class="n">Debug</span><span class="p">.</span><span class="n">Assert</span> <span class="n">cmb</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="n">0</span><span class="p">,</span> <span class="n">2</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#34;水&#34;</span>
+<span class="ln">24</span>
+<span class="ln">25</span><span class="c">&#39;//フォームビューを閉じる
+</span><span class="ln">26</span><span class="c"></span><span class="n">DoCmd</span><span class="p">.</span><span class="n">Close</span> <span class="p">,</span> <span class="p">,</span> <span class="n">acSaveNo</span>
+</code></pre></div><h4 id="ビュー変更の際に参照がリセットされるため再度参照を設定し直す">ビュー変更の際に参照がリセットされるため、再度参照を設定し直す</h4>
 <p>次のように、<br>
 フォームビューを開いた後に変数<code>cmb</code>のコンボボックスに対しての参照を<br>
 復旧させないといけない。</p>
