@@ -419,7 +419,7 @@ DoCmd.Close acForm, fName, acSaveYes
 フォームビューで開いておかないとエラーとなるため、  
 次のようにする。
 
-```vb {hl_lines=[2,9,19,28]}
+```vb {hl_lines=[2,9,18,26]}
 '//フォームビューで開く
 DoCmd.OpenForm fName, acNormal
 
