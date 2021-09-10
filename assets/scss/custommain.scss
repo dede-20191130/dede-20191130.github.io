@@ -15,6 +15,23 @@ $breakpoints: (
     }
 }
 
+// inline code style customize
+code {
+    &.noClass {
+        padding: 0 0.3rem;
+        font-weight: 600;
+        background-color: #fffbd6;
+    }
+}
+html[data-mode="dim"] {
+    code {
+        &.noClass {
+            background-color: inherit;
+            color: #ffe500;
+        }
+    }
+}
+
 // TOC style
 //// normal mode
 #TableOfContents {
