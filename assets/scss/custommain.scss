@@ -16,6 +16,7 @@ $breakpoints: (
 }
 
 // TOC style
+//// normal mode
 #TableOfContents {
     background-color: #e3ffcc73;
     border-radius: 20px;
@@ -30,6 +31,17 @@ $breakpoints: (
         }
     }
 }
+//// dark mode
+html[data-mode="dim"] {
+    #TableOfContents {
+        background-color: #353535;
+        li {
+            a {
+                color: #fcff37;
+            }
+        }
+    }
+}
 
 // article adjustment
 article.post_content {
@@ -40,9 +52,8 @@ article.post_content {
     ul,
     ol,
     dl {
-        @include mq(lg){
+        @include mq(lg) {
             margin-left: 1.5rem;
-
         }
     }
 
@@ -87,7 +98,7 @@ article.post_content {
     position: relative;
     margin: 2rem 0 1.5rem 0;
     overflow-wrap: break-word;
-    @include mq(lg){
+    @include mq(lg) {
         max-width: 80%;
     }
 
