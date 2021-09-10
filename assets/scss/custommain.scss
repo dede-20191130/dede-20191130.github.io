@@ -142,6 +142,13 @@ article.post_content {
         }
     }
 }
+html[data-mode="dim"] {
+    .box-with-title {
+        span {
+            background: var(--choice-bg);
+        }
+    }
+}
 
 // iteratable margin
 @for $i from $margin-min through $margin-max {
