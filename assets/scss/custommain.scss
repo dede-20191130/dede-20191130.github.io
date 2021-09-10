@@ -21,11 +21,9 @@ code {
         padding: 0 0.3rem;
         font-weight: 600;
         background-color: #fffbd6;
-    }
-}
-html[data-mode="dim"] {
-    code {
-        &.noClass {
+        // 親要素をスタイル判定条件に利用
+        // https://www.qoosky.io/techs/ca7f68faa6#part-aa5c8249f93236d9
+        html[data-mode="dim"] & {
             background-color: inherit;
             color: #ffe500;
         }
