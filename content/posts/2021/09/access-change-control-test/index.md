@@ -8,6 +8,7 @@ toc: true
 featured: false
 tags: ["VBA","Access"]
 categories: ["プログラミング"]
+vba_taxo: general
 archives:
     - 2021
     - 2021-09
