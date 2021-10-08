@@ -1,0 +1,163 @@
+html {
+    --code-bg: #272822;
+}
+
+.chroma {
+    color: #f8f8f2;
+    &.not[data-mode="dim"] {
+        background-color: #272822;
+    }
+
+    .err {
+        color: #960050;
+        background-color: #1e0010;
+    }
+
+    .lntd {
+        vertical-align: top;
+        padding: 0;
+        margin: 0;
+        border: 0;
+    }
+
+    .lntable {
+        border-spacing: 0;
+        padding: 0;
+        margin: 0;
+        border: 0;
+        width: auto;
+        overflow: auto;
+        display: block;
+    }
+
+    .hl {
+        display: block;
+        width: 100%;
+        // background-color: #ffffcc;
+    }
+
+    .lnt,
+    .ln {
+        margin-right: 0.4em;
+        padding: 0 0.4em 0 0.4em;
+        color: #7f7f7f;
+    }
+
+    .k,
+    .kc,
+    .kd {
+        color: #66d9ef;
+    }
+
+    .kn {
+        color: #f92672;
+    }
+
+    .kp,
+    .kr,
+    .kt {
+        color: #66d9ef;
+    }
+
+    .na {
+        color: #a6e22e;
+    }
+
+    .nc {
+        color: #a6e22e;
+    }
+
+    .no {
+        color: #66d9ef;
+    }
+
+    .nd {
+        color: #a6e22e;
+    }
+
+    .ne,
+    .nf {
+        color: #a6e22e;
+    }
+
+    .nx {
+        color: #a6e22e;
+    }
+
+    .nt {
+        color: #f92672;
+    }
+
+    .l {
+        color: #ae81ff;
+    }
+
+    .ld,
+    .s,
+    .sa,
+    .sb,
+    .sc,
+    .dl,
+    .sd,
+    .s2 {
+        color: #e6db74;
+    }
+
+    .se {
+        color: #ae81ff;
+    }
+
+    .sh,
+    .si,
+    .sx,
+    .sr,
+    .s1,
+    .ss {
+        color: #e6db74;
+    }
+
+    .m,
+    .mb,
+    .mf,
+    .mh,
+    .mi,
+    .il,
+    .mo {
+        color: #ae81ff;
+    }
+
+    .o,
+    .ow {
+        color: #f92672;
+    }
+
+    .c,
+    .ch,
+    .cm,
+    .c1,
+    .cs,
+    .cp,
+    .cpf {
+        color: #75715e;
+    }
+
+    .gd {
+        color: #f92672;
+    }
+
+    .ge {
+        font-style: italic;
+    }
+
+    .gi {
+        color: #a6e22e;
+    }
+
+    .gs {
+        font-weight: bold;
+    }
+
+    .gu {
+        color: #75715e;
+    }
+}
