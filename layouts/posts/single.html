@@ -1,40 +1,50 @@
 {{- define "main" }}
+{{- $s := .Site.Params }}
+{{- $p := .Params }}
 {{- $scratch := newScratch }}
-{{- if isset .Params "image" }}
-  {{- $scratch.Set "image" .Params.image }}
+{{- if isset $p "image" }}
+  {{- $scratch.Set "image" $p.image }}
 {{- else }}
-  {{ $scratch.Set "image" .Site.Params.fallBackOgImage }}
+  {{ $scratch.Set "image" $s.fallBackOgImage }}
 {{- end }}
 {{- $image := $scratch.Get "image" }}
-{{- $bg := (path.Join "images" $image | absLangURL) }}
-<div class="grid-inverse wrap content">
+{{- $bg := absLangURL (path.Join "images" $image) }}
+<div class="{{ if ne $p.singleColumn true }}grid-inverse {{ end }}wrap content">
   <article class="post_content">
-    {{- partial "i18nlist" . }}
-    <h1 class="post_title">{{ .Title }}</h1>
+    {{- $t := .Title }}
+    <h1 class="post_title">{{ $t }}</h1>
     {{- partial "post-meta" . }}
-    {{ partial "share" . }}
-    {{ with .Params.featureImage }}
-    <img src="{{ . }}" class="image_featured">
+    {{ with $p.featureImage }}
+    <img src="{{ . }}" class="image_featured" alt="{{ $t }}">
     {{ end }}
-    {{ if .Params.toc }}
+    {{ if $p.toc }}
     <h2>{{ T "overview" }}</h2>
     {{ .TableOfContents }}
     {{ end }}
     {{- .Content }}
-    <!-- add see-also -->
-    {{ $related := .Site.RegularPages.Related . | first 5 }}
-    {{ with $related }}
-    <h3>関連記事</h3>
-    <ul>
-        {{ range . }}
-        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-        {{ end }}
-    </ul>
-    {{ end }}
-    {{ if and ( ne .Site.Params.comment false ) ( ne .Params.comment false ) }}
-      {{ partial "comments" . }}
-    {{ end }}
+     <!-- add see-also -->
+     {{ $related := .Site.RegularPages.Related . | first 5 }}
+     {{ with $related }}
+     <h3>関連記事</h3>
+     <ul>
+         {{ range . }}
+         <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+         {{ end }}
+     </ul>
+     {{ end }}
+    {{- $showComments := true }}
+    {{- if eq $s.comments false }}
+      {{- $showComments = false }}
+    {{- else if eq $p.comments false }}
+      {{- $showComments = false }}
+    {{- end }}
+    {{- if ne $showComments false }}
+      {{- partial "comments" . }}
+    {{- end }}
+    {{- partial "i18nlist" . }}
   </article>
-  {{- partial "sidebar" . }}
+  {{- if ( ne $p.sidebar false ) }}
+    {{- partial "sidebar" . }}
+  {{ end }}
 </div>
 {{- end }}

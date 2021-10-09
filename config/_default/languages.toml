@@ -1,0 +1,17 @@
+
+[ja]
+  title = "学習者dedeのブログ ~プログラミング等~" # just for the sake of showing this is possible
+  LanguageName = "Japanese"
+  weight = 1
+
+# [en]
+#   title = "Clarity"
+#   LanguageName = "English"
+#   weight = 2
+
+# [pt]
+#   title = "Claridade" # just for the sake of showing this is possible
+#   LanguageName = "Português"
+#   weight = 3
+
+  

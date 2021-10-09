@@ -46,3 +46,14 @@ function correntScroll(event) {
     event.preventDefault();
 
 }
+// parentURLがバグっぽいのでテーマを上書き
+function loadSvg(file, parent, path = iconsPath) {
+    const link = `{{ absURL "" }}${path}${file}.svg`;
+    fetch(link)
+    .then((response) => {
+      return response.text();
+    })
+    .then((data) => {
+      parent.innerHTML = data;
+    });
+  }

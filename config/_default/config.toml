@@ -1,0 +1,32 @@
+# set `baseurl` to your root domain
+# if you set it to "/" share icons won't work properly on production
+baseURL = "https://dede-20191130.github.io/learnerBlog/"
+languageCode = "ja"
+# title = "Clarity"  # Edit directly from config/_default/languages.toml # alternatively, uncomment this and remove `title` entry from the aforemention file.
+# title = "学習者dedeのブログ ~プログラミング等~"
+theme = "Clarity"
+# copyright = "Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved."
+# canonifyurls = true
+paginate = 10
+# Deploy
+publishDir = "docs"
+DefaultContentLanguage = "ja"
+disqusShortname = "learnerblog"
+hasCJKLanguage = true
+enableGitInfo = true
+
+# [languages]
+# config/_default/languages.toml
+
+# [menus]
+# config/_default/menus/menu.xx.toml
+
+[permalinks]
+  posts = "/:sections/:year/:month/:day/:slug/"
+  # blogs = "/:sections/:year/:month/:day/:slug/"
+  # news = "/:sections/:year/:month/:day/:slug/"
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  archive = "archives"
