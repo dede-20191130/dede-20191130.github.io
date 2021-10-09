@@ -1,12 +1,12 @@
 ---
-title: "ご意見送信フォームを作成する①　[TypeScript]"
+title: "ご意見送信フォームを作成する①　[プレーンTypeScript]"
 author: dede-20191130
 date: 2021-10-08T11:42:48+09:00
 slug: send-contact-form-plain-ts
-draft: true
+draft: false
 toc: true
 featured: false
-tags: ["Javascript","フロントエンド"]
+tags: ["TypeScript","フロントエンド"]
 categories: ["プログラミング"]
 archives:
     - 2021
@@ -243,6 +243,7 @@ export class FormView {
 
     }
 
+    // submitイベントを設定する
     private setSubmitEvt(elem: HTMLElement) {
       elem.onclick = (ev) => {
         ev.preventDefault();
@@ -250,6 +251,7 @@ export class FormView {
         };
     }
 
+    // input要素がアクティブになった際にラベルにクラスを付与するイベントを設定する
     private setInputBoxFocusEvts(elem: HTMLElement) {
       elem.onfocus = function (ev) {
         document
@@ -267,6 +269,7 @@ export class FormView {
         };
     }
 
+    // ControllerのonSubmitイベントに処理を移譲する
     private onSubmit() {
       this.formController.onSubmit({
         name: this.name.value,
@@ -306,6 +309,7 @@ export class FormModel {
     public isvalid: { [method: string]: () => boolean };
     constructor(formData: IFormModelArg) {
         Object.assign(this, formData);
+        // 各入力欄のバリデーションメソッドを保有するオブジェクト
         this.isvalid = {
             name: this.isValidName.bind(this),
             gender: this.isValidGender.bind(this),
@@ -341,6 +345,7 @@ export class FormModel {
 
     }
 
+    // 入力値をJSONに変換して渡す
     public createSerializedData(): string {
         return JSON.stringify({
             name: this.name,
@@ -377,6 +382,8 @@ export class FormController {
         this._formModel;
         this._modalScreen = modalScreen;
     }
+
+    // submit時の実行メソッド
     public onSubmit({
         name,
         gender,
@@ -401,6 +408,7 @@ export class FormController {
             return;
         }
 
+        // モーダル要素のshowイベントを発火する
         this._modalScreen.dispatchEvent(
             new CustomEvent("show", {
                 detail: {
@@ -409,6 +417,8 @@ export class FormController {
             })
         );
     }
+
+    // バリデーションチェック
     private isvalid() {
         let errFounds = [];
         for (const prop of ["name", "gender", "age", "address", "message"]) {
@@ -416,6 +426,8 @@ export class FormController {
         }
         return errFounds.length === 0 ? null : errFounds;
     }
+
+    // エラー表示欄に内容を表示
     private setError(errFounds: string[]) {
         this._formView.errArea.innerHTML = errFounds.reduce((acc, curr) => {
 
@@ -462,9 +474,8 @@ export class ModalView {
         this.dlBtn = dlBtn;
         this.closeBtn = closeBtn;
 
-        // avoid custom-event caveat by below
-        // https://github.com/microsoft/TypeScript/issues/28357#issuecomment-436484705
         this.screen.addEventListener("show", ((ev: CustomEvent) => {
+            // モーダル要素を可視化させる
             this.modalModel.serializedData = ev.detail.serializedData;
             this.screen.hidden = !this.screen.hidden;
             this.screenCover.hidden = !this.screenCover.hidden;
@@ -524,6 +535,8 @@ export class ModalModel {
     set serializedData(value: string) {
         this._serializedData = value;
     }
+
+    // JSONをパースして受理内容のテキストを作成する
     public createText() {
         const data = JSON.parse(this._serializedData) as IFormModelArg;
 
@@ -537,8 +550,6 @@ export class ModalModel {
                 text = text.replace("$" + key, data[key]);
             }
         }
-        // hack for jest/typescript on testing moment
-        // https://newbedev.com/using-rollup-for-angular-2-s-aot-compiler-and-importing-moment-js
         const momentFunc = (moment as any).default ? (moment as any).default : moment;
         text = text.replace("$date", momentFunc().format("YYYY年MM月DD日"));
 
