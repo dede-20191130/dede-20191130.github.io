@@ -13,7 +13,28 @@
       <pubDate>Sat, 18 Jul 2020 18:30:28 +0000</pubDate>
       
       <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/07/18/create-nomarco-tool/</guid>
-      <description>この記事について 以前作成した非マクロのメール作成ツールについての紹介記事。 こちら（Github）からツールをダウンロードできます。 概要 テーブ</description>
+      <description>
+        
+          &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
+&lt;p&gt;以前作成した非マクロのメール作成ツールについての紹介記事。&lt;br&gt;
+&lt;a href=&#34;https://github.com/dede-20191130/My_VBA_Tools/tree/master/%E9%9D%9E%E3%83%9E%E3%82%AF%E3%83%AD%E3%83%84%E3%83%BC%E3%83%AB/NOVBA0001_%E4%BD%9C%E6%A5%AD%E8%A8%98%E9%8C%B2%E7%AE%A1%E7%90%86%E7%B0%BF_%E5%85%BC_%E3%83%A1%E3%83%BC%E3%83%AB%E4%BD%9C%E6%88%90%E3%83%84%E3%83%BC%E3%83%AB&#34;&gt;こちら（Github）&lt;/a&gt;からツールをダウンロードできます。&lt;/p&gt;
+&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
+&lt;p&gt;テーブルでデータを管理。&lt;/p&gt;
+&lt;p&gt;管理したデータからメールを作成。&lt;/p&gt;
+&lt;h2 id=&#34;画像紹介&#34;&gt;画像紹介&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/dede-20191130/My_VBA_Tools/blob/master/_ImageForMarkdown/NOVBA0001/image_1.png?raw=true&#34; alt=&#34;入力欄&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/dede-20191130/My_VBA_Tools/blob/master/_ImageForMarkdown/NOVBA0001/image_5.png?raw=true&#34; alt=&#34;プルダウン項目の自動設定&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/dede-20191130/My_VBA_Tools/blob/master/_ImageForMarkdown/NOVBA0001/image_7.png?raw=true&#34; alt=&#34;自動作成メール&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;span-idvba記事非マクロvbaの使用なしであることの利点&#34;&gt;&lt;span id=&#34;VBA&#34;&gt;記事：非マクロ（VBAの使用なし）であることの利点&lt;/h2&gt;
+&lt;p&gt;こちらにまとめています。&lt;/p&gt;
+&lt;p&gt;⇛&lt;a href=&#34;../../16/cmpr-tools/&#34;&gt;Excelのツール開発&lt;br&gt;
+関数（非マクロ）ツールとVBA使用ツールの比較&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;使用方法詳細&#34;&gt;使用方法詳細&lt;/h2&gt;
+&lt;p&gt;仕様、使用方法などは、&lt;br&gt;
+&lt;a href=&#34;https://github.com/dede-20191130/My_VBA_Tools/tree/master/T0001_%E8%A6%8B%E7%A9%8D%E6%9B%B8%E4%BD%9C%E6%88%90%E3%83%84%E3%83%BC%E3%83%AB&#34;&gt;こちら（Github）&lt;/a&gt;に記載しています。&lt;/p&gt;
+
+        
+      </description>
     </item>
     
   </channel>

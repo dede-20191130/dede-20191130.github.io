@@ -13,7 +13,273 @@
       <pubDate>Wed, 18 Aug 2021 15:06:36 +0900</pubDate>
       
       <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/</guid>
-      <description>この記事について かんたんな概要と結論 フォームでのデータ編集後、 Requeryを使うかRefreshを使うかで結果は異なる。 Refreshを使</description>
+      <description>
+        
+          &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
+
+
+
+&lt;div class=&#34;box-with-title&#34;&gt;
+    &lt;p&gt;&lt;span&gt;かんたんな概要と結論&lt;/span&gt;&lt;/p&gt;
+    &lt;div class=&#34;inner&#34;&gt;
+         
+    フォームでのデータ編集後、&lt;br&gt;
+    Requeryを使うかRefreshを使うかで結果は異なる。&lt;br&gt;
+    &lt;br&gt;
+    Refreshを使用するのが最も使い勝手が良さそう。&lt;br&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Accessのフォームにおいて、&lt;br&gt;
+データの更新をした後に追加で更新の反映処理を行わないと&lt;br&gt;
+意図したとおりにデータが表示されないことはしばしばある。&lt;/p&gt;
+&lt;p&gt;更新処理としてはフォームのRequeryメソッドとコントロールのRequeryメソッド、&lt;br&gt;
+さらにフォームのRefreshメソッドが存在するが、&lt;br&gt;
+どれを使用するかということは、ケースバイケースだ。&lt;/p&gt;
+&lt;p&gt;この記事で、単票フォーム上のデータの編集の反映というフェーズに焦点を当て、&lt;br&gt;
+それぞれの挙動を切り分けてみたい。&lt;br&gt;
+動作の確認にはデモツールを使用する。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/dede-20191130/My_VBA_Tools/tree/master/Public/2021/08/cut-sheet-requery-refresh&#34;&gt;&lt;span id=&#34;srcURL&#34;&gt;&lt;u&gt;説明のために作成したデモツール（Accessファイル）とソースコードはこちらでダウンロードできます。&lt;/u&gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;環境&#34;&gt;環境&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;windows10&lt;/li&gt;
+&lt;li&gt;MSOffice2019&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;デモ&#34;&gt;デモ&lt;/h2&gt;
+&lt;h3 id=&#34;デモツールについて&#34;&gt;デモツールについて&lt;/h3&gt;
+&lt;h4 id=&#34;画面&#34;&gt;画面&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;./img01.png&#34; alt=&#34;商品管理フォーム&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;内容&#34;&gt;内容&lt;/h4&gt;
+&lt;p&gt;商品管理フォームは商品テーブルをレコードソースとする。&lt;/p&gt;
+&lt;p&gt;商品名選択コンボボックス（非連結コントロール）はIDおよび商品名をソースとしており、&lt;br&gt;
+選択値によりフォームに単票として表示するレコードを切り替える。&lt;/p&gt;
+&lt;p&gt;通常モードでは項目の変更は不可。&lt;/p&gt;
+&lt;p&gt;編集モード開始ボタンを押下して編集モードに切り替える。&lt;br&gt;
+編集モード時、項目の変更は可能。&lt;/p&gt;
+&lt;p&gt;編集完了ボタン押下し、&lt;br&gt;
+編集を終え通常モードに切り替える。&lt;/p&gt;
+&lt;p&gt;「編集完了時の挙動」内のラジオボタンを選択することで&lt;br&gt;
+どのような更新処理をするかを選択できる。&lt;/p&gt;
+&lt;h4 id=&#34;シーケンス&#34;&gt;シーケンス&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;./demo-tool-sequence/demo-tool-sequence.svg&#34; alt=&#34;商品管理フォーム&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;コード一部抜粋&#34;&gt;コード（一部抜粋）&lt;/h4&gt;
+&lt;h5 id=&#34;編集モード開始ボタン編集完了ボタン押下時処理&#34;&gt;編集モード開始ボタン（編集完了ボタン）押下時処理&lt;/h5&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*機能      ：編集モード開始ボタン押下
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*引数      ：
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*戻り値    ：True &amp;gt; 正常終了、False &amp;gt; 異常終了
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;btn_edit_Click&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;定数
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Const&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;btn_edit_Click&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;変数
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;On&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Error&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ErrorHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;//編集モード開始
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Me&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;txt_productName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Locked&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;        &lt;span class=&#34;c&#34;&gt;&amp;#39;//可視性
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;Me&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;lbl_product&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Visible&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;False&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;Me&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cmb_product&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Visible&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;False&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;Me&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;lbl_onEdit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Visible&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;True&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;        &lt;span class=&#34;c&#34;&gt;&amp;#39;//ロック
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;Me&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;txt_productName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Locked&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;False&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;Me&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;txt_productCode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Locked&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;False&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;Me&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;txt_nouhinDay&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Locked&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;False&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;        &lt;span class=&#34;c&#34;&gt;&amp;#39;//ラベル
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;Me&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;btn_edit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Caption&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;編集完了&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;//編集完了
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Else&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;        &lt;span class=&#34;c&#34;&gt;&amp;#39;//可視性
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;Me&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;lbl_product&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Visible&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;True&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;32&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;Me&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cmb_product&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Visible&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;True&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;33&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;Me&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;lbl_onEdit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Visible&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;False&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;34&lt;/span&gt;        &lt;span class=&#34;c&#34;&gt;&amp;#39;//ロック
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;35&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;Me&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;txt_productName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Locked&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;True&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;36&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;Me&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;txt_productCode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Locked&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;True&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;37&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;Me&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;txt_nouhinDay&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Locked&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;True&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;38&lt;/span&gt;        &lt;span class=&#34;c&#34;&gt;&amp;#39;//ラベル
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;39&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;Me&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;btn_edit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Caption&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;編集モード開始&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;40&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;41&lt;/span&gt;        &lt;span class=&#34;c&#34;&gt;&amp;#39;****************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;42&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;c&#34;&gt;&amp;#39;//編集完了後の挙動フレームの選択値によって処理を分岐
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;43&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;Select&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Case&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Nz&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Me&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;frm_finishEdition&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;44&lt;/span&gt;        &lt;span class=&#34;c&#34;&gt;&amp;#39;////フォームに対してRequery実行
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;45&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;Case&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;2&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;46&lt;/span&gt;            &lt;span class=&#34;k&#34;&gt;Me&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Requery&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;47&lt;/span&gt;        &lt;span class=&#34;c&#34;&gt;&amp;#39;////フォームに対してRefresh実行
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;48&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;Case&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;3&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;49&lt;/span&gt;            &lt;span class=&#34;k&#34;&gt;Me&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Refresh&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;50&lt;/span&gt;        &lt;span class=&#34;c&#34;&gt;&amp;#39;////商品名選択コンボボックスに対してRequery実行
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;51&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;Case&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;4&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;52&lt;/span&gt;            &lt;span class=&#34;k&#34;&gt;Me&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cmb_product&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Requery&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;53&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Select&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;54&lt;/span&gt;        &lt;span class=&#34;c&#34;&gt;&amp;#39;****************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;55&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;56&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;57&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;58&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;59&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;60&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;61&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;62&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;63&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;64&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;ErrorHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;65&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;66&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;MsgBox&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;エラーが発生したため、マクロを終了します。&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;67&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;68&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;関数名：&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;69&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;70&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;クラス名：&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SOURCE_NAME&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;71&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;72&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;エラー番号：&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Number&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbNewLine&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;73&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Description&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbCritical&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;cut-sheet-requery-refresh&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;74&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;75&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;76&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;77&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;78&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h5 id=&#34;商品名選択コンボボックスの値集合ソースrowsource&#34;&gt;商品名選択コンボボックスの値集合ソース（RowSource）&lt;/h5&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;SELECT PRODUCT_TABLE.ID,
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;    PRODUCT_TABLE.商品名
+&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;FROM PRODUCT_TABLE
+&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;ORDER BY PRODUCT_TABLE.ID;
+&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;プロパティについては、
+連結列を1、&lt;br&gt;
+列数を2（0cmおよび3cm幅）としている。&lt;/p&gt;
+&lt;p&gt;表示上は商品名だが、&lt;br&gt;
+実際にボックスに格納されている値はID（数値）である。&lt;/p&gt;
+&lt;h3 id=&#34;前提&#34;&gt;前提&lt;/h3&gt;
+&lt;p&gt;次のように、&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ネジ&lt;/li&gt;
+&lt;li&gt;ボルト&lt;/li&gt;
+&lt;li&gt;電気工事&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;の三種類の商品レコードが存在するとする。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./img02.png&#34; alt=&#34;三種類の商品レコード&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;i-何もしない場合&#34;&gt;i. 何もしない場合&lt;/h3&gt;
+&lt;p&gt;編集完了後、&lt;br&gt;
+商品名の変更が商品名選択コンボボックスの項目リストに反映されない。&lt;br&gt;
+（下記動画参照）&lt;/p&gt;
+&lt;p&gt;したがって、&lt;br&gt;
+何もしなければ、&lt;br&gt;
+コンボボックスのソースが更新されることはない。&lt;/p&gt;
+
+
+
+&lt;video preload=&#34;metadata&#34; controls style=&#39;max-width: 600px;&#39;&gt;
+    
+    
+    &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/01-nothing-to-do.webm&#39; type=&#34;video/webm&#34;&gt;
+    
+
+    
+    
+    &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/01-nothing-to-do.mp4&#39; type=&#34;video/mp4&#34;&gt;
+    
+    
+    Your browser does not support the video tag.
+&lt;/video&gt;
+&lt;p&gt;せっかく商品名を変えたのに、選択肢に変更した名前が現れないので、ユーザは混乱するだろう。&lt;/p&gt;
+&lt;h3 id=&#34;ii-フォームに対してrequery実行する場合&#34;&gt;ii. フォームに対してRequery実行する場合&lt;/h3&gt;
+&lt;p&gt;編集完了ボタンを押下した後、&lt;br&gt;
+強制的にテーブルの最も若いIDのレコード（ネジのレコード）に移動する。&lt;/p&gt;
+&lt;p&gt;これは、&lt;br&gt;
+フォームに対するRequeryの意味するところが、&lt;br&gt;
+フォームの属するレコードソース（テーブルあるいはクエリ）の再読み込みを意味するためである。&lt;br&gt;
+すべてのレコードを読み込むため、カレントレコードは先頭に移動する。&lt;/p&gt;
+
+
+
+&lt;video preload=&#34;metadata&#34; controls style=&#39;max-width: 600px;&#39;&gt;
+    
+    
+    &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/02-form-requery.webm&#39; type=&#34;video/webm&#34;&gt;
+    
+
+    
+    
+    &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/02-form-requery.mp4&#39; type=&#34;video/mp4&#34;&gt;
+    
+    
+    Your browser does not support the video tag.
+&lt;/video&gt;
+&lt;p&gt;「i. 何もしない場合」と異なり&lt;br&gt;
+コンボボックスの項目リストは更新されているが、&lt;br&gt;
+いきなり先頭のレコードに飛ぶため、ユーザは戸惑うかもしれない。&lt;/p&gt;
+&lt;p&gt;また、商品名選択コンボボックスの値はいまだ「ナット」を指しているため&lt;br&gt;
+微細ではあるが不整合が生まれている。&lt;/p&gt;
+&lt;h3 id=&#34;iii-フォームに対してrefresh実行する場合&#34;&gt;iii. フォームに対してRefresh実行する場合&lt;/h3&gt;
+&lt;p&gt;編集完了ボタンを押下した後、&lt;br&gt;
+商品名の変更が商品名選択コンボボックスの項目リストに反映される。&lt;/p&gt;
+&lt;p&gt;この場合、レコードの移動は生じない。&lt;/p&gt;
+&lt;p&gt;これは、&lt;br&gt;
+フォームに対するRefreshの意味するところが、&lt;br&gt;
+カレントレコードの更新であり、&lt;br&gt;
+他のレコード部分はタッチしないからである。&lt;/p&gt;
+
+
+
+&lt;video preload=&#34;metadata&#34; controls style=&#39;max-width: 600px;&#39;&gt;
+    
+    
+    &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/03-form-refresh.webm&#39; type=&#34;video/webm&#34;&gt;
+    
+
+    
+    
+    &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/03-form-refresh.mp4&#39; type=&#34;video/mp4&#34;&gt;
+    
+    
+    Your browser does not support the video tag.
+&lt;/video&gt;
+&lt;p&gt;実行速度の観点からも、&lt;br&gt;
+このような編集の場合はこの方法がベストソリューションかと思う。&lt;/p&gt;
+&lt;h3 id=&#34;iv-商品名選択コンボボックスに対してrequery実行する場合&#34;&gt;iv. 商品名選択コンボボックスに対してRequery実行する場合&lt;/h3&gt;
+&lt;p&gt;これはやや奇妙な挙動をする。&lt;/p&gt;
+&lt;p&gt;編集完了ボタンを押下した後、&lt;br&gt;
+商品名選択コンボボックスの値（表示されている文字列）はボルトのままであり、&lt;br&gt;
+更新されていない。&lt;/p&gt;
+&lt;p&gt;コンボボックスを展開しても、項目リストは以前のままである。&lt;/p&gt;
+&lt;p&gt;ここでコンボボックスをネジに変更すると、&lt;br&gt;
+コンボボックスの項目リストは更新されている。&lt;/p&gt;
+
+
+
+&lt;video preload=&#34;metadata&#34; controls style=&#39;max-width: 600px;&#39;&gt;
+    
+    
+    &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/04-combobox-requery.webm&#39; type=&#34;video/webm&#34;&gt;
+    
+
+    
+    
+    &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/04-combobox-requery.mp4&#39; type=&#34;video/mp4&#34;&gt;
+    
+    
+    Your browser does not support the video tag.
+&lt;/video&gt;
+&lt;p&gt;商品名選択コンボボックスに対してのみRequeryメソッドを実行しているため、&lt;br&gt;
+内部で項目リスト自体は更新されているが、&lt;br&gt;
+画面上での表示は更新されないため、リストが更新されていないように見える。&lt;/p&gt;
+&lt;p&gt;選択値をネジに変えた時点で表示の更新が起こり、リストは新しいものとして表示されることができる。&lt;/p&gt;
+&lt;h2 id=&#34;まとめ&#34;&gt;まとめ&lt;/h2&gt;
+&lt;p&gt;ユーザが編集操作をした後のことを考えると、&lt;br&gt;
+Refreshが最も自然で使い勝手が良さそうな印象を受ける。&lt;/p&gt;
+&lt;p&gt;個別のコントロールに対するRequeryは、&lt;br&gt;
+表示自体を変更しないかもしれないが、&lt;br&gt;
+マクロあるいはVBAの処理途中で再度コントロールのプロパティを参照したい場合など、&lt;br&gt;
+見え方にこだわらないような場合では、&lt;br&gt;
+一番速く簡潔な選択肢になるかもしれない。&lt;/p&gt;
+
+        
+      </description>
     </item>
     
   </channel>

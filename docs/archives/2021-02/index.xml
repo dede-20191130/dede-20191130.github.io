@@ -13,7 +13,84 @@
       <pubDate>Sun, 28 Feb 2021 00:34:49 +0900</pubDate>
       
       <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/02/28/create-estm-accessver/</guid>
-      <description>この記事について 以前、 こちらの記事で紹介したように、 Excelベースの見積書作成ツールを作成した。 記事： [Excel VBA] 見積書作成ツールを作成した 今回、</description>
+      <description>
+        
+          &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
+&lt;p&gt;以前、&lt;br&gt;
+こちらの記事で紹介したように、&lt;br&gt;
+Excelベースの見積書作成ツールを作成した。&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box-with-title&#34;&gt;
+    &lt;p&gt;&lt;span&gt;記事：&lt;/span&gt;&lt;/p&gt;
+    &lt;div class=&#34;inner&#34;&gt;
+         
+    
+
+
+
+
+
+&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2020/07/16/create-estm/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Excel VBA] 見積書作成ツールを作成した&lt;/a&gt;
+
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;今回、ほぼ同機能を持つツールを、&lt;br&gt;
+Accessベースに移植した。&lt;/p&gt;
+&lt;p&gt;理由としては、&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一対多のリレーションシップを持つデータを管理、抽出するのは&lt;br&gt;
+Accessのほうが遥かに容易である。&lt;/li&gt;
+&lt;li&gt;GUIの作成のための機能に関して、Accessがよりリッチであり、&lt;br&gt;
+直感的にも使用しやすいため。&lt;/li&gt;
+&lt;li&gt;Accessでのツール作成技術の向上のため。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;である。&lt;/p&gt;
+&lt;h2 id=&#34;ツール置き場&#34;&gt;ツール置き場&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/dede-20191130/My_VBA_Tools/tree/master/T0001_02_%E8%A6%8B%E7%A9%8D%E6%9B%B8%E4%BD%9C%E6%88%90%E3%83%84%E3%83%BC%E3%83%AB_AccessVer&#34;&gt;ツールはこちらからダウンロードできます。&lt;br&gt;
+また、ソースコードもこちらに置いてあります。&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
+&lt;p&gt;各画面で、&lt;br&gt;
+あらかじめ設定したマスタデータを選択し、&lt;br&gt;
+テンプレート見積書に設定したデータを挿入する。&lt;/p&gt;
+&lt;p&gt;Excelブック形式で&lt;br&gt;
+見積書を出力する。&lt;/p&gt;
+&lt;p&gt;出力した見積書に使用したデータを保持し、&lt;br&gt;
+再利用できるようにする。&lt;/p&gt;
+&lt;h2 id=&#34;動作環境&#34;&gt;動作環境&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Windows&lt;/li&gt;
+&lt;li&gt;2016以上のOfficeソフトが動作する環境であれば可。&lt;br&gt;
+2013以下のOfficeでも動作する可能性はあります。&lt;br&gt;
+（そこまでの下位Ver.互換性に需要があるかどうかは不明なため、検証はしていません）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;ツール外観各画面紹介&#34;&gt;ツール外観（各画面紹介）&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;[
+
+
+
+
+
+
+&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2021/03/17/create-estm-accessver-tool-screen/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Click To Show Slide Page&lt;/a&gt;
+
+]&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;機能紹介&#34;&gt;機能紹介&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;[
+
+
+
+
+
+
+&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2021/03/24/create-estm-accessver-tool-faculty/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Click To Show Slide Page&lt;/a&gt;
+
+]&lt;/strong&gt;&lt;/p&gt;
+
+        
+      </description>
     </item>
     
     <item>
@@ -22,7 +99,220 @@
       <pubDate>Sat, 13 Feb 2021 22:49:28 +0900</pubDate>
       
       <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/02/13/podcast-history-program/</guid>
-      <description>この記事について 昨年10月くらいから、 ふと歴史を勉強しようと思ってPodcastの歴史系番組をよく聞いていた。 （その時の記事） それぞれの番組</description>
+      <description>
+        
+          
+
+
+
+    &lt;link rel=&#34;stylesheet&#34; href=&#34;https://dede-20191130.github.io/learnerBlog/posts/2021/02/13/podcast-history-program/mycss.css&#34;&gt;&lt;/link&gt;
+
+
+&lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
+&lt;p&gt;昨年10月くらいから、&lt;br&gt;
+ふと歴史を勉強しようと思ってPodcastの歴史系番組をよく聞いていた。&lt;br&gt;
+&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2020/11/03/learn-by-podcast/&#34;&gt;（その時の記事）&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;それぞれの番組に様々な特色があり、&lt;br&gt;
+特に、日本史・世界史をある程度幅広く詳細に学びたい、&lt;br&gt;
+教科書の外の知識が知りたい、&lt;br&gt;
+独特の視点からの語りが聞きたいなどの要望を満たすような番組についても&lt;br&gt;
+だんだんと分かってきた。&lt;/p&gt;
+&lt;p&gt;この記事で、&lt;br&gt;
+それぞれの番組の紹介と、&lt;br&gt;
+特色、網羅範囲、更新頻度などについてまとめて比較し、おすすめについて記したい。&lt;br&gt;
+また、個人的な視点にすぎないが総合評価（S,A,B,C,Dの5段階）についても付記したい。&lt;/p&gt;
+&lt;h2 id=&#34;番組一覧&#34;&gt;番組一覧&lt;/h2&gt;
+&lt;p&gt;並びは私が聞いた順になっている。&lt;/p&gt;
+&lt;h3 id=&#34;世界史に強い番組&#34;&gt;世界史に強い番組&lt;/h3&gt;
+&lt;h4 id=&#34;歴史を面白く学ぶコテンラジオ-coten-radio&#34;&gt;歴史を面白く学ぶコテンラジオ （COTEN RADIO‪）‬&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&#34;https://podcasts.apple.com/jp/podcast/%E6%AD%B4%E5%8F%B2%E3%82%92%E9%9D%A2%E7%99%BD%E3%81%8F%E5%AD%A6%E3%81%B6%E3%82%B3%E3%83%86%E3%83%B3%E3%83%A9%E3%82%B8%E3%82%AA-coten-radio/id1450522865&#34;&gt;&lt;img src=&#34;./01.webp&#34; alt=&#34;&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Clickすると公式にジャンプします。&lt;/p&gt;
+&lt;h5&gt;&lt;span class=&#34;em-txt&#34;&gt;概要&lt;/span&gt;&lt;/h5&gt;
+&lt;p&gt;【公式より】&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;歴史を愛し、歴史を知りすぎてしまった歴史GEEK2人と圧倒的歴史弱者がお届けする歴史インターネットラジオです。
+歴史というレンズを通して「人間とは何か」「私たち現代人の抱える悩み」「世の中の流れ」を痛快に読み解いていく！？
+笑いあり、涙ありの新感覚・歴史キュレーションプログラム！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;題材を一つ決めて、&lt;br&gt;
+それについて起承転結の形で題材を説明して、さらに考察したりする番組。&lt;/p&gt;
+&lt;p&gt;題材は、&lt;br&gt;
+国（ローマ帝国・オスマン帝国）の勃興、&lt;br&gt;
+人物（空海、アレクサンドロス大王）、&lt;br&gt;
+俯瞰的な人類史（通信技術史、金銭・資本経済の歴史）など多岐にわたっている。&lt;/p&gt;
+&lt;h5&gt;&lt;span class=&#34;em-txt&#34;&gt;特徴&lt;/span&gt;&lt;/h5&gt;
+&lt;p&gt;説明役の方がとてもよく勉強していて&lt;br&gt;
+歴史のワンシーンの裏側や、&lt;br&gt;
+歴史の流れにおける人物や出来事の意義についてわかりやすく教えてくれる。&lt;/p&gt;
+&lt;p&gt;また、出演者の三人とも仲が良く遠慮のない感じなのが聞きやすい。&lt;/p&gt;
+&lt;h5&gt;&lt;span class=&#34;em-txt&#34;&gt;網羅範囲&lt;/span&gt;&lt;/h5&gt;
+&lt;p&gt;世界史については古代から近代の大型戦争まで幅広い。&lt;br&gt;
+先に記載したとおり題材の種類も豊富なので飽きることが無い。&lt;/p&gt;
+&lt;p&gt;日本史についてはあまり言及がない。&lt;br&gt;
+多くの番組で取り上げられている戦国時代や江戸時代には触れられていない。&lt;/p&gt;
+&lt;p&gt;意図的に外しているのか、&lt;br&gt;
+近代以降（19世紀後半～21世紀）の話がシリーズとして取り上げられないため、&lt;br&gt;
+それらについて学びたい場合は全く向いていない。&lt;/p&gt;
+&lt;h5&gt;&lt;span class=&#34;em-txt&#34;&gt;更新頻度&lt;/span&gt;&lt;/h5&gt;
+&lt;p&gt;（2021/2/14現在）毎週二度ほど更新されている。&lt;/p&gt;
+&lt;h5&gt;&lt;span class=&#34;em-txt&#34;&gt;個人的なお気に入り&lt;/span&gt;&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;お金の歴史&lt;/li&gt;
+&lt;li&gt;アメリカ史&lt;/li&gt;
+&lt;li&gt;宗教改革&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;&lt;span class=&#34;em-txt&#34;&gt;総合評価&lt;/span&gt;&lt;/h5&gt;
+&lt;p&gt;&lt;span class=&#34;hyoka&#34; style=&#34;color: powderblue;&#34;&gt;S&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;どの題材も面白い。&lt;/p&gt;
+&lt;h4 id=&#34;世界一周チラ見の世界史&#34;&gt;世界一周！チラ見の世界‪史‬&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&#34;https://podcasts.apple.com/jp/podcast/%E4%B8%96%E7%95%8C%E4%B8%80%E5%91%A8-%E3%83%81%E3%83%A9%E8%A6%8B%E3%81%AE%E4%B8%96%E7%95%8C%E5%8F%B2/id619189798&#34;&gt;&lt;img src=&#34;./02.webp&#34; alt=&#34;&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Clickすると公式にジャンプします。&lt;/p&gt;
+&lt;h5&gt;&lt;span class=&#34;em-txt&#34;&gt;概要&lt;/span&gt;&lt;/h5&gt;
+&lt;p&gt;【公式より】&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ここは、世界のどこかにある学校。 今日もここで、ゆるーく世界史の授業が行なわれていました。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;主に地域のローカルな歴史を題材に、&lt;br&gt;
+その地域の興りから現在の状況までをライトに語る番組。&lt;/p&gt;
+&lt;p&gt;私はシリーズの第220話目くらいから聞き始めたが、&lt;br&gt;
+もっと遡ればかなり長い間続けられている番組らしい。&lt;/p&gt;
+&lt;h5&gt;&lt;span class=&#34;em-txt&#34;&gt;特徴&lt;/span&gt;&lt;/h5&gt;
+&lt;p&gt;教科書では決して学ばない、&lt;br&gt;
+セントルシアの歴史やリビアの歴史など&lt;br&gt;
+非西洋の国家についてのお話を聞くことができ、とても興味深い。&lt;/p&gt;
+&lt;p&gt;話のテンポについてはゆっくりめなので、&lt;br&gt;
+なにかしながら聞くのが良いかも知れない。&lt;/p&gt;
+&lt;h5&gt;&lt;span class=&#34;em-txt&#34;&gt;網羅範囲&lt;/span&gt;&lt;/h5&gt;
+&lt;p&gt;世界津々浦々の場所が取り上げられている。&lt;br&gt;
+取り上げられていない場所がないほどに。&lt;/p&gt;
+&lt;h5&gt;&lt;span class=&#34;em-txt&#34;&gt;更新頻度&lt;/span&gt;&lt;/h5&gt;
+&lt;p&gt;（2021/2/14現在）毎月１～２回ほど更新されている。&lt;/p&gt;
+&lt;h5&gt;&lt;span class=&#34;em-txt&#34;&gt;個人的なお気に入り&lt;/span&gt;&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;南アフリカ共和国の歴史&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;&lt;span class=&#34;em-txt&#34;&gt;総合評価&lt;/span&gt;&lt;/h5&gt;
+&lt;p&gt;&lt;span class=&#34;hyoka&#34; style=&#34;color: powderblue;&#34;&gt;B&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;話のテンポが物足りないのでBとしたが、&lt;br&gt;
+もしマイナーな国家の歴史にもっと興味がある人にとってはSだと思う。&lt;/p&gt;
+&lt;h4 id=&#34;オカモトの歴史実況中継&#34;&gt;オカモトの歴史実況中‪継‬&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&#34;https://podcasts.apple.com/jp/podcast/%E3%82%AA%E3%82%AB%E3%83%A2%E3%83%88%E3%81%AE%E6%AD%B4%E5%8F%B2%E5%AE%9F%E6%B3%81%E4%B8%AD%E7%B6%99/id1498835161&#34;&gt;&lt;img src=&#34;./03.webp&#34; alt=&#34;&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Clickすると公式にジャンプします。&lt;/p&gt;
+&lt;h5&gt;&lt;span class=&#34;em-txt&#34;&gt;概要&lt;/span&gt;&lt;/h5&gt;
+&lt;p&gt;【公式より】&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;何かの歴史のトピックについてゆっくり解説していきます。世界史メインです。
+音声はYouTubeからの抜粋です。YouTubeでは字幕、図表説明付きです。
+ご興味ある方は、「オカモトの歴史実況中継」で検索、もしくはhttps://www.youtube.com/channel/UCRxy9UBpMq5t09RQVFQAKnQからどうぞ。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;世界史の中でもメジャーで意義の深いテーマ（中国史、第一次世界大戦など）を扱っている。&lt;/p&gt;
+&lt;h5&gt;&lt;span class=&#34;em-txt&#34;&gt;特徴&lt;/span&gt;&lt;/h5&gt;
+&lt;p&gt;ラジオ出演者が一人で、テンポ良い語りで学ぶことができるので、時間を有効活用した気分になれる。
+題材こそメジャーだけど、&lt;br&gt;
+教科書に記載されないような事の経緯や事件の影響を教えてくれるので、&lt;br&gt;
+しっかりと聞けば自分も人に教えられるような知識が身につくのではないかと思う。&lt;/p&gt;
+&lt;h5&gt;&lt;span class=&#34;em-txt&#34;&gt;網羅範囲&lt;/span&gt;&lt;/h5&gt;
+&lt;p&gt;内容はほぼ世界史に限られている。&lt;br&gt;
+また、西洋史・イスラム史に関わるようなシリーズが多いように感じる。&lt;/p&gt;
+&lt;h5&gt;&lt;span class=&#34;em-txt&#34;&gt;更新頻度&lt;/span&gt;&lt;/h5&gt;
+&lt;p&gt;（2021/2/14現在）毎週二度ほど更新されている。&lt;/p&gt;
+&lt;h5&gt;&lt;span class=&#34;em-txt&#34;&gt;個人的なお気に入り&lt;/span&gt;&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;ざっくり中国史&lt;/li&gt;
+&lt;li&gt;第一次世界大戦&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;&lt;span class=&#34;em-txt&#34;&gt;総合評価&lt;/span&gt;&lt;/h5&gt;
+&lt;p&gt;&lt;span class=&#34;hyoka&#34; style=&#34;color: powderblue;&#34;&gt;S&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;今後は日本史の題材も取り扱ってほしい。&lt;/p&gt;
+&lt;h3 id=&#34;日本史に強い番組&#34;&gt;日本史に強い番組&lt;/h3&gt;
+&lt;h4 id=&#34;mook-study日本の歴史ムックスタディー-日本の歴史&#34;&gt;“MOOK STUDY”日本の歴史（ムックスタディー 日本の歴史‪）‬&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&#34;https://podcasts.apple.com/jp/podcast/mook-study-%E6%97%A5%E6%9C%AC%E3%81%AE%E6%AD%B4%E5%8F%B2-%E3%83%A0%E3%83%83%E3%82%AF%E3%82%B9%E3%82%BF%E3%83%87%E3%82%A3%E3%83%BC-%E6%97%A5%E6%9C%AC%E3%81%AE%E6%AD%B4%E5%8F%B2/id1348710563&#34;&gt;&lt;img src=&#34;./04.webp&#34; alt=&#34;&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Clickすると公式にジャンプします。&lt;/p&gt;
+&lt;h5&gt;&lt;span class=&#34;em-txt&#34;&gt;概要&lt;/span&gt;&lt;/h5&gt;
+&lt;p&gt;【公式より】&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;日本史が詳しい算命干支学マクトゥーブス代表の廣瀬真一が、日本史は好きだけどあまり詳しくない写真家で番組ディレクターのオガワブンゴに教えていく形で番組を進行していきます。日本史に出て来る登場人物や出来事を中心に進めていきますので、「日本史をもう一度おさらいしたい」「日本史に興味がある」という方にオススメです。日本史に興味を持つ人が一人でも増えれば嬉しいなと思ってます！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;人物史をもとに、&lt;br&gt;
+その人物の生きた時代を俯瞰的に説明してくれる番組。&lt;/p&gt;
+&lt;h5&gt;&lt;span class=&#34;em-txt&#34;&gt;特徴&lt;/span&gt;&lt;/h5&gt;
+&lt;p&gt;非常に落ち着いた雰囲気の番組で、&lt;br&gt;
+静かな気持ちで歴史の面白さにどっぷりと浸ることができる。&lt;/p&gt;
+&lt;p&gt;古今問わずさまざまな人物を扱っているのも良い。&lt;/p&gt;
+&lt;h5&gt;&lt;span class=&#34;em-txt&#34;&gt;網羅範囲&lt;/span&gt;&lt;/h5&gt;
+&lt;p&gt;戦国・江戸時代の人物が多め。&lt;br&gt;
+とはいえ、&lt;br&gt;
+その粒度はかなり細かいため、飽きることなく聞ける。&lt;/p&gt;
+&lt;h5&gt;&lt;span class=&#34;em-txt&#34;&gt;更新頻度&lt;/span&gt;&lt;/h5&gt;
+&lt;p&gt;（2021/2/14現在）毎月一回ほど更新されている。&lt;/p&gt;
+&lt;h5&gt;&lt;span class=&#34;em-txt&#34;&gt;個人的なお気に入り&lt;/span&gt;&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;島津斉彬&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;&lt;span class=&#34;em-txt&#34;&gt;総合評価&lt;/span&gt;&lt;/h5&gt;
+&lt;p&gt;&lt;span class=&#34;hyoka&#34; style=&#34;color: powderblue;&#34;&gt;A&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;戦後混乱期・高度経済成長期の人物なども扱ってほしい。&lt;/p&gt;
+&lt;h4 id=&#34;ながら日本史&#34;&gt;ながら日本‪史‬&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&#34;https://podcasts.apple.com/jp/podcast/%E3%81%AA%E3%81%8C%E3%82%89%E6%97%A5%E6%9C%AC%E5%8F%B2/id1517828890&#34;&gt;&lt;img src=&#34;./05.webp&#34; alt=&#34;&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Clickすると公式にジャンプします。&lt;/p&gt;
+&lt;h5&gt;&lt;span class=&#34;em-txt&#34;&gt;概要&lt;/span&gt;&lt;/h5&gt;
+&lt;p&gt;【公式より】&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;複雑な歴史もみるみるわかる。 暗いニュースを断ち切り、心も体も疲れ切っている現代人の「心に灯りをともす」をコンセプトにした歴史エンタメメディア『ほのぼの日本史』の音声verです。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;有名な戦国武将・将軍の秘められたエピソードを語っている番組。&lt;/p&gt;
+&lt;h5&gt;&lt;span class=&#34;em-txt&#34;&gt;特徴&lt;/span&gt;&lt;/h5&gt;
+&lt;p&gt;実は織田信長のあの合戦は〇〇だった！？&lt;br&gt;
+明智光秀の本能寺焼きの理由は〇〇だった！？など&lt;br&gt;
+興味を惹かれるタイトルが多く、&lt;br&gt;
+内容もタイトルのインパクトに劣らない詳細で面白い話を聞くことができる。&lt;/p&gt;
+&lt;h5&gt;&lt;span class=&#34;em-txt&#34;&gt;網羅範囲&lt;/span&gt;&lt;/h5&gt;
+&lt;p&gt;戦国初期～幕末までが圧倒的に多い。&lt;br&gt;
+たまに変化球的に卑弥呼の話などがはさまれる。&lt;/p&gt;
+&lt;h5&gt;&lt;span class=&#34;em-txt&#34;&gt;更新頻度&lt;/span&gt;&lt;/h5&gt;
+&lt;p&gt;（2021/2/14現在）毎週７～８話ほど更新されている。&lt;br&gt;
+更新頻度がとても早い。&lt;/p&gt;
+&lt;h5&gt;&lt;span class=&#34;em-txt&#34;&gt;個人的なお気に入り&lt;/span&gt;&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;明智光秀関連の話&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;&lt;span class=&#34;em-txt&#34;&gt;総合評価&lt;/span&gt;&lt;/h5&gt;
+&lt;p&gt;&lt;span class=&#34;hyoka&#34; style=&#34;color: powderblue;&#34;&gt;S&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;更新頻度が早すぎて、なかなかすべては追えないのが大変なところ。&lt;/p&gt;
+&lt;h4 id=&#34;ラジレキ学び直し日本史総復習編&#34;&gt;ラジレキ～学び直し！日本史総復習編‪～‬&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&#34;https://podcasts.apple.com/jp/podcast/%E3%83%A9%E3%82%B8%E3%83%AC%E3%82%AD-%E5%AD%A6%E3%81%B3%E7%9B%B4%E3%81%97-%E6%97%A5%E6%9C%AC%E5%8F%B2%E7%B7%8F%E5%BE%A9%E7%BF%92%E7%B7%A8/id1530279506&#34;&gt;&lt;img src=&#34;./06.webp&#34; alt=&#34;&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Clickすると公式にジャンプします。&lt;/p&gt;
+&lt;h5&gt;&lt;span class=&#34;em-txt&#34;&gt;概要&lt;/span&gt;&lt;/h5&gt;
+&lt;p&gt;【公式より】&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;このPodcast番組は、本体のラジレキとは別に日本史を時系列的に学ぶサブチャンネルです。このサブチャンネルの各エピソードは、概要、本編、おさらい、次回予告という４つのパートで構成されています。各エピソードを聞いて、より興味をもったら、メインチャンネルのラジレキの関連エピソードもぜひ聞いてください。
+関連エピソードの詳細は、このサブチャンネルの各エピソードのページや、日本史総復習編noteなどに纏めてあります。
+また、ラジレキTwitterアカウントでは、皆さんの感想や質問を募集しています。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;日本史をはじめから終わりまで、&lt;br&gt;
+初歩的な知識に焦点を当てて語っている番組。&lt;/p&gt;
+&lt;h5&gt;&lt;span class=&#34;em-txt&#34;&gt;特徴&lt;/span&gt;&lt;/h5&gt;
+&lt;p&gt;本当に初歩的な部分をしっかりと学べるので、&lt;br&gt;
+歴史にそこまで詳しくない私のような人にとっては&lt;br&gt;
+知識を今一度固められるとても良い番組だった。&lt;/p&gt;
+&lt;h5&gt;&lt;span class=&#34;em-txt&#34;&gt;網羅範囲&lt;/span&gt;&lt;/h5&gt;
+&lt;p&gt;古代（縄文時代）～　現代（第二次世界大戦後）まで。&lt;/p&gt;
+&lt;h5&gt;&lt;span class=&#34;em-txt&#34;&gt;更新頻度&lt;/span&gt;&lt;/h5&gt;
+&lt;p&gt;（2021/2/14現在）更新は停止しているようです。&lt;/p&gt;
+&lt;h5&gt;&lt;span class=&#34;em-txt&#34;&gt;個人的なお気に入り&lt;/span&gt;&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;特になし&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;&lt;span class=&#34;em-txt&#34;&gt;総合評価&lt;/span&gt;&lt;/h5&gt;
+&lt;p&gt;&lt;span class=&#34;hyoka&#34; style=&#34;color: powderblue;&#34;&gt;B&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;次は世界史についてざっくりと語ってほしい。&lt;/p&gt;
+&lt;h2 id=&#34;終わりに&#34;&gt;終わりに&lt;/h2&gt;
+&lt;p&gt;他にもPodcastに&lt;br&gt;
+いろいろな歴史番組があるかと思う。&lt;/p&gt;
+&lt;p&gt;面白そうなものを見つけたら随時この記事を更新していきたい。&lt;/p&gt;
+
+        
+      </description>
     </item>
     
     <item>
@@ -31,7 +321,248 @@
       <pubDate>Sat, 13 Feb 2021 11:32:30 +0900</pubDate>
       
       <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/02/13/copyto-merged-cell/</guid>
-      <description>この記事について Excelにおいて 通常セルから結合セルに対してコピーすると、 「結合セルにこの操作は行えません」という警告がされ貼り付けができ</description>
+      <description>
+        
+          &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
+&lt;p&gt;Excelにおいて&lt;br&gt;
+通常セルから結合セルに対してコピーすると、&lt;br&gt;
+「結合セルにこの操作は行えません」という警告がされ貼り付けができない。&lt;/p&gt;
+&lt;p&gt;例えば下記画像の12列の「西川～竹田」を&lt;br&gt;
+表のname列に貼り付けしようとしてもエラーとなる。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./image01.png&#34; alt=&#34;貼り付けエラー01&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./image02.png&#34; alt=&#34;貼り付けエラー02&#34;&gt;&lt;/p&gt;
+&lt;p&gt;これを回避するには、&lt;br&gt;
+コピー元セルも同じ結合様式にする（コピー先が2行3列の結合セルならば元のセルも2行3列にする）、&lt;br&gt;
+あるいは 
+
+&lt;span style=&#34;color: #fb9700;&#34;&gt;
+    VBAマクロにより機能を追加する
+&lt;/span&gt; 他には方法がなさそうなので、&lt;br&gt;
+マクロを作成することにした。&lt;/p&gt;
+&lt;h2 id=&#34;作成環境&#34;&gt;作成環境&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;windows10&lt;/li&gt;
+&lt;li&gt;MSOffice 2016&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;要件&#34;&gt;要件&lt;/h2&gt;
+&lt;p&gt;コピーしたいセル（コピー元）をクリップボードにコピーしたあとに実行して、&lt;br&gt;
+選択中のセル（コピー先）に貼り付けしたい。&lt;/p&gt;
+&lt;p&gt;コピー元、コピー先ともに、どのような結合様式でも貼り付けできるようにする。&lt;/p&gt;
+&lt;p&gt;結合セルを取り込む際に、&lt;br&gt;
+結合している左上のセル以外は空欄であるため、&lt;br&gt;
+空欄のみの部分は除外できるようにしたい。&lt;/p&gt;
+&lt;h2 id=&#34;処理フロー&#34;&gt;処理フロー&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;./flow/%E5%87%A6%E7%90%86%E3%83%95%E3%83%AD%E3%83%BC.svg&#34; alt=&#34;処理フロー&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;コード&#34;&gt;コード&lt;/h2&gt;
+&lt;h3 id=&#34;結合セルにコピーsubプロシージャ&#34;&gt;「結合セルにコピー」Subプロシージャ&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt;  1&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;  2&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*機能      ：結合セルにコピーする
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;  3&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;               コピー元は通常セルでも結合セルでも可
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;  4&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*引数      ：
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;  5&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;  6&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;結合セルにコピー&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;  7&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;  8&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;定数
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;  9&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Const&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;結合セルにコピー&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 10&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 11&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;変数
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 12&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Variant&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 13&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;row&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Long&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;row&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 14&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;col&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Long&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;col&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 15&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dicIgnoreRow&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Object&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dicIgnoreRow&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;CreateObject&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Scripting.Dictionary&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 16&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dicIgnoreCol&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Object&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dicIgnoreCol&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;CreateObject&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Scripting.Dictionary&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 17&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 18&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;On&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Error&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ErrorHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 19&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt; 20&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;テキスト形式であるかチェック
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 21&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Application&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ClipboardFormats&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;xlClipboardFormatText&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;MsgBox&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;クリップボードのデータがテキストではありません。&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbExclamation&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 22&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt; 23&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;1 - クリップボードから配列にデータを移す
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 24&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;       vbNewLineを行区切り、
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 25&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;       vbTabを列区切りとして、
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 26&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;       二次元配列に格納する
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 27&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;With&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;CreateObject&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;new:{1C3B4210-F441-11CE-B9EA-00AA006B1A69}&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 28&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt; 29&lt;/span&gt;        &lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;GetFromClipboard&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 30&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;d&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 31&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;ReDim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;To&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;To&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 32&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;For&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Each&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;c&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;In&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Split&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;GetText&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbNewLine&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 33&lt;/span&gt;            &lt;span class=&#34;n&#34;&gt;row&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;row&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 34&lt;/span&gt;            &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;row&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;redimPreserveFor1stDimension&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;row&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 35&lt;/span&gt;            &lt;span class=&#34;c&#34;&gt;&amp;#39;currentCol:現在格納の対象とする列インデックス
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 36&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;            &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;currentCol&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Long&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;currentCol&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 37&lt;/span&gt;            &lt;span class=&#34;k&#34;&gt;For&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Each&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;d&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;In&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Split&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbTab&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 38&lt;/span&gt;                &lt;span class=&#34;n&#34;&gt;currentCol&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;currentCol&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 39&lt;/span&gt;                &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;currentCol&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;col&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 40&lt;/span&gt;                    &lt;span class=&#34;n&#34;&gt;col&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;col&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 41&lt;/span&gt;                    &lt;span class=&#34;k&#34;&gt;ReDim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Preserve&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;To&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;row&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;To&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;col&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 42&lt;/span&gt;                &lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 43&lt;/span&gt;                &lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;row&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;currentCol&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Trim&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;d&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 44&lt;/span&gt;            &lt;span class=&#34;k&#34;&gt;Next&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;d&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 45&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;Next&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;c&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 46&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;With&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 47&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 48&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;2 - 空欄のみの行、空欄のみの列を記録し、
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 49&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;貼り付けする際に除外する
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 50&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 51&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;行の除外チェック
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 52&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Long&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 53&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;isIgnore&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Boolean&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 54&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;For&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;To&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;UBound&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 55&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;isIgnore&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;True&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 56&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;For&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;To&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;UBound&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 57&lt;/span&gt;            &lt;span class=&#34;c&#34;&gt;&amp;#39;対象要素が空欄でなければその行は貼り付けから除外しない
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 58&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;            &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Trim&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;isIgnore&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;False&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;For&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 59&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;Next&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 60&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;isIgnore&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dicIgnoreRow&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Add&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;True&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 61&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Next&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 62&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;列の除外チェック
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 63&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;For&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;To&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;UBound&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 64&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;isIgnore&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;True&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 65&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;For&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;To&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;UBound&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 66&lt;/span&gt;            &lt;span class=&#34;c&#34;&gt;&amp;#39;対象要素が空欄でなければその列は貼り付けから除外しない
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 67&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;            &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Trim&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;isIgnore&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;False&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;For&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 68&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;Next&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 69&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;isIgnore&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dicIgnoreCol&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Add&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;True&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 70&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Next&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 71&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 72&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;3 - 選択しているセルを起点として配列を貼付する
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 73&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;k&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;l&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Long&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 74&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;r&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;tmp&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Range&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 75&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;r&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Selection&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 76&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;For&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;k&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;To&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;UBound&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Do&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 77&lt;/span&gt;        &lt;span class=&#34;c&#34;&gt;&amp;#39;除外する行ならばcontinueする
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 78&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dicIgnoreRow&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;exists&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;k&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Do&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 79&lt;/span&gt;        &lt;span class=&#34;c&#34;&gt;&amp;#39;現在のアドレスの範囲を保持
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 80&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;Set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;tmp&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;r&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 81&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt; 82&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;For&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;l&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;To&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;UBound&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Do&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 83&lt;/span&gt;            &lt;span class=&#34;c&#34;&gt;&amp;#39;除外する列ならばcontinueする
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 84&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;            &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dicIgnoreCol&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;exists&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;l&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Do&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 85&lt;/span&gt;            &lt;span class=&#34;c&#34;&gt;&amp;#39;貼り付け
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 86&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;            &lt;span class=&#34;n&#34;&gt;r&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;k&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;l&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 87&lt;/span&gt;            &lt;span class=&#34;c&#34;&gt;&amp;#39;貼り付け先を一つ右の列に移す
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 88&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;            &lt;span class=&#34;k&#34;&gt;Set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;r&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;r&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Offset&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 89&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;Loop&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;While&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;False&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Next&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;l&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 90&lt;/span&gt;        &lt;span class=&#34;c&#34;&gt;&amp;#39;貼り付け先を一つ下の行に移す
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 91&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;Set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;r&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;tmp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Offset&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 92&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Loop&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;While&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;False&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Next&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;k&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 93&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 94&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;Application&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;CutCopyMode&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;False&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 95&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 96&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 97&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 98&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 99&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;100&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;ErrorHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;101&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;102&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;MsgBox&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;エラーが発生したため、マクロを終了します。&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;103&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;104&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;関数名：&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;105&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;106&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;エラー番号：&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Number&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbNewLine&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;107&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Description&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbCritical&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;マクロ&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;108&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;109&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;110&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;111&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;112&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;redimpreservefor1stdimensionfunctionプロシージャ&#34;&gt;「redimPreserveFor1stDimension」Functionプロシージャ&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*機能      ：Redim Preserveステートメントの拡張
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;               通常、二次元配列に対して
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;               Redim Preserveステートメントは1次元目の要素数を変更できないため、
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;               この関数を代わりに用いる
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*引数      ：対象配列
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*引数      ：一次元目の要素数の上限
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*戻り値    ：True &amp;gt; 正常終了、False &amp;gt; 異常終了
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;redimPreserveFor1stDimension&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ByVal&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Variant&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;ByVal&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sLen&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Long&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Variant&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;定数
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Const&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;redimPreserveFor1stDimension&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;変数
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;tspsedArr&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Variant&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;On&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Error&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Resume&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Next&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;transposeにより対象配列を転置
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;tspsedArr&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;WorksheetFunction&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Transpose&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;二次元目を引数の長さまでRedimする（- A）
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;ReDim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Preserve&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;tspsedArr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;To&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;UBound&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tspsedArr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;To&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sLen&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;redimPreserveFor1stDimension&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;WorksheetFunction&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Transpose&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tspsedArr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;(1 * N)行列を転置すると二次元目が消えて一次元の配列になるため、
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;（- A）の箇所でエラーになる
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;その場合は代わりに下記のように処理を行う
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Number&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;9&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;newArr&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Variant&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;32&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Long&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;33&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Clear&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;34&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;On&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Error&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ErrorHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;35&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;ReDim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;newArr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;To&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;UBound&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;To&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;36&lt;/span&gt;        &lt;span class=&#34;c&#34;&gt;&amp;#39;既存の値を反映する
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;37&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;For&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;To&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;UBound&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;38&lt;/span&gt;            &lt;span class=&#34;n&#34;&gt;newArr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;39&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;Next&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;40&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;redimPreserveFor1stDimension&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;newArr&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;41&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;42&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;43&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;44&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;45&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Function&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;46&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;47&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;ErrorHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;48&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;49&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;MsgBox&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;エラーが発生したため、マクロを終了します。&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;50&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;51&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;関数名：&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;52&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;53&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;エラー番号：&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Number&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbNewLine&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;54&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Description&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbCritical&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;マクロ&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;55&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;56&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;57&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;58&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Function&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;アドインに登録&#34;&gt;アドインに登録&lt;/h2&gt;
+&lt;p&gt;下記のように、&lt;br&gt;
+マクロをアドインに登録して&lt;br&gt;
+ワンクリックで呼び出せるようにすると使いやすい。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./image03.png&#34; alt=&#34;アドインに登録&#34;&gt;&lt;/p&gt;
+&lt;p&gt;アドインの登録方法については&lt;br&gt;
+こちらのサイト様の詳細な記事が参考になる。&lt;br&gt;
+&lt;a href=&#34;https://excel-ubara.com/excelvba4/EXCEL297.html&#34;&gt;Excelアドインの作成と登録について｜VBA技術解説&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;使用方法&#34;&gt;使用方法&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;コピーしたい範囲をコピーする。&lt;/li&gt;
+&lt;li&gt;貼り付けしたい範囲の左上のセルを選択する。&lt;/li&gt;
+&lt;li&gt;関数を実行する。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;デモ&#34;&gt;デモ&lt;/h2&gt;
+&lt;h3 id=&#34;i-通常セルから結合セルにコピー&#34;&gt;(i) 通常セルから結合セルにコピー&lt;/h3&gt;
+&lt;p&gt;下記のように、&lt;br&gt;
+西川～竹田をctrl + cなどでコピーした後に&lt;br&gt;
+表のNo5のname列を選択状態で関数実行し、&lt;br&gt;
+name列にコピペできる。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./image04.png&#34; alt=&#34;関数実行前&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./image05.png&#34; alt=&#34;関数実行後&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;ii-結合セルから通常セルにコピー&#34;&gt;(ii) 結合セルから通常セルにコピー&lt;/h3&gt;
+&lt;p&gt;下記のように&lt;br&gt;
+表のNo1～No4のaddress列のデータを青色部分セルにコピペできる。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./image06.png&#34; alt=&#34;関数実行前&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./image07.png&#34; alt=&#34;関数実行後&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;iii-結合セルから結合セルにコピー&#34;&gt;(iii) 結合セルから結合セルにコピー&lt;/h3&gt;
+&lt;p&gt;結合セル同士でも問題なく処理可能。&lt;/p&gt;
+&lt;p&gt;下記のように&lt;br&gt;
+オレンジ色部分の住所を、&lt;br&gt;
+表のNo5～No7のaddress列にコピペできる。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./image08.png&#34; alt=&#34;関数実行前&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./image09.png&#34; alt=&#34;関数実行後&#34;&gt;&lt;/p&gt;
+
+        
+      </description>
     </item>
     
     <item>
@@ -40,7 +571,104 @@
       <pubDate>Fri, 12 Feb 2021 23:23:50 +0900</pubDate>
       
       <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/02/12/python-note-01/</guid>
-      <description>About ストレージから移したファイル区分けのために久しぶりにPythonスクリプトを組んだ。 忘備録ついでに記したい。 Pythonは自由度が高いし I</description>
+      <description>
+        
+          &lt;h2 id=&#34;about&#34;&gt;About&lt;/h2&gt;
+&lt;p&gt;ストレージから移したファイル区分けのために久しぶりにPythonスクリプトを組んだ。&lt;br&gt;
+忘備録ついでに記したい。&lt;/p&gt;
+&lt;p&gt;Pythonは自由度が高いし&lt;br&gt;
+IDEでの補完機能が弱い（動的型付けなので仕方ないが）ことを除けば、&lt;br&gt;
+扱っていて楽しい言語だと思う。&lt;/p&gt;
+&lt;h2 id=&#34;環境&#34;&gt;環境&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Windows10&lt;/li&gt;
+&lt;li&gt;Python 3.7.3&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;用途&#34;&gt;用途&lt;/h2&gt;
+&lt;p&gt;10000個程度ある画像ファイルを名前順でソートして別のフォルダにコピーする。&lt;br&gt;
+移す際にサブフォルダを作成し、数百個ずつくらいの組にして仕分けする。&lt;/p&gt;
+&lt;p&gt;各画像ファイルのファイル名が1.jpg~12000.jpg(.png or .mov)などで規則的だったので&lt;br&gt;
+名前順でソートすることにした。&lt;/p&gt;
+&lt;h2 id=&#34;コード&#34;&gt;コード&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# FileName:fileSorting.py&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;glob&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;os&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;shutil&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;kn&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;win10toast&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ToastNotifier&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;():&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;isSuccess&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;try&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;mySrcPath&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;sa&#34;&gt;r&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;C:\tmp\20210211\src&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;myDestpath&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;sa&#34;&gt;r&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;C:\tmp\20210211\dst&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;movedFileList&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;        &lt;span class=&#34;c1&#34;&gt;# 指定フォルダ直下のすべてのファイルをListに取得&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;        &lt;span class=&#34;c1&#34;&gt;# ファイルの名前（6桁ゼロ埋め）でソート&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;os&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;path&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;isdir&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;mySrcPath&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;            &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;file&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;sorted&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;                    &lt;span class=&#34;n&#34;&gt;glob&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;glob&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;mySrcPath&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\\&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;*&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;recursive&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;False&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;                    &lt;span class=&#34;n&#34;&gt;key&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;lambda&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;my_file&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;os&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;path&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;splitext&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;os&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;path&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;basename&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;my_file&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;zfill&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;            &lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;                &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;os&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;path&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;isfile&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;file&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;                    &lt;span class=&#34;n&#34;&gt;movedFileList&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;append&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;file&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;            &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;No Directory&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;            &lt;span class=&#34;n&#34;&gt;exit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;currentDirNum&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;        &lt;span class=&#34;c1&#34;&gt;# 200個ずつ区分け&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;32&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;bundleNum&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;200&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;33&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;imgNum&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;len&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;movedFileList&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;34&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;stt&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;35&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;end&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;36&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;37&lt;/span&gt;        &lt;span class=&#34;c1&#34;&gt;# currentDirNumの番号通りの名前のサブフォルダを作成し、bundleNum個ずつファイルをコピーして格納する&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;38&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;imgNum&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;bundleNum&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;39&lt;/span&gt;            &lt;span class=&#34;n&#34;&gt;end&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;bundleNum&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;40&lt;/span&gt;            &lt;span class=&#34;n&#34;&gt;newList&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;movedFileList&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;stt&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;end&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;41&lt;/span&gt;            &lt;span class=&#34;n&#34;&gt;stt&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;bundleNum&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;42&lt;/span&gt;            &lt;span class=&#34;n&#34;&gt;dst&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;myDestpath&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\\&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;str&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;currentDirNum&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;43&lt;/span&gt;            &lt;span class=&#34;n&#34;&gt;os&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;makedirs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dst&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;44&lt;/span&gt;            &lt;span class=&#34;n&#34;&gt;currentDirNum&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;45&lt;/span&gt;            &lt;span class=&#34;c1&#34;&gt;# # 指定出力先フォルダにコピー&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;46&lt;/span&gt;            &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;shutil&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;copy2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;os&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;path&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;abspath&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;file2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dst&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;file2&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;newList&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;47&lt;/span&gt;            &lt;span class=&#34;n&#34;&gt;imgNum&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;bundleNum&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;48&lt;/span&gt;        &lt;span class=&#34;c1&#34;&gt;# 残余分のファイルをコピー&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;49&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;newList&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;movedFileList&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;end&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:]&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;50&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;newList&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;51&lt;/span&gt;            &lt;span class=&#34;n&#34;&gt;dst&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;myDestpath&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\\&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;str&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;currentDirNum&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;52&lt;/span&gt;            &lt;span class=&#34;n&#34;&gt;os&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;makedirs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dst&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;53&lt;/span&gt;            &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;shutil&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;copy2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;os&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;path&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;abspath&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;file2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dst&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;file2&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;newList&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;54&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;55&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;except&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;56&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;isSuccess&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;False&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;57&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;58&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;finally&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;59&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;toast&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ToastNotifier&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;60&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;isSuccess&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;61&lt;/span&gt;            &lt;span class=&#34;n&#34;&gt;toast&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;show_toast&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;処理完了&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;62&lt;/span&gt;                             &lt;span class=&#34;s2&#34;&gt;&amp;#34;ファイルまとめが完了しました。&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;63&lt;/span&gt;                             &lt;span class=&#34;n&#34;&gt;icon_path&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;None&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;64&lt;/span&gt;                             &lt;span class=&#34;n&#34;&gt;duration&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;65&lt;/span&gt;                             &lt;span class=&#34;n&#34;&gt;threaded&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;66&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;67&lt;/span&gt;            &lt;span class=&#34;n&#34;&gt;toast&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;show_toast&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;処理エラー&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;68&lt;/span&gt;                             &lt;span class=&#34;s2&#34;&gt;&amp;#34;正常に終了しませんでした。&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;69&lt;/span&gt;                             &lt;span class=&#34;n&#34;&gt;icon_path&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;None&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;70&lt;/span&gt;                             &lt;span class=&#34;n&#34;&gt;duration&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;71&lt;/span&gt;                             &lt;span class=&#34;n&#34;&gt;threaded&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;72&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;73&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;74&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;vm&#34;&gt;__name__&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;75&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;Main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;76&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+        
+      </description>
     </item>
     
   </channel>

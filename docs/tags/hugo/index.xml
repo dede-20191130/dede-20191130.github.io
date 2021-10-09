@@ -13,7 +13,81 @@
       <pubDate>Tue, 17 Nov 2020 10:00:34 +0900</pubDate>
       
       <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/17/script-hugo-commit/</guid>
-      <description>この記事について Hugoによるブログ記事作成のデプロイまでの流れ このブログはHugoという静的サイトジェネレータで管理している。 デプロイ先は</description>
+      <description>
+        
+          &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
+&lt;h3 id=&#34;hugoによるブログ記事作成のデプロイまでの流れ&#34;&gt;Hugoによるブログ記事作成のデプロイまでの流れ&lt;/h3&gt;
+&lt;p&gt;このブログはHugoという静的サイトジェネレータで管理している。&lt;br&gt;
+デプロイ先は、&lt;br&gt;
+GitHub Pagesという、GitHubに対して静的なウェブサイトをホスティングできるサービス。&lt;/p&gt;
+&lt;p&gt;大まかにはこのような流れ。&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: lower-roman&#34;&gt;
+  &lt;li&gt;Hugoの記事ファイル等を作成・編集する。&lt;/li&gt;
+  &lt;li&gt;hugoコマンドを用いてhtmlファイル等を自動生成する。&lt;/li&gt;
+  &lt;li&gt;gitでコミットする。&lt;/li&gt;
+  &lt;li&gt;GitHubのリポジトリにプッシュして&lt;br&gt;ブログを公開する。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;コマンドの実行やファイルの管理のターミナルは&lt;br&gt;
+&lt;i&gt;git bash&lt;/i&gt;を使用している。&lt;/p&gt;
+&lt;h3 id=&#34;コミットメッセージは必要か&#34;&gt;コミットメッセージは必要か？&lt;/h3&gt;
+&lt;p&gt;このとき、&lt;br&gt;
+hugoコマンドで生成するファイルに&lt;br&gt;
+いちいち丁寧なコミットメッセージをつけたりする必要が無いんじゃないかと思いはじめた。&lt;br&gt;
+（自動生成されたファイルの整理や変更、ましてやタイプミスやバグ修正などは全く必要ないため。それらはJavascriptファイルや記事ファイルのほうで対応する）&lt;/p&gt;
+&lt;p&gt;一人で運用する分には、&lt;br&gt;
+コミットメッセージはすべて「Hugo」で構わないように思える&lt;br&gt;
+（多人数で運用するウェブサイトはちょっと工夫がいるかも知れないけど）。&lt;/p&gt;
+&lt;p&gt;よって、Hugoのコマンド実行の準備からコミットまでの一連の流れを一括処理できる&lt;br&gt;
+シェルスクリプトを作成した。&lt;/p&gt;
+&lt;h2 id=&#34;前提&#34;&gt;前提&lt;/h2&gt;
+&lt;p&gt;記事を作成・編集し、hugoコマンドを実行する前&lt;/p&gt;
+&lt;h2 id=&#34;作成環境&#34;&gt;作成環境&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Windows10&lt;/li&gt;
+&lt;li&gt;git version 2.29.2.windows.2&lt;/li&gt;
+&lt;li&gt;Hugo Static Site Generator v0.76.0/extended windows/amd64&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;コードとその内容&#34;&gt;コードとその内容&lt;/h2&gt;
+&lt;h3 id=&#34;コード&#34;&gt;コード&lt;/h3&gt;
+&lt;p&gt;git bashの環境設定ファイル（.bashrc あるいは.bash_profile）に&lt;br&gt;
+下記のように記入する。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# エイリアス&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;alias&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;ga&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;git add &amp;#39;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;alias&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;gc&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;git commit&amp;#39;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# gitのrootディレクトリ位置に戻る&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; groot&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;  &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; git rev-parse --is-inside-work-tree &amp;gt; /dev/null 2&amp;gt;&lt;span class=&#34;p&#34;&gt;&amp;amp;&lt;/span&gt;1&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;    &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; &lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;pwd&lt;/span&gt;&lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;/&lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;git rev-parse --show-cdup&lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;  &lt;span class=&#34;k&#34;&gt;fi&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# コミットまでの一括処理&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; hugo_commit&lt;span class=&#34;o&#34;&gt;(){&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;  groot
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;  hugo
+&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;  ga ./docs
+&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;  gc -m &lt;span class=&#34;s1&#34;&gt;&amp;#39;hugo&amp;#39;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;groot関数&#34;&gt;groot関数&lt;/h3&gt;
+&lt;p&gt;hugoコマンドを実行するためには、&lt;br&gt;
+一度git管理ディレクトリツリーのrootディレクトリに戻らなければならない。&lt;/p&gt;
+&lt;p&gt;そのためgroot関数を実行し、戻る。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://qiita.com/ponko2/items/d5f45b2cf2326100cdbc&#34;&gt;こちらの記事を参考にしました（LINK）&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;github-pagesのプロジェクトページについて&#34;&gt;GitHub Pagesのプロジェクトページについて&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;ga ./docs
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;GitHub Pagesの静的ウェブサイトデプロイ方法には&lt;br&gt;
+ユーザーページとプロジェクトページの二種類が存在する（私が採用しているのは後者）。&lt;/p&gt;
+&lt;p&gt;プロジェクトページでは、設定したブランチの直下のdocsディレクトリを公開対象とするので、&lt;br&gt;
+Hugoのconfigファイルでdocsディレクトリにhtmlファイル等を出力するようにしている。&lt;/p&gt;
+&lt;p&gt;そのため、docsディレクトリ配下のみgit addすれば良い。&lt;/p&gt;
+&lt;h2 id=&#34;使用法&#34;&gt;使用法&lt;/h2&gt;
+&lt;p&gt;記事を書き終わって記事ファイル自身のコミットが済んだ後、&lt;br&gt;
+デプロイしたいタイミングでhugo_commitを実行する。&lt;/p&gt;
+&lt;p&gt;コミット後、リモートリポジトリにプッシュする。&lt;/p&gt;
+
+        
+      </description>
     </item>
     
   </channel>

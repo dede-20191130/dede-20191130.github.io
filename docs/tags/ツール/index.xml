@@ -13,7 +13,84 @@
       <pubDate>Sun, 28 Feb 2021 00:34:49 +0900</pubDate>
       
       <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/02/28/create-estm-accessver/</guid>
-      <description>この記事について 以前、 こちらの記事で紹介したように、 Excelベースの見積書作成ツールを作成した。 記事： [Excel VBA] 見積書作成ツールを作成した 今回、</description>
+      <description>
+        
+          &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
+&lt;p&gt;以前、&lt;br&gt;
+こちらの記事で紹介したように、&lt;br&gt;
+Excelベースの見積書作成ツールを作成した。&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box-with-title&#34;&gt;
+    &lt;p&gt;&lt;span&gt;記事：&lt;/span&gt;&lt;/p&gt;
+    &lt;div class=&#34;inner&#34;&gt;
+         
+    
+
+
+
+
+
+&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2020/07/16/create-estm/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Excel VBA] 見積書作成ツールを作成した&lt;/a&gt;
+
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;今回、ほぼ同機能を持つツールを、&lt;br&gt;
+Accessベースに移植した。&lt;/p&gt;
+&lt;p&gt;理由としては、&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一対多のリレーションシップを持つデータを管理、抽出するのは&lt;br&gt;
+Accessのほうが遥かに容易である。&lt;/li&gt;
+&lt;li&gt;GUIの作成のための機能に関して、Accessがよりリッチであり、&lt;br&gt;
+直感的にも使用しやすいため。&lt;/li&gt;
+&lt;li&gt;Accessでのツール作成技術の向上のため。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;である。&lt;/p&gt;
+&lt;h2 id=&#34;ツール置き場&#34;&gt;ツール置き場&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/dede-20191130/My_VBA_Tools/tree/master/T0001_02_%E8%A6%8B%E7%A9%8D%E6%9B%B8%E4%BD%9C%E6%88%90%E3%83%84%E3%83%BC%E3%83%AB_AccessVer&#34;&gt;ツールはこちらからダウンロードできます。&lt;br&gt;
+また、ソースコードもこちらに置いてあります。&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
+&lt;p&gt;各画面で、&lt;br&gt;
+あらかじめ設定したマスタデータを選択し、&lt;br&gt;
+テンプレート見積書に設定したデータを挿入する。&lt;/p&gt;
+&lt;p&gt;Excelブック形式で&lt;br&gt;
+見積書を出力する。&lt;/p&gt;
+&lt;p&gt;出力した見積書に使用したデータを保持し、&lt;br&gt;
+再利用できるようにする。&lt;/p&gt;
+&lt;h2 id=&#34;動作環境&#34;&gt;動作環境&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Windows&lt;/li&gt;
+&lt;li&gt;2016以上のOfficeソフトが動作する環境であれば可。&lt;br&gt;
+2013以下のOfficeでも動作する可能性はあります。&lt;br&gt;
+（そこまでの下位Ver.互換性に需要があるかどうかは不明なため、検証はしていません）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;ツール外観各画面紹介&#34;&gt;ツール外観（各画面紹介）&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;[
+
+
+
+
+
+
+&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2021/03/17/create-estm-accessver-tool-screen/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Click To Show Slide Page&lt;/a&gt;
+
+]&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;機能紹介&#34;&gt;機能紹介&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;[
+
+
+
+
+
+
+&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2021/03/24/create-estm-accessver-tool-faculty/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Click To Show Slide Page&lt;/a&gt;
+
+]&lt;/strong&gt;&lt;/p&gt;
+
+        
+      </description>
     </item>
     
     <item>
@@ -22,7 +99,41 @@
       <pubDate>Sun, 01 Nov 2020 12:05:43 +0900</pubDate>
       
       <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/excel-a1-tool/</guid>
-      <description>このツールについて 下記Qiita記事のプログラムを、フォルダ配下のExcelブックに対して再帰的に/非再帰的に適用できるように 機能をもたせた</description>
+      <description>
+        
+          &lt;h2 id=&#34;このツールについて&#34;&gt;このツールについて&lt;/h2&gt;
+&lt;p&gt;下記Qiita記事のプログラムを、フォルダ配下のExcelブックに対して再帰的に/非再帰的に適用できるように&lt;br&gt;
+機能をもたせたツールです。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://qiita.com/dede-20191130/items/1fef61cd238e7b724dc1#3-1%E3%82%A8%E3%82%AF%E3%82%BB%E3%83%AB%E3%83%96%E3%83%83%E3%82%AF%E3%81%AE%E4%BD%93%E8%A3%81%E3%82%92%E6%95%B4%E3%81%88%E3%82%8B%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0&#34;&gt;&lt;u&gt;記事リンク&lt;/u&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/dede-20191130/My_VBA_Tools/tree/master/%E3%81%9D%E3%81%AE%E4%BB%96%E3%83%84%E3%83%BC%E3%83%AB/Other_0001_%E3%82%A8%E3%82%AF%E3%82%BB%E3%83%AB%E3%83%96%E3%83%83%E3%82%AFA1%E3%82%AB%E3%83%BC%E3%82%BD%E3%83%AB%E7%A7%BB%E5%8B%95&#34;&gt;&lt;u&gt;ツールはこちらからダウンロードできます。&lt;br&gt;
+また、ソースコードもこちらに置いてあります。&lt;/u&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;作成環境&#34;&gt;作成環境&lt;/h2&gt;
+&lt;p&gt;Windows10&lt;br&gt;
+MSOffice 2016&lt;/p&gt;
+&lt;h2 id=&#34;機能&#34;&gt;機能&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;エクセルブックに対して、すべてのシートのカーソルを左上セル（A1セル）に合わせ、一番左のシートをアクティブにした状態にする。&lt;/li&gt;
+&lt;li&gt;ダイアログで選択したフォルダ配下のすべてのエクセルブック（xls,xlsx,xlsm）に対して処理を行う。&lt;/li&gt;
+&lt;li&gt;ファイル探索を再帰的に、または非再帰的に行う&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;画面&#34;&gt;画面&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名称&lt;/th&gt;
+&lt;th&gt;画像&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;起動後に表示されるフォーム&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;./image01.png&#34; alt=&#34;エクスポート画面&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+        
+      </description>
     </item>
     
     <item>
@@ -31,7 +142,47 @@
       <pubDate>Tue, 27 Oct 2020 20:29:45 +0900</pubDate>
       
       <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/10/27/access-tabledef-tool/</guid>
-      <description>概要 以前の記事で説明したエクスポート関数をツール化したもの（こちら） ツール化することで、VBEを開いて関数をペーストする必要が無くなった。 ま</description>
+      <description>
+        
+          &lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;../../25/access-tabledef/&#34;&gt;以前の記事で説明したエクスポート関数をツール化したもの（こちら）&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;ツール化することで、VBEを開いて関数をペーストする必要が無くなった。&lt;br&gt;
+また、他のAccessデータベースファイルの定義をエクスポートできるようになった。&lt;/p&gt;
+&lt;p&gt;画面で指定したAccessファイル（&lt;em&gt;.mdb、&lt;/em&gt;.accdb）について、&lt;br&gt;
+すべてのテーブルのテーブル定義を表形式でエクスポートする。&lt;br&gt;
+エクスポート先は新規エクセルブック。テーブルデータがシートごとに格納される。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/dede-20191130/My_VBA_Tools/tree/master/T0002_Access%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E5%AE%9A%E7%BE%A9%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%88%E3%83%84%E3%83%BC%E3%83%AB&#34;&gt;ツールはこちらからダウンロードできます。&lt;br&gt;
+また、ソースコードもこちらに置いてあります。&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;動作環境&#34;&gt;動作環境&lt;/h2&gt;
+&lt;p&gt;Microsoft Officeが動作する環境。&lt;br&gt;
+32bit、64bitいずれも可。&lt;/p&gt;
+&lt;h2 id=&#34;機能一覧&#34;&gt;機能一覧&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;テーブル定義の表形式でのエクスポート機能&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;ツールとしての長所&#34;&gt;ツールとしての長所&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;テーブル定義の一覧化および目視での把握が容易にできます。&lt;/li&gt;
+&lt;li&gt;手作業で表を作成するよりも効率的です。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;使用方法&#34;&gt;使用方法&lt;/h2&gt;
+&lt;h3 id=&#34;1-エクスポートするaccessファイルパスの選択&#34;&gt;1. エクスポートするAccessファイルパスの選択&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;./image01.png&#34; alt=&#34;エクスポート画面&#34;&gt;&lt;/p&gt;
+&lt;p&gt;いずれかの方法で選択します。&lt;br&gt;
+1.エクスポート画面のテキストボックスに直接入力します。&lt;br&gt;
+2.参照ボタンをクリックします。&lt;br&gt;
+ファイル選択ダイアログにおいて出力対象のファイルを選択します。&lt;br&gt;
+テキストボックスにファイルパスが格納されます。&lt;/p&gt;
+&lt;h3 id=&#34;2-エクスポート&#34;&gt;2. エクスポート&lt;/h3&gt;
+&lt;p&gt;エクスポートボタンを押下します。&lt;/p&gt;
+&lt;p&gt;対象のAccessファイルと同階層のフォルダに&lt;br&gt;
+次のようにエクセルファイルが出力されます。&lt;br&gt;
+デザインビュー表示に似せた様式で各情報が一覧できます。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./image02.png&#34; alt=&#34;エクスポートNo1&#34;&gt;
+&lt;img src=&#34;./image03.png&#34; alt=&#34;エクスポートNo2&#34;&gt;&lt;/p&gt;
+
+        
+      </description>
     </item>
     
     <item>
@@ -40,7 +191,28 @@
       <pubDate>Sat, 18 Jul 2020 18:30:28 +0000</pubDate>
       
       <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/07/18/create-nomarco-tool/</guid>
-      <description>この記事について 以前作成した非マクロのメール作成ツールについての紹介記事。 こちら（Github）からツールをダウンロードできます。 概要 テーブ</description>
+      <description>
+        
+          &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
+&lt;p&gt;以前作成した非マクロのメール作成ツールについての紹介記事。&lt;br&gt;
+&lt;a href=&#34;https://github.com/dede-20191130/My_VBA_Tools/tree/master/%E9%9D%9E%E3%83%9E%E3%82%AF%E3%83%AD%E3%83%84%E3%83%BC%E3%83%AB/NOVBA0001_%E4%BD%9C%E6%A5%AD%E8%A8%98%E9%8C%B2%E7%AE%A1%E7%90%86%E7%B0%BF_%E5%85%BC_%E3%83%A1%E3%83%BC%E3%83%AB%E4%BD%9C%E6%88%90%E3%83%84%E3%83%BC%E3%83%AB&#34;&gt;こちら（Github）&lt;/a&gt;からツールをダウンロードできます。&lt;/p&gt;
+&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
+&lt;p&gt;テーブルでデータを管理。&lt;/p&gt;
+&lt;p&gt;管理したデータからメールを作成。&lt;/p&gt;
+&lt;h2 id=&#34;画像紹介&#34;&gt;画像紹介&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/dede-20191130/My_VBA_Tools/blob/master/_ImageForMarkdown/NOVBA0001/image_1.png?raw=true&#34; alt=&#34;入力欄&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/dede-20191130/My_VBA_Tools/blob/master/_ImageForMarkdown/NOVBA0001/image_5.png?raw=true&#34; alt=&#34;プルダウン項目の自動設定&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/dede-20191130/My_VBA_Tools/blob/master/_ImageForMarkdown/NOVBA0001/image_7.png?raw=true&#34; alt=&#34;自動作成メール&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;span-idvba記事非マクロvbaの使用なしであることの利点&#34;&gt;&lt;span id=&#34;VBA&#34;&gt;記事：非マクロ（VBAの使用なし）であることの利点&lt;/h2&gt;
+&lt;p&gt;こちらにまとめています。&lt;/p&gt;
+&lt;p&gt;⇛&lt;a href=&#34;../../16/cmpr-tools/&#34;&gt;Excelのツール開発&lt;br&gt;
+関数（非マクロ）ツールとVBA使用ツールの比較&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;使用方法詳細&#34;&gt;使用方法詳細&lt;/h2&gt;
+&lt;p&gt;仕様、使用方法などは、&lt;br&gt;
+&lt;a href=&#34;https://github.com/dede-20191130/My_VBA_Tools/tree/master/T0001_%E8%A6%8B%E7%A9%8D%E6%9B%B8%E4%BD%9C%E6%88%90%E3%83%84%E3%83%BC%E3%83%AB&#34;&gt;こちら（Github）&lt;/a&gt;に記載しています。&lt;/p&gt;
+
+        
+      </description>
     </item>
     
     <item>
@@ -49,7 +221,62 @@
       <pubDate>Thu, 16 Jul 2020 08:05:13 +0000</pubDate>
       
       <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/07/16/create-estm/</guid>
-      <description>この記事について 以前作成した見積書作成ツール（Excel VBA）についての紹介記事。 こちら（Github） からツールをダウンロードできます。</description>
+      <description>
+        
+          &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
+&lt;p&gt;以前作成した見積書作成ツール（Excel VBA）についての紹介記事。&lt;br&gt;
+
+
+
+
+    
+        
+        
+        &lt;a href=&#34;https://github.com/dede-20191130/My_VBA_Tools/tree/master/T0001_01_%E8%A6%8B%E7%A9%8D%E6%9B%B8%E4%BD%9C%E6%88%90%E3%83%84%E3%83%BC%E3%83%AB_ExcelVer&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;こちら（Github）&lt;/a&gt;
+    
+  からツールをダウンロードできます。&lt;/p&gt;
+&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
+&lt;p&gt;一枚～複数枚の見積書を作成する。&lt;/p&gt;
+&lt;p&gt;テンプレート見積書に設定したデータを挿入し、見積書格納先の別ブックを作成。&lt;/p&gt;
+&lt;h2 id=&#34;画像例&#34;&gt;画像例&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/dede-20191130/My_VBA_Tools/raw/master/_ImageForMarkdown/T0001/image_5.png&#34; alt=&#34;設定欄&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/dede-20191130/My_VBA_Tools/raw/master/_ImageForMarkdown/T0001/image_6.png&#34; alt=&#34;作成画面&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/dede-20191130/My_VBA_Tools/raw/master/_ImageForMarkdown/T0001/image_7.png&#34; alt=&#34;見積書&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;使用方法詳細&#34;&gt;使用方法詳細&lt;/h2&gt;
+&lt;p&gt;仕様、使用方法などは、&lt;br&gt;
+
+
+
+
+    
+        
+        
+        &lt;a href=&#34;https://github.com/dede-20191130/My_VBA_Tools/tree/master/T0001_01_%E8%A6%8B%E7%A9%8D%E6%9B%B8%E4%BD%9C%E6%88%90%E3%83%84%E3%83%BC%E3%83%AB_ExcelVer&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;こちら（Github）&lt;/a&gt;
+    
+  に記載しています。&lt;/p&gt;
+&lt;h2 id=&#34;追記accessバージョンのツールの作成について&#34;&gt;追記：Accessバージョンのツールの作成について&lt;/h2&gt;
+&lt;p&gt;Accessバージョンのツールを作成しました。&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box-with-title&#34;&gt;
+    &lt;p&gt;&lt;span&gt;記事：&lt;/span&gt;&lt;/p&gt;
+    &lt;div class=&#34;inner&#34;&gt;
+         
+    
+
+
+
+
+
+&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2021/02/28/create-estm-accessver/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Access VBA] 見積書作成ツール（Accessバージョン）を作成した&lt;/a&gt;
+
+
+    &lt;/div&gt;
+&lt;/div&gt;
+
+        
+      </description>
     </item>
     
   </channel>

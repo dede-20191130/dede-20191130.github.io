@@ -13,7 +13,35 @@
       <pubDate>Sun, 15 Nov 2020 02:41:13 +0900</pubDate>
       
       <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/15/msoffice-form-capture/</guid>
-      <description>この記事について Windows10には録画機能（名称：ゲームバー。Winキー+Gで起動）があり、 通常のアプリケーションであればこれで録画が可</description>
+      <description>
+        
+          &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
+&lt;p&gt;Windows10には録画機能（名称：ゲームバー。Winキー+Gで起動）があり、&lt;br&gt;
+通常のアプリケーションであればこれで録画が可能である。&lt;/p&gt;
+&lt;p&gt;ところが、&lt;br&gt;
+ExcelやAccessのフォームはなぜか画面判定されず、&lt;br&gt;
+録画ができないことがわかった。&lt;/p&gt;
+&lt;p&gt;（ゲームバーで範囲指定による録画ができない。&lt;br&gt;
+もしできるようになる設定があれば教えてほしいです。）&lt;/p&gt;
+&lt;p&gt;そのため、いろいろ模索していたが、&lt;br&gt;
+PowerPointの録画機能でフォームを録画できたため、ここに記したい。&lt;/p&gt;
+&lt;h2 id=&#34;方法&#34;&gt;方法&lt;/h2&gt;
+&lt;h3 id=&#34;i-powerpointを開く&#34;&gt;i. PowerPointを開く&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;./image01.png&#34; alt=&#34;PP&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;ii-挿入タブ-画面録画を選択&#34;&gt;ii. 挿入タブ-&amp;gt;画面録画を選択&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;./image02.png&#34; alt=&#34;録画&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;iii-録画範囲を選択し録画ボタンを押す&#34;&gt;iii. 録画範囲を選択し、録画ボタンを押す&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;./image03.png&#34; alt=&#34;範囲&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;iv-スライドショーに保存された動画を保存する&#34;&gt;iv. スライドショーに保存された動画を保存する&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;./image04.png&#34; alt=&#34;保存&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;サンプル&#34;&gt;サンプル&lt;/h2&gt;
+&lt;p&gt;こちらで紹介しているファイルのgifは&lt;br&gt;
+上の方法で作成された動画を元にしている。&lt;br&gt;
+（mp4動画のgif化はffmpegを使用した）&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/posts/2020/11/08/access-control-withevents/#%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB&#34;&gt;[Access VBA] フォームのコントロールに対してWithEventsでイベントリスナークラスを作成する際に気をつけなければならないこと&lt;/a&gt;&lt;/p&gt;
+
+        
+      </description>
     </item>
     
   </channel>

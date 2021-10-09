@@ -13,7 +13,28 @@
       <pubDate>Sat, 18 Jul 2020 18:30:28 +0000</pubDate>
       
       <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/07/18/create-nomarco-tool/</guid>
-      <description>この記事について 以前作成した非マクロのメール作成ツールについての紹介記事。 こちら（Github）からツールをダウンロードできます。 概要 テーブ</description>
+      <description>
+        
+          &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
+&lt;p&gt;以前作成した非マクロのメール作成ツールについての紹介記事。&lt;br&gt;
+&lt;a href=&#34;https://github.com/dede-20191130/My_VBA_Tools/tree/master/%E9%9D%9E%E3%83%9E%E3%82%AF%E3%83%AD%E3%83%84%E3%83%BC%E3%83%AB/NOVBA0001_%E4%BD%9C%E6%A5%AD%E8%A8%98%E9%8C%B2%E7%AE%A1%E7%90%86%E7%B0%BF_%E5%85%BC_%E3%83%A1%E3%83%BC%E3%83%AB%E4%BD%9C%E6%88%90%E3%83%84%E3%83%BC%E3%83%AB&#34;&gt;こちら（Github）&lt;/a&gt;からツールをダウンロードできます。&lt;/p&gt;
+&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
+&lt;p&gt;テーブルでデータを管理。&lt;/p&gt;
+&lt;p&gt;管理したデータからメールを作成。&lt;/p&gt;
+&lt;h2 id=&#34;画像紹介&#34;&gt;画像紹介&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/dede-20191130/My_VBA_Tools/blob/master/_ImageForMarkdown/NOVBA0001/image_1.png?raw=true&#34; alt=&#34;入力欄&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/dede-20191130/My_VBA_Tools/blob/master/_ImageForMarkdown/NOVBA0001/image_5.png?raw=true&#34; alt=&#34;プルダウン項目の自動設定&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/dede-20191130/My_VBA_Tools/blob/master/_ImageForMarkdown/NOVBA0001/image_7.png?raw=true&#34; alt=&#34;自動作成メール&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;span-idvba記事非マクロvbaの使用なしであることの利点&#34;&gt;&lt;span id=&#34;VBA&#34;&gt;記事：非マクロ（VBAの使用なし）であることの利点&lt;/h2&gt;
+&lt;p&gt;こちらにまとめています。&lt;/p&gt;
+&lt;p&gt;⇛&lt;a href=&#34;../../16/cmpr-tools/&#34;&gt;Excelのツール開発&lt;br&gt;
+関数（非マクロ）ツールとVBA使用ツールの比較&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;使用方法詳細&#34;&gt;使用方法詳細&lt;/h2&gt;
+&lt;p&gt;仕様、使用方法などは、&lt;br&gt;
+&lt;a href=&#34;https://github.com/dede-20191130/My_VBA_Tools/tree/master/T0001_%E8%A6%8B%E7%A9%8D%E6%9B%B8%E4%BD%9C%E6%88%90%E3%83%84%E3%83%BC%E3%83%AB&#34;&gt;こちら（Github）&lt;/a&gt;に記載しています。&lt;/p&gt;
+
+        
+      </description>
     </item>
     
     <item>
@@ -22,7 +43,62 @@
       <pubDate>Thu, 16 Jul 2020 08:05:13 +0000</pubDate>
       
       <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/07/16/create-estm/</guid>
-      <description>この記事について 以前作成した見積書作成ツール（Excel VBA）についての紹介記事。 こちら（Github） からツールをダウンロードできます。</description>
+      <description>
+        
+          &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
+&lt;p&gt;以前作成した見積書作成ツール（Excel VBA）についての紹介記事。&lt;br&gt;
+
+
+
+
+    
+        
+        
+        &lt;a href=&#34;https://github.com/dede-20191130/My_VBA_Tools/tree/master/T0001_01_%E8%A6%8B%E7%A9%8D%E6%9B%B8%E4%BD%9C%E6%88%90%E3%83%84%E3%83%BC%E3%83%AB_ExcelVer&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;こちら（Github）&lt;/a&gt;
+    
+  からツールをダウンロードできます。&lt;/p&gt;
+&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
+&lt;p&gt;一枚～複数枚の見積書を作成する。&lt;/p&gt;
+&lt;p&gt;テンプレート見積書に設定したデータを挿入し、見積書格納先の別ブックを作成。&lt;/p&gt;
+&lt;h2 id=&#34;画像例&#34;&gt;画像例&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/dede-20191130/My_VBA_Tools/raw/master/_ImageForMarkdown/T0001/image_5.png&#34; alt=&#34;設定欄&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/dede-20191130/My_VBA_Tools/raw/master/_ImageForMarkdown/T0001/image_6.png&#34; alt=&#34;作成画面&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/dede-20191130/My_VBA_Tools/raw/master/_ImageForMarkdown/T0001/image_7.png&#34; alt=&#34;見積書&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;使用方法詳細&#34;&gt;使用方法詳細&lt;/h2&gt;
+&lt;p&gt;仕様、使用方法などは、&lt;br&gt;
+
+
+
+
+    
+        
+        
+        &lt;a href=&#34;https://github.com/dede-20191130/My_VBA_Tools/tree/master/T0001_01_%E8%A6%8B%E7%A9%8D%E6%9B%B8%E4%BD%9C%E6%88%90%E3%83%84%E3%83%BC%E3%83%AB_ExcelVer&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;こちら（Github）&lt;/a&gt;
+    
+  に記載しています。&lt;/p&gt;
+&lt;h2 id=&#34;追記accessバージョンのツールの作成について&#34;&gt;追記：Accessバージョンのツールの作成について&lt;/h2&gt;
+&lt;p&gt;Accessバージョンのツールを作成しました。&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box-with-title&#34;&gt;
+    &lt;p&gt;&lt;span&gt;記事：&lt;/span&gt;&lt;/p&gt;
+    &lt;div class=&#34;inner&#34;&gt;
+         
+    
+
+
+
+
+
+&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2021/02/28/create-estm-accessver/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Access VBA] 見積書作成ツール（Accessバージョン）を作成した&lt;/a&gt;
+
+
+    &lt;/div&gt;
+&lt;/div&gt;
+
+        
+      </description>
     </item>
     
     <item>
@@ -31,7 +107,154 @@
       <pubDate>Thu, 16 Jul 2020 06:14:50 +0000</pubDate>
       
       <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/07/16/cmpr-tools/</guid>
-      <description>この記事について Excelでデータ管理したりドキュメントを出力したりするツール（機能の多寡を問わず）を作成しようとする際に、 大別すると、次の</description>
+      <description>
+        
+          &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
+&lt;p&gt;Excelでデータ管理したりドキュメントを出力したりするツール（機能の多寡を問わず）を作成しようとする際に、&lt;br&gt;
+大別すると、次のような選択肢があるかと思われる。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;関数（マクロを使用しない。標準搭載の関数のみで実装）ツール&lt;/li&gt;
+&lt;li&gt;VBA使用ツール&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;それぞれにメリット・デメリットがあるが、&lt;br&gt;
+個人的な見解として&lt;br&gt;
+それらをまとめてみたい。&lt;/p&gt;
+&lt;h2 id=&#34;サマリ表&#34;&gt;サマリ（表）&lt;/h2&gt;
+&lt;p&gt;最初にまとめとして表を記す。&lt;/p&gt;
+&lt;div class=&#34;wp-block-group&#34;&gt;
+  &lt;div class=&#34;wp-block-group__inner-container&#34;&gt;
+    &lt;table class=&#34;has-fixed-layout&#34;&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+          関数（非マクロ）ツール
+        &lt;/td&gt;
+        &lt;td&gt;
+          VBAツール
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          開発難度
+        &lt;/td&gt;
+        &lt;td&gt;
+          低
+        &lt;/td&gt;
+        &lt;td&gt;
+          高
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          自由度
+        &lt;/td&gt;
+        &lt;td&gt;
+          低
+        &lt;/td&gt;
+        &lt;td&gt;
+          高
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          できること
+        &lt;/td&gt;
+        &lt;td&gt;
+          データの管理（手入力、&lt;br /&gt;データベースとの連携）&lt;br /&gt;&lt;br /&gt;帳票等成果物の出力&lt;br /&gt;　・プリンター印刷&lt;br /&gt;　・PDF&lt;br /&gt;&lt;br /&gt;メール作成、WebサイトのURL管理、ファイルパスの管理
+        &lt;/td&gt;
+        &lt;td&gt;
+          データの管理（手入力、オリジナルフォームの入力、ファイル読み込み、データベースとの連携）&lt;br /&gt;&lt;br /&gt;帳票等成果物の出力&lt;br /&gt;　・プリンター印刷&lt;br /&gt;　・PDF&lt;br /&gt;　・csvファイル&lt;br /&gt;　・その他、だいたいどのような形式でも可能&lt;br /&gt;&lt;br /&gt;メール作成、WebサイトのURL管理、ファイルパスの管理（より高度なレベルで）&lt;br /&gt;&lt;br /&gt;Webサイトのスクレイピング&lt;br /&gt;&lt;br /&gt;Webサイトに対するHTTPリクエスト、レスポンス取得
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          作業精度向上のレベル
+        &lt;/td&gt;
+        &lt;td&gt;
+          低
+        &lt;/td&gt;
+        &lt;td&gt;
+          高
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          作業効率化のレベル
+        &lt;/td&gt;
+        &lt;td&gt;
+          低
+        &lt;/td&gt;
+        &lt;td&gt;
+          高
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          動作安定性
+        &lt;/td&gt;
+        &lt;td&gt;
+          高
+        &lt;/td&gt;
+        &lt;td&gt;
+          低
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          メンテナンス性
+        &lt;/td&gt;
+        &lt;td&gt;
+          高
+        &lt;/td&gt;
+        &lt;td&gt;
+          低
+        &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;比較&#34;&gt;比較&lt;/h2&gt;
+&lt;h3 id=&#34;作りやすさ&#34;&gt;作りやすさ&lt;/h3&gt;
+&lt;p&gt;エクセル関数は義務教育の関数の知識があれば使いやすいだろう。&lt;br&gt;
+IF関数やVLOOKUP、OFFSET関数などはプログラミング的な発想や知識が必要かもしれない。&lt;/p&gt;
+&lt;p&gt;一方、VBAはVisual Basicを用いたプログラミング作業が必要のため、&lt;br&gt;
+プログラミング未経験者にとって難易度は高い。&lt;/p&gt;
+&lt;h3 id=&#34;自由度とできること&#34;&gt;自由度とできること&lt;/h3&gt;
+&lt;p&gt;エクセル関数によってできるのは、データの管理、整形、入出力、&lt;br&gt;
+文書の作成、出力、メール送信などに限られる。&lt;br&gt;
+外部のアプリケーションの操作などはできない。&lt;/p&gt;
+&lt;p&gt;VBAの場合、MS Officeのアプリはもちろん、&lt;br&gt;
+テキストファイル、バイナリファイルを操作可能。&lt;br&gt;
+Sendkey関数でキー操作をエミュレートして他のアプリを操作する荒業もある。&lt;br&gt;
+ブラウザを操作する場合、Seleniumを用いる。&lt;/p&gt;
+&lt;p&gt;VBAでできることは非常に多岐にわたるが、複雑なことをしようとすればするほど&lt;br&gt;
+バグや不安定さも増大する。&lt;/p&gt;
+&lt;h3 id=&#34;自動化のもたらす利益の比較&#34;&gt;自動化のもたらす利益の比較&lt;/h3&gt;
+&lt;p&gt;自由度が高く、一連の作業を精度高く素早く行うことができるVBAツールは&lt;br&gt;
+自動化による恩恵を最大化することができる。&lt;/p&gt;
+&lt;h3 id=&#34;安定性&#34;&gt;安定性&lt;/h3&gt;
+&lt;p&gt;エクセル関数はあらかじめ動作の決まった部品の組み合わせのため、&lt;br&gt;
+破壊的な動作をもたらすバグの可能性は極めて少なく、&lt;br&gt;
+関数入力先セルに　#VALUE!　等の表記でエラーが表示される。&lt;br&gt;
+そのため、エラーの発生がわかりやすい。&lt;/p&gt;
+&lt;p&gt;VBAツールの場合、&lt;br&gt;
+プログラムの書き方次第でExcel自体が強制終了したり、&lt;br&gt;
+編集先テキストファイルのデータを汚染したりする。&lt;/p&gt;
+&lt;p&gt;例えばテキストファイル編集中に&lt;br&gt;
+不正な処理によりエラー落ちすると、&lt;br&gt;
+望まないデータが書き込まれているかもしれない。&lt;/p&gt;
+&lt;h3 id=&#34;メンテナンス&#34;&gt;メンテナンス&lt;/h3&gt;
+&lt;p&gt;VBAのメンテンナンスはVBのコードを読める人間が必要になる。&lt;br&gt;
+そのため、保守できる人材が退職あるいは異動したばあい、&lt;br&gt;
+今いる人間ではメンテ不可能になる恐れがある。&lt;/p&gt;
+&lt;p&gt;そのため、簡易なものでもいいから内部の仕様のドキュメントを作成しておくことが重要である。&lt;/p&gt;
+&lt;h2 id=&#34;まとめ&#34;&gt;まとめ&lt;/h2&gt;
+&lt;p&gt;非マクロツールは保守性や安定性が高いが、自動化への寄与は劣る。&lt;br&gt;
+VBAツールを作成した場合、仕様のドキュメントは常に残しておくようにしたい。&lt;/p&gt;
+
+        
+      </description>
     </item>
     
   </channel>

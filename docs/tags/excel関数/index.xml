@@ -13,7 +13,154 @@
       <pubDate>Thu, 16 Jul 2020 06:14:50 +0000</pubDate>
       
       <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/07/16/cmpr-tools/</guid>
-      <description>この記事について Excelでデータ管理したりドキュメントを出力したりするツール（機能の多寡を問わず）を作成しようとする際に、 大別すると、次の</description>
+      <description>
+        
+          &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
+&lt;p&gt;Excelでデータ管理したりドキュメントを出力したりするツール（機能の多寡を問わず）を作成しようとする際に、&lt;br&gt;
+大別すると、次のような選択肢があるかと思われる。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;関数（マクロを使用しない。標準搭載の関数のみで実装）ツール&lt;/li&gt;
+&lt;li&gt;VBA使用ツール&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;それぞれにメリット・デメリットがあるが、&lt;br&gt;
+個人的な見解として&lt;br&gt;
+それらをまとめてみたい。&lt;/p&gt;
+&lt;h2 id=&#34;サマリ表&#34;&gt;サマリ（表）&lt;/h2&gt;
+&lt;p&gt;最初にまとめとして表を記す。&lt;/p&gt;
+&lt;div class=&#34;wp-block-group&#34;&gt;
+  &lt;div class=&#34;wp-block-group__inner-container&#34;&gt;
+    &lt;table class=&#34;has-fixed-layout&#34;&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+          関数（非マクロ）ツール
+        &lt;/td&gt;
+        &lt;td&gt;
+          VBAツール
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          開発難度
+        &lt;/td&gt;
+        &lt;td&gt;
+          低
+        &lt;/td&gt;
+        &lt;td&gt;
+          高
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          自由度
+        &lt;/td&gt;
+        &lt;td&gt;
+          低
+        &lt;/td&gt;
+        &lt;td&gt;
+          高
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          できること
+        &lt;/td&gt;
+        &lt;td&gt;
+          データの管理（手入力、&lt;br /&gt;データベースとの連携）&lt;br /&gt;&lt;br /&gt;帳票等成果物の出力&lt;br /&gt;　・プリンター印刷&lt;br /&gt;　・PDF&lt;br /&gt;&lt;br /&gt;メール作成、WebサイトのURL管理、ファイルパスの管理
+        &lt;/td&gt;
+        &lt;td&gt;
+          データの管理（手入力、オリジナルフォームの入力、ファイル読み込み、データベースとの連携）&lt;br /&gt;&lt;br /&gt;帳票等成果物の出力&lt;br /&gt;　・プリンター印刷&lt;br /&gt;　・PDF&lt;br /&gt;　・csvファイル&lt;br /&gt;　・その他、だいたいどのような形式でも可能&lt;br /&gt;&lt;br /&gt;メール作成、WebサイトのURL管理、ファイルパスの管理（より高度なレベルで）&lt;br /&gt;&lt;br /&gt;Webサイトのスクレイピング&lt;br /&gt;&lt;br /&gt;Webサイトに対するHTTPリクエスト、レスポンス取得
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          作業精度向上のレベル
+        &lt;/td&gt;
+        &lt;td&gt;
+          低
+        &lt;/td&gt;
+        &lt;td&gt;
+          高
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          作業効率化のレベル
+        &lt;/td&gt;
+        &lt;td&gt;
+          低
+        &lt;/td&gt;
+        &lt;td&gt;
+          高
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          動作安定性
+        &lt;/td&gt;
+        &lt;td&gt;
+          高
+        &lt;/td&gt;
+        &lt;td&gt;
+          低
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          メンテナンス性
+        &lt;/td&gt;
+        &lt;td&gt;
+          高
+        &lt;/td&gt;
+        &lt;td&gt;
+          低
+        &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;比較&#34;&gt;比較&lt;/h2&gt;
+&lt;h3 id=&#34;作りやすさ&#34;&gt;作りやすさ&lt;/h3&gt;
+&lt;p&gt;エクセル関数は義務教育の関数の知識があれば使いやすいだろう。&lt;br&gt;
+IF関数やVLOOKUP、OFFSET関数などはプログラミング的な発想や知識が必要かもしれない。&lt;/p&gt;
+&lt;p&gt;一方、VBAはVisual Basicを用いたプログラミング作業が必要のため、&lt;br&gt;
+プログラミング未経験者にとって難易度は高い。&lt;/p&gt;
+&lt;h3 id=&#34;自由度とできること&#34;&gt;自由度とできること&lt;/h3&gt;
+&lt;p&gt;エクセル関数によってできるのは、データの管理、整形、入出力、&lt;br&gt;
+文書の作成、出力、メール送信などに限られる。&lt;br&gt;
+外部のアプリケーションの操作などはできない。&lt;/p&gt;
+&lt;p&gt;VBAの場合、MS Officeのアプリはもちろん、&lt;br&gt;
+テキストファイル、バイナリファイルを操作可能。&lt;br&gt;
+Sendkey関数でキー操作をエミュレートして他のアプリを操作する荒業もある。&lt;br&gt;
+ブラウザを操作する場合、Seleniumを用いる。&lt;/p&gt;
+&lt;p&gt;VBAでできることは非常に多岐にわたるが、複雑なことをしようとすればするほど&lt;br&gt;
+バグや不安定さも増大する。&lt;/p&gt;
+&lt;h3 id=&#34;自動化のもたらす利益の比較&#34;&gt;自動化のもたらす利益の比較&lt;/h3&gt;
+&lt;p&gt;自由度が高く、一連の作業を精度高く素早く行うことができるVBAツールは&lt;br&gt;
+自動化による恩恵を最大化することができる。&lt;/p&gt;
+&lt;h3 id=&#34;安定性&#34;&gt;安定性&lt;/h3&gt;
+&lt;p&gt;エクセル関数はあらかじめ動作の決まった部品の組み合わせのため、&lt;br&gt;
+破壊的な動作をもたらすバグの可能性は極めて少なく、&lt;br&gt;
+関数入力先セルに　#VALUE!　等の表記でエラーが表示される。&lt;br&gt;
+そのため、エラーの発生がわかりやすい。&lt;/p&gt;
+&lt;p&gt;VBAツールの場合、&lt;br&gt;
+プログラムの書き方次第でExcel自体が強制終了したり、&lt;br&gt;
+編集先テキストファイルのデータを汚染したりする。&lt;/p&gt;
+&lt;p&gt;例えばテキストファイル編集中に&lt;br&gt;
+不正な処理によりエラー落ちすると、&lt;br&gt;
+望まないデータが書き込まれているかもしれない。&lt;/p&gt;
+&lt;h3 id=&#34;メンテナンス&#34;&gt;メンテナンス&lt;/h3&gt;
+&lt;p&gt;VBAのメンテンナンスはVBのコードを読める人間が必要になる。&lt;br&gt;
+そのため、保守できる人材が退職あるいは異動したばあい、&lt;br&gt;
+今いる人間ではメンテ不可能になる恐れがある。&lt;/p&gt;
+&lt;p&gt;そのため、簡易なものでもいいから内部の仕様のドキュメントを作成しておくことが重要である。&lt;/p&gt;
+&lt;h2 id=&#34;まとめ&#34;&gt;まとめ&lt;/h2&gt;
+&lt;p&gt;非マクロツールは保守性や安定性が高いが、自動化への寄与は劣る。&lt;br&gt;
+VBAツールを作成した場合、仕様のドキュメントは常に残しておくようにしたい。&lt;/p&gt;
+
+        
+      </description>
     </item>
     
   </channel>

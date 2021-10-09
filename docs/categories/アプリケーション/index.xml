@@ -13,7 +13,84 @@
       <pubDate>Sun, 28 Feb 2021 00:34:49 +0900</pubDate>
       
       <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/02/28/create-estm-accessver/</guid>
-      <description>この記事について 以前、 こちらの記事で紹介したように、 Excelベースの見積書作成ツールを作成した。 記事： [Excel VBA] 見積書作成ツールを作成した 今回、</description>
+      <description>
+        
+          &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
+&lt;p&gt;以前、&lt;br&gt;
+こちらの記事で紹介したように、&lt;br&gt;
+Excelベースの見積書作成ツールを作成した。&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box-with-title&#34;&gt;
+    &lt;p&gt;&lt;span&gt;記事：&lt;/span&gt;&lt;/p&gt;
+    &lt;div class=&#34;inner&#34;&gt;
+         
+    
+
+
+
+
+
+&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2020/07/16/create-estm/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Excel VBA] 見積書作成ツールを作成した&lt;/a&gt;
+
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;今回、ほぼ同機能を持つツールを、&lt;br&gt;
+Accessベースに移植した。&lt;/p&gt;
+&lt;p&gt;理由としては、&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一対多のリレーションシップを持つデータを管理、抽出するのは&lt;br&gt;
+Accessのほうが遥かに容易である。&lt;/li&gt;
+&lt;li&gt;GUIの作成のための機能に関して、Accessがよりリッチであり、&lt;br&gt;
+直感的にも使用しやすいため。&lt;/li&gt;
+&lt;li&gt;Accessでのツール作成技術の向上のため。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;である。&lt;/p&gt;
+&lt;h2 id=&#34;ツール置き場&#34;&gt;ツール置き場&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/dede-20191130/My_VBA_Tools/tree/master/T0001_02_%E8%A6%8B%E7%A9%8D%E6%9B%B8%E4%BD%9C%E6%88%90%E3%83%84%E3%83%BC%E3%83%AB_AccessVer&#34;&gt;ツールはこちらからダウンロードできます。&lt;br&gt;
+また、ソースコードもこちらに置いてあります。&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
+&lt;p&gt;各画面で、&lt;br&gt;
+あらかじめ設定したマスタデータを選択し、&lt;br&gt;
+テンプレート見積書に設定したデータを挿入する。&lt;/p&gt;
+&lt;p&gt;Excelブック形式で&lt;br&gt;
+見積書を出力する。&lt;/p&gt;
+&lt;p&gt;出力した見積書に使用したデータを保持し、&lt;br&gt;
+再利用できるようにする。&lt;/p&gt;
+&lt;h2 id=&#34;動作環境&#34;&gt;動作環境&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Windows&lt;/li&gt;
+&lt;li&gt;2016以上のOfficeソフトが動作する環境であれば可。&lt;br&gt;
+2013以下のOfficeでも動作する可能性はあります。&lt;br&gt;
+（そこまでの下位Ver.互換性に需要があるかどうかは不明なため、検証はしていません）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;ツール外観各画面紹介&#34;&gt;ツール外観（各画面紹介）&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;[
+
+
+
+
+
+
+&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2021/03/17/create-estm-accessver-tool-screen/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Click To Show Slide Page&lt;/a&gt;
+
+]&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;機能紹介&#34;&gt;機能紹介&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;[
+
+
+
+
+
+
+&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2021/03/24/create-estm-accessver-tool-faculty/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Click To Show Slide Page&lt;/a&gt;
+
+]&lt;/strong&gt;&lt;/p&gt;
+
+        
+      </description>
     </item>
     
     <item>
@@ -22,7 +99,165 @@
       <pubDate>Thu, 05 Nov 2020 00:48:58 +0900</pubDate>
       
       <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/05/own-excel-shortcut/</guid>
-      <description>この記事について Excelから文章を別のファイルや文書に移したり、 Excelのシート上で四角形や矢印などの図形の切り貼りや、図形でフローチャ</description>
+      <description>
+        
+          &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
+&lt;p&gt;Excelから文章を別のファイルや文書に移したり、&lt;br&gt;
+Excelのシート上で四角形や矢印などの図形の切り貼りや、図形でフローチャート、模式図を作成する機会はわりと多いかと思う。&lt;/p&gt;
+&lt;p&gt;そうした際に、&lt;br&gt;
+VBAを用いて、Excelにもともと備わっていないショートカットをいくつか登録しておくと、作業スピードが上がったため、&lt;br&gt;
+紹介したい。&lt;/p&gt;
+&lt;p&gt;ちなみに、&lt;a href=&#34;https://www.relief.jp/docs/003103.html&#34;&gt;クイックアクセスツールバー&lt;/a&gt;を用いて、&lt;br&gt;
+[Altキー　+　数字] でいくつかのショートカットキーを拡張することはできるが、&lt;br&gt;
+個人的にAltキーからの数字キー押下はあまり押しやすいキーではないため、最小限でしか登録はしていない。&lt;br&gt;
+また、クイックアクセスツールバーで対応が難しいショートカットも存在する。&lt;/p&gt;
+&lt;h2 id=&#34;一覧&#34;&gt;一覧&lt;/h2&gt;
+&lt;p&gt;このようなショートカットを作成した。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;機能&lt;/th&gt;
+&lt;th&gt;どんなときに使う？&lt;/th&gt;
+&lt;th&gt;割り当てたキー&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;対象のセルから&lt;br&gt;テキストのみコピーする&lt;/td&gt;
+&lt;td&gt;文字列両端の&lt;br&gt;ダブルクォーテーション無しで&lt;br&gt;セルの文章を取得したいとき&lt;/td&gt;
+&lt;td&gt;Ctrl + Shift + K&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;選択したオブジェクト（画像、図形等）の&lt;br&gt;最前面化・最背面化&lt;/td&gt;
+&lt;td&gt;入り組んだ模式図などを&lt;br&gt;作成するとき&lt;/td&gt;
+&lt;td&gt;Ctrl + Shift + B&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Excelのイベント一時停止&lt;/td&gt;
+&lt;td&gt;マクロ有ブックで、&lt;br&gt;開くと自動的にフォームなどが開かれるExcelブックを、&lt;br&gt;それらの処理なしで開きたいとき&lt;/td&gt;
+&lt;td&gt;Ctrl + Shift + M&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;自作ショートカットのためのマクロ登録方法&#34;&gt;自作ショートカットのためのマクロ登録方法&lt;/h2&gt;
+&lt;p&gt;こちらに分かりやすい記事がありました。&lt;br&gt;
+&lt;a href=&#34;https://fastclassinfo.com/entry/marco_shortcuts/&#34;&gt;&amp;quot;エクセル初心者も出来る！マクロでショートカットキーを作成する方法&amp;quot;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;①Alt + F11キーでVBEを開く。&lt;br&gt;
+②標準モジュールにプロシージャを記入する。&lt;br&gt;
+③ブックの画面に戻り、Alt + F8を押して、マクロの設定画面を開く。&lt;br&gt;
+④プロシージャを選択し、オプションボタンからマクロ呼出のショートカットキーを登録する。&lt;/p&gt;
+&lt;h2 id=&#34;どのキーにマクロを登録すべきか&#34;&gt;どのキーにマクロを登録すべきか？&lt;/h2&gt;
+&lt;p&gt;下記の記事に既存のショートカットが列挙されている。&lt;br&gt;
+&lt;a href=&#34;https://detail-infomation.com/excel-shortcut-key/&#34;&gt;&amp;quot;【2020年最新】Excelのショートカットキー全230個の一覧表！ - Electrical Information&amp;quot;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;このうち、まだ何も確保されていないキーを登録するとキーが競合せずにすむため都合が良い。&lt;br&gt;
+Ctrl + Shift + K、M、Nなどが良いかもしれない。&lt;/p&gt;
+&lt;h2 id=&#34;個別説明&#34;&gt;個別説明&lt;/h2&gt;
+&lt;h3 id=&#34;対象のセルからテキストのみコピーするショートカット&#34;&gt;対象のセルからテキストのみコピーするショートカット&lt;/h3&gt;
+&lt;p&gt;エクセルでセルをコピーしてほかのアプリケーション（メモ帳とか）に張り付けしようとすると、
+セル内容のほかに改行コード（LF）がついてくる。&lt;br&gt;
+これが結構タスクの際に邪魔になることがある（消すためにいちいちBSキーを打つのはめんどくさい）。&lt;/p&gt;
+&lt;p&gt;エクセルに、「値の貼り付け」機能は存在するのに「値のコピー」機能が存在しないことがこういう悩みを生むんだろう。&lt;/p&gt;
+&lt;p&gt;これについて対策をするショートカット。&lt;/p&gt;
+&lt;h4 id=&#34;コード&#34;&gt;コード&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*関数名    ：copyCellValueToCB
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*機能      ：アクティブセル内容をクリップボードにコピー
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*引数(1)   ：無し
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;copyCellValueToCB&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;定数
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Const&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;copyCellValueToCB&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;変数
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;On&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Error&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ErrorHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;---以下に処理を記述---
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;クリップボードに文字列を格納
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;With&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;CreateObject&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Forms.TextBox.1&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;        &lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;MultiLine&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;True&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;        &lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Text&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;CStr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ActiveCell&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;        &lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SelStart&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;        &lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SelLength&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;TextLength&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;        &lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Copy&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;With&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;ErrorHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;32&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;MsgBox&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;エラーが発生しましたので終了します&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;33&lt;/span&gt;                &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;34&lt;/span&gt;                &lt;span class=&#34;s&#34;&gt;&amp;#34;関数名：&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;35&lt;/span&gt;                &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;36&lt;/span&gt;                &lt;span class=&#34;s&#34;&gt;&amp;#34;エラー番号&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Number&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Chr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Description&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbCritical&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;37&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;38&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;39&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;40&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これでキー押下だけで改行コード無しの値のコピーが可能になった。&lt;/p&gt;
+&lt;h3 id=&#34;選択したオブジェクト画像図形等の最前面化最背面化&#34;&gt;選択したオブジェクト（画像、図形等）の最前面化・最背面化&lt;/h3&gt;
+&lt;p&gt;フローチャートや模式図、組織図などをExcelで作成するときに、&lt;br&gt;
+矢印線をテキストボックスや画像の背面に（あるいは画像などを他の図形の前面に）移動させて&lt;br&gt;
+被っている部分を調整したい機会があるかと思う。&lt;/p&gt;
+&lt;p&gt;その際に最前面に移動の処理を右クリックから呼び出すのは遅いので、&lt;br&gt;
+作業時間を大幅に削減する。&lt;/p&gt;
+&lt;h4 id=&#34;コード最前面の場合&#34;&gt;コード（最前面の場合）&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*関数名    ：ZOrderToFront
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*機能      ：
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*引数(1)   ：
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;ZOrderToFront&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;定数
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Const&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;ZOrderToFront&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;変数
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;On&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Error&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ErrorHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;Selection&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ShapeRange&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ZOrder&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;msoBringToFront&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;ErrorHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Number&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;438&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;MsgBox&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;オブジェクトを選択してから実行してください。&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbExclamation&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;警告&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Else&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;MsgBox&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;エラーが発生したため、マクロを終了します。&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;               &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;               &lt;span class=&#34;s&#34;&gt;&amp;#34;関数名：&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;               &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;               &lt;span class=&#34;s&#34;&gt;&amp;#34;エラー番号：&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Number&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbNewLine&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;               &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Description&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbCritical&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;エラー&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;32&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;33&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;34&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;35&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;36&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;最背面の移動のショートカットの場合は、&lt;br&gt;
+次のように置き換える。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Selection&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ShapeRange&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ZOrder&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;msoSendToBack&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;excelのイベント一時停止&#34;&gt;Excelのイベント一時停止&lt;/h3&gt;
+&lt;p&gt;こんなケースを想定。&lt;br&gt;
+《マクロ付エクセルブックを編集するとき、起動時に実行するイベントプロシージャを働かせないで起動したい》&lt;br&gt;
+《その他、シートアクティブ時のイベント等の「実行してほしくないプロシージャ」を一旦中断したい》&lt;/p&gt;
+&lt;h4 id=&#34;コード-1&#34;&gt;コード&lt;/h4&gt;
+&lt;p&gt;下記のQiita記事で紹介したとおり。&lt;br&gt;
+&lt;a href=&#34;https://qiita.com/dede-20191130/items/845fd382fe00ce18f767&#34;&gt;&amp;quot;【Excel VBA】起動時に実行するマクロが鬱陶しいブックを編集したいときのツールの作成 - Qiita&amp;quot;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;終わりに&#34;&gt;終わりに&lt;/h2&gt;
+&lt;p&gt;何か他に便利そうなショートカットを見つけたら順次更新したい。&lt;/p&gt;
+
+        
+      </description>
     </item>
     
     <item>
@@ -31,7 +266,41 @@
       <pubDate>Sun, 01 Nov 2020 12:05:43 +0900</pubDate>
       
       <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/excel-a1-tool/</guid>
-      <description>このツールについて 下記Qiita記事のプログラムを、フォルダ配下のExcelブックに対して再帰的に/非再帰的に適用できるように 機能をもたせた</description>
+      <description>
+        
+          &lt;h2 id=&#34;このツールについて&#34;&gt;このツールについて&lt;/h2&gt;
+&lt;p&gt;下記Qiita記事のプログラムを、フォルダ配下のExcelブックに対して再帰的に/非再帰的に適用できるように&lt;br&gt;
+機能をもたせたツールです。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://qiita.com/dede-20191130/items/1fef61cd238e7b724dc1#3-1%E3%82%A8%E3%82%AF%E3%82%BB%E3%83%AB%E3%83%96%E3%83%83%E3%82%AF%E3%81%AE%E4%BD%93%E8%A3%81%E3%82%92%E6%95%B4%E3%81%88%E3%82%8B%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0&#34;&gt;&lt;u&gt;記事リンク&lt;/u&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/dede-20191130/My_VBA_Tools/tree/master/%E3%81%9D%E3%81%AE%E4%BB%96%E3%83%84%E3%83%BC%E3%83%AB/Other_0001_%E3%82%A8%E3%82%AF%E3%82%BB%E3%83%AB%E3%83%96%E3%83%83%E3%82%AFA1%E3%82%AB%E3%83%BC%E3%82%BD%E3%83%AB%E7%A7%BB%E5%8B%95&#34;&gt;&lt;u&gt;ツールはこちらからダウンロードできます。&lt;br&gt;
+また、ソースコードもこちらに置いてあります。&lt;/u&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;作成環境&#34;&gt;作成環境&lt;/h2&gt;
+&lt;p&gt;Windows10&lt;br&gt;
+MSOffice 2016&lt;/p&gt;
+&lt;h2 id=&#34;機能&#34;&gt;機能&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;エクセルブックに対して、すべてのシートのカーソルを左上セル（A1セル）に合わせ、一番左のシートをアクティブにした状態にする。&lt;/li&gt;
+&lt;li&gt;ダイアログで選択したフォルダ配下のすべてのエクセルブック（xls,xlsx,xlsm）に対して処理を行う。&lt;/li&gt;
+&lt;li&gt;ファイル探索を再帰的に、または非再帰的に行う&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;画面&#34;&gt;画面&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名称&lt;/th&gt;
+&lt;th&gt;画像&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;起動後に表示されるフォーム&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;./image01.png&#34; alt=&#34;エクスポート画面&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+        
+      </description>
     </item>
     
     <item>
@@ -40,7 +309,47 @@
       <pubDate>Tue, 27 Oct 2020 20:29:45 +0900</pubDate>
       
       <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/10/27/access-tabledef-tool/</guid>
-      <description>概要 以前の記事で説明したエクスポート関数をツール化したもの（こちら） ツール化することで、VBEを開いて関数をペーストする必要が無くなった。 ま</description>
+      <description>
+        
+          &lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;../../25/access-tabledef/&#34;&gt;以前の記事で説明したエクスポート関数をツール化したもの（こちら）&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;ツール化することで、VBEを開いて関数をペーストする必要が無くなった。&lt;br&gt;
+また、他のAccessデータベースファイルの定義をエクスポートできるようになった。&lt;/p&gt;
+&lt;p&gt;画面で指定したAccessファイル（&lt;em&gt;.mdb、&lt;/em&gt;.accdb）について、&lt;br&gt;
+すべてのテーブルのテーブル定義を表形式でエクスポートする。&lt;br&gt;
+エクスポート先は新規エクセルブック。テーブルデータがシートごとに格納される。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/dede-20191130/My_VBA_Tools/tree/master/T0002_Access%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E5%AE%9A%E7%BE%A9%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%88%E3%83%84%E3%83%BC%E3%83%AB&#34;&gt;ツールはこちらからダウンロードできます。&lt;br&gt;
+また、ソースコードもこちらに置いてあります。&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;動作環境&#34;&gt;動作環境&lt;/h2&gt;
+&lt;p&gt;Microsoft Officeが動作する環境。&lt;br&gt;
+32bit、64bitいずれも可。&lt;/p&gt;
+&lt;h2 id=&#34;機能一覧&#34;&gt;機能一覧&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;テーブル定義の表形式でのエクスポート機能&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;ツールとしての長所&#34;&gt;ツールとしての長所&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;テーブル定義の一覧化および目視での把握が容易にできます。&lt;/li&gt;
+&lt;li&gt;手作業で表を作成するよりも効率的です。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;使用方法&#34;&gt;使用方法&lt;/h2&gt;
+&lt;h3 id=&#34;1-エクスポートするaccessファイルパスの選択&#34;&gt;1. エクスポートするAccessファイルパスの選択&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;./image01.png&#34; alt=&#34;エクスポート画面&#34;&gt;&lt;/p&gt;
+&lt;p&gt;いずれかの方法で選択します。&lt;br&gt;
+1.エクスポート画面のテキストボックスに直接入力します。&lt;br&gt;
+2.参照ボタンをクリックします。&lt;br&gt;
+ファイル選択ダイアログにおいて出力対象のファイルを選択します。&lt;br&gt;
+テキストボックスにファイルパスが格納されます。&lt;/p&gt;
+&lt;h3 id=&#34;2-エクスポート&#34;&gt;2. エクスポート&lt;/h3&gt;
+&lt;p&gt;エクスポートボタンを押下します。&lt;/p&gt;
+&lt;p&gt;対象のAccessファイルと同階層のフォルダに&lt;br&gt;
+次のようにエクセルファイルが出力されます。&lt;br&gt;
+デザインビュー表示に似せた様式で各情報が一覧できます。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./image02.png&#34; alt=&#34;エクスポートNo1&#34;&gt;
+&lt;img src=&#34;./image03.png&#34; alt=&#34;エクスポートNo2&#34;&gt;&lt;/p&gt;
+
+        
+      </description>
     </item>
     
     <item>
@@ -49,7 +358,28 @@
       <pubDate>Sat, 18 Jul 2020 18:30:28 +0000</pubDate>
       
       <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/07/18/create-nomarco-tool/</guid>
-      <description>この記事について 以前作成した非マクロのメール作成ツールについての紹介記事。 こちら（Github）からツールをダウンロードできます。 概要 テーブ</description>
+      <description>
+        
+          &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
+&lt;p&gt;以前作成した非マクロのメール作成ツールについての紹介記事。&lt;br&gt;
+&lt;a href=&#34;https://github.com/dede-20191130/My_VBA_Tools/tree/master/%E9%9D%9E%E3%83%9E%E3%82%AF%E3%83%AD%E3%83%84%E3%83%BC%E3%83%AB/NOVBA0001_%E4%BD%9C%E6%A5%AD%E8%A8%98%E9%8C%B2%E7%AE%A1%E7%90%86%E7%B0%BF_%E5%85%BC_%E3%83%A1%E3%83%BC%E3%83%AB%E4%BD%9C%E6%88%90%E3%83%84%E3%83%BC%E3%83%AB&#34;&gt;こちら（Github）&lt;/a&gt;からツールをダウンロードできます。&lt;/p&gt;
+&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
+&lt;p&gt;テーブルでデータを管理。&lt;/p&gt;
+&lt;p&gt;管理したデータからメールを作成。&lt;/p&gt;
+&lt;h2 id=&#34;画像紹介&#34;&gt;画像紹介&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/dede-20191130/My_VBA_Tools/blob/master/_ImageForMarkdown/NOVBA0001/image_1.png?raw=true&#34; alt=&#34;入力欄&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/dede-20191130/My_VBA_Tools/blob/master/_ImageForMarkdown/NOVBA0001/image_5.png?raw=true&#34; alt=&#34;プルダウン項目の自動設定&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/dede-20191130/My_VBA_Tools/blob/master/_ImageForMarkdown/NOVBA0001/image_7.png?raw=true&#34; alt=&#34;自動作成メール&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;span-idvba記事非マクロvbaの使用なしであることの利点&#34;&gt;&lt;span id=&#34;VBA&#34;&gt;記事：非マクロ（VBAの使用なし）であることの利点&lt;/h2&gt;
+&lt;p&gt;こちらにまとめています。&lt;/p&gt;
+&lt;p&gt;⇛&lt;a href=&#34;../../16/cmpr-tools/&#34;&gt;Excelのツール開発&lt;br&gt;
+関数（非マクロ）ツールとVBA使用ツールの比較&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;使用方法詳細&#34;&gt;使用方法詳細&lt;/h2&gt;
+&lt;p&gt;仕様、使用方法などは、&lt;br&gt;
+&lt;a href=&#34;https://github.com/dede-20191130/My_VBA_Tools/tree/master/T0001_%E8%A6%8B%E7%A9%8D%E6%9B%B8%E4%BD%9C%E6%88%90%E3%83%84%E3%83%BC%E3%83%AB&#34;&gt;こちら（Github）&lt;/a&gt;に記載しています。&lt;/p&gt;
+
+        
+      </description>
     </item>
     
     <item>
@@ -58,7 +388,62 @@
       <pubDate>Thu, 16 Jul 2020 08:05:13 +0000</pubDate>
       
       <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/07/16/create-estm/</guid>
-      <description>この記事について 以前作成した見積書作成ツール（Excel VBA）についての紹介記事。 こちら（Github） からツールをダウンロードできます。</description>
+      <description>
+        
+          &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
+&lt;p&gt;以前作成した見積書作成ツール（Excel VBA）についての紹介記事。&lt;br&gt;
+
+
+
+
+    
+        
+        
+        &lt;a href=&#34;https://github.com/dede-20191130/My_VBA_Tools/tree/master/T0001_01_%E8%A6%8B%E7%A9%8D%E6%9B%B8%E4%BD%9C%E6%88%90%E3%83%84%E3%83%BC%E3%83%AB_ExcelVer&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;こちら（Github）&lt;/a&gt;
+    
+  からツールをダウンロードできます。&lt;/p&gt;
+&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
+&lt;p&gt;一枚～複数枚の見積書を作成する。&lt;/p&gt;
+&lt;p&gt;テンプレート見積書に設定したデータを挿入し、見積書格納先の別ブックを作成。&lt;/p&gt;
+&lt;h2 id=&#34;画像例&#34;&gt;画像例&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/dede-20191130/My_VBA_Tools/raw/master/_ImageForMarkdown/T0001/image_5.png&#34; alt=&#34;設定欄&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/dede-20191130/My_VBA_Tools/raw/master/_ImageForMarkdown/T0001/image_6.png&#34; alt=&#34;作成画面&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/dede-20191130/My_VBA_Tools/raw/master/_ImageForMarkdown/T0001/image_7.png&#34; alt=&#34;見積書&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;使用方法詳細&#34;&gt;使用方法詳細&lt;/h2&gt;
+&lt;p&gt;仕様、使用方法などは、&lt;br&gt;
+
+
+
+
+    
+        
+        
+        &lt;a href=&#34;https://github.com/dede-20191130/My_VBA_Tools/tree/master/T0001_01_%E8%A6%8B%E7%A9%8D%E6%9B%B8%E4%BD%9C%E6%88%90%E3%83%84%E3%83%BC%E3%83%AB_ExcelVer&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;こちら（Github）&lt;/a&gt;
+    
+  に記載しています。&lt;/p&gt;
+&lt;h2 id=&#34;追記accessバージョンのツールの作成について&#34;&gt;追記：Accessバージョンのツールの作成について&lt;/h2&gt;
+&lt;p&gt;Accessバージョンのツールを作成しました。&lt;/p&gt;
+
+
+
+&lt;div class=&#34;box-with-title&#34;&gt;
+    &lt;p&gt;&lt;span&gt;記事：&lt;/span&gt;&lt;/p&gt;
+    &lt;div class=&#34;inner&#34;&gt;
+         
+    
+
+
+
+
+
+&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2021/02/28/create-estm-accessver/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Access VBA] 見積書作成ツール（Accessバージョン）を作成した&lt;/a&gt;
+
+
+    &lt;/div&gt;
+&lt;/div&gt;
+
+        
+      </description>
     </item>
     
     <item>
@@ -67,7 +452,154 @@
       <pubDate>Thu, 16 Jul 2020 06:14:50 +0000</pubDate>
       
       <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/07/16/cmpr-tools/</guid>
-      <description>この記事について Excelでデータ管理したりドキュメントを出力したりするツール（機能の多寡を問わず）を作成しようとする際に、 大別すると、次の</description>
+      <description>
+        
+          &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
+&lt;p&gt;Excelでデータ管理したりドキュメントを出力したりするツール（機能の多寡を問わず）を作成しようとする際に、&lt;br&gt;
+大別すると、次のような選択肢があるかと思われる。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;関数（マクロを使用しない。標準搭載の関数のみで実装）ツール&lt;/li&gt;
+&lt;li&gt;VBA使用ツール&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;それぞれにメリット・デメリットがあるが、&lt;br&gt;
+個人的な見解として&lt;br&gt;
+それらをまとめてみたい。&lt;/p&gt;
+&lt;h2 id=&#34;サマリ表&#34;&gt;サマリ（表）&lt;/h2&gt;
+&lt;p&gt;最初にまとめとして表を記す。&lt;/p&gt;
+&lt;div class=&#34;wp-block-group&#34;&gt;
+  &lt;div class=&#34;wp-block-group__inner-container&#34;&gt;
+    &lt;table class=&#34;has-fixed-layout&#34;&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+          関数（非マクロ）ツール
+        &lt;/td&gt;
+        &lt;td&gt;
+          VBAツール
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          開発難度
+        &lt;/td&gt;
+        &lt;td&gt;
+          低
+        &lt;/td&gt;
+        &lt;td&gt;
+          高
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          自由度
+        &lt;/td&gt;
+        &lt;td&gt;
+          低
+        &lt;/td&gt;
+        &lt;td&gt;
+          高
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          できること
+        &lt;/td&gt;
+        &lt;td&gt;
+          データの管理（手入力、&lt;br /&gt;データベースとの連携）&lt;br /&gt;&lt;br /&gt;帳票等成果物の出力&lt;br /&gt;　・プリンター印刷&lt;br /&gt;　・PDF&lt;br /&gt;&lt;br /&gt;メール作成、WebサイトのURL管理、ファイルパスの管理
+        &lt;/td&gt;
+        &lt;td&gt;
+          データの管理（手入力、オリジナルフォームの入力、ファイル読み込み、データベースとの連携）&lt;br /&gt;&lt;br /&gt;帳票等成果物の出力&lt;br /&gt;　・プリンター印刷&lt;br /&gt;　・PDF&lt;br /&gt;　・csvファイル&lt;br /&gt;　・その他、だいたいどのような形式でも可能&lt;br /&gt;&lt;br /&gt;メール作成、WebサイトのURL管理、ファイルパスの管理（より高度なレベルで）&lt;br /&gt;&lt;br /&gt;Webサイトのスクレイピング&lt;br /&gt;&lt;br /&gt;Webサイトに対するHTTPリクエスト、レスポンス取得
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          作業精度向上のレベル
+        &lt;/td&gt;
+        &lt;td&gt;
+          低
+        &lt;/td&gt;
+        &lt;td&gt;
+          高
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          作業効率化のレベル
+        &lt;/td&gt;
+        &lt;td&gt;
+          低
+        &lt;/td&gt;
+        &lt;td&gt;
+          高
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          動作安定性
+        &lt;/td&gt;
+        &lt;td&gt;
+          高
+        &lt;/td&gt;
+        &lt;td&gt;
+          低
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          メンテナンス性
+        &lt;/td&gt;
+        &lt;td&gt;
+          高
+        &lt;/td&gt;
+        &lt;td&gt;
+          低
+        &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;比較&#34;&gt;比較&lt;/h2&gt;
+&lt;h3 id=&#34;作りやすさ&#34;&gt;作りやすさ&lt;/h3&gt;
+&lt;p&gt;エクセル関数は義務教育の関数の知識があれば使いやすいだろう。&lt;br&gt;
+IF関数やVLOOKUP、OFFSET関数などはプログラミング的な発想や知識が必要かもしれない。&lt;/p&gt;
+&lt;p&gt;一方、VBAはVisual Basicを用いたプログラミング作業が必要のため、&lt;br&gt;
+プログラミング未経験者にとって難易度は高い。&lt;/p&gt;
+&lt;h3 id=&#34;自由度とできること&#34;&gt;自由度とできること&lt;/h3&gt;
+&lt;p&gt;エクセル関数によってできるのは、データの管理、整形、入出力、&lt;br&gt;
+文書の作成、出力、メール送信などに限られる。&lt;br&gt;
+外部のアプリケーションの操作などはできない。&lt;/p&gt;
+&lt;p&gt;VBAの場合、MS Officeのアプリはもちろん、&lt;br&gt;
+テキストファイル、バイナリファイルを操作可能。&lt;br&gt;
+Sendkey関数でキー操作をエミュレートして他のアプリを操作する荒業もある。&lt;br&gt;
+ブラウザを操作する場合、Seleniumを用いる。&lt;/p&gt;
+&lt;p&gt;VBAでできることは非常に多岐にわたるが、複雑なことをしようとすればするほど&lt;br&gt;
+バグや不安定さも増大する。&lt;/p&gt;
+&lt;h3 id=&#34;自動化のもたらす利益の比較&#34;&gt;自動化のもたらす利益の比較&lt;/h3&gt;
+&lt;p&gt;自由度が高く、一連の作業を精度高く素早く行うことができるVBAツールは&lt;br&gt;
+自動化による恩恵を最大化することができる。&lt;/p&gt;
+&lt;h3 id=&#34;安定性&#34;&gt;安定性&lt;/h3&gt;
+&lt;p&gt;エクセル関数はあらかじめ動作の決まった部品の組み合わせのため、&lt;br&gt;
+破壊的な動作をもたらすバグの可能性は極めて少なく、&lt;br&gt;
+関数入力先セルに　#VALUE!　等の表記でエラーが表示される。&lt;br&gt;
+そのため、エラーの発生がわかりやすい。&lt;/p&gt;
+&lt;p&gt;VBAツールの場合、&lt;br&gt;
+プログラムの書き方次第でExcel自体が強制終了したり、&lt;br&gt;
+編集先テキストファイルのデータを汚染したりする。&lt;/p&gt;
+&lt;p&gt;例えばテキストファイル編集中に&lt;br&gt;
+不正な処理によりエラー落ちすると、&lt;br&gt;
+望まないデータが書き込まれているかもしれない。&lt;/p&gt;
+&lt;h3 id=&#34;メンテナンス&#34;&gt;メンテナンス&lt;/h3&gt;
+&lt;p&gt;VBAのメンテンナンスはVBのコードを読める人間が必要になる。&lt;br&gt;
+そのため、保守できる人材が退職あるいは異動したばあい、&lt;br&gt;
+今いる人間ではメンテ不可能になる恐れがある。&lt;/p&gt;
+&lt;p&gt;そのため、簡易なものでもいいから内部の仕様のドキュメントを作成しておくことが重要である。&lt;/p&gt;
+&lt;h2 id=&#34;まとめ&#34;&gt;まとめ&lt;/h2&gt;
+&lt;p&gt;非マクロツールは保守性や安定性が高いが、自動化への寄与は劣る。&lt;br&gt;
+VBAツールを作成した場合、仕様のドキュメントは常に残しておくようにしたい。&lt;/p&gt;
+
+        
+      </description>
     </item>
     
   </channel>
