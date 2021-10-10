@@ -7,6 +7,7 @@ $breakpoints: (
     "lg": "screen and (min-width: 1024px)",
     "xl": "screen and (min-width: 1440px)",
 ) !default;
+$adjusted-color-yellow:#fcff37;
 
 // mixins
 @mixin mq($breakpoint) {
@@ -25,7 +26,7 @@ code {
         // https://www.qoosky.io/techs/ca7f68faa6#part-aa5c8249f93236d9
         html[data-mode="dim"] & {
             background-color: inherit;
-            color: #ffe500;
+            color: $adjusted-color-yellow;
         }
     }
 }
@@ -52,7 +53,7 @@ html[data-mode="dim"] {
         background-color: #353535;
         li {
             a {
-                color: #fcff37;
+                color: $adjusted-color-yellow;
             }
         }
     }
@@ -88,6 +89,9 @@ article.post_content {
     h5,
     h6 {
         border-bottom: solid 1px black;
+        html[data-mode="dim"] & {
+            border-bottom-color:$adjusted-color-yellow;
+        }
     }
 
     img {
