@@ -991,6 +991,7 @@ Modelよりバリデーション結果を受け取る。&lt;/p&gt;
 Reactなどのフレームワークは使用せずにプレーンなTypescriptで実装した。&lt;/p&gt;
 &lt;p&gt;こうしてみると、各種フレームワークがどのような要望や要請をもとに作成されているのか&lt;br&gt;
 （フレームワークを使わないことによる作業のボトルネックはどこにあるか）が少しはわかるような気がする。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2021/10/08/send-contact-form-react/&#34;&gt;■Reactを使用したバージョンのフォームを作成しました。&lt;/a&gt;&lt;/p&gt;
 
         
       </description>
