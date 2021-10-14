@@ -23,7 +23,7 @@
     &lt;p&gt;&lt;span&gt;かんたんな概要と結論&lt;/span&gt;&lt;/p&gt;
     &lt;div class=&#34;inner&#34;&gt;
          
-    以前作成したReact製フォームをReact RouterでSPA化した。  
+    以前作成したReact製フォームをReact RouterでSPA化した。&lt;br&gt; 
     モーダルポップアップとして表示していた結果画面を別ページに移し、モーダル特有の問題からも解放された。
 
     &lt;/div&gt;
@@ -43,7 +43,7 @@
 &lt;p&gt;&lt;a href=&#34;https://github.com/dede-20191130/send-contact-form-react-router&#34;&gt;&lt;span id=&#34;srcURL&#34;&gt;&lt;u&gt;ソースコードはこちらにあります（GitHub）。&lt;/u&gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;レスポンシブ対応について&#34;&gt;レスポンシブ対応について&lt;/h2&gt;
 &lt;p&gt;PCでの閲覧のみ対応。&lt;br&gt;
-スマホ対応などではレイアウトが崩れる。&lt;/p&gt;
+スマホなどで閲覧時にはレイアウトが崩れる。&lt;/p&gt;
 &lt;h2 id=&#34;要件の変更&#34;&gt;要件の変更&lt;/h2&gt;
 &lt;p&gt;SPAするにあたり、次のように要件を変更し、機能追加するようにした。&lt;/p&gt;
 &lt;ul&gt;
