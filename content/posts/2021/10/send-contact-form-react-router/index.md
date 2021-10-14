@@ -16,7 +16,7 @@ archives:
 ## この記事について
 
 {{< box-with-title title="かんたんな概要と結論" >}} 
-    以前作成したReact製フォームをReact RouterでSPA化した。  
+    以前作成したReact製フォームをReact RouterでSPA化した。<br> 
     モーダルポップアップとして表示していた結果画面を別ページに移し、モーダル特有の問題からも解放された。
 {{< /box-with-title >}}
 
@@ -39,7 +39,7 @@ SPA化のためには[React Router](https://reactrouter.com/web/guides/quick-sta
 ## レスポンシブ対応について
 
 PCでの閲覧のみ対応。  
-スマホ対応などではレイアウトが崩れる。
+スマホなどで閲覧時にはレイアウトが崩れる。
 
 ## 要件の変更
 
