@@ -30,7 +30,7 @@ JavaScriptの標準APIである[*Web Components*](https://developer.mozilla.org/
 
 ## Web Componentsとは？
 
-### About
+### ABOUT
 
 >Web Components は、再利用可能なカスタム要素を作成し、ウェブアプリの中で利用するための、一連のテクノロジーです。コードの他の部分から独立した、カプセル化された機能を使って実現します。 [https://developer.mozilla.org/ja/docs/Web/Web_Components](https://developer.mozilla.org/ja/docs/Web/Web_Components)
 
@@ -49,18 +49,18 @@ Reactのような外部ライブラリを用いなくても、
      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
    ></iframe>
 
-### Pros
+### PROS
 
-- コンポーネントの使い回しを可能とする  
+- **コンポーネントの使い回しを可能とする**  
 DRYなコーディングを助ける。
-- styleをカプセル化することができる 
+- **styleをカプセル化することができる**  
 これは、あるセレクタに該当する要素に対する外部で指定されたstyleが、  
 コンポーネント内（正確にはコンポーネント内の*Shadow DOM*）に影響を与えず、  
 また、コンポーネント内で記述されたstyleが外部の要素に影響を与えることはないということを意味している。
-- 動作のカプセル化をすることができる  
+- **動作のカプセル化をすることができる**  
 styleと同様に、clickイベントなども独自の挙動を定義することが可能。
 
-### Cons
+### CONS
 
 - コンポーネントの外部と内部とのデータのやり取りが苦手  
 *Shadow DOM*を用いてカプセル化する場合は特に制限が強く、  
@@ -70,7 +70,7 @@ Reactのように自由気ままにイベント移譲をしたりstate管理し�
 
 ## サンプルを作成する（明暗モード切替ボタン）
 
-### About
+### ABOUT
 
 画面、あるいは指定ボックス内の明るいモード、暗いモードを切り替えるトグルボタンを作成したい。
 
