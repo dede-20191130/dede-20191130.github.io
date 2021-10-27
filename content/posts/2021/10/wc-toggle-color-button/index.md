@@ -1,5 +1,5 @@
 ---
-title: "[JavaScript] そうだ、Web Componentsを使おう"
+title: "[JavaScript] Web Componentsで明暗モード切替ボタンを作成する"
 author: dede-20191130
 date: 2021-10-27T10:01:42+09:00
 slug: wc-toggle-color-button
