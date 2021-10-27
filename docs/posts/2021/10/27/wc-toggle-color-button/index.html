@@ -128,7 +128,7 @@
 </svg></span>
     <span class="post_date">
       Oct 27, 2021</span>
-    <span class="post_time"> · 6 min read</span><span>&nbsp;· <a href='https://dede-20191130.github.io/learnerBlog/tags/javascript' title="Javascript" class="post_tag button button_translucent">Javascript
+    <span class="post_time"> · 7 min read</span><span>&nbsp;· <a href='https://dede-20191130.github.io/learnerBlog/tags/javascript' title="Javascript" class="post_tag button button_translucent">Javascript
         </a><a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%83%89' title="フロントエンド" class="post_tag button button_translucent">フロントエンド
         </a>
     </span>
@@ -184,6 +184,7 @@
               <ul>
                 <li><a href="#切り替え対象の要素の指定">切り替え対象の要素の指定</a></li>
                 <li><a href="#styleの独立">styleの独立</a></li>
+                <li><a href="#styleの一部指定">styleの一部指定</a></li>
                 <li><a href="#動作の独立">動作の独立</a></li>
               </ul>
             </li>
@@ -453,6 +454,12 @@ Sass用のライブラリやCSS-in-JSのライブラリを用いてうまいこ�
 <code>box-two</code>内部にあるはずの<em>Web Components</em>には影響しない。</p>
 <p>また、<em>Web Components</em>でグローバルに宣言したチェックボックスなどのstyleも、<br>
 <code>box-two</code>内のほかのチェックボックスに影響しない。</p>
+<h5 id="styleの一部指定">styleの一部指定</h5>
+<p>ボタンの大きさは、<br>
+<code>--toggle-color-button-len</code>というCSS変数で指定可能になっている。</p>
+<p>上記の例では、<code>box-one</code>と<code>box-two</code>で別々の大きさのトグルボタンを実装している。</p>
+<p>※<em>Shadow Dom</em>のスタイルの値を指定するためには、<br>
+このようにCSS変数の形で外部から注入する方法が許されている。</p>
 <h5 id="動作の独立">動作の独立</h5>
 <p><code>box-two</code>内のチェックボックスは、<br>
 それぞれ対応する稼働状態表示欄にON/OFFを報告するイベントを設定している。</p>
