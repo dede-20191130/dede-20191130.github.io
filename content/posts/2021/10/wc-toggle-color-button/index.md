@@ -3,7 +3,7 @@ title: "[JavaScript] そうだ、Web Componentsを使おう"
 author: dede-20191130
 date: 2021-10-27T10:01:42+09:00
 slug: wc-toggle-color-button
-draft: true
+draft: false
 toc: true
 featured: false
 tags: ["Javascript","フロントエンド"]
