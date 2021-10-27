@@ -34,7 +34,7 @@
 &lt;em&gt;Web Components&lt;/em&gt;を用いて作成した。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/dede-20191130/wc-toggle-color-button&#34;&gt;&lt;span id=&#34;srcURL&#34;&gt;&lt;u&gt;こちらからダウンロードできます（GitHub）。&lt;/u&gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;web-componentsとは&#34;&gt;Web Componentsとは？&lt;/h2&gt;
-&lt;h3 id=&#34;about&#34;&gt;About&lt;/h3&gt;
+&lt;h3 id=&#34;about&#34;&gt;ABOUT&lt;/h3&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Web Components は、再利用可能なカスタム要素を作成し、ウェブアプリの中で利用するための、一連のテクノロジーです。コードの他の部分から独立した、カプセル化された機能を使って実現します。 &lt;a href=&#34;https://developer.mozilla.org/ja/docs/Web/Web_Components&#34;&gt;https://developer.mozilla.org/ja/docs/Web/Web_Components&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -49,18 +49,18 @@
      allow=&#34;accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking&#34;
      sandbox=&#34;allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts&#34;
    &gt;&lt;/iframe&gt;
-&lt;h3 id=&#34;pros&#34;&gt;Pros&lt;/h3&gt;
+&lt;h3 id=&#34;pros&#34;&gt;PROS&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;コンポーネントの使い回しを可能とする&lt;br&gt;
+&lt;li&gt;&lt;strong&gt;コンポーネントの使い回しを可能とする&lt;/strong&gt;&lt;br&gt;
 DRYなコーディングを助ける。&lt;/li&gt;
-&lt;li&gt;styleをカプセル化することができる
+&lt;li&gt;&lt;strong&gt;styleをカプセル化することができる&lt;/strong&gt;&lt;br&gt;
 これは、あるセレクタに該当する要素に対する外部で指定されたstyleが、&lt;br&gt;
 コンポーネント内（正確にはコンポーネント内の&lt;em&gt;Shadow DOM&lt;/em&gt;）に影響を与えず、&lt;br&gt;
 また、コンポーネント内で記述されたstyleが外部の要素に影響を与えることはないということを意味している。&lt;/li&gt;
-&lt;li&gt;動作のカプセル化をすることができる&lt;br&gt;
+&lt;li&gt;&lt;strong&gt;動作のカプセル化をすることができる&lt;/strong&gt;&lt;br&gt;
 styleと同様に、clickイベントなども独自の挙動を定義することが可能。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;cons&#34;&gt;Cons&lt;/h3&gt;
+&lt;h3 id=&#34;cons&#34;&gt;CONS&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;コンポーネントの外部と内部とのデータのやり取りが苦手&lt;br&gt;
 &lt;em&gt;Shadow DOM&lt;/em&gt;を用いてカプセル化する場合は特に制限が強く、&lt;br&gt;
@@ -69,7 +69,7 @@ Reactのように自由気ままにイベント移譲をしたりstate管理し�
 今後の開発に期待。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;サンプルを作成する明暗モード切替ボタン&#34;&gt;サンプルを作成する（明暗モード切替ボタン）&lt;/h2&gt;
-&lt;h3 id=&#34;about-1&#34;&gt;About&lt;/h3&gt;
+&lt;h3 id=&#34;about-1&#34;&gt;ABOUT&lt;/h3&gt;
 &lt;p&gt;画面、あるいは指定ボックス内の明るいモード、暗いモードを切り替えるトグルボタンを作成したい。&lt;/p&gt;
 &lt;h3 id=&#34;要件&#34;&gt;要件&lt;/h3&gt;
 &lt;ul&gt;
