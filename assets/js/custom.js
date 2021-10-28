@@ -43,6 +43,9 @@ function correntScroll(event) {
         top: positionY,
     })
 
+    // 履歴を追加
+    history.pushState({}, document.title, href);
+
     event.preventDefault();
 
 }
@@ -50,10 +53,10 @@ function correntScroll(event) {
 function loadSvg(file, parent, path = iconsPath) {
     const link = `{{ absURL "" }}${path}${file}.svg`;
     fetch(link)
-    .then((response) => {
-      return response.text();
-    })
-    .then((data) => {
-      parent.innerHTML = data;
-    });
-  }
+        .then((response) => {
+            return response.text();
+        })
+        .then((data) => {
+            parent.innerHTML = data;
+        });
+}
