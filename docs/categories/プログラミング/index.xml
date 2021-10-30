@@ -6,7 +6,178 @@
     <description>Recent content in プログラミング on 学習者dedeのブログ ~プログラミング等~</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 27 Oct 2021 10:01:42 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 30 Oct 2021 18:56:19 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[React Hook] レンダリングのチューニング ~オブジェクトをContextとして利用する場合 &amp; サンプルコード~</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/10/30/tuning-usecontext-for-obj/</link>
+      <pubDate>Sat, 30 Oct 2021 18:56:19 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/10/30/tuning-usecontext-for-obj/</guid>
+      <description>
+        
+          &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
+
+
+
+&lt;div class=&#34;box-with-title&#34;&gt;
+    &lt;p&gt;&lt;span&gt;かんたんな概要と結論&lt;/span&gt;&lt;/p&gt;
+    &lt;div class=&#34;inner&#34;&gt;
+         
+    オブジェクトを&lt;i&gt;Context&lt;/i&gt;として使用する際のレンダリングのチューニングを実行した。&lt;br&gt;
+    外部ライブラリの&lt;i&gt;isDeepEqual&lt;/i&gt;、&lt;i&gt;useDeepCompareEffect&lt;/i&gt;を使用することで&lt;br&gt;
+    良い感じにDeep Compareを実装できる。
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;React Hook&lt;/em&gt;によるブラウザアプリ画面の作成の際、&lt;br&gt;
+レンダリングされる&lt;em&gt;Component&lt;/em&gt;の数を絞る（チューニングする）ことで&lt;br&gt;
+実行されるコードのステップ数を減らし、パフォーマンスを改善することができる。&lt;/p&gt;
+&lt;p&gt;オブジェクトを&lt;em&gt;Context&lt;/em&gt;として各&lt;em&gt;Component&lt;/em&gt;にわたす処理のコードにおいて、&lt;br&gt;
+いくつかの観点ごとにチューニングする必要があったため、&lt;br&gt;
+ここにそれを記したい。&lt;/p&gt;
+&lt;h2 id=&#34;レンダリングのチューニング&#34;&gt;レンダリングのチューニング&lt;/h2&gt;
+&lt;h3 id=&#34;やりたいこと&#34;&gt;やりたいこと&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;React Hook&lt;/em&gt;においてオブジェクトを&lt;em&gt;Context&lt;/em&gt;として各&lt;em&gt;Component&lt;/em&gt;にわたす際に、&lt;br&gt;
+オブジェクトを更新するたびに、通常は&lt;em&gt;Context&lt;/em&gt;を使用するすべての&lt;em&gt;Component&lt;/em&gt;が再レンダリングされる。&lt;/p&gt;
+&lt;p&gt;オブジェクトが再度同じ値に設定される場合に、&lt;br&gt;
+不要なレンダリングを防ぐような仕組みが、Reactの標準APIにないかと探したが、&lt;br&gt;
+どうやら存在しないようだった。&lt;/p&gt;
+&lt;p&gt;また、もう一つの課題として、&lt;br&gt;
+利用先の&lt;em&gt;Component&lt;/em&gt;で&lt;em&gt;Context&lt;/em&gt;のオブジェクトを取得し、&lt;br&gt;
+その値（参照ではなく、内容）に変更があるたびに&lt;em&gt;useEffect&lt;/em&gt;を実行させたいというものがある。&lt;br&gt;
+&lt;em&gt;useEffect&lt;/em&gt;はimmutableな値のみを依存関係に含めることができるので、&lt;br&gt;
+今回のようなオブジェクトの変更を察知することが難しい。&lt;/p&gt;
+&lt;p&gt;上記の2点について解決したい。&lt;/p&gt;
+&lt;h3 id=&#34;改善観点&#34;&gt;改善観点&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;レンダリングされる&lt;em&gt;Component&lt;/em&gt;の数をチューニング&lt;/li&gt;
+&lt;li&gt;useEffectの実行タイミングの調整&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;初期状態サンプルデモ&#34;&gt;初期状態（サンプルデモ）&lt;/h3&gt;
+&lt;iframe src=&#34;https://codesandbox.io/embed/github/dede-20191130/reactpj01/tree/tuning-add-useref-derv-no-tuned/?fontsize=14&amp;hidenavigation=1&amp;theme=dark&#34;
+    style=&#34;width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;&#34;
+    title=&#34;reactpj01&#34;
+    allow=&#34;accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking&#34;
+    sandbox=&#34;allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts&#34;
+&gt;&lt;/iframe&gt;
+&lt;p&gt;初期表示、および&lt;em&gt;SetterBoxButton&lt;/em&gt;を二回押下した際のログは次のようになる。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;render Container          //*** 初期表示ここから
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;render Box
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;render EffectBox
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;render SetterBox
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;run useDeepCompareEffect
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;{foo: {…}, bar: {…}}      //*** ここまで
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;render Container          //*** 一回目ここから
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;render Box
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;render EffectBox
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;render SetterBox          //*** ここまで
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;render Container          //*** 二回目ここから
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;render Box
+&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;render EffectBox
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;render SetterBox          //*** ここまで
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;ボタン押下ごとに&lt;em&gt;Container Component&lt;/em&gt;およびすべての子コンポーネントが再レンダリングされている。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;EffectBox&lt;/em&gt;の&lt;em&gt;useEffect&lt;/em&gt;が一回目のボタン押下時に実行されない。&lt;br&gt;
+（依存関係に空の配列&lt;code&gt;[]&lt;/code&gt;を渡しているためにそうなる。本来ならボタン押下で&lt;em&gt;myContext&lt;/em&gt;が変更した際に実行してほしい）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;チューニングの実行&#34;&gt;チューニングの実行&lt;/h2&gt;
+&lt;h3 id=&#34;レンダリング対象の絞り込み&#34;&gt;レンダリング対象の絞り込み&lt;/h3&gt;
+&lt;h4 id=&#34;i-reactmemoを使用&#34;&gt;i. React.memoを使用&lt;/h4&gt;
+&lt;p&gt;&lt;em&gt;Container&lt;/em&gt;の子コンポーネントのそれぞれを、&lt;br&gt;
+React.memoを用いてメモ化する。&lt;/p&gt;
+&lt;p&gt;引数の値が変更しなければ、再レンダリングを引き起こさないようにする。&lt;/p&gt;
+&lt;iframe src=&#34;https://codesandbox.io/embed/tuning-usecontext-for-object--add-memo-ror0u?fontsize=14&amp;hidenavigation=1&amp;theme=dark&#34;
+     style=&#34;width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;&#34;
+     title=&#34;tuning-useContext-for-object--add-memo&#34;
+     allow=&#34;accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking&#34;
+     sandbox=&#34;allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts&#34;
+   &gt;&lt;/iframe&gt;
+&lt;p&gt;ログは次のようになる。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;render Container         //*** 初期表示ここから                
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;render Box 
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;render EffectBox
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;render SetterBox
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;run useDeepCompareEffect
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;{foo: {…}, bar: {…}}     //*** ここまで
+&lt;span class=&#34;hl&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;render Container         //*** 一回目ボタン押下 ここから
+&lt;/span&gt;&lt;span class=&#34;hl&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;render Box
+&lt;/span&gt;&lt;span class=&#34;hl&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;render EffectBox         //*** ここまで
+&lt;/span&gt;&lt;span class=&#34;hl&#34;&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;render Container         //*** 二回目ボタン押下 ここから
+&lt;/span&gt;&lt;span class=&#34;hl&#34;&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;render Box
+&lt;/span&gt;&lt;span class=&#34;hl&#34;&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;render EffectBox         //*** ここまで
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;子コンポーネントのうち、&lt;br&gt;
+&lt;code&gt;SetterBox&lt;/code&gt;は再レンダされなくなった。&lt;/p&gt;
+&lt;p&gt;しかし、&lt;br&gt;
+&lt;code&gt;Box&lt;/code&gt;および&lt;code&gt;EffectBox&lt;/code&gt;はメモ化しても再レンダされる。&lt;/p&gt;
+&lt;p&gt;ボタン押下時に&lt;em&gt;myContext&lt;/em&gt;が更新され、&lt;em&gt;myContext.Provider&lt;/em&gt;で渡される値が変化するため、&lt;br&gt;
+&lt;code&gt;useContext(myContext)&lt;/code&gt;によって&lt;em&gt;myContext&lt;/em&gt;を使用している&lt;em&gt;Component&lt;/em&gt;はすべて再レンダされる。&lt;br&gt;
+ここで渡される値はオブジェクトの参照値なので、たとえ内容が等しくても「別のオブジェクト」と判定され、&lt;br&gt;
+レンダリングが実行される。&lt;/p&gt;
+&lt;p&gt;次のiiで、その挙動を改善したい。&lt;/p&gt;
+&lt;h4 id=&#34;ii-userefを使用してdeep-compareを実行&#34;&gt;ii. useRefを使用してDeep Compareを実行&lt;/h4&gt;
+&lt;p&gt;&lt;em&gt;Container Component&lt;/em&gt;の&lt;code&gt;cxt&lt;/code&gt;変数が更新されたあと、&lt;br&gt;
+&lt;em&gt;useRef&lt;/em&gt;でフックされた&lt;code&gt;cxtRef&lt;/code&gt;変数と、&lt;br&gt;
+&lt;code&gt;Deep Equal&lt;/code&gt;（ネストされた各値のすべてが等しいことを保証）によって内容を比較する。&lt;br&gt;
+&lt;em&gt;myContext.Provider&lt;/em&gt;のvalueに渡されるのは&lt;code&gt;cxt&lt;/code&gt;ではなく&lt;code&gt;cxtRef.current&lt;/code&gt;となる。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Deep Equal&lt;/code&gt;の実装には、外部ライブラリの&lt;code&gt;fast-deep-equal&lt;/code&gt;を使用する。&lt;/p&gt;
+&lt;iframe src=&#34;https://codesandbox.io/embed/tuning-usecontext-for-object--add-useref-p49b7?fontsize=14&amp;hidenavigation=1&amp;theme=dark&#34;
+     style=&#34;width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;&#34;
+     title=&#34;tuning-useContext-for-object--add-useRef&#34;
+     allow=&#34;accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking&#34;
+     sandbox=&#34;allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts&#34;
+   &gt;&lt;/iframe&gt;
+&lt;p&gt;ログは次のようになる。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;render Container             //*** 初期表示ここから
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;render Box
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;render EffectBox
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;render SetterBox
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;run useDeepCompareEffect
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;{foo: {…}, bar: {…}}       //*** ここまで
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;render Container             //*** 一回目ボタン押下 ここから
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;render Box
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;render EffectBox             //*** ここまで
+&lt;span class=&#34;hl&#34;&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;render Container             //*** 二回目ボタン押下 ここからここまで
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;二回目のボタン押下では、&lt;br&gt;
+&lt;em&gt;myContext&lt;/em&gt;の内容は変更しないため、&lt;br&gt;
+&lt;code&gt;Deep Compare&lt;/code&gt;の結果&lt;code&gt;cxtRef.current&lt;/code&gt;変数の参照は変化しない。&lt;/p&gt;
+&lt;p&gt;したがって、&lt;code&gt;Box&lt;/code&gt;および&lt;code&gt;EffectBox&lt;/code&gt;の再レンダは引き起こされない。&lt;/p&gt;
+&lt;h3 id=&#34;useeffectの実行タイミングの調整&#34;&gt;useEffectの実行タイミングの調整&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;useEffect&lt;/em&gt;の依存関係においてmutableな値を許容するトリックだが、&lt;br&gt;
+検索した結果&lt;code&gt;useDeepCompareEffect&lt;/code&gt;という便利なフックが公開されていた。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.benmvp.com/blog/object-array-dependencies-react-useEffect-hook/#option-4---do-it-yourself&#34;&gt;こちらの記事の下の方に説明が記載されています。&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;これを用いることによって、&lt;br&gt;
+&lt;em&gt;myContext&lt;/em&gt;が変更したタイミングのいずれにおいても&lt;br&gt;
+EffectBoxのサイドエフェクト処理が走るようにできる。&lt;/p&gt;
+&lt;iframe src=&#34;https://codesandbox.io/embed/tuning-usecontext-for-object--complete-3nybn?fontsize=14&amp;hidenavigation=1&amp;theme=dark&#34;
+     style=&#34;width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;&#34;
+     title=&#34;tuning-useContext-for-object--complete&#34;
+     allow=&#34;accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking&#34;
+     sandbox=&#34;allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts&#34;
+   &gt;&lt;/iframe&gt;
+&lt;p&gt;ログは次のようになる。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;render Container             //*** 初期表示ここから
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;render Box
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;render EffectBox
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;render SetterBox
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;run useDeepCompareEffect
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;{foo: {…}, bar: {…}}         //*** ここまで
+&lt;span class=&#34;hl&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;render Container             //*** 一回目ボタン押下 ここから
+&lt;/span&gt;&lt;span class=&#34;hl&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;render Box
+&lt;/span&gt;&lt;span class=&#34;hl&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;render EffectBox             
+&lt;/span&gt;&lt;span class=&#34;hl&#34;&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;run useDeepCompareEffect
+&lt;/span&gt;&lt;span class=&#34;hl&#34;&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;{foo: {…}, bar: {…}}　　　　  //*** ここまで
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;render Container             //*** 二回目ボタン押下 ここからここまで
+&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;一回目のボタン押下で&lt;em&gt;myContext&lt;/em&gt;の内容が変更されるため、&lt;br&gt;
+&lt;code&gt;EffectBox&lt;/code&gt;内のサイドエフェクト処理が実行され、ログに出力されるようになった。&lt;/p&gt;
+
+        
+      </description>
+    </item>
+    
     <item>
       <title>[JavaScript] Web Componentsで明暗モード切替ボタンを作成する</title>
       <link>https://dede-20191130.github.io/learnerBlog/posts/2021/10/27/wc-toggle-color-button/</link>
