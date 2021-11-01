@@ -6,7 +6,89 @@
     <description>Recent content in Javascript on 学習者dedeのブログ ~プログラミング等~</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 30 Oct 2021 18:56:19 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 01 Nov 2021 13:36:23 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Javacript] 画像をワンクリックで別タブで開けるようにするブックマークレットを作成する</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/11/01/bookmarklet-img-other-tab/</link>
+      <pubDate>Mon, 01 Nov 2021 13:36:23 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/11/01/bookmarklet-img-other-tab/</guid>
+      <description>
+        
+          &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
+
+
+
+&lt;div class=&#34;box-with-title&#34;&gt;
+    &lt;p&gt;&lt;span&gt;かんたんな概要と結論&lt;/span&gt;&lt;/p&gt;
+    &lt;div class=&#34;inner&#34;&gt;
+         
+    ページ上で、リンクが貼られていない画像を検知して&lt;br&gt;
+    別タブで開けるようにするブックマークレットを作成した。
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;ブックマークレットとは&#34;&gt;ブックマークレットとは？&lt;/h2&gt;
+&lt;p&gt;ユーザーがウェブブラウザのブックマークなどから起動し、&lt;br&gt;
+ウェブブラウザで簡単な処理を行う簡易的なプログラム。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://qiita.com/aqril_1132/items/b5f9040ccb8cbc705d04&#34;&gt;こちらの記事が参考になります&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;やりたいこと&#34;&gt;やりたいこと&lt;/h2&gt;
+&lt;h3 id=&#34;事象&#34;&gt;事象&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://data-viz-lab.com/excel-analyticstool-intro&#34;&gt;（こちらの記事のページを基にご説明させていただきます。）&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;ブラウザで、開いたページにいくつかの画像があることを考える。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./bookmarklet-img-exists.png&#34; alt=&#34;ページ上の画像&#34;&gt;&lt;/p&gt;
+&lt;p&gt;上の記事のように、&lt;br&gt;
+画像が親のブロック要素の横幅によって圧縮されて、&lt;br&gt;
+小さくて見づらい場合がある。&lt;/p&gt;
+&lt;p&gt;そのようなときに、&lt;br&gt;
+別のタブとして簡単にもとのサイズの画像を開いて&lt;br&gt;
+細かい部分を見たいという要求が生まれることもあるだろう。&lt;/p&gt;
+&lt;h3 id=&#34;方法&#34;&gt;方法&lt;/h3&gt;
+&lt;p&gt;そのときの画像周りのDOM構造によって、画像をワンクリックで別タブで開けるかどうかが決まる。&lt;/p&gt;
+&lt;p&gt;もし、下記画像のように&lt;em&gt;anchor&lt;/em&gt;タグで&lt;em&gt;img&lt;/em&gt;タグが囲まれていない場合、&lt;br&gt;
+ワンクリックで開くことはできない。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./bookmarklet-img-not-open.png&#34; alt=&#34;別タブで開けない&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;anchor&lt;/em&gt;タグで&lt;em&gt;img&lt;/em&gt;タグが囲まれており、&lt;br&gt;
+なおかつ&lt;em&gt;anchor&lt;/em&gt;タグの&lt;em&gt;href&lt;/em&gt;が画像のsrcと同じパスを与えられているならば、 &lt;br&gt;
+画像をワンクリックで別タブで開くことができる。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./bookmarklet-img-open.png&#34; alt=&#34;別タブで開ける&#34;&gt;&lt;/p&gt;
+&lt;p&gt;今回は、&lt;br&gt;
+ブックマークレットで簡単なスクリプトを走らせて、&lt;br&gt;
+すべての&lt;em&gt;anchor&lt;/em&gt;タグで囲まれていない&lt;em&gt;img&lt;/em&gt;タグの親要素に、&lt;br&gt;
+適切な&lt;em&gt;anchor&lt;/em&gt;タグを挿入していきたい。&lt;/p&gt;
+&lt;h2 id=&#34;環境&#34;&gt;環境&lt;/h2&gt;
+&lt;p&gt;Chromeでの動作を確認したが、&lt;br&gt;
+おそらく他のモダンブラウザで動作すると思う。&lt;/p&gt;
+&lt;h2 id=&#34;ブックマークレットの作成&#34;&gt;ブックマークレットの作成&lt;/h2&gt;
+&lt;h3 id=&#34;コード&#34;&gt;コード&lt;/h3&gt;
+&lt;p&gt;上で書いたように、&lt;br&gt;
+&lt;em&gt;anchor&lt;/em&gt;タグで囲まれていない&lt;em&gt;img&lt;/em&gt;タグをDOM内部に持たせるための&lt;em&gt;anchor&lt;/em&gt;タグを新しく作成し、&lt;br&gt;
+&lt;em&gt;href&lt;/em&gt;属性にsrcと同じパスをもたせる。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;javascript&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;	&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;anchoredImgs&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;Array&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;from&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;document&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;querySelectorAll&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;a img&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;	&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;img&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;of&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;document&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;querySelectorAll&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;img&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;		&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;anchoredImgs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;includes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;img&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;continue&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;		&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;anchor&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;document&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;createElement&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;a&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;		&lt;span class=&#34;nx&#34;&gt;anchor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;href&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;img&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;		&lt;span class=&#34;nx&#34;&gt;anchor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;target&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;_blank&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;		&lt;span class=&#34;nx&#34;&gt;img&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;before&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;anchor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;		&lt;span class=&#34;nx&#34;&gt;anchor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;append&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;img&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;	&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}());&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;設定&#34;&gt;設定&lt;/h3&gt;
+&lt;p&gt;それぞれのブラウザのブックマークに任意の名前で&lt;br&gt;
+上のコードを登録する。&lt;/p&gt;
+&lt;h3 id=&#34;実行する&#34;&gt;実行する&lt;/h3&gt;
+&lt;p&gt;ブックマークからリンクを開いてスクリプトを実行。&lt;/p&gt;
+&lt;p&gt;30個ほどの&lt;em&gt;img&lt;/em&gt;要素の場合、&lt;br&gt;
+実行は一瞬で終了し、&lt;br&gt;
+新しく&lt;em&gt;anchor&lt;/em&gt;として認識された画像をクリックすると別タブで開くことができる。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./bookmarklet-after-execution.png&#34; alt=&#34;開いた画像&#34;&gt;&lt;/p&gt;
+
+        
+      </description>
+    </item>
+    
     <item>
       <title>[React Hook] レンダリングのチューニング ~オブジェクトをContextとして利用する場合 &amp; サンプルコード~</title>
       <link>https://dede-20191130.github.io/learnerBlog/posts/2021/10/30/tuning-usecontext-for-obj/</link>
