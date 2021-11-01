@@ -32,7 +32,7 @@ archives:
 
 ### 事象
 
-[（こちらの記事のページを基にご説明させていただきます。）](https://data-viz-lab.com/excel-analyticstool-intro)
+[出典：こちらの記事のページをお借りしてご説明させていただきます。](https://data-viz-lab.com/excel-analyticstool-intro)
 
 ブラウザで、開いたページにいくつかの画像があることを考える。
 
