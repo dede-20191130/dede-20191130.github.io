@@ -6,7 +6,155 @@
     <description>Recent content in 2021 on 学習者dedeのブログ ~プログラミング等~</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Mon, 01 Nov 2021 13:36:23 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/archives/2021/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Nov 2021 22:20:40 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/archives/2021/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[JavaScript] 正規表現の実行速度検証デモ：量指定子に「Greedyな検索」と「Lazyな検索」を指定する場合</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/11/03/compare-greedy-lazy-quantifiers/</link>
+      <pubDate>Wed, 03 Nov 2021 22:20:40 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/11/03/compare-greedy-lazy-quantifiers/</guid>
+      <description>
+        
+          &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
+
+
+
+&lt;div class=&#34;box-with-title&#34;&gt;
+    &lt;p&gt;&lt;span&gt;かんたんな概要と結論&lt;/span&gt;&lt;/p&gt;
+    &lt;div class=&#34;inner&#34;&gt;
+         
+    Javascript（ブラウザ環境）で、正規表現の実行速度を量指定子のタイプの観点で調査した。&lt;br&gt;
+    Greedyな検索とLazyな検索のいずれも利点があるため、&lt;br&gt;検査する文字列に依存して最適な正規表現を適用する必要がある。
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.stevenlevithan.com/archives/greedy-lazy-performance&#34;&gt;こちらの記事&lt;/a&gt;で紹介されていた正規表現のパフォーマンス比較について、&lt;br&gt;
+現在のブラウザのJavascriptではどの程度の違いが発生するのか検証してみたくなり、&lt;br&gt;
+どうせならということで簡単なデモを作成した。&lt;/p&gt;
+&lt;h2 id=&#34;環境&#34;&gt;環境&lt;/h2&gt;
+&lt;p&gt;ブラウザはChromeで検証した。（バージョン: 95.0.4638.54）&lt;br&gt;
+&lt;em&gt;Chromium&lt;/em&gt;を採用しているモダンブラウザならおおよそ同様の結果かと思われる。&lt;/p&gt;
+&lt;h2 id=&#34;正規表現のパフォーマンス&#34;&gt;正規表現のパフォーマンス&lt;/h2&gt;
+&lt;h3 id=&#34;about&#34;&gt;ABOUT&lt;/h3&gt;
+&lt;p&gt;プログラミングにおける他の実装にも言えることだが、&lt;br&gt;
+正規表現において、ある目的を達成するための表現が複数ある場合がある。&lt;/p&gt;
+&lt;p&gt;例えば、次のコードはどちらも同じ出力結果となる。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;console&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;this is an apple&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;match&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sr&#34;&gt;/\w+/g&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// [ &amp;#39;this&amp;#39;, &amp;#39;is&amp;#39;, &amp;#39;an&amp;#39;, &amp;#39;apple&amp;#39; ]
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;console&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;this is an apple&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;match&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sr&#34;&gt;/\b[^\s]+?\b/g&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// [ &amp;#39;this&amp;#39;, &amp;#39;is&amp;#39;, &amp;#39;an&amp;#39;, &amp;#39;apple&amp;#39; ]
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;小さな文字列に対する置換処理や抽出処理などでは&lt;br&gt;
+正規表現の表現の違いによるパフォーマンス差は出ないと思うが、&lt;br&gt;
+対象文字列が肥大化するとどの程度に差が出るのだろうか？&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.stevenlevithan.com/archives/greedy-lazy-performance&#34;&gt;こちらの記事&lt;/a&gt;で論じられているケースに焦点を合わせて&lt;br&gt;
+考えてみたい。&lt;/p&gt;
+&lt;h3 id=&#34;greedyな検索とlazyな検索&#34;&gt;Greedyな検索とLazyな検索&lt;/h3&gt;
+&lt;p&gt;出典：&lt;a href=&#34;https://blog.stevenlevithan.com/archives/greedy-lazy-performance&#34;&gt;https://blog.stevenlevithan.com/archives/greedy-lazy-performance&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;量指定子（&lt;em&gt;Quantifier&lt;/em&gt;）を用いた正規表現の繰り返しでは、&lt;br&gt;
+貪欲な（&lt;em&gt;Greedy&lt;/em&gt;）マッチングと怠惰な（&lt;em&gt;Lazy&lt;/em&gt;）マッチングという概念がある。&lt;/p&gt;
+&lt;p&gt;端的に言うと、&lt;br&gt;
+前者はできるだけ長い文字列でヒットさせようとして、&lt;br&gt;
+後者はできるだけ短くマッチするように正規表現エンジンが文字を探索する。&lt;/p&gt;
+&lt;p&gt;■出典元で良い画像があったためそちらを参照したい。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;0123456789&amp;gt;&lt;/code&gt;という文字列に対して、&lt;code&gt;&amp;lt;.*&amp;gt;&lt;/code&gt;というマッチング（Greedyなマッチング）をした場合、&lt;br&gt;
+正規表現エンジンは次のように文字を探索する。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./img01.png&#34; alt=&#34;Greedyなマッチング&#34;&gt;&lt;/p&gt;
+&lt;p&gt;「&lt;code&gt;&amp;lt;&lt;/code&gt;」をマッチさせたあと、&lt;br&gt;
+ドット演算子（改行以外の任意の文字）とマッチする文字のかたまり（&lt;code&gt;0123456789&amp;gt;&lt;/code&gt;）を読み込み、&lt;br&gt;
+その後、&lt;code&gt;*&lt;/code&gt;以降のマッチングのために来た道を戻り始め、「&lt;code&gt;&amp;gt;&lt;/code&gt;」を見つけて終了する。&lt;/p&gt;
+&lt;p&gt;一方、&lt;code&gt;&amp;lt;.*&amp;gt;&lt;/code&gt;というマッチング（Greedyなマッチング）をした場合、&lt;br&gt;
+正規表現エンジンは次のように文字を探索する。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./img02.png&#34; alt=&#34;Lazyなマッチング&#34;&gt;&lt;/p&gt;
+&lt;p&gt;この場合、「&lt;code&gt;&amp;lt;&lt;/code&gt;」をマッチさせたあと、&lt;br&gt;
+ドット演算子（改行以外の任意の文字）とマッチする文字である&lt;code&gt;0&lt;/code&gt;を読み込んだあと、&lt;br&gt;
+すぐさま&lt;code&gt;*&lt;/code&gt;以降のマッチングを検証する。&lt;/p&gt;
+&lt;p&gt;もちろん「&lt;code&gt;&amp;gt;&lt;/code&gt;」にはマッチしないため、再度&lt;code&gt;0&lt;/code&gt;に戻り、&lt;br&gt;
+次に&lt;code&gt;1&lt;/code&gt;を読み込み、同じように試す。&lt;br&gt;
+最終的に&lt;code&gt;9&lt;/code&gt;で求めるマッチングが見つかるため、終了する。&lt;/p&gt;
+&lt;p&gt;このようにして違いが生まれる。&lt;/p&gt;
+&lt;h3 id=&#34;パフォーマンスの比較&#34;&gt;パフォーマンスの比較&lt;/h3&gt;
+&lt;p&gt;上記の例だと、&lt;br&gt;
+Greedyなマッチングのほうが優れているように見えるが、&lt;br&gt;
+もちろんそれはケースバイケースであり、&lt;br&gt;
+Lazyが最適なケースも多々ある（検索エンジンで多数ヒットするかと思う）。&lt;/p&gt;
+&lt;p&gt;今回はパフォーマンスに観点を置き、&lt;br&gt;
+Greedyで一気に読み込んだ場合、Lazyで一つ一つ読み込んだ場合、&lt;br&gt;
+さらに、Greedyで一気に読み込んだあとに、&lt;br&gt;
+&lt;code&gt;*&lt;/code&gt;以降のマッチングのために戻らなければならない文字数が非常に多い場合について検証したい。&lt;/p&gt;
+&lt;h2 id=&#34;デモの作成&#34;&gt;デモの作成&lt;/h2&gt;
+&lt;h3 id=&#34;about-1&#34;&gt;ABOUT&lt;/h3&gt;
+&lt;p&gt;対象：次の形式の文字列&lt;br&gt;
+&lt;code&gt;&amp;lt;ABC1234（山括弧以外の文字の連続）.....&amp;gt;ABC1234.....&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;閉じる山括弧（&lt;code&gt;&amp;gt;&lt;/code&gt;）のあとにも延々と文字が続いているため、&lt;br&gt;
+Greedyな検索をする場合は、正規表現に工夫をしないと時間がかかることが予想される。&lt;/p&gt;
+&lt;h3 id=&#34;コード&#34;&gt;コード&lt;/h3&gt;
+&lt;p&gt;次のように、&lt;br&gt;
+三種類の正規表現の実行時間を測定し、テーブルに書き出した。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;(i) Greedyな量指定子（string.match(/&amp;lt;.*&amp;gt;/);）&lt;/li&gt;
+&lt;li&gt;(ii) Greedyな量指定子　ドットではなく、繰り返し文字列の範囲を明示（ string.match(/&amp;lt;[^&amp;gt;]*&amp;gt;/);）&lt;/li&gt;
+&lt;li&gt;(iii) Lazyな量指定子（string.match(/&amp;lt;.*?&amp;gt;/);）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;compare3Type&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;    &lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;resutlArr&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[];&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;    &lt;span class=&#34;kd&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;stt&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;Date&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;now&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;());&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;index&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;index&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;counter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;index&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;        &lt;span class=&#34;kd&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;sb&#34;&gt;`&amp;lt;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;AB12&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;repeat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;500&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;sb&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;C3&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;repeat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;500&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;        &lt;span class=&#34;kd&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;y&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;match&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sr&#34;&gt;/&amp;lt;.*?&amp;gt;/&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;    &lt;span class=&#34;kd&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;lst&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;Date&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;now&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;());&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;    &lt;span class=&#34;nx&#34;&gt;resutlArr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;push&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;lst&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;stt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;    &lt;span class=&#34;nx&#34;&gt;stt&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;Date&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;now&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;());&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;index&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;index&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;counter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;index&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;        &lt;span class=&#34;kd&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;sb&#34;&gt;`&amp;lt;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;AB12&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;repeat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;500&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;sb&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;C3&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;repeat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;500&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;        &lt;span class=&#34;kd&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;y&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;match&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sr&#34;&gt;/&amp;lt;[^&amp;gt;]*&amp;gt;/&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;    &lt;span class=&#34;nx&#34;&gt;lst&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;Date&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;now&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;());&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;    &lt;span class=&#34;nx&#34;&gt;resutlArr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;push&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;lst&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;stt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;    &lt;span class=&#34;nx&#34;&gt;stt&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;Date&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;now&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;());&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;index&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;index&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;counter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;index&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;        &lt;span class=&#34;kd&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;sb&#34;&gt;`&amp;lt;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;AB12&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;repeat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;500&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;sb&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;C3&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;repeat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;500&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;        &lt;span class=&#34;kd&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;y&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;match&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sr&#34;&gt;/&amp;lt;.*&amp;gt;/&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;    &lt;span class=&#34;nx&#34;&gt;lst&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;Date&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;now&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;());&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;    &lt;span class=&#34;nx&#34;&gt;resutlArr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;push&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;lst&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;stt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;32&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;resutlArr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;33&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;34&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;デモ&#34;&gt;デモ&lt;/h3&gt;
+&lt;iframe src=&#34;https://codesandbox.io/embed/compare-greedy-lazy-quantifiers-zdcml?fontsize=14&amp;hidenavigation=1&amp;module=%2Fcompare-worker.js&amp;theme=dark&#34;
+     style=&#34;width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;&#34;
+     title=&#34;compare-greedy-lazy-quantifiers&#34;
+     allow=&#34;accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking&#34;
+     sandbox=&#34;allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts&#34;
+   &gt;&lt;/iframe&gt;
+&lt;h3 id=&#34;結果&#34;&gt;結果&lt;/h3&gt;
+&lt;p&gt;ミリ秒単位で比較すると実行速度順に次の順序がある。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;(ii) &amp;gt; (i) &amp;gt; (iii)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;これは、&lt;br&gt;
+(ii)の場合、&lt;code&gt;*&lt;/code&gt;以降のマッチングのために戻らなければならない文字数がゼロであるため、&lt;br&gt;
+よくチューニングされていることがわかる。&lt;/p&gt;
+&lt;p&gt;一方、戻らなければならない文字数が膨大である(iii)は、&lt;br&gt;
+パフォーマンスとしては最も悪い。&lt;/p&gt;
+&lt;p&gt;(i)のLazyな検索は、&lt;br&gt;
+出会った文字列ごとに、一つ一つ&lt;code&gt;&amp;gt;&lt;/code&gt;があとに続くことを検証するため遅い。&lt;/p&gt;
+&lt;h2 id=&#34;最適な正規表現は&#34;&gt;最適な正規表現は？&lt;/h2&gt;
+&lt;p&gt;ドット演算子を用いた&lt;br&gt;
+不必要に柔軟すぎるマッチング検索は避けるべき、と&lt;br&gt;
+&lt;a href=&#34;https://blog.stevenlevithan.com/archives/greedy-lazy-performance&#34;&gt;こちらの記事&lt;/a&gt;のまとめ節でも論じられている。&lt;/p&gt;
+&lt;p&gt;よりよいパフォーマンスの正規表現をもちいるために、&lt;br&gt;
+具体化すべきところを詳細に記述することが求められるようだ。&lt;/p&gt;
+
+        
+      </description>
+    </item>
+    
     <item>
       <title>[Javacript] 画像をワンクリックで別タブで開けるようにするブックマークレットを作成する</title>
       <link>https://dede-20191130.github.io/learnerBlog/posts/2021/11/01/bookmarklet-img-other-tab/</link>
