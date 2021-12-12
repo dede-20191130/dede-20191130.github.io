@@ -23,8 +23,10 @@
     &lt;p&gt;&lt;span&gt;かんたんな概要と結論&lt;/span&gt;&lt;/p&gt;
     &lt;div class=&#34;inner&#34;&gt;
          
-    Javascript（ブラウザ環境）で、正規表現の実行速度を量指定子のタイプの観点で調査した。&lt;br&gt;
-    Greedyな検索とLazyな検索のいずれも利点があるため、&lt;br&gt;検査する文字列に依存して最適な正規表現を適用する必要がある。
+    VBAと他のアプリケーションを連携したり、Webサイトから情報を取得する際に、&lt;br&gt;
+    待機時間を設ける必要があるケースがあります。&lt;br&gt;
+    &lt;code&gt;wait&lt;/code&gt;と&lt;code&gt;sleep&lt;/code&gt;の二種類の方法があり、&lt;br&gt;
+    基本的にどちらを使用しても実現できます。
 
     &lt;/div&gt;
 &lt;/div&gt;
