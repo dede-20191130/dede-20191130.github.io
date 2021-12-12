@@ -1,8 +1,8 @@
 
 <!DOCTYPE html>
-<html lang="ja" data-figures="" class="page">
+<html lang="ja" data-figures="">
   <head>
-<title>[React Hook] レンダリングのチューニング ~オブジェクトをContextとして利用する場合 &amp; サンプルコード~ | 学習者dedeのブログ ~プログラミング等~</title>
+<title>2021-12 | 学習者dedeのブログ ~プログラミング等~</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,24 +14,24 @@
   gtag('config', 'UA-110309082-3');
 </script>
 
-  
 <meta property="og:locale" content="ja" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="この記事について かんたんな概要と結論 オブジェクトをContextとして使用する際のレンダリングのチューニングを実行した。 外部ライブラリのis">
+<meta name="description" content="">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="@D20191130">
-<meta name="twitter:title" content="[React Hook] レンダリングのチューニング ~オブジェクトをContextとして利用する場合 &amp; サンプルコード~" />
-<meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/posts/2021/10/30/tuning-usecontext-for-obj/" />
-<meta property="og:title" content="[React Hook] レンダリングのチューニング ~オブジェクトをContextとして利用する場合 &amp; サンプルコード~" />
-<meta property="og:description" content="この記事について かんたんな概要と結論 オブジェクトをContextとして使用する際のレンダリングのチューニングを実行した。 外部ライブラリのis" />
+<meta name="twitter:title" content="2021-12" />
+<meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/archives/2021-12/" />
+<meta property="og:title" content="2021-12" />
+<meta property="og:description" content="" />
 <meta property="og:image" content="https://dede-20191130.github.io/learnerBlog/images/thumbnail.png" />
 
 <link rel="apple-touch-icon" sizes="180x180" href="https://dede-20191130.github.io/learnerBlog/icons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://dede-20191130.github.io/learnerBlog/icons/favicon-32x32.png">
 <link rel="manifest" href="https://dede-20191130.github.io/learnerBlog/icons/site.webmanifest">
 
-<link rel="canonical" href="https://dede-20191130.github.io/learnerBlog/posts/2021/10/30/tuning-usecontext-for-obj/">
+<link rel="canonical" href="https://dede-20191130.github.io/learnerBlog/archives/2021-12/">
+<link rel="alternate" type="application/rss+xml" href="https://dede-20191130.github.io/learnerBlog/archives/2021-12/index.xml" title="学習者dedeのブログ ~プログラミング等~" />
 
     
 
@@ -118,272 +118,21 @@
 </header>
 
     <main>
-  
+
 <div class="grid-inverse wrap content">
-  <article class="post_content">
-    <h1 class="post_title">[React Hook] レンダリングのチューニング ~オブジェクトをContextとして利用する場合 &amp; サンプルコード~</h1>
-  <div class="post_meta">
-    <span><svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg></span>
-    <span class="post_date">
-      Oct 30, 2021</span>
-    <span class="post_time"> · 5 min read</span><span>&nbsp;· <a href='https://dede-20191130.github.io/learnerBlog/tags/javascript' title="JavaScript" class="post_tag button button_translucent">JavaScript
-        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/react' title="React" class="post_tag button button_translucent">React
-        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%83%89' title="フロントエンド" class="post_tag button button_translucent">フロントエンド
-        </a>
-    </span>
-    <span class="page_only">&nbsp;·
-  <div class="post_share">
-    Share on:
-    <a href="https://twitter.com/intent/tweet?text=%5bReact%20Hook%5d%20%e3%83%ac%e3%83%b3%e3%83%80%e3%83%aa%e3%83%b3%e3%82%b0%e3%81%ae%e3%83%81%e3%83%a5%e3%83%bc%e3%83%8b%e3%83%b3%e3%82%b0%20~%e3%82%aa%e3%83%96%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88%e3%82%92Context%e3%81%a8%e3%81%97%e3%81%a6%e5%88%a9%e7%94%a8%e3%81%99%e3%82%8b%e5%a0%b4%e5%90%88%20%26%20%e3%82%b5%e3%83%b3%e3%83%97%e3%83%ab%e3%82%b3%e3%83%bc%e3%83%89~&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2021%2f10%2f30%2ftuning-usecontext-for-obj%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#twitter"></use>
-</svg>
-    </a>
-    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2021%2f10%2f30%2ftuning-usecontext-for-obj%2f&t=%5bReact%20Hook%5d%20%e3%83%ac%e3%83%b3%e3%83%80%e3%83%aa%e3%83%b3%e3%82%b0%e3%81%ae%e3%83%81%e3%83%a5%e3%83%bc%e3%83%8b%e3%83%b3%e3%82%b0%20~%e3%82%aa%e3%83%96%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88%e3%82%92Context%e3%81%a8%e3%81%97%e3%81%a6%e5%88%a9%e7%94%a8%e3%81%99%e3%82%8b%e5%a0%b4%e5%90%88%20%26%20%e3%82%b5%e3%83%b3%e3%83%97%e3%83%ab%e3%82%b3%e3%83%bc%e3%83%89~" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#facebook"></use>
-</svg>
-    </a>
-    <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#linkedin"></use>
-</svg>
-    </a>
-    <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/10/30/tuning-usecontext-for-obj/" title="Copy Link" class="link link_yank">
-      <svg class="icon">
-  <use xlink:href="#copy"></use>
-</svg>
-    </a>
-  </div>
-  </span>
-  </div>
-
-    
-    
-    <h2>Overview</h2>
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#この記事について">この記事について</a></li>
-    <li><a href="#レンダリングのチューニング">レンダリングのチューニング</a>
-      <ul>
-        <li><a href="#やりたいこと">やりたいこと</a></li>
-        <li><a href="#改善観点">改善観点</a></li>
-        <li><a href="#初期状態サンプルデモ">初期状態（サンプルデモ）</a></li>
-      </ul>
-    </li>
-    <li><a href="#チューニングの実行">チューニングの実行</a>
-      <ul>
-        <li><a href="#レンダリング対象の絞り込み">レンダリング対象の絞り込み</a>
-          <ul>
-            <li><a href="#i-reactmemoを使用">i. React.memoを使用</a></li>
-            <li><a href="#ii-userefを使用してdeep-compareを実行">ii. useRefを使用してDeep Compareを実行</a></li>
-          </ul>
+    <article class="post">
+        <h3>アーカイブ：2021-12</h3>
+        </pre>
+        
+        <li>
+            <span class="date">2021.12.12 (Sun)</span>
+            <p class="ml-15 post_content">
+                <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/12/12/vba-question-001-waiting/">[教えて！VBA]第1回 処理の途中で待機時間（Sleep）を設けるにはどうすればいいの？？</a><br>
+                <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' class="post_tag button button_translucent">VBA
+                </a>
+            </p>
         </li>
-        <li><a href="#useeffectの実行タイミングの調整">useEffectの実行タイミングの調整</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-    <h2 id="この記事について">この記事について</h2>
-
-
-
-<div class="box-with-title">
-    <p><span>かんたんな概要と結論</span></p>
-    <div class="inner">
-         
-    オブジェクトを<i>Context</i>として使用する際のレンダリングのチューニングを実行した。<br>
-    外部ライブラリの<i>isDeepEqual</i>、<i>useDeepCompareEffect</i>を使用することで<br>
-    良い感じにDeep Compareを実装できる。
-
-    </div>
-</div>
-<p><em>React Hook</em>によるブラウザアプリ画面の作成の際、<br>
-レンダリングされる<em>Component</em>の数を絞る（チューニングする）ことで<br>
-実行されるコードのステップ数を減らし、パフォーマンスを改善することができる。</p>
-<p>オブジェクトを<em>Context</em>として各<em>Component</em>にわたす処理のコードにおいて、<br>
-いくつかの観点ごとにチューニングする必要があったため、<br>
-ここにそれを記したい。</p>
-<h2 id="レンダリングのチューニング">レンダリングのチューニング</h2>
-<h3 id="やりたいこと">やりたいこと</h3>
-<p><em>React Hook</em>においてオブジェクトを<em>Context</em>として各<em>Component</em>にわたす際に、<br>
-オブジェクトを更新するたびに、通常は<em>Context</em>を使用するすべての<em>Component</em>が再レンダリングされる。</p>
-<p>オブジェクトが再度同じ値に設定される場合に、<br>
-不要なレンダリングを防ぐような仕組みが、Reactの標準APIにないかと探したが、<br>
-どうやら存在しないようだった。</p>
-<p>また、もう一つの課題として、<br>
-利用先の<em>Component</em>で<em>Context</em>のオブジェクトを取得し、<br>
-その値（参照ではなく、内容）に変更があるたびに<em>useEffect</em>を実行させたいというものがある。<br>
-<em>useEffect</em>はimmutableな値のみを依存関係に含めることができるので、<br>
-今回のようなオブジェクトの変更を察知することが難しい。</p>
-<p>上記の2点について解決したい。</p>
-<h3 id="改善観点">改善観点</h3>
-<ul>
-<li>レンダリングされる<em>Component</em>の数をチューニング</li>
-<li>useEffectの実行タイミングの調整</li>
-</ul>
-<h3 id="初期状態サンプルデモ">初期状態（サンプルデモ）</h3>
-<iframe src="https://codesandbox.io/embed/github/dede-20191130/reactpj01/tree/tuning-add-useref-derv-no-tuned/?fontsize=14&hidenavigation=1&theme=dark"
-    style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-    title="reactpj01"
-    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-></iframe>
-<p>初期表示、および<em>SetterBoxButton</em>を二回押下した際のログは次のようになる。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>render Container          //*** 初期表示ここから
-<span class="ln"> 2</span>render Box
-<span class="ln"> 3</span>render EffectBox
-<span class="ln"> 4</span>render SetterBox
-<span class="ln"> 5</span>run useDeepCompareEffect
-<span class="ln"> 6</span>{foo: {…}, bar: {…}}      //*** ここまで
-<span class="ln"> 7</span>render Container          //*** 一回目ここから
-<span class="ln"> 8</span>render Box
-<span class="ln"> 9</span>render EffectBox
-<span class="ln">10</span>render SetterBox          //*** ここまで
-<span class="ln">11</span>render Container          //*** 二回目ここから
-<span class="ln">12</span>render Box
-<span class="ln">13</span>render EffectBox
-<span class="ln">14</span>render SetterBox          //*** ここまで
-<span class="ln">15</span>
-</code></pre></div><ul>
-<li>ボタン押下ごとに<em>Container Component</em>およびすべての子コンポーネントが再レンダリングされている。</li>
-<li><em>EffectBox</em>の<em>useEffect</em>が一回目のボタン押下時に実行されない。<br>
-（依存関係に空の配列<code>[]</code>を渡しているためにそうなる。本来ならボタン押下で<em>myContext</em>が変更した際に実行してほしい）</li>
-</ul>
-<h2 id="チューニングの実行">チューニングの実行</h2>
-<h3 id="レンダリング対象の絞り込み">レンダリング対象の絞り込み</h3>
-<h4 id="i-reactmemoを使用">i. React.memoを使用</h4>
-<p><em>Container</em>の子コンポーネントのそれぞれを、<br>
-React.memoを用いてメモ化する。</p>
-<p>引数の値が変更しなければ、再レンダリングを引き起こさないようにする。</p>
-<iframe src="https://codesandbox.io/embed/tuning-usecontext-for-object--add-memo-ror0u?fontsize=14&hidenavigation=1&theme=dark"
-     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="tuning-useContext-for-object--add-memo"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-   ></iframe>
-<p>ログは次のようになる。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>render Container         //*** 初期表示ここから                
-<span class="ln"> 2</span>render Box 
-<span class="ln"> 3</span>render EffectBox
-<span class="ln"> 4</span>render SetterBox
-<span class="ln"> 5</span>run useDeepCompareEffect
-<span class="ln"> 6</span>{foo: {…}, bar: {…}}     //*** ここまで
-<span class="hl"><span class="ln"> 7</span>render Container         //*** 一回目ボタン押下 ここから
-</span><span class="hl"><span class="ln"> 8</span>render Box
-</span><span class="hl"><span class="ln"> 9</span>render EffectBox         //*** ここまで
-</span><span class="hl"><span class="ln">10</span>render Container         //*** 二回目ボタン押下 ここから
-</span><span class="hl"><span class="ln">11</span>render Box
-</span><span class="hl"><span class="ln">12</span>render EffectBox         //*** ここまで
-</span><span class="ln">13</span>  
-</code></pre></div><p>子コンポーネントのうち、<br>
-<code>SetterBox</code>は再レンダされなくなった。</p>
-<p>しかし、<br>
-<code>Box</code>および<code>EffectBox</code>はメモ化しても再レンダされる。</p>
-<p>ボタン押下時に<em>myContext</em>が更新され、<em>myContext.Provider</em>で渡される値が変化するため、<br>
-<code>useContext(myContext)</code>によって<em>myContext</em>を使用している<em>Component</em>はすべて再レンダされる。<br>
-ここで渡される値はオブジェクトの参照値なので、たとえ内容が等しくても「別のオブジェクト」と判定され、<br>
-レンダリングが実行される。</p>
-<p>次のiiで、その挙動を改善したい。</p>
-<h4 id="ii-userefを使用してdeep-compareを実行">ii. useRefを使用してDeep Compareを実行</h4>
-<p><em>Container Component</em>の<code>cxt</code>変数が更新されたあと、<br>
-<em>useRef</em>でフックされた<code>cxtRef</code>変数と、<br>
-<code>Deep Equal</code>（ネストされた各値のすべてが等しいことを保証）によって内容を比較する。<br>
-<em>myContext.Provider</em>のvalueに渡されるのは<code>cxt</code>ではなく<code>cxtRef.current</code>となる。</p>
-<p><code>Deep Equal</code>の実装には、外部ライブラリの<code>fast-deep-equal</code>を使用する。</p>
-<iframe src="https://codesandbox.io/embed/tuning-usecontext-for-object--add-useref-p49b7?fontsize=14&hidenavigation=1&theme=dark"
-     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="tuning-useContext-for-object--add-useRef"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-   ></iframe>
-<p>ログは次のようになる。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>render Container             //*** 初期表示ここから
-<span class="ln"> 2</span>render Box
-<span class="ln"> 3</span>render EffectBox
-<span class="ln"> 4</span>render SetterBox
-<span class="ln"> 5</span>run useDeepCompareEffect
-<span class="ln"> 6</span>{foo: {…}, bar: {…}}       //*** ここまで
-<span class="ln"> 7</span>render Container             //*** 一回目ボタン押下 ここから
-<span class="ln"> 8</span>render Box
-<span class="ln"> 9</span>render EffectBox             //*** ここまで
-<span class="hl"><span class="ln">10</span>render Container             //*** 二回目ボタン押下 ここからここまで
-</span><span class="ln">11</span>  
-</code></pre></div><p>二回目のボタン押下では、<br>
-<em>myContext</em>の内容は変更しないため、<br>
-<code>Deep Compare</code>の結果<code>cxtRef.current</code>変数の参照は変化しない。</p>
-<p>したがって、<code>Box</code>および<code>EffectBox</code>の再レンダは引き起こされない。</p>
-<h3 id="useeffectの実行タイミングの調整">useEffectの実行タイミングの調整</h3>
-<p><em>useEffect</em>の依存関係においてmutableな値を許容するトリックだが、<br>
-検索した結果<code>useDeepCompareEffect</code>という便利なフックが公開されていた。</p>
-<p><a href="https://www.benmvp.com/blog/object-array-dependencies-react-useEffect-hook/#option-4---do-it-yourself">こちらの記事の下の方に説明が記載されています。</a></p>
-<p>これを用いることによって、<br>
-<em>myContext</em>が変更したタイミングのいずれにおいても<br>
-EffectBoxのサイドエフェクト処理が走るようにできる。</p>
-<iframe src="https://codesandbox.io/embed/tuning-usecontext-for-object--complete-3nybn?fontsize=14&hidenavigation=1&theme=dark"
-     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="tuning-useContext-for-object--complete"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-   ></iframe>
-<p>ログは次のようになる。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>render Container             //*** 初期表示ここから
-<span class="ln"> 2</span>render Box
-<span class="ln"> 3</span>render EffectBox
-<span class="ln"> 4</span>render SetterBox
-<span class="ln"> 5</span>run useDeepCompareEffect
-<span class="ln"> 6</span>{foo: {…}, bar: {…}}         //*** ここまで
-<span class="hl"><span class="ln"> 7</span>render Container             //*** 一回目ボタン押下 ここから
-</span><span class="hl"><span class="ln"> 8</span>render Box
-</span><span class="hl"><span class="ln"> 9</span>render EffectBox             
-</span><span class="hl"><span class="ln">10</span>run useDeepCompareEffect
-</span><span class="hl"><span class="ln">11</span>{foo: {…}, bar: {…}}　　　　  //*** ここまで
-</span><span class="ln">12</span>render Container             //*** 二回目ボタン押下 ここからここまで
-<span class="ln">13</span>  
-</code></pre></div><p>一回目のボタン押下で<em>myContext</em>の内容が変更されるため、<br>
-<code>EffectBox</code>内のサイドエフェクト処理が実行され、ログに出力されるようになった。</p>
-
-     
-     
-     
-     <h3>関連記事</h3>
-     <ul>
-         
-         <li><a href="/learnerBlog/posts/2021/10/14/send-contact-form-react-router/">ご意見送信フォームを作成する③　[SPA by React Router]</a></li>
-         
-         <li><a href="/learnerBlog/posts/2021/10/08/send-contact-form-react/">ご意見送信フォームを作成する②　[React]</a></li>
-         
-         <li><a href="/learnerBlog/posts/2021/10/27/wc-toggle-color-button/">[JavaScript] Web Componentsで明暗モード切替ボタンを作成する</a></li>
-         
-         <li><a href="/learnerBlog/posts/2021/10/08/send-contact-form-plain-ts/">ご意見送信フォームを作成する①　[プレーンTypeScript]</a></li>
-         
-         <li><a href="/learnerBlog/posts/2021/07/27/ie11-radio-group-value/">[Javascript] IE11でRadioボタングループのvalueを取得できない事象＆対策</a></li>
-         
-     </ul>
-     <div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "learnerblog" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
-  </article>
+    </article>
 <aside class="sidebar">
   <section class="sidebar_inner">
         <h2>dede-20191130</h2>
@@ -415,6 +164,9 @@ EffectBoxのサイドエフェクト処理が走るようにできる。</p>
         <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/11/01/bookmarklet-img-other-tab/" class="nav-link" title="[Javacript] 画像をワンクリックで別タブで開けるようにするブックマークレットを作成する">[Javacript] 画像をワンクリックで別タブで開けるようにするブックマークレットを作成する</a>
       </li>
       <li>
+        <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/10/30/tuning-usecontext-for-obj/" class="nav-link" title="[React Hook] レンダリングのチューニング ~オブジェクトをContextとして利用する場合 &amp; サンプルコード~">[React Hook] レンダリングのチューニング ~オブジェクトをContextとして利用する場合 &amp; サンプルコード~</a>
+      </li>
+      <li>
         <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/10/27/wc-toggle-color-button/" class="nav-link" title="[JavaScript] Web Componentsで明暗モード切替ボタンを作成する">[JavaScript] Web Componentsで明暗モード切替ボタンを作成する</a>
       </li>
       <li>
@@ -425,9 +177,6 @@ EffectBoxのサイドエフェクト処理が走るようにできる。</p>
       </li>
       <li>
         <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/10/08/send-contact-form-plain-ts/" class="nav-link" title="ご意見送信フォームを作成する①　[プレーンTypeScript]">ご意見送信フォームを作成する①　[プレーンTypeScript]</a>
-      </li>
-      <li>
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/09/04/access-change-control-test/" class="nav-link" title="[Access VBA] フォームのコントロール操作系の関数をどのようにユニットテストするかの方法メモ">[Access VBA] フォームのコントロール操作系の関数をどのようにユニットテストするかの方法メモ</a>
       </li>
     </ul>
     <div>
@@ -815,7 +564,6 @@ EffectBoxのサイドエフェクト処理が走るようにできる。</p>
   </section>
 </aside>
 
-  
 </div>
     </main><svg width="0" height="0" class="hidden">
   <symbol viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" id="facebook">

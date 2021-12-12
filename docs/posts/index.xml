@@ -6,7 +6,186 @@
     <description>Recent content in Posts on 学習者dedeのブログ ~プログラミング等~</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 03 Nov 2021 22:20:40 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Dec 2021 10:41:37 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[教えて！VBA]第1回 処理の途中で待機時間（Sleep）を設けるにはどうすればいいの？？</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/12/12/vba-question-001-waiting/</link>
+      <pubDate>Sun, 12 Dec 2021 10:41:37 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/12/12/vba-question-001-waiting/</guid>
+      <description>
+        
+          &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
+
+
+
+&lt;div class=&#34;box-with-title&#34;&gt;
+    &lt;p&gt;&lt;span&gt;かんたんな概要と結論&lt;/span&gt;&lt;/p&gt;
+    &lt;div class=&#34;inner&#34;&gt;
+         
+    Javascript（ブラウザ環境）で、正規表現の実行速度を量指定子のタイプの観点で調査した。&lt;br&gt;
+    Greedyな検索とLazyな検索のいずれも利点があるため、&lt;br&gt;検査する文字列に依存して最適な正規表現を適用する必要がある。
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;こんにちは、dedeです。&lt;/p&gt;
+&lt;p&gt;この記事では、&lt;br&gt;
+VBAに関する質問のうち、&lt;br&gt;
+皆が疑問に思っているトピックについて解説いたします。&lt;/p&gt;
+&lt;p&gt;今回は、
+
+
+&lt;span style=&#34;color: #fb9700;&#34;&gt;
+    処理の途中で待機時間を設けるメリットとその方法について
+&lt;/span&gt;&lt;br&gt;
+を解説いたします。&lt;/p&gt;
+&lt;h2 id=&#34;待機はなぜ必要&#34;&gt;待機はなぜ必要？&lt;/h2&gt;
+&lt;p&gt;そもそもなぜ待機時間を設ける必要があるのか？&lt;/p&gt;
+&lt;h3 id=&#34;他のアプリケーションの処理が終わるのを待つため&#34;&gt;①他のアプリケーションの処理が終わるのを待つため&lt;/h3&gt;
+&lt;p&gt;VBAから他のアプリケーションの処理をトリガーする場合、&lt;br&gt;
+アプリケーションの種類によっては同期的に処理できない&lt;br&gt;
+（トリガーした方のアプリが終了してから次の処理を行うことができない）場合があります。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Call&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;runSomethingApp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;他のアプリを起動して処理を行う
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;result&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;getSomethingAppResult&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;※※ まだ他のアプリケーションの処理が終わっていないので、想定した結果が得られない
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;そのため、次のようにして&lt;br&gt;
+アプリケーションの処理が十分に終えることができるような待機時間を儲けます。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Call&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;runSomethingApp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;他のアプリを起動して処理を行う
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Call&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;setTaikiJikan&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;待機時間呼び出し関数
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;result&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;getSomethingAppResult&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;待機し、他のアプリが処理完了したので、正常に処理ができる
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;あるいは、次のようにして処理が終わるまでループを回すほうが安全でしょう。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Call&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;runSomethingApp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;他のアプリを起動して処理を行う
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Do&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;result&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;getSomethingAppResult&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;アプリ結果取得
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Not&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;result&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;Is&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Nothing&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Do&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;結果が得られれば次の処理へ
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;counter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;10&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;MsgBox&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;アプリケーションは正常に動作しませんでした&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;Exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Function&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;    &lt;span class=&#34;nf&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Call&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;setTaikiJikanOneSecond&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;一秒待機する
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;counter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;counter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Loop&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;VBAから他のアプリケーションを発火させる際は、&lt;br&gt;
+同期的に処理できるか、非同期的な処理となるかという点は&lt;br&gt;
+注意するべきでしょう。&lt;/p&gt;
+&lt;h3 id=&#34;webページのスクレイピングでページが表示されるまで待機するため&#34;&gt;②Webページのスクレイピングで、ページが表示されるまで待機するため&lt;/h3&gt;
+&lt;p&gt;スクレイピング目的で&lt;br&gt;
+プログラムからWebにアクセスした場合、&lt;br&gt;
+通常のブラウジングと同じようにページがすべて表示されるまで待機する必要があります。&lt;/p&gt;
+&lt;p&gt;(下記、IEに対する操作自動化のコード例ですが、他のツールを使用したChromeなどへのスクレイピングでも同様です)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;objIE&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;InternetExplorer&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;objIE&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;New&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;InternetExplorer&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;objIE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Visible&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;True&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;指定したURLのページを表示する
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;objIE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;navigate&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;https://dede-20191130.github.io/learnerBlog/about/&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;完全にページが表示されるまで待機する（想定したHTMLを得られるようにするため）
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Do&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;While&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;objIE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Busy&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;True&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;Or&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;objIE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;readyState&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;4&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Call&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;setTaikiJikanOneSecond&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;一秒待機する
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;DoEvents&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Loop&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;doSomething&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;次の処理
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;待機の方法&#34;&gt;待機の方法&lt;/h2&gt;
+&lt;h3 id=&#34;excel-vbaとaccess-vbaでは別々の方法&#34;&gt;Excel VBAとAccess VBAでは別々の方法&lt;/h3&gt;
+&lt;p&gt;待機を実装するための方法が、&lt;br&gt;
+ExcelとAccessとで微妙に異なるので、&lt;br&gt;
+それぞれ記載したいと思います。&lt;/p&gt;
+&lt;h3 id=&#34;excel-vba&#34;&gt;Excel VBA&lt;/h3&gt;
+&lt;p&gt;① Application.Waitを使用する&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Application&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Wait&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Time&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;ApplicationはExcelアプリのインスタンス、&lt;br&gt;
+つまり、Excelアプリがもともと持っているWaitという関数を使用するかたちです。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Time&lt;/code&gt;には、Excelで使用できる時間形式が入ります（00:00:10など）。&lt;br&gt;
+そのため、ミリ秒単位での待機をしようとすると工夫が必要です。&lt;br&gt;
+&lt;a href=&#34;https://www.higashisalary.com/entry/vba-wait-ms&#34;&gt;➩ https://www.higashisalary.com/entry/vba-wait-ms&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;機能は、指定した&lt;code&gt;Time&lt;/code&gt;まで処理を待機するというものです。&lt;/p&gt;
+&lt;p&gt;つまり、&lt;code&gt;Now&lt;/code&gt;関数と組み合わせることで、&lt;br&gt;
+「〇〇秒経過するまで待機」という処理を実現することができます。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;doSomething...
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;Call Application.Wait（Now + TimeValue（&amp;#34;0:00:10&amp;#34;））&amp;#39;10秒だけ待機します。
+&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;doSomethingAfter10...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;② Windows APIのSleep関数を使用する&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;モジュールの先頭
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;#If VBA7 Then&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Declare&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;PtrSafe&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Sleep&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Lib&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;kernel32&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ByVal&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dwMilliseconds&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;LongPtr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c&#34;&gt;&amp;#39;64ビットOfficeの場合
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;#Else&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Declare&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Sleep&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Lib&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;kernel32&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ByVal&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dwMilliseconds&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Long&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c&#34;&gt;&amp;#39;32ビットOfficeの場合
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;#End If&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;SleepTest&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;doSomething&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;...&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;Sleep&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;10000&lt;/span&gt; &lt;span class=&#34;c&#34;&gt;&amp;#39;10秒だけ待機します。
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;doSomethingAfter10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;...&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Windows API(Application Programming Interface)を使用します。&lt;br&gt;
+Windows APIは、Windowsでよく使用される機能がまとまったライブラリです。&lt;/p&gt;
+&lt;p&gt;上記コード例のように、&lt;br&gt;
+モジュールのはじめで&lt;code&gt;Public Declare......&lt;/code&gt;というようにAPIを読み込む宣言をします。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Sleep&lt;/code&gt;関数の引数には、ミリ秒の指定が入ります。&lt;/p&gt;
+&lt;h3 id=&#34;access-vba&#34;&gt;Access VBA&lt;/h3&gt;
+&lt;p&gt;① Windows APIのSleep関数を使用する&lt;/p&gt;
+&lt;p&gt;上記でご説明したように、&lt;br&gt;
+&lt;code&gt;Sleep&lt;/code&gt;はWindows APIであり、Officeの各アプリケーションの固有の機能ではありません。&lt;/p&gt;
+&lt;p&gt;そのため、&lt;br&gt;
+ExcelでもAccessでも（あるいはOutLookなどでも）、読み込みさえしておけば自由に使用することができます。&lt;/p&gt;
+&lt;h3 id=&#34;waitとsleepどちらを使う&#34;&gt;WaitとSleep、どちらを使う？&lt;/h3&gt;
+&lt;p&gt;Excel以外のOfficeのVBA環境では&lt;code&gt;Sleep&lt;/code&gt;を使用すれば問題ないかと思います。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Sleep&lt;/code&gt;に対する&lt;code&gt;Wait&lt;/code&gt;の優位性としては、&lt;br&gt;
+時間の正確さがあります。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Sleep&lt;/code&gt;はマシンのプロセッサの時間刻みに依存しており、&lt;br&gt;
+マシンごとにわずかに異なる可能性のある時間遅延を計算する恐れがあります。&lt;/p&gt;
+&lt;p&gt;といっても、待機として用いる際に&lt;br&gt;
+そこまで正確な時間計算が求められるかと言われれば怪しいため、&lt;br&gt;
+ミリ秒の待機を簡潔に書きたければ&lt;code&gt;Sleep&lt;/code&gt;、&lt;br&gt;
+外部APIの読み込みの記述が面倒くさければ&lt;code&gt;Wait&lt;/code&gt;で問題ないでしょう。&lt;/p&gt;
+&lt;h2 id=&#34;デモwebサイトのスクレイピング&#34;&gt;デモ（Webサイトのスクレイピング）&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;デモ_本ブログの自己紹介欄から情報取得&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;objIE&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;InternetExplorer&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;objIE&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;New&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;InternetExplorer&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;objIE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Visible&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;False&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;objIE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;navigate&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;https://dede-20191130.github.io/learnerBlog/about/&amp;#34;&lt;/span&gt; &lt;span class=&#34;c&#34;&gt;&amp;#39;自己紹介ページを開く
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;完全にページが表示されるまで待機する
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Do&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;While&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;objIE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Busy&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;True&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;Or&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;objIE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;readyState&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;4&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;Application&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Wait&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Now&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;TimeValue&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;0:00:01&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt; &lt;span class=&#34;c&#34;&gt;&amp;#39;//一秒待機
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;DoEvents&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Loop&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;With&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;objIE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Document&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;getElementsByTagName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;table&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;Debug&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Print&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Rows&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Cells&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;innerText&lt;/span&gt; &lt;span class=&#34;c&#34;&gt;&amp;#39;//githubのURLを取得
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;Debug&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Print&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Rows&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Cells&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;innerText&lt;/span&gt; &lt;span class=&#34;c&#34;&gt;&amp;#39;//twitterのURLを取得
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;With&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;objIE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Quit&lt;/span&gt; &lt;span class=&#34;c&#34;&gt;&amp;#39;クローズ
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;objIE&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Nothing&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;上記コードを実行すると、&lt;br&gt;
+次のようにイミディエイトウィンドウにURLが表示されます。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;https&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;//&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;github&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;com&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dede&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;20191130&lt;/span&gt; 
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;https&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;//&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;twitter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;com&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;D20191130&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+        
+      </description>
+    </item>
+    
     <item>
       <title>[JavaScript] 正規表現の実行速度検証デモ：量指定子に「Greedyな検索」と「Lazyな検索」を指定する場合</title>
       <link>https://dede-20191130.github.io/learnerBlog/posts/2021/11/03/compare-greedy-lazy-quantifiers/</link>

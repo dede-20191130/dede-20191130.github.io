@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="ja" data-figures="" class="page">
   <head>
-<title>[React Hook] レンダリングのチューニング ~オブジェクトをContextとして利用する場合 &amp; サンプルコード~ | 学習者dedeのブログ ~プログラミング等~</title>
+<title>[教えて！VBA]第1回 処理の途中で待機時間（Sleep）を設けるにはどうすればいいの？？ | 学習者dedeのブログ ~プログラミング等~</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,20 +18,20 @@
 <meta property="og:locale" content="ja" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="この記事について かんたんな概要と結論 オブジェクトをContextとして使用する際のレンダリングのチューニングを実行した。 外部ライブラリのis">
+<meta name="description" content="この記事について かんたんな概要と結論 Javascript（ブラウザ環境）で、正規表現の実行速度を量指定子のタイプの観点で調査した。 Greed">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="@D20191130">
-<meta name="twitter:title" content="[React Hook] レンダリングのチューニング ~オブジェクトをContextとして利用する場合 &amp; サンプルコード~" />
-<meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/posts/2021/10/30/tuning-usecontext-for-obj/" />
-<meta property="og:title" content="[React Hook] レンダリングのチューニング ~オブジェクトをContextとして利用する場合 &amp; サンプルコード~" />
-<meta property="og:description" content="この記事について かんたんな概要と結論 オブジェクトをContextとして使用する際のレンダリングのチューニングを実行した。 外部ライブラリのis" />
+<meta name="twitter:title" content="[教えて！VBA]第1回 処理の途中で待機時間（Sleep）を設けるにはどうすればいいの？？" />
+<meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/posts/2021/12/12/vba-question-001-waiting/" />
+<meta property="og:title" content="[教えて！VBA]第1回 処理の途中で待機時間（Sleep）を設けるにはどうすればいいの？？" />
+<meta property="og:description" content="この記事について かんたんな概要と結論 Javascript（ブラウザ環境）で、正規表現の実行速度を量指定子のタイプの観点で調査した。 Greed" />
 <meta property="og:image" content="https://dede-20191130.github.io/learnerBlog/images/thumbnail.png" />
 
 <link rel="apple-touch-icon" sizes="180x180" href="https://dede-20191130.github.io/learnerBlog/icons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://dede-20191130.github.io/learnerBlog/icons/favicon-32x32.png">
 <link rel="manifest" href="https://dede-20191130.github.io/learnerBlog/icons/site.webmanifest">
 
-<link rel="canonical" href="https://dede-20191130.github.io/learnerBlog/posts/2021/10/30/tuning-usecontext-for-obj/">
+<link rel="canonical" href="https://dede-20191130.github.io/learnerBlog/posts/2021/12/12/vba-question-001-waiting/">
 
     
 
@@ -121,27 +121,25 @@
   
 <div class="grid-inverse wrap content">
   <article class="post_content">
-    <h1 class="post_title">[React Hook] レンダリングのチューニング ~オブジェクトをContextとして利用する場合 &amp; サンプルコード~</h1>
+    <h1 class="post_title">[教えて！VBA]第1回 処理の途中で待機時間（Sleep）を設けるにはどうすればいいの？？</h1>
   <div class="post_meta">
     <span><svg class="icon">
   <use xlink:href="#calendar"></use>
 </svg></span>
     <span class="post_date">
-      Oct 30, 2021</span>
-    <span class="post_time"> · 5 min read</span><span>&nbsp;· <a href='https://dede-20191130.github.io/learnerBlog/tags/javascript' title="JavaScript" class="post_tag button button_translucent">JavaScript
-        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/react' title="React" class="post_tag button button_translucent">React
-        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%83%89' title="フロントエンド" class="post_tag button button_translucent">フロントエンド
+      Dec 12, 2021</span>
+    <span class="post_time"> · 6 min read</span><span>&nbsp;· <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' title="VBA" class="post_tag button button_translucent">VBA
         </a>
     </span>
     <span class="page_only">&nbsp;·
   <div class="post_share">
     Share on:
-    <a href="https://twitter.com/intent/tweet?text=%5bReact%20Hook%5d%20%e3%83%ac%e3%83%b3%e3%83%80%e3%83%aa%e3%83%b3%e3%82%b0%e3%81%ae%e3%83%81%e3%83%a5%e3%83%bc%e3%83%8b%e3%83%b3%e3%82%b0%20~%e3%82%aa%e3%83%96%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88%e3%82%92Context%e3%81%a8%e3%81%97%e3%81%a6%e5%88%a9%e7%94%a8%e3%81%99%e3%82%8b%e5%a0%b4%e5%90%88%20%26%20%e3%82%b5%e3%83%b3%e3%83%97%e3%83%ab%e3%82%b3%e3%83%bc%e3%83%89~&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2021%2f10%2f30%2ftuning-usecontext-for-obj%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
+    <a href="https://twitter.com/intent/tweet?text=%5b%e6%95%99%e3%81%88%e3%81%a6%ef%bc%81VBA%5d%e7%ac%ac1%e5%9b%9e%20%e5%87%a6%e7%90%86%e3%81%ae%e9%80%94%e4%b8%ad%e3%81%a7%e5%be%85%e6%a9%9f%e6%99%82%e9%96%93%ef%bc%88Sleep%ef%bc%89%e3%82%92%e8%a8%ad%e3%81%91%e3%82%8b%e3%81%ab%e3%81%af%e3%81%a9%e3%81%86%e3%81%99%e3%82%8c%e3%81%b0%e3%81%84%e3%81%84%e3%81%ae%ef%bc%9f%ef%bc%9f&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2021%2f12%2f12%2fvba-question-001-waiting%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
       <svg class="icon">
   <use xlink:href="#twitter"></use>
 </svg>
     </a>
-    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2021%2f10%2f30%2ftuning-usecontext-for-obj%2f&t=%5bReact%20Hook%5d%20%e3%83%ac%e3%83%b3%e3%83%80%e3%83%aa%e3%83%b3%e3%82%b0%e3%81%ae%e3%83%81%e3%83%a5%e3%83%bc%e3%83%8b%e3%83%b3%e3%82%b0%20~%e3%82%aa%e3%83%96%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88%e3%82%92Context%e3%81%a8%e3%81%97%e3%81%a6%e5%88%a9%e7%94%a8%e3%81%99%e3%82%8b%e5%a0%b4%e5%90%88%20%26%20%e3%82%b5%e3%83%b3%e3%83%97%e3%83%ab%e3%82%b3%e3%83%bc%e3%83%89~" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
+    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2021%2f12%2f12%2fvba-question-001-waiting%2f&t=%5b%e6%95%99%e3%81%88%e3%81%a6%ef%bc%81VBA%5d%e7%ac%ac1%e5%9b%9e%20%e5%87%a6%e7%90%86%e3%81%ae%e9%80%94%e4%b8%ad%e3%81%a7%e5%be%85%e6%a9%9f%e6%99%82%e9%96%93%ef%bc%88Sleep%ef%bc%89%e3%82%92%e8%a8%ad%e3%81%91%e3%82%8b%e3%81%ab%e3%81%af%e3%81%a9%e3%81%86%e3%81%99%e3%82%8c%e3%81%b0%e3%81%84%e3%81%84%e3%81%ae%ef%bc%9f%ef%bc%9f" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
       <svg class="icon">
   <use xlink:href="#facebook"></use>
 </svg>
@@ -151,7 +149,7 @@
   <use xlink:href="#linkedin"></use>
 </svg>
     </a>
-    <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/10/30/tuning-usecontext-for-obj/" title="Copy Link" class="link link_yank">
+    <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/12/12/vba-question-001-waiting/" title="Copy Link" class="link link_yank">
       <svg class="icon">
   <use xlink:href="#copy"></use>
 </svg>
@@ -166,24 +164,21 @@
     <nav id="TableOfContents">
   <ul>
     <li><a href="#この記事について">この記事について</a></li>
-    <li><a href="#レンダリングのチューニング">レンダリングのチューニング</a>
+    <li><a href="#待機はなぜ必要">待機はなぜ必要？</a>
       <ul>
-        <li><a href="#やりたいこと">やりたいこと</a></li>
-        <li><a href="#改善観点">改善観点</a></li>
-        <li><a href="#初期状態サンプルデモ">初期状態（サンプルデモ）</a></li>
+        <li><a href="#他のアプリケーションの処理が終わるのを待つため">①他のアプリケーションの処理が終わるのを待つため</a></li>
+        <li><a href="#webページのスクレイピングでページが表示されるまで待機するため">②Webページのスクレイピングで、ページが表示されるまで待機するため</a></li>
       </ul>
     </li>
-    <li><a href="#チューニングの実行">チューニングの実行</a>
+    <li><a href="#待機の方法">待機の方法</a>
       <ul>
-        <li><a href="#レンダリング対象の絞り込み">レンダリング対象の絞り込み</a>
-          <ul>
-            <li><a href="#i-reactmemoを使用">i. React.memoを使用</a></li>
-            <li><a href="#ii-userefを使用してdeep-compareを実行">ii. useRefを使用してDeep Compareを実行</a></li>
-          </ul>
-        </li>
-        <li><a href="#useeffectの実行タイミングの調整">useEffectの実行タイミングの調整</a></li>
+        <li><a href="#excel-vbaとaccess-vbaでは別々の方法">Excel VBAとAccess VBAでは別々の方法</a></li>
+        <li><a href="#excel-vba">Excel VBA</a></li>
+        <li><a href="#access-vba">Access VBA</a></li>
+        <li><a href="#waitとsleepどちらを使う">WaitとSleep、どちらを使う？</a></li>
       </ul>
     </li>
+    <li><a href="#デモwebサイトのスクレイピング">デモ（Webサイトのスクレイピング）</a></li>
   </ul>
 </nav>
     <h2 id="この記事について">この記事について</h2>
@@ -194,172 +189,180 @@
     <p><span>かんたんな概要と結論</span></p>
     <div class="inner">
          
-    オブジェクトを<i>Context</i>として使用する際のレンダリングのチューニングを実行した。<br>
-    外部ライブラリの<i>isDeepEqual</i>、<i>useDeepCompareEffect</i>を使用することで<br>
-    良い感じにDeep Compareを実装できる。
+    Javascript（ブラウザ環境）で、正規表現の実行速度を量指定子のタイプの観点で調査した。<br>
+    Greedyな検索とLazyな検索のいずれも利点があるため、<br>検査する文字列に依存して最適な正規表現を適用する必要がある。
 
     </div>
 </div>
-<p><em>React Hook</em>によるブラウザアプリ画面の作成の際、<br>
-レンダリングされる<em>Component</em>の数を絞る（チューニングする）ことで<br>
-実行されるコードのステップ数を減らし、パフォーマンスを改善することができる。</p>
-<p>オブジェクトを<em>Context</em>として各<em>Component</em>にわたす処理のコードにおいて、<br>
-いくつかの観点ごとにチューニングする必要があったため、<br>
-ここにそれを記したい。</p>
-<h2 id="レンダリングのチューニング">レンダリングのチューニング</h2>
-<h3 id="やりたいこと">やりたいこと</h3>
-<p><em>React Hook</em>においてオブジェクトを<em>Context</em>として各<em>Component</em>にわたす際に、<br>
-オブジェクトを更新するたびに、通常は<em>Context</em>を使用するすべての<em>Component</em>が再レンダリングされる。</p>
-<p>オブジェクトが再度同じ値に設定される場合に、<br>
-不要なレンダリングを防ぐような仕組みが、Reactの標準APIにないかと探したが、<br>
-どうやら存在しないようだった。</p>
-<p>また、もう一つの課題として、<br>
-利用先の<em>Component</em>で<em>Context</em>のオブジェクトを取得し、<br>
-その値（参照ではなく、内容）に変更があるたびに<em>useEffect</em>を実行させたいというものがある。<br>
-<em>useEffect</em>はimmutableな値のみを依存関係に含めることができるので、<br>
-今回のようなオブジェクトの変更を察知することが難しい。</p>
-<p>上記の2点について解決したい。</p>
-<h3 id="改善観点">改善観点</h3>
-<ul>
-<li>レンダリングされる<em>Component</em>の数をチューニング</li>
-<li>useEffectの実行タイミングの調整</li>
-</ul>
-<h3 id="初期状態サンプルデモ">初期状態（サンプルデモ）</h3>
-<iframe src="https://codesandbox.io/embed/github/dede-20191130/reactpj01/tree/tuning-add-useref-derv-no-tuned/?fontsize=14&hidenavigation=1&theme=dark"
-    style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-    title="reactpj01"
-    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-></iframe>
-<p>初期表示、および<em>SetterBoxButton</em>を二回押下した際のログは次のようになる。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>render Container          //*** 初期表示ここから
-<span class="ln"> 2</span>render Box
-<span class="ln"> 3</span>render EffectBox
-<span class="ln"> 4</span>render SetterBox
-<span class="ln"> 5</span>run useDeepCompareEffect
-<span class="ln"> 6</span>{foo: {…}, bar: {…}}      //*** ここまで
-<span class="ln"> 7</span>render Container          //*** 一回目ここから
-<span class="ln"> 8</span>render Box
-<span class="ln"> 9</span>render EffectBox
-<span class="ln">10</span>render SetterBox          //*** ここまで
-<span class="ln">11</span>render Container          //*** 二回目ここから
-<span class="ln">12</span>render Box
-<span class="ln">13</span>render EffectBox
-<span class="ln">14</span>render SetterBox          //*** ここまで
-<span class="ln">15</span>
-</code></pre></div><ul>
-<li>ボタン押下ごとに<em>Container Component</em>およびすべての子コンポーネントが再レンダリングされている。</li>
-<li><em>EffectBox</em>の<em>useEffect</em>が一回目のボタン押下時に実行されない。<br>
-（依存関係に空の配列<code>[]</code>を渡しているためにそうなる。本来ならボタン押下で<em>myContext</em>が変更した際に実行してほしい）</li>
-</ul>
-<h2 id="チューニングの実行">チューニングの実行</h2>
-<h3 id="レンダリング対象の絞り込み">レンダリング対象の絞り込み</h3>
-<h4 id="i-reactmemoを使用">i. React.memoを使用</h4>
-<p><em>Container</em>の子コンポーネントのそれぞれを、<br>
-React.memoを用いてメモ化する。</p>
-<p>引数の値が変更しなければ、再レンダリングを引き起こさないようにする。</p>
-<iframe src="https://codesandbox.io/embed/tuning-usecontext-for-object--add-memo-ror0u?fontsize=14&hidenavigation=1&theme=dark"
-     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="tuning-useContext-for-object--add-memo"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-   ></iframe>
-<p>ログは次のようになる。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>render Container         //*** 初期表示ここから                
-<span class="ln"> 2</span>render Box 
-<span class="ln"> 3</span>render EffectBox
-<span class="ln"> 4</span>render SetterBox
-<span class="ln"> 5</span>run useDeepCompareEffect
-<span class="ln"> 6</span>{foo: {…}, bar: {…}}     //*** ここまで
-<span class="hl"><span class="ln"> 7</span>render Container         //*** 一回目ボタン押下 ここから
-</span><span class="hl"><span class="ln"> 8</span>render Box
-</span><span class="hl"><span class="ln"> 9</span>render EffectBox         //*** ここまで
-</span><span class="hl"><span class="ln">10</span>render Container         //*** 二回目ボタン押下 ここから
-</span><span class="hl"><span class="ln">11</span>render Box
-</span><span class="hl"><span class="ln">12</span>render EffectBox         //*** ここまで
-</span><span class="ln">13</span>  
-</code></pre></div><p>子コンポーネントのうち、<br>
-<code>SetterBox</code>は再レンダされなくなった。</p>
-<p>しかし、<br>
-<code>Box</code>および<code>EffectBox</code>はメモ化しても再レンダされる。</p>
-<p>ボタン押下時に<em>myContext</em>が更新され、<em>myContext.Provider</em>で渡される値が変化するため、<br>
-<code>useContext(myContext)</code>によって<em>myContext</em>を使用している<em>Component</em>はすべて再レンダされる。<br>
-ここで渡される値はオブジェクトの参照値なので、たとえ内容が等しくても「別のオブジェクト」と判定され、<br>
-レンダリングが実行される。</p>
-<p>次のiiで、その挙動を改善したい。</p>
-<h4 id="ii-userefを使用してdeep-compareを実行">ii. useRefを使用してDeep Compareを実行</h4>
-<p><em>Container Component</em>の<code>cxt</code>変数が更新されたあと、<br>
-<em>useRef</em>でフックされた<code>cxtRef</code>変数と、<br>
-<code>Deep Equal</code>（ネストされた各値のすべてが等しいことを保証）によって内容を比較する。<br>
-<em>myContext.Provider</em>のvalueに渡されるのは<code>cxt</code>ではなく<code>cxtRef.current</code>となる。</p>
-<p><code>Deep Equal</code>の実装には、外部ライブラリの<code>fast-deep-equal</code>を使用する。</p>
-<iframe src="https://codesandbox.io/embed/tuning-usecontext-for-object--add-useref-p49b7?fontsize=14&hidenavigation=1&theme=dark"
-     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="tuning-useContext-for-object--add-useRef"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-   ></iframe>
-<p>ログは次のようになる。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>render Container             //*** 初期表示ここから
-<span class="ln"> 2</span>render Box
-<span class="ln"> 3</span>render EffectBox
-<span class="ln"> 4</span>render SetterBox
-<span class="ln"> 5</span>run useDeepCompareEffect
-<span class="ln"> 6</span>{foo: {…}, bar: {…}}       //*** ここまで
-<span class="ln"> 7</span>render Container             //*** 一回目ボタン押下 ここから
-<span class="ln"> 8</span>render Box
-<span class="ln"> 9</span>render EffectBox             //*** ここまで
-<span class="hl"><span class="ln">10</span>render Container             //*** 二回目ボタン押下 ここからここまで
-</span><span class="ln">11</span>  
-</code></pre></div><p>二回目のボタン押下では、<br>
-<em>myContext</em>の内容は変更しないため、<br>
-<code>Deep Compare</code>の結果<code>cxtRef.current</code>変数の参照は変化しない。</p>
-<p>したがって、<code>Box</code>および<code>EffectBox</code>の再レンダは引き起こされない。</p>
-<h3 id="useeffectの実行タイミングの調整">useEffectの実行タイミングの調整</h3>
-<p><em>useEffect</em>の依存関係においてmutableな値を許容するトリックだが、<br>
-検索した結果<code>useDeepCompareEffect</code>という便利なフックが公開されていた。</p>
-<p><a href="https://www.benmvp.com/blog/object-array-dependencies-react-useEffect-hook/#option-4---do-it-yourself">こちらの記事の下の方に説明が記載されています。</a></p>
-<p>これを用いることによって、<br>
-<em>myContext</em>が変更したタイミングのいずれにおいても<br>
-EffectBoxのサイドエフェクト処理が走るようにできる。</p>
-<iframe src="https://codesandbox.io/embed/tuning-usecontext-for-object--complete-3nybn?fontsize=14&hidenavigation=1&theme=dark"
-     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="tuning-useContext-for-object--complete"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-   ></iframe>
-<p>ログは次のようになる。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln"> 1</span>render Container             //*** 初期表示ここから
-<span class="ln"> 2</span>render Box
-<span class="ln"> 3</span>render EffectBox
-<span class="ln"> 4</span>render SetterBox
-<span class="ln"> 5</span>run useDeepCompareEffect
-<span class="ln"> 6</span>{foo: {…}, bar: {…}}         //*** ここまで
-<span class="hl"><span class="ln"> 7</span>render Container             //*** 一回目ボタン押下 ここから
-</span><span class="hl"><span class="ln"> 8</span>render Box
-</span><span class="hl"><span class="ln"> 9</span>render EffectBox             
-</span><span class="hl"><span class="ln">10</span>run useDeepCompareEffect
-</span><span class="hl"><span class="ln">11</span>{foo: {…}, bar: {…}}　　　　  //*** ここまで
-</span><span class="ln">12</span>render Container             //*** 二回目ボタン押下 ここからここまで
-<span class="ln">13</span>  
-</code></pre></div><p>一回目のボタン押下で<em>myContext</em>の内容が変更されるため、<br>
-<code>EffectBox</code>内のサイドエフェクト処理が実行され、ログに出力されるようになった。</p>
+<p>こんにちは、dedeです。</p>
+<p>この記事では、<br>
+VBAに関する質問のうち、<br>
+皆が疑問に思っているトピックについて解説いたします。</p>
+<p>今回は、
 
+
+<span style="color: #fb9700;">
+    処理の途中で待機時間を設けるメリットとその方法について
+</span><br>
+を解説いたします。</p>
+<h2 id="待機はなぜ必要">待機はなぜ必要？</h2>
+<p>そもそもなぜ待機時間を設ける必要があるのか？</p>
+<h3 id="他のアプリケーションの処理が終わるのを待つため">①他のアプリケーションの処理が終わるのを待つため</h3>
+<p>VBAから他のアプリケーションの処理をトリガーする場合、<br>
+アプリケーションの種類によっては同期的に処理できない<br>
+（トリガーした方のアプリが終了してから次の処理を行うことができない）場合があります。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln">1</span>
+<span class="ln">2</span><span class="k">Call</span> <span class="n">runSomethingApp</span><span class="p">()</span><span class="c">&#39;他のアプリを起動して処理を行う
+</span><span class="ln">3</span><span class="c"></span>
+<span class="ln">4</span><span class="k">Set</span> <span class="n">result</span> <span class="o">=</span> <span class="n">getSomethingAppResult</span><span class="p">()</span><span class="c">&#39;※※ まだ他のアプリケーションの処理が終わっていないので、想定した結果が得られない
+</span><span class="ln">5</span><span class="c"></span>
+</code></pre></div><p>そのため、次のようにして<br>
+アプリケーションの処理が十分に終えることができるような待機時間を儲けます。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln">1</span>
+<span class="ln">2</span><span class="k">Call</span> <span class="n">runSomethingApp</span><span class="p">()</span><span class="c">&#39;他のアプリを起動して処理を行う
+</span><span class="ln">3</span><span class="c"></span>
+<span class="ln">4</span><span class="k">Call</span> <span class="n">setTaikiJikan</span><span class="p">()</span><span class="c">&#39;待機時間呼び出し関数
+</span><span class="ln">5</span><span class="c"></span>
+<span class="ln">6</span><span class="k">Set</span> <span class="n">result</span> <span class="o">=</span> <span class="n">getSomethingAppResult</span><span class="p">()</span><span class="c">&#39;待機し、他のアプリが処理完了したので、正常に処理ができる
+</span><span class="ln">7</span><span class="c"></span>
+</code></pre></div><p>あるいは、次のようにして処理が終わるまでループを回すほうが安全でしょう。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span>
+<span class="ln"> 2</span><span class="k">Call</span> <span class="n">runSomethingApp</span><span class="p">()</span><span class="c">&#39;他のアプリを起動して処理を行う
+</span><span class="ln"> 3</span><span class="c"></span>
+<span class="ln"> 4</span><span class="k">Do</span>
+<span class="ln"> 5</span>    <span class="k">Set</span> <span class="n">result</span> <span class="o">=</span> <span class="n">getSomethingAppResult</span><span class="p">()</span><span class="c">&#39;アプリ結果取得
+</span><span class="ln"> 6</span><span class="c"></span>    <span class="k">If</span> <span class="k">Not</span> <span class="n">result</span> <span class="ow">Is</span> <span class="k">Nothing</span> <span class="k">Then</span> <span class="k">Exit</span> <span class="k">Do</span><span class="c">&#39;結果が得られれば次の処理へ
+</span><span class="ln"> 7</span><span class="c"></span>    <span class="k">If</span> <span class="n">counter</span> <span class="o">&gt;</span> <span class="n">10</span> <span class="k">Then</span>
+<span class="ln"> 8</span>        <span class="n">MsgBox</span> <span class="s">&#34;アプリケーションは正常に動作しませんでした&#34;</span>
+<span class="ln"> 9</span>        <span class="k">Exit</span> <span class="k">Function</span>
+<span class="ln">10</span>    <span class="nf">End</span> <span class="k">If</span>
+<span class="ln">11</span>    <span class="k">Call</span> <span class="n">setTaikiJikanOneSecond</span><span class="p">()</span><span class="c">&#39;一秒待機する
+</span><span class="ln">12</span><span class="c"></span>    <span class="n">counter</span> <span class="o">=</span> <span class="n">counter</span> <span class="o">+</span> <span class="n">1</span>
+<span class="ln">13</span><span class="k">Loop</span>
+<span class="ln">14</span>
+</code></pre></div><p>VBAから他のアプリケーションを発火させる際は、<br>
+同期的に処理できるか、非同期的な処理となるかという点は<br>
+注意するべきでしょう。</p>
+<h3 id="webページのスクレイピングでページが表示されるまで待機するため">②Webページのスクレイピングで、ページが表示されるまで待機するため</h3>
+<p>スクレイピング目的で<br>
+プログラムからWebにアクセスした場合、<br>
+通常のブラウジングと同じようにページがすべて表示されるまで待機する必要があります。</p>
+<p>(下記、IEに対する操作自動化のコード例ですが、他のツールを使用したChromeなどへのスクレイピングでも同様です)</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span><span class="k">Dim</span> <span class="n">objIE</span> <span class="ow">As</span> <span class="n">InternetExplorer</span>
+<span class="ln"> 2</span>
+<span class="ln"> 3</span><span class="k">Set</span> <span class="n">objIE</span> <span class="o">=</span> <span class="k">New</span> <span class="n">InternetExplorer</span>
+<span class="ln"> 4</span><span class="n">objIE</span><span class="p">.</span><span class="n">Visible</span> <span class="o">=</span> <span class="k">True</span>
+<span class="ln"> 5</span>
+<span class="ln"> 6</span><span class="c">&#39;指定したURLのページを表示する
+</span><span class="ln"> 7</span><span class="c"></span><span class="n">objIE</span><span class="p">.</span><span class="n">navigate</span> <span class="s">&#34;https://dede-20191130.github.io/learnerBlog/about/&#34;</span>
+<span class="ln"> 8</span>
+<span class="ln"> 9</span><span class="c">&#39;完全にページが表示されるまで待機する（想定したHTMLを得られるようにするため）
+</span><span class="ln">10</span><span class="c"></span><span class="k">Do</span> <span class="k">While</span> <span class="n">objIE</span><span class="p">.</span><span class="n">Busy</span> <span class="o">=</span> <span class="k">True</span> <span class="ow">Or</span> <span class="n">objIE</span><span class="p">.</span><span class="n">readyState</span> <span class="o">&lt;&gt;</span> <span class="n">4</span>
+<span class="ln">11</span>    <span class="k">Call</span> <span class="n">setTaikiJikanOneSecond</span><span class="p">()</span><span class="c">&#39;一秒待機する
+</span><span class="ln">12</span><span class="c"></span>    <span class="n">DoEvents</span>
+<span class="ln">13</span><span class="k">Loop</span>
+<span class="ln">14</span>
+<span class="ln">15</span><span class="n">doSomething</span><span class="p">()</span><span class="c">&#39;次の処理
+</span><span class="ln">16</span><span class="c"></span>
+</code></pre></div><h2 id="待機の方法">待機の方法</h2>
+<h3 id="excel-vbaとaccess-vbaでは別々の方法">Excel VBAとAccess VBAでは別々の方法</h3>
+<p>待機を実装するための方法が、<br>
+ExcelとAccessとで微妙に異なるので、<br>
+それぞれ記載したいと思います。</p>
+<h3 id="excel-vba">Excel VBA</h3>
+<p>① Application.Waitを使用する</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln">1</span><span class="n">Application</span><span class="p">.</span><span class="n">Wait</span><span class="p">(</span><span class="n">Time</span><span class="p">)</span>
+</code></pre></div><p>ApplicationはExcelアプリのインスタンス、<br>
+つまり、Excelアプリがもともと持っているWaitという関数を使用するかたちです。</p>
+<p><code>Time</code>には、Excelで使用できる時間形式が入ります（00:00:10など）。<br>
+そのため、ミリ秒単位での待機をしようとすると工夫が必要です。<br>
+<a href="https://www.higashisalary.com/entry/vba-wait-ms">➩ https://www.higashisalary.com/entry/vba-wait-ms</a></p>
+<p>機能は、指定した<code>Time</code>まで処理を待機するというものです。</p>
+<p>つまり、<code>Now</code>関数と組み合わせることで、<br>
+「〇〇秒経過するまで待機」という処理を実現することができます。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>doSomething...
+<span class="ln">2</span>
+<span class="ln">3</span>Call Application.Wait（Now + TimeValue（&#34;0:00:10&#34;））&#39;10秒だけ待機します。
+<span class="ln">4</span>
+<span class="ln">5</span>doSomethingAfter10...
+</code></pre></div><p>② Windows APIのSleep関数を使用する</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span><span class="c">&#39;モジュールの先頭
+</span><span class="ln"> 2</span><span class="c"></span><span class="cp">#If VBA7 Then</span>
+<span class="ln"> 3</span> <span class="k">Public</span> <span class="k">Declare</span> <span class="n">PtrSafe</span> <span class="k">Sub</span> <span class="nf">Sleep</span> <span class="k">Lib</span> <span class="s">&#34;kernel32&#34;</span> <span class="p">(</span><span class="k">ByVal</span> <span class="n">dwMilliseconds</span> <span class="ow">As</span> <span class="n">LongPtr</span><span class="p">)</span> <span class="c">&#39;64ビットOfficeの場合
+</span><span class="ln"> 4</span><span class="c"></span><span class="cp">#Else</span>
+<span class="ln"> 5</span> <span class="k">Public</span> <span class="k">Declare</span> <span class="k">Sub</span> <span class="nf">Sleep</span> <span class="k">Lib</span> <span class="s">&#34;kernel32&#34;</span> <span class="p">(</span><span class="k">ByVal</span> <span class="n">dwMilliseconds</span> <span class="ow">as</span> <span class="kt">Long</span><span class="p">)</span> <span class="c">&#39;32ビットOfficeの場合
+</span><span class="ln"> 6</span><span class="c"></span><span class="cp">#End If</span>
+<span class="ln"> 7</span>
+<span class="ln"> 8</span><span class="k">Sub</span> <span class="nf">SleepTest</span><span class="p">()</span>
+<span class="ln"> 9</span>    <span class="n">doSomething</span><span class="p">...</span>
+<span class="ln">10</span>    <span class="n">Sleep</span> <span class="n">10000</span> <span class="c">&#39;10秒だけ待機します。
+</span><span class="ln">11</span><span class="c"></span>    <span class="n">doSomethingAfter10</span><span class="p">...</span>
+<span class="ln">12</span><span class="k">End</span> <span class="k">Sub</span>
+</code></pre></div><p>Windows API(Application Programming Interface)を使用します。<br>
+Windows APIは、Windowsでよく使用される機能がまとまったライブラリです。</p>
+<p>上記コード例のように、<br>
+モジュールのはじめで<code>Public Declare......</code>というようにAPIを読み込む宣言をします。</p>
+<p><code>Sleep</code>関数の引数には、ミリ秒の指定が入ります。</p>
+<h3 id="access-vba">Access VBA</h3>
+<p>① Windows APIのSleep関数を使用する</p>
+<p>上記でご説明したように、<br>
+<code>Sleep</code>はWindows APIであり、Officeの各アプリケーションの固有の機能ではありません。</p>
+<p>そのため、<br>
+ExcelでもAccessでも（あるいはOutLookなどでも）、読み込みさえしておけば自由に使用することができます。</p>
+<h3 id="waitとsleepどちらを使う">WaitとSleep、どちらを使う？</h3>
+<p>Excel以外のOfficeのVBA環境では<code>Sleep</code>を使用すれば問題ないかと思います。</p>
+<p><code>Sleep</code>に対する<code>Wait</code>の優位性としては、<br>
+時間の正確さがあります。</p>
+<p><code>Sleep</code>はマシンのプロセッサの時間刻みに依存しており、<br>
+マシンごとにわずかに異なる可能性のある時間遅延を計算する恐れがあります。</p>
+<p>といっても、待機として用いる際に<br>
+そこまで正確な時間計算が求められるかと言われれば怪しいため、<br>
+ミリ秒の待機を簡潔に書きたければ<code>Sleep</code>、<br>
+外部APIの読み込みの記述が面倒くさければ<code>Wait</code>で問題ないでしょう。</p>
+<h2 id="デモwebサイトのスクレイピング">デモ（Webサイトのスクレイピング）</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span><span class="k">Sub</span> <span class="nf">デモ_本ブログの自己紹介欄から情報取得</span><span class="p">()</span>
+<span class="ln"> 2</span>    <span class="k">Dim</span> <span class="n">objIE</span> <span class="ow">As</span> <span class="n">InternetExplorer</span>
+<span class="ln"> 3</span>    
+<span class="ln"> 4</span>    <span class="k">Set</span> <span class="n">objIE</span> <span class="o">=</span> <span class="k">New</span> <span class="n">InternetExplorer</span>
+<span class="ln"> 5</span>    <span class="n">objIE</span><span class="p">.</span><span class="n">Visible</span> <span class="o">=</span> <span class="k">False</span>
+<span class="ln"> 6</span>    <span class="n">objIE</span><span class="p">.</span><span class="n">navigate</span> <span class="s">&#34;https://dede-20191130.github.io/learnerBlog/about/&#34;</span> <span class="c">&#39;自己紹介ページを開く
+</span><span class="ln"> 7</span><span class="c"></span>
+<span class="ln"> 8</span>    <span class="c">&#39;完全にページが表示されるまで待機する
+</span><span class="ln"> 9</span><span class="c"></span>    <span class="k">Do</span> <span class="k">While</span> <span class="n">objIE</span><span class="p">.</span><span class="n">Busy</span> <span class="o">=</span> <span class="k">True</span> <span class="ow">Or</span> <span class="n">objIE</span><span class="p">.</span><span class="n">readyState</span> <span class="o">&lt;&gt;</span> <span class="n">4</span>
+<span class="ln">10</span>        <span class="n">Application</span><span class="p">.</span><span class="n">Wait</span> <span class="p">(</span><span class="n">Now</span> <span class="o">+</span> <span class="n">TimeValue</span><span class="p">(</span><span class="s">&#34;0:00:01&#34;</span><span class="p">))</span> <span class="c">&#39;//一秒待機
+</span><span class="ln">11</span><span class="c"></span>        <span class="n">DoEvents</span>
+<span class="ln">12</span>    <span class="k">Loop</span>
+<span class="ln">13</span>    
+<span class="ln">14</span>    <span class="k">With</span> <span class="n">objIE</span><span class="p">.</span><span class="n">Document</span><span class="p">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s">&#34;table&#34;</span><span class="p">)(</span><span class="n">0</span><span class="p">)</span>
+<span class="ln">15</span>        <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="p">.</span><span class="n">Rows</span><span class="p">(</span><span class="n">3</span><span class="p">).</span><span class="n">Cells</span><span class="p">(</span><span class="n">1</span><span class="p">).</span><span class="n">innerText</span> <span class="c">&#39;//githubのURLを取得
+</span><span class="ln">16</span><span class="c"></span>        <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="p">.</span><span class="n">Rows</span><span class="p">(</span><span class="n">4</span><span class="p">).</span><span class="n">Cells</span><span class="p">(</span><span class="n">1</span><span class="p">).</span><span class="n">innerText</span> <span class="c">&#39;//twitterのURLを取得
+</span><span class="ln">17</span><span class="c"></span>    <span class="k">End</span> <span class="k">With</span>
+<span class="ln">18</span>    
+<span class="ln">19</span>    <span class="n">objIE</span><span class="p">.</span><span class="n">Quit</span> <span class="c">&#39;クローズ
+</span><span class="ln">20</span><span class="c"></span>    <span class="k">Set</span> <span class="n">objIE</span> <span class="o">=</span> <span class="k">Nothing</span>
+<span class="ln">21</span>    
+<span class="ln">22</span><span class="k">End</span> <span class="k">Sub</span>
+<span class="ln">23</span>
+</code></pre></div><p>上記コードを実行すると、<br>
+次のようにイミディエイトウィンドウにURLが表示されます。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln">1</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">dede</span><span class="o">-</span><span class="n">20191130</span> 
+<span class="ln">2</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">twitter</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">D20191130</span> 
+</code></pre></div>
      
      
      
      <h3>関連記事</h3>
      <ul>
          
-         <li><a href="/learnerBlog/posts/2021/10/14/send-contact-form-react-router/">ご意見送信フォームを作成する③　[SPA by React Router]</a></li>
+         <li><a href="/learnerBlog/posts/2021/09/04/access-change-control-test/">[Access VBA] フォームのコントロール操作系の関数をどのようにユニットテストするかの方法メモ</a></li>
          
-         <li><a href="/learnerBlog/posts/2021/10/08/send-contact-form-react/">ご意見送信フォームを作成する②　[React]</a></li>
+         <li><a href="/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/">[Access VBA] RequeryとRefreshの使い分けデモ　「単票フォームの編集」編</a></li>
          
-         <li><a href="/learnerBlog/posts/2021/10/27/wc-toggle-color-button/">[JavaScript] Web Componentsで明暗モード切替ボタンを作成する</a></li>
+         <li><a href="/learnerBlog/posts/2021/03/29/wsfunc-networkday/">[Excel VBA] 年度に関わらず営業日数を算出する方法について紹介</a></li>
          
-         <li><a href="/learnerBlog/posts/2021/10/08/send-contact-form-plain-ts/">ご意見送信フォームを作成する①　[プレーンTypeScript]</a></li>
+         <li><a href="/learnerBlog/posts/2021/02/28/create-estm-accessver/">[Access VBA] 見積書作成ツール（Accessバージョン）を作成した</a></li>
          
-         <li><a href="/learnerBlog/posts/2021/07/27/ie11-radio-group-value/">[Javascript] IE11でRadioボタングループのvalueを取得できない事象＆対策</a></li>
+         <li><a href="/learnerBlog/posts/2021/02/13/copyto-merged-cell/">[Excel VBA] 結合セルにコピーペーストするマクロ</a></li>
          
      </ul>
      <div id="disqus_thread"></div>
@@ -406,13 +409,13 @@ EffectBoxのサイドエフェクト処理が走るようにできる。</p>
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/12/12/vba-question-001-waiting/" class="nav-link" title="[教えて！VBA]第1回 処理の途中で待機時間（Sleep）を設けるにはどうすればいいの？？">[教えて！VBA]第1回 処理の途中で待機時間（Sleep）を設けるにはどうすればいいの？？</a>
-      </li>
-      <li>
         <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/11/03/compare-greedy-lazy-quantifiers/" class="nav-link" title="[JavaScript] 正規表現の実行速度検証デモ：量指定子に「Greedyな検索」と「Lazyな検索」を指定する場合">[JavaScript] 正規表現の実行速度検証デモ：量指定子に「Greedyな検索」と「Lazyな検索」を指定する場合</a>
       </li>
       <li>
         <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/11/01/bookmarklet-img-other-tab/" class="nav-link" title="[Javacript] 画像をワンクリックで別タブで開けるようにするブックマークレットを作成する">[Javacript] 画像をワンクリックで別タブで開けるようにするブックマークレットを作成する</a>
+      </li>
+      <li>
+        <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/10/30/tuning-usecontext-for-obj/" class="nav-link" title="[React Hook] レンダリングのチューニング ~オブジェクトをContextとして利用する場合 &amp; サンプルコード~">[React Hook] レンダリングのチューニング ~オブジェクトをContextとして利用する場合 &amp; サンプルコード~</a>
       </li>
       <li>
         <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/10/27/wc-toggle-color-button/" class="nav-link" title="[JavaScript] Web Componentsで明暗モード切替ボタンを作成する">[JavaScript] Web Componentsで明暗モード切替ボタンを作成する</a>
