@@ -6,7 +6,180 @@
     <description>Recent content in VBA on 学習者dedeのブログ ~プログラミング等~</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 12 Dec 2021 10:41:37 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/tags/vba/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 14 Dec 2021 11:53:35 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/tags/vba/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[教えて！VBA]第2回 一つのセルの値が「東京都」であることを条件として別のアクションを行うにはどうすればいいの？？</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/12/14/vba-question-002-chekc-single-cell/</link>
+      <pubDate>Tue, 14 Dec 2021 11:53:35 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/12/14/vba-question-002-chekc-single-cell/</guid>
+      <description>
+        
+          &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
+
+
+
+&lt;div class=&#34;box-with-title&#34;&gt;
+    &lt;p&gt;&lt;span&gt;かんたんな概要と結論&lt;/span&gt;&lt;/p&gt;
+    &lt;div class=&#34;inner&#34;&gt;
+         
+    Excelのシートのセルに入力されたデータを読み取るには、&lt;br&gt;
+    RangeあるいはCellsを使用します。&lt;br&gt;&lt;br&gt;
+    セルのデータを読み取り処理を様々に書くことができれば、&lt;br&gt;
+    VBAマクロの表現の幅は非常に広がります。
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;こんにちは、dedeです。&lt;/p&gt;
+&lt;p&gt;この記事では、&lt;br&gt;
+VBAマクロに関する質問のうち、&lt;br&gt;
+皆が疑問に思っているトピックについて解説いたします。&lt;/p&gt;
+&lt;p&gt;今回は、
+
+
+&lt;span style=&#34;color: #fb9700;&#34;&gt;
+    一つのセルの値が「東京都」であることをチェックする方法とその比較について
+&lt;/span&gt;&lt;br&gt;
+を解説いたします。&lt;/p&gt;
+&lt;p&gt;※この記事は、Office VBAマクロのうち&lt;br&gt;
+Excel VBAマクロに関するトピックです。&lt;/p&gt;
+&lt;p&gt;レベル：&lt;b&gt;初級者向け&lt;/b&gt;&lt;/p&gt;
+&lt;h2 id=&#34;セルの値を調べたいのはどんな場合&#34;&gt;セルの値を調べたいのはどんな場合？&lt;/h2&gt;
+&lt;p&gt;例えば、特定の値が入っているセルだけを対象として、&lt;br&gt;
+その隣のセルに文字を入力したい場合を考えます。&lt;/p&gt;
+&lt;p&gt;下記の図では、&lt;br&gt;
+都道府県が「東京都」と入力されたセルの隣のセルだけに「必要」と自動入力するマクロを想定しています。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1639785261/learnerBlog/vba-question-002-chekc-single-cell/vba-question-002-chekc-single-cell_g8kyeg.png&#34; alt=&#34;想定する流れ&#34;&gt;&lt;/p&gt;
+&lt;p&gt;他にも、その値の入ったセル自身の背景色を変更したり、&lt;br&gt;
+値を取得してなにかの計算処理を加えて他のセルに反映するなど、&lt;br&gt;
+
+
+&lt;span style=&#34;color: #fb9700;&#34;&gt;
+    Excel VBAマクロにおいては、セルの値を参照することはもっとも使われる基本的なテクニックです。
+&lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&#34;方法&#34;&gt;方法&lt;/h2&gt;
+&lt;h3 id=&#34;セルの値を取得する&#34;&gt;セルの値を取得する&lt;/h3&gt;
+&lt;p&gt;セルの値を取得するには、&lt;br&gt;
+&lt;code&gt;Rangeプロパティ&lt;/code&gt;を使用する、あるいは&lt;code&gt;Cellsプロパティ&lt;/code&gt;を使用することで実現できます。&lt;/p&gt;
+&lt;p&gt;いずれにしても、&lt;code&gt;Rangeオブジェクト&lt;/code&gt;（プロパティと同名なのでややこしい）という&lt;br&gt;
+セル範囲の情報をもっているオブジェクトを取得する点では相違ありません。&lt;/p&gt;
+&lt;p&gt;※ここでいう「オブジェクト」とは、&lt;br&gt;
+対象としているものの情報とそれを操作する関数をセットで持っているデータの一種と理解ください。&lt;/p&gt;
+&lt;p&gt;例えばRangeオブジェクトはセル範囲のアドレスや、セルをコピーする操作関数を持っています。&lt;/p&gt;
+&lt;h4 id=&#34;rangeを使う&#34;&gt;Rangeを使う&lt;/h4&gt;
+&lt;p&gt;次のようにRangeプロパティの引数にセルのアドレスを指定します。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cellValue&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cellValue&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;B2&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Value&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;このようにすると、B2セルに記載された内容を&lt;br&gt;
+文字列として&lt;code&gt;cellValue&lt;/code&gt;変数に格納します。&lt;/p&gt;
+&lt;p&gt;例えば、B2セルに「あいうえお」と入っていた場合、&lt;br&gt;
+&lt;code&gt;cellValue&lt;/code&gt;にも「あいうえお」と入ります。&lt;/p&gt;
+&lt;h4 id=&#34;cellsを使う&#34;&gt;Cellsを使う&lt;/h4&gt;
+&lt;p&gt;次のようにRangeプロパティの引数にセルのアドレスを
+
+&lt;span style=&#34;color: #fb9700;&#34;&gt;
+    座標として
+&lt;/span&gt;指定します。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cellValue&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cellValue&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Cells&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Value&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;Cells(2, 2)&lt;/code&gt;というのはB2セルを指しています。&lt;/p&gt;
+&lt;p&gt;気づかれたかもしれませんが、&lt;br&gt;
+&lt;code&gt;Cells&lt;/code&gt;の引数の最初には対象セルの行番号が、その次には対象セルの列番号を数値に変換したものが入ります。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1639785261/learnerBlog/vba-question-002-chekc-single-cell/vba-question-002-chekc-single-cell2_j6zawz.png&#34; alt=&#34;Cellsの引数規則&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;どちらを使えばいいの&#34;&gt;どちらを使えばいいの？&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;Range&lt;/code&gt;でも&lt;code&gt;Cells&lt;/code&gt;でも指定したセルの内容を取得できるとわかりましたが、&lt;br&gt;
+どのように使い分けるのか？？&lt;/p&gt;
+&lt;p&gt;それは、&lt;br&gt;
+&lt;code&gt;Range&lt;/code&gt;には一つのセルだけでなく複数のセルの情報をオブジェクトとして取得し、それらを操作できるという利点があるが、&lt;br&gt;
+&lt;code&gt;Cells&lt;/code&gt;は常に単一のセルを取り扱うプロパティだということに焦点を当てれば見えてきます。&lt;/p&gt;
+&lt;p&gt;例えば、&lt;br&gt;
+次のコードでは、
+A1セルからC3セルまでのセルの背景色を一括で赤色に変更します。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;A1:C3&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Interior&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Color&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;255&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;そのため、&lt;br&gt;
+このように一括で複数セルを取り扱いたいときに&lt;code&gt;Range&lt;/code&gt;を使用します。&lt;/p&gt;
+&lt;p&gt;一方、&lt;code&gt;Cells&lt;/code&gt;を使った場合、&lt;br&gt;
+プログラムコードを見たときに単一のセルを取り扱っていることがすぐにわかるので、&lt;br&gt;
+「あっ、このコードのここの部分では一つのセルについて操作しているんだな」とわかりやすくなります。&lt;/p&gt;
+&lt;p&gt;上記の理由から、&lt;br&gt;
+複数セルを取り扱いたい場合以外では、&lt;code&gt;Cells&lt;/code&gt;を使用することを勧めます。&lt;/p&gt;
+&lt;h3 id=&#34;セルの値によって分岐させる&#34;&gt;セルの値によって分岐させる&lt;/h3&gt;
+&lt;p&gt;次に、&lt;br&gt;
+「IFステートメント」というVBAの構文を使って&lt;br&gt;
+取得したセルの値に応じて処理を分岐させます。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;評価式&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;ここは評価式がYESであった場合にのみ実行されます&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;。&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Else&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;ここは評価式がNOであった場合にのみ実行されます&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;。&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;「評価式」とは、&lt;br&gt;
+内容がYES/NO（VBAの用語ではTRUE/FALSE）として表現できる式が入ります。&lt;/p&gt;
+&lt;p&gt;例えば「1 + 2 = 3」「東京は日本の首都」「滋賀は東北地方の県である」はすべて評価式です。&lt;/p&gt;
+&lt;p&gt;上記のIFステートメントを使って、&lt;br&gt;
+取得したセルの値が「東京都」であった場合にのみ隣のセルの値に「必要」と入力するコードは&lt;br&gt;
+次のようになります。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cellValue&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;東京都&amp;#34;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;Cells&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;隣のセルの行番号&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;隣のセルの列番号&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;必要&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;なお、ここでは評価式がNOであった場合には&lt;br&gt;
+何もしないので、&lt;br&gt;
+&lt;code&gt;Else&lt;/code&gt;ステートメント部分は使用していません。&lt;/p&gt;
+&lt;h2 id=&#34;デモ&#34;&gt;デモ&lt;/h2&gt;
+&lt;h3 id=&#34;cellsで書かれたデモ&#34;&gt;Cellsで書かれたデモ&lt;/h3&gt;
+&lt;p&gt;都道府県が「東京都」と入力されたセルの隣のセルだけに「必要」と自動入力するマクロです。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;必要の入力&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Cells&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;東京都&amp;#34;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;Cells&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;必要&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Cells&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;東京都&amp;#34;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;Cells&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;必要&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Cells&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;東京都&amp;#34;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;Cells&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;必要&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Cells&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;東京都&amp;#34;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;Cells&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;必要&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これを実行すると、&lt;br&gt;
+C3セルとC6セルにのみ「必要」と入力されます。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1639785260/learnerBlog/vba-question-002-chekc-single-cell/01_x4vft6.png&#34; alt=&#34;実行前&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1639785260/learnerBlog/vba-question-002-chekc-single-cell/02_jwnums.png&#34; alt=&#34;実行後&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;range形式に書き直すと&#34;&gt;Range形式に書き直すと……&lt;/h3&gt;
+&lt;p&gt;Range形式に書き直すと、次のように書けます。&lt;br&gt;
+もともとExcel関数をよく使っていたユーザにはこちらのほうが馴染み深いかもしれません。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;必要の入力&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;B3&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;東京都&amp;#34;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;Range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;C3&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;必要&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;B4&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;東京都&amp;#34;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;Range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;C4&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;必要&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;B5&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;東京都&amp;#34;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;Range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;C5&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;必要&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;B6&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;東京都&amp;#34;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;Range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;C6&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;必要&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;終わりに&#34;&gt;終わりに&lt;/h2&gt;
+&lt;p&gt;セルからデータを取得して、&lt;br&gt;
+それに応じた処理を行うことは、&lt;br&gt;
+Excel VBAマクロでもっともよく使われるロジックです。&lt;/p&gt;
+&lt;p&gt;これをうまく使えるようになれば、&lt;br&gt;
+マクロの自動化の幅が非常に広がるでしょう。&lt;/p&gt;
+&lt;p&gt;ここには書ききれませんでしたが、&lt;br&gt;
+&lt;code&gt;Range&lt;/code&gt;や&lt;code&gt;Cells&lt;/code&gt;の使用法には他にもバラエティがあるので、&lt;br&gt;
+Microsoftの公式を見てみると面白いかもしれません。&lt;/p&gt;
+
+        
+      </description>
+    </item>
+    
     <item>
       <title>[教えて！VBA]第1回 処理の途中で待機時間（Sleep）を設けるにはどうすればいいの？？</title>
       <link>https://dede-20191130.github.io/learnerBlog/posts/2021/12/12/vba-question-001-waiting/</link>
@@ -32,7 +205,7 @@
 &lt;/div&gt;
 &lt;p&gt;こんにちは、dedeです。&lt;/p&gt;
 &lt;p&gt;この記事では、&lt;br&gt;
-VBAに関する質問のうち、&lt;br&gt;
+VBAマクロに関する質問のうち、&lt;br&gt;
 皆が疑問に思っているトピックについて解説いたします。&lt;/p&gt;
 &lt;p&gt;今回は、
 
@@ -41,6 +214,7 @@ VBAに関する質問のうち、&lt;br&gt;
     処理の途中で待機時間を設けるメリットとその方法について
 &lt;/span&gt;&lt;br&gt;
 を解説いたします。&lt;/p&gt;
+&lt;p&gt;レベル：&lt;b&gt;中級者向け&lt;/b&gt;&lt;/p&gt;
 &lt;h2 id=&#34;待機はなぜ必要&#34;&gt;待機はなぜ必要？&lt;/h2&gt;
 &lt;p&gt;そもそもなぜ待機時間を設ける必要があるのか？&lt;/p&gt;
 &lt;h3 id=&#34;他のアプリケーションの処理が終わるのを待つため&#34;&gt;①他のアプリケーションの処理が終わるのを待つため&lt;/h3&gt;
