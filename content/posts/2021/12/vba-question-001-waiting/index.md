@@ -1,5 +1,5 @@
 ---
-title: "[教えて！VBA]第1回 処理の途中で待機時間（Sleep）を設けるにはどうすればいいの？？"
+title: "[教えて！VBA] 第1回 処理の途中で待機時間（Sleep）を設けるにはどうすればいいの？？"
 author: dede-20191130
 date: 2021-12-12T10:41:37+09:00
 slug: vba-question-001-waiting
