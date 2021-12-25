@@ -6,9 +6,138 @@
     <description>Recent content in 2021-12 on 学習者dedeのブログ ~プログラミング等~</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Tue, 14 Dec 2021 11:53:35 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/archives/2021-12/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 25 Dec 2021 09:57:26 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/archives/2021-12/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>[教えて！VBA]第2回 一つのセルの値が「東京都」であることを条件として別のアクションを行うにはどうすればいいの？？</title>
+      <title>[教えて！VBA] 第3回 Accessマクロで、テーブルのデータを全クリアするにはどうすればいいの？？</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/12/25/vba-question-003-clear-data-in-table/</link>
+      <pubDate>Sat, 25 Dec 2021 09:57:26 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/12/25/vba-question-003-clear-data-in-table/</guid>
+      <description>
+        
+          &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
+
+
+
+&lt;div class=&#34;box-with-title&#34;&gt;
+    &lt;p&gt;&lt;span&gt;かんたんな概要と結論&lt;/span&gt;&lt;/p&gt;
+    &lt;div class=&#34;inner&#34;&gt;
+         
+    テーブルデータクリアには、作成済みクエリ経由とSQL経由の二通りがありますが、&lt;br&gt;
+    内部で行っていることはさほど違いがありません。&lt;br&gt;&lt;br&gt;
+    注意点として、テーブル削除と混同しないようにすることがあります。
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;こんにちは、dedeです。&lt;/p&gt;
+&lt;p&gt;この記事では、&lt;br&gt;
+VBAマクロに関する質問のうち、&lt;br&gt;
+皆が疑問に思っているトピックについて解説いたします。&lt;/p&gt;
+&lt;p&gt;今回は、
+
+
+&lt;span style=&#34;color: #fb9700;&#34;&gt;
+    Accessマクロで、テーブルのデータを全クリアする方法
+&lt;/span&gt;&lt;br&gt;
+を解説いたします。&lt;/p&gt;
+&lt;p&gt;※この記事は、Office VBAマクロのうち&lt;br&gt;
+Access VBAマクロに関するトピックです。&lt;/p&gt;
+&lt;p&gt;レベル：&lt;b&gt;初級者向け&lt;/b&gt;&lt;/p&gt;
+&lt;h2 id=&#34;注意テーブルデータクリアとテーブル削除の違い&#34;&gt;注意：テーブルデータクリアとテーブル削除の違い&lt;/h2&gt;
+&lt;p&gt;最初に気をつけなければならないのは、&lt;br&gt;
+「テーブルのデータ全クリア」と「テーブル削除」という&lt;br&gt;
+２つの紛らわしい概念を整理しなければならないということです。&lt;/p&gt;
+&lt;p&gt;似ているけれど、この２つの意味するところは違います。&lt;/p&gt;
+&lt;p&gt;テーブルのデータ全クリアはデータ（レコード）自体は削除しますが、&lt;br&gt;
+テーブル構造やメタデータ（メタデータについては後述）は残ります。&lt;/p&gt;
+&lt;p&gt;一方、テーブル削除は&lt;br&gt;
+テーブルそのものを削除するため、テーブル構造やメタデータも失われ、&lt;br&gt;
+テーブルの再度の利用はできなくなります。&lt;/p&gt;
+&lt;p&gt;そのため、使用しないテーブルや一時的に利用するだけに動的に作成したテーブルなどは、&lt;br&gt;
+テーブルのデータクリアよりもテーブル削除のほうが適しており、&lt;br&gt;
+それ以外はテーブルデータクリアのほうが安全かと思われます。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640415368/learnerBlog/vba-question-003-clear-data-in-table/clear-and-delete_rqstxu.png&#34; alt=&#34;テーブルデータクリアとテーブル削除の違い&#34;&gt;&lt;/p&gt;
+&lt;p&gt;※メタデータについて&lt;br&gt;
+ここでいうテーブルのメタデータとは、&lt;br&gt;
+本体であるデータ（レコード）に関する付帯情報のことで、&lt;br&gt;
+テーブル作成日時、更新日時、各フィールドについての説明文章などが該当します。&lt;/p&gt;
+&lt;h2 id=&#34;テーブルデータクリアの方法&#34;&gt;テーブルデータクリアの方法&lt;/h2&gt;
+&lt;p&gt;クリアの方法には&lt;br&gt;
+大きく分けてクエリ経由とSQL経由の二種類があります。&lt;/p&gt;
+&lt;h3 id=&#34;アクションクエリを作成して呼び出す&#34;&gt;アクションクエリを作成して呼び出す&lt;/h3&gt;
+&lt;p&gt;アクションクエリを作成後にVBAで呼び出してクリアする方法について説明します。&lt;/p&gt;
+&lt;p&gt;【アクションクエリとは】&lt;br&gt;
+テーブルの中のデータを操作するクエリを指します。&lt;br&gt;
+「データ登録、読み取り、更新、削除」をするクエリが含まれます。&lt;/p&gt;
+&lt;p&gt;一方で、テーブルのフィールドを変更したり、&lt;br&gt;
+テーブルを新規作成したりするクエリは「データ定義クエリ」と呼びます。&lt;/p&gt;
+&lt;h4 id=&#34;準備&#34;&gt;準備&lt;/h4&gt;
+&lt;p&gt;①新規クエリを作成する&lt;/p&gt;
+&lt;p&gt;「クエリデザイン」ボタンを押下し、&lt;br&gt;
+クエリ作成画面を表示します。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640415380/learnerBlog/vba-question-003-clear-data-in-table/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2021-12-25_113715_owxdms.png&#34; alt=&#34;「クエリデザイン」ボタンを押下&#34;&gt;&lt;/p&gt;
+&lt;p&gt;データクリアしたいテーブルをポップアップから選択します。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640415381/learnerBlog/vba-question-003-clear-data-in-table/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2021-12-25_113751_ucm2xd.png&#34; alt=&#34;テーブルの選択&#34;&gt;&lt;/p&gt;
+&lt;p&gt;②削除クエリとして設定し、保存する&lt;/p&gt;
+&lt;p&gt;上部の「クエリデザインタブ」から&lt;br&gt;
+削除ボタンを押下します。&lt;/p&gt;
+&lt;p&gt;![削除クエリを選択]](&lt;a href=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640415382/learnerBlog/vba-question-003-clear-data-in-table/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2021-12-25_113813_nxhaxz.png&#34;&gt;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640415382/learnerBlog/vba-question-003-clear-data-in-table/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2021-12-25_113813_nxhaxz.png&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;任意の名前をつけて保存します。&lt;/p&gt;
+&lt;h4 id=&#34;実行&#34;&gt;実行&lt;/h4&gt;
+&lt;p&gt;次のように、&lt;br&gt;
+作成したクエリの名前を引数として、&lt;br&gt;
+データクリア命令を実行します。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;クエリを利用したテーブルクリア関数&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;CurrentDb&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Execute&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;削除クエリサンプル&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;sqlでクリアコードを記述して実行する&#34;&gt;SQLでクリアコードを記述して実行する&lt;/h3&gt;
+&lt;p&gt;SQL（データベースを操作するための標準化された言語）を使用することでも&lt;br&gt;
+目的を実現することができます。&lt;/p&gt;
+&lt;p&gt;レコード削除するためのSQL命令文は、&lt;br&gt;
+&lt;code&gt;DELETE FROM&lt;/code&gt;構文です。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;DELETE&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;テーブル名&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これをVBAで実行するには、&lt;br&gt;
+次のようにします。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;SQLを利用したテーブルクリア関数&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;CurrentDb&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Execute&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;DELETE FROM サンプルテーブル&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;実はやっていることは同じ&#34;&gt;実はやっていることは同じ？&lt;/h3&gt;
+&lt;p&gt;これまで説明した２通りの方法は、&lt;br&gt;
+実は内部でやっている事はだいたい同じです。&lt;/p&gt;
+&lt;p&gt;クエリを開き、&lt;br&gt;
+右下のSQLタブを選択すると……&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640415384/learnerBlog/vba-question-003-clear-data-in-table/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2021-12-25_152209_adktpk.png&#34; alt=&#34;SQLタブの選択&#34;&gt;&lt;/p&gt;
+&lt;p&gt;クエリの実行内容として登録されている&lt;br&gt;
+SQLコードの内容が表示されます。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640415385/learnerBlog/vba-question-003-clear-data-in-table/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2021-12-25_152301_hz5jgj.png&#34; alt=&#34;SQLコードの内容&#34;&gt;&lt;/p&gt;
+&lt;p&gt;つまり、アクションクエリ作成のUIから作成しても、&lt;br&gt;
+実行するSQLは同じです。&lt;/p&gt;
+&lt;p&gt;違いとしては、&lt;br&gt;
+一度クエリを作成し、実行した場合、&lt;br&gt;
+内部でクエリ内容がコンパイルされ、&lt;br&gt;
+二度目以降の実行速度が改善するようです。&lt;/p&gt;
+&lt;h2 id=&#34;おまけテーブル削除をする方法&#34;&gt;おまけ：テーブル削除をする方法&lt;/h2&gt;
+&lt;p&gt;おまけとして、&lt;br&gt;
+データ全クリアではなくテーブル削除をする方も説明したいと思います。&lt;/p&gt;
+&lt;h3 id=&#34;組み込みアクションで実現&#34;&gt;組み込みアクションで実現&lt;/h3&gt;
+&lt;p&gt;組み込みアクション（あらかじめAccessで作成済みのアクション）でテーブル削除するには、&lt;br&gt;
+&lt;code&gt;DoCmd&lt;/code&gt;モジュールに含まれる&lt;code&gt;DeleteObject&lt;/code&gt;メソッドを使用します。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;DoCmd&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;DeleteObject&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;acTable&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;サンプルテーブル&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;sqlで実現&#34;&gt;SQLで実現&lt;/h3&gt;
+&lt;p&gt;組み込みの関数を使用せずに自分でコードを書く場合、&lt;br&gt;
+SQLの&lt;code&gt;DROP TABLE&lt;/code&gt;構文を利用します。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;CurrentDb&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Execute&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;DROP TABLE サンプルテーブル&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;終わりに&#34;&gt;終わりに&lt;/h2&gt;
+&lt;p&gt;データクリア命令とテーブル削除命令を混同しないようにして、&lt;br&gt;
+利用環境に合わせてクエリでもSQLでも自在にデータ操作を書けるようにすれば、&lt;br&gt;
+Access利用の幅が広がるでしょう。&lt;/p&gt;
+
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>[教えて！VBA] 第2回 一つのセルの値が「東京都」であることを条件として別のアクションを行うにはどうすればいいの？？</title>
       <link>https://dede-20191130.github.io/learnerBlog/posts/2021/12/14/vba-question-002-chekc-single-cell/</link>
       <pubDate>Tue, 14 Dec 2021 11:53:35 +0900</pubDate>
       
@@ -181,7 +310,7 @@ Microsoftの公式を見てみると面白いかもしれません。&lt;/p&gt;
     </item>
     
     <item>
-      <title>[教えて！VBA]第1回 処理の途中で待機時間（Sleep）を設けるにはどうすればいいの？？</title>
+      <title>[教えて！VBA] 第1回 処理の途中で待機時間（Sleep）を設けるにはどうすればいいの？？</title>
       <link>https://dede-20191130.github.io/learnerBlog/posts/2021/12/12/vba-question-001-waiting/</link>
       <pubDate>Sun, 12 Dec 2021 10:41:37 +0900</pubDate>
       
