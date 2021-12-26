@@ -128,7 +128,7 @@
 </svg></span>
     <span class="post_date">
       Dec 25, 2021</span>
-    <span class="post_time"> · 5 min read</span><span>&nbsp;· <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' title="VBA" class="post_tag button button_translucent">VBA
+    <span class="post_time"> · 4 min read</span><span>&nbsp;· <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' title="VBA" class="post_tag button button_translucent">VBA
         </a><a href='https://dede-20191130.github.io/learnerBlog/tags/access' title="Access" class="post_tag button button_translucent">Access
         </a>
     </span>
@@ -253,7 +253,7 @@ Access VBAマクロに関するトピックです。</p>
 <p>②削除クエリとして設定し、保存する</p>
 <p>上部の「クエリデザインタブ」から<br>
 削除ボタンを押下します。</p>
-<p>![削除クエリを選択]](<a href="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640415382/learnerBlog/vba-question-003-clear-data-in-table/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2021-12-25_113813_nxhaxz.png">https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640415382/learnerBlog/vba-question-003-clear-data-in-table/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2021-12-25_113813_nxhaxz.png</a>)</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640415382/learnerBlog/vba-question-003-clear-data-in-table/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2021-12-25_113813_nxhaxz.png" alt="削除クエリを選択"></p>
 <p>任意の名前をつけて保存します。</p>
 <h4 id="実行">実行</h4>
 <p>次のように、<br>
@@ -267,7 +267,7 @@ Access VBAマクロに関するトピックです。</p>
 目的を実現することができます。</p>
 <p>レコード削除するためのSQL命令文は、<br>
 <code>DELETE FROM</code>構文です。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="ln">1</span><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="err">テーブル名</span><span class="p">]</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="ln">1</span><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">TABLE_NAME</span><span class="w">
 </span></code></pre></div><p>これをVBAで実行するには、<br>
 次のようにします。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln">1</span><span class="k">Sub</span> <span class="nf">SQLを利用したテーブルクリア関数</span><span class="p">()</span>
