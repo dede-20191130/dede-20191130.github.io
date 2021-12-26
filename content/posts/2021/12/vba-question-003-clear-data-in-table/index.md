@@ -99,7 +99,7 @@ Access VBAマクロに関するトピックです。
 上部の「クエリデザインタブ」から  
 削除ボタンを押下します。
 
-![削除クエリを選択]](https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640415382/learnerBlog/vba-question-003-clear-data-in-table/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2021-12-25_113813_nxhaxz.png)
+![削除クエリを選択](https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640415382/learnerBlog/vba-question-003-clear-data-in-table/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2021-12-25_113813_nxhaxz.png)
 
 任意の名前をつけて保存します。
 
@@ -125,7 +125,7 @@ SQL（データベースを操作するための標準化された言語）を�
 `DELETE FROM`構文です。
 
 ```sql
-DELETE FROM [テーブル名]
+DELETE FROM TABLE_NAME
 ```
 
 これをVBAで実行するには、  
