@@ -6,7 +6,148 @@
     <description>Recent content in プログラミング on 学習者dedeのブログ ~プログラミング等~</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 25 Dec 2021 09:57:26 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 29 Dec 2021 10:24:02 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Excel VBA] セルの文字色・背景色だけをコピーして貼り付けるマクロを作成しました</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/12/29/paste-only-colors/</link>
+      <pubDate>Wed, 29 Dec 2021 10:24:02 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/12/29/paste-only-colors/</guid>
+      <description>
+        
+          &lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640748357/learnerBlog/paste-only-colors/paste-only-colors_osfx92.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
+
+
+
+&lt;div class=&#34;box-with-title&#34;&gt;
+    &lt;p&gt;&lt;span&gt;かんたんな概要と結論&lt;/span&gt;&lt;/p&gt;
+    &lt;div class=&#34;inner&#34;&gt;
+         
+    かんたんな関数と変数の組み合わせで、&lt;br&gt;
+    文字色・背景色だけをコピペするマクロは作成できます。
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;こんにちは、dedeです。&lt;/p&gt;
+&lt;p&gt;この記事では、&lt;br&gt;
+セルや図形の持っている書式に関する各設定のうち、&lt;br&gt;
+色（背景色・文字色）だけを他のセル・図形にペーストするマクロについてご説明します。&lt;/p&gt;
+&lt;h2 id=&#34;作成環境&#34;&gt;作成環境&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Microsoft Office Excel 2016&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;やりたいこと&#34;&gt;やりたいこと&lt;/h2&gt;
+&lt;p&gt;Excelで事務作業等をしているときに、&lt;br&gt;
+セルの色だけを他のセルにコピーペーストさせたい時があるかと思います。&lt;/p&gt;
+&lt;p&gt;普通に「書式の貼り付け」を行うと、&lt;br&gt;
+色以外の情報（文字サイズ、罫線など）も反映させてしまうため、それが不都合な場合もあります。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640748356/learnerBlog/paste-only-colors/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2021-12-29_113515_ka7lae.png&#34; alt=&#34;書式の貼り付け&#34;&gt;&lt;/p&gt;
+&lt;p&gt;また、結合セルから他の結合セルにコピペする場合を考えると、&lt;br&gt;
+そもそも書式貼り付けをすると結合が崩れてしまうため、&lt;br&gt;
+使えません。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640748357/learnerBlog/paste-only-colors/paste-only-colors2_xbeqmn.png&#34; alt=&#34;結合セルから他の結合セルに書式をコピペできない&#34;&gt;&lt;/p&gt;
+&lt;p&gt;そこで、VBAの出番です。&lt;/p&gt;
+&lt;p&gt;※なお、上記ではセルについて説明しましたが、&lt;br&gt;
+これから説明するマクロは、
+セルだけではなく図形についても同様に色のコピペが可能です。&lt;/p&gt;
+&lt;h2 id=&#34;コード&#34;&gt;コード&lt;/h2&gt;
+&lt;h3 id=&#34;about&#34;&gt;ABOUT&lt;/h3&gt;
+&lt;p&gt;全体のコードは役割ごとに次のように分割されます。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;モジュール変数&lt;/li&gt;
+&lt;li&gt;色をコピーする関数&lt;/li&gt;
+&lt;li&gt;他のセル・図形に貼り付けする関数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;モジュール変数&#34;&gt;モジュール変数&lt;/h3&gt;
+&lt;p&gt;作成したモジュールの先頭で、&lt;br&gt;
+文字色格納用変数&lt;code&gt;fontColor&lt;/code&gt;と背景色格納用変数&lt;code&gt;backgroundColor&lt;/code&gt;を宣言します。&lt;/p&gt;
+&lt;p&gt;VBAでは色を16進数カラーコードとして取り扱うので、&lt;br&gt;
+変数の型は&lt;code&gt;LONG型&lt;/code&gt;です。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;Option Explicit
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;
+&lt;span class=&#34;hl&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;Private fontColor As Long
+&lt;/span&gt;&lt;span class=&#34;hl&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;Private backgroundColor As Long
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;Sub コピーする関数()
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&amp;#39;do something...
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;End Sub
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;Sub 貼り付けする関数()
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&amp;#39;do something...
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;End Sub
+&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;コピーする関数&#34;&gt;コピーする関数&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;コピーする関数&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;fontColor&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Selection&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Font&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Color&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;backgroundColor&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Selection&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Interior&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Color&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;貼り付けする関数&#34;&gt;貼り付けする関数&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;貼り付けする関数&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;Selection&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Font&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Color&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;fontColor&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;Selection&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Interior&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Color&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;backgroundColor&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;使用方法&#34;&gt;使用方法&lt;/h3&gt;
+&lt;p&gt;まずセルを選択し、&lt;br&gt;
+コピー関数を実行します。&lt;/p&gt;
+&lt;p&gt;次に色をペーストしたいセル（一つのセルでもセル範囲でも）を選択し、&lt;br&gt;
+貼り付け関数を実行します。&lt;/p&gt;
+&lt;p&gt;実行の様子は「デモ」セクションでご説明します。&lt;/p&gt;
+&lt;h3 id=&#34;なぜこれでうまくいくのか&#34;&gt;なぜこれでうまくいくのか？&lt;/h3&gt;
+&lt;p&gt;上記で見る通り、&lt;br&gt;
+いたってシンプルな関数の組み合わせです。&lt;/p&gt;
+&lt;p&gt;コツは、&lt;br&gt;
+「モジュール変数に色のコードを格納すること」です。&lt;/p&gt;
+&lt;p&gt;VBAの変数にはライフサイクル（使用できる期限）が存在し、&lt;br&gt;
+関数の中で宣言した変数は関数が終了すると使えなくなりますが、&lt;br&gt;
+モジュール変数は関数終了後もメモリに格納され続けるため、&lt;br&gt;
+マクロが入ったExcelブックを終了するまでは使い続けることができます。&lt;/p&gt;
+&lt;p&gt;よって、コピー関数を実行した後に入れられた色のコードを使い回すことができるのです。&lt;/p&gt;
+&lt;h2 id=&#34;デモ&#34;&gt;デモ&lt;/h2&gt;
+&lt;h3 id=&#34;セルからセルにコピー&#34;&gt;セルからセルにコピー&lt;/h3&gt;
+&lt;p&gt;下記の図表②において、&lt;br&gt;
+図表①のように、3000円以上の行を黄色く塗りたいということを想定します。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640748356/learnerBlog/paste-only-colors/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2021-12-29_121218_paqas0.png&#34; alt=&#34;デモ用図表&#34;&gt;&lt;/p&gt;
+&lt;p&gt;①まず、コピーしたい色の情報を持ったセルを選択後、&lt;br&gt;
+「コピーする関数」を実行します。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640748356/learnerBlog/paste-only-colors/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2021-12-29_120954_i27co0.png&#34; alt=&#34;セルを選択&#34;&gt;&lt;/p&gt;
+&lt;p&gt;②その後、&lt;br&gt;
+ペーストしたいセル範囲を選択し、&lt;br&gt;
+「貼り付けする関数」を実行します。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640748356/learnerBlog/paste-only-colors/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2021-12-29_121422_zzzxj1.png&#34; alt=&#34;貼り付けの実行&#34;&gt;&lt;/p&gt;
+&lt;p&gt;色の情報が正しくペーストできました。&lt;/p&gt;
+&lt;h3 id=&#34;図形から図形にコピー&#34;&gt;図形から図形にコピー&lt;/h3&gt;
+&lt;p&gt;図形の間の色のやり取りも可能です。&lt;/p&gt;
+&lt;p&gt;まず、下の図の「あいうえお」の図形を選択し、&lt;br&gt;
+コピー関数実行します。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640748356/learnerBlog/paste-only-colors/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2021-12-29_121702_tbhxxc.png&#34; alt=&#34;コピー元図形の選択&#34;&gt;&lt;/p&gt;
+&lt;p&gt;次に、色を反映させたい「かきくけこ」「さしすせそ」の図形を選択し、&lt;br&gt;
+貼り付け関数を実行します。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640748356/learnerBlog/paste-only-colors/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2021-12-29_121729_nxeeuf.png&#34; alt=&#34;貼り付けの実行&#34;&gt;&lt;/p&gt;
+&lt;p&gt;図形においても色のコピペをすることができました。&lt;/p&gt;
+&lt;h3 id=&#34;図形からセルにコピー&#34;&gt;図形からセルにコピー&lt;/h3&gt;
+&lt;p&gt;最後に、図形からセルに色を反映させることもできることをデモします。&lt;br&gt;
+（割愛しましたが、反対に、セルから図形に色を反映させることもできます。）&lt;/p&gt;
+&lt;p&gt;反映前：&lt;br&gt;
+&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640748356/learnerBlog/paste-only-colors/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2021-12-29_122055_wz3kjb.png&#34; alt=&#34;反映前&#34;&gt;&lt;/p&gt;
+&lt;p&gt;反映後：&lt;br&gt;
+&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640748356/learnerBlog/paste-only-colors/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2021-12-29_122117_ntewzk.png&#34; alt=&#34;反映後&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;終わりに&#34;&gt;終わりに&lt;/h2&gt;
+&lt;p&gt;色だけを色々操作したいケースは、&lt;br&gt;
+特に結合セルが多用された図表で色を統一させたい場合に&lt;br&gt;
+よくあるかと思います。&lt;/p&gt;
+&lt;p&gt;ただ、よく言われていることですが、&lt;br&gt;
+結合セルの多用自体がアンチパターン（あまり好ましくない処理）であることも考慮するべきではあるでしょう。&lt;/p&gt;
+&lt;p&gt;本当にこのセルの構造が最適か、ということを考慮した上で使用すると、&lt;br&gt;
+より効果的かとおもわれます。&lt;/p&gt;
+
+        
+      </description>
+    </item>
+    
     <item>
       <title>[教えて！VBA] 第3回 Accessマクロで、テーブルのデータを全クリアするにはどうすればいいの？？</title>
       <link>https://dede-20191130.github.io/learnerBlog/posts/2021/12/25/vba-question-003-clear-data-in-table/</link>
