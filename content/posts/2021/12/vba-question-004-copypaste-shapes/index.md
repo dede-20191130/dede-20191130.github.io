@@ -6,7 +6,7 @@ slug: vba-question-004-copypaste-shapes
 draft: false
 toc: true
 featured: false
-tags: ["VBA","Access"]
+tags: ["VBA","Excel"]
 categories: ["プログラミング"]
 archives:
     - 2021
