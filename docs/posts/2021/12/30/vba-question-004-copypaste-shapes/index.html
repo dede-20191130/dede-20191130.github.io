@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="ja" data-figures="" class="page">
   <head>
-<title>[教えて！VBA] 第2回 一つのセルの値が「東京都」であることを条件として別のアクションを行うにはどうすればいいの？？ | 学習者dedeのブログ ~プログラミング等~</title>
+<title>[教えて！VBA] 第4回 シート上の図形をコピーして他のセル上に貼り付けするにはどうすればいいの？？ | 学習者dedeのブログ ~プログラミング等~</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,20 +18,20 @@
 <meta property="og:locale" content="ja" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="この記事について かんたんな概要と結論 Excelのシートのセルに入力されたデータを読み取るには、 RangeあるいはCellsを使用します。 セル">
+<meta name="description" content="この記事について かんたんな概要と結論 コピー元の図形を参照するためには少々下準備が必要となります。 ペーストには二種類の方法がありますが、どちら">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="@D20191130">
-<meta name="twitter:title" content="[教えて！VBA] 第2回 一つのセルの値が「東京都」であることを条件として別のアクションを行うにはどうすればいいの？？" />
-<meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/posts/2021/12/14/vba-question-002-chekc-single-cell/" />
-<meta property="og:title" content="[教えて！VBA] 第2回 一つのセルの値が「東京都」であることを条件として別のアクションを行うにはどうすればいいの？？" />
-<meta property="og:description" content="この記事について かんたんな概要と結論 Excelのシートのセルに入力されたデータを読み取るには、 RangeあるいはCellsを使用します。 セル" />
+<meta name="twitter:title" content="[教えて！VBA] 第4回 シート上の図形をコピーして他のセル上に貼り付けするにはどうすればいいの？？" />
+<meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/posts/2021/12/30/vba-question-004-copypaste-shapes/" />
+<meta property="og:title" content="[教えて！VBA] 第4回 シート上の図形をコピーして他のセル上に貼り付けするにはどうすればいいの？？" />
+<meta property="og:description" content="この記事について かんたんな概要と結論 コピー元の図形を参照するためには少々下準備が必要となります。 ペーストには二種類の方法がありますが、どちら" />
 <meta property="og:image" content="https://dede-20191130.github.io/learnerBlog/images/thumbnail.png" />
 
 <link rel="apple-touch-icon" sizes="180x180" href="https://dede-20191130.github.io/learnerBlog/icons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://dede-20191130.github.io/learnerBlog/icons/favicon-32x32.png">
 <link rel="manifest" href="https://dede-20191130.github.io/learnerBlog/icons/site.webmanifest">
 
-<link rel="canonical" href="https://dede-20191130.github.io/learnerBlog/posts/2021/12/14/vba-question-002-chekc-single-cell/">
+<link rel="canonical" href="https://dede-20191130.github.io/learnerBlog/posts/2021/12/30/vba-question-004-copypaste-shapes/">
 
     
 
@@ -121,26 +121,26 @@
   
 <div class="grid-inverse wrap content">
   <article class="post_content">
-    <h1 class="post_title">[教えて！VBA] 第2回 一つのセルの値が「東京都」であることを条件として別のアクションを行うにはどうすればいいの？？</h1>
+    <h1 class="post_title">[教えて！VBA] 第4回 シート上の図形をコピーして他のセル上に貼り付けするにはどうすればいいの？？</h1>
   <div class="post_meta">
     <span><svg class="icon">
   <use xlink:href="#calendar"></use>
 </svg></span>
     <span class="post_date">
-      Dec 14, 2021</span>
-    <span class="post_time"> · 5 min read</span><span>&nbsp;· <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' title="VBA" class="post_tag button button_translucent">VBA
-        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/excel' title="Excel" class="post_tag button button_translucent">Excel
+      Dec 30, 2021</span>
+    <span class="post_time"> · 6 min read</span><span>&nbsp;· <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' title="VBA" class="post_tag button button_translucent">VBA
+        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/access' title="Access" class="post_tag button button_translucent">Access
         </a>
     </span>
     <span class="page_only">&nbsp;·
   <div class="post_share">
     Share on:
-    <a href="https://twitter.com/intent/tweet?text=%5b%e6%95%99%e3%81%88%e3%81%a6%ef%bc%81VBA%5d%20%e7%ac%ac2%e5%9b%9e%20%e4%b8%80%e3%81%a4%e3%81%ae%e3%82%bb%e3%83%ab%e3%81%ae%e5%80%a4%e3%81%8c%e3%80%8c%e6%9d%b1%e4%ba%ac%e9%83%bd%e3%80%8d%e3%81%a7%e3%81%82%e3%82%8b%e3%81%93%e3%81%a8%e3%82%92%e6%9d%a1%e4%bb%b6%e3%81%a8%e3%81%97%e3%81%a6%e5%88%a5%e3%81%ae%e3%82%a2%e3%82%af%e3%82%b7%e3%83%a7%e3%83%b3%e3%82%92%e8%a1%8c%e3%81%86%e3%81%ab%e3%81%af%e3%81%a9%e3%81%86%e3%81%99%e3%82%8c%e3%81%b0%e3%81%84%e3%81%84%e3%81%ae%ef%bc%9f%ef%bc%9f&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2021%2f12%2f14%2fvba-question-002-chekc-single-cell%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
+    <a href="https://twitter.com/intent/tweet?text=%5b%e6%95%99%e3%81%88%e3%81%a6%ef%bc%81VBA%5d%20%e7%ac%ac4%e5%9b%9e%20%e3%82%b7%e3%83%bc%e3%83%88%e4%b8%8a%e3%81%ae%e5%9b%b3%e5%bd%a2%e3%82%92%e3%82%b3%e3%83%94%e3%83%bc%e3%81%97%e3%81%a6%e4%bb%96%e3%81%ae%e3%82%bb%e3%83%ab%e4%b8%8a%e3%81%ab%e8%b2%bc%e3%82%8a%e4%bb%98%e3%81%91%e3%81%99%e3%82%8b%e3%81%ab%e3%81%af%e3%81%a9%e3%81%86%e3%81%99%e3%82%8c%e3%81%b0%e3%81%84%e3%81%84%e3%81%ae%ef%bc%9f%ef%bc%9f&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2021%2f12%2f30%2fvba-question-004-copypaste-shapes%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
       <svg class="icon">
   <use xlink:href="#twitter"></use>
 </svg>
     </a>
-    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2021%2f12%2f14%2fvba-question-002-chekc-single-cell%2f&t=%5b%e6%95%99%e3%81%88%e3%81%a6%ef%bc%81VBA%5d%20%e7%ac%ac2%e5%9b%9e%20%e4%b8%80%e3%81%a4%e3%81%ae%e3%82%bb%e3%83%ab%e3%81%ae%e5%80%a4%e3%81%8c%e3%80%8c%e6%9d%b1%e4%ba%ac%e9%83%bd%e3%80%8d%e3%81%a7%e3%81%82%e3%82%8b%e3%81%93%e3%81%a8%e3%82%92%e6%9d%a1%e4%bb%b6%e3%81%a8%e3%81%97%e3%81%a6%e5%88%a5%e3%81%ae%e3%82%a2%e3%82%af%e3%82%b7%e3%83%a7%e3%83%b3%e3%82%92%e8%a1%8c%e3%81%86%e3%81%ab%e3%81%af%e3%81%a9%e3%81%86%e3%81%99%e3%82%8c%e3%81%b0%e3%81%84%e3%81%84%e3%81%ae%ef%bc%9f%ef%bc%9f" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
+    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2021%2f12%2f30%2fvba-question-004-copypaste-shapes%2f&t=%5b%e6%95%99%e3%81%88%e3%81%a6%ef%bc%81VBA%5d%20%e7%ac%ac4%e5%9b%9e%20%e3%82%b7%e3%83%bc%e3%83%88%e4%b8%8a%e3%81%ae%e5%9b%b3%e5%bd%a2%e3%82%92%e3%82%b3%e3%83%94%e3%83%bc%e3%81%97%e3%81%a6%e4%bb%96%e3%81%ae%e3%82%bb%e3%83%ab%e4%b8%8a%e3%81%ab%e8%b2%bc%e3%82%8a%e4%bb%98%e3%81%91%e3%81%99%e3%82%8b%e3%81%ab%e3%81%af%e3%81%a9%e3%81%86%e3%81%99%e3%82%8c%e3%81%b0%e3%81%84%e3%81%84%e3%81%ae%ef%bc%9f%ef%bc%9f" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
       <svg class="icon">
   <use xlink:href="#facebook"></use>
 </svg>
@@ -150,7 +150,7 @@
   <use xlink:href="#linkedin"></use>
 </svg>
     </a>
-    <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/12/14/vba-question-002-chekc-single-cell/" title="Copy Link" class="link link_yank">
+    <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/12/30/vba-question-004-copypaste-shapes/" title="Copy Link" class="link link_yank">
       <svg class="icon">
   <use xlink:href="#copy"></use>
 </svg>
@@ -165,29 +165,31 @@
     <nav id="TableOfContents">
   <ul>
     <li><a href="#この記事について">この記事について</a></li>
-    <li><a href="#セルの値を調べたいのはどんな場合">セルの値を調べたいのはどんな場合？</a></li>
-    <li><a href="#方法">方法</a>
+    <li><a href="#やりたいこと">やりたいこと</a></li>
+    <li><a href="#コード">コード</a>
       <ul>
-        <li><a href="#セルの値を取得する">セルの値を取得する</a>
+        <li><a href="#図形の選択">図形の選択</a>
           <ul>
-            <li><a href="#rangeを使う">Rangeを使う</a></li>
-            <li><a href="#cellsを使う">Cellsを使う</a></li>
-            <li><a href="#どちらを使えばいいの">どちらを使えばいいの？</a></li>
+            <li><a href="#方法-名前を名付けて選択">方法① 名前を名付けて選択</a></li>
+            <li><a href="#方法-図形の置かれた位置のセル座標から選択">方法② 図形の置かれた位置のセル座標から選択</a></li>
+            <li><a href="#どちらが良いのか">どちらが良いのか？？</a></li>
           </ul>
         </li>
-        <li><a href="#セルの値によって分岐させる">セルの値によって分岐させる</a></li>
+        <li><a href="#コピーとペースト">コピーとペースト</a>
+          <ul>
+            <li><a href="#方法-ペースト先のセルを選択してペースト">方法① ペースト先のセルを選択してペースト</a></li>
+            <li><a href="#方法-シートにペーストしてから図形を移動">方法② シートにペーストしてから図形を移動</a></li>
+            <li><a href="#どちらが良いのか-1">どちらが良いのか？？</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
-    <li><a href="#デモ">デモ</a>
-      <ul>
-        <li><a href="#cellsで書かれたデモ">Cellsで書かれたデモ</a></li>
-        <li><a href="#range形式に書き直すと">Range形式に書き直すと……</a></li>
-      </ul>
-    </li>
+    <li><a href="#デモ">デモ</a></li>
     <li><a href="#終わりに">終わりに</a></li>
   </ul>
 </nav>
-    <h2 id="この記事について">この記事について</h2>
+    <p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640865307/learnerBlog/vba-question-004-copypaste-shapes/copypaste-shapes_zbaepe.png" alt=""></p>
+<h2 id="この記事について">この記事について</h2>
 
 
 
@@ -195,10 +197,8 @@
     <p><span>かんたんな概要と結論</span></p>
     <div class="inner">
          
-    Excelのシートのセルに入力されたデータを読み取るには、<br>
-    RangeあるいはCellsを使用します。<br><br>
-    セルのデータを読み取り処理を様々に書くことができれば、<br>
-    VBAマクロの表現の幅は非常に広がります。
+    コピー元の図形を参照するためには少々下準備が必要となります。<br>
+    ペーストには二種類の方法がありますが、どちらを使用しても目的を果たすことができます。
 
     </div>
 </div>
@@ -210,143 +210,250 @@ VBAマクロに関する質問のうち、<br>
 
 
 <span style="color: #fb9700;">
-    一つのセルの値が「東京都」であることをチェックする方法とその比較について
+    シート上の図形をコピーして他のセル上に貼り付けする方法
 </span><br>
 を解説いたします。</p>
 <p>※この記事は、Office VBAマクロのうち<br>
 Excel VBAマクロに関するトピックです。</p>
-<p>レベル：<b>初級者向け</b></p>
-<h2 id="セルの値を調べたいのはどんな場合">セルの値を調べたいのはどんな場合？</h2>
-<p>例えば、特定の値が入っているセルだけを対象として、<br>
-その隣のセルに文字を入力したい場合を考えます。</p>
-<p>下記の図では、<br>
-都道府県が「東京都」と入力されたセルの隣のセルだけに「必要」と自動入力するマクロを想定しています。</p>
-<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1639785261/learnerBlog/vba-question-002-chekc-single-cell/vba-question-002-chekc-single-cell_g8kyeg.png" alt="想定する流れ"></p>
-<p>他にも、その値の入ったセル自身の背景色を変更したり、<br>
-値を取得してなにかの計算処理を加えて他のセルに反映するなど、<br>
+<p>レベル：<b>中級者向け</b></p>
+<h2 id="やりたいこと">やりたいこと</h2>
+<p>次のように、すでに存在する図形を使って、<br>
+オレンジ色セルの位置に図形をコピーしたい、<br>
+しかも「正確な位置」にコピーしたいというケースを考えます。</p>
+<p>■■ 正確な位置に処理を行う、というのは典型的なVBAマクロの出番です ■■</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640865307/learnerBlog/vba-question-004-copypaste-shapes/copypaste-shapes2_fomoqm.png" alt="図形をコピーしたい"></p>
+<p>実装の方法としてはいくつか種類があるので、<br>
+それぞれの方法と利点について記していきたいと思います。</p>
+<h2 id="コード">コード</h2>
+<h3 id="図形の選択">図形の選択</h3>
+<p>コピー元の図形の選択方法は、<br>
+あらかじめ名前を名付けたうえで選択する方法と、<br>
+図形の置かれた位置のセル座標から選択する方法があります。</p>
+<h4 id="方法-名前を名付けて選択">方法① 名前を名付けて選択</h4>
+<p>新しく図形を作成すると、<br>
+それぞれの図形には図形種類ごとに自動的に名前が割り振られます。</p>
+<p>次の図のように笑顔マークを作成すると、<br>
+リボンの左下にある「名前ボックス」に「スマイル１」と名前がつけられています。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640865307/learnerBlog/vba-question-004-copypaste-shapes/copypaste-3shapes_o10c71.png" alt="名前ボックスのデフォルト名"></p>
 
 
-<span style="color: #fb9700;">
-    Excel VBAマクロにおいては、セルの値を参照することはもっとも使われる基本的なテクニックです。
-</span></p>
-<h2 id="方法">方法</h2>
-<h3 id="セルの値を取得する">セルの値を取得する</h3>
-<p>セルの値を取得するには、<br>
-<code>Rangeプロパティ</code>を使用する、あるいは<code>Cellsプロパティ</code>を使用することで実現できます。</p>
-<p>いずれにしても、<code>Rangeオブジェクト</code>（プロパティと同名なのでややこしい）という<br>
-セル範囲の情報をもっているオブジェクトを取得する点では相違ありません。</p>
-<p>※ここでいう「オブジェクト」とは、<br>
-対象としているものの情報とそれを操作する関数をセットで持っているデータの一種と理解ください。</p>
-<p>例えばRangeオブジェクトはセル範囲のアドレスや、セルをコピーする操作関数を持っています。</p>
-<h4 id="rangeを使う">Rangeを使う</h4>
-<p>次のようにRangeプロパティの引数にセルのアドレスを指定します。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln">1</span><span class="k">Dim</span> <span class="n">cellValue</span> <span class="ow">As</span> <span class="kt">String</span>
-<span class="ln">2</span><span class="n">cellValue</span> <span class="o">=</span> <span class="n">Range</span><span class="p">(</span><span class="s">&#34;B2&#34;</span><span class="p">).</span><span class="n">Value</span>
-</code></pre></div><p>このようにすると、B2セルに記載された内容を<br>
-文字列として<code>cellValue</code>変数に格納します。</p>
-<p>例えば、B2セルに「あいうえお」と入っていた場合、<br>
-<code>cellValue</code>にも「あいうえお」と入ります。</p>
-<h4 id="cellsを使う">Cellsを使う</h4>
-<p>次のようにRangeプロパティの引数にセルのアドレスを
+<div class="inner-article" style="color: red;">
+    しかし、この名前のままVBAで図形を参照することはできません。
+</div>
 
-<span style="color: #fb9700;">
-    座標として
-</span>指定します。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln">1</span><span class="k">Dim</span> <span class="n">cellValue</span> <span class="ow">As</span> <span class="kt">String</span>
-<span class="ln">2</span><span class="n">cellValue</span> <span class="o">=</span> <span class="n">Cells</span><span class="p">(</span><span class="n">2</span><span class="p">,</span> <span class="n">2</span><span class="p">).</span><span class="n">Value</span>
-</code></pre></div><p><code>Cells(2, 2)</code>というのはB2セルを指しています。</p>
-<p>気づかれたかもしれませんが、<br>
-<code>Cells</code>の引数の最初には対象セルの行番号が、その次には対象セルの列番号を数値に変換したものが入ります。</p>
-<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1639785261/learnerBlog/vba-question-002-chekc-single-cell/vba-question-002-chekc-single-cell2_j6zawz.png" alt="Cellsの引数規則"></p>
-<h4 id="どちらを使えばいいの">どちらを使えばいいの？</h4>
-<p><code>Range</code>でも<code>Cells</code>でも指定したセルの内容を取得できるとわかりましたが、<br>
-どのように使い分けるのか？？</p>
-<p>それは、<br>
-<code>Range</code>には一つのセルだけでなく複数のセルの情報をオブジェクトとして取得し、それらを操作できるという利点があるが、<br>
-<code>Cells</code>は常に単一のセルを取り扱うプロパティだということに焦点を当てれば見えてきます。</p>
-<p>例えば、<br>
-次のコードでは、
-A1セルからC3セルまでのセルの背景色を一括で赤色に変更します。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln">1</span><span class="n">Range</span><span class="p">(</span><span class="s">&#34;A1:C3&#34;</span><span class="p">).</span><span class="n">Interior</span><span class="p">.</span><span class="n">Color</span> <span class="o">=</span> <span class="n">255</span>
-</code></pre></div><p>そのため、<br>
-このように一括で複数セルを取り扱いたいときに<code>Range</code>を使用します。</p>
-<p>一方、<code>Cells</code>を使った場合、<br>
-プログラムコードを見たときに単一のセルを取り扱っていることがすぐにわかるので、<br>
-「あっ、このコードのここの部分では一つのセルについて操作しているんだな」とわかりやすくなります。</p>
-<p>上記の理由から、<br>
-複数セルを取り扱いたい場合以外では、<code>Cells</code>を使用することを勧めます。</p>
-<h3 id="セルの値によって分岐させる">セルの値によって分岐させる</h3>
-<p>次に、<br>
-「IFステートメント」というVBAの構文を使って<br>
-取得したセルの値に応じて処理を分岐させます。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln">1</span><span class="k">If</span> <span class="n">評価式</span> <span class="k">Then</span>
-<span class="ln">2</span>    <span class="n">ここは評価式がYESであった場合にのみ実行されます</span><span class="err">。</span>    
-<span class="ln">3</span><span class="k">Else</span>
-<span class="ln">4</span>    <span class="n">ここは評価式がNOであった場合にのみ実行されます</span><span class="err">。</span>    
-<span class="ln">5</span><span class="k">End</span> <span class="k">If</span>
-</code></pre></div><p>「評価式」とは、<br>
-内容がYES/NO（VBAの用語ではTRUE/FALSE）として表現できる式が入ります。</p>
-<p>例えば「1 + 2 = 3」「東京は日本の首都」「滋賀は東北地方の県である」はすべて評価式です。</p>
-<p>上記のIFステートメントを使って、<br>
-取得したセルの値が「東京都」であった場合にのみ隣のセルの値に「必要」と入力するコードは<br>
-次のようになります。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln">1</span><span class="k">If</span> <span class="n">cellValue</span> <span class="o">=</span> <span class="s">&#34;東京都&#34;</span> <span class="k">Then</span>
-<span class="ln">2</span>    <span class="n">Cells</span><span class="p">(</span><span class="n">隣のセルの行番号</span><span class="p">,</span> <span class="n">隣のセルの列番号</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">&#34;必要&#34;</span>
-<span class="ln">3</span><span class="k">End</span> <span class="k">If</span>
-</code></pre></div><p>なお、ここでは評価式がNOであった場合には<br>
-何もしないので、<br>
-<code>Else</code>ステートメント部分は使用していません。</p>
+<p>理由は、名前ボックスで表示される名前はローカライズされています（日本語）が、<br>
+一方でVBAで使用される名前は英語であるためです。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln">1</span><span class="k">Set</span> <span class="n">myShape</span> <span class="o">=</span> <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Shapes</span><span class="p">(</span><span class="s">&#34;スマイル１&#34;</span><span class="p">)</span><span class="c">&#39;//not working!
+</span></code></pre></div><p>VBAで図形を参照するためには、<br>
+作成した図形の一つ一つに新しく名前を名付ける必要があります。</p>
+<p>名前の付け方は、<br>
+図形を選択し、<br>
+リボンの左下にある「名前ボックス」で名前を編集します。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640865307/learnerBlog/vba-question-004-copypaste-shapes/copypaste-shapes4_xfwjyd.png" alt="名前ボックスにおける名前の編集後"></p>
+<p>笑顔マーク、星マーク、禁止記号をそれぞれ次のように変更します。</p>
+<table>
+<thead>
+<tr>
+<th>図形種類</th>
+<th>図形デフォルト名</th>
+<th>図形変更後名前</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>笑顔マーク</td>
+<td>スマイル 1</td>
+<td>笑顔</td>
+</tr>
+<tr>
+<td>星マーク</td>
+<td>星: 5 pt 2</td>
+<td>星</td>
+</tr>
+<tr>
+<td>禁止記号</td>
+<td>&quot;禁止&quot;マーク 3</td>
+<td>禁止</td>
+</tr>
+</tbody>
+</table>
+<p>最後に、<br>
+VBA上では次のように図形を参照できます。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span><span class="k">Sub</span> <span class="nf">名前を名付けて図形を選択</span><span class="p">()</span>
+<span class="ln"> 2</span>    <span class="k">Dim</span> <span class="n">shapeSmile</span> <span class="ow">As</span> <span class="n">Shape</span>
+<span class="ln"> 3</span>    <span class="k">Dim</span> <span class="n">shapeStar</span> <span class="ow">As</span> <span class="n">Shape</span>
+<span class="ln"> 4</span>    <span class="k">Dim</span> <span class="n">shapeNG</span> <span class="ow">As</span> <span class="n">Shape</span>
+<span class="ln"> 5</span>    
+<span class="ln"> 6</span>    <span class="k">Set</span> <span class="n">shapeSmile</span> <span class="o">=</span> <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Shapes</span><span class="p">(</span><span class="s">&#34;笑顔&#34;</span><span class="p">)</span>
+<span class="ln"> 7</span>    <span class="k">Set</span> <span class="n">shapeStar</span> <span class="o">=</span> <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Shapes</span><span class="p">(</span><span class="s">&#34;星&#34;</span><span class="p">)</span>
+<span class="ln"> 8</span>    <span class="k">Set</span> <span class="n">shapeNG</span> <span class="o">=</span> <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Shapes</span><span class="p">(</span><span class="s">&#34;禁止&#34;</span><span class="p">)</span>
+<span class="ln"> 9</span>    
+<span class="ln">10</span>    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="n">shapeSmile</span><span class="p">.</span><span class="n">TopLeftCell</span><span class="p">.</span><span class="n">Address</span> <span class="c">&#39;//笑顔マーク図形の座標位置
+</span><span class="ln">11</span><span class="c"></span>    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="n">shapeStar</span><span class="p">.</span><span class="n">TopLeftCell</span><span class="p">.</span><span class="n">Address</span> <span class="c">&#39;//星マーク図形の座標位置
+</span><span class="ln">12</span><span class="c"></span>    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="n">shapeNG</span><span class="p">.</span><span class="n">TopLeftCell</span><span class="p">.</span><span class="n">Address</span> <span class="c">&#39;//禁止マーク図形の座標位置
+</span><span class="ln">13</span><span class="c"></span><span class="k">End</span> <span class="k">Sub</span>
+<span class="ln">14</span>
+</code></pre></div><h4 id="方法-図形の置かれた位置のセル座標から選択">方法② 図形の置かれた位置のセル座標から選択</h4>
+<p>次のコードのように、<br>
+あらかじめ対象となる図形の置かれたセル座標を把握した上で、<br>
+現在のシートのすべての図形をループ処理で探索し、<br>
+目的の座標に一致したものを変数に格納していきます。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span><span class="k">Sub</span> <span class="nf">図形の置かれた位置のセル座標から選択</span><span class="p">()</span>
+<span class="ln"> 2</span>    <span class="k">Dim</span> <span class="n">shapeSmile</span> <span class="ow">As</span> <span class="n">shape</span>
+<span class="ln"> 3</span>    <span class="k">Dim</span> <span class="n">shapeStar</span> <span class="ow">As</span> <span class="n">shape</span>
+<span class="ln"> 4</span>    <span class="k">Dim</span> <span class="n">shapeNG</span> <span class="ow">As</span> <span class="n">shape</span>
+<span class="ln"> 5</span>    
+<span class="ln"> 6</span>    <span class="k">Dim</span> <span class="n">myShape</span> <span class="ow">As</span> <span class="kt">Object</span>
+<span class="ln"> 7</span>    
+<span class="ln"> 8</span>    <span class="k">For</span> <span class="k">Each</span> <span class="n">myShape</span> <span class="ow">In</span> <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Shapes</span>
+<span class="ln"> 9</span>        <span class="k">Select</span> <span class="k">Case</span> <span class="n">myShape</span><span class="p">.</span><span class="n">TopLeftCell</span><span class="p">.</span><span class="n">Address</span>
+<span class="ln">10</span>        <span class="c">&#39;//笑顔マーク図形の座標に一致する場合
+</span><span class="ln">11</span><span class="c"></span>        <span class="k">Case</span> <span class="s">&#34;$G$4&#34;</span>
+<span class="ln">12</span>            <span class="k">Set</span> <span class="n">shapeSmile</span> <span class="o">=</span> <span class="n">myShape</span>
+<span class="ln">13</span>        <span class="c">&#39;//星マーク図形の座標に一致する場合
+</span><span class="ln">14</span><span class="c"></span>        <span class="k">Case</span> <span class="s">&#34;$I$4&#34;</span>
+<span class="ln">15</span>            <span class="k">Set</span> <span class="n">shapeStar</span> <span class="o">=</span> <span class="n">myShape</span>
+<span class="ln">16</span>        <span class="c">&#39;//禁止マーク図形の座標に一致する場合
+</span><span class="ln">17</span><span class="c"></span>        <span class="k">Case</span> <span class="s">&#34;$K$4&#34;</span>
+<span class="ln">18</span>            <span class="k">Set</span> <span class="n">shapeNG</span> <span class="o">=</span> <span class="n">myShape</span>
+<span class="ln">19</span>        <span class="k">End</span> <span class="k">Select</span>
+<span class="ln">20</span>        
+<span class="ln">21</span>    <span class="k">Next</span>
+<span class="ln">22</span>    
+<span class="ln">23</span>    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="n">shapeSmile</span><span class="p">.</span><span class="n">TopLeftCell</span><span class="p">.</span><span class="n">Address</span> <span class="c">&#39;//笑顔マーク図形の座標位置
+</span><span class="ln">24</span><span class="c"></span>    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="n">shapeStar</span><span class="p">.</span><span class="n">TopLeftCell</span><span class="p">.</span><span class="n">Address</span> <span class="c">&#39;//星マーク図形の座標位置
+</span><span class="ln">25</span><span class="c"></span>    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="n">shapeNG</span><span class="p">.</span><span class="n">TopLeftCell</span><span class="p">.</span><span class="n">Address</span> <span class="c">&#39;//禁止マーク図形の座標位置
+</span><span class="ln">26</span><span class="c"></span>    
+<span class="ln">27</span><span class="k">End</span> <span class="k">Sub</span>
+</code></pre></div><h4 id="どちらが良いのか">どちらが良いのか？？</h4>
+<p>結論から言うと、<br>
+処理速度重視なら方法①、動的に図形を生成するコードを書くのならば方法②に軍配が上がるのかなと思います。</p>
+<p>②の方法ではループ処理でシート上のすべての図形を調べるため、<br>
+どうしても時間はかかります（それでも図形の数が少なければ微々たるものですが）。</p>
+<p>一方、コピー元の図形が次々と動的に生成されるような場合や、<br>
+シートごとどこか他のブックからコピーして、その上の図形を操作したいような場合では、<br>
+いちいち名前を変更するのも大変だし、名前被りの問題も考慮しなければならないため、<br>
+方法②に優位性があるでしょう。</p>
+<h3 id="コピーとペースト">コピーとペースト</h3>
+<p>図形をコピーして指定した場所にペーストする方法は、<br>
+ペースト先のセルを選択した後にペーストを行う方法と、<br>
+シートの任意の場所にペーストしてから図形を移動する方法の二種類が存在します。</p>
+<h4 id="方法-ペースト先のセルを選択してペースト">方法① ペースト先のセルを選択してペースト</h4>
+<p>次のようなコードです。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span><span class="k">Sub</span> <span class="nf">ペースト先のセルを選択してペースト</span><span class="p">()</span>
+<span class="ln"> 2</span>    <span class="k">Dim</span> <span class="n">shapeSmile</span> <span class="ow">As</span> <span class="n">shape</span>
+<span class="ln"> 3</span>    <span class="k">Dim</span> <span class="n">shapeStar</span> <span class="ow">As</span> <span class="n">shape</span>
+<span class="ln"> 4</span>    <span class="k">Dim</span> <span class="n">shapeNG</span> <span class="ow">As</span> <span class="n">shape</span>
+<span class="ln"> 5</span>    
+<span class="ln"> 6</span>    <span class="k">Set</span> <span class="n">shapeSmile</span> <span class="o">=</span> <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Shapes</span><span class="p">(</span><span class="s">&#34;笑顔&#34;</span><span class="p">)</span>
+<span class="ln"> 7</span>    <span class="k">Set</span> <span class="n">shapeStar</span> <span class="o">=</span> <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Shapes</span><span class="p">(</span><span class="s">&#34;星&#34;</span><span class="p">)</span>
+<span class="ln"> 8</span>    <span class="k">Set</span> <span class="n">shapeNG</span> <span class="o">=</span> <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Shapes</span><span class="p">(</span><span class="s">&#34;禁止&#34;</span><span class="p">)</span>
+<span class="ln"> 9</span>    
+<span class="ln">10</span>    <span class="c">&#39;//笑顔マークをペースト
+</span><span class="ln">11</span><span class="c"></span>    <span class="n">shapeSmile</span><span class="p">.</span><span class="n">Copy</span>
+<span class="ln">12</span>    
+<span class="ln">13</span>    <span class="c">&#39;////1. G5セル（ペーストしたいセルアドレス）を選択
+</span><span class="ln">14</span><span class="c"></span>    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="s">&#34;G5&#34;</span><span class="p">).</span><span class="n">Select</span>
+<span class="ln">15</span>    <span class="c">&#39;////2. ペーストの実行
+</span><span class="ln">16</span><span class="c"></span>    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Paste</span>
+<span class="ln">17</span>    <span class="c">&#39;////以下繰り返し
+</span><span class="ln">18</span><span class="c"></span>    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="s">&#34;G6&#34;</span><span class="p">).</span><span class="n">Select</span>
+<span class="ln">19</span>    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Paste</span>
+<span class="ln">20</span>    
+<span class="ln">21</span>    <span class="c">&#39;//星マークをペースト
+</span><span class="ln">22</span><span class="c"></span>    <span class="n">shapeStar</span><span class="p">.</span><span class="n">Copy</span>
+<span class="ln">23</span>    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="s">&#34;I5&#34;</span><span class="p">).</span><span class="n">Select</span>
+<span class="ln">24</span>    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Paste</span>
+<span class="ln">25</span>    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="s">&#34;I6&#34;</span><span class="p">).</span><span class="n">Select</span>
+<span class="ln">26</span>    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Paste</span>
+<span class="ln">27</span>    
+<span class="ln">28</span>    <span class="c">&#39;//禁止マークをペースト
+</span><span class="ln">29</span><span class="c"></span>    <span class="n">shapeNG</span><span class="p">.</span><span class="n">Copy</span>
+<span class="ln">30</span>    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="s">&#34;K5&#34;</span><span class="p">).</span><span class="n">Select</span>
+<span class="ln">31</span>    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Paste</span>
+<span class="ln">32</span>    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="s">&#34;K6&#34;</span><span class="p">).</span><span class="n">Select</span>
+<span class="ln">33</span>    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Paste</span>
+<span class="ln">34</span>    
+<span class="ln">35</span><span class="k">End</span> <span class="k">Sub</span>
+</code></pre></div><h4 id="方法-シートにペーストしてから図形を移動">方法② シートにペーストしてから図形を移動</h4>
+<p>次のようなコードです。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span><span class="k">Sub</span> <span class="nf">シートにペーストしてから図形を移動</span><span class="p">()</span>
+<span class="ln"> 2</span>    <span class="k">Dim</span> <span class="n">shapeSmile</span> <span class="ow">As</span> <span class="n">shape</span>
+<span class="ln"> 3</span>    <span class="k">Dim</span> <span class="n">shapeStar</span> <span class="ow">As</span> <span class="n">shape</span>
+<span class="ln"> 4</span>    <span class="k">Dim</span> <span class="n">shapeNG</span> <span class="ow">As</span> <span class="n">shape</span>
+<span class="ln"> 5</span>    
+<span class="ln"> 6</span>    <span class="k">Set</span> <span class="n">shapeSmile</span> <span class="o">=</span> <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Shapes</span><span class="p">(</span><span class="s">&#34;笑顔&#34;</span><span class="p">)</span>
+<span class="ln"> 7</span>    <span class="k">Set</span> <span class="n">shapeStar</span> <span class="o">=</span> <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Shapes</span><span class="p">(</span><span class="s">&#34;星&#34;</span><span class="p">)</span>
+<span class="ln"> 8</span>    <span class="k">Set</span> <span class="n">shapeNG</span> <span class="o">=</span> <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Shapes</span><span class="p">(</span><span class="s">&#34;禁止&#34;</span><span class="p">)</span>
+<span class="ln"> 9</span>    
+<span class="ln">10</span>    <span class="c">&#39;//笑顔マークをペースト
+</span><span class="ln">11</span><span class="c"></span>    <span class="n">shapeSmile</span><span class="p">.</span><span class="n">Copy</span>
+<span class="ln">12</span>    <span class="c">&#39;////1. ペーストの実行
+</span><span class="ln">13</span><span class="c"></span>    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Paste</span>
+<span class="ln">14</span>    <span class="c">&#39;////2. ペーストした図形を指定位置（ペーストしたいセルアドレス位置）に移動
+</span><span class="ln">15</span><span class="c"></span>    <span class="k">With</span> <span class="n">Selection</span>
+<span class="ln">16</span>        <span class="p">.</span><span class="n">Top</span> <span class="o">=</span> <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="s">&#34;G5&#34;</span><span class="p">).</span><span class="n">Top</span>
+<span class="ln">17</span>        <span class="p">.</span><span class="n">Left</span> <span class="o">=</span> <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="s">&#34;G5&#34;</span><span class="p">).</span><span class="n">Left</span>
+<span class="ln">18</span>    <span class="k">End</span> <span class="k">With</span>
+<span class="ln">19</span>    <span class="c">&#39;////以下繰り返し
+</span><span class="ln">20</span><span class="c"></span>    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Paste</span>
+<span class="ln">21</span>    <span class="k">With</span> <span class="n">Selection</span>
+<span class="ln">22</span>        <span class="p">.</span><span class="n">Top</span> <span class="o">=</span> <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="s">&#34;G6&#34;</span><span class="p">).</span><span class="n">Top</span>
+<span class="ln">23</span>        <span class="p">.</span><span class="n">Left</span> <span class="o">=</span> <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="s">&#34;G6&#34;</span><span class="p">).</span><span class="n">Left</span>
+<span class="ln">24</span>    <span class="k">End</span> <span class="k">With</span>
+<span class="ln">25</span>    
+<span class="ln">26</span>    <span class="c">&#39;//星マークをペースト
+</span><span class="ln">27</span><span class="c"></span>    <span class="n">shapeStar</span><span class="p">.</span><span class="n">Copy</span>
+<span class="ln">28</span>    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Paste</span>
+<span class="ln">29</span>    <span class="k">With</span> <span class="n">Selection</span>
+<span class="ln">30</span>        <span class="p">.</span><span class="n">Top</span> <span class="o">=</span> <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="s">&#34;I5&#34;</span><span class="p">).</span><span class="n">Top</span>
+<span class="ln">31</span>        <span class="p">.</span><span class="n">Left</span> <span class="o">=</span> <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="s">&#34;I5&#34;</span><span class="p">).</span><span class="n">Left</span>
+<span class="ln">32</span>    <span class="k">End</span> <span class="k">With</span>
+<span class="ln">33</span>    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Paste</span>
+<span class="ln">34</span>    <span class="k">With</span> <span class="n">Selection</span>
+<span class="ln">35</span>        <span class="p">.</span><span class="n">Top</span> <span class="o">=</span> <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="s">&#34;I6&#34;</span><span class="p">).</span><span class="n">Top</span>
+<span class="ln">36</span>        <span class="p">.</span><span class="n">Left</span> <span class="o">=</span> <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="s">&#34;I6&#34;</span><span class="p">).</span><span class="n">Left</span>
+<span class="ln">37</span>    <span class="k">End</span> <span class="k">With</span>
+<span class="ln">38</span><span class="c">&#39;
+</span><span class="ln">39</span><span class="c"></span>    <span class="c">&#39;//禁止マークをペースト
+</span><span class="ln">40</span><span class="c"></span>    <span class="n">shapeNG</span><span class="p">.</span><span class="n">Copy</span>
+<span class="ln">41</span>    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Paste</span>
+<span class="ln">42</span>    <span class="k">With</span> <span class="n">Selection</span>
+<span class="ln">43</span>        <span class="p">.</span><span class="n">Top</span> <span class="o">=</span> <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="s">&#34;K5&#34;</span><span class="p">).</span><span class="n">Top</span>
+<span class="ln">44</span>        <span class="p">.</span><span class="n">Left</span> <span class="o">=</span> <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="s">&#34;K5&#34;</span><span class="p">).</span><span class="n">Left</span>
+<span class="ln">45</span>    <span class="k">End</span> <span class="k">With</span>
+<span class="ln">46</span>    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Paste</span>
+<span class="ln">47</span>    <span class="k">With</span> <span class="n">Selection</span>
+<span class="ln">48</span>        <span class="p">.</span><span class="n">Top</span> <span class="o">=</span> <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="s">&#34;K6&#34;</span><span class="p">).</span><span class="n">Top</span>
+<span class="ln">49</span>        <span class="p">.</span><span class="n">Left</span> <span class="o">=</span> <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="s">&#34;K6&#34;</span><span class="p">).</span><span class="n">Left</span>
+<span class="ln">50</span>    <span class="k">End</span> <span class="k">With</span>
+<span class="ln">51</span>    
+<span class="ln">52</span>    
+<span class="ln">53</span><span class="k">End</span> <span class="k">Sub</span>
+<span class="ln">54</span>
+<span class="ln">55</span>
+</code></pre></div><h4 id="どちらが良いのか-1">どちらが良いのか？？</h4>
+<p>上のコードを見るとわかるように、<br>
+セル選択の後にペースト実行する方法①のほうが簡潔です。</p>
+<p>しかし、方法②のほうが適している場合もあります。<br>
+それは、次のような場合です。</p>
+<ul>
+<li>シートにセル選択時イベントが設定されており、図形ペースト時にイベントを発火させたくないとき</li>
+<li>シート保護機能により、セルの選択が禁止されているとき</li>
+</ul>
 <h2 id="デモ">デモ</h2>
-<h3 id="cellsで書かれたデモ">Cellsで書かれたデモ</h3>
-<p>都道府県が「東京都」と入力されたセルの隣のセルだけに「必要」と自動入力するマクロです。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span><span class="k">Sub</span> <span class="nf">必要の入力</span><span class="p">()</span>
-<span class="ln"> 2</span>    
-<span class="ln"> 3</span>    <span class="k">If</span> <span class="n">Cells</span><span class="p">(</span><span class="n">3</span><span class="p">,</span> <span class="n">2</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">&#34;東京都&#34;</span> <span class="k">Then</span>
-<span class="ln"> 4</span>        <span class="n">Cells</span><span class="p">(</span><span class="n">3</span><span class="p">,</span> <span class="n">3</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">&#34;必要&#34;</span>
-<span class="ln"> 5</span>    <span class="k">End</span> <span class="k">If</span>
-<span class="ln"> 6</span>    <span class="k">If</span> <span class="n">Cells</span><span class="p">(</span><span class="n">4</span><span class="p">,</span> <span class="n">2</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">&#34;東京都&#34;</span> <span class="k">Then</span>
-<span class="ln"> 7</span>        <span class="n">Cells</span><span class="p">(</span><span class="n">4</span><span class="p">,</span> <span class="n">3</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">&#34;必要&#34;</span>
-<span class="ln"> 8</span>    <span class="k">End</span> <span class="k">If</span>
-<span class="ln"> 9</span>    <span class="k">If</span> <span class="n">Cells</span><span class="p">(</span><span class="n">5</span><span class="p">,</span> <span class="n">2</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">&#34;東京都&#34;</span> <span class="k">Then</span>
-<span class="ln">10</span>        <span class="n">Cells</span><span class="p">(</span><span class="n">5</span><span class="p">,</span> <span class="n">3</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">&#34;必要&#34;</span>
-<span class="ln">11</span>    <span class="k">End</span> <span class="k">If</span>
-<span class="ln">12</span>    <span class="k">If</span> <span class="n">Cells</span><span class="p">(</span><span class="n">6</span><span class="p">,</span> <span class="n">2</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">&#34;東京都&#34;</span> <span class="k">Then</span>
-<span class="ln">13</span>        <span class="n">Cells</span><span class="p">(</span><span class="n">6</span><span class="p">,</span> <span class="n">3</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">&#34;必要&#34;</span>
-<span class="ln">14</span>    <span class="k">End</span> <span class="k">If</span>
-<span class="ln">15</span>    
-<span class="ln">16</span><span class="k">End</span> <span class="k">Sub</span>
-</code></pre></div><p>これを実行すると、<br>
-C3セルとC6セルにのみ「必要」と入力されます。</p>
-<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1639785260/learnerBlog/vba-question-002-chekc-single-cell/01_x4vft6.png" alt="実行前"></p>
-<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1639785260/learnerBlog/vba-question-002-chekc-single-cell/02_jwnums.png" alt="実行後"></p>
-<h3 id="range形式に書き直すと">Range形式に書き直すと……</h3>
-<p>Range形式に書き直すと、次のように書けます。<br>
-もともとExcel関数をよく使っていたユーザにはこちらのほうが馴染み深いかもしれません。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span><span class="k">Sub</span> <span class="nf">必要の入力</span><span class="p">()</span>
-<span class="ln"> 2</span>    
-<span class="ln"> 3</span>    <span class="k">If</span> <span class="n">Range</span><span class="p">(</span><span class="s">&#34;B3&#34;</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">&#34;東京都&#34;</span> <span class="k">Then</span>
-<span class="ln"> 4</span>        <span class="n">Range</span><span class="p">(</span><span class="s">&#34;C3&#34;</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">&#34;必要&#34;</span>
-<span class="ln"> 5</span>    <span class="k">End</span> <span class="k">If</span>
-<span class="ln"> 6</span>    <span class="k">If</span> <span class="n">Range</span><span class="p">(</span><span class="s">&#34;B4&#34;</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">&#34;東京都&#34;</span> <span class="k">Then</span>
-<span class="ln"> 7</span>        <span class="n">Range</span><span class="p">(</span><span class="s">&#34;C4&#34;</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">&#34;必要&#34;</span>
-<span class="ln"> 8</span>    <span class="k">End</span> <span class="k">If</span>
-<span class="ln"> 9</span>    <span class="k">If</span> <span class="n">Range</span><span class="p">(</span><span class="s">&#34;B5&#34;</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">&#34;東京都&#34;</span> <span class="k">Then</span>
-<span class="ln">10</span>        <span class="n">Range</span><span class="p">(</span><span class="s">&#34;C5&#34;</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">&#34;必要&#34;</span>
-<span class="ln">11</span>    <span class="k">End</span> <span class="k">If</span>
-<span class="ln">12</span>    <span class="k">If</span> <span class="n">Range</span><span class="p">(</span><span class="s">&#34;B6&#34;</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">&#34;東京都&#34;</span> <span class="k">Then</span>
-<span class="ln">13</span>        <span class="n">Range</span><span class="p">(</span><span class="s">&#34;C6&#34;</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">&#34;必要&#34;</span>
-<span class="ln">14</span>    <span class="k">End</span> <span class="k">If</span>
-<span class="ln">15</span>    
-<span class="ln">16</span><span class="k">End</span> <span class="k">Sub</span>
-</code></pre></div><h2 id="終わりに">終わりに</h2>
-<p>セルからデータを取得して、<br>
-それに応じた処理を行うことは、<br>
-Excel VBAマクロでもっともよく使われるロジックです。</p>
-<p>これをうまく使えるようになれば、<br>
-マクロの自動化の幅が非常に広がるでしょう。</p>
-<p>ここには書ききれませんでしたが、<br>
-<code>Range</code>や<code>Cells</code>の使用法には他にもバラエティがあるので、<br>
-Microsoftの公式を見てみると面白いかもしれません。</p>
+<p>次のように、笑顔マーク、星マーク、禁止マークを<br>
+下に続く２行にコピペしたいとします。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640865306/learnerBlog/vba-question-004-copypaste-shapes/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2021-12-30_204003_zu8kcj.png" alt="マクロ実行前"></p>
+<p>上記で記載した「ペースト先のセルを選択してペースト」関数を実行すると、<br>
+各マークが規則正しくコピペされ配置されます。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640865307/learnerBlog/vba-question-004-copypaste-shapes/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2021-12-30_204053_nsv54q.png" alt="マクロ実行後"></p>
+<h2 id="終わりに">終わりに</h2>
+<p>VBAマクロで図形をいじったりするのは、<br>
+マクロでしっかりしたツールを作るときよりも、<br>
+むしろ簡単な作業の自動化のために突発的に作成する場合が多いかと思います。</p>
+<p>そのような場合でも、図形の取り扱いを慣れておけば<br>
+手作業よりもずっと効率よくマクロを組むことが可能となるでしょう。</p>
 
      
      
@@ -354,15 +461,15 @@ Microsoftの公式を見てみると面白いかもしれません。</p>
      <h3>関連記事</h3>
      <ul>
          
-         <li><a href="/learnerBlog/posts/2021/03/29/wsfunc-networkday/">[Excel VBA] 年度に関わらず営業日数を算出する方法について紹介</a></li>
+         <li><a href="/learnerBlog/posts/2021/12/25/vba-question-003-clear-data-in-table/">[教えて！VBA] 第3回 Accessマクロで、テーブルのデータを全クリアするにはどうすればいいの？？</a></li>
          
-         <li><a href="/learnerBlog/posts/2021/02/13/copyto-merged-cell/">[Excel VBA] 結合セルにコピーペーストするマクロ</a></li>
+         <li><a href="/learnerBlog/posts/2021/09/04/access-change-control-test/">[Access VBA] フォームのコントロール操作系の関数をどのようにユニットテストするかの方法メモ</a></li>
          
-         <li><a href="/learnerBlog/posts/2021/01/15/change-pagesetup-printaria/">[Excel VBA] PageSetup.PrintAreaによるシートの印刷範囲の変更を行うときにエラーになる場合＆その回避方法</a></li>
+         <li><a href="/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/">[Access VBA] RequeryとRefreshの使い分けデモ　「単票フォームの編集」編</a></li>
          
-         <li><a href="/learnerBlog/posts/2020/12/12/sheet-array-visible/">[VBA] Excelの複数シートをループを使わず一行の処理で非表示・再表示にすることはできる？？</a></li>
+         <li><a href="/learnerBlog/posts/2021/02/28/create-estm-accessver/">[Access VBA] 見積書作成ツール（Accessバージョン）を作成した</a></li>
          
-         <li><a href="/learnerBlog/posts/2020/12/11/search-shape-string/">[VBA] ブック内の図形内のテキストを検索・置換するマクロ（Qiitaの記事の拡張）</a></li>
+         <li><a href="/learnerBlog/posts/2020/12/19/grep-from-module-sql/">[VBA, PowerShell] Accessのモジュール・クラスやクエリのSQLから特定文字列を抽出するためのテクニック</a></li>
          
      </ul>
      <div id="disqus_thread"></div>
@@ -409,13 +516,13 @@ Microsoftの公式を見てみると面白いかもしれません。</p>
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/12/30/vba-question-004-copypaste-shapes/" class="nav-link" title="[教えて！VBA] 第4回 シート上の図形をコピーして他のセル上に貼り付けするにはどうすればいいの？？">[教えて！VBA] 第4回 シート上の図形をコピーして他のセル上に貼り付けするにはどうすればいいの？？</a>
-      </li>
-      <li>
         <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/12/29/paste-only-colors/" class="nav-link" title="[Excel VBA] セルの文字色・背景色だけをコピーして貼り付けるマクロを作成しました">[Excel VBA] セルの文字色・背景色だけをコピーして貼り付けるマクロを作成しました</a>
       </li>
       <li>
         <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/12/25/vba-question-003-clear-data-in-table/" class="nav-link" title="[教えて！VBA] 第3回 Accessマクロで、テーブルのデータを全クリアするにはどうすればいいの？？">[教えて！VBA] 第3回 Accessマクロで、テーブルのデータを全クリアするにはどうすればいいの？？</a>
+      </li>
+      <li>
+        <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/12/14/vba-question-002-chekc-single-cell/" class="nav-link" title="[教えて！VBA] 第2回 一つのセルの値が「東京都」であることを条件として別のアクションを行うにはどうすればいいの？？">[教えて！VBA] 第2回 一つのセルの値が「東京都」であることを条件として別のアクションを行うにはどうすればいいの？？</a>
       </li>
       <li>
         <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/12/12/vba-question-001-waiting/" class="nav-link" title="[教えて！VBA] 第1回 処理の途中で待機時間（Sleep）を設けるにはどうすればいいの？？">[教えて！VBA] 第1回 処理の途中で待機時間（Sleep）を設けるにはどうすればいいの？？</a>
