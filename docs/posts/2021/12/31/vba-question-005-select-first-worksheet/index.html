@@ -1,8 +1,8 @@
 
 <!DOCTYPE html>
-<html lang="ja" data-figures="">
+<html lang="ja" data-figures="" class="page">
   <head>
-<title>VBA | 学習者dedeのブログ ~プログラミング等~</title>
+<title>[教えて！VBA] 第5回 ブックの最初のシートの最初のセルを選択した状態にするにはどうすればいいの？？ | 学習者dedeのブログ ~プログラミング等~</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,24 +14,24 @@
   gtag('config', 'UA-110309082-3');
 </script>
 
+  
 <meta property="og:locale" content="ja" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="">
+<meta name="description" content="この記事について かんたんな概要と結論 各シートはSheetsコレクションに含まれ、 インデックスの最初の数をコレクションで指定することで最初のシ">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="@D20191130">
-<meta name="twitter:title" content="VBA" />
-<meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/tags/vba/" />
-<meta property="og:title" content="VBA" />
-<meta property="og:description" content="" />
+<meta name="twitter:title" content="[教えて！VBA] 第5回 ブックの最初のシートの最初のセルを選択した状態にするにはどうすればいいの？？" />
+<meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/posts/2021/12/31/vba-question-005-select-first-worksheet/" />
+<meta property="og:title" content="[教えて！VBA] 第5回 ブックの最初のシートの最初のセルを選択した状態にするにはどうすればいいの？？" />
+<meta property="og:description" content="この記事について かんたんな概要と結論 各シートはSheetsコレクションに含まれ、 インデックスの最初の数をコレクションで指定することで最初のシ" />
 <meta property="og:image" content="https://dede-20191130.github.io/learnerBlog/images/thumbnail.png" />
 
 <link rel="apple-touch-icon" sizes="180x180" href="https://dede-20191130.github.io/learnerBlog/icons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://dede-20191130.github.io/learnerBlog/icons/favicon-32x32.png">
 <link rel="manifest" href="https://dede-20191130.github.io/learnerBlog/icons/site.webmanifest">
 
-<link rel="canonical" href="https://dede-20191130.github.io/learnerBlog/tags/vba/">
-<link rel="alternate" type="application/rss+xml" href="https://dede-20191130.github.io/learnerBlog/tags/vba/index.xml" title="学習者dedeのブログ ~プログラミング等~" />
+<link rel="canonical" href="https://dede-20191130.github.io/learnerBlog/posts/2021/12/31/vba-question-005-select-first-worksheet/">
 
     
 
@@ -118,94 +118,29 @@
 </header>
 
     <main>
-
+  
 <div class="grid-inverse wrap content">
-  <ul class="posts" id="posts">
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/02/13/copyto-merged-cell/" title="[Excel VBA] 結合セルにコピーペーストするマクロ">[Excel VBA] 結合セルにコピーペーストするマクロ</a>
-      </h3>
-      
+  <article class="post_content">
+    <h1 class="post_title">[教えて！VBA] 第5回 ブックの最初のシートの最初のセルを選択した状態にするにはどうすればいいの？？</h1>
   <div class="post_meta">
     <span><svg class="icon">
   <use xlink:href="#calendar"></use>
 </svg></span>
     <span class="post_date">
-      Feb 13, 2021</span>
-    <span class="post_time"> · 5 min read</span><span>&nbsp;· <a href='https://dede-20191130.github.io/learnerBlog/tags/excel' title="Excel" class="post_tag button button_translucent">Excel
-        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/vba' title="VBA" class="post_tag button button_translucent">VBA
-        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C' title="自作" class="post_tag button button_translucent">自作
-        </a>
-    </span>
-    <span class="page_only">&nbsp;·
-  <div class="post_share">
-    Share on:
-    <a href="https://twitter.com/intent/tweet?text=%5bExcel%20VBA%5d%20%e7%b5%90%e5%90%88%e3%82%bb%e3%83%ab%e3%81%ab%e3%82%b3%e3%83%94%e3%83%bc%e3%83%9a%e3%83%bc%e3%82%b9%e3%83%88%e3%81%99%e3%82%8b%e3%83%9e%e3%82%af%e3%83%ad&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2021%2f02%2f13%2fcopyto-merged-cell%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#twitter"></use>
-</svg>
-    </a>
-    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2021%2f02%2f13%2fcopyto-merged-cell%2f&t=%5bExcel%20VBA%5d%20%e7%b5%90%e5%90%88%e3%82%bb%e3%83%ab%e3%81%ab%e3%82%b3%e3%83%94%e3%83%bc%e3%83%9a%e3%83%bc%e3%82%b9%e3%83%88%e3%81%99%e3%82%8b%e3%83%9e%e3%82%af%e3%83%ad" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#facebook"></use>
-</svg>
-    </a>
-    <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#linkedin"></use>
-</svg>
-    </a>
-    <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/02/13/copyto-merged-cell/" title="Copy Link" class="link link_yank">
-      <svg class="icon">
-  <use xlink:href="#copy"></use>
-</svg>
-    </a>
-  </div>
-  </span>
-  </div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">
-            
-              この記事について Excelにおいて 通常セルから結合セルに対してコピーすると、 「結合セルにこの操作は行えません」という警告がされ貼り付けができ
-            
-          </p>
-          <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/02/13/copyto-merged-cell/" title="Read More" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/01/15/change-pagesetup-printaria/" title="[Excel VBA] PageSetup.PrintAreaによるシートの印刷範囲の変更を行うときにエラーになる場合＆その回避方法">[Excel VBA] PageSetup.PrintAreaによるシートの印刷範囲の変更を行うときにエラーになる場合＆その回避方法</a>
-      </h3>
-      
-  <div class="post_meta">
-    <span><svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg></span>
-    <span class="post_date">
-      Jan 15, 2021</span>
-    <span class="post_time"> · 4 min read</span><span>&nbsp;· <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' title="VBA" class="post_tag button button_translucent">VBA
+      Dec 31, 2021</span>
+    <span class="post_time"> · 5 min read</span><span>&nbsp;· <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' title="VBA" class="post_tag button button_translucent">VBA
         </a><a href='https://dede-20191130.github.io/learnerBlog/tags/excel' title="Excel" class="post_tag button button_translucent">Excel
         </a>
     </span>
     <span class="page_only">&nbsp;·
   <div class="post_share">
     Share on:
-    <a href="https://twitter.com/intent/tweet?text=%5bExcel%20VBA%5d%20PageSetup.PrintArea%e3%81%ab%e3%82%88%e3%82%8b%e3%82%b7%e3%83%bc%e3%83%88%e3%81%ae%e5%8d%b0%e5%88%b7%e7%af%84%e5%9b%b2%e3%81%ae%e5%a4%89%e6%9b%b4%e3%82%92%e8%a1%8c%e3%81%86%e3%81%a8%e3%81%8d%e3%81%ab%e3%82%a8%e3%83%a9%e3%83%bc%e3%81%ab%e3%81%aa%e3%82%8b%e5%a0%b4%e5%90%88%ef%bc%86%e3%81%9d%e3%81%ae%e5%9b%9e%e9%81%bf%e6%96%b9%e6%b3%95&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2021%2f01%2f15%2fchange-pagesetup-printaria%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
+    <a href="https://twitter.com/intent/tweet?text=%5b%e6%95%99%e3%81%88%e3%81%a6%ef%bc%81VBA%5d%20%e7%ac%ac5%e5%9b%9e%20%e3%83%96%e3%83%83%e3%82%af%e3%81%ae%e6%9c%80%e5%88%9d%e3%81%ae%e3%82%b7%e3%83%bc%e3%83%88%e3%81%ae%e6%9c%80%e5%88%9d%e3%81%ae%e3%82%bb%e3%83%ab%e3%82%92%e9%81%b8%e6%8a%9e%e3%81%97%e3%81%9f%e7%8a%b6%e6%85%8b%e3%81%ab%e3%81%99%e3%82%8b%e3%81%ab%e3%81%af%e3%81%a9%e3%81%86%e3%81%99%e3%82%8c%e3%81%b0%e3%81%84%e3%81%84%e3%81%ae%ef%bc%9f%ef%bc%9f&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2021%2f12%2f31%2fvba-question-005-select-first-worksheet%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
       <svg class="icon">
   <use xlink:href="#twitter"></use>
 </svg>
     </a>
-    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2021%2f01%2f15%2fchange-pagesetup-printaria%2f&t=%5bExcel%20VBA%5d%20PageSetup.PrintArea%e3%81%ab%e3%82%88%e3%82%8b%e3%82%b7%e3%83%bc%e3%83%88%e3%81%ae%e5%8d%b0%e5%88%b7%e7%af%84%e5%9b%b2%e3%81%ae%e5%a4%89%e6%9b%b4%e3%82%92%e8%a1%8c%e3%81%86%e3%81%a8%e3%81%8d%e3%81%ab%e3%82%a8%e3%83%a9%e3%83%bc%e3%81%ab%e3%81%aa%e3%82%8b%e5%a0%b4%e5%90%88%ef%bc%86%e3%81%9d%e3%81%ae%e5%9b%9e%e9%81%bf%e6%96%b9%e6%b3%95" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
+    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2021%2f12%2f31%2fvba-question-005-select-first-worksheet%2f&t=%5b%e6%95%99%e3%81%88%e3%81%a6%ef%bc%81VBA%5d%20%e7%ac%ac5%e5%9b%9e%20%e3%83%96%e3%83%83%e3%82%af%e3%81%ae%e6%9c%80%e5%88%9d%e3%81%ae%e3%82%b7%e3%83%bc%e3%83%88%e3%81%ae%e6%9c%80%e5%88%9d%e3%81%ae%e3%82%bb%e3%83%ab%e3%82%92%e9%81%b8%e6%8a%9e%e3%81%97%e3%81%9f%e7%8a%b6%e6%85%8b%e3%81%ab%e3%81%99%e3%82%8b%e3%81%ab%e3%81%af%e3%81%a9%e3%81%86%e3%81%99%e3%82%8c%e3%81%b0%e3%81%84%e3%81%84%e3%81%ae%ef%bc%9f%ef%bc%9f" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
       <svg class="icon">
   <use xlink:href="#facebook"></use>
 </svg>
@@ -215,7 +150,7 @@
   <use xlink:href="#linkedin"></use>
 </svg>
     </a>
-    <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/01/15/change-pagesetup-printaria/" title="Copy Link" class="link link_yank">
+    <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/12/31/vba-question-005-select-first-worksheet/" title="Copy Link" class="link link_yank">
       <svg class="icon">
   <use xlink:href="#copy"></use>
 </svg>
@@ -224,518 +159,231 @@
   </span>
   </div>
 
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">
-            
-              この記事について ワークシートオブジェクトのPageSetup.PrintAreaプロパティを用いて 条件に従ってシートの印刷範囲を変更するよう
-            
-          </p>
-          <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/01/15/change-pagesetup-printaria/" title="Read More" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/01/13/interface-array-member/" title="[VBA] インタフェース継承を使用する際にクラス変数として配列を使用する方法">[VBA] インタフェース継承を使用する際にクラス変数として配列を使用する方法</a>
-      </h3>
-      
-  <div class="post_meta">
-    <span><svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg></span>
-    <span class="post_date">
-      Jan 13, 2021</span>
-    <span class="post_time"> · 7 min read</span><span>&nbsp;· <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' title="VBA" class="post_tag button button_translucent">VBA
-        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91' title="オブジェクト指向" class="post_tag button button_translucent">オブジェクト指向
-        </a>
-    </span>
-    <span class="page_only">&nbsp;·
-  <div class="post_share">
-    Share on:
-    <a href="https://twitter.com/intent/tweet?text=%5bVBA%5d%20%e3%82%a4%e3%83%b3%e3%82%bf%e3%83%95%e3%82%a7%e3%83%bc%e3%82%b9%e7%b6%99%e6%89%bf%e3%82%92%e4%bd%bf%e7%94%a8%e3%81%99%e3%82%8b%e9%9a%9b%e3%81%ab%e3%82%af%e3%83%a9%e3%82%b9%e5%a4%89%e6%95%b0%e3%81%a8%e3%81%97%e3%81%a6%e9%85%8d%e5%88%97%e3%82%92%e4%bd%bf%e7%94%a8%e3%81%99%e3%82%8b%e6%96%b9%e6%b3%95&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2021%2f01%2f13%2finterface-array-member%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#twitter"></use>
-</svg>
-    </a>
-    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2021%2f01%2f13%2finterface-array-member%2f&t=%5bVBA%5d%20%e3%82%a4%e3%83%b3%e3%82%bf%e3%83%95%e3%82%a7%e3%83%bc%e3%82%b9%e7%b6%99%e6%89%bf%e3%82%92%e4%bd%bf%e7%94%a8%e3%81%99%e3%82%8b%e9%9a%9b%e3%81%ab%e3%82%af%e3%83%a9%e3%82%b9%e5%a4%89%e6%95%b0%e3%81%a8%e3%81%97%e3%81%a6%e9%85%8d%e5%88%97%e3%82%92%e4%bd%bf%e7%94%a8%e3%81%99%e3%82%8b%e6%96%b9%e6%b3%95" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#facebook"></use>
-</svg>
-    </a>
-    <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#linkedin"></use>
-</svg>
-    </a>
-    <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/01/13/interface-array-member/" title="Copy Link" class="link link_yank">
-      <svg class="icon">
-  <use xlink:href="#copy"></use>
-</svg>
-    </a>
-  </div>
-  </span>
-  </div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">
-            
-              この記事について VBAではインタフェースを用いることによって、 オブジェクト指向のプログラミングをすることができる。 ただ、後述するように クラス
-            
-          </p>
-          <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/01/13/interface-array-member/" title="Read More" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/12/19/grep-from-module-sql/" title="[VBA, PowerShell] Accessのモジュール・クラスやクエリのSQLから特定文字列を抽出するためのテクニック">[VBA, PowerShell] Accessのモジュール・クラスやクエリのSQLから特定文字列を抽出するためのテクニック</a>
-      </h3>
-      
-  <div class="post_meta">
-    <span><svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg></span>
-    <span class="post_date">
-      Dec 19, 2020</span>
-    <span class="post_time"> · 4 min read</span><span>&nbsp;· <a href='https://dede-20191130.github.io/learnerBlog/tags/access' title="Access" class="post_tag button button_translucent">Access
-        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/vba' title="VBA" class="post_tag button button_translucent">VBA
-        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/powershell' title="PowerShell" class="post_tag button button_translucent">PowerShell
-        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C' title="自作" class="post_tag button button_translucent">自作
-        </a>
-    </span>
-    <span class="page_only">&nbsp;·
-  <div class="post_share">
-    Share on:
-    <a href="https://twitter.com/intent/tweet?text=%5bVBA%2c%20PowerShell%5d%20Access%e3%81%ae%e3%83%a2%e3%82%b8%e3%83%a5%e3%83%bc%e3%83%ab%e3%83%bb%e3%82%af%e3%83%a9%e3%82%b9%e3%82%84%e3%82%af%e3%82%a8%e3%83%aa%e3%81%aeSQL%e3%81%8b%e3%82%89%e7%89%b9%e5%ae%9a%e6%96%87%e5%ad%97%e5%88%97%e3%82%92%e6%8a%bd%e5%87%ba%e3%81%99%e3%82%8b%e3%81%9f%e3%82%81%e3%81%ae%e3%83%86%e3%82%af%e3%83%8b%e3%83%83%e3%82%af&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f12%2f19%2fgrep-from-module-sql%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#twitter"></use>
-</svg>
-    </a>
-    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f12%2f19%2fgrep-from-module-sql%2f&t=%5bVBA%2c%20PowerShell%5d%20Access%e3%81%ae%e3%83%a2%e3%82%b8%e3%83%a5%e3%83%bc%e3%83%ab%e3%83%bb%e3%82%af%e3%83%a9%e3%82%b9%e3%82%84%e3%82%af%e3%82%a8%e3%83%aa%e3%81%aeSQL%e3%81%8b%e3%82%89%e7%89%b9%e5%ae%9a%e6%96%87%e5%ad%97%e5%88%97%e3%82%92%e6%8a%bd%e5%87%ba%e3%81%99%e3%82%8b%e3%81%9f%e3%82%81%e3%81%ae%e3%83%86%e3%82%af%e3%83%8b%e3%83%83%e3%82%af" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#facebook"></use>
-</svg>
-    </a>
-    <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#linkedin"></use>
-</svg>
-    </a>
-    <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/12/19/grep-from-module-sql/" title="Copy Link" class="link link_yank">
-      <svg class="icon">
-  <use xlink:href="#copy"></use>
-</svg>
-    </a>
-  </div>
-  </span>
-  </div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">
-            
-              この記事について AccessのVBAツールを作成していると、 主にリファクタリングや機能追加のタイミングで、 モジュール、クラス、あるいはクエリ
-            
-          </p>
-          <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/12/19/grep-from-module-sql/" title="Read More" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/12/12/sheet-array-visible/" title="[VBA] Excelの複数シートをループを使わず一行の処理で非表示・再表示にすることはできる？？">[VBA] Excelの複数シートをループを使わず一行の処理で非表示・再表示にすることはできる？？</a>
-      </h3>
-      
-  <div class="post_meta">
-    <span><svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg></span>
-    <span class="post_date">
-      Dec 12, 2020</span>
-    <span class="post_time"> · 2 min read</span><span>&nbsp;· <a href='https://dede-20191130.github.io/learnerBlog/tags/excel' title="Excel" class="post_tag button button_translucent">Excel
-        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/vba' title="VBA" class="post_tag button button_translucent">VBA
-        </a>
-    </span>
-    <span class="page_only">&nbsp;·
-  <div class="post_share">
-    Share on:
-    <a href="https://twitter.com/intent/tweet?text=%5bVBA%5d%20Excel%e3%81%ae%e8%a4%87%e6%95%b0%e3%82%b7%e3%83%bc%e3%83%88%e3%82%92%e3%83%ab%e3%83%bc%e3%83%97%e3%82%92%e4%bd%bf%e3%82%8f%e3%81%9a%e4%b8%80%e8%a1%8c%e3%81%ae%e5%87%a6%e7%90%86%e3%81%a7%e9%9d%9e%e8%a1%a8%e7%a4%ba%e3%83%bb%e5%86%8d%e8%a1%a8%e7%a4%ba%e3%81%ab%e3%81%99%e3%82%8b%e3%81%93%e3%81%a8%e3%81%af%e3%81%a7%e3%81%8d%e3%82%8b%ef%bc%9f%ef%bc%9f&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f12%2f12%2fsheet-array-visible%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#twitter"></use>
-</svg>
-    </a>
-    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f12%2f12%2fsheet-array-visible%2f&t=%5bVBA%5d%20Excel%e3%81%ae%e8%a4%87%e6%95%b0%e3%82%b7%e3%83%bc%e3%83%88%e3%82%92%e3%83%ab%e3%83%bc%e3%83%97%e3%82%92%e4%bd%bf%e3%82%8f%e3%81%9a%e4%b8%80%e8%a1%8c%e3%81%ae%e5%87%a6%e7%90%86%e3%81%a7%e9%9d%9e%e8%a1%a8%e7%a4%ba%e3%83%bb%e5%86%8d%e8%a1%a8%e7%a4%ba%e3%81%ab%e3%81%99%e3%82%8b%e3%81%93%e3%81%a8%e3%81%af%e3%81%a7%e3%81%8d%e3%82%8b%ef%bc%9f%ef%bc%9f" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#facebook"></use>
-</svg>
-    </a>
-    <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#linkedin"></use>
-</svg>
-    </a>
-    <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/12/12/sheet-array-visible/" title="Copy Link" class="link link_yank">
-      <svg class="icon">
-  <use xlink:href="#copy"></use>
-</svg>
-    </a>
-  </div>
-  </span>
-  </div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">
-            
-              この記事について Excelのシートに対する一括処理は、 次のようにシート名の配列としてSheetsオブジェクトを生成することで ループを使わず一
-            
-          </p>
-          <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/12/12/sheet-array-visible/" title="Read More" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/12/11/search-shape-string/" title="[VBA] ブック内の図形内のテキストを検索・置換するマクロ（Qiitaの記事の拡張）">[VBA] ブック内の図形内のテキストを検索・置換するマクロ（Qiitaの記事の拡張）</a>
-      </h3>
-      
-  <div class="post_meta">
-    <span><svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg></span>
-    <span class="post_date">
-      Dec 11, 2020</span>
-    <span class="post_time"> · 4 min read</span><span>&nbsp;· <a href='https://dede-20191130.github.io/learnerBlog/tags/excel' title="Excel" class="post_tag button button_translucent">Excel
-        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/vba' title="VBA" class="post_tag button button_translucent">VBA
-        </a>
-    </span>
-    <span class="page_only">&nbsp;·
-  <div class="post_share">
-    Share on:
-    <a href="https://twitter.com/intent/tweet?text=%5bVBA%5d%20%e3%83%96%e3%83%83%e3%82%af%e5%86%85%e3%81%ae%e5%9b%b3%e5%bd%a2%e5%86%85%e3%81%ae%e3%83%86%e3%82%ad%e3%82%b9%e3%83%88%e3%82%92%e6%a4%9c%e7%b4%a2%e3%83%bb%e7%bd%ae%e6%8f%9b%e3%81%99%e3%82%8b%e3%83%9e%e3%82%af%e3%83%ad%ef%bc%88Qiita%e3%81%ae%e8%a8%98%e4%ba%8b%e3%81%ae%e6%8b%a1%e5%bc%b5%ef%bc%89&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f12%2f11%2fsearch-shape-string%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#twitter"></use>
-</svg>
-    </a>
-    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f12%2f11%2fsearch-shape-string%2f&t=%5bVBA%5d%20%e3%83%96%e3%83%83%e3%82%af%e5%86%85%e3%81%ae%e5%9b%b3%e5%bd%a2%e5%86%85%e3%81%ae%e3%83%86%e3%82%ad%e3%82%b9%e3%83%88%e3%82%92%e6%a4%9c%e7%b4%a2%e3%83%bb%e7%bd%ae%e6%8f%9b%e3%81%99%e3%82%8b%e3%83%9e%e3%82%af%e3%83%ad%ef%bc%88Qiita%e3%81%ae%e8%a8%98%e4%ba%8b%e3%81%ae%e6%8b%a1%e5%bc%b5%ef%bc%89" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#facebook"></use>
-</svg>
-    </a>
-    <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#linkedin"></use>
-</svg>
-    </a>
-    <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/12/11/search-shape-string/" title="Copy Link" class="link link_yank">
-      <svg class="icon">
-  <use xlink:href="#copy"></use>
-</svg>
-    </a>
-  </div>
-  </span>
-  </div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">
-            
-              この記事について Qiitaで見たこちらの記事を参考に、 ブック内のすべての図形で検索できるように拡張したマクロです。 RelaxTools Addinを利用できない
-            
-          </p>
-          <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/12/11/search-shape-string/" title="Read More" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/12/06/alter-args-compile-err/" title="[VBA] 関数の引数を変更した場合にコンパイルエラーが多発するのを防ぐテクニック">[VBA] 関数の引数を変更した場合にコンパイルエラーが多発するのを防ぐテクニック</a>
-      </h3>
-      
-  <div class="post_meta">
-    <span><svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg></span>
-    <span class="post_date">
-      Dec 6, 2020</span>
-    <span class="post_time"> · 7 min read</span><span>&nbsp;· <a href='https://dede-20191130.github.io/learnerBlog/tags/excel' title="Excel" class="post_tag button button_translucent">Excel
-        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/vba' title="VBA" class="post_tag button button_translucent">VBA
-        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C' title="自作" class="post_tag button button_translucent">自作
-        </a>
-    </span>
-    <span class="page_only">&nbsp;·
-  <div class="post_share">
-    Share on:
-    <a href="https://twitter.com/intent/tweet?text=%5bVBA%5d%20%e9%96%a2%e6%95%b0%e3%81%ae%e5%bc%95%e6%95%b0%e3%82%92%e5%a4%89%e6%9b%b4%e3%81%97%e3%81%9f%e5%a0%b4%e5%90%88%e3%81%ab%e3%82%b3%e3%83%b3%e3%83%91%e3%82%a4%e3%83%ab%e3%82%a8%e3%83%a9%e3%83%bc%e3%81%8c%e5%a4%9a%e7%99%ba%e3%81%99%e3%82%8b%e3%81%ae%e3%82%92%e9%98%b2%e3%81%90%e3%83%86%e3%82%af%e3%83%8b%e3%83%83%e3%82%af&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f12%2f06%2falter-args-compile-err%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#twitter"></use>
-</svg>
-    </a>
-    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f12%2f06%2falter-args-compile-err%2f&t=%5bVBA%5d%20%e9%96%a2%e6%95%b0%e3%81%ae%e5%bc%95%e6%95%b0%e3%82%92%e5%a4%89%e6%9b%b4%e3%81%97%e3%81%9f%e5%a0%b4%e5%90%88%e3%81%ab%e3%82%b3%e3%83%b3%e3%83%91%e3%82%a4%e3%83%ab%e3%82%a8%e3%83%a9%e3%83%bc%e3%81%8c%e5%a4%9a%e7%99%ba%e3%81%99%e3%82%8b%e3%81%ae%e3%82%92%e9%98%b2%e3%81%90%e3%83%86%e3%82%af%e3%83%8b%e3%83%83%e3%82%af" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#facebook"></use>
-</svg>
-    </a>
-    <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#linkedin"></use>
-</svg>
-    </a>
-    <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/12/06/alter-args-compile-err/" title="Copy Link" class="link link_yank">
-      <svg class="icon">
-  <use xlink:href="#copy"></use>
-</svg>
-    </a>
-  </div>
-  </span>
-  </div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">
-            
-              この記事について プログラミングにおいて、 コードの保守性（他人や未来の自分から見て理解のしやすさ・変更の容易さ）を向上させるため、 外部から見た
-            
-          </p>
-          <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/12/06/alter-args-compile-err/" title="Read More" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/12/05/vba-exception-handle/" title="[VBA] 例外処理の典型的なパターン＆使用例サンプル">[VBA] 例外処理の典型的なパターン＆使用例サンプル</a>
-      </h3>
-      
-  <div class="post_meta">
-    <span><svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg></span>
-    <span class="post_date">
-      Dec 5, 2020</span>
-    <span class="post_time"> · 14 min read</span><span>&nbsp;· <a href='https://dede-20191130.github.io/learnerBlog/tags/excel' title="Excel" class="post_tag button button_translucent">Excel
-        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/vba' title="VBA" class="post_tag button button_translucent">VBA
-        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C' title="自作" class="post_tag button button_translucent">自作
-        </a>
-    </span>
-    <span class="page_only">&nbsp;·
-  <div class="post_share">
-    Share on:
-    <a href="https://twitter.com/intent/tweet?text=%5bVBA%5d%20%e4%be%8b%e5%a4%96%e5%87%a6%e7%90%86%e3%81%ae%e5%85%b8%e5%9e%8b%e7%9a%84%e3%81%aa%e3%83%91%e3%82%bf%e3%83%bc%e3%83%b3%ef%bc%86%e4%bd%bf%e7%94%a8%e4%be%8b%e3%82%b5%e3%83%b3%e3%83%97%e3%83%ab&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f12%2f05%2fvba-exception-handle%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#twitter"></use>
-</svg>
-    </a>
-    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f12%2f05%2fvba-exception-handle%2f&t=%5bVBA%5d%20%e4%be%8b%e5%a4%96%e5%87%a6%e7%90%86%e3%81%ae%e5%85%b8%e5%9e%8b%e7%9a%84%e3%81%aa%e3%83%91%e3%82%bf%e3%83%bc%e3%83%b3%ef%bc%86%e4%bd%bf%e7%94%a8%e4%be%8b%e3%82%b5%e3%83%b3%e3%83%97%e3%83%ab" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#facebook"></use>
-</svg>
-    </a>
-    <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#linkedin"></use>
-</svg>
-    </a>
-    <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/12/05/vba-exception-handle/" title="Copy Link" class="link link_yank">
-      <svg class="icon">
-  <use xlink:href="#copy"></use>
-</svg>
-    </a>
-  </div>
-  </span>
-  </div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">
-            
-              この記事について プログラミングにおいて、想定内のエラーが発生した場合に （あるいは自作のエラーを定義し、そのエラーが発生した際に） 例外として専
-            
-          </p>
-          <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/12/05/vba-exception-handle/" title="Read More" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/22/excel-class-sample-02/" title="[VBA] クラスを利用するメリットと方法について &amp; 簡単なサンプル（２）">[VBA] クラスを利用するメリットと方法について &amp; 簡単なサンプル（２）</a>
-      </h3>
-      
-  <div class="post_meta">
-    <span><svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg></span>
-    <span class="post_date">
-      Nov 22, 2020</span>
-    <span class="post_time"> · 10 min read</span><span>&nbsp;· <a href='https://dede-20191130.github.io/learnerBlog/tags/access' title="Access" class="post_tag button button_translucent">Access
-        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/vba' title="VBA" class="post_tag button button_translucent">VBA
-        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C' title="自作" class="post_tag button button_translucent">自作
-        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91' title="オブジェクト指向" class="post_tag button button_translucent">オブジェクト指向
-        </a>
-    </span>
-    <span class="page_only">&nbsp;·
-  <div class="post_share">
-    Share on:
-    <a href="https://twitter.com/intent/tweet?text=%5bVBA%5d%20%e3%82%af%e3%83%a9%e3%82%b9%e3%82%92%e5%88%a9%e7%94%a8%e3%81%99%e3%82%8b%e3%83%a1%e3%83%aa%e3%83%83%e3%83%88%e3%81%a8%e6%96%b9%e6%b3%95%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6%20%26%20%e7%b0%a1%e5%8d%98%e3%81%aa%e3%82%b5%e3%83%b3%e3%83%97%e3%83%ab%ef%bc%88%ef%bc%92%ef%bc%89&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f11%2f22%2fexcel-class-sample-02%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#twitter"></use>
-</svg>
-    </a>
-    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f11%2f22%2fexcel-class-sample-02%2f&t=%5bVBA%5d%20%e3%82%af%e3%83%a9%e3%82%b9%e3%82%92%e5%88%a9%e7%94%a8%e3%81%99%e3%82%8b%e3%83%a1%e3%83%aa%e3%83%83%e3%83%88%e3%81%a8%e6%96%b9%e6%b3%95%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6%20%26%20%e7%b0%a1%e5%8d%98%e3%81%aa%e3%82%b5%e3%83%b3%e3%83%97%e3%83%ab%ef%bc%88%ef%bc%92%ef%bc%89" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#facebook"></use>
-</svg>
-    </a>
-    <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#linkedin"></use>
-</svg>
-    </a>
-    <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/22/excel-class-sample-02/" title="Copy Link" class="link link_yank">
-      <svg class="icon">
-  <use xlink:href="#copy"></use>
-</svg>
-    </a>
-  </div>
-  </span>
-  </div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">
-            
-              この記事について この記事は、 [VBA] クラスを利用するメリットと方法について &amp; 簡単なサンプル（１）の続きの記事。 （１）とは違ったサンプルを用いて、前
-            
-          </p>
-          <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/22/excel-class-sample-02/" title="Read More" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/20/excel-class-sample-01/" title="[VBA] クラスを利用するメリットと方法について &amp; 簡単なサンプル（１）">[VBA] クラスを利用するメリットと方法について &amp; 簡単なサンプル（１）</a>
-      </h3>
-      
-  <div class="post_meta">
-    <span><svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg></span>
-    <span class="post_date">
-      Nov 20, 2020</span>
-    <span class="post_time"> · 14 min read</span><span>&nbsp;· <a href='https://dede-20191130.github.io/learnerBlog/tags/excel' title="Excel" class="post_tag button button_translucent">Excel
-        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/vba' title="VBA" class="post_tag button button_translucent">VBA
-        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C' title="自作" class="post_tag button button_translucent">自作
-        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91' title="オブジェクト指向" class="post_tag button button_translucent">オブジェクト指向
-        </a>
-    </span>
-    <span class="page_only">&nbsp;·
-  <div class="post_share">
-    Share on:
-    <a href="https://twitter.com/intent/tweet?text=%5bVBA%5d%20%e3%82%af%e3%83%a9%e3%82%b9%e3%82%92%e5%88%a9%e7%94%a8%e3%81%99%e3%82%8b%e3%83%a1%e3%83%aa%e3%83%83%e3%83%88%e3%81%a8%e6%96%b9%e6%b3%95%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6%20%26%20%e7%b0%a1%e5%8d%98%e3%81%aa%e3%82%b5%e3%83%b3%e3%83%97%e3%83%ab%ef%bc%88%ef%bc%91%ef%bc%89&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f11%2f20%2fexcel-class-sample-01%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#twitter"></use>
-</svg>
-    </a>
-    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f11%2f20%2fexcel-class-sample-01%2f&t=%5bVBA%5d%20%e3%82%af%e3%83%a9%e3%82%b9%e3%82%92%e5%88%a9%e7%94%a8%e3%81%99%e3%82%8b%e3%83%a1%e3%83%aa%e3%83%83%e3%83%88%e3%81%a8%e6%96%b9%e6%b3%95%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6%20%26%20%e7%b0%a1%e5%8d%98%e3%81%aa%e3%82%b5%e3%83%b3%e3%83%97%e3%83%ab%ef%bc%88%ef%bc%91%ef%bc%89" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#facebook"></use>
-</svg>
-    </a>
-    <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#linkedin"></use>
-</svg>
-    </a>
-    <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/20/excel-class-sample-01/" title="Copy Link" class="link link_yank">
-      <svg class="icon">
-  <use xlink:href="#copy"></use>
-</svg>
-    </a>
-  </div>
-  </span>
-  </div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">
-            
-              この記事について VBAにおけるクラスっていまいちマイナーで使いにくい存在だと思っている。 理由はいくつかあって、 Javaなどと違ってクラスを使
-            
-          </p>
-          <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/20/excel-class-sample-01/" title="Read More" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-    <li>
-    <ul class="pagination pagination-default">
-      <li class="page-item">
-        <a href="/learnerBlog/tags/vba/" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
-      </li>
-      <li class="page-item">
-        <a href="/learnerBlog/tags/vba/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
-      </li>
-      <li class="page-item">
-        <a href="/learnerBlog/tags/vba/" aria-label="Page 1" class="page-link" role="button">1</a>
-      </li>
-      <li class="page-item active">
-        <a href="#" aria-current="page" aria-label="Page 2" class="page-link" role="button">2</a>
-      </li>
-      <li class="page-item">
-        <a href="/learnerBlog/tags/vba/page/3/" aria-label="Page 3" class="page-link" role="button">3</a>
-      </li>
-      <li class="page-item">
-        <a href="/learnerBlog/tags/vba/page/3/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
-      </li>
-      <li class="page-item">
-        <a href="/learnerBlog/tags/vba/page/3/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
-      </li>
-    </ul>
+    
+    
+    <h2>Overview</h2>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#この記事について">この記事について</a></li>
+    <li><a href="#やりたいこと">やりたいこと</a></li>
+    <li><a href="#処理の流れ">処理の流れ</a>
+      <ul>
+        <li><a href="#ブックの最初のシートを選択する処理">ブックの最初のシートを選択する処理</a>
+          <ul>
+            <li><a href="#sheetsコレクションとは">Sheetsコレクションとは？</a></li>
+            <li><a href="#シートのインデックスとは">シートのインデックスとは？</a></li>
+            <li><a href="#選択方法">選択方法</a></li>
+            <li><a href="#ただし非表示シートが有ると工夫が必要">ただし非表示シートが有ると工夫が必要</a></li>
+          </ul>
+        </li>
+        <li><a href="#シートの最初のセルを選択する処理">シートの最初のセルを選択する処理</a></li>
+      </ul>
     </li>
+    <li><a href="#最終的なコード">最終的なコード</a></li>
+    <li><a href="#デモ">デモ</a></li>
+    <li><a href="#応用すべてのシートの最初のセルを選択した状態にするマクロ">応用：すべてのシートの最初のセルを選択した状態にするマクロ</a></li>
+    <li><a href="#終わりに">終わりに</a></li>
   </ul>
+</nav>
+    <p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640920597/learnerBlog/vba-question-005-select-first-worksheet/select-first-worksheet_zrvw3w.png" alt=""></p>
+<h2 id="この記事について">この記事について</h2>
+
+
+
+<div class="box-with-title">
+    <p><span>かんたんな概要と結論</span></p>
+    <div class="inner">
+         
+    各シートはSheetsコレクションに含まれ、<br>
+    インデックスの最初の数をコレクションで指定することで最初のシートを参照できます。<br>
+    非表示シートの存在には注意が必要です。
+
+    </div>
+</div>
+<p>こんにちは、dedeです。</p>
+<p>この記事では、<br>
+VBAマクロに関する質問のうち、<br>
+皆が疑問に思っているトピックについて解説いたします。</p>
+<p>今回は、
+
+
+<span style="color: #fb9700;">
+    ブックの最初のシートの最初のセルを選択した状態にする方法
+</span><br>
+を解説いたします。</p>
+<p>※この記事は、Office VBAマクロのうち<br>
+Excel VBAマクロに関するトピックです。</p>
+<p>レベル：<b>初級者向け</b></p>
+<h2 id="やりたいこと">やりたいこと</h2>
+<p>Excelで作業をしていると、<br>
+トピックごとに複数シートに分けて記載して内容を管理するというのは<br>
+よく行われるかと思われます。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640920597/learnerBlog/vba-question-005-select-first-worksheet/select-first-worksheet2_gfdkbu.png" alt="複数シートで管理"></p>
+<p>シートを他の人に渡したりするときに、<br>
+ブックの最初のシートを選択した状態にしておきたい場合があるかと思います。</p>
+<p>下の図では、マクロで「表紙」シートを開いた状態にする流れです。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640920597/learnerBlog/vba-question-005-select-first-worksheet/select-first-worksheet3_ekxzrb.png" alt="最初のシートを表示するマクロ"></p>
+<p>この記事ではその処理の流れを説明します。</p>
+<h2 id="処理の流れ">処理の流れ</h2>
+<p>処理の流れは、大きく分けて</p>
+<ol>
+<li>ブックの最初のシートを選択する処理</li>
+<li>シートの最初のセルを選択する処理
+の順です。</li>
+</ol>
+<h3 id="ブックの最初のシートを選択する処理">ブックの最初のシートを選択する処理</h3>
+<p>シートを選択するためには、<br>
+シートが格納されているものの実態について理解するところから始まる必要があります。</p>
+<p>※※ここでいう「シート」とはいわゆるワークシート（通常使うセルが敷き詰められたシート）で、<br>
+グラフシートやマクロシートと呼ばれるシートは含まれていないことを前提とします。<br>
+これらのシートはあまり使われないですしね。</p>
+<h4 id="sheetsコレクションとは">Sheetsコレクションとは？</h4>
+<p>わたしたちが作成したシートは、<br>
+Sheetsコレクションという格納用変数に順次入れられていきます。</p>
+<p>コレクションとは、<br>
+VBAにおけるオブジェクト（データとそれを操作する関数をまとめたもの）の一種で、<br>
+同じ構造のデータをまとめて格納するためのものです。</p>
+<p>その点で、配列によく似ています。<br>
+ただし、データの入れ方や取り出し方法などの点で配列とは区別されます。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640920598/learnerBlog/vba-question-005-select-first-worksheet/select-first-worksheet4_hxsu1x.png" alt="Sheetsコレクション"></p>
+<p>現在表示されているブックのSheetsコレクションを取得するには、<br>
+次のように書きます。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln">1</span><span class="k">Set</span> <span class="n">mySheets</span> <span class="o">=</span> <span class="n">ActiveWorkbook</span><span class="p">.</span><span class="n">Worksheets</span>
+<span class="ln">2</span><span class="k">Set</span> <span class="n">mySheets</span> <span class="o">=</span> <span class="n">Worksheets</span> <span class="c">&#39;//省略も可
+</span><span class="ln">3</span><span class="c"></span>
+</code></pre></div><h4 id="シートのインデックスとは">シートのインデックスとは？</h4>
+<p>シートのインデックスとは、<br>
+シートの並び順を規定するもので、<br>
+Sheetsコレクションで操作したいシートを参照する際に利用されます。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln">1</span><span class="n">my_number</span> <span class="o">=</span> <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Index</span> <span class="c">&#39;//現在表示しているシートのインデックス番号が格納されます
+</span><span class="ln">2</span><span class="c"></span><span class="n">name</span> <span class="o">=</span> <span class="n">Worksheets</span><span class="p">.</span><span class="n">Item</span><span class="p">(</span><span class="n">my_number</span><span class="p">).</span><span class="n">name</span> <span class="c">&#39;//現在表示しているシートを参照し、その名前を取得します。
+</span><span class="ln">3</span><span class="c"></span><span class="n">name</span> <span class="o">=</span> <span class="n">Worksheets</span><span class="p">(</span><span class="n">my_number</span><span class="p">).</span><span class="n">name</span> <span class="c">&#39;//Itemプロパティは省略可。省略すると、配列に似た参照方法となります。
+</span></code></pre></div><p>インデックスは1から始まりシート数を最大上限とします。<br>
+10シート存在するブックなら、
+最初のシートのインデックスは1、最後のシートのインデックスは10です。</p>
+<p>インデックスの並びの決め方は、<br>
+UIで見たときの左から右のシートタブの並びと同じです。<br>
+例えば、下のようなブックであれば、<br>
+表紙シートのインデックスは1、年間推移シートは2、総括シートは3です。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640920597/learnerBlog/vba-question-005-select-first-worksheet/select-first-worksheet5_yrssti.png" alt="ブックサンプル"></p>
+<h4 id="選択方法">選択方法</h4>
+<p>上記を踏まえ、<br>
+ブックの最初のシートを選択する処理のコードは次のようになります。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln">1</span><span class="k">Dim</span> <span class="n">firstWorkSheet</span>
+<span class="ln">2</span><span class="k">Set</span> <span class="n">firstWorkSheet</span> <span class="o">=</span> <span class="n">Worksheets</span><span class="p">(</span><span class="n">1</span><span class="p">)</span>
+<span class="ln">3</span><span class="n">firstWorkSheet</span><span class="p">.</span><span class="n">Select</span> <span class="c">&#39;//シートの選択
+</span><span class="ln">4</span><span class="c"></span>
+</code></pre></div><h4 id="ただし非表示シートが有ると工夫が必要">ただし非表示シートが有ると工夫が必要</h4>
+<p>今まで説明した方法は、<br>
+じつは非表示シートが存在すると使用できません。</p>
+<p>理由は、非表示シートではSelectメソッドを実行するとエラーが起こるからです。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640920596/learnerBlog/vba-question-005-select-first-worksheet/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2021-12-31_115927_atmj1c.png" alt="エラーの発生"></p>
+<p>そのため、非表示ではないシートのうち<br>
+最も番号の若いものを選択するという工夫が必要となります。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln">1</span><span class="c">&#39;可視シートのうち最も番号の若いものを選択
+</span><span class="ln">2</span><span class="c"></span><span class="k">For</span> <span class="k">Each</span> <span class="n">my_sheet</span> <span class="ow">In</span> <span class="n">Worksheets</span>
+<span class="ln">3</span>    <span class="k">If</span> <span class="n">my_sheet</span><span class="p">.</span><span class="n">Visible</span> <span class="o">=</span> <span class="k">True</span> <span class="k">Then</span>
+<span class="ln">4</span>        <span class="n">my_sheet</span><span class="p">.</span><span class="n">Select</span>
+<span class="ln">5</span>        <span class="k">Exit</span> <span class="k">For</span>
+<span class="ln">6</span>    <span class="k">End</span> <span class="k">If</span>
+<span class="ln">7</span><span class="k">Next</span>
+<span class="ln">8</span>
+</code></pre></div><p>マクロを利用するブックが、<br>
+非表示シートを含んでいるかいないかについては<br>
+注意する必要があるでしょう。</p>
+<h3 id="シートの最初のセルを選択する処理">シートの最初のセルを選択する処理</h3>
+<p>シートの最初のセルはA1セルです。</p>
+<p>そのため、A1にカーソルを選択させれば目的達成されます。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln">1</span><span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="s">&#34;A1&#34;</span><span class="p">).</span><span class="n">Select</span>
+</code></pre></div><h2 id="最終的なコード">最終的なコード</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln">1</span><span class="k">Sub</span> <span class="nf">ブックの最初のシートの最初のセルを選択</span><span class="p">()</span>
+<span class="ln">2</span>    <span class="k">Dim</span> <span class="n">firstWorkSheet</span>
+<span class="ln">3</span>    <span class="k">Set</span> <span class="n">firstWorkSheet</span> <span class="o">=</span> <span class="n">Worksheets</span><span class="p">(</span><span class="n">1</span><span class="p">)</span>
+<span class="ln">4</span>    <span class="n">firstWorkSheet</span><span class="p">.</span><span class="n">Select</span> <span class="c">&#39;//シートの選択
+</span><span class="ln">5</span><span class="c"></span>    
+<span class="ln">6</span>    <span class="n">firstWorkSheet</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="s">&#34;A1&#34;</span><span class="p">).</span><span class="n">Select</span>
+<span class="ln">7</span><span class="k">End</span> <span class="k">Sub</span>
+<span class="ln">8</span>
+</code></pre></div><h2 id="デモ">デモ</h2>
+<p>次のように3シート存在するブックで、<br>
+三枚目の総括シートを表示中です。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640920596/learnerBlog/vba-question-005-select-first-worksheet/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2021-12-31_120748_iacajx.png" alt="マクロ実行前"></p>
+<p>VBAマクロを実行すると、<br>
+一枚目の表紙シートが開かれ、A1セルに照準が合わされた状態になります。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640920596/learnerBlog/vba-question-005-select-first-worksheet/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2021-12-31_120804_nyzckb.png" alt="マクロ実行後"></p>
+<h2 id="応用すべてのシートの最初のセルを選択した状態にするマクロ">応用：すべてのシートの最初のセルを選択した状態にするマクロ</h2>
+<p>一枚目シートだけではなく、<br>
+すべてのシートのA1セルにカーソルが合った状態にするマクロは、<br>
+次のようになります。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span><span class="k">Sub</span> <span class="nf">すべてのシートの最初のセルを選択</span>
+<span class="ln"> 2</span>    <span class="c">&#39;変数
+</span><span class="ln"> 3</span><span class="c"></span>    <span class="k">Dim</span> <span class="n">cntObj</span> <span class="ow">As</span> <span class="kt">Object</span>                         <span class="c">&#39;ループカウンタ
+</span><span class="ln"> 4</span><span class="c"></span>    
+<span class="ln"> 5</span>    
+<span class="ln"> 6</span>    <span class="c">&#39;すべてのシートのカーソルを左上セル（A1セル）に合わせる
+</span><span class="ln"> 7</span><span class="c"></span>    <span class="k">For</span> <span class="k">Each</span> <span class="n">cntObj</span> <span class="ow">In</span> <span class="n">Worksheets</span>
+<span class="ln"> 8</span>        <span class="c">&#39;非表示セルは飛ばす
+</span><span class="ln"> 9</span><span class="c"></span>        <span class="k">If</span> <span class="n">cntObj</span><span class="p">.</span><span class="n">Visible</span> <span class="o">=</span> <span class="k">True</span> <span class="k">Then</span>
+<span class="ln">10</span>            <span class="n">cntObj</span><span class="p">.</span><span class="n">Select</span>
+<span class="ln">11</span>            <span class="n">cntObj</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="s">&#34;A1&#34;</span><span class="p">).</span><span class="n">Select</span>
+<span class="ln">12</span>        <span class="k">End</span> <span class="k">If</span>
+<span class="ln">13</span>    <span class="k">Next</span>
+<span class="ln">14</span>    
+<span class="ln">15</span>    <span class="c">&#39;可視シートのうち最も番号の若いものを選択
+</span><span class="ln">16</span><span class="c"></span>    <span class="k">For</span> <span class="k">Each</span> <span class="n">cntObj</span> <span class="ow">In</span> <span class="n">Worksheets</span>
+<span class="ln">17</span>        <span class="k">If</span> <span class="n">cntObj</span><span class="p">.</span><span class="n">Visible</span> <span class="o">=</span> <span class="k">True</span> <span class="k">Then</span>
+<span class="ln">18</span>            <span class="n">cntObj</span><span class="p">.</span><span class="n">Select</span>
+<span class="ln">19</span>            <span class="k">Exit</span> <span class="k">For</span>
+<span class="ln">20</span>        <span class="k">End</span> <span class="k">If</span>
+<span class="ln">21</span>    <span class="k">Next</span>
+<span class="ln">22</span>
+<span class="ln">23</span><span class="k">End</span> <span class="k">Sub</span>
+</code></pre></div><h2 id="終わりに">終わりに</h2>
+<p>このマクロを通して、<br>
+シートの取り扱い方、<br>
+VBAにおけるコレクションという存在と使用方法、<br>
+非表示シートの注意点について把握することができるでしょう。</p>
+<p>これらの知識は他マクロにも応用できるでしょう。</p>
+
+     
+     
+     
+     <h3>関連記事</h3>
+     <ul>
+         
+         <li><a href="/learnerBlog/posts/2021/12/30/vba-question-004-copypaste-shapes/">[教えて！VBA] 第4回 シート上の図形をコピーして他のセル上に貼り付けするにはどうすればいいの？？</a></li>
+         
+         <li><a href="/learnerBlog/posts/2021/12/29/paste-only-colors/">[Excel VBA] セルの文字色・背景色だけをコピーして貼り付けるマクロを作成しました</a></li>
+         
+         <li><a href="/learnerBlog/posts/2021/12/14/vba-question-002-chekc-single-cell/">[教えて！VBA] 第2回 一つのセルの値が「東京都」であることを条件として別のアクションを行うにはどうすればいいの？？</a></li>
+         
+         <li><a href="/learnerBlog/posts/2021/03/29/wsfunc-networkday/">[Excel VBA] 年度に関わらず営業日数を算出する方法について紹介</a></li>
+         
+         <li><a href="/learnerBlog/posts/2021/02/13/copyto-merged-cell/">[Excel VBA] 結合セルにコピーペーストするマクロ</a></li>
+         
+     </ul>
+     <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "learnerblog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </article>
 <aside class="sidebar">
   <section class="sidebar_inner">
         <h2>dede-20191130</h2>
@@ -758,9 +406,6 @@
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/12/31/vba-question-005-select-first-worksheet/" class="nav-link" title="[教えて！VBA] 第5回 ブックの最初のシートの最初のセルを選択した状態にするにはどうすればいいの？？">[教えて！VBA] 第5回 ブックの最初のシートの最初のセルを選択した状態にするにはどうすればいいの？？</a>
-      </li>
-      <li>
         <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/12/30/vba-question-004-copypaste-shapes/" class="nav-link" title="[教えて！VBA] 第4回 シート上の図形をコピーして他のセル上に貼り付けするにはどうすればいいの？？">[教えて！VBA] 第4回 シート上の図形をコピーして他のセル上に貼り付けするにはどうすればいいの？？</a>
       </li>
       <li>
@@ -780,6 +425,9 @@
       </li>
       <li>
         <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/11/01/bookmarklet-img-other-tab/" class="nav-link" title="[Javacript] 画像をワンクリックで別タブで開けるようにするブックマークレットを作成する">[Javacript] 画像をワンクリックで別タブで開けるようにするブックマークレットを作成する</a>
+      </li>
+      <li>
+        <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/10/30/tuning-usecontext-for-obj/" class="nav-link" title="[React Hook] レンダリングのチューニング ~オブジェクトをContextとして利用する場合 &amp; サンプルコード~">[React Hook] レンダリングのチューニング ~オブジェクトをContextとして利用する場合 &amp; サンプルコード~</a>
       </li>
     </ul>
     <div>
@@ -1167,9 +815,8 @@
   </section>
 </aside>
 
+  
 </div>
-
-
     </main><svg width="0" height="0" class="hidden">
   <symbol viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" id="facebook">
     <path d="M437 0H75C33.648 0 0 33.648 0 75v362c0 41.352 33.648 75 75 75h151V331h-60v-90h60v-61c0-49.629 40.371-90 90-90h91v90h-91v61h91l-15 90h-76v181h121c41.352 0 75-33.648 75-75V75c0-41.352-33.648-75-75-75zm0 0"></path>
