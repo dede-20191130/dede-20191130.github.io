@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2022 on 学習者dedeのブログ ~プログラミング等~</title>
+    <link>https://dede-20191130.github.io/learnerBlog/archives/2022/</link>
+    <description>Recent content in 2022 on 学習者dedeのブログ ~プログラミング等~</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sat, 01 Jan 2022 08:13:06 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/archives/2022/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[教えて！VBA] 第6回 エクセルVBAマクロで、マクロを終了するにはどうすればいいの？？</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2022/01/01/vba-question-006-kinds-of-end-process/</link>
+      <pubDate>Sat, 01 Jan 2022 08:13:06 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2022/01/01/vba-question-006-kinds-of-end-process/</guid>
+      <description>
+        
+          &lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641001541/learnerBlog/vba-question-006-kinds-of-end-process/kinds-of-end-process_h8dftp.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
+
+
+
+&lt;div class=&#34;box-with-title&#34;&gt;
+    &lt;p&gt;&lt;span&gt;かんたんな概要と結論&lt;/span&gt;&lt;/p&gt;
+    &lt;div class=&#34;inner&#34;&gt;
+         
+    マクロを終了するには、①関数から抜け出す、②マクロ全体を終了する、③Excelを閉じるの3通りが存在します&lt;br&gt;
+    （解釈次第で他にも存在するでしょう）。&lt;br&gt;&lt;br&gt;
+    副作用として起こる結果も考慮して、最適な方法を選択すると良いでしょう。
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;こんにちは、dedeです。&lt;/p&gt;
+&lt;p&gt;この記事では、&lt;br&gt;
+VBAマクロに関する質問のうち、&lt;br&gt;
+皆が疑問に思っているトピックについて解説いたします。&lt;/p&gt;
+&lt;p&gt;今回は、
+
+
+&lt;span style=&#34;color: #fb9700;&#34;&gt;
+    VBAコードからマクロを終了する方法
+&lt;/span&gt;&lt;br&gt;
+を解説いたします。&lt;/p&gt;
+&lt;p&gt;※この記事は、Office VBAマクロのうち&lt;br&gt;
+Excel VBAマクロに関するトピックです。&lt;/p&gt;
+&lt;p&gt;レベル：&lt;b&gt;初級者向け&lt;/b&gt;&lt;/p&gt;
+&lt;h2 id=&#34;マクロを終了するとはそれぞれの要望の違い&#34;&gt;マクロを終了するとは？（それぞれの要望の違い）&lt;/h2&gt;
+&lt;p&gt;「マクロを終了」という手続きは、&lt;br&gt;
+表現したい処理別に、様々に解釈できると思いますが、&lt;br&gt;
+大きく分けて次の３つに分類されると思っています（他にも色々とあるでしょうが）。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;現在の関数から抜け出す。&lt;/li&gt;
+&lt;li&gt;マクロ全体の実行を終了する&lt;/li&gt;
+&lt;li&gt;Excelアプリケーションを閉じる。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;下記では、&lt;br&gt;
+１～３のそれぞれについて&lt;br&gt;
+どのようなことが起こっているかの説明と書き方、副作用について&lt;br&gt;
+記載します。&lt;/p&gt;
+&lt;h2 id=&#34;それぞれの方法についての説明と書き方&#34;&gt;それぞれの方法についての説明と書き方&lt;/h2&gt;
+&lt;h3 id=&#34;exit関数の途中で抜け出す&#34;&gt;Exit（関数の途中で抜け出す）&lt;/h3&gt;
+&lt;h4 id=&#34;about&#34;&gt;ABOUT&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641001541/learnerBlog/vba-question-006-kinds-of-end-process/kinds-of-end-process2_uc7xwg.png&#34; alt=&#34;Exit（関数の途中で抜け出す）&#34;&gt;&lt;/p&gt;
+&lt;p&gt;関数の内部で&lt;code&gt;Exit Sub&lt;/code&gt;、もしくは&lt;code&gt;Exit Function&lt;/code&gt;（プロシージャの種類ごとに決定）を呼び出すことで、&lt;br&gt;
+現在実行中の関数から抜け出すことができます。&lt;/p&gt;
+&lt;p&gt;上の図のように、&lt;br&gt;
+親関数から呼び出した子関数において&lt;code&gt;Exit Sub&lt;/code&gt;を呼び出すことで、&lt;br&gt;
+子関数のそれ以降の処理を無視して、&lt;br&gt;
+親関数における子関数呼び出し行以降の処理を再開することができます。&lt;/p&gt;
+&lt;h4 id=&#34;コード&#34;&gt;コード&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;親関数&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;Debug&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Print&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;親関数 &amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Call&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;子関数&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;Debug&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Print&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;親関数 &amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;2&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;子関数&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;Debug&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Print&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;子関数 &amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;    &lt;span class=&#34;nf&#34;&gt;Debug&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Print&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;子関数 &amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;2&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;Debug&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Print&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;子関数 &amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;3&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;親関数を実行すると、&lt;br&gt;
+イミディエイトウィンドウにログが表示されます。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;親関数 1
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;子関数 1
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;親関数 2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;関数の途中で&lt;code&gt;exit&lt;/code&gt;しているため、&lt;br&gt;
+「子関数 2」の行以降は無視されています。&lt;/p&gt;
+&lt;p&gt;その後、親関数の「親関数 2」以降の行が順次実行されています。&lt;/p&gt;
+&lt;h3 id=&#34;endマクロ全体を実行終了&#34;&gt;End（マクロ全体を実行終了）&lt;/h3&gt;
+&lt;h4 id=&#34;about-1&#34;&gt;ABOUT&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641001541/learnerBlog/vba-question-006-kinds-of-end-process/kinds-of-end-process3_mnml20.png&#34; alt=&#34;End（マクロ全体を実行終了）&#34;&gt;&lt;/p&gt;
+&lt;p&gt;関数の内部で&lt;code&gt;End&lt;/code&gt;ステートメントを呼び出すことで、&lt;br&gt;
+VBAマクロ全体を終了します。&lt;/p&gt;
+&lt;p&gt;上の図のように、&lt;br&gt;
+親関数から呼び出した子関数において&lt;code&gt;End&lt;/code&gt;を呼び出すことで、&lt;br&gt;
+子関数のそれ以降の処理を無視して、&lt;br&gt;
+親関数の処理も無視してマクロ自体を終了します。&lt;/p&gt;
+&lt;p&gt;※※後述するように、&lt;br&gt;
+この方法にはいくつか副作用があるため、&lt;br&gt;
+注意が必要です。&lt;/p&gt;
+&lt;h4 id=&#34;コード-1&#34;&gt;コード&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;親関数&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;Debug&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Print&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;親関数 &amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Call&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;子関数&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;Debug&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Print&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;親関数 &amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;2&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;子関数&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;Debug&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Print&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;子関数 &amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;End&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;Debug&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Print&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;子関数 &amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;2&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;Debug&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Print&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;子関数 &amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;3&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;親関数を実行すると、&lt;br&gt;
+イミディエイトウィンドウにログが表示されます。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;親関数 1
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;子関数 1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;End&lt;/code&gt;を宣言した後のすべての行は実行されなくなります。&lt;br&gt;
+子関数のみならず、親関数（さらに親関数を呼び出している関数など、再帰的にすべての関数）も同様です。&lt;br&gt;
+そのため、「親関数 2」ログは出力されません。&lt;/p&gt;
+&lt;h4 id=&#34;副作用&#34;&gt;副作用&lt;/h4&gt;
+&lt;p&gt;この方法はマクロ全体の実行を終了するため、&lt;br&gt;
+いくつかの副作用があります。&lt;/p&gt;
+&lt;p&gt;①VBAが占有していたメモリが解放される。&lt;/p&gt;
+&lt;p&gt;変数の値がクリアされ、すべてのオブジェクトが初期化されます。&lt;/p&gt;
+&lt;p&gt;そのため、モジュール変数に値が格納されていることが想定されたマクロの実行などは、&lt;br&gt;
+&lt;code&gt;End&lt;/code&gt;実行の後は正常に動作しません（再度変数に値をセットするところから始めないといけません）。&lt;/p&gt;
+&lt;p&gt;②Openしていたファイルが閉じられる。&lt;/p&gt;
+&lt;p&gt;編集したり読み取りしたりしていたファイルが強制的に遮断されます。&lt;br&gt;
+書き込み内容がブツ切れにならないように、&lt;br&gt;
+ファイルI/Oに関連した処理で&lt;code&gt;End&lt;/code&gt;を使用するのは（可能であれば）避けたほうが良いでしょう。&lt;/p&gt;
+&lt;h3 id=&#34;quitexcelアプリを終了して閉じる&#34;&gt;Quit（Excelアプリを終了して閉じる）&lt;/h3&gt;
+&lt;h4 id=&#34;about-2&#34;&gt;ABOUT&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641001541/learnerBlog/vba-question-006-kinds-of-end-process/kinds-of-end-process4_g8xqiq.png&#34; alt=&#34;Quit（Excelアプリを終了して閉じる）&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Excelアプリ自体を閉じる方法です。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Application.Quit&lt;/code&gt;を実行することで、&lt;br&gt;
+マクロだけでなくExcelアプリケーション自体を終了することになるので、&lt;br&gt;
+他に開いているブックを保存するか・しないか、&lt;br&gt;
+また、終了前の処理は何を行うべきか、などをあわせて&lt;br&gt;
+検討すると良いでしょう。&lt;/p&gt;
+&lt;h4 id=&#34;コード-2&#34;&gt;コード&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;親関数&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;Debug&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Print&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;親関数 &amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Call&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;子関数&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;Debug&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Print&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;親関数 &amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;2&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;子関数&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;Debug&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Print&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;子関数 &amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;Application&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Quit&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;Debug&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Print&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;子関数 &amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;2&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;Debug&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Print&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;子関数 &amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;3&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;親関数を実行すると、&lt;br&gt;
+子関数の&lt;code&gt;Quit&lt;/code&gt;実行行で、Excelが閉じられます。&lt;/p&gt;
+&lt;p&gt;それ以降の処理は実行されないままExcelが終了されます。&lt;/p&gt;
+&lt;h2 id=&#34;終わりに&#34;&gt;終わりに&lt;/h2&gt;
+&lt;p&gt;「マクロを終了する」という一つの要望に対しても、&lt;br&gt;
+付帯する様々な結果があることがわかります。&lt;/p&gt;
+&lt;p&gt;終了処理が不十分なままマクロを終了しないように注意して、&lt;br&gt;
+適切な方法を選択するようにできれば、&lt;br&gt;
+マクロの品質が上がるでしょう。&lt;/p&gt;
+
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>
