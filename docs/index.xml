@@ -6,7 +6,250 @@
     <description>Recent content on 学習者dedeのブログ ~プログラミング等~</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 01 Jan 2022 08:13:06 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 02 Jan 2022 13:07:25 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[教えて！VBA] 第7回 フォルダを開く（＋ファイルを操作する）にはどうすればいいの？？</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2022/01/02/vba-question-007-manipulate-folder-files/</link>
+      <pubDate>Sun, 02 Jan 2022 13:07:25 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2022/01/02/vba-question-007-manipulate-folder-files/</guid>
+      <description>
+        
+          &lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641189331/learnerBlog/vba-question-007-manipulate-folder-files/manipulate-folder-files_m8m4zz.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
+
+
+
+&lt;div class=&#34;box-with-title&#34;&gt;
+    &lt;p&gt;&lt;span&gt;かんたんな概要と結論&lt;/span&gt;&lt;/p&gt;
+    &lt;div class=&#34;inner&#34;&gt;
+         
+    フォルダを開くには、&lt;br/&gt;エクスプローラを起動して開く、ダイアログボックスで開くの二通りが存在します。&lt;br/&gt;&lt;br/&gt;
+    また、操作したいファイルが有るフォルダが固定であれば、&lt;br/&gt;APIを用いてバックグラウンドでファイルを開いて操作することができます。
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;こんにちは、dedeです。&lt;/p&gt;
+&lt;p&gt;この記事では、&lt;br&gt;
+VBAマクロに関する質問のうち、&lt;br&gt;
+皆が疑問に思っているトピックについて解説いたします。&lt;/p&gt;
+&lt;p&gt;今回は、
+
+
+&lt;span style=&#34;color: #fb9700;&#34;&gt;
+    VBAマクロからフォルダを開く（＋α ファイルを操作する）方法
+&lt;/span&gt;&lt;br&gt;
+を解説いたします。&lt;/p&gt;
+&lt;p&gt;※この記事は、Office VBAマクロのうち&lt;br&gt;
+Excel VBAマクロに関するトピックです。&lt;/p&gt;
+&lt;p&gt;レベル：&lt;b&gt;中級者向け&lt;/b&gt;&lt;/p&gt;
+&lt;h2 id=&#34;やりたいこと&#34;&gt;やりたいこと&lt;/h2&gt;
+&lt;p&gt;特定フォルダの内容をチェックしたり、&lt;br&gt;
+CSVなどの外部ファイルの内容を取り込んだりすることは&lt;br&gt;
+VBAマクロにおいてしばしば要求される処理の一つです。&lt;/p&gt;
+&lt;p&gt;マクロで「フォルダを開く」という動作にはいくつか種類があり、&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;エクスプローラ（ファイル閲覧、管理するアプリケーション）上でフォルダを開く&lt;/li&gt;
+&lt;li&gt;ダイアログボックス画面を開き、ユーザにファイル・フォルダを選択させる&lt;/li&gt;
+&lt;li&gt;組み込み関数やAPIを用いてフォルダ内を探索する
+などを、目的に合わせて採用することになると思われます。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;ただフォルダを開いて内容を視認することが目的であれば1. を、&lt;br&gt;
+利用者が操作するファイルを選ぶことができることを目的とするのであれば2. を、&lt;br&gt;
+すでに操作するファイルの置かれたフォルダの場所が決まっているのであれば3. を採用するのが良いでしょう。&lt;/p&gt;
+&lt;h2 id=&#34;フォルダを開くだけの場合&#34;&gt;フォルダを開くだけの場合&lt;/h2&gt;
+&lt;p&gt;フォルダを開くには、&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;ハイパーリンクの仕組みを利用する方法&lt;/li&gt;
+&lt;li&gt;外部プログラムを実行する方法（Shell）
+の二種類が存在します。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641189331/learnerBlog/vba-question-007-manipulate-folder-files/manipulate-folder-files2_bdhtna.png&#34; alt=&#34;フォルダを開くだけの場合&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;ハイパーリンクの仕組みを利用する方法&#34;&gt;ハイパーリンクの仕組みを利用する方法&lt;/h3&gt;
+&lt;h4 id=&#34;about&#34;&gt;ABOUT&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;Workbook&lt;/code&gt;オブジェクトの&lt;code&gt;FollowHyperlink&lt;/code&gt;メソッドを利用します。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Workbook&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;FollowHyperlink&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;引数&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;// メソッドの詳細はこちらを参照 https://vbabeginner.net/open-web-page-without-hyperlink/
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;このメソッドは、&lt;br&gt;
+Excelシート上のハイパーリンク押下時の挙動と同様の動作をしてフォルダを開きます。&lt;/p&gt;
+&lt;p&gt;ご存知かもしれませんが、&lt;br&gt;
+Excelシートにハイパーリンクを設定して、WebサイトのURLやブック内のセル番地ではなく&lt;br&gt;
+フォルダのパス（C:\temp~など）を指定すると、&lt;br&gt;
+リンクを押下したときにエクスプローラが起動し、指定したフォルダが開かれます。&lt;/p&gt;
+&lt;p&gt;その仕組みを利用します。&lt;/p&gt;
+&lt;h4 id=&#34;コード&#34;&gt;コード&lt;/h4&gt;
+&lt;p&gt;次のコードを実行すると、&lt;br&gt;
+引数&lt;code&gt;Address&lt;/code&gt;で指定したパスのフォルダを、&lt;br&gt;
+エクスプローラで開きます。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;ハイパーリンクの仕組みを利用する関数&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;path&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;path&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;C:\temp\&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;Application&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ThisWorkbook&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;FollowHyperlink&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Address&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;path&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;外部プログラムを実行する方法shell&#34;&gt;外部プログラムを実行する方法（Shell）&lt;/h3&gt;
+&lt;h4 id=&#34;about-1&#34;&gt;ABOUT&lt;/h4&gt;
+&lt;p&gt;Shell関数というVBAにもともと備わっている関数を利用します。&lt;/p&gt;
+&lt;p&gt;Shell関数とは、&lt;br&gt;
+外部の実行可能プログラム（アプリケーション）を指定して実行する事ができる機能を持っている関数です。&lt;/p&gt;
+&lt;p&gt;起動可能なアプリケーションは、&lt;br&gt;
+エクスプローラ、メモ帳、拡張子exeの各種ファイルなど多岐にわたります。&lt;/p&gt;
+&lt;p&gt;今回は、&lt;br&gt;
+Shell関数を利用してエクスプローラからフォルダを開きます。&lt;/p&gt;
+&lt;h4 id=&#34;コード-1&#34;&gt;コード&lt;/h4&gt;
+&lt;p&gt;次のように書きます。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Shell関数を利用するパターン&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Call&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Shell&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;explorer &amp;#34;&amp;#34;C:\temp\&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbNormalFocus&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;// 詳細な引数の指定方法はこちらを参照 https://vbabeginner.net/shell/
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;最初の引数には、&lt;br&gt;
+利用するアプリケーションパス（今回は&lt;code&gt;explorer&lt;/code&gt;。環境変数でパス解決されるため、explorerの文字だけで問題なし）と、&lt;br&gt;
+その後にフォルダパス名を記載する文字列を指定します。&lt;/p&gt;
+&lt;p&gt;その後、2つ目の引数で、&lt;br&gt;
+起動時のエクスプローラの開き方（最小化、最大化、非表示など）を指定します。&lt;br&gt;
+今回は&lt;code&gt;vbNormalFocus&lt;/code&gt;として、前回起動時のウィンドウ状態に準拠させます。&lt;/p&gt;
+&lt;h2 id=&#34;フォルダの中のファイルを操作する場合&#34;&gt;フォルダの中のファイルを操作する場合&lt;/h2&gt;
+&lt;p&gt;フォルダを開くだけでなく、&lt;br&gt;
+フォルダ内のファイルを操作したい場合は、&lt;br&gt;
+上述の
+2. ダイアログボックス画面を開き、ユーザにファイル・フォルダを選択させる
+3. 組み込み関数やAPIを用いてフォルダ内を探索する
+の方法を利用します。&lt;/p&gt;
+&lt;h3 id=&#34;ダイアログボックスから手動で選択する場合&#34;&gt;ダイアログボックスから手動で選択する場合&lt;/h3&gt;
+&lt;h4 id=&#34;about-2&#34;&gt;ABOUT&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641189331/learnerBlog/vba-question-007-manipulate-folder-files/manipulate-folder-files3_th9e3x.png&#34; alt=&#34;ダイアログボックスから手動で選択する場合&#34;&gt;&lt;/p&gt;
+&lt;p&gt;上の図のように、&lt;br&gt;
+マクロからダイアログボックスを起動し、&lt;br&gt;
+手動で選択したファイルを取り扱います。&lt;/p&gt;
+&lt;h4 id=&#34;コード-2&#34;&gt;コード&lt;/h4&gt;
+&lt;p&gt;メイン関数である「ダイアログボックス経由でファイル情報出力」から、&lt;br&gt;
+機能別に分けられたサブ関数２種類を呼び出しています。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;ダイアログボックス経由でファイル情報出力&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;filePath&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;filePath&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;サブ関数_ダイアログボックス表示してファイルパス取得&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;filePath&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;サブ関数_ファイルの情報をシートに出力&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;filePath&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;サブ関数_ダイアログボックス表示してファイルパス取得&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;With&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Application&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;FileDialog&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;msoFileDialogFilePicker&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;        &lt;span class=&#34;c&#34;&gt;&amp;#39;//フィルタ設定 テキストファイルだけ選択可能に制限する
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Filters&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Clear&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;        &lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Filters&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Add&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;テキストファイル&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;*.txt&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;        &lt;span class=&#34;c&#34;&gt;&amp;#39;//複数ファイル選択不可能に設定
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;AllowMultiSelect&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;False&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;        &lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Title&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;ファイル選択&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;        &lt;span class=&#34;c&#34;&gt;&amp;#39;//ファイル選択した場合に「Show」がTrueになる
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;c&#34;&gt;&amp;#39;//ファイル選択せず閉じた場合はFalse
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Show&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;True&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;            &lt;span class=&#34;n&#34;&gt;サブ関数_ダイアログボックス表示してファイルパス取得&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SelectedItems&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;With&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Function&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;サブ関数_ファイルの情報をシートに出力&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ByVal&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;filePath&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;fso&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Object&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;32&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;myFile&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Object&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;33&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;//ファイル取り扱う機能を持つオブジェクトを取得（FileSystemObject）
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;34&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;fso&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;CreateObject&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Scripting.FileSystemObject&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;35&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;36&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;//パスで指定されたファイルを取得
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;37&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;myFile&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;fso&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;GetFile&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;filePath&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;38&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;39&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;//A1セルにファイル作成日時を出力
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;40&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;ActiveSheet&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;A1&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;myFile&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;DateCreated&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;41&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;42&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;//A2セルにテキストファイルの一行目の文字列を出力
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;43&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;With&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;myFile&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;OpenAsTextStream&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;44&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;ActiveSheet&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;A2&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ReadLine&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;45&lt;/span&gt;        &lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Close&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;46&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;With&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;47&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;48&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;デモ&#34;&gt;デモ&lt;/h4&gt;
+&lt;p&gt;上記コードを実行すると、&lt;br&gt;
+ダイアログボックスが表示され、ファイルを選択できます。&lt;/p&gt;
+&lt;p&gt;その後、&lt;br&gt;
+シートのA1セルにファイルの作成日時が、&lt;br&gt;
+A2セルにファイルの一行目の内容が出力されます。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641189330/learnerBlog/vba-question-007-manipulate-folder-files/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-03_125410_ij4ul3.png&#34; alt=&#34;マクロ実行前&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641189330/learnerBlog/vba-question-007-manipulate-folder-files/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-03_125443_i3wzcm.png&#34; alt=&#34;マクロ実行後&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;組み込み関数やapiを利用する場合&#34;&gt;組み込み関数やAPIを利用する場合&lt;/h3&gt;
+&lt;h4 id=&#34;about-3&#34;&gt;ABOUT&lt;/h4&gt;
+&lt;p&gt;ダイアログボックスを利用しない、&lt;br&gt;
+つまり探索するフォルダがすでに決まっているならば、&lt;br&gt;
+VBA組み込み関数（&lt;code&gt;Dir&lt;/code&gt;）やファイルシステムAPI（&lt;code&gt;FileSystemObject&lt;/code&gt;）を利用して、&lt;br&gt;
+バックグラウンドですみやかにファイルの操作を行うことができます。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Dir&lt;/code&gt;（および他のVBA組み込み関数）よりも&lt;code&gt;FileSystemObject&lt;/code&gt;のほうが&lt;br&gt;
+直感的で高性能のため、&lt;br&gt;
+以下では&lt;code&gt;FileSystemObject&lt;/code&gt;を利用してフォルダ内のファイルの探索をするデモコードを説明します。&lt;/p&gt;
+&lt;h4 id=&#34;コード-3&#34;&gt;コード&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;組み込み関数やAPIを利用するパターン&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;fso&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Object&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;folderPath&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;myFolder&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Object&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;myFile&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Object&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Long&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;//ファイル取り扱う機能を持つオブジェクトを取得（FileSystemObject）
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;fso&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;CreateObject&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Scripting.FileSystemObject&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;//フォルダパス（固定：ユーザには選択させない）
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;folderPath&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;C:\temp\&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;//フォルダの取得
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;myFolder&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;fso&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;GetFolder&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;folderPath&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;//フォルダ中のテキストファイル（拡張子txt）のファイルのみ対象として
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;//一行目の文字列データをシートに出力
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;For&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Each&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;myFile&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;In&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;myFolder&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Files&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;        &lt;span class=&#34;c&#34;&gt;&amp;#39;//テキストファイルかどうかをチェック
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;fso&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;GetExtensionName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;myFile&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;path&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;txt&amp;#34;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;            &lt;span class=&#34;c&#34;&gt;&amp;#39;//セルにテキストファイルの一行目の文字列を出力
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;            &lt;span class=&#34;k&#34;&gt;With&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;myFile&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;OpenAsTextStream&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;                &lt;span class=&#34;n&#34;&gt;ActiveSheet&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Cells&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ReadLine&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;            &lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;With&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;            &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Next&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;32&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;デモ-1&#34;&gt;デモ&lt;/h4&gt;
+&lt;p&gt;tempフォルダに次のようにファイルが格納されているとします。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-ps&#34; data-lang=&#34;ps&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;Mode&lt;/span&gt;                 &lt;span class=&#34;nf&#34;&gt;LastWriteTime&lt;/span&gt;         &lt;span class=&#34;nf&#34;&gt;Length&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Name&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;----&lt;/span&gt;                 &lt;span class=&#34;nf&#34;&gt;-------------&lt;/span&gt;         &lt;span class=&#34;nf&#34;&gt;------&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;----&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;-a----&lt;/span&gt;        &lt;span class=&#34;mf&#34;&gt;2022&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;/01/03&lt;/span&gt;     &lt;span class=&#34;nf&#34;&gt;14:42&lt;/span&gt;             &lt;span class=&#34;mf&#34;&gt;76&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;another-text01.csv&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;-a----&lt;/span&gt;        &lt;span class=&#34;mf&#34;&gt;2022&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;/01/03&lt;/span&gt;     &lt;span class=&#34;nf&#34;&gt;14:42&lt;/span&gt;             &lt;span class=&#34;mf&#34;&gt;76&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;another-text02.json&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;-a----&lt;/span&gt;        &lt;span class=&#34;mf&#34;&gt;2022&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;/01/03&lt;/span&gt;     &lt;span class=&#34;nf&#34;&gt;13:38&lt;/span&gt;             &lt;span class=&#34;mf&#34;&gt;76&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;mytext01.txt&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;-a----&lt;/span&gt;        &lt;span class=&#34;mf&#34;&gt;2022&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;/01/03&lt;/span&gt;     &lt;span class=&#34;nf&#34;&gt;14:20&lt;/span&gt;             &lt;span class=&#34;mf&#34;&gt;76&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;mytext02.txt&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;-a----&lt;/span&gt;        &lt;span class=&#34;mf&#34;&gt;2022&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;/01/03&lt;/span&gt;     &lt;span class=&#34;nf&#34;&gt;14:42&lt;/span&gt;             &lt;span class=&#34;mf&#34;&gt;76&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;mytext03.txt&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;9&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;コードを実行すると、&lt;br&gt;
+mytext（拡張子txtのファイル）のみを対象として、&lt;br&gt;
+シートにファイルの内容を出力します。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641189331/learnerBlog/vba-question-007-manipulate-folder-files/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-03_144848_p2pyrv.png&#34; alt=&#34;マクロ実行前&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641189331/learnerBlog/vba-question-007-manipulate-folder-files/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-03_144906_x0vyqr.png&#34; alt=&#34;マクロ実行後&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;終わりに&#34;&gt;終わりに&lt;/h2&gt;
+&lt;p&gt;フォルダの取り扱いには様々あります。&lt;/p&gt;
+&lt;p&gt;実現したい機能に合わせて、&lt;br&gt;
+適切な方法を選択できるようになると、&lt;br&gt;
+マクロの表現の幅が広がるでしょう。&lt;/p&gt;
+
+        
+      </description>
+    </item>
+    
     <item>
       <title>[教えて！VBA] 第6回 エクセルVBAマクロで、マクロを終了するにはどうすればいいの？？</title>
       <link>https://dede-20191130.github.io/learnerBlog/posts/2022/01/01/vba-question-006-kinds-of-end-process/</link>
