@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="ja" data-figures="" class="page">
   <head>
-<title>[教えて！VBA] 第2回 一つのセルの値が「東京都」であることを条件として別のアクションを行うにはどうすればいいの？？ | 学習者dedeのブログ ~プログラミング等~</title>
+<title>[教えて！VBA] 第8回 変更前のセルの値を保持/利用するにはどうすればいいの？？ | 学習者dedeのブログ ~プログラミング等~</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,20 +18,20 @@
 <meta property="og:locale" content="ja" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="この記事について かんたんな概要と結論 Excelのシートのセルに入力されたデータを読み取るには、 RangeあるいはCellsを使用します。 セル">
+<meta name="description" content="この記事について かんたんな概要と結論 VBAマクロで、特定の操作で処理を実行する仕組みをイベントと呼びます。 イベントを利用し、セル入力時に処理">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="@D20191130">
-<meta name="twitter:title" content="[教えて！VBA] 第2回 一つのセルの値が「東京都」であることを条件として別のアクションを行うにはどうすればいいの？？" />
-<meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/posts/2021/12/14/vba-question-002-chekc-single-cell/" />
-<meta property="og:title" content="[教えて！VBA] 第2回 一つのセルの値が「東京都」であることを条件として別のアクションを行うにはどうすればいいの？？" />
-<meta property="og:description" content="この記事について かんたんな概要と結論 Excelのシートのセルに入力されたデータを読み取るには、 RangeあるいはCellsを使用します。 セル" />
+<meta name="twitter:title" content="[教えて！VBA] 第8回 変更前のセルの値を保持/利用するにはどうすればいいの？？" />
+<meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/posts/2022/01/06/vba-question-008-keep-value-before-change/" />
+<meta property="og:title" content="[教えて！VBA] 第8回 変更前のセルの値を保持/利用するにはどうすればいいの？？" />
+<meta property="og:description" content="この記事について かんたんな概要と結論 VBAマクロで、特定の操作で処理を実行する仕組みをイベントと呼びます。 イベントを利用し、セル入力時に処理" />
 <meta property="og:image" content="https://dede-20191130.github.io/learnerBlog/images/thumbnail.png" />
 
 <link rel="apple-touch-icon" sizes="180x180" href="https://dede-20191130.github.io/learnerBlog/icons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://dede-20191130.github.io/learnerBlog/icons/favicon-32x32.png">
 <link rel="manifest" href="https://dede-20191130.github.io/learnerBlog/icons/site.webmanifest">
 
-<link rel="canonical" href="https://dede-20191130.github.io/learnerBlog/posts/2021/12/14/vba-question-002-chekc-single-cell/">
+<link rel="canonical" href="https://dede-20191130.github.io/learnerBlog/posts/2022/01/06/vba-question-008-keep-value-before-change/">
 
     
 
@@ -121,26 +121,26 @@
   
 <div class="grid-inverse wrap content">
   <article class="post_content">
-    <h1 class="post_title">[教えて！VBA] 第2回 一つのセルの値が「東京都」であることを条件として別のアクションを行うにはどうすればいいの？？</h1>
+    <h1 class="post_title">[教えて！VBA] 第8回 変更前のセルの値を保持/利用するにはどうすればいいの？？</h1>
   <div class="post_meta">
     <span><svg class="icon">
   <use xlink:href="#calendar"></use>
 </svg></span>
     <span class="post_date">
-      Dec 14, 2021</span>
-    <span class="post_time"> · 5 min read</span><span>&nbsp;· <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' title="VBA" class="post_tag button button_translucent">VBA
+      Jan 6, 2022</span>
+    <span class="post_time"> · 8 min read</span><span>&nbsp;· <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' title="VBA" class="post_tag button button_translucent">VBA
         </a><a href='https://dede-20191130.github.io/learnerBlog/tags/excel' title="Excel" class="post_tag button button_translucent">Excel
         </a>
     </span>
     <span class="page_only">&nbsp;·
   <div class="post_share">
     Share on:
-    <a href="https://twitter.com/intent/tweet?text=%5b%e6%95%99%e3%81%88%e3%81%a6%ef%bc%81VBA%5d%20%e7%ac%ac2%e5%9b%9e%20%e4%b8%80%e3%81%a4%e3%81%ae%e3%82%bb%e3%83%ab%e3%81%ae%e5%80%a4%e3%81%8c%e3%80%8c%e6%9d%b1%e4%ba%ac%e9%83%bd%e3%80%8d%e3%81%a7%e3%81%82%e3%82%8b%e3%81%93%e3%81%a8%e3%82%92%e6%9d%a1%e4%bb%b6%e3%81%a8%e3%81%97%e3%81%a6%e5%88%a5%e3%81%ae%e3%82%a2%e3%82%af%e3%82%b7%e3%83%a7%e3%83%b3%e3%82%92%e8%a1%8c%e3%81%86%e3%81%ab%e3%81%af%e3%81%a9%e3%81%86%e3%81%99%e3%82%8c%e3%81%b0%e3%81%84%e3%81%84%e3%81%ae%ef%bc%9f%ef%bc%9f&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2021%2f12%2f14%2fvba-question-002-chekc-single-cell%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
+    <a href="https://twitter.com/intent/tweet?text=%5b%e6%95%99%e3%81%88%e3%81%a6%ef%bc%81VBA%5d%20%e7%ac%ac8%e5%9b%9e%20%e5%a4%89%e6%9b%b4%e5%89%8d%e3%81%ae%e3%82%bb%e3%83%ab%e3%81%ae%e5%80%a4%e3%82%92%e4%bf%9d%e6%8c%81%2f%e5%88%a9%e7%94%a8%e3%81%99%e3%82%8b%e3%81%ab%e3%81%af%e3%81%a9%e3%81%86%e3%81%99%e3%82%8c%e3%81%b0%e3%81%84%e3%81%84%e3%81%ae%ef%bc%9f%ef%bc%9f&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2022%2f01%2f06%2fvba-question-008-keep-value-before-change%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
       <svg class="icon">
   <use xlink:href="#twitter"></use>
 </svg>
     </a>
-    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2021%2f12%2f14%2fvba-question-002-chekc-single-cell%2f&t=%5b%e6%95%99%e3%81%88%e3%81%a6%ef%bc%81VBA%5d%20%e7%ac%ac2%e5%9b%9e%20%e4%b8%80%e3%81%a4%e3%81%ae%e3%82%bb%e3%83%ab%e3%81%ae%e5%80%a4%e3%81%8c%e3%80%8c%e6%9d%b1%e4%ba%ac%e9%83%bd%e3%80%8d%e3%81%a7%e3%81%82%e3%82%8b%e3%81%93%e3%81%a8%e3%82%92%e6%9d%a1%e4%bb%b6%e3%81%a8%e3%81%97%e3%81%a6%e5%88%a5%e3%81%ae%e3%82%a2%e3%82%af%e3%82%b7%e3%83%a7%e3%83%b3%e3%82%92%e8%a1%8c%e3%81%86%e3%81%ab%e3%81%af%e3%81%a9%e3%81%86%e3%81%99%e3%82%8c%e3%81%b0%e3%81%84%e3%81%84%e3%81%ae%ef%bc%9f%ef%bc%9f" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
+    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2022%2f01%2f06%2fvba-question-008-keep-value-before-change%2f&t=%5b%e6%95%99%e3%81%88%e3%81%a6%ef%bc%81VBA%5d%20%e7%ac%ac8%e5%9b%9e%20%e5%a4%89%e6%9b%b4%e5%89%8d%e3%81%ae%e3%82%bb%e3%83%ab%e3%81%ae%e5%80%a4%e3%82%92%e4%bf%9d%e6%8c%81%2f%e5%88%a9%e7%94%a8%e3%81%99%e3%82%8b%e3%81%ab%e3%81%af%e3%81%a9%e3%81%86%e3%81%99%e3%82%8c%e3%81%b0%e3%81%84%e3%81%84%e3%81%ae%ef%bc%9f%ef%bc%9f" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
       <svg class="icon">
   <use xlink:href="#facebook"></use>
 </svg>
@@ -150,7 +150,7 @@
   <use xlink:href="#linkedin"></use>
 </svg>
     </a>
-    <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/12/14/vba-question-002-chekc-single-cell/" title="Copy Link" class="link link_yank">
+    <a href="https://dede-20191130.github.io/learnerBlog/posts/2022/01/06/vba-question-008-keep-value-before-change/" title="Copy Link" class="link link_yank">
       <svg class="icon">
   <use xlink:href="#copy"></use>
 </svg>
@@ -165,29 +165,41 @@
     <nav id="TableOfContents">
   <ul>
     <li><a href="#この記事について">この記事について</a></li>
-    <li><a href="#セルの値を調べたいのはどんな場合">セルの値を調べたいのはどんな場合？</a></li>
-    <li><a href="#方法">方法</a>
+    <li><a href="#やりたいこと">やりたいこと</a></li>
+    <li><a href="#パターン-変更前の値を他のセルに移したい">パターン① 変更前の値を他のセルに移したい</a>
       <ul>
-        <li><a href="#セルの値を取得する">セルの値を取得する</a>
-          <ul>
-            <li><a href="#rangeを使う">Rangeを使う</a></li>
-            <li><a href="#cellsを使う">Cellsを使う</a></li>
-            <li><a href="#どちらを使えばいいの">どちらを使えばいいの？</a></li>
-          </ul>
-        </li>
-        <li><a href="#セルの値によって分岐させる">セルの値によって分岐させる</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#イベントとは">イベントとは？</a></li>
+        <li><a href="#コード">コード</a></li>
+        <li><a href="#デモ">デモ</a></li>
       </ul>
     </li>
-    <li><a href="#デモ">デモ</a>
+    <li><a href="#パターン-変更前の値を他のセルに移し削除した値を別のセルに移したい">パターン② 変更前の値を他のセルに移し、削除した値を別のセルに移したい</a>
       <ul>
-        <li><a href="#cellsで書かれたデモ">Cellsで書かれたデモ</a></li>
-        <li><a href="#range形式に書き直すと">Range形式に書き直すと……</a></li>
+        <li><a href="#about-1">ABOUT</a></li>
+        <li><a href="#コード-1">コード</a></li>
+        <li><a href="#デモ-1">デモ</a></li>
+      </ul>
+    </li>
+    <li><a href="#パターン-変更時に値をチェックし不正な値であれば入力前に戻したい">パターン③ 変更時に値をチェックし、不正な値であれば入力前に戻したい</a>
+      <ul>
+        <li><a href="#about-2">ABOUT</a></li>
+        <li><a href="#コード-2">コード</a></li>
+        <li><a href="#デモ-2">デモ</a></li>
+      </ul>
+    </li>
+    <li><a href="#パターン-変更した値を複数保持しリストとして他のセルに出力したい">パターン④ 変更した値を複数保持し、リストとして他のセルに出力したい</a>
+      <ul>
+        <li><a href="#about-3">ABOUT</a></li>
+        <li><a href="#コード-3">コード</a></li>
+        <li><a href="#デモ-3">デモ</a></li>
       </ul>
     </li>
     <li><a href="#終わりに">終わりに</a></li>
   </ul>
 </nav>
-    <h2 id="この記事について">この記事について</h2>
+    <p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641629426/learnerBlog/vba-question-008-keep-value-before-change/keep-value-before-change_bdf1ed.png" alt=""></p>
+<h2 id="この記事について">この記事について</h2>
 
 
 
@@ -195,10 +207,8 @@
     <p><span>かんたんな概要と結論</span></p>
     <div class="inner">
          
-    Excelのシートのセルに入力されたデータを読み取るには、<br>
-    RangeあるいはCellsを使用します。<br><br>
-    セルのデータを読み取り処理を様々に書くことができれば、<br>
-    VBAマクロの表現の幅は非常に広がります。
+    VBAマクロで、特定の操作で処理を実行する仕組みをイベントと呼びます。<br/>
+    イベントを利用し、セル入力時に処理を実行させて、変更前の値を取り扱うことができます。
 
     </div>
 </div>
@@ -210,143 +220,305 @@ VBAマクロに関する質問のうち、<br>
 
 
 <span style="color: #fb9700;">
-    一つのセルの値が「東京都」であることをチェックする方法とその比較について
+    変更前のセルの値を記録・保持して利用したり、変更値をチェックして入力前の値に戻したりする方法
 </span><br>
 を解説いたします。</p>
 <p>※この記事は、Office VBAマクロのうち<br>
 Excel VBAマクロに関するトピックです。</p>
-<p>レベル：<b>初級者向け</b></p>
-<h2 id="セルの値を調べたいのはどんな場合">セルの値を調べたいのはどんな場合？</h2>
-<p>例えば、特定の値が入っているセルだけを対象として、<br>
-その隣のセルに文字を入力したい場合を考えます。</p>
-<p>下記の図では、<br>
-都道府県が「東京都」と入力されたセルの隣のセルだけに「必要」と自動入力するマクロを想定しています。</p>
-<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1639785261/learnerBlog/vba-question-002-chekc-single-cell/vba-question-002-chekc-single-cell_g8kyeg.png" alt="想定する流れ"></p>
-<p>他にも、その値の入ったセル自身の背景色を変更したり、<br>
-値を取得してなにかの計算処理を加えて他のセルに反映するなど、<br>
+<p>レベル：<b>中級者向け</b></p>
+<h2 id="やりたいこと">やりたいこと</h2>
+<p>シートのセルにデータを入力すると、<br>
+通常は変更前の古いデータは消去されます（「元に戻す」ボタンで戻すことはできますが）。</p>
+<p>入力したタイミングに応じて、変更前の値をシートのどこかに移したい場合は、<br>
+VBAマクロの出番です。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641629426/learnerBlog/vba-question-008-keep-value-before-change/keep-value-before-change2_pmfntt.png" alt="変更前の値をシートのどこかに移す"></p>
+<p>このとき、<br>
 
 
 <span style="color: #fb9700;">
-    Excel VBAマクロにおいては、セルの値を参照することはもっとも使われる基本的なテクニックです。
-</span></p>
-<h2 id="方法">方法</h2>
-<h3 id="セルの値を取得する">セルの値を取得する</h3>
-<p>セルの値を取得するには、<br>
-<code>Rangeプロパティ</code>を使用する、あるいは<code>Cellsプロパティ</code>を使用することで実現できます。</p>
-<p>いずれにしても、<code>Rangeオブジェクト</code>（プロパティと同名なのでややこしい）という<br>
-セル範囲の情報をもっているオブジェクトを取得する点では相違ありません。</p>
-<p>※ここでいう「オブジェクト」とは、<br>
-対象としているものの情報とそれを操作する関数をセットで持っているデータの一種と理解ください。</p>
-<p>例えばRangeオブジェクトはセル範囲のアドレスや、セルをコピーする操作関数を持っています。</p>
-<h4 id="rangeを使う">Rangeを使う</h4>
-<p>次のようにRangeプロパティの引数にセルのアドレスを指定します。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln">1</span><span class="k">Dim</span> <span class="n">cellValue</span> <span class="ow">As</span> <span class="kt">String</span>
-<span class="ln">2</span><span class="n">cellValue</span> <span class="o">=</span> <span class="n">Range</span><span class="p">(</span><span class="s">&#34;B2&#34;</span><span class="p">).</span><span class="n">Value</span>
-</code></pre></div><p>このようにすると、B2セルに記載された内容を<br>
-文字列として<code>cellValue</code>変数に格納します。</p>
-<p>例えば、B2セルに「あいうえお」と入っていた場合、<br>
-<code>cellValue</code>にも「あいうえお」と入ります。</p>
-<h4 id="cellsを使う">Cellsを使う</h4>
-<p>次のようにRangeプロパティの引数にセルのアドレスを
-
-<span style="color: #fb9700;">
-    座標として
-</span>指定します。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln">1</span><span class="k">Dim</span> <span class="n">cellValue</span> <span class="ow">As</span> <span class="kt">String</span>
-<span class="ln">2</span><span class="n">cellValue</span> <span class="o">=</span> <span class="n">Cells</span><span class="p">(</span><span class="n">2</span><span class="p">,</span> <span class="n">2</span><span class="p">).</span><span class="n">Value</span>
-</code></pre></div><p><code>Cells(2, 2)</code>というのはB2セルを指しています。</p>
-<p>気づかれたかもしれませんが、<br>
-<code>Cells</code>の引数の最初には対象セルの行番号が、その次には対象セルの列番号を数値に変換したものが入ります。</p>
-<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1639785261/learnerBlog/vba-question-002-chekc-single-cell/vba-question-002-chekc-single-cell2_j6zawz.png" alt="Cellsの引数規則"></p>
-<h4 id="どちらを使えばいいの">どちらを使えばいいの？</h4>
-<p><code>Range</code>でも<code>Cells</code>でも指定したセルの内容を取得できるとわかりましたが、<br>
-どのように使い分けるのか？？</p>
-<p>それは、<br>
-<code>Range</code>には一つのセルだけでなく複数のセルの情報をオブジェクトとして取得し、それらを操作できるという利点があるが、<br>
-<code>Cells</code>は常に単一のセルを取り扱うプロパティだということに焦点を当てれば見えてきます。</p>
-<p>例えば、<br>
-次のコードでは、
-A1セルからC3セルまでのセルの背景色を一括で赤色に変更します。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln">1</span><span class="n">Range</span><span class="p">(</span><span class="s">&#34;A1:C3&#34;</span><span class="p">).</span><span class="n">Interior</span><span class="p">.</span><span class="n">Color</span> <span class="o">=</span> <span class="n">255</span>
-</code></pre></div><p>そのため、<br>
-このように一括で複数セルを取り扱いたいときに<code>Range</code>を使用します。</p>
-<p>一方、<code>Cells</code>を使った場合、<br>
-プログラムコードを見たときに単一のセルを取り扱っていることがすぐにわかるので、<br>
-「あっ、このコードのここの部分では一つのセルについて操作しているんだな」とわかりやすくなります。</p>
-<p>上記の理由から、<br>
-複数セルを取り扱いたい場合以外では、<code>Cells</code>を使用することを勧めます。</p>
-<h3 id="セルの値によって分岐させる">セルの値によって分岐させる</h3>
-<p>次に、<br>
-「IFステートメント」というVBAの構文を使って<br>
-取得したセルの値に応じて処理を分岐させます。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln">1</span><span class="k">If</span> <span class="n">評価式</span> <span class="k">Then</span>
-<span class="ln">2</span>    <span class="n">ここは評価式がYESであった場合にのみ実行されます</span><span class="err">。</span>    
-<span class="ln">3</span><span class="k">Else</span>
-<span class="ln">4</span>    <span class="n">ここは評価式がNOであった場合にのみ実行されます</span><span class="err">。</span>    
-<span class="ln">5</span><span class="k">End</span> <span class="k">If</span>
-</code></pre></div><p>「評価式」とは、<br>
-内容がYES/NO（VBAの用語ではTRUE/FALSE）として表現できる式が入ります。</p>
-<p>例えば「1 + 2 = 3」「東京は日本の首都」「滋賀は東北地方の県である」はすべて評価式です。</p>
-<p>上記のIFステートメントを使って、<br>
-取得したセルの値が「東京都」であった場合にのみ隣のセルの値に「必要」と入力するコードは<br>
-次のようになります。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln">1</span><span class="k">If</span> <span class="n">cellValue</span> <span class="o">=</span> <span class="s">&#34;東京都&#34;</span> <span class="k">Then</span>
-<span class="ln">2</span>    <span class="n">Cells</span><span class="p">(</span><span class="n">隣のセルの行番号</span><span class="p">,</span> <span class="n">隣のセルの列番号</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">&#34;必要&#34;</span>
-<span class="ln">3</span><span class="k">End</span> <span class="k">If</span>
-</code></pre></div><p>なお、ここでは評価式がNOであった場合には<br>
-何もしないので、<br>
-<code>Else</code>ステートメント部分は使用していません。</p>
-<h2 id="デモ">デモ</h2>
-<h3 id="cellsで書かれたデモ">Cellsで書かれたデモ</h3>
-<p>都道府県が「東京都」と入力されたセルの隣のセルだけに「必要」と自動入力するマクロです。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span><span class="k">Sub</span> <span class="nf">必要の入力</span><span class="p">()</span>
-<span class="ln"> 2</span>    
-<span class="ln"> 3</span>    <span class="k">If</span> <span class="n">Cells</span><span class="p">(</span><span class="n">3</span><span class="p">,</span> <span class="n">2</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">&#34;東京都&#34;</span> <span class="k">Then</span>
-<span class="ln"> 4</span>        <span class="n">Cells</span><span class="p">(</span><span class="n">3</span><span class="p">,</span> <span class="n">3</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">&#34;必要&#34;</span>
-<span class="ln"> 5</span>    <span class="k">End</span> <span class="k">If</span>
-<span class="ln"> 6</span>    <span class="k">If</span> <span class="n">Cells</span><span class="p">(</span><span class="n">4</span><span class="p">,</span> <span class="n">2</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">&#34;東京都&#34;</span> <span class="k">Then</span>
-<span class="ln"> 7</span>        <span class="n">Cells</span><span class="p">(</span><span class="n">4</span><span class="p">,</span> <span class="n">3</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">&#34;必要&#34;</span>
-<span class="ln"> 8</span>    <span class="k">End</span> <span class="k">If</span>
-<span class="ln"> 9</span>    <span class="k">If</span> <span class="n">Cells</span><span class="p">(</span><span class="n">5</span><span class="p">,</span> <span class="n">2</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">&#34;東京都&#34;</span> <span class="k">Then</span>
-<span class="ln">10</span>        <span class="n">Cells</span><span class="p">(</span><span class="n">5</span><span class="p">,</span> <span class="n">3</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">&#34;必要&#34;</span>
-<span class="ln">11</span>    <span class="k">End</span> <span class="k">If</span>
-<span class="ln">12</span>    <span class="k">If</span> <span class="n">Cells</span><span class="p">(</span><span class="n">6</span><span class="p">,</span> <span class="n">2</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">&#34;東京都&#34;</span> <span class="k">Then</span>
-<span class="ln">13</span>        <span class="n">Cells</span><span class="p">(</span><span class="n">6</span><span class="p">,</span> <span class="n">3</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">&#34;必要&#34;</span>
-<span class="ln">14</span>    <span class="k">End</span> <span class="k">If</span>
-<span class="ln">15</span>    
-<span class="ln">16</span><span class="k">End</span> <span class="k">Sub</span>
-</code></pre></div><p>これを実行すると、<br>
-C3セルとC6セルにのみ「必要」と入力されます。</p>
-<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1639785260/learnerBlog/vba-question-002-chekc-single-cell/01_x4vft6.png" alt="実行前"></p>
-<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1639785260/learnerBlog/vba-question-002-chekc-single-cell/02_jwnums.png" alt="実行後"></p>
-<h3 id="range形式に書き直すと">Range形式に書き直すと……</h3>
-<p>Range形式に書き直すと、次のように書けます。<br>
-もともとExcel関数をよく使っていたユーザにはこちらのほうが馴染み深いかもしれません。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span><span class="k">Sub</span> <span class="nf">必要の入力</span><span class="p">()</span>
-<span class="ln"> 2</span>    
-<span class="ln"> 3</span>    <span class="k">If</span> <span class="n">Range</span><span class="p">(</span><span class="s">&#34;B3&#34;</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">&#34;東京都&#34;</span> <span class="k">Then</span>
-<span class="ln"> 4</span>        <span class="n">Range</span><span class="p">(</span><span class="s">&#34;C3&#34;</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">&#34;必要&#34;</span>
-<span class="ln"> 5</span>    <span class="k">End</span> <span class="k">If</span>
-<span class="ln"> 6</span>    <span class="k">If</span> <span class="n">Range</span><span class="p">(</span><span class="s">&#34;B4&#34;</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">&#34;東京都&#34;</span> <span class="k">Then</span>
-<span class="ln"> 7</span>        <span class="n">Range</span><span class="p">(</span><span class="s">&#34;C4&#34;</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">&#34;必要&#34;</span>
-<span class="ln"> 8</span>    <span class="k">End</span> <span class="k">If</span>
-<span class="ln"> 9</span>    <span class="k">If</span> <span class="n">Range</span><span class="p">(</span><span class="s">&#34;B5&#34;</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">&#34;東京都&#34;</span> <span class="k">Then</span>
-<span class="ln">10</span>        <span class="n">Range</span><span class="p">(</span><span class="s">&#34;C5&#34;</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">&#34;必要&#34;</span>
-<span class="ln">11</span>    <span class="k">End</span> <span class="k">If</span>
-<span class="ln">12</span>    <span class="k">If</span> <span class="n">Range</span><span class="p">(</span><span class="s">&#34;B6&#34;</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">&#34;東京都&#34;</span> <span class="k">Then</span>
-<span class="ln">13</span>        <span class="n">Range</span><span class="p">(</span><span class="s">&#34;C6&#34;</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">&#34;必要&#34;</span>
-<span class="ln">14</span>    <span class="k">End</span> <span class="k">If</span>
-<span class="ln">15</span>    
-<span class="ln">16</span><span class="k">End</span> <span class="k">Sub</span>
-</code></pre></div><h2 id="終わりに">終わりに</h2>
-<p>セルからデータを取得して、<br>
-それに応じた処理を行うことは、<br>
-Excel VBAマクロでもっともよく使われるロジックです。</p>
-<p>これをうまく使えるようになれば、<br>
-マクロの自動化の幅が非常に広がるでしょう。</p>
-<p>ここには書ききれませんでしたが、<br>
-<code>Range</code>や<code>Cells</code>の使用法には他にもバラエティがあるので、<br>
-Microsoftの公式を見てみると面白いかもしれません。</p>
+    イベント
+</span>と呼ばれるVBAマクロの仕組みを利用することになります。</p>
+<p>また、変更したデータを入力した時に、<br>
+適切ではない値だった場合に自動でチェックして前の値に戻したいときもあるでしょう。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641629426/learnerBlog/vba-question-008-keep-value-before-change/keep-value-before-change3_ev7tzv.png" alt="入力値の自動チェック"></p>
+<p>そのような各パターンについて見ていきます。</p>
+<h2 id="パターン-変更前の値を他のセルに移したい">パターン① 変更前の値を他のセルに移したい</h2>
+<h3 id="about">ABOUT</h3>
+<p>入力するたびに、<br>
+前の値をシートのどこかのセルに記録していくようなマクロを作成したいという希望があるとしましょう。</p>
+<p>「入力するたび」というタイミングの検知のために、<br>
+イベントという仕組みを利用します。</p>
+<h3 id="イベントとは">イベントとは？</h3>
+<p>ブックやシートに対して、<br>
+ある特定の操作が行われた際に自動でVBAマクロが発火（処理の開始）されるような仕組みです。</p>
+<p>例としては次のようなものがあります</p>
+<table>
+  <thead>
+    <tr>
+      <th>対象</th>
+      <th>イベント名</th>
+      <th>内容</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="2">ブック<br/>（WorkBook）</td>
+      <td>Open</td>
+      <td>ファイルを起動して<br />ブックが開かれたときに実行</td>
+    </tr>
+    <tr>
+      <td>BeforeClose</td>
+      <td>閉じるボタンなどでブックが閉じられる時に実行</td>
+    </tr>
+    <tr>
+      <td rowspan="2">シート<br/>（Worksheet）</td>
+      <td>SelectionChange</td>
+      <td>現在のセルから別のセルを選択した時に実行</td>
+    </tr>
+    <tr>
+      <td>Change</td>
+      <td>セルの内容を変更した時に実行</td>
+    </tr>
+  </tbody>
+</table>
+<h3 id="コード">コード</h3>
+<p>イベントの実装は、<br>
+イベントプロシージャというSubプロシージャの記入により行います。</p>
+<p>イベントプロシージャは、<br>
+イベントを設定したいシートのコードウインドウ上に記入します。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641629426/learnerBlog/vba-question-008-keep-value-before-change/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-08_123712_sde8dn.png" alt="マクロ記述シートの指定"></p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641629426/learnerBlog/vba-question-008-keep-value-before-change/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-08_123919_ay4oqw.png" alt="シートのコードウインドウ"></p>
+<p>変更前の値を他のセルに移すマクロのコードは下記です。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span><span class="k">Private</span> <span class="k">Sub</span> <span class="nf">Worksheet_Change</span><span class="p">(</span><span class="k">ByVal</span> <span class="n">Target</span> <span class="ow">As</span> <span class="n">Range</span><span class="p">)</span>
+<span class="ln"> 2</span>    <span class="k">Dim</span> <span class="n">OldValue</span> <span class="ow">As</span> <span class="kt">Variant</span>
+<span class="ln"> 3</span>    <span class="k">Dim</span> <span class="n">currentCellAddress</span>
+<span class="ln"> 4</span>    
+<span class="ln"> 5</span>    <span class="c">&#39;//ポイント①　変更前の値を調べたいセル以外では処理を行わないようにする
+</span><span class="ln"> 6</span><span class="c"></span>    <span class="k">If</span> <span class="n">Target</span><span class="p">.</span><span class="n">Address</span><span class="p">(</span><span class="k">False</span><span class="p">,</span> <span class="k">False</span><span class="p">)</span> <span class="o">&lt;&gt;</span> <span class="s">&#34;B3&#34;</span> <span class="k">Then</span> <span class="k">Exit</span> <span class="k">Sub</span>
+<span class="ln"> 7</span>    
+<span class="ln"> 8</span>    <span class="err">&#39;//</span><span class="nf">ポイント</span><span class="err">②</span>　<span class="n">いったんイベントを無効化し</span><span class="err">、</span><span class="n">イベントの発火を停止する</span>
+<span class="ln"> 9</span>    <span class="n">Application</span><span class="p">.</span><span class="n">EnableEvents</span> <span class="o">=</span> <span class="k">False</span>
+<span class="ln">10</span>    
+<span class="ln">11</span>    <span class="c">&#39;//カーソル位置を退避させる
+</span><span class="ln">12</span><span class="c"></span>    <span class="n">currentCellAddress</span> <span class="o">=</span> <span class="n">Selection</span><span class="p">.</span><span class="n">Address</span>
+<span class="ln">13</span>    
+<span class="ln">14</span>    <span class="c">&#39;//ポイント③　いったんセルの値をもとに戻し、古い値を変数に退避させてから再度変更後の値に戻す
+</span><span class="ln">15</span><span class="c"></span>    <span class="n">Application</span><span class="p">.</span><span class="n">Undo</span>
+<span class="ln">16</span>    <span class="n">OldValue</span> <span class="o">=</span> <span class="n">Target</span><span class="p">.</span><span class="n">Value</span>
+<span class="ln">17</span>    <span class="n">Application</span><span class="p">.</span><span class="n">Undo</span>
+<span class="ln">18</span>    
+<span class="ln">19</span>    <span class="c">&#39;//変更前の値を別のセルに移す
+</span><span class="ln">20</span><span class="c"></span>    <span class="k">Me</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="s">&#34;D3&#34;</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="n">OldValue</span>
+<span class="ln">21</span>    
+<span class="ln">22</span>    <span class="c">&#39;//カーソル位置を元に戻す
+</span><span class="ln">23</span><span class="c"></span>    <span class="k">Me</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="n">currentCellAddress</span><span class="p">).</span><span class="n">Select</span>
+<span class="ln">24</span>    
+<span class="ln">25</span>    <span class="c">&#39;//イベントを再度有効にする
+</span><span class="ln">26</span><span class="c"></span>    <span class="n">Application</span><span class="p">.</span><span class="n">EnableEvents</span> <span class="o">=</span> <span class="k">True</span>
+<span class="ln">27</span>    
+<span class="ln">28</span><span class="k">End</span> <span class="k">Sub</span>
+<span class="ln">29</span>
+</code></pre></div><p>ポイントは三点あり、<br>
+①変更前の値を調べたいセル以外では処理を行わないようにするため、<code>Target</code>（変更したセルのRangeを参照する引数）のアドレスについて絞り込みを行います。<br>
+上では、B3セル以外では処理を行わないようにします。</p>
+<p>②処理の最中に他のイベントが発火しないように、<code>EnableEvents</code>を変更しておきます。</p>
+<p>③いったんセルの値をもとに戻し、古い値を変数に退避させてから再度変更後の値に戻します。</p>
+<h3 id="デモ">デモ</h3>
+<p>変更前に東京都が入っています。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641629426/learnerBlog/vba-question-008-keep-value-before-change/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-08_131501_xwy5gu.png" alt="セル入力前"></p>
+<p>新しいデータを入力後、別のセルに東京都の文字が移されます。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641629427/learnerBlog/vba-question-008-keep-value-before-change/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-08_131551_rsnh6r.png" alt="セル入力後"></p>
+<h2 id="パターン-変更前の値を他のセルに移し削除した値を別のセルに移したい">パターン② 変更前の値を他のセルに移し、削除した値を別のセルに移したい</h2>
+<h3 id="about-1">ABOUT</h3>
+<p>変更ではなく、<br>
+削除した場合（空欄として入力した場合）には別のセルに値を移すという仕様にしたいとしましょう。</p>
+<p>その場合、いくらか条件分岐が増え、<br>
+また、削除したことを示すフラグを変数に持たせる必要が発生します。</p>
+<h3 id="コード-1">コード</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span><span class="k">Private</span> <span class="k">Sub</span> <span class="nf">Worksheet_Change</span><span class="p">(</span><span class="k">ByVal</span> <span class="n">Target</span> <span class="ow">As</span> <span class="n">Range</span><span class="p">)</span>
+<span class="ln"> 2</span>    <span class="k">Dim</span> <span class="n">inputValue</span> <span class="ow">As</span> <span class="kt">Variant</span>
+<span class="ln"> 3</span>    <span class="k">Dim</span> <span class="n">OldValues</span><span class="p">(</span><span class="n">0</span> <span class="k">To</span> <span class="n">1</span><span class="p">)</span> <span class="ow">As</span> <span class="kt">Variant</span>
+<span class="ln"> 4</span>    <span class="k">Dim</span> <span class="n">currentCellAddress</span>
+<span class="ln"> 5</span>    
+<span class="ln"> 6</span>    <span class="c">&#39;//変更前の値を調べたいセル以外では処理を行わないようにする
+</span><span class="ln"> 7</span><span class="c"></span>    <span class="k">If</span> <span class="n">Target</span><span class="p">.</span><span class="n">Address</span><span class="p">(</span><span class="k">False</span><span class="p">,</span> <span class="k">False</span><span class="p">)</span> <span class="o">&lt;&gt;</span> <span class="s">&#34;B3&#34;</span> <span class="k">Then</span> <span class="k">Exit</span> <span class="k">Sub</span>
+<span class="ln"> 8</span>    
+<span class="ln"> 9</span>    <span class="err">&#39;//</span><span class="nf">いったんイベントを無効化し</span><span class="err">、</span><span class="n">イベントの発火を停止する</span>
+<span class="ln">10</span>    <span class="n">Application</span><span class="p">.</span><span class="n">EnableEvents</span> <span class="o">=</span> <span class="k">False</span>
+<span class="ln">11</span>    
+<span class="ln">12</span>    <span class="c">&#39;//カーソル位置を退避させる
+</span><span class="ln">13</span><span class="c"></span>    <span class="n">currentCellAddress</span> <span class="o">=</span> <span class="n">Selection</span><span class="p">.</span><span class="n">Address</span>
+<span class="ln">14</span>    
+<span class="ln">15</span>    <span class="c">&#39;//いったんセルの値をもとに戻し、古い値を変数に退避させてから再度変更後の値に戻す
+</span><span class="ln">16</span><span class="c"></span>    <span class="n">inputValue</span> <span class="o">=</span> <span class="n">Target</span><span class="p">.</span><span class="n">Value</span>                    <span class="c">&#39;//入力した値を変数に退避
+</span><span class="ln">17</span><span class="c"></span>    <span class="n">Application</span><span class="p">.</span><span class="n">Undo</span>
+<span class="ln">18</span>    <span class="c">&#39;//ポイント①　入力した値が空欄であるかどうかで削除処理か変更処理かを分ける
+</span><span class="ln">19</span><span class="c"></span>    <span class="k">If</span> <span class="n">inputValue</span> <span class="o">=</span> <span class="s">&#34;&#34;</span> <span class="k">Then</span>
+<span class="ln">20</span>        <span class="n">OldValues</span><span class="p">(</span><span class="n">0</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#34;delete&#34;</span>
+<span class="ln">21</span>    <span class="k">Else</span>
+<span class="ln">22</span>        <span class="n">OldValues</span><span class="p">(</span><span class="n">0</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#34;change&#34;</span>
+<span class="ln">23</span>    <span class="k">End</span> <span class="k">If</span>
+<span class="ln">24</span>    <span class="n">OldValues</span><span class="p">(</span><span class="n">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">Target</span><span class="p">.</span><span class="n">Value</span>
+<span class="ln">25</span>    <span class="n">Application</span><span class="p">.</span><span class="n">Undo</span>
+<span class="ln">26</span>    
+<span class="ln">27</span>    <span class="c">&#39;//変更前の値を別のセルに移す
+</span><span class="ln">28</span><span class="c"></span>    <span class="c">&#39;//ポイント②　削除処理であればF3セルに、変更処理であればD3セルに移す
+</span><span class="ln">29</span><span class="c"></span>    <span class="k">If</span> <span class="n">OldValues</span><span class="p">(</span><span class="n">0</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#34;delete&#34;</span> <span class="k">Then</span>
+<span class="ln">30</span>        <span class="k">Me</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="s">&#34;F3&#34;</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="n">OldValues</span><span class="p">(</span><span class="n">1</span><span class="p">)</span>
+<span class="ln">31</span>    <span class="k">Else</span>
+<span class="ln">32</span>        <span class="k">If</span> <span class="n">OldValues</span><span class="p">(</span><span class="n">1</span><span class="p">)</span> <span class="o">&lt;&gt;</span> <span class="s">&#34;&#34;</span> <span class="k">Then</span> <span class="k">Me</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="s">&#34;D3&#34;</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="n">OldValues</span><span class="p">(</span><span class="n">1</span><span class="p">)</span>
+<span class="ln">33</span>        
+<span class="ln">34</span>    <span class="k">End</span> <span class="k">If</span>
+<span class="ln">35</span>    
+<span class="ln">36</span>    <span class="c">&#39;//カーソル位置を元に戻す
+</span><span class="ln">37</span><span class="c"></span>    <span class="k">Me</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="n">currentCellAddress</span><span class="p">).</span><span class="n">Select</span>
+<span class="ln">38</span>    
+<span class="ln">39</span>    <span class="c">&#39;//イベントを再度有効にする
+</span><span class="ln">40</span><span class="c"></span>    <span class="n">Application</span><span class="p">.</span><span class="n">EnableEvents</span> <span class="o">=</span> <span class="k">True</span>
+<span class="ln">41</span>    
+<span class="ln">42</span><span class="k">End</span> <span class="k">Sub</span>
+</code></pre></div><p>ポイントは、<br>
+①入力した値が空欄であるかどうかで、<br>
+削除であるか変更であるか判別できるようなフラグを持っておきます。</p>
+<p>②削除処理、変更処理ごとに反映するセルを分けています。</p>
+<h3 id="デモ-1">デモ</h3>
+<p>県名を変更すると、<br>
+「前回の入力値」欄に変更前の値が入ります。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641629427/learnerBlog/vba-question-008-keep-value-before-change/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-08_135817_ckznao.png" alt="セル入力前">
+<img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641629427/learnerBlog/vba-question-008-keep-value-before-change/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-08_135842_jz3epi.png" alt="セル入力後"></p>
+<p>また、データ削除すると、<br>
+「削除された値」欄に削除前のデータが入ります。<br>
+前回の入力値欄のデータには変更がありません。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641629427/learnerBlog/vba-question-008-keep-value-before-change/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-08_135854_nyajbo.png" alt="セルの値の削除後"></p>
+<h2 id="パターン-変更時に値をチェックし不正な値であれば入力前に戻したい">パターン③ 変更時に値をチェックし、不正な値であれば入力前に戻したい</h2>
+<h3 id="about-2">ABOUT</h3>
+<p>イベントの仕組みを使って、<br>
+入力した際に即座に入力値のチェックをして不正な値を弾きたい時の実装を記します。</p>
+<h3 id="コード-2">コード</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span>
+<span class="ln"> 2</span><span class="k">Private</span> <span class="k">Const</span> <span class="n">HOKURIKU</span> <span class="ow">As</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&#34;富山;石川;福井;&#34;</span>
+<span class="ln"> 3</span>
+<span class="ln"> 4</span><span class="k">Private</span> <span class="k">Sub</span> <span class="nf">Worksheet_Change</span><span class="p">(</span><span class="k">ByVal</span> <span class="n">Target</span> <span class="ow">As</span> <span class="n">Range</span><span class="p">)</span>
+<span class="ln"> 5</span>    <span class="k">Dim</span> <span class="n">OldValue</span> <span class="ow">As</span> <span class="kt">Variant</span>
+<span class="ln"> 6</span>    <span class="k">Dim</span> <span class="n">currentCellAddress</span>
+<span class="ln"> 7</span>    <span class="k">Dim</span> <span class="n">HOKURIKUs</span><span class="p">()</span> <span class="ow">As</span> <span class="kt">String</span>
+<span class="ln"> 8</span>    <span class="k">Dim</span> <span class="n">oneHokuriku</span> <span class="ow">As</span> <span class="kt">Variant</span>
+<span class="ln"> 9</span>    <span class="k">Dim</span> <span class="n">isHokuriku</span> <span class="ow">As</span> <span class="kt">Boolean</span>
+<span class="ln">10</span>    
+<span class="ln">11</span>    <span class="c">&#39;//変更前の値を調べたいセル以外では処理を行わないようにする
+</span><span class="ln">12</span><span class="c"></span>    <span class="k">If</span> <span class="n">Target</span><span class="p">.</span><span class="n">Address</span><span class="p">(</span><span class="k">False</span><span class="p">,</span> <span class="k">False</span><span class="p">)</span> <span class="o">&lt;&gt;</span> <span class="s">&#34;B3&#34;</span> <span class="k">Then</span> <span class="k">Exit</span> <span class="k">Sub</span>
+<span class="ln">13</span>    
+<span class="ln">14</span>    <span class="err">&#39;//</span><span class="nf">いったんイベントを無効化し</span><span class="err">、</span><span class="n">イベントの発火を停止する</span>
+<span class="ln">15</span>    <span class="n">Application</span><span class="p">.</span><span class="n">EnableEvents</span> <span class="o">=</span> <span class="k">False</span>
+<span class="ln">16</span>    
+<span class="ln">17</span>    <span class="c">&#39;//カーソル位置を退避させる
+</span><span class="ln">18</span><span class="c"></span>    <span class="n">currentCellAddress</span> <span class="o">=</span> <span class="n">Selection</span><span class="p">.</span><span class="n">Address</span>
+<span class="ln">19</span>    
+<span class="ln">20</span>    <span class="c">&#39;//北陸県を配列として取得する
+</span><span class="ln">21</span><span class="c"></span>    <span class="n">HOKURIKUs</span> <span class="o">=</span> <span class="n">Split</span><span class="p">(</span><span class="n">HOKURIKU</span><span class="p">,</span> <span class="s">&#34;;&#34;</span><span class="p">)</span>
+<span class="ln">22</span>    <span class="n">isHokuriku</span> <span class="o">=</span> <span class="k">False</span>
+<span class="ln">23</span>    
+<span class="ln">24</span>    <span class="c">&#39;//ポイント①　入力値が北陸県のいずれかに該当すれば戻さない
+</span><span class="ln">25</span><span class="c"></span>    <span class="c">&#39;//　　　　　　該当しなければ変更前に戻すようにする
+</span><span class="ln">26</span><span class="c"></span>    <span class="k">For</span> <span class="k">Each</span> <span class="n">oneHokuriku</span> <span class="ow">In</span> <span class="n">HOKURIKUs</span>
+<span class="ln">27</span>        <span class="k">If</span> <span class="n">Target</span><span class="p">.</span><span class="n">Value</span> <span class="o">=</span> <span class="n">oneHokuriku</span> <span class="k">Then</span>
+<span class="ln">28</span>            <span class="n">isHokuriku</span> <span class="o">=</span> <span class="k">True</span>
+<span class="ln">29</span>            <span class="k">Exit</span> <span class="k">For</span>
+<span class="ln">30</span>        <span class="k">End</span> <span class="k">If</span>
+<span class="ln">31</span>    <span class="k">Next</span> <span class="n">oneHokuriku</span>
+<span class="ln">32</span>    <span class="k">If</span> <span class="k">Not</span> <span class="n">isHokuriku</span> <span class="k">Then</span> <span class="n">Application</span><span class="p">.</span><span class="n">Undo</span>
+<span class="ln">33</span>    
+<span class="ln">34</span>    <span class="c">&#39;//カーソル位置を元に戻す
+</span><span class="ln">35</span><span class="c"></span>    <span class="k">Me</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="n">currentCellAddress</span><span class="p">).</span><span class="n">Select</span>
+<span class="ln">36</span>    
+<span class="ln">37</span>    <span class="c">&#39;//イベントを再度有効にする
+</span><span class="ln">38</span><span class="c"></span>    <span class="n">Application</span><span class="p">.</span><span class="n">EnableEvents</span> <span class="o">=</span> <span class="k">True</span>
+<span class="ln">39</span>    
+<span class="ln">40</span><span class="k">End</span> <span class="k">Sub</span>
+</code></pre></div><p>ポイントとしては、<br>
+入力値チェックの機構を導入しています。</p>
+<p>入力値が北陸県（富山;石川;福井）のいずれかに該当すればそのまま入力を続行しますが、<br>
+もし北陸県以外の文字列が入力されれば、変更前に戻します。</p>
+<h3 id="デモ-2">デモ</h3>
+<p>入力したときに北陸県以外の文字であれば、<br>
+空欄に戻されます。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641629425/learnerBlog/vba-question-008-keep-value-before-change/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-08_143057_kjrtk5.png" alt="セル入力前">
+<img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641629425/learnerBlog/vba-question-008-keep-value-before-change/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-08_143129_lrviqh.png" alt="東京都と入力中">
+<img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641629425/learnerBlog/vba-question-008-keep-value-before-change/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-08_143145_eqbtq5.png" alt="入力後空欄に戻る"></p>
+<p>北陸県のどれかであれば、<br>
+チェックが通り、通常通り入力が完了できます。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641629425/learnerBlog/vba-question-008-keep-value-before-change/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-08_143218_ry0idh.png" alt="北陸県ならば変更可能"></p>
+<h2 id="パターン-変更した値を複数保持しリストとして他のセルに出力したい">パターン④ 変更した値を複数保持し、リストとして他のセルに出力したい</h2>
+<h3 id="about-3">ABOUT</h3>
+<p>変更前の値として複数持てるようにしたいという希望があるとします。</p>
+<p>次のように、一つのセルに改行で分けられたリストの形で<br>
+最大10個の値を格納していきます。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641629425/learnerBlog/vba-question-008-keep-value-before-change/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-08_165407_ieanvr.png" alt="リストとして格納"></p>
+<h3 id="コード-3">コード</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span><span class="k">Private</span> <span class="k">Sub</span> <span class="nf">Worksheet_Change</span><span class="p">(</span><span class="k">ByVal</span> <span class="n">Target</span> <span class="ow">As</span> <span class="n">Range</span><span class="p">)</span>
+<span class="ln"> 2</span>    <span class="k">Dim</span> <span class="n">OldValue</span> <span class="ow">As</span> <span class="kt">Variant</span>
+<span class="ln"> 3</span>    <span class="k">Dim</span> <span class="n">currentCellAddress</span>
+<span class="ln"> 4</span>    <span class="k">Dim</span> <span class="n">lists</span><span class="p">()</span> <span class="ow">As</span> <span class="kt">String</span>
+<span class="ln"> 5</span>    <span class="k">Dim</span> <span class="n">firstCount</span> <span class="ow">As</span> <span class="kt">Long</span>
+<span class="ln"> 6</span>    <span class="k">Dim</span> <span class="n">valueFromList</span> <span class="ow">As</span> <span class="kt">Variant</span>
+<span class="ln"> 7</span>    <span class="k">Dim</span> <span class="n">i</span> <span class="ow">As</span> <span class="kt">Long</span>
+<span class="ln"> 8</span>    
+<span class="ln"> 9</span>    <span class="c">&#39;//変更前の値を調べたいセル以外では処理を行わないようにする
+</span><span class="ln">10</span><span class="c"></span>    <span class="k">If</span> <span class="n">Target</span><span class="p">.</span><span class="n">Address</span><span class="p">(</span><span class="k">False</span><span class="p">,</span> <span class="k">False</span><span class="p">)</span> <span class="o">&lt;&gt;</span> <span class="s">&#34;B3&#34;</span> <span class="k">Then</span> <span class="k">Exit</span> <span class="k">Sub</span>
+<span class="ln">11</span>    
+<span class="ln">12</span>    <span class="err">&#39;//</span><span class="nf">いったんイベントを無効化し</span><span class="err">、</span><span class="n">イベントの発火を停止する</span>
+<span class="ln">13</span>    <span class="n">Application</span><span class="p">.</span><span class="n">EnableEvents</span> <span class="o">=</span> <span class="k">False</span>
+<span class="ln">14</span>    
+<span class="ln">15</span>    <span class="c">&#39;//カーソル位置を退避させる
+</span><span class="ln">16</span><span class="c"></span>    <span class="n">currentCellAddress</span> <span class="o">=</span> <span class="n">Selection</span><span class="p">.</span><span class="n">Address</span>
+<span class="ln">17</span>    
+<span class="ln">18</span>    <span class="c">&#39;//いったんセルの値をもとに戻し、古い値を変数に退避させてから再度変更後の値に戻す
+</span><span class="ln">19</span><span class="c"></span>    <span class="n">Application</span><span class="p">.</span><span class="n">Undo</span>
+<span class="ln">20</span>    <span class="n">OldValue</span> <span class="o">=</span> <span class="n">Target</span><span class="p">.</span><span class="n">Value</span>
+<span class="ln">21</span>    <span class="n">Application</span><span class="p">.</span><span class="n">Undo</span>
+<span class="ln">22</span>    
+<span class="ln">23</span>    <span class="c">&#39;//変更前の値を別のセルに移す
+</span><span class="ln">24</span><span class="c"></span>    <span class="c">&#39;////配列の形で現在のリストを取得する
+</span><span class="ln">25</span><span class="c"></span>    <span class="n">lists</span> <span class="o">=</span> <span class="n">Split</span><span class="p">(</span><span class="k">Me</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="s">&#34;D3&#34;</span><span class="p">).</span><span class="n">Value</span><span class="p">,</span> <span class="n">vbLf</span><span class="p">)</span>
+<span class="ln">26</span>    <span class="n">firstCount</span> <span class="o">=</span> <span class="n">LBound</span><span class="p">(</span><span class="n">lists</span><span class="p">)</span>
+<span class="ln">27</span>    
+<span class="ln">28</span>    <span class="c">&#39;////リスト項目が10以上であれば、最初の値を消すようにする
+</span><span class="ln">29</span><span class="c"></span>    <span class="k">If</span> <span class="p">(</span><span class="n">UBound</span><span class="p">(</span><span class="n">lists</span><span class="p">)</span> <span class="o">-</span> <span class="n">LBound</span><span class="p">(</span><span class="n">lists</span><span class="p">)</span> <span class="o">+</span> <span class="n">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">10</span> <span class="k">Then</span> <span class="n">firstCount</span> <span class="o">=</span> <span class="n">firstCount</span> <span class="o">+</span> <span class="n">1</span>
+<span class="ln">30</span>    
+<span class="ln">31</span>    <span class="c">&#39;////新しいリストを作成する
+</span><span class="ln">32</span><span class="c"></span>    <span class="k">For</span> <span class="n">i</span> <span class="o">=</span> <span class="n">firstCount</span> <span class="k">To</span> <span class="n">UBound</span><span class="p">(</span><span class="n">lists</span><span class="p">)</span>
+<span class="ln">33</span>        <span class="n">valueFromList</span> <span class="o">=</span> <span class="n">valueFromList</span> <span class="o">&amp;</span> <span class="n">lists</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">vbLf</span>
+<span class="ln">34</span>    <span class="k">Next</span> <span class="n">i</span>
+<span class="ln">35</span>    <span class="n">valueFromList</span> <span class="o">=</span> <span class="n">valueFromList</span> <span class="o">&amp;</span> <span class="n">OldValue</span>
+<span class="ln">36</span>    
+<span class="ln">37</span>    <span class="k">Me</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="s">&#34;D3&#34;</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="n">valueFromList</span>
+<span class="ln">38</span>    
+<span class="ln">39</span>    <span class="c">&#39;//カーソル位置を元に戻す
+</span><span class="ln">40</span><span class="c"></span>    <span class="k">Me</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="n">currentCellAddress</span><span class="p">).</span><span class="n">Select</span>
+<span class="ln">41</span>    
+<span class="ln">42</span>    <span class="c">&#39;//イベントを再度有効にする
+</span><span class="ln">43</span><span class="c"></span>    <span class="n">Application</span><span class="p">.</span><span class="n">EnableEvents</span> <span class="o">=</span> <span class="k">True</span>
+<span class="ln">44</span>    
+<span class="ln">45</span><span class="k">End</span> <span class="k">Sub</span>
+<span class="ln">46</span>
+<span class="ln">47</span>
+</code></pre></div><p>改行コードでリストを分割して配列として取り扱い、<br>
+再度格納する際には分割したそれぞれを改行コードで結合します。</p>
+<h3 id="デモ-3">デモ</h3>
+<p>これまでにデータ1~10を入力済みで、<br>
+現在の値がデータ11である状態です。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641629425/learnerBlog/vba-question-008-keep-value-before-change/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-08_165805_omxtpp.png" alt="データ12の入力前"></p>
+<p>あたらしく「データ12」を入力すると、<br>
+最も古い値が消去され、<br>
+データ2～データ11がリストに格納されています。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641629426/learnerBlog/vba-question-008-keep-value-before-change/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-08_170133_buutln.png" alt="データ12の入力後"></p>
+<h2 id="終わりに">終わりに</h2>
+<p>イベントを使いこなすことで、<br>
+Excel単独でも高度なアプリケーションのように<br>
+さまざまな機能をもたせることができます。</p>
+<p>イベントの中でも、<br>
+<code>Change</code>イベントはよく使われるので、<br>
+これを理解するとマクロが上達するでしょう。</p>
 
      
      
@@ -354,15 +526,15 @@ Microsoftの公式を見てみると面白いかもしれません。</p>
      <h3>関連記事</h3>
      <ul>
          
-         <li><a href="/learnerBlog/posts/2021/03/29/wsfunc-networkday/">[Excel VBA] 年度に関わらず営業日数を算出する方法について紹介</a></li>
+         <li><a href="/learnerBlog/posts/2022/01/02/vba-question-007-manipulate-folder-files/">[教えて！VBA] 第7回 フォルダを開く（＋ファイルを操作する）にはどうすればいいの？？</a></li>
          
-         <li><a href="/learnerBlog/posts/2021/02/13/copyto-merged-cell/">[Excel VBA] 結合セルにコピーペーストするマクロ</a></li>
+         <li><a href="/learnerBlog/posts/2022/01/01/vba-question-006-kinds-of-end-process/">[教えて！VBA] 第6回 エクセルVBAマクロで、マクロを終了するにはどうすればいいの？？</a></li>
          
-         <li><a href="/learnerBlog/posts/2021/01/15/change-pagesetup-printaria/">[Excel VBA] PageSetup.PrintAreaによるシートの印刷範囲の変更を行うときにエラーになる場合＆その回避方法</a></li>
+         <li><a href="/learnerBlog/posts/2021/12/31/vba-question-005-select-first-worksheet/">[教えて！VBA] 第5回 ブックの最初のシートの最初のセルを選択した状態にするにはどうすればいいの？？</a></li>
          
-         <li><a href="/learnerBlog/posts/2020/12/12/sheet-array-visible/">[VBA] Excelの複数シートをループを使わず一行の処理で非表示・再表示にすることはできる？？</a></li>
+         <li><a href="/learnerBlog/posts/2021/12/30/vba-question-004-copypaste-shapes/">[教えて！VBA] 第4回 シート上の図形をコピーして他のセル上に貼り付けするにはどうすればいいの？？</a></li>
          
-         <li><a href="/learnerBlog/posts/2020/12/11/search-shape-string/">[VBA] ブック内の図形内のテキストを検索・置換するマクロ（Qiitaの記事の拡張）</a></li>
+         <li><a href="/learnerBlog/posts/2021/12/29/paste-only-colors/">[Excel VBA] セルの文字色・背景色だけをコピーして貼り付けるマクロを作成しました</a></li>
          
      </ul>
      <div id="disqus_thread"></div>
@@ -409,9 +581,6 @@ Microsoftの公式を見てみると面白いかもしれません。</p>
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2022/01/06/vba-question-008-keep-value-before-change/" class="nav-link" title="[教えて！VBA] 第8回 変更前のセルの値を保持/利用するにはどうすればいいの？？">[教えて！VBA] 第8回 変更前のセルの値を保持/利用するにはどうすればいいの？？</a>
-      </li>
-      <li>
         <a href="https://dede-20191130.github.io/learnerBlog/posts/2022/01/02/vba-question-007-manipulate-folder-files/" class="nav-link" title="[教えて！VBA] 第7回 フォルダを開く（＋ファイルを操作する）にはどうすればいいの？？">[教えて！VBA] 第7回 フォルダを開く（＋ファイルを操作する）にはどうすればいいの？？</a>
       </li>
       <li>
@@ -428,6 +597,9 @@ Microsoftの公式を見てみると面白いかもしれません。</p>
       </li>
       <li>
         <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/12/25/vba-question-003-clear-data-in-table/" class="nav-link" title="[教えて！VBA] 第3回 Accessマクロで、テーブルのデータを全クリアするにはどうすればいいの？？">[教えて！VBA] 第3回 Accessマクロで、テーブルのデータを全クリアするにはどうすればいいの？？</a>
+      </li>
+      <li>
+        <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/12/14/vba-question-002-chekc-single-cell/" class="nav-link" title="[教えて！VBA] 第2回 一つのセルの値が「東京都」であることを条件として別のアクションを行うにはどうすればいいの？？">[教えて！VBA] 第2回 一つのセルの値が「東京都」であることを条件として別のアクションを行うにはどうすればいいの？？</a>
       </li>
       <li>
         <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/12/12/vba-question-001-waiting/" class="nav-link" title="[教えて！VBA] 第1回 処理の途中で待機時間（Sleep）を設けるにはどうすればいいの？？">[教えて！VBA] 第1回 処理の途中で待機時間（Sleep）を設けるにはどうすればいいの？？</a>
