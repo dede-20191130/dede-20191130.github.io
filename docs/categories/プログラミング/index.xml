@@ -6,7 +6,190 @@
     <description>Recent content in プログラミング on 学習者dedeのブログ ~プログラミング等~</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 06 Jan 2022 14:10:19 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 10 Jan 2022 12:34:09 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[教えて！VBA] 第9回 フォントやボタンをカスタマイズできるメッセージボックスを作成するにはどうすればいいの？？</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2022/01/10/vba-question-009-create-own-message-frm/</link>
+      <pubDate>Mon, 10 Jan 2022 12:34:09 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2022/01/10/vba-question-009-create-own-message-frm/</guid>
+      <description>
+        
+          &lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641804072/learnerBlog/vba-question-009-create-own-message-frm/create-own-message-frm_gauuok.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
+
+
+
+&lt;div class=&#34;box-with-title&#34;&gt;
+    &lt;p&gt;&lt;span&gt;かんたんな概要と結論&lt;/span&gt;&lt;/p&gt;
+    &lt;div class=&#34;inner&#34;&gt;
+         
+    独自のメッセージボックスを使ってカスタマイズを行うためには、&lt;br/&gt;
+    ユーザーフォームという機能を利用する必要があります。&lt;br/&gt;&lt;br/&gt;
+    ユーザーフォームを使って、URLリンクを貼ったり、&lt;br/&gt;
+    ボタンの数を増やしたりすることができます。
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;こんにちは、dedeです。&lt;/p&gt;
+&lt;p&gt;この記事では、&lt;br&gt;
+VBAマクロに関する質問のうち、&lt;br&gt;
+皆が疑問に思っているトピックについて解説いたします。&lt;/p&gt;
+&lt;p&gt;今回は、
+
+
+&lt;span style=&#34;color: #fb9700;&#34;&gt;
+    フォントやボタンをカスタマイズできるような、独自のメッセージボックスを作成する方法
+&lt;/span&gt;&lt;br&gt;
+を解説いたします。&lt;/p&gt;
+&lt;p&gt;※この記事は、Office VBAマクロのうち&lt;br&gt;
+Excel VBAマクロに関するトピックです。&lt;/p&gt;
+&lt;p&gt;レベル：&lt;b&gt;中級者向け&lt;/b&gt;&lt;/p&gt;
+&lt;h2 id=&#34;標準のメッセージボックスの機能&#34;&gt;標準のメッセージボックスの機能&lt;/h2&gt;
+&lt;p&gt;標準のメッセージボックスを利用するには、&lt;br&gt;
+&lt;code&gt;VBA.Interaction&lt;/code&gt; のメンバーである&lt;code&gt;MsgBox&lt;/code&gt;関数を使用します。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;MsgBox&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;prompt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;buttons&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;helpfile&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;context&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;標準のメッセージボックスには各種の機能がありますが、&lt;br&gt;
+その種類は限られています。&lt;/p&gt;
+&lt;p&gt;詳しくは、&lt;a href=&#34;https://docs.microsoft.com/ja-jp/office/vba/language/reference/user-interface-help/msgbox-function&#34;&gt;公式&lt;/a&gt;に記載があります。&lt;/p&gt;
+&lt;p&gt;例えば、&lt;br&gt;
+次のように「はい」「いいえ」の選択肢ボタンを表示したり、&lt;br&gt;
+警告アイコンやエラーアイコンを付記することはできます。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641804072/learnerBlog/vba-question-009-create-own-message-frm/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-10_133115_dhbpvp.png&#34; alt=&#34;標準のメッセージボックス&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;やりたいこと&#34;&gt;やりたいこと&lt;/h2&gt;
+&lt;p&gt;上記の標準機能では、&lt;br&gt;
+次のようなことができません。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;フォントをカスタマイズする（色の変更など）&lt;/li&gt;
+&lt;li&gt;URLリンクを貼り付ける&lt;/li&gt;
+&lt;li&gt;選択肢ボタンの他に、別の処理を行うボタンを配置する&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;これらを実現するために、&lt;br&gt;
+Excel VBAのユーザーフォーム機能を利用します。&lt;/p&gt;
+&lt;p&gt;【ユーザーフォームとは？】&lt;/p&gt;
+&lt;p&gt;ボタンやテキストボックスなどのコントロールを自由に配置してカスタマイズできる画面です。&lt;br&gt;
+詳細な利用方法は &lt;a href=&#34;https://www.239-programing.com/excel-vba/ufm/ufm012.html&#34;&gt;こちら&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;実装する&#34;&gt;実装する&lt;/h2&gt;
+&lt;h3 id=&#34;レベル1-独自のメッセージフォームを構築&#34;&gt;レベル1. 独自のメッセージフォームを構築&lt;/h3&gt;
+&lt;p&gt;まず、独自メッセージのためのフォームを作成します。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641804072/learnerBlog/vba-question-009-create-own-message-frm/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-10_140838_piu7so.png&#34; alt=&#34;独自メッセージのためのフォーム&#34;&gt;&lt;/p&gt;
+&lt;p&gt;その後、フォームにラベルやボタンなどの部品（コントロールと呼びます）を設置します。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641804072/learnerBlog/vba-question-009-create-own-message-frm/create-own-message-frm2_gcyhvh.png&#34; alt=&#34;メッセージボックスの部品設置&#34;&gt;&lt;/p&gt;
+&lt;p&gt;最後にフォームのコードウィンドウ上にコードを記入します。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;//OKボタン
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;CommandButton_OK_Click&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;//結果を現在表示中のシートに記載
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;ActiveSheet&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;B5&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;結果です。&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;ActiveSheet&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;B6&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;ああいいううええおお&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;//フォームを閉じる
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;Unload&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Me&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;//キャンセルボタン
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;CommandButton_Cancel_Click&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;//フォームを閉じる
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;Unload&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Me&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;OKボタン押下時には結果をシートに記入しまてからフォームを閉じますが、&lt;br&gt;
+キャンセルボタン押下時には結果処理をキャンセルし、フォームを閉じます。&lt;/p&gt;
+&lt;p&gt;以下、デモです。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;シートに独自メッセージ呼び出し用のボタンを設置します。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641804072/learnerBlog/vba-question-009-create-own-message-frm/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-10_165010_d1mmro.png&#34; alt=&#34;呼び出し用のボタン&#34;&gt;&lt;/p&gt;
+&lt;p&gt;このボタンを押すと独自メッセージが呼び出されます。&lt;br&gt;
+ボタンには次のように呼び出し用のプログラムを設定します。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;CommandButton_ShowMessage_Click&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;//独自メッセージを表示
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;UserForm_MyMessage&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Show&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;今回はデモなのでシート上のボタンの押下で呼び出しというようにしていますが、&lt;br&gt;
+呼び出したい場所で&lt;code&gt;UserForm_MyMessage.Show&lt;/code&gt;を記述すればよいだけなので、&lt;br&gt;
+実際上はどのようなプログラムでもメッセージを表示させることができます。&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;ボタンを押下して独自メッセージを表示させます。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641804072/learnerBlog/vba-question-009-create-own-message-frm/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-10_165522_qjhjlt.png&#34; alt=&#34;独自メッセージを表示&#34;&gt;&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;メッセージボックス上のOKボタンを押下すると、シートに結果の文字を表示します。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641804073/learnerBlog/vba-question-009-create-own-message-frm/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-10_165533_mxajkw.png&#34; alt=&#34;OKボタンを押下&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;レベル2-フォントをカスタマイズ&#34;&gt;レベル2. フォントをカスタマイズ&lt;/h3&gt;
+&lt;p&gt;独自メッセージボックス上の文字はラベルというコントロールに記述されており、&lt;br&gt;
+ラベルの文字は色を変えたり大きさを変えたりすることができます。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641804073/learnerBlog/vba-question-009-create-own-message-frm/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-10_170315_vb4wiq.png&#34; alt=&#34;フォントをカスタマイズ&#34;&gt;&lt;/p&gt;
+&lt;p&gt;「メールの添付」の文字のためのラベルを新しく挿入し、&lt;br&gt;
+文字色を大きさ、太さを変更しました。&lt;/p&gt;
+&lt;h3 id=&#34;レベル3-urlリンクを配置&#34;&gt;レベル3. URLリンクを配置&lt;/h3&gt;
+&lt;p&gt;ラベルには、&lt;br&gt;
+URLリンクも配置することができます。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641804071/learnerBlog/vba-question-009-create-own-message-frm/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-10_171053_p71qee.png&#34; alt=&#34;URLリンクを配置&#34;&gt;&lt;/p&gt;
+&lt;p&gt;上では、URLとしてexample.comを設定します。&lt;/p&gt;
+&lt;p&gt;ラベルをクリックした際のイベントとして次のようにコードを書きます。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;//URL記載ラベルのクリックイベント
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Label_URLLink_Click&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;ThisWorkbook&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;FollowHyperlink&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Address&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;http://example.com&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;以下、デモです。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;メッセージボックスを表示し、URLリンクをクリックすると……&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641804072/learnerBlog/vba-question-009-create-own-message-frm/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-10_171121_xant0f.png&#34; alt=&#34;URLリンクをクリック&#34;&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;example.comのサイトがブラウザで開かれます。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641804071/learnerBlog/vba-question-009-create-own-message-frm/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-10_171133_wzwsek.png&#34; alt=&#34;リンクを開く&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;レベル4-ボタンを増やしメッセージの機能を追加する&#34;&gt;レベル4. ボタンを増やし、メッセージの機能を追加する&lt;/h3&gt;
+&lt;p&gt;「OK」「キャンセル」「はい」「いいえ」などの選択肢ボタンの他に、&lt;br&gt;
+具体的な動作を表すボタンを追加することもできます。&lt;/p&gt;
+&lt;p&gt;このようにすれば、メッセージボックスに特有の機能を持たせることができます。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641804071/learnerBlog/vba-question-009-create-own-message-frm/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-10_172723_gsvp75.png&#34; alt=&#34;ボタン追加&#34;&gt;&lt;/p&gt;
+&lt;p&gt;上の図では、現在表示中のシートではなく、&lt;br&gt;
+「結果シート」というシートに文字を書き込むボタンを追加しています。&lt;/p&gt;
+&lt;p&gt;ボタン押下時のイベント処理は次のようなコードとして記述します。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;//結果シートに書きこむボタン
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;CommandButton_WriteResultSheet_Click&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;//結果を結果シートに記載
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;Worksheets&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;結果シート&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;B2&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;結果です。&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;Worksheets&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;結果シート&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;B3&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;ああいいううええおお&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;//フォームを閉じる
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;Unload&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Me&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;9&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;ボタンの数は常識的な範囲ではいくつでも配置できる（上限があったかどうかは把握しておりませんが）ので、&lt;br&gt;
+実装の方法次第で、非常に多機能なメッセージボックスに仕上げることも可能です。&lt;/p&gt;
+&lt;p&gt;以下、デモです。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;結果シートには何も記入されていない初期状態です。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641804071/learnerBlog/vba-question-009-create-own-message-frm/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-10_172756_muliwb.png&#34; alt=&#34;結果シート初期状態&#34;&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;「結果シートに書き込む」ボタンを押下します。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641804072/learnerBlog/vba-question-009-create-own-message-frm/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-10_172818_oqpwmz.png&#34; alt=&#34;結果シートに書き込むボタンを押下&#34;&gt;&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;OKボタンを押したときとは異なり、結果シートに結果の文字が書き込まれ、フォームが閉じます。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641804072/learnerBlog/vba-question-009-create-own-message-frm/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-10_172831_xiiu1b.png&#34; alt=&#34;結果シートに書き込み&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;ソースファイルについて&#34;&gt;ソースファイルについて&lt;/h2&gt;
+&lt;p&gt;デモで使用したソースファイルについて、&lt;br&gt;
+&lt;a href=&#34;https://github.com/dede-20191130/My_VBA_Tools/tree/master/Public/2022/01/create-own-message-frm&#34;&gt;こちら&lt;/a&gt;からダウンロードできます。&lt;/p&gt;
+&lt;h2 id=&#34;終わりに&#34;&gt;終わりに&lt;/h2&gt;
+&lt;p&gt;メッセージボックスのカスタマイズを行うと、&lt;br&gt;
+注意させたい文言を赤文字で書いたり、&lt;br&gt;
+業務上重要なサイトをURLリンクで貼り付けたりできるので、&lt;br&gt;
+VBAマクロの便利さをより向上させることができるでしょう。&lt;/p&gt;
+
+        
+      </description>
+    </item>
+    
     <item>
       <title>[教えて！VBA] 第8回 変更前のセルの値を保持/利用するにはどうすればいいの？？</title>
       <link>https://dede-20191130.github.io/learnerBlog/posts/2022/01/06/vba-question-008-keep-value-before-change/</link>
