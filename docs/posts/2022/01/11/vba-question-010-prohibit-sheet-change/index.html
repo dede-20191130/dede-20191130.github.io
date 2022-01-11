@@ -1,8 +1,8 @@
 
 <!DOCTYPE html>
-<html lang="ja" data-figures="">
+<html lang="ja" data-figures="" class="page">
   <head>
-<title>2021 | 学習者dedeのブログ ~プログラミング等~</title>
+<title>[教えて！VBA] 第10回 Excelのシートの移動・削除を禁止する方法 ＆ マクロ実行時だけ許可するにはどうすればいいの？？ | 学習者dedeのブログ ~プログラミング等~</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,24 +14,24 @@
   gtag('config', 'UA-110309082-3');
 </script>
 
+  
 <meta property="og:locale" content="ja" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="">
+<meta name="description" content="この記事について かんたんな概要と結論 ブックの保護機能を利用し、シートの移動・削除を禁止できます。 マクロからシート構成をいじりたい場合は、一時">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="@D20191130">
-<meta name="twitter:title" content="2021" />
-<meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/archives/2021/" />
-<meta property="og:title" content="2021" />
-<meta property="og:description" content="" />
+<meta name="twitter:title" content="[教えて！VBA] 第10回 Excelのシートの移動・削除を禁止する方法 ＆ マクロ実行時だけ許可するにはどうすればいいの？？" />
+<meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/posts/2022/01/11/vba-question-010-prohibit-sheet-change/" />
+<meta property="og:title" content="[教えて！VBA] 第10回 Excelのシートの移動・削除を禁止する方法 ＆ マクロ実行時だけ許可するにはどうすればいいの？？" />
+<meta property="og:description" content="この記事について かんたんな概要と結論 ブックの保護機能を利用し、シートの移動・削除を禁止できます。 マクロからシート構成をいじりたい場合は、一時" />
 <meta property="og:image" content="https://dede-20191130.github.io/learnerBlog/images/thumbnail.png" />
 
 <link rel="apple-touch-icon" sizes="180x180" href="https://dede-20191130.github.io/learnerBlog/icons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://dede-20191130.github.io/learnerBlog/icons/favicon-32x32.png">
 <link rel="manifest" href="https://dede-20191130.github.io/learnerBlog/icons/site.webmanifest">
 
-<link rel="canonical" href="https://dede-20191130.github.io/learnerBlog/archives/2021/">
-<link rel="alternate" type="application/rss+xml" href="https://dede-20191130.github.io/learnerBlog/archives/2021/index.xml" title="学習者dedeのブログ ~プログラミング等~" />
+<link rel="canonical" href="https://dede-20191130.github.io/learnerBlog/posts/2022/01/11/vba-question-010-prohibit-sheet-change/">
 
     
 
@@ -118,251 +118,365 @@
 </header>
 
     <main>
-
+  
 <div class="grid-inverse wrap content">
-    <article class="post">
-        <h3>アーカイブ：2021</h3>
-        </pre>
-        
-        <li>
-            <span class="date">2021.12.31 (Fri)</span>
-            <p class="ml-15 post_content">
-                <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/12/31/vba-question-005-select-first-worksheet/">[教えて！VBA] 第5回 ブックの最初のシートの最初のセルを選択した状態にするにはどうすればいいの？？</a><br>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' class="post_tag button button_translucent">VBA
-                </a>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/excel' class="post_tag button button_translucent">Excel
-                </a>
-            </p>
-        </li>
-        <li>
-            <span class="date">2021.12.30 (Thu)</span>
-            <p class="ml-15 post_content">
-                <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/12/30/vba-question-004-copypaste-shapes/">[教えて！VBA] 第4回 シート上の図形をコピーして他のセル上に貼り付けするにはどうすればいいの？？</a><br>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' class="post_tag button button_translucent">VBA
-                </a>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/excel' class="post_tag button button_translucent">Excel
-                </a>
-            </p>
-        </li>
-        <li>
-            <span class="date">2021.12.29 (Wed)</span>
-            <p class="ml-15 post_content">
-                <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/12/29/paste-only-colors/">[Excel VBA] セルの文字色・背景色だけをコピーして貼り付けるマクロを作成しました</a><br>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' class="post_tag button button_translucent">VBA
-                </a>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/excel' class="post_tag button button_translucent">Excel
-                </a>
-            </p>
-        </li>
-        <li>
-            <span class="date">2021.12.25 (Sat)</span>
-            <p class="ml-15 post_content">
-                <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/12/25/vba-question-003-clear-data-in-table/">[教えて！VBA] 第3回 Accessマクロで、テーブルのデータを全クリアするにはどうすればいいの？？</a><br>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' class="post_tag button button_translucent">VBA
-                </a>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/access' class="post_tag button button_translucent">Access
-                </a>
-            </p>
-        </li>
-        <li>
-            <span class="date">2021.12.14 (Tue)</span>
-            <p class="ml-15 post_content">
-                <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/12/14/vba-question-002-chekc-single-cell/">[教えて！VBA] 第2回 一つのセルの値が「東京都」であることを条件として別のアクションを行うにはどうすればいいの？？</a><br>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' class="post_tag button button_translucent">VBA
-                </a>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/excel' class="post_tag button button_translucent">Excel
-                </a>
-            </p>
-        </li>
-        <li>
-            <span class="date">2021.12.12 (Sun)</span>
-            <p class="ml-15 post_content">
-                <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/12/12/vba-question-001-waiting/">[教えて！VBA] 第1回 処理の途中で待機時間（Sleep）を設けるにはどうすればいいの？？</a><br>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' class="post_tag button button_translucent">VBA
-                </a>
-            </p>
-        </li>
-        <li>
-            <span class="date">2021.11.03 (Wed)</span>
-            <p class="ml-15 post_content">
-                <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/11/03/compare-greedy-lazy-quantifiers/">[JavaScript] 正規表現の実行速度検証デモ：量指定子に「Greedyな検索」と「Lazyな検索」を指定する場合</a><br>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/javascript' class="post_tag button button_translucent">JavaScript
-                </a>
-            </p>
-        </li>
-        <li>
-            <span class="date">2021.11.01 (Mon)</span>
-            <p class="ml-15 post_content">
-                <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/11/01/bookmarklet-img-other-tab/">[Javacript] 画像をワンクリックで別タブで開けるようにするブックマークレットを作成する</a><br>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/javascript' class="post_tag button button_translucent">JavaScript
-                </a>
-            </p>
-        </li>
-        <li>
-            <span class="date">2021.10.30 (Sat)</span>
-            <p class="ml-15 post_content">
-                <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/10/30/tuning-usecontext-for-obj/">[React Hook] レンダリングのチューニング ~オブジェクトをContextとして利用する場合 &amp; サンプルコード~</a><br>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/javascript' class="post_tag button button_translucent">JavaScript
-                </a>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/react' class="post_tag button button_translucent">React
-                </a>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%83%89' class="post_tag button button_translucent">フロントエンド
-                </a>
-            </p>
-        </li>
-        <li>
-            <span class="date">2021.10.27 (Wed)</span>
-            <p class="ml-15 post_content">
-                <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/10/27/wc-toggle-color-button/">[JavaScript] Web Componentsで明暗モード切替ボタンを作成する</a><br>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/javascript' class="post_tag button button_translucent">Javascript
-                </a>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%83%89' class="post_tag button button_translucent">フロントエンド
-                </a>
-            </p>
-        </li>
-        <li>
-            <span class="date">2021.10.14 (Thu)</span>
-            <p class="ml-15 post_content">
-                <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/10/14/send-contact-form-react-router/">ご意見送信フォームを作成する③　[SPA by React Router]</a><br>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/typescript' class="post_tag button button_translucent">TypeScript
-                </a>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/react' class="post_tag button button_translucent">React
-                </a>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%83%89' class="post_tag button button_translucent">フロントエンド
-                </a>
-            </p>
-        </li>
-        <li>
-            <span class="date">2021.10.08 (Fri)</span>
-            <p class="ml-15 post_content">
-                <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/10/08/send-contact-form-react/">ご意見送信フォームを作成する②　[React]</a><br>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/typescript' class="post_tag button button_translucent">TypeScript
-                </a>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/react' class="post_tag button button_translucent">React
-                </a>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%83%89' class="post_tag button button_translucent">フロントエンド
-                </a>
-            </p>
-        </li>
-        <li>
-            <span class="date">2021.10.08 (Fri)</span>
-            <p class="ml-15 post_content">
-                <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/10/08/send-contact-form-plain-ts/">ご意見送信フォームを作成する①　[プレーンTypeScript]</a><br>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/typescript' class="post_tag button button_translucent">TypeScript
-                </a>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%83%89' class="post_tag button button_translucent">フロントエンド
-                </a>
-            </p>
-        </li>
-        <li>
-            <span class="date">2021.09.04 (Sat)</span>
-            <p class="ml-15 post_content">
-                <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/09/04/access-change-control-test/">[Access VBA] フォームのコントロール操作系の関数をどのようにユニットテストするかの方法メモ</a><br>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' class="post_tag button button_translucent">VBA
-                </a>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/access' class="post_tag button button_translucent">Access
-                </a>
-            </p>
-        </li>
-        <li>
-            <span class="date">2021.08.18 (Wed)</span>
-            <p class="ml-15 post_content">
-                <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/">[Access VBA] RequeryとRefreshの使い分けデモ　「単票フォームの編集」編</a><br>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' class="post_tag button button_translucent">VBA
-                </a>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/access' class="post_tag button button_translucent">Access
-                </a>
-            </p>
-        </li>
-        <li>
-            <span class="date">2021.07.28 (Wed)</span>
-            <p class="ml-15 post_content">
-                <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/07/28/ie11-radio-group-value-demo-ng/">[Javascript] IE11でRadioボタングループの値を取得できない事象＆対策 NGデモ</a><br>
-            </p>
-        </li>
-        <li>
-            <span class="date">2021.07.27 (Tue)</span>
-            <p class="ml-15 post_content">
-                <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/07/27/ie11-radio-group-value/">[Javascript] IE11でRadioボタングループのvalueを取得できない事象＆対策</a><br>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/javascript' class="post_tag button button_translucent">Javascript
-                </a>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%83%89' class="post_tag button button_translucent">フロントエンド
-                </a>
-            </p>
-        </li>
-        <li>
-            <span class="date">2021.03.29 (Mon)</span>
-            <p class="ml-15 post_content">
-                <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/03/29/wsfunc-networkday/">[Excel VBA] 年度に関わらず営業日数を算出する方法について紹介</a><br>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/excel' class="post_tag button button_translucent">Excel
-                </a>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' class="post_tag button button_translucent">VBA
-                </a>
-            </p>
-        </li>
-        <li>
-            <span class="date">2021.02.28 (Sun)</span>
-            <p class="ml-15 post_content">
-                <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/02/28/create-estm-accessver/">[Access VBA] 見積書作成ツール（Accessバージョン）を作成した</a><br>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/access' class="post_tag button button_translucent">Access
-                </a>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' class="post_tag button button_translucent">VBA
-                </a>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C' class="post_tag button button_translucent">自作
-                </a>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%83%84%E3%83%BC%E3%83%AB' class="post_tag button button_translucent">ツール
-                </a>
-            </p>
-        </li>
-        <li>
-            <span class="date">2021.02.13 (Sat)</span>
-            <p class="ml-15 post_content">
-                <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/02/13/podcast-history-program/">Podcastの「歴史系番組」の比較＆おすすめの紹介</a><br>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/%E6%AD%B4%E5%8F%B2%E4%B8%80%E8%88%AC' class="post_tag button button_translucent">歴史一般
-                </a>
-            </p>
-        </li>
-        <li>
-            <span class="date">2021.02.13 (Sat)</span>
-            <p class="ml-15 post_content">
-                <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/02/13/copyto-merged-cell/">[Excel VBA] 結合セルにコピーペーストするマクロ</a><br>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/excel' class="post_tag button button_translucent">Excel
-                </a>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' class="post_tag button button_translucent">VBA
-                </a>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C' class="post_tag button button_translucent">自作
-                </a>
-            </p>
-        </li>
-        <li>
-            <span class="date">2021.02.12 (Fri)</span>
-            <p class="ml-15 post_content">
-                <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/02/12/python-note-01/">[Python] 久しぶりにpythonスクリプトを作成した。[ファイル区分けスクリプト]</a><br>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/python' class="post_tag button button_translucent">python
-                </a>
-            </p>
-        </li>
-        <li>
-            <span class="date">2021.01.15 (Fri)</span>
-            <p class="ml-15 post_content">
-                <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/01/15/change-pagesetup-printaria/">[Excel VBA] PageSetup.PrintAreaによるシートの印刷範囲の変更を行うときにエラーになる場合＆その回避方法</a><br>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' class="post_tag button button_translucent">VBA
-                </a>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/excel' class="post_tag button button_translucent">Excel
-                </a>
-            </p>
-        </li>
-        <li>
-            <span class="date">2021.01.13 (Wed)</span>
-            <p class="ml-15 post_content">
-                <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/01/13/interface-array-member/">[VBA] インタフェース継承を使用する際にクラス変数として配列を使用する方法</a><br>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' class="post_tag button button_translucent">VBA
-                </a>
-                <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91' class="post_tag button button_translucent">オブジェクト指向
-                </a>
-            </p>
-        </li>
-    </article>
+  <article class="post_content">
+    <h1 class="post_title">[教えて！VBA] 第10回 Excelのシートの移動・削除を禁止する方法 ＆ マクロ実行時だけ許可するにはどうすればいいの？？</h1>
+  <div class="post_meta">
+    <span><svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg></span>
+    <span class="post_date">
+      Jan 11, 2022</span>
+    <span class="post_time"> · 6 min read</span><span>&nbsp;· <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' title="VBA" class="post_tag button button_translucent">VBA
+        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/excel' title="Excel" class="post_tag button button_translucent">Excel
+        </a>
+    </span>
+    <span class="page_only">&nbsp;·
+  <div class="post_share">
+    Share on:
+    <a href="https://twitter.com/intent/tweet?text=%5b%e6%95%99%e3%81%88%e3%81%a6%ef%bc%81VBA%5d%20%e7%ac%ac10%e5%9b%9e%20Excel%e3%81%ae%e3%82%b7%e3%83%bc%e3%83%88%e3%81%ae%e7%a7%bb%e5%8b%95%e3%83%bb%e5%89%8a%e9%99%a4%e3%82%92%e7%a6%81%e6%ad%a2%e3%81%99%e3%82%8b%e6%96%b9%e6%b3%95%20%ef%bc%86%20%e3%83%9e%e3%82%af%e3%83%ad%e5%ae%9f%e8%a1%8c%e6%99%82%e3%81%a0%e3%81%91%e8%a8%b1%e5%8f%af%e3%81%99%e3%82%8b%e3%81%ab%e3%81%af%e3%81%a9%e3%81%86%e3%81%99%e3%82%8c%e3%81%b0%e3%81%84%e3%81%84%e3%81%ae%ef%bc%9f%ef%bc%9f&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2022%2f01%2f11%2fvba-question-010-prohibit-sheet-change%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
+      <svg class="icon">
+  <use xlink:href="#twitter"></use>
+</svg>
+    </a>
+    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2022%2f01%2f11%2fvba-question-010-prohibit-sheet-change%2f&t=%5b%e6%95%99%e3%81%88%e3%81%a6%ef%bc%81VBA%5d%20%e7%ac%ac10%e5%9b%9e%20Excel%e3%81%ae%e3%82%b7%e3%83%bc%e3%83%88%e3%81%ae%e7%a7%bb%e5%8b%95%e3%83%bb%e5%89%8a%e9%99%a4%e3%82%92%e7%a6%81%e6%ad%a2%e3%81%99%e3%82%8b%e6%96%b9%e6%b3%95%20%ef%bc%86%20%e3%83%9e%e3%82%af%e3%83%ad%e5%ae%9f%e8%a1%8c%e6%99%82%e3%81%a0%e3%81%91%e8%a8%b1%e5%8f%af%e3%81%99%e3%82%8b%e3%81%ab%e3%81%af%e3%81%a9%e3%81%86%e3%81%99%e3%82%8c%e3%81%b0%e3%81%84%e3%81%84%e3%81%ae%ef%bc%9f%ef%bc%9f" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
+      <svg class="icon">
+  <use xlink:href="#facebook"></use>
+</svg>
+    </a>
+    <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
+      <svg class="icon">
+  <use xlink:href="#linkedin"></use>
+</svg>
+    </a>
+    <a href="https://dede-20191130.github.io/learnerBlog/posts/2022/01/11/vba-question-010-prohibit-sheet-change/" title="Copy Link" class="link link_yank">
+      <svg class="icon">
+  <use xlink:href="#copy"></use>
+</svg>
+    </a>
+  </div>
+  </span>
+  </div>
+
+    
+    
+    <h2>Overview</h2>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#この記事について">この記事について</a></li>
+    <li><a href="#やりたいこと">やりたいこと</a></li>
+    <li><a href="#環境">環境</a></li>
+    <li><a href="#保護機能について">保護機能について</a></li>
+    <li><a href="#手順">手順</a>
+      <ul>
+        <li><a href="#レベル1-シートの移動削除を禁止する">レベル1. シートの移動・削除を禁止する</a></li>
+        <li><a href="#レベル2-禁止を一時的に許可する">レベル2. 禁止を一時的に許可する</a></li>
+        <li><a href="#レベル3-マクロ実行時だけ許可し復旧する">レベル3. マクロ実行時だけ許可し、復旧する</a></li>
+      </ul>
+    </li>
+    <li><a href="#デモ">デモ</a>
+      <ul>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#前提">前提</a></li>
+        <li><a href="#デモ-1">デモ</a></li>
+      </ul>
+    </li>
+    <li><a href="#デモで使用したファイルについて">デモで使用したファイルについて</a></li>
+    <li><a href="#終わりに">終わりに</a></li>
+  </ul>
+</nav>
+    <p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641887344/learnerBlog/vba-question-010-prohibit-sheet-change/prohibit-sheet-change_levful.png" alt=""></p>
+<h2 id="この記事について">この記事について</h2>
+
+
+
+<div class="box-with-title">
+    <p><span>かんたんな概要と結論</span></p>
+    <div class="inner">
+         
+    ブックの保護機能を利用し、シートの移動・削除を禁止できます。<br/>
+    マクロからシート構成をいじりたい場合は、一時的に解除して再度復旧するようなコードの組み方をすることが必要です。
+
+    </div>
+</div>
+<p>こんにちは、dedeです。</p>
+<p>この記事では、<br>
+VBAマクロに関する質問のうち、<br>
+皆が疑問に思っているトピックについて解説いたします。</p>
+<p>今回は、<br>
+
+
+<span style="color: #fb9700;">
+    Excelのシートの移動・削除を禁止する方法と、<br>
+それを一時的に許可してマクロの処理を実行する方法
+</span><br>
+を解説いたします。</p>
+<p>※この記事は、Office VBAマクロのうち<br>
+Excel VBAマクロに関するトピックです。</p>
+<p>レベル：<b>中級者向け</b></p>
+<h2 id="やりたいこと">やりたいこと</h2>
+<p>マクロを組んだExcelブックを他の人にツールとして配るとき、<br>
+シートの構成をいじられたら困る場合があるでしょう。</p>
+<p>例えば、<br>
+非表示シートに商品データシートを置いておいてマクロから参照する場合、<br>
+商品データシートの名前を変えられたら参照できなくなる可能性があり、<br>
+また、商品データシートを削除されたら、データが失われます。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641887344/learnerBlog/vba-question-010-prohibit-sheet-change/prohibit-sheet-change2_bwacab.png" alt="ユーザ操作により不具合が発生する例"></p>
+<p>よって、<br>
+シート構成をいじることができないように<br>
+プロテクト（保護）を掛ける必要があります。</p>
+<p>また、シート構成を操作するようなマクロ実行時には、<br>
+一時的にプロテクトを解除するような手続きが必要になるでしょう。</p>
+<p>以下の手順セクションでは、<br>
+シート構成の保護のやり方、<br>
+およびマクロのコードについて説明します。</p>
+<h2 id="環境">環境</h2>
+<p>以下は、<br>
+Office 2016のExcel環境での説明です。</p>
+<p>※2022/1時点の最新バージョンのExcelでも内容は変わりません。</p>
+<h2 id="保護機能について">保護機能について</h2>
+<p>まずExcelの保護機能について簡単に説明します。</p>
+<p>ユーザーが誤ってデータの一部を毀損することを防ぐために、<br>
+Excelに備わっている動作制限機能のことを保護機能と呼びます。</p>
+<p>校閲タブから操作できる保護機能は、<br>
+
+
+<span style="color: #fb9700;">
+    シートの保護
+</span>と
+
+
+<span style="color: #fb9700;">
+    ブックの保護
+</span>の
+二種類に分類されます。</p>
+<table>
+<thead>
+<tr>
+<th>保護の種類</th>
+<th>対象</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ブックの保護</td>
+<td>シート構成<br/>（ワークシートの数、名前など）</td>
+<td>非表示のワークシートの表示、ワークシートの追加、<br/>移動、削除、非表示、ワークシートの名前変更を<br/>行うことができないようになる</td>
+</tr>
+<tr>
+<td>シートの保護</td>
+<td>シート上のオブジェクト</td>
+<td>セル書き込み、セル追加・削除、図形の位置変更など<br/>（細かく設定が可能）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="手順">手順</h2>
+<h3 id="レベル1-シートの移動削除を禁止する">レベル1. シートの移動・削除を禁止する</h3>
+<p>シートの移動・削除を禁止する、すなわちシート構成の保護を実施するためには、<br>
+校閲タブの「ブックの保護」ボタンを押下します。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641887343/learnerBlog/vba-question-010-prohibit-sheet-change/prohibit-sheet-change3_sm34zl.png" alt="校閲タブの「ブックの保護」"></p>
+<p>保護のためのパスワードを入力し、実行します。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641887343/learnerBlog/vba-question-010-prohibit-sheet-change/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-11_153805_vyzs7i.png" alt="ブックの保護設定画面"></p>
+<p>シート構成が保護され、非表示メニューや名前変更メニューがグレーアウトされて<br>
+選択できなくなります。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641887343/learnerBlog/vba-question-010-prohibit-sheet-change/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-11_153835_lqhtfo.png" alt="シート構成保護"></p>
+<h3 id="レベル2-禁止を一時的に許可する">レベル2. 禁止を一時的に許可する</h3>
+<p>マクロからブックの保護を解除することができます。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln">1</span><span class="n">ThisWorkbook</span><span class="p">.</span><span class="n">Unprotect</span> <span class="n">PassWord</span>
+</code></pre></div><p>解除したいワークブックの<code>Unprotect</code>メソッドを呼び出して、<br>
+引数にパスワードを指定します。</p>
+<p>実行後、<br>
+グレーアウトされていた非表示メニューや名前変更メニューが再度選択可能になっています。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641887343/learnerBlog/vba-question-010-prohibit-sheet-change/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-11_155647_vgukim.png" alt="シート構成保護の解除"></p>
+<h3 id="レベル3-マクロ実行時だけ許可し復旧する">レベル3. マクロ実行時だけ許可し、復旧する</h3>
+<p>次のように、<br>
+GOTOの機構（<a href="https://dede-20191130.github.io/learnerBlog/posts/2020/12/05/vba-exception-handle/">例外処理の解説ページ</a>で詳細に説明しています）を使って、<br>
+必ず保護の復旧の処理が実行されるようにします。</p>
+<p>このようにしないと、<br>
+エラーが起きた時に復旧されずにマクロが終了する可能性があるためです。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span><span class="k">Public</span> <span class="k">Sub</span> <span class="nf">マクロ実行時だけ許可</span><span class="p">()</span>
+<span class="ln"> 2</span>    
+<span class="ln"> 3</span>    <span class="k">On</span> <span class="k">Error</span> <span class="k">GoTo</span> <span class="n">ErrorHandler</span>
+<span class="ln"> 4</span>    
+<span class="ln"> 5</span>    <span class="c">&#39;//一時的に解除
+</span><span class="ln"> 6</span><span class="c"></span>    <span class="n">ThisWorkbook</span><span class="p">.</span><span class="n">Unprotect</span> <span class="s">&#34;test&#34;</span>
+<span class="ln"> 7</span>    
+<span class="ln"> 8</span>    <span class="c">&#39;//シート構成を操作する処理……
+</span><span class="ln"> 9</span><span class="c"></span>    
+<span class="ln">10</span><span class="n">ExitHandler</span><span class="p">:</span>
+<span class="ln">11</span>    
+<span class="ln">12</span>    <span class="c">&#39;//保護の復旧
+</span><span class="ln">13</span><span class="c"></span>    <span class="n">ThisWorkbook</span><span class="p">.</span><span class="n">Protect</span> <span class="s">&#34;test&#34;</span>
+<span class="ln">14</span>    
+<span class="ln">15</span>    <span class="k">Exit</span> <span class="k">Sub</span>
+<span class="ln">16</span>    
+<span class="ln">17</span><span class="nf">ErrorHandler</span><span class="p">:</span>
+<span class="ln">18</span>
+<span class="ln">19</span>    <span class="n">MsgBox</span> <span class="s">&#34;エラーが発生したため、マクロを終了します。&#34;</span><span class="p">,</span> <span class="n">vbCritical</span>
+<span class="ln">20</span>        
+<span class="ln">21</span>    <span class="k">GoTo</span> <span class="n">ExitHandler</span>
+<span class="ln">22</span>        
+<span class="ln">23</span><span class="k">End</span> <span class="k">Sub</span>
+<span class="ln">24</span>
+</code></pre></div><h2 id="デモ">デモ</h2>
+<h3 id="about">ABOUT</h3>
+<p>シートを追加したり消去したりするボタンを動作させるデモです。</p>
+<p>実際にシートをイチから作成しているわけではなく、<br>
+非表示にしていたシートを追加したり、表示中のシートを非表示化するマクロです。</p>
+<h3 id="前提">前提</h3>
+<p>まず、<br>
+シートが4種類あります。<br>
+そのうち、接頭辞が「追加シート」であるシートが３つあります。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641887344/learnerBlog/vba-question-010-prohibit-sheet-change/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-11_162249_bz1cem.png" alt="デモ シート構成"></p>
+<p>シート1のシート上に、<br>
+シート追加ボタン、シート消去ボタンを作成します。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641887344/learnerBlog/vba-question-010-prohibit-sheet-change/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-11_162343_epq8y2.png" alt="デモ用ボタン配置"></p>
+<p>それぞれのボタンにマクロを登録します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span><span class="k">Public</span> <span class="k">Sub</span> <span class="nf">シート追加</span><span class="p">()</span>
+<span class="ln"> 2</span>    
+<span class="ln"> 3</span>    <span class="k">Dim</span> <span class="n">additinalSheetNumber</span> <span class="ow">As</span> <span class="kt">Long</span>
+<span class="ln"> 4</span>    <span class="k">Dim</span> <span class="n">vSheet</span> <span class="ow">As</span> <span class="kt">Object</span>
+<span class="ln"> 5</span>    
+<span class="ln"> 6</span>    <span class="k">On</span> <span class="k">Error</span> <span class="k">GoTo</span> <span class="n">ErrorHandler</span>
+<span class="ln"> 7</span>    
+<span class="ln"> 8</span>    <span class="c">&#39;//一時的に解除
+</span><span class="ln"> 9</span><span class="c"></span>    <span class="n">ThisWorkbook</span><span class="p">.</span><span class="n">Unprotect</span> <span class="s">&#34;test&#34;</span>
+<span class="ln">10</span>    
+<span class="ln">11</span>    <span class="c">&#39;//表示中の追加シートの数を算出
+</span><span class="ln">12</span><span class="c"></span>    <span class="n">additinalSheetNumber</span> <span class="o">=</span> <span class="n">0</span>
+<span class="ln">13</span>    <span class="k">For</span> <span class="k">Each</span> <span class="n">vSheet</span> <span class="ow">In</span> <span class="n">ThisWorkbook</span><span class="p">.</span><span class="n">Worksheets</span>
+<span class="ln">14</span>        <span class="k">If</span> <span class="n">vSheet</span><span class="p">.</span><span class="n">Visible</span> <span class="o">=</span> <span class="k">True</span> <span class="ow">And</span> <span class="n">InStr</span><span class="p">(</span><span class="n">vSheet</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span> <span class="s">&#34;追加シート&#34;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">0</span> <span class="k">Then</span>
+<span class="ln">15</span>            <span class="n">additinalSheetNumber</span> <span class="o">=</span> <span class="n">additinalSheetNumber</span> <span class="o">+</span> <span class="n">1</span>
+<span class="ln">16</span>        <span class="k">End</span> <span class="k">If</span>
+<span class="ln">17</span>    <span class="k">Next</span> <span class="n">vSheet</span>
+<span class="ln">18</span>    
+<span class="ln">19</span>    <span class="c">&#39;//追加シートがすべて表示されているならば処理を終了
+</span><span class="ln">20</span><span class="c"></span>    <span class="k">If</span> <span class="n">additinalSheetNumber</span> <span class="o">=</span> <span class="n">3</span> <span class="k">Then</span> <span class="k">GoTo</span> <span class="n">ExitHandler</span>
+<span class="ln">21</span>    
+<span class="ln">22</span>    <span class="c">&#39;//次の追加シートを表示
+</span><span class="ln">23</span><span class="c"></span>    <span class="n">ThisWorkbook</span><span class="p">.</span><span class="n">Worksheets</span><span class="p">(</span><span class="s">&#34;追加シート&#34;</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">additinalSheetNumber</span> <span class="o">+</span> <span class="n">1</span><span class="p">)).</span><span class="n">Visible</span> <span class="o">=</span> <span class="k">True</span>
+<span class="ln">24</span>    
+<span class="ln">25</span><span class="n">ExitHandler</span><span class="p">:</span>
+<span class="ln">26</span>    
+<span class="ln">27</span>    <span class="c">&#39;//保護の復旧
+</span><span class="ln">28</span><span class="c"></span>    <span class="n">ThisWorkbook</span><span class="p">.</span><span class="n">Protect</span> <span class="s">&#34;test&#34;</span>
+<span class="ln">29</span>    
+<span class="ln">30</span>    <span class="k">Exit</span> <span class="k">Sub</span>
+<span class="ln">31</span>    
+<span class="ln">32</span><span class="nf">ErrorHandler</span><span class="p">:</span>
+<span class="ln">33</span>
+<span class="ln">34</span>    <span class="n">MsgBox</span> <span class="s">&#34;エラーが発生したため、マクロを終了します。&#34;</span><span class="p">,</span> <span class="n">vbCritical</span>
+<span class="ln">35</span>        
+<span class="ln">36</span>    <span class="k">GoTo</span> <span class="n">ExitHandler</span>
+<span class="ln">37</span>        
+<span class="ln">38</span><span class="k">End</span> <span class="k">Sub</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span>
+<span class="ln"> 2</span><span class="k">Public</span> <span class="k">Sub</span> <span class="nf">シート消去</span><span class="p">()</span>
+<span class="ln"> 3</span>    
+<span class="ln"> 4</span>    <span class="k">Dim</span> <span class="n">additinalSheetNumber</span> <span class="ow">As</span> <span class="kt">Long</span>
+<span class="ln"> 5</span>    <span class="k">Dim</span> <span class="n">vSheet</span> <span class="ow">As</span> <span class="kt">Object</span>
+<span class="ln"> 6</span>    
+<span class="ln"> 7</span>    <span class="k">On</span> <span class="k">Error</span> <span class="k">GoTo</span> <span class="n">ErrorHandler</span>
+<span class="ln"> 8</span>    
+<span class="ln"> 9</span>    <span class="c">&#39;//一時的に解除
+</span><span class="ln">10</span><span class="c"></span>    <span class="n">ThisWorkbook</span><span class="p">.</span><span class="n">Unprotect</span> <span class="s">&#34;test&#34;</span>
+<span class="ln">11</span>    
+<span class="ln">12</span>    <span class="c">&#39;//表示中の追加シートの数を算出
+</span><span class="ln">13</span><span class="c"></span>    <span class="n">additinalSheetNumber</span> <span class="o">=</span> <span class="n">0</span>
+<span class="ln">14</span>    <span class="k">For</span> <span class="k">Each</span> <span class="n">vSheet</span> <span class="ow">In</span> <span class="n">ThisWorkbook</span><span class="p">.</span><span class="n">Worksheets</span>
+<span class="ln">15</span>        <span class="k">If</span> <span class="n">vSheet</span><span class="p">.</span><span class="n">Visible</span> <span class="o">=</span> <span class="k">True</span> <span class="ow">And</span> <span class="n">InStr</span><span class="p">(</span><span class="n">vSheet</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span> <span class="s">&#34;追加シート&#34;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">0</span> <span class="k">Then</span>
+<span class="ln">16</span>            <span class="n">additinalSheetNumber</span> <span class="o">=</span> <span class="n">additinalSheetNumber</span> <span class="o">+</span> <span class="n">1</span>
+<span class="ln">17</span>        <span class="k">End</span> <span class="k">If</span>
+<span class="ln">18</span>    <span class="k">Next</span> <span class="n">vSheet</span>
+<span class="ln">19</span>    
+<span class="ln">20</span>    <span class="c">&#39;//追加シートがすべて非表示ならば処理を終了
+</span><span class="ln">21</span><span class="c"></span>    <span class="k">If</span> <span class="n">additinalSheetNumber</span> <span class="o">=</span> <span class="n">0</span> <span class="k">Then</span> <span class="k">GoTo</span> <span class="n">ExitHandler</span>
+<span class="ln">22</span>    
+<span class="ln">23</span>    <span class="c">&#39;//最も連番の大きい追加シートを非表示
+</span><span class="ln">24</span><span class="c"></span>    <span class="n">ThisWorkbook</span><span class="p">.</span><span class="n">Worksheets</span><span class="p">(</span><span class="s">&#34;追加シート&#34;</span> <span class="o">&amp;</span> <span class="n">additinalSheetNumber</span><span class="p">).</span><span class="n">Visible</span> <span class="o">=</span> <span class="k">False</span>
+<span class="ln">25</span>    
+<span class="ln">26</span><span class="n">ExitHandler</span><span class="p">:</span>
+<span class="ln">27</span>    
+<span class="ln">28</span>    <span class="c">&#39;//保護の復旧
+</span><span class="ln">29</span><span class="c"></span>    <span class="n">ThisWorkbook</span><span class="p">.</span><span class="n">Protect</span> <span class="s">&#34;test&#34;</span>
+<span class="ln">30</span>    
+<span class="ln">31</span>    <span class="k">Exit</span> <span class="k">Sub</span>
+<span class="ln">32</span>    
+<span class="ln">33</span><span class="nf">ErrorHandler</span><span class="p">:</span>
+<span class="ln">34</span>
+<span class="ln">35</span>    <span class="n">MsgBox</span> <span class="s">&#34;エラーが発生したため、マクロを終了します。&#34;</span><span class="p">,</span> <span class="n">vbCritical</span>
+<span class="ln">36</span>        
+<span class="ln">37</span>    <span class="k">GoTo</span> <span class="n">ExitHandler</span>
+<span class="ln">38</span>        
+<span class="ln">39</span><span class="k">End</span> <span class="k">Sub</span>
+<span class="ln">40</span>
+</code></pre></div><p>３つの追加シートを、<br>
+ボタンを押すたびに次々と追加（消去）する処理を持っています。</p>
+<p>それぞれの処理の最後に、<br>
+かならず保護を復旧するように組んでいます。</p>
+<h3 id="デモ-1">デモ</h3>
+<p>次の動画のように、<br>
+シートを追加したり消去したりできます。</p>
+<p>また、➕マークがグレーアウトされていることからわかるように、<br>
+ブックの保護は継続されています。</p>
+
+
+<video preload="metadata" controls style='max-width: 600px;'>
+    
+    
+    <source src='https://res.cloudinary.com/ddxhi1rnh/video/upload/v1641891076/learnerBlog/vba-question-010-prohibit-sheet-change/demo_auaenj.webm' type="video/webm">
+    
+    Your browser does not support the video tag.
+</video>
+<h2 id="デモで使用したファイルについて">デモで使用したファイルについて</h2>
+<p><a href="https://github.com/dede-20191130/My_VBA_Tools/tree/master/Public/2022/01/prohibit-sheet-change">こちら</a>からダウンロードできます。</p>
+<h2 id="終わりに">終わりに</h2>
+<p>保護機能を使いこなせば、<br>
+ユーザーフレンドリーで安全なツールを作成することができます。</p>
+<p>機会があればシートの保護機能のほうについても<br>
+解説する記事を作成したいと思っています。</p>
+
+     
+     
+     
+     <h3>関連記事</h3>
+     <ul>
+         
+         <li><a href="/learnerBlog/posts/2022/01/10/vba-question-009-create-own-message-frm/">[教えて！VBA] 第9回 フォントやボタンをカスタマイズできるメッセージボックスを作成するにはどうすればいいの？？</a></li>
+         
+         <li><a href="/learnerBlog/posts/2022/01/06/vba-question-008-keep-value-before-change/">[教えて！VBA] 第8回 変更前のセルの値を保持/利用するにはどうすればいいの？？</a></li>
+         
+         <li><a href="/learnerBlog/posts/2022/01/02/vba-question-007-manipulate-folder-files/">[教えて！VBA] 第7回 フォルダを開く（＋ファイルを操作する）にはどうすればいいの？？</a></li>
+         
+         <li><a href="/learnerBlog/posts/2022/01/01/vba-question-006-kinds-of-end-process/">[教えて！VBA] 第6回 エクセルVBAマクロで、マクロを終了するにはどうすればいいの？？</a></li>
+         
+         <li><a href="/learnerBlog/posts/2021/12/31/vba-question-005-select-first-worksheet/">[教えて！VBA] 第5回 ブックの最初のシートの最初のセルを選択した状態にするにはどうすればいいの？？</a></li>
+         
+     </ul>
+     <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "learnerblog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </article>
 <aside class="sidebar">
   <section class="sidebar_inner">
         <h2>dede-20191130</h2>
@@ -385,9 +499,6 @@
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2022/01/11/vba-question-010-prohibit-sheet-change/" class="nav-link" title="[教えて！VBA] 第10回 Excelのシートの移動・削除を禁止する方法 ＆ マクロ実行時だけ許可するにはどうすればいいの？？">[教えて！VBA] 第10回 Excelのシートの移動・削除を禁止する方法 ＆ マクロ実行時だけ許可するにはどうすればいいの？？</a>
-      </li>
-      <li>
         <a href="https://dede-20191130.github.io/learnerBlog/posts/2022/01/10/vba-question-009-create-own-message-frm/" class="nav-link" title="[教えて！VBA] 第9回 フォントやボタンをカスタマイズできるメッセージボックスを作成するにはどうすればいいの？？">[教えて！VBA] 第9回 フォントやボタンをカスタマイズできるメッセージボックスを作成するにはどうすればいいの？？</a>
       </li>
       <li>
@@ -407,6 +518,9 @@
       </li>
       <li>
         <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/12/29/paste-only-colors/" class="nav-link" title="[Excel VBA] セルの文字色・背景色だけをコピーして貼り付けるマクロを作成しました">[Excel VBA] セルの文字色・背景色だけをコピーして貼り付けるマクロを作成しました</a>
+      </li>
+      <li>
+        <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/12/25/vba-question-003-clear-data-in-table/" class="nav-link" title="[教えて！VBA] 第3回 Accessマクロで、テーブルのデータを全クリアするにはどうすればいいの？？">[教えて！VBA] 第3回 Accessマクロで、テーブルのデータを全クリアするにはどうすればいいの？？</a>
       </li>
     </ul>
     <div>
@@ -812,6 +926,7 @@
   </section>
 </aside>
 
+  
 </div>
     </main><svg width="0" height="0" class="hidden">
   <symbol viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" id="facebook">

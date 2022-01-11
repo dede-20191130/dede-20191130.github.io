@@ -3697,16 +3697,18 @@ Mainフォーム上でテストするとMainフォーム自体の何かを変更
 コンボボックスのソースが更新されることはない。&lt;/p&gt;
 
 
-
 &lt;video preload=&#34;metadata&#34; controls style=&#39;max-width: 600px;&#39;&gt;
+    
     
     
     &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/01-nothing-to-do.webm&#39; type=&#34;video/webm&#34;&gt;
     
-
+    
     
     
     &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/01-nothing-to-do.mp4&#39; type=&#34;video/mp4&#34;&gt;
+    
+    
     
     
     Your browser does not support the video tag.
@@ -3721,16 +3723,18 @@ Mainフォーム上でテストするとMainフォーム自体の何かを変更
 すべてのレコードを読み込むため、カレントレコードは先頭に移動する。&lt;/p&gt;
 
 
-
 &lt;video preload=&#34;metadata&#34; controls style=&#39;max-width: 600px;&#39;&gt;
+    
     
     
     &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/02-form-requery.webm&#39; type=&#34;video/webm&#34;&gt;
     
-
+    
     
     
     &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/02-form-requery.mp4&#39; type=&#34;video/mp4&#34;&gt;
+    
+    
     
     
     Your browser does not support the video tag.
@@ -3750,16 +3754,18 @@ Mainフォーム上でテストするとMainフォーム自体の何かを変更
 他のレコード部分はタッチしないからである。&lt;/p&gt;
 
 
-
 &lt;video preload=&#34;metadata&#34; controls style=&#39;max-width: 600px;&#39;&gt;
+    
     
     
     &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/03-form-refresh.webm&#39; type=&#34;video/webm&#34;&gt;
     
-
+    
     
     
     &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/03-form-refresh.mp4&#39; type=&#34;video/mp4&#34;&gt;
+    
+    
     
     
     Your browser does not support the video tag.
@@ -3776,16 +3782,18 @@ Mainフォーム上でテストするとMainフォーム自体の何かを変更
 コンボボックスの項目リストは更新されている。&lt;/p&gt;
 
 
-
 &lt;video preload=&#34;metadata&#34; controls style=&#39;max-width: 600px;&#39;&gt;
+    
     
     
     &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/04-combobox-requery.webm&#39; type=&#34;video/webm&#34;&gt;
     
-
+    
     
     
     &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/04-combobox-requery.mp4&#39; type=&#34;video/mp4&#34;&gt;
+    
+    
     
     
     Your browser does not support the video tag.

@@ -6,7 +6,271 @@
     <description>Recent content on 学習者dedeのブログ ~プログラミング等~</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Mon, 10 Jan 2022 12:34:09 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 11 Jan 2022 13:47:44 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[教えて！VBA] 第10回 Excelのシートの移動・削除を禁止する方法 ＆ マクロ実行時だけ許可するにはどうすればいいの？？</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2022/01/11/vba-question-010-prohibit-sheet-change/</link>
+      <pubDate>Tue, 11 Jan 2022 13:47:44 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2022/01/11/vba-question-010-prohibit-sheet-change/</guid>
+      <description>
+        
+          &lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641887344/learnerBlog/vba-question-010-prohibit-sheet-change/prohibit-sheet-change_levful.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
+
+
+
+&lt;div class=&#34;box-with-title&#34;&gt;
+    &lt;p&gt;&lt;span&gt;かんたんな概要と結論&lt;/span&gt;&lt;/p&gt;
+    &lt;div class=&#34;inner&#34;&gt;
+         
+    ブックの保護機能を利用し、シートの移動・削除を禁止できます。&lt;br/&gt;
+    マクロからシート構成をいじりたい場合は、一時的に解除して再度復旧するようなコードの組み方をすることが必要です。
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;こんにちは、dedeです。&lt;/p&gt;
+&lt;p&gt;この記事では、&lt;br&gt;
+VBAマクロに関する質問のうち、&lt;br&gt;
+皆が疑問に思っているトピックについて解説いたします。&lt;/p&gt;
+&lt;p&gt;今回は、&lt;br&gt;
+
+
+&lt;span style=&#34;color: #fb9700;&#34;&gt;
+    Excelのシートの移動・削除を禁止する方法と、&lt;br&gt;
+それを一時的に許可してマクロの処理を実行する方法
+&lt;/span&gt;&lt;br&gt;
+を解説いたします。&lt;/p&gt;
+&lt;p&gt;※この記事は、Office VBAマクロのうち&lt;br&gt;
+Excel VBAマクロに関するトピックです。&lt;/p&gt;
+&lt;p&gt;レベル：&lt;b&gt;中級者向け&lt;/b&gt;&lt;/p&gt;
+&lt;h2 id=&#34;やりたいこと&#34;&gt;やりたいこと&lt;/h2&gt;
+&lt;p&gt;マクロを組んだExcelブックを他の人にツールとして配るとき、&lt;br&gt;
+シートの構成をいじられたら困る場合があるでしょう。&lt;/p&gt;
+&lt;p&gt;例えば、&lt;br&gt;
+非表示シートに商品データシートを置いておいてマクロから参照する場合、&lt;br&gt;
+商品データシートの名前を変えられたら参照できなくなる可能性があり、&lt;br&gt;
+また、商品データシートを削除されたら、データが失われます。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641887344/learnerBlog/vba-question-010-prohibit-sheet-change/prohibit-sheet-change2_bwacab.png&#34; alt=&#34;ユーザ操作により不具合が発生する例&#34;&gt;&lt;/p&gt;
+&lt;p&gt;よって、&lt;br&gt;
+シート構成をいじることができないように&lt;br&gt;
+プロテクト（保護）を掛ける必要があります。&lt;/p&gt;
+&lt;p&gt;また、シート構成を操作するようなマクロ実行時には、&lt;br&gt;
+一時的にプロテクトを解除するような手続きが必要になるでしょう。&lt;/p&gt;
+&lt;p&gt;以下の手順セクションでは、&lt;br&gt;
+シート構成の保護のやり方、&lt;br&gt;
+およびマクロのコードについて説明します。&lt;/p&gt;
+&lt;h2 id=&#34;環境&#34;&gt;環境&lt;/h2&gt;
+&lt;p&gt;以下は、&lt;br&gt;
+Office 2016のExcel環境での説明です。&lt;/p&gt;
+&lt;p&gt;※2022/1時点の最新バージョンのExcelでも内容は変わりません。&lt;/p&gt;
+&lt;h2 id=&#34;保護機能について&#34;&gt;保護機能について&lt;/h2&gt;
+&lt;p&gt;まずExcelの保護機能について簡単に説明します。&lt;/p&gt;
+&lt;p&gt;ユーザーが誤ってデータの一部を毀損することを防ぐために、&lt;br&gt;
+Excelに備わっている動作制限機能のことを保護機能と呼びます。&lt;/p&gt;
+&lt;p&gt;校閲タブから操作できる保護機能は、&lt;br&gt;
+
+
+&lt;span style=&#34;color: #fb9700;&#34;&gt;
+    シートの保護
+&lt;/span&gt;と
+
+
+&lt;span style=&#34;color: #fb9700;&#34;&gt;
+    ブックの保護
+&lt;/span&gt;の
+二種類に分類されます。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;保護の種類&lt;/th&gt;
+&lt;th&gt;対象&lt;/th&gt;
+&lt;th&gt;内容&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ブックの保護&lt;/td&gt;
+&lt;td&gt;シート構成&lt;br/&gt;（ワークシートの数、名前など）&lt;/td&gt;
+&lt;td&gt;非表示のワークシートの表示、ワークシートの追加、&lt;br/&gt;移動、削除、非表示、ワークシートの名前変更を&lt;br/&gt;行うことができないようになる&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;シートの保護&lt;/td&gt;
+&lt;td&gt;シート上のオブジェクト&lt;/td&gt;
+&lt;td&gt;セル書き込み、セル追加・削除、図形の位置変更など&lt;br/&gt;（細かく設定が可能）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;手順&#34;&gt;手順&lt;/h2&gt;
+&lt;h3 id=&#34;レベル1-シートの移動削除を禁止する&#34;&gt;レベル1. シートの移動・削除を禁止する&lt;/h3&gt;
+&lt;p&gt;シートの移動・削除を禁止する、すなわちシート構成の保護を実施するためには、&lt;br&gt;
+校閲タブの「ブックの保護」ボタンを押下します。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641887343/learnerBlog/vba-question-010-prohibit-sheet-change/prohibit-sheet-change3_sm34zl.png&#34; alt=&#34;校閲タブの「ブックの保護」&#34;&gt;&lt;/p&gt;
+&lt;p&gt;保護のためのパスワードを入力し、実行します。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641887343/learnerBlog/vba-question-010-prohibit-sheet-change/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-11_153805_vyzs7i.png&#34; alt=&#34;ブックの保護設定画面&#34;&gt;&lt;/p&gt;
+&lt;p&gt;シート構成が保護され、非表示メニューや名前変更メニューがグレーアウトされて&lt;br&gt;
+選択できなくなります。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641887343/learnerBlog/vba-question-010-prohibit-sheet-change/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-11_153835_lqhtfo.png&#34; alt=&#34;シート構成保護&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;レベル2-禁止を一時的に許可する&#34;&gt;レベル2. 禁止を一時的に許可する&lt;/h3&gt;
+&lt;p&gt;マクロからブックの保護を解除することができます。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ThisWorkbook&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Unprotect&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;PassWord&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;解除したいワークブックの&lt;code&gt;Unprotect&lt;/code&gt;メソッドを呼び出して、&lt;br&gt;
+引数にパスワードを指定します。&lt;/p&gt;
+&lt;p&gt;実行後、&lt;br&gt;
+グレーアウトされていた非表示メニューや名前変更メニューが再度選択可能になっています。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641887343/learnerBlog/vba-question-010-prohibit-sheet-change/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-11_155647_vgukim.png&#34; alt=&#34;シート構成保護の解除&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;レベル3-マクロ実行時だけ許可し復旧する&#34;&gt;レベル3. マクロ実行時だけ許可し、復旧する&lt;/h3&gt;
+&lt;p&gt;次のように、&lt;br&gt;
+GOTOの機構（&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/posts/2020/12/05/vba-exception-handle/&#34;&gt;例外処理の解説ページ&lt;/a&gt;で詳細に説明しています）を使って、&lt;br&gt;
+必ず保護の復旧の処理が実行されるようにします。&lt;/p&gt;
+&lt;p&gt;このようにしないと、&lt;br&gt;
+エラーが起きた時に復旧されずにマクロが終了する可能性があるためです。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;マクロ実行時だけ許可&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;On&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Error&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ErrorHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;//一時的に解除
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;ThisWorkbook&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Unprotect&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;test&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;//シート構成を操作する処理……
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;//保護の復旧
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;ThisWorkbook&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Protect&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;test&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;ErrorHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;MsgBox&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;エラーが発生したため、マクロを終了します。&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbCritical&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;デモ&#34;&gt;デモ&lt;/h2&gt;
+&lt;h3 id=&#34;about&#34;&gt;ABOUT&lt;/h3&gt;
+&lt;p&gt;シートを追加したり消去したりするボタンを動作させるデモです。&lt;/p&gt;
+&lt;p&gt;実際にシートをイチから作成しているわけではなく、&lt;br&gt;
+非表示にしていたシートを追加したり、表示中のシートを非表示化するマクロです。&lt;/p&gt;
+&lt;h3 id=&#34;前提&#34;&gt;前提&lt;/h3&gt;
+&lt;p&gt;まず、&lt;br&gt;
+シートが4種類あります。&lt;br&gt;
+そのうち、接頭辞が「追加シート」であるシートが３つあります。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641887344/learnerBlog/vba-question-010-prohibit-sheet-change/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-11_162249_bz1cem.png&#34; alt=&#34;デモ シート構成&#34;&gt;&lt;/p&gt;
+&lt;p&gt;シート1のシート上に、&lt;br&gt;
+シート追加ボタン、シート消去ボタンを作成します。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641887344/learnerBlog/vba-question-010-prohibit-sheet-change/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-11_162343_epq8y2.png&#34; alt=&#34;デモ用ボタン配置&#34;&gt;&lt;/p&gt;
+&lt;p&gt;それぞれのボタンにマクロを登録します。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;シート追加&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;additinalSheetNumber&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Long&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vSheet&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Object&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;On&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Error&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ErrorHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;//一時的に解除
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;ThisWorkbook&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Unprotect&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;test&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;//表示中の追加シートの数を算出
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;additinalSheetNumber&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;For&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Each&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vSheet&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;In&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ThisWorkbook&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Worksheets&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vSheet&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Visible&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;True&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;And&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;InStr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;vSheet&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;追加シート&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;            &lt;span class=&#34;n&#34;&gt;additinalSheetNumber&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;additinalSheetNumber&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Next&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vSheet&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;//追加シートがすべて表示されているならば処理を終了
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;additinalSheetNumber&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;3&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;//次の追加シートを表示
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;ThisWorkbook&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Worksheets&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;追加シート&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;additinalSheetNumber&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Visible&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;True&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;//保護の復旧
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;ThisWorkbook&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Protect&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;test&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;32&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;ErrorHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;33&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;34&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;MsgBox&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;エラーが発生したため、マクロを終了します。&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbCritical&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;35&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;36&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;37&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;38&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;シート消去&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;additinalSheetNumber&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Long&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vSheet&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Object&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;On&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Error&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ErrorHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;//一時的に解除
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;ThisWorkbook&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Unprotect&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;test&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;//表示中の追加シートの数を算出
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;additinalSheetNumber&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;For&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Each&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vSheet&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;In&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ThisWorkbook&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Worksheets&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vSheet&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Visible&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;True&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;And&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;InStr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;vSheet&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;追加シート&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;            &lt;span class=&#34;n&#34;&gt;additinalSheetNumber&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;additinalSheetNumber&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Next&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vSheet&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;//追加シートがすべて非表示ならば処理を終了
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;additinalSheetNumber&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;//最も連番の大きい追加シートを非表示
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;ThisWorkbook&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Worksheets&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;追加シート&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;additinalSheetNumber&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Visible&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;False&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;//保護の復旧
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;ThisWorkbook&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Protect&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;test&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;32&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;33&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;ErrorHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;34&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;35&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;MsgBox&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;エラーが発生したため、マクロを終了します。&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbCritical&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;36&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;37&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;38&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;39&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;40&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;３つの追加シートを、&lt;br&gt;
+ボタンを押すたびに次々と追加（消去）する処理を持っています。&lt;/p&gt;
+&lt;p&gt;それぞれの処理の最後に、&lt;br&gt;
+かならず保護を復旧するように組んでいます。&lt;/p&gt;
+&lt;h3 id=&#34;デモ-1&#34;&gt;デモ&lt;/h3&gt;
+&lt;p&gt;次の動画のように、&lt;br&gt;
+シートを追加したり消去したりできます。&lt;/p&gt;
+&lt;p&gt;また、➕マークがグレーアウトされていることからわかるように、&lt;br&gt;
+ブックの保護は継続されています。&lt;/p&gt;
+
+
+&lt;video preload=&#34;metadata&#34; controls style=&#39;max-width: 600px;&#39;&gt;
+    
+    
+    &lt;source src=&#39;https://res.cloudinary.com/ddxhi1rnh/video/upload/v1641891076/learnerBlog/vba-question-010-prohibit-sheet-change/demo_auaenj.webm&#39; type=&#34;video/webm&#34;&gt;
+    
+    Your browser does not support the video tag.
+&lt;/video&gt;
+&lt;h2 id=&#34;デモで使用したファイルについて&#34;&gt;デモで使用したファイルについて&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/dede-20191130/My_VBA_Tools/tree/master/Public/2022/01/prohibit-sheet-change&#34;&gt;こちら&lt;/a&gt;からダウンロードできます。&lt;/p&gt;
+&lt;h2 id=&#34;終わりに&#34;&gt;終わりに&lt;/h2&gt;
+&lt;p&gt;保護機能を使いこなせば、&lt;br&gt;
+ユーザーフレンドリーで安全なツールを作成することができます。&lt;/p&gt;
+&lt;p&gt;機会があればシートの保護機能のほうについても&lt;br&gt;
+解説する記事を作成したいと思っています。&lt;/p&gt;
+
+        
+      </description>
+    </item>
+    
     <item>
       <title>[教えて！VBA] 第9回 フォントやボタンをカスタマイズできるメッセージボックスを作成するにはどうすればいいの？？</title>
       <link>https://dede-20191130.github.io/learnerBlog/posts/2022/01/10/vba-question-009-create-own-message-frm/</link>
@@ -4619,16 +4883,18 @@ Mainフォーム上でテストするとMainフォーム自体の何かを変更
 コンボボックスのソースが更新されることはない。&lt;/p&gt;
 
 
-
 &lt;video preload=&#34;metadata&#34; controls style=&#39;max-width: 600px;&#39;&gt;
+    
     
     
     &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/01-nothing-to-do.webm&#39; type=&#34;video/webm&#34;&gt;
     
-
+    
     
     
     &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/01-nothing-to-do.mp4&#39; type=&#34;video/mp4&#34;&gt;
+    
+    
     
     
     Your browser does not support the video tag.
@@ -4643,16 +4909,18 @@ Mainフォーム上でテストするとMainフォーム自体の何かを変更
 すべてのレコードを読み込むため、カレントレコードは先頭に移動する。&lt;/p&gt;
 
 
-
 &lt;video preload=&#34;metadata&#34; controls style=&#39;max-width: 600px;&#39;&gt;
+    
     
     
     &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/02-form-requery.webm&#39; type=&#34;video/webm&#34;&gt;
     
-
+    
     
     
     &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/02-form-requery.mp4&#39; type=&#34;video/mp4&#34;&gt;
+    
+    
     
     
     Your browser does not support the video tag.
@@ -4672,16 +4940,18 @@ Mainフォーム上でテストするとMainフォーム自体の何かを変更
 他のレコード部分はタッチしないからである。&lt;/p&gt;
 
 
-
 &lt;video preload=&#34;metadata&#34; controls style=&#39;max-width: 600px;&#39;&gt;
+    
     
     
     &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/03-form-refresh.webm&#39; type=&#34;video/webm&#34;&gt;
     
-
+    
     
     
     &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/03-form-refresh.mp4&#39; type=&#34;video/mp4&#34;&gt;
+    
+    
     
     
     Your browser does not support the video tag.
@@ -4698,16 +4968,18 @@ Mainフォーム上でテストするとMainフォーム自体の何かを変更
 コンボボックスの項目リストは更新されている。&lt;/p&gt;
 
 
-
 &lt;video preload=&#34;metadata&#34; controls style=&#39;max-width: 600px;&#39;&gt;
+    
     
     
     &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/04-combobox-requery.webm&#39; type=&#34;video/webm&#34;&gt;
     
-
+    
     
     
     &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/04-combobox-requery.mp4&#39; type=&#34;video/mp4&#34;&gt;
+    
+    
     
     
     Your browser does not support the video tag.
