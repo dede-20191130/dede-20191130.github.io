@@ -8,6 +8,7 @@ toc: true
 featured: false
 tags: ["VBA","Excel"]
 categories: ["プログラミング"]
+vba_taxo: help_office
 archives:
     - 2021
     - 2021-12

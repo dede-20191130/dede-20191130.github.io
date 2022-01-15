@@ -1,14 +1,14 @@
 ---
-title: "[VBA] 関係記事一覧"
+title: "[VBA] その他関係記事一覧"
 author: dede-20191130
 date: 2021-01-18T16:14:03+09:00
-slug: vba
+slug: others
 draft: false
 toc: true
 featured: false
 ---
 
-## About
+## ABOUT
 
 投稿したVBA関係の記事を、  
 分類別に一覧化しました。
