@@ -1,0 +1,1230 @@
+
+<!DOCTYPE html>
+<html lang="ja" data-figures="" class="page">
+  <head>
+<title>[Access VBA] 数式エラーの発生しているExcelシートをテーブルに取り込むときの注意点とサンプルコード | 学習者dedeのブログ ~プログラミング等~</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-110309082-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-110309082-3');
+</script>
+
+  
+<meta property="og:locale" content="ja" />
+
+<meta property="og:type" content="article">
+<meta name="description" content="この記事について かんたんな概要と結論 数式エラーが発生しているセルに対しては、 エラーをキャッチし、代わりの値を設定するなどの対処が必要です。 こ">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:creator" content="@D20191130">
+<meta name="twitter:title" content="[Access VBA] 数式エラーの発生しているExcelシートをテーブルに取り込むときの注意点とサンプルコード" />
+<meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/posts/2022/01/22/import-calc-error-value/" />
+<meta property="og:title" content="[Access VBA] 数式エラーの発生しているExcelシートをテーブルに取り込むときの注意点とサンプルコード" />
+<meta property="og:description" content="この記事について かんたんな概要と結論 数式エラーが発生しているセルに対しては、 エラーをキャッチし、代わりの値を設定するなどの対処が必要です。 こ" />
+<meta property="og:image" content="https://dede-20191130.github.io/learnerBlog/images/thumbnail.png" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="https://dede-20191130.github.io/learnerBlog/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://dede-20191130.github.io/learnerBlog/icons/favicon-32x32.png">
+<link rel="manifest" href="https://dede-20191130.github.io/learnerBlog/icons/site.webmanifest">
+
+<link rel="canonical" href="https://dede-20191130.github.io/learnerBlog/posts/2022/01/22/import-calc-error-value/">
+
+    
+
+    
+    
+    <link rel="preload" href="https://dede-20191130.github.io/learnerBlog/css/styles.2bee37a927b0e94abc64956bacfdbb7e4ebe4a162b6326d723e39a0bf58b0d3b6d44dcd382d691c574a17cdf85ebe0cb51b68bf263af7c6c2a15772707d0400f.css" integrity = "sha512-K&#43;43qSew6Uq8ZJVrrP27fk6&#43;ShYrYybXI&#43;OaC/WLDTttRNzTgtaRxXShfN&#43;F6&#43;DLUbaL8mOvfGwqFXcnB9BADw==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://dede-20191130.github.io/learnerBlog/js/bundle.min.b62660a3a4af8329304008285d59e1fc1db881782806c5a08ac786091f3f4ae6f5624adece7e7b5aae7daeb800eea292ff4b410134b444a2c4e317b9417d1168.js" as="script" integrity=
+    "sha512-tiZgo6SvgykwQAgoXVnh/B24gXgoBsWgiseGCR8/Sub1Ykrezn57Wq59rrgA7qKS/0tBATS0RKLE4xe5QX0RaA==" crossorigin="anonymous">
+
+    
+    <link rel="stylesheet" type="text/css" href="https://dede-20191130.github.io/learnerBlog/css/styles.2bee37a927b0e94abc64956bacfdbb7e4ebe4a162b6326d723e39a0bf58b0d3b6d44dcd382d691c574a17cdf85ebe0cb51b68bf263af7c6c2a15772707d0400f.css" integrity="sha512-K&#43;43qSew6Uq8ZJVrrP27fk6&#43;ShYrYybXI&#43;OaC/WLDTttRNzTgtaRxXShfN&#43;F6&#43;DLUbaL8mOvfGwqFXcnB9BADw==" crossorigin="anonymous">
+    
+  </head>
+  
+  
+  
+    
+  
+  <body data-code="200" data-lines="true" id="documentTop">
+
+<header class="nav_header" >
+  <nav class="nav"><a href='https://dede-20191130.github.io/learnerBlog/' class="nav_brand nav_item" title="学習者dedeのブログ ~プログラミング等~">学習者dedeのブログ ~プログラミング等~
+  <div class="nav_close">
+    <div><svg class="icon">
+  <use xlink:href="#open-menu"></use>
+</svg><svg class="icon">
+  <use xlink:href="#closeme"></use>
+</svg></div>
+  </div>
+</a>
+
+    <div class='nav_body nav_body_left'>
+      
+      
+      
+        
+
+  <div class="nav_parent">
+    <a href="https://dede-20191130.github.io/learnerBlog/" class="nav_item" title="VBA">VBA <img src='https://dede-20191130.github.io/learnerBlog/icons/caret-icon.svg' alt="icon" class="nav_icon"></a>
+    <div class="nav_sub">
+      <span class="nav_child"></span>
+        <a href="https://dede-20191130.github.io/learnerBlog/introductions/vba/vba-questions" class="nav_child nav_item" title="教えて！VBA シリーズ">教えて！VBA シリーズ</a>
+        <a href="https://dede-20191130.github.io/learnerBlog/introductions/vba/others" class="nav_child nav_item" title="過去作成ツールなど">過去作成ツールなど</a>
+    </div>
+  </div>
+  <div class="nav_parent">
+    <a href="https://dede-20191130.github.io/learnerBlog/introductions/history" class="nav_item" title="歴史">歴史 </a>
+  </div>
+  <div class="nav_parent">
+    <a href="https://dede-20191130.github.io/learnerBlog/my-archives/" class="nav_item" title="Archives">Archives </a>
+  </div>
+  <div class="nav_parent">
+    <a href="https://dede-20191130.github.io/learnerBlog/about/" class="nav_item" title="About">About </a>
+  </div>
+      
+<div class='follow'>
+    
+    
+  <a href="https://github.com/dede-20191130">
+    <svg class="icon">
+  <use xlink:href="#github"></use>
+</svg>
+  </a>
+    
+    
+  <a href="https://twitter.com/D20191130">
+    <svg class="icon">
+  <use xlink:href="#twitter"></use>
+</svg>
+  </a>
+    
+    
+    
+  <a href="https://dede-20191130.github.io/learnerBlog/index.xml">
+    <svg class="icon">
+  <use xlink:href="#rss"></use>
+</svg>
+  </a>
+<div class="color_mode">
+  <input type="checkbox" class="color_choice" id="mode">
+</div>
+
+</div>
+
+    </div>
+  </nav>
+</header>
+
+    <main>
+  
+<div class="grid-inverse wrap content">
+  <article class="post_content">
+    <h1 class="post_title">[Access VBA] 数式エラーの発生しているExcelシートをテーブルに取り込むときの注意点とサンプルコード</h1>
+  <div class="post_meta">
+    <span><svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg></span>
+    <span class="post_date">
+      Jan 22, 2022</span>
+    <span class="post_time"> · 11 min read</span><span>&nbsp;· <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' title="VBA" class="post_tag button button_translucent">VBA
+        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/access' title="Access" class="post_tag button button_translucent">Access
+        </a>
+    </span>
+    <span class="page_only">&nbsp;·
+  <div class="post_share">
+    Share on:
+    <a href="https://twitter.com/intent/tweet?text=%5bAccess%20VBA%5d%20%e6%95%b0%e5%bc%8f%e3%82%a8%e3%83%a9%e3%83%bc%e3%81%ae%e7%99%ba%e7%94%9f%e3%81%97%e3%81%a6%e3%81%84%e3%82%8bExcel%e3%82%b7%e3%83%bc%e3%83%88%e3%82%92%e3%83%86%e3%83%bc%e3%83%96%e3%83%ab%e3%81%ab%e5%8f%96%e3%82%8a%e8%be%bc%e3%82%80%e3%81%a8%e3%81%8d%e3%81%ae%e6%b3%a8%e6%84%8f%e7%82%b9%e3%81%a8%e3%82%b5%e3%83%b3%e3%83%97%e3%83%ab%e3%82%b3%e3%83%bc%e3%83%89&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2022%2f01%2f22%2fimport-calc-error-value%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
+      <svg class="icon">
+  <use xlink:href="#twitter"></use>
+</svg>
+    </a>
+    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2022%2f01%2f22%2fimport-calc-error-value%2f&t=%5bAccess%20VBA%5d%20%e6%95%b0%e5%bc%8f%e3%82%a8%e3%83%a9%e3%83%bc%e3%81%ae%e7%99%ba%e7%94%9f%e3%81%97%e3%81%a6%e3%81%84%e3%82%8bExcel%e3%82%b7%e3%83%bc%e3%83%88%e3%82%92%e3%83%86%e3%83%bc%e3%83%96%e3%83%ab%e3%81%ab%e5%8f%96%e3%82%8a%e8%be%bc%e3%82%80%e3%81%a8%e3%81%8d%e3%81%ae%e6%b3%a8%e6%84%8f%e7%82%b9%e3%81%a8%e3%82%b5%e3%83%b3%e3%83%97%e3%83%ab%e3%82%b3%e3%83%bc%e3%83%89" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
+      <svg class="icon">
+  <use xlink:href="#facebook"></use>
+</svg>
+    </a>
+    <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
+      <svg class="icon">
+  <use xlink:href="#linkedin"></use>
+</svg>
+    </a>
+    <a href="https://dede-20191130.github.io/learnerBlog/posts/2022/01/22/import-calc-error-value/" title="Copy Link" class="link link_yank">
+      <svg class="icon">
+  <use xlink:href="#copy"></use>
+</svg>
+    </a>
+  </div>
+  </span>
+  </div>
+
+    
+    
+    <h2>Overview</h2>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#この記事について">この記事について</a></li>
+    <li><a href="#環境">環境</a></li>
+    <li><a href="#現象">現象</a>
+      <ul>
+        <li><a href="#数式エラーとは">数式エラーとは</a></li>
+        <li><a href="#数式エラーを持つセルを取り込む場合">数式エラーを持つセルを取り込む場合</a>
+          <ul>
+            <li><a href="#transferspreadsheetメソッド使用デモ">TransferSpreadsheetメソッド使用デモ</a></li>
+            <li><a href="#daoで手続き的に取り込むデモ">DAOで手続き的に取り込むデモ</a></li>
+          </ul>
+        </li>
+        <li><a href="#どうすればいいのか">どうすればいいのか？</a></li>
+      </ul>
+    </li>
+    <li><a href="#回避策">回避策</a>
+      <ul>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#1-エラーの場所を教えてあげる">1. エラーの場所を教えてあげる</a></li>
+        <li><a href="#2-エラー時に代わりに特定の値を入れる">2. エラー時に代わりに特定の値を入れる</a></li>
+      </ul>
+    </li>
+    <li><a href="#サンプルファイル">サンプルファイル</a></li>
+    <li><a href="#終わりに">終わりに</a></li>
+  </ul>
+</nav>
+    <p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1642835775/learnerBlog/import-calc-error-value/import-calc-error-value1_ozm6gj.png" alt=""></p>
+<h2 id="この記事について">この記事について</h2>
+
+
+
+<div class="box-with-title">
+    <p><span>かんたんな概要と結論</span></p>
+    <div class="inner">
+         
+    数式エラーが発生しているセルに対しては、<br/>
+    エラーをキャッチし、代わりの値を設定するなどの対処が必要です。
+
+    </div>
+</div>
+<p>こんにちは、dedeです。</p>
+<p>この記事では、<br>
+AccessからExcelシートのデータを取り込む際に、<br>
+数式エラーが発生しているセルがあった場合を取り扱います。</p>
+<p>その場合の注意点と、<br>
+エラーの回避方法について、<br>
+サンプルコード付きで解説します。</p>
+<h2 id="環境">環境</h2>
+<p>以下は、<br>
+Office 2019のAccess環境で検証済みです。</p>
+<p>※2022/1時点の最新バージョンのOfficeでも内容は変わりません。</p>
+<h2 id="現象">現象</h2>
+<h3 id="数式エラーとは">数式エラーとは</h3>
+<p>数式エラーについては、<br>
+Excelでテーブルの作成や集計、分析などを行った経験がある人であれば<br>
+見たことがあるかと思います。</p>
+<p>セルに値を入力した後、<br>
+その値が不正なデータであった場合には、<br>
+#（シャープ）から始まるエラー値が表示されます。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1642835775/learnerBlog/import-calc-error-value/import-calc-error-value2_jkw7l0.png" alt="数式エラーの一例"></p>
+<p>それぞれのエラー値には、<br>
+別々の原因が存在し、<br>
+VBAで参照した際には個別の「エラー番号」を含む特殊な値を返すため、<br>
+戻り値を受け取る変数は、Variant 型である必要があります。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">表示されるエラー</th>
+<th style="text-align:left">エラー番号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">#DIV/0!</td>
+<td style="text-align:left">2007</td>
+</tr>
+<tr>
+<td style="text-align:left">#VALUE!</td>
+<td style="text-align:left">2015</td>
+</tr>
+<tr>
+<td style="text-align:left">#NAME?</td>
+<td style="text-align:left">2029</td>
+</tr>
+<tr>
+<td style="text-align:left">#REF!</td>
+<td style="text-align:left">2023</td>
+</tr>
+</tbody>
+</table>
+<h3 id="数式エラーを持つセルを取り込む場合">数式エラーを持つセルを取り込む場合</h3>
+<p>数式エラーは、<br>
+シートの作業時になるべく排除しておくべきではあるでしょう。</p>
+<p>しかしながら、<br>
+別のシステムで自動作成されたシートに含まれる数式エラーなどは、<br>
+あらかじめ排除しておくことが困難でしょう。</p>
+<p>そのようなときに、<br>
+Accessでシートのテーブルデータを取り込むと、<br>
+予期しないエラーが発生し、<br>
+悩まさせるかもしれません。</p>
+<p>例えば、<br>
+次のように、ある列のデータに数式エラーが発生している売上管理テーブルを取り込むことを考えます。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1642835775/learnerBlog/import-calc-error-value/import-calc-error-value3_l0e4pn.png" alt="Excelデータサンプル"></p>
+<p>Access側のテーブル構造もシートに寄せます。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">フィールド名</th>
+<th style="text-align:left">データ型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">管理番号</td>
+<td style="text-align:left">数値型</td>
+</tr>
+<tr>
+<td style="text-align:left">店舗</td>
+<td style="text-align:left">短いテキスト</td>
+</tr>
+<tr>
+<td style="text-align:left">売上金</td>
+<td style="text-align:left">数値型</td>
+</tr>
+<tr>
+<td style="text-align:left">調整後売上金</td>
+<td style="text-align:left">数値型</td>
+</tr>
+</tbody>
+</table>
+<h4 id="transferspreadsheetメソッド使用デモ">TransferSpreadsheetメソッド使用デモ</h4>
+<p>まず、<br>
+Accessの<code>DoCmd.TransferSpreadsheet</code>メソッドを利用して<br>
+取り込むデモを行います。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln">1</span><span class="k">Sub</span> <span class="nf">Excelインポート_Docmd使用_エラー発生デモ</span><span class="p">()</span>
+<span class="ln">2</span>    <span class="n">DoCmd</span><span class="p">.</span><span class="n">TransferSpreadsheet</span> <span class="n">acImport</span><span class="p">,</span> <span class="n">acSpreadsheetTypeExcel9</span><span class="p">,</span> _
+<span class="ln">3</span>                              <span class="s">&#34;売上管理テーブル&#34;</span><span class="p">,</span> <span class="n">Application</span><span class="p">.</span><span class="n">CurrentProject</span><span class="p">.</span><span class="n">Path</span> <span class="o">&amp;</span> <span class="s">&#34;\&#34;</span> <span class="o">&amp;</span> <span class="s">&#34;数式エラーのある表.xlsx&#34;</span><span class="p">,</span> <span class="k">True</span><span class="p">,</span> <span class="s">&#34;売上管理テーブル!&#34;</span>
+<span class="ln">4</span><span class="k">End</span> <span class="k">Sub</span>
+<span class="ln">5</span>
+</code></pre></div><p>実行すると、<br>
+「キー違反」のアラートが表示されてしまいます。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1642835776/learnerBlog/import-calc-error-value/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-22_140304_zlktsq.png" alt="「キー違反」のアラート"></p>
+<p>「はい」をクリックすると、<br>
+数式エラーの発生したセルの値だけがからっぽのデータが挿入されます。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1642835776/learnerBlog/import-calc-error-value/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-22_140552_jrb8rd.png" alt="アラート後のテーブル"></p>
+<p>エラーメッセージが発生することや、<br>
+からっぽのデータが挿入されることは、<br>
+おそらく望んでいた挙動に沿う処理ではないでしょう。</p>
+<h4 id="daoで手続き的に取り込むデモ">DAOで手続き的に取り込むデモ</h4>
+<p><code>DAO</code>を用いて、<br>
+手続き的に取り込む場合は、<br>
+挙動が少々異なります。</p>
+
+<div class="notices tip">
+    <div class="label">手続き的とは</div>
+    <p>「手続き的（Imperative ）」とは、<br>
+処理の記述の方法の種類の一つで、<br>
+行いたい処理を細かく一行ずつ書いていくことを指します。</p>
+<p>対義語は宣言的（Declarative ）で、<br>
+処理の記述の際に、<br>
+行いたい処理の内容を端的に示す名前を持つ構文や関数名だけを書けば処理が行われることを指します（SQLなど）。</p>
+<p>宣言的な関数を使うことは便利ですが、VBAにおいては自由度は手続き的な方が高いように感じます。</p>
+
+  </div>
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span>
+<span class="ln"> 2</span><span class="k">Sub</span> <span class="nf">Excelインポート_DAO使用_エラー発生デモ</span><span class="p">()</span>
+<span class="ln"> 3</span>    <span class="k">Const</span> <span class="n">xlUp</span> <span class="o">=</span> <span class="o">-</span><span class="n">4162</span>
+<span class="ln"> 4</span>    <span class="k">Dim</span> <span class="n">excelPath</span> <span class="ow">As</span> <span class="kt">String</span>
+<span class="ln"> 5</span>    <span class="k">Dim</span> <span class="n">exApp</span> <span class="ow">As</span> <span class="kt">Object</span>
+<span class="ln"> 6</span>    <span class="k">Dim</span> <span class="n">wb</span> <span class="ow">As</span> <span class="kt">Object</span>
+<span class="ln"> 7</span>    <span class="k">Dim</span> <span class="n">sheetValues</span><span class="p">()</span> <span class="ow">As</span> <span class="kt">Variant</span>
+<span class="ln"> 8</span>    <span class="k">Dim</span> <span class="n">rs</span> <span class="ow">As</span> <span class="n">Recordset</span>
+<span class="ln"> 9</span>    <span class="k">Dim</span> <span class="n">i</span> <span class="ow">As</span> <span class="kt">Long</span>
+<span class="ln">10</span>
+<span class="ln">11</span>    <span class="k">On</span> <span class="k">Error</span> <span class="k">GoTo</span> <span class="n">Err</span>
+<span class="ln">12</span>    
+<span class="ln">13</span>    <span class="n">excelPath</span> <span class="o">=</span> <span class="n">Application</span><span class="p">.</span><span class="n">CurrentProject</span><span class="p">.</span><span class="n">Path</span> <span class="o">&amp;</span> <span class="s">&#34;\&#34;</span> <span class="o">&amp;</span> <span class="s">&#34;数式エラーのある表.xlsx&#34;</span>
+<span class="ln">14</span>    
+<span class="ln">15</span>    <span class="c">&#39;//Excelアプリを立ち上げる
+</span><span class="ln">16</span><span class="c"></span>    <span class="k">Set</span> <span class="n">exApp</span> <span class="o">=</span> <span class="n">CreateObject</span><span class="p">(</span><span class="s">&#34;Excel.Application&#34;</span><span class="p">)</span>
+<span class="ln">17</span>    <span class="k">Set</span> <span class="n">wb</span> <span class="o">=</span> <span class="n">exApp</span><span class="p">.</span><span class="n">Workbooks</span><span class="p">.</span><span class="n">Open</span><span class="p">(</span><span class="n">excelPath</span><span class="p">,</span> <span class="p">,</span> <span class="k">True</span><span class="p">)</span>
+<span class="ln">18</span>    <span class="c">&#39;//売上管理シートを参照する
+</span><span class="ln">19</span><span class="c"></span>    <span class="k">With</span> <span class="n">wb</span><span class="p">.</span><span class="n">Worksheets</span><span class="p">(</span><span class="n">1</span><span class="p">)</span>
+<span class="ln">20</span>        <span class="c">&#39;//売上管理シート上のテーブルデータを、行数のぶんだけ参照し、
+</span><span class="ln">21</span><span class="c"></span>        <span class="c">&#39;//その内容を二次元配列にパースする
+</span><span class="ln">22</span><span class="c"></span>        <span class="n">sheetValues</span> <span class="o">=</span> <span class="p">.</span><span class="n">Range</span><span class="p">(</span> _
+<span class="ln">23</span>                      <span class="p">.</span><span class="n">Cells</span><span class="p">(</span><span class="n">2</span><span class="p">,</span> <span class="n">1</span><span class="p">),</span> _
+<span class="ln">24</span>                      <span class="p">.</span><span class="n">Cells</span><span class="p">(</span> _
+<span class="ln">25</span>                      <span class="p">.</span><span class="n">Cells</span><span class="p">(.</span><span class="n">Rows</span><span class="p">.</span><span class="n">Count</span><span class="p">,</span> <span class="n">1</span><span class="p">).</span><span class="n">End</span><span class="p">(</span><span class="n">xlUp</span><span class="p">).</span><span class="n">Row</span><span class="p">,</span> _
+<span class="ln">26</span>                      <span class="n">4</span> _
+<span class="ln">27</span>                      <span class="p">)</span> _
+<span class="ln">28</span>        <span class="p">).</span><span class="n">Value</span>
+<span class="ln">29</span>    <span class="k">End</span> <span class="k">With</span>
+<span class="ln">30</span>    
+<span class="ln">31</span>    <span class="c">&#39;//売上管理テーブルのレコードセットを開く
+</span><span class="ln">32</span><span class="c"></span>    <span class="k">Set</span> <span class="n">rs</span> <span class="o">=</span> <span class="n">CurrentDb</span><span class="p">.</span><span class="n">OpenRecordset</span><span class="p">(</span><span class="s">&#34;売上管理テーブル&#34;</span><span class="p">,</span> <span class="n">dbOpenDynaset</span><span class="p">)</span>
+<span class="ln">33</span>    
+<span class="ln">34</span>    <span class="k">With</span> <span class="n">rs</span>
+<span class="ln">35</span>        <span class="k">For</span> <span class="n">i</span> <span class="o">=</span> <span class="n">LBound</span><span class="p">(</span><span class="n">sheetValues</span><span class="p">,</span> <span class="n">1</span><span class="p">)</span> <span class="k">To</span> <span class="n">UBound</span><span class="p">(</span><span class="n">sheetValues</span><span class="p">,</span> <span class="n">1</span><span class="p">)</span>
+<span class="ln">36</span>            <span class="c">&#39;//対応するフィールドに、データを入れていく
+</span><span class="ln">37</span><span class="c"></span>            <span class="p">.</span><span class="n">AddNew</span>
+<span class="ln">38</span>        
+<span class="ln">39</span>            <span class="p">.</span><span class="n">Fields</span><span class="p">(</span><span class="s">&#34;管理番号&#34;</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="n">sheetValues</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">1</span><span class="p">)</span>
+<span class="ln">40</span>            <span class="p">.</span><span class="n">Fields</span><span class="p">(</span><span class="s">&#34;店舗&#34;</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="n">sheetValues</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">2</span><span class="p">)</span>
+<span class="ln">41</span>            <span class="p">.</span><span class="n">Fields</span><span class="p">(</span><span class="s">&#34;売上金&#34;</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="n">sheetValues</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">3</span><span class="p">)</span>
+<span class="ln">42</span>            <span class="c">&#39;//※※　エラーの発生
+</span><span class="ln">43</span><span class="c"></span>            <span class="p">.</span><span class="n">Fields</span><span class="p">(</span><span class="s">&#34;調整後売上金&#34;</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="n">sheetValues</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">4</span><span class="p">)</span>
+<span class="ln">44</span>        
+<span class="ln">45</span>            <span class="p">.</span><span class="n">Update</span>
+<span class="ln">46</span>        <span class="k">Next</span> <span class="n">i</span>
+<span class="ln">47</span>        
+<span class="ln">48</span>    <span class="k">End</span> <span class="k">With</span>
+<span class="ln">49</span>
+<span class="ln">50</span><span class="n">Exits</span><span class="p">:</span>
+<span class="ln">51</span>
+<span class="ln">52</span>    <span class="n">rs</span><span class="p">.</span><span class="n">Close</span>
+<span class="ln">53</span>    <span class="n">wb</span><span class="p">.</span><span class="n">Close</span>
+<span class="ln">54</span>    <span class="n">exApp</span><span class="p">.</span><span class="n">Quit</span>
+<span class="ln">55</span>    
+<span class="ln">56</span>    <span class="k">Exit</span> <span class="k">Sub</span>
+<span class="ln">57</span>
+<span class="ln">58</span><span class="nf">Err</span><span class="p">:</span>
+<span class="ln">59</span>
+<span class="ln">60</span>    <span class="n">MsgBox</span> <span class="n">Err</span><span class="p">.</span><span class="n">Description</span><span class="p">,</span> <span class="n">vbExclamation</span><span class="p">,</span> <span class="n">Err</span><span class="p">.</span><span class="n">Number</span>
+<span class="ln">61</span>    <span class="k">GoTo</span> <span class="n">Exits</span>
+<span class="ln">62</span>    
+<span class="ln">63</span><span class="k">End</span> <span class="k">Sub</span>
+<span class="ln">64</span>
+<span class="ln">65</span>
+</code></pre></div><p>これを実行すると、<br>
+「Fields2オブジェクトのエラー」という文言で、<br>
+調整後売上金を挿入する際にエラーが発生します。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1642835776/learnerBlog/import-calc-error-value/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-22_142007_nbnxbq.png" alt="DAO使用処理のエラー"></p>
+<h3 id="どうすればいいのか">どうすればいいのか？</h3>
+<p>では、どうすればエラーを回避する、<br>
+あるいは利用者にエラーについてアラートしてあげることができるのか？</p>
+<p>それについて、次のセクションで見ていきます。</p>
+<h2 id="回避策">回避策</h2>
+<h3 id="about">ABOUT</h3>
+<p>発生したエラーを検知するには、<br>
+<code>TransferSpreadsheet</code>メソッドではなく、<br>
+<code>DAO</code>を用いてコードを記述する必要があります。</p>
+<p>エラー発生箇所において、<br>
+<code>VBA.Information</code>のメンバーである<code>IsError</code>メソッドを利用して、<br>
+エラー発生有無を検知します。</p>
+<p><code>IsError(value)</code>は、valueがエラーの場合のみTrueを返します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln">1</span><span class="c">&#39;//※※　例：エラーの発生箇所で条件分岐を行う
+</span><span class="ln">2</span><span class="c"></span><span class="p">.</span><span class="n">Fields</span><span class="p">(</span><span class="s">&#34;調整後売上金&#34;</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="n">IIF</span><span class="p">(</span><span class="n">IsError</span><span class="p">(</span><span class="n">sheetValues</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">4</span><span class="p">)),</span><span class="n">エラー発生した場合の値</span><span class="p">,</span><span class="n">エラー発生なしの場合の値</span><span class="p">)</span>
+</code></pre></div><p>なお、<br>
+説明で使用したファイルについて、<br>
+<a href="https://github.com/dede-20191130/My_VBA_Tools/tree/master/Public/2022/01/import-calc-error-value">こちら</a>からダウンロードできます。</p>
+<h3 id="1-エラーの場所を教えてあげる">1. エラーの場所を教えてあげる</h3>
+<p>エラー検知した際にエラーの発生箇所を教えてあげるためには、<br>
+次のようにエラー情報を変数に退避し、メッセージなどに渡す必要があります。</p>
+<p>なお、このケースでは、エラー発生時はテーブルにはデータを格納しないものとします。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1642835775/learnerBlog/import-calc-error-value/import-calc-error-value4_xslcux.png" alt="エラーの場所を教えてあげる処理フロー"></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln">  1</span>
+<span class="ln">  2</span><span class="k">Sub</span> <span class="nf">Excelインポート_エラー発生箇所を通知</span><span class="p">()</span>
+<span class="ln">  3</span>    <span class="k">Const</span> <span class="n">xlUp</span> <span class="o">=</span> <span class="o">-</span><span class="n">4162</span>
+<span class="ln">  4</span>    <span class="k">Dim</span> <span class="n">excelPath</span> <span class="ow">As</span> <span class="kt">String</span>
+<span class="ln">  5</span>    <span class="k">Dim</span> <span class="n">exApp</span> <span class="ow">As</span> <span class="kt">Object</span>
+<span class="ln">  6</span>    <span class="k">Dim</span> <span class="n">wb</span> <span class="ow">As</span> <span class="kt">Object</span>
+<span class="ln">  7</span>    <span class="k">Dim</span> <span class="n">sheetValues</span><span class="p">()</span> <span class="ow">As</span> <span class="kt">Variant</span>
+<span class="ln">  8</span>    <span class="k">Dim</span> <span class="n">myWorkspase</span> <span class="ow">As</span> <span class="n">Workspace</span>
+<span class="ln">  9</span>    <span class="k">Dim</span> <span class="n">myDB</span> <span class="ow">As</span> <span class="n">DAO</span><span class="p">.</span><span class="n">Database</span>
+<span class="ln"> 10</span>    <span class="k">Dim</span> <span class="n">rs</span> <span class="ow">As</span> <span class="n">Recordset</span>
+<span class="ln"> 11</span>    <span class="k">Dim</span> <span class="n">i</span> <span class="ow">As</span> <span class="kt">Long</span>
+<span class="ln"> 12</span>    <span class="k">Dim</span> <span class="n">errAlertText</span> <span class="ow">As</span> <span class="kt">String</span>
+<span class="ln"> 13</span>    <span class="k">Dim</span> <span class="n">isUpdatable</span> <span class="ow">As</span> <span class="kt">Boolean</span>
+<span class="ln"> 14</span>    <span class="k">Dim</span> <span class="n">isCommit</span> <span class="ow">As</span> <span class="kt">Boolean</span>
+<span class="ln"> 15</span>
+<span class="ln"> 16</span>    <span class="k">On</span> <span class="k">Error</span> <span class="k">GoTo</span> <span class="n">Err</span>
+<span class="ln"> 17</span>    
+<span class="ln"> 18</span>    <span class="n">excelPath</span> <span class="o">=</span> <span class="n">Application</span><span class="p">.</span><span class="n">CurrentProject</span><span class="p">.</span><span class="n">Path</span> <span class="o">&amp;</span> <span class="s">&#34;\&#34;</span> <span class="o">&amp;</span> <span class="s">&#34;数式エラーのある表.xlsx&#34;</span>
+<span class="ln"> 19</span>    
+<span class="ln"> 20</span>    <span class="c">&#39;//Excelアプリを立ち上げる
+</span><span class="ln"> 21</span><span class="c"></span>    <span class="k">Set</span> <span class="n">exApp</span> <span class="o">=</span> <span class="n">CreateObject</span><span class="p">(</span><span class="s">&#34;Excel.Application&#34;</span><span class="p">)</span>
+<span class="ln"> 22</span>    <span class="k">Set</span> <span class="n">wb</span> <span class="o">=</span> <span class="n">exApp</span><span class="p">.</span><span class="n">Workbooks</span><span class="p">.</span><span class="n">Open</span><span class="p">(</span><span class="n">excelPath</span><span class="p">,</span> <span class="p">,</span> <span class="k">True</span><span class="p">)</span>
+<span class="ln"> 23</span>    <span class="c">&#39;//売上管理シートを参照する
+</span><span class="ln"> 24</span><span class="c"></span>    <span class="k">With</span> <span class="n">wb</span><span class="p">.</span><span class="n">Worksheets</span><span class="p">(</span><span class="n">1</span><span class="p">)</span>
+<span class="ln"> 25</span>        <span class="c">&#39;//売上管理シート上のテーブルデータを、行数のぶんだけ参照し、
+</span><span class="ln"> 26</span><span class="c"></span>        <span class="c">&#39;//その内容を二次元配列にパースする
+</span><span class="ln"> 27</span><span class="c"></span>        <span class="n">sheetValues</span> <span class="o">=</span> <span class="p">.</span><span class="n">Range</span><span class="p">(</span> _
+<span class="ln"> 28</span>                      <span class="p">.</span><span class="n">Cells</span><span class="p">(</span><span class="n">2</span><span class="p">,</span> <span class="n">1</span><span class="p">),</span> _
+<span class="ln"> 29</span>                      <span class="p">.</span><span class="n">Cells</span><span class="p">(</span> _
+<span class="ln"> 30</span>                      <span class="p">.</span><span class="n">Cells</span><span class="p">(.</span><span class="n">Rows</span><span class="p">.</span><span class="n">Count</span><span class="p">,</span> <span class="n">1</span><span class="p">).</span><span class="n">End</span><span class="p">(</span><span class="n">xlUp</span><span class="p">).</span><span class="n">Row</span><span class="p">,</span> _
+<span class="ln"> 31</span>                      <span class="n">4</span> _
+<span class="ln"> 32</span>                      <span class="p">)</span> _
+<span class="ln"> 33</span>        <span class="p">).</span><span class="n">Value</span>
+<span class="ln"> 34</span>    <span class="k">End</span> <span class="k">With</span>
+<span class="ln"> 35</span>    
+<span class="ln"> 36</span>    <span class="c">&#39;//トランザクションの開始
+</span><span class="ln"> 37</span><span class="c"></span>    <span class="k">Set</span> <span class="n">myWorkspase</span> <span class="o">=</span> <span class="n">DBEngine</span><span class="p">.</span><span class="n">Workspaces</span><span class="p">(</span><span class="n">0</span><span class="p">)</span>
+<span class="ln"> 38</span>    <span class="n">myWorkspase</span><span class="p">.</span><span class="n">BeginTrans</span>
+<span class="ln"> 39</span>    <span class="n">isCommit</span> <span class="o">=</span> <span class="k">False</span>
+<span class="ln"> 40</span>    
+<span class="ln"> 41</span>    <span class="c">&#39;//DBの取得
+</span><span class="ln"> 42</span><span class="c"></span>    <span class="k">Set</span> <span class="n">myDB</span> <span class="o">=</span> <span class="n">myWorkspase</span><span class="p">.</span><span class="n">Databases</span><span class="p">(</span><span class="n">0</span><span class="p">)</span>
+<span class="ln"> 43</span>    
+<span class="ln"> 44</span>    <span class="c">&#39;//売上管理テーブルのレコードセットを開く
+</span><span class="ln"> 45</span><span class="c"></span>    <span class="k">Set</span> <span class="n">rs</span> <span class="o">=</span> <span class="n">myDB</span><span class="p">.</span><span class="n">OpenRecordset</span><span class="p">(</span><span class="s">&#34;売上管理テーブル&#34;</span><span class="p">,</span> <span class="n">dbOpenDynaset</span><span class="p">)</span>
+<span class="ln"> 46</span>    
+<span class="ln"> 47</span>    <span class="k">With</span> <span class="n">rs</span>
+<span class="ln"> 48</span>        <span class="n">errAlertText</span> <span class="o">=</span> <span class="s">&#34;&#34;</span>
+<span class="ln"> 49</span>        <span class="k">For</span> <span class="n">i</span> <span class="o">=</span> <span class="n">LBound</span><span class="p">(</span><span class="n">sheetValues</span><span class="p">,</span> <span class="n">1</span><span class="p">)</span> <span class="k">To</span> <span class="n">UBound</span><span class="p">(</span><span class="n">sheetValues</span><span class="p">,</span> <span class="n">1</span><span class="p">)</span>
+<span class="ln"> 50</span>            <span class="c">&#39;//対応するフィールドに、データを入れていく
+</span><span class="ln"> 51</span><span class="c"></span>            <span class="p">.</span><span class="n">AddNew</span>
+<span class="ln"> 52</span>            
+<span class="ln"> 53</span>            <span class="c">&#39;//サブ関数を呼び出し、エラーが発生しなかった場合のみフィールドに値を代入する
+</span><span class="ln"> 54</span><span class="c"></span>            <span class="k">If</span> <span class="n">Excelインポート_エラー発生箇所を通知_サブ関数_エラー検知</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">sheetValues</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">1</span><span class="p">),</span> <span class="s">&#34;管理番号&#34;</span><span class="p">,</span> <span class="n">errAlertText</span><span class="p">)</span> <span class="k">Then</span>
+<span class="ln"> 55</span>                <span class="p">.</span><span class="n">Fields</span><span class="p">(</span><span class="s">&#34;管理番号&#34;</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="n">sheetValues</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">1</span><span class="p">)</span>
+<span class="ln"> 56</span>            <span class="k">Else</span>
+<span class="ln"> 57</span>                <span class="n">isUpdatable</span> <span class="o">=</span> <span class="k">True</span>
+<span class="ln"> 58</span>            <span class="k">End</span> <span class="k">If</span>
+<span class="ln"> 59</span>            
+<span class="ln"> 60</span>            <span class="c">&#39;//管理番号と同様
+</span><span class="ln"> 61</span><span class="c"></span>            <span class="k">If</span> <span class="n">Excelインポート_エラー発生箇所を通知_サブ関数_エラー検知</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">sheetValues</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">2</span><span class="p">),</span> <span class="s">&#34;店舗&#34;</span><span class="p">,</span> <span class="n">errAlertText</span><span class="p">)</span> <span class="k">Then</span>
+<span class="ln"> 62</span>                <span class="p">.</span><span class="n">Fields</span><span class="p">(</span><span class="s">&#34;店舗&#34;</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="n">sheetValues</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">2</span><span class="p">)</span>
+<span class="ln"> 63</span>            <span class="k">Else</span>
+<span class="ln"> 64</span>                <span class="n">isUpdatable</span> <span class="o">=</span> <span class="k">True</span>
+<span class="ln"> 65</span>            <span class="k">End</span> <span class="k">If</span>
+<span class="ln"> 66</span>            
+<span class="ln"> 67</span>            <span class="c">&#39;//管理番号と同様
+</span><span class="ln"> 68</span><span class="c"></span>            <span class="k">If</span> <span class="n">Excelインポート_エラー発生箇所を通知_サブ関数_エラー検知</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">sheetValues</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">3</span><span class="p">),</span> <span class="s">&#34;売上金&#34;</span><span class="p">,</span> <span class="n">errAlertText</span><span class="p">)</span> <span class="k">Then</span>
+<span class="ln"> 69</span>                <span class="p">.</span><span class="n">Fields</span><span class="p">(</span><span class="s">&#34;売上金&#34;</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="n">sheetValues</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">3</span><span class="p">)</span>
+<span class="ln"> 70</span>            <span class="k">Else</span>
+<span class="ln"> 71</span>                <span class="n">isUpdatable</span> <span class="o">=</span> <span class="k">True</span>
+<span class="ln"> 72</span>            <span class="k">End</span> <span class="k">If</span>
+<span class="ln"> 73</span>            
+<span class="ln"> 74</span>            <span class="c">&#39;//管理番号と同様
+</span><span class="ln"> 75</span><span class="c"></span>            <span class="k">If</span> <span class="n">Excelインポート_エラー発生箇所を通知_サブ関数_エラー検知</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">sheetValues</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">4</span><span class="p">),</span> <span class="s">&#34;調整後売上金&#34;</span><span class="p">,</span> <span class="n">errAlertText</span><span class="p">)</span> <span class="k">Then</span>
+<span class="ln"> 76</span>                <span class="p">.</span><span class="n">Fields</span><span class="p">(</span><span class="s">&#34;調整後売上金&#34;</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="n">sheetValues</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">4</span><span class="p">)</span>
+<span class="ln"> 77</span>            <span class="k">Else</span>
+<span class="ln"> 78</span>                <span class="n">isUpdatable</span> <span class="o">=</span> <span class="k">True</span>
+<span class="ln"> 79</span>            <span class="k">End</span> <span class="k">If</span>
+<span class="ln"> 80</span>            
+<span class="ln"> 81</span>            <span class="c">&#39;//エラー発生時は新規行の挿入をキャンセル
+</span><span class="ln"> 82</span><span class="c"></span>            <span class="k">If</span> <span class="n">isUpdatable</span> <span class="k">Then</span>
+<span class="ln"> 83</span>                <span class="p">.</span><span class="n">Update</span>
+<span class="ln"> 84</span>            <span class="k">Else</span>
+<span class="ln"> 85</span>                <span class="p">.</span><span class="n">CancelUpdate</span>
+<span class="ln"> 86</span>            <span class="k">End</span> <span class="k">If</span>
+<span class="ln"> 87</span>            
+<span class="ln"> 88</span>        <span class="k">Next</span> <span class="n">i</span>
+<span class="ln"> 89</span>        
+<span class="ln"> 90</span>    <span class="k">End</span> <span class="k">With</span>
+<span class="ln"> 91</span>    
+<span class="ln"> 92</span>    <span class="c">&#39;//変更をコミットする
+</span><span class="ln"> 93</span><span class="c"></span>    <span class="c">&#39;//エラー発生時はコミットせず、エラーメッセージを表示する
+</span><span class="ln"> 94</span><span class="c"></span>    <span class="k">If</span> <span class="n">errAlertText</span> <span class="o">=</span> <span class="s">&#34;&#34;</span> <span class="k">Then</span>
+<span class="ln"> 95</span>        <span class="n">myWorkspase</span><span class="p">.</span><span class="n">CommitTrans</span>
+<span class="ln"> 96</span>        <span class="n">isCommit</span> <span class="o">=</span> <span class="k">True</span>
+<span class="ln"> 97</span>    <span class="k">Else</span>
+<span class="ln"> 98</span>        <span class="n">errAlertText</span> <span class="o">=</span> <span class="s">&#34;下記の行・項目において数式エラーが発生しました。&#34;</span> <span class="o">&amp;</span> <span class="n">vbLf</span> <span class="o">&amp;</span> <span class="n">vbLf</span> <span class="o">&amp;</span> <span class="n">errAlertText</span>
+<span class="ln"> 99</span>        <span class="n">MsgBox</span> <span class="n">errAlertText</span><span class="p">,</span> <span class="n">vbExclamation</span><span class="p">,</span> <span class="s">&#34;数式エラー&#34;</span>
+<span class="ln">100</span>    <span class="k">End</span> <span class="k">If</span>
+<span class="ln">101</span>    
+<span class="ln">102</span>
+<span class="ln">103</span><span class="n">Exits</span><span class="p">:</span>
+<span class="ln">104</span>    
+<span class="ln">105</span>    <span class="c">&#39;//コミットしていなければロールバックする
+</span><span class="ln">106</span><span class="c"></span>    <span class="k">If</span> <span class="k">Not</span> <span class="n">isCommit</span> <span class="k">Then</span> <span class="n">myWorkspase</span><span class="p">.</span><span class="n">Rollback</span>
+<span class="ln">107</span>    
+<span class="ln">108</span>    <span class="n">rs</span><span class="p">.</span><span class="n">Close</span>
+<span class="ln">109</span>    <span class="n">wb</span><span class="p">.</span><span class="n">Close</span>
+<span class="ln">110</span>    <span class="n">exApp</span><span class="p">.</span><span class="n">Quit</span>
+<span class="ln">111</span>    
+<span class="ln">112</span>    <span class="k">Exit</span> <span class="k">Sub</span>
+<span class="ln">113</span>
+<span class="ln">114</span><span class="nf">Err</span><span class="p">:</span>
+<span class="ln">115</span>
+<span class="ln">116</span>    <span class="n">MsgBox</span> <span class="n">Err</span><span class="p">.</span><span class="n">Description</span><span class="p">,</span> <span class="n">vbExclamation</span><span class="p">,</span> <span class="n">Err</span><span class="p">.</span><span class="n">Number</span>
+<span class="ln">117</span>    <span class="k">GoTo</span> <span class="n">Exits</span>
+<span class="ln">118</span>    
+<span class="ln">119</span><span class="k">End</span> <span class="k">Sub</span>
+<span class="ln">120</span>
+<span class="ln">121</span>
+<span class="ln">122</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln">123</span><span class="c">&#39;*機能      ：指定した値のエラーを検知する
+</span><span class="ln">124</span><span class="c">&#39;*引数      ：行番号
+</span><span class="ln">125</span><span class="c">&#39;*引数      ：調査するセル値
+</span><span class="ln">126</span><span class="c">&#39;*引数      ：項目名
+</span><span class="ln">127</span><span class="c">&#39;*引数      ：エラー情報格納用テキスト
+</span><span class="ln">128</span><span class="c">&#39;*戻り値    ：True &gt; エラーなし、False &gt; エラー発生
+</span><span class="ln">129</span><span class="c">&#39;******************************************************************************************
+</span><span class="ln">130</span><span class="c"></span><span class="k">Function</span> <span class="nf">Excelインポート_エラー発生箇所を通知_サブ関数_エラー検知</span><span class="p">(</span><span class="k">ByVal</span> <span class="n">rowNumber</span> <span class="ow">As</span> <span class="kt">Long</span><span class="p">,</span> <span class="k">ByVal</span> <span class="n">sheetValue</span> <span class="ow">As</span> <span class="kt">Variant</span><span class="p">,</span> _
+<span class="ln">131</span><span class="k">ByVal</span> <span class="n">tgtItem</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">,</span> <span class="k">ByRef</span> <span class="n">errAlertText</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">)</span> <span class="ow">As</span> <span class="kt">Boolean</span>
+<span class="ln">132</span>    
+<span class="ln">133</span>    <span class="k">If</span> <span class="n">IsError</span><span class="p">(</span><span class="n">sheetValue</span><span class="p">)</span> <span class="k">Then</span>
+<span class="ln">134</span>        <span class="c">&#39;//エラー発生時、エラーテキストに情報を追加し、戻り地をFalseとする
+</span><span class="ln">135</span><span class="c"></span>        <span class="n">errAlertText</span> <span class="o">=</span> <span class="n">errAlertText</span> <span class="o">&amp;</span> <span class="n">rowNumber</span> <span class="o">&amp;</span> <span class="s">&#34;行目：&#34;</span> <span class="o">&amp;</span> <span class="n">tgtItem</span> <span class="o">&amp;</span> <span class="n">vbLf</span>
+<span class="ln">136</span>        <span class="n">Excelインポート_エラー発生箇所を通知_サブ関数_エラー検知</span> <span class="o">=</span> <span class="k">False</span>
+<span class="ln">137</span>    <span class="k">Else</span>
+<span class="ln">138</span>        <span class="n">Excelインポート_エラー発生箇所を通知_サブ関数_エラー検知</span> <span class="o">=</span> <span class="k">True</span>
+<span class="ln">139</span>    <span class="k">End</span> <span class="k">If</span>
+<span class="ln">140</span>
+<span class="ln">141</span><span class="k">End</span> <span class="k">Function</span>
+<span class="ln">142</span>
+</code></pre></div><p>こちらを実行すると、<br>
+数式エラーの発生箇所を記録し、<br>
+次のようにエラーメッセージが表示されます。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1642835776/learnerBlog/import-calc-error-value/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-22_154356_zgz3gv.png" alt="記録されたエラー情報のメッセージ"></p>
+<p>ただAccess標準のエラーが出るよりも、<br>
+こちらのほうがユーザフレンドリーですね。</p>
+<h3 id="2-エラー時に代わりに特定の値を入れる">2. エラー時に代わりに特定の値を入れる</h3>
+<p>エラー発生時に逐一メッセージを出すよりも、<br>
+あらかじめ決められた規則で代打の値を代入したい場合もあるでしょう。</p>
+<p>そのような場合のサンプルコードを記しました。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1642835775/learnerBlog/import-calc-error-value/import-calc-error-value5_xvi0cn.png" alt="エラー時に代わりに特定の値を入れる処理フロー"></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="ln"> 1</span>
+<span class="ln"> 2</span><span class="k">Sub</span> <span class="nf">Excelインポート_エラー発生時に代わりの値を代入</span><span class="p">()</span>
+<span class="ln"> 3</span>    <span class="k">Const</span> <span class="n">xlUp</span> <span class="o">=</span> <span class="o">-</span><span class="n">4162</span>
+<span class="ln"> 4</span>    <span class="k">Dim</span> <span class="n">excelPath</span> <span class="ow">As</span> <span class="kt">String</span>
+<span class="ln"> 5</span>    <span class="k">Dim</span> <span class="n">exApp</span> <span class="ow">As</span> <span class="kt">Object</span>
+<span class="ln"> 6</span>    <span class="k">Dim</span> <span class="n">wb</span> <span class="ow">As</span> <span class="kt">Object</span>
+<span class="ln"> 7</span>    <span class="k">Dim</span> <span class="n">sheetValues</span><span class="p">()</span> <span class="ow">As</span> <span class="kt">Variant</span>
+<span class="ln"> 8</span>    <span class="k">Dim</span> <span class="n">rs</span> <span class="ow">As</span> <span class="n">Recordset</span>
+<span class="ln"> 9</span>    <span class="k">Dim</span> <span class="n">i</span> <span class="ow">As</span> <span class="kt">Long</span>
+<span class="ln">10</span>
+<span class="ln">11</span>    <span class="k">On</span> <span class="k">Error</span> <span class="k">GoTo</span> <span class="n">Err</span>
+<span class="ln">12</span>    
+<span class="ln">13</span>    <span class="n">excelPath</span> <span class="o">=</span> <span class="n">Application</span><span class="p">.</span><span class="n">CurrentProject</span><span class="p">.</span><span class="n">Path</span> <span class="o">&amp;</span> <span class="s">&#34;\&#34;</span> <span class="o">&amp;</span> <span class="s">&#34;数式エラーのある表.xlsx&#34;</span>
+<span class="ln">14</span>    
+<span class="ln">15</span>    <span class="c">&#39;//Excelアプリを立ち上げる
+</span><span class="ln">16</span><span class="c"></span>    <span class="k">Set</span> <span class="n">exApp</span> <span class="o">=</span> <span class="n">CreateObject</span><span class="p">(</span><span class="s">&#34;Excel.Application&#34;</span><span class="p">)</span>
+<span class="ln">17</span>    <span class="k">Set</span> <span class="n">wb</span> <span class="o">=</span> <span class="n">exApp</span><span class="p">.</span><span class="n">Workbooks</span><span class="p">.</span><span class="n">Open</span><span class="p">(</span><span class="n">excelPath</span><span class="p">,</span> <span class="p">,</span> <span class="k">True</span><span class="p">)</span>
+<span class="ln">18</span>    <span class="c">&#39;//売上管理シートを参照する
+</span><span class="ln">19</span><span class="c"></span>    <span class="k">With</span> <span class="n">wb</span><span class="p">.</span><span class="n">Worksheets</span><span class="p">(</span><span class="n">1</span><span class="p">)</span>
+<span class="ln">20</span>        <span class="c">&#39;//売上管理シート上のテーブルデータを、行数のぶんだけ参照し、
+</span><span class="ln">21</span><span class="c"></span>        <span class="c">&#39;//その内容を二次元配列にパースする
+</span><span class="ln">22</span><span class="c"></span>        <span class="n">sheetValues</span> <span class="o">=</span> <span class="p">.</span><span class="n">Range</span><span class="p">(</span> _
+<span class="ln">23</span>                      <span class="p">.</span><span class="n">Cells</span><span class="p">(</span><span class="n">2</span><span class="p">,</span> <span class="n">1</span><span class="p">),</span> _
+<span class="ln">24</span>                      <span class="p">.</span><span class="n">Cells</span><span class="p">(</span> _
+<span class="ln">25</span>                      <span class="p">.</span><span class="n">Cells</span><span class="p">(.</span><span class="n">Rows</span><span class="p">.</span><span class="n">Count</span><span class="p">,</span> <span class="n">1</span><span class="p">).</span><span class="n">End</span><span class="p">(</span><span class="n">xlUp</span><span class="p">).</span><span class="n">Row</span><span class="p">,</span> _
+<span class="ln">26</span>                      <span class="n">4</span> _
+<span class="ln">27</span>                      <span class="p">)</span> _
+<span class="ln">28</span>        <span class="p">).</span><span class="n">Value</span>
+<span class="ln">29</span>    <span class="k">End</span> <span class="k">With</span>
+<span class="ln">30</span>    
+<span class="ln">31</span>    <span class="c">&#39;//売上管理テーブルのレコードセットを開く
+</span><span class="ln">32</span><span class="c"></span>    <span class="k">Set</span> <span class="n">rs</span> <span class="o">=</span> <span class="n">CurrentDb</span><span class="p">.</span><span class="n">OpenRecordset</span><span class="p">(</span><span class="s">&#34;売上管理テーブル&#34;</span><span class="p">,</span> <span class="n">dbOpenDynaset</span><span class="p">)</span>
+<span class="ln">33</span>    
+<span class="ln">34</span>    <span class="k">With</span> <span class="n">rs</span>
+<span class="ln">35</span>        <span class="k">For</span> <span class="n">i</span> <span class="o">=</span> <span class="n">LBound</span><span class="p">(</span><span class="n">sheetValues</span><span class="p">,</span> <span class="n">1</span><span class="p">)</span> <span class="k">To</span> <span class="n">UBound</span><span class="p">(</span><span class="n">sheetValues</span><span class="p">,</span> <span class="n">1</span><span class="p">)</span>
+<span class="ln">36</span>            <span class="c">&#39;//対応するフィールドに、データを入れていく
+</span><span class="ln">37</span><span class="c"></span>            <span class="p">.</span><span class="n">AddNew</span>
+<span class="ln">38</span>            
+<span class="ln">39</span>            <span class="c">&#39;//エラー発生時には、代わりに現在のテーブルの最大の管理番号よりも1だけ大きい管理番号を挿入する
+</span><span class="ln">40</span><span class="c"></span>            <span class="p">.</span><span class="n">Fields</span><span class="p">(</span><span class="s">&#34;管理番号&#34;</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="n">IIf</span><span class="p">(</span><span class="n">IsError</span><span class="p">(</span><span class="n">sheetValues</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">1</span><span class="p">)),</span> <span class="n">Nz</span><span class="p">(</span><span class="n">DMax</span><span class="p">(</span><span class="s">&#34;管理番号&#34;</span><span class="p">,</span> <span class="s">&#34;売上管理テーブル&#34;</span><span class="p">),</span> <span class="n">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">1</span><span class="p">,</span> <span class="n">sheetValues</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">1</span><span class="p">))</span>
+<span class="ln">41</span>            <span class="c">&#39;//エラー発生時には、代わりに不正な店舗名であることを示す
+</span><span class="ln">42</span><span class="c"></span>            <span class="p">.</span><span class="n">Fields</span><span class="p">(</span><span class="s">&#34;店舗&#34;</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="n">IIf</span><span class="p">(</span><span class="n">IsError</span><span class="p">(</span><span class="n">sheetValues</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">2</span><span class="p">)),</span> <span class="s">&#34;※不正な店舗名です&#34;</span><span class="p">,</span> <span class="n">sheetValues</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">2</span><span class="p">))</span>
+<span class="ln">43</span>            <span class="c">&#39;//エラー発生時には、売上金はゼロとする
+</span><span class="ln">44</span><span class="c"></span>            <span class="p">.</span><span class="n">Fields</span><span class="p">(</span><span class="s">&#34;売上金&#34;</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="n">IIf</span><span class="p">(</span><span class="n">IsError</span><span class="p">(</span><span class="n">sheetValues</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">3</span><span class="p">)),</span> <span class="n">0</span><span class="p">,</span> <span class="n">sheetValues</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">3</span><span class="p">))</span>
+<span class="ln">45</span>            <span class="c">&#39;//エラー発生時には、代わりに売上金の90%の金額を設定
+</span><span class="ln">46</span><span class="c"></span>            <span class="p">.</span><span class="n">Fields</span><span class="p">(</span><span class="s">&#34;調整後売上金&#34;</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="n">IIf</span><span class="p">(</span><span class="n">IsError</span><span class="p">(</span><span class="n">sheetValues</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">4</span><span class="p">)),</span> <span class="p">.</span><span class="n">Fields</span><span class="p">(</span><span class="s">&#34;売上金&#34;</span><span class="p">).</span><span class="n">Value</span> <span class="o">*</span> <span class="n">0</span><span class="p">.</span><span class="n">9</span><span class="p">,</span> <span class="n">sheetValues</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">4</span><span class="p">))</span>
+<span class="ln">47</span>            
+<span class="ln">48</span>            <span class="p">.</span><span class="n">Update</span>
+<span class="ln">49</span>        <span class="k">Next</span> <span class="n">i</span>
+<span class="ln">50</span>        
+<span class="ln">51</span>    <span class="k">End</span> <span class="k">With</span>
+<span class="ln">52</span>
+<span class="ln">53</span><span class="n">Exits</span><span class="p">:</span>
+<span class="ln">54</span>
+<span class="ln">55</span>    <span class="n">rs</span><span class="p">.</span><span class="n">Close</span>
+<span class="ln">56</span>    <span class="n">wb</span><span class="p">.</span><span class="n">Close</span>
+<span class="ln">57</span>    <span class="n">exApp</span><span class="p">.</span><span class="n">Quit</span>
+<span class="ln">58</span>    
+<span class="ln">59</span>    <span class="k">Exit</span> <span class="k">Sub</span>
+<span class="ln">60</span>
+<span class="ln">61</span><span class="nf">Err</span><span class="p">:</span>
+<span class="ln">62</span>
+<span class="ln">63</span>    <span class="n">MsgBox</span> <span class="n">Err</span><span class="p">.</span><span class="n">Description</span><span class="p">,</span> <span class="n">vbExclamation</span><span class="p">,</span> <span class="n">Err</span><span class="p">.</span><span class="n">Number</span>
+<span class="ln">64</span>    <span class="k">GoTo</span> <span class="n">Exits</span>
+<span class="ln">65</span>    
+<span class="ln">66</span><span class="k">End</span> <span class="k">Sub</span>
+<span class="ln">67</span>
+<span class="ln">68</span>
+</code></pre></div><p>こちらを実行すると、<br>
+調整後売上金として、<br>
+数式エラーの行は売上金の90%の金額を設定するようになります。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1642835776/learnerBlog/import-calc-error-value/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-01-22_160455_o9b65k.png" alt="代わりの値が設定されたテーブル"></p>
+<h2 id="サンプルファイル">サンプルファイル</h2>
+<p>上にも記載しましたが、<br>
+説明で使用したファイルについて、<br>
+<a href="https://github.com/dede-20191130/My_VBA_Tools/tree/master/Public/2022/01/import-calc-error-value">こちら</a>からダウンロードできます。</p>
+<h2 id="終わりに">終わりに</h2>
+<p>エラー発生時の分岐処理については、<br>
+VBAマクロを扱う限り避けては通れない問題となるでしょう。</p>
+<p>様々なケースを想定し、<br>
+なるべくユーザに優しいマクロを作ることができるようになることが、<br>
+マクロの性能向上にとって重要となります。</p>
+
+     
+     
+     
+     <h3>関連記事</h3>
+     <ul>
+         
+         <li><a href="/learnerBlog/posts/2021/12/25/vba-question-003-clear-data-in-table/">[教えて！VBA] 第3回 Accessマクロで、テーブルのデータを全クリアするにはどうすればいいの？？</a></li>
+         
+         <li><a href="/learnerBlog/posts/2021/09/04/access-change-control-test/">[Access VBA] フォームのコントロール操作系の関数をどのようにユニットテストするかの方法メモ</a></li>
+         
+         <li><a href="/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/">[Access VBA] RequeryとRefreshの使い分けデモ　「単票フォームの編集」編</a></li>
+         
+         <li><a href="/learnerBlog/posts/2021/02/28/create-estm-accessver/">[Access VBA] 見積書作成ツール（Accessバージョン）を作成した</a></li>
+         
+         <li><a href="/learnerBlog/posts/2020/12/19/grep-from-module-sql/">[VBA, PowerShell] Accessのモジュール・クラスやクエリのSQLから特定文字列を抽出するためのテクニック</a></li>
+         
+     </ul>
+     <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "learnerblog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </article>
+<aside class="sidebar">
+  <section class="sidebar_inner">
+        <h2>dede-20191130</h2>
+      <div class="author_bio">
+        VBAから入り、プログラミング、コンピュータ科学等を勉強中。
+      </div>
+      <a href='https://dede-20191130.github.io/learnerBlog/about/' class="button mt-1" role="button" title='Read More'>Read More</a>
+    <h2 class="mt-4">Featured Posts</h2>
+    <ul>
+      <li>
+        <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/02/13/copyto-merged-cell/" class="nav-link" title="[Excel VBA] 結合セルにコピーペーストするマクロ">[Excel VBA] 結合セルにコピーペーストするマクロ</a>
+      </li>
+      <li>
+        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/12/05/vba-exception-handle/" class="nav-link" title="[VBA] 例外処理の典型的なパターン＆使用例サンプル">[VBA] 例外処理の典型的なパターン＆使用例サンプル</a>
+      </li>
+      <li>
+        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/20/excel-class-sample-01/" class="nav-link" title="[VBA] クラスを利用するメリットと方法について &amp; 簡単なサンプル（１）">[VBA] クラスを利用するメリットと方法について &amp; 簡単なサンプル（１）</a>
+      </li>
+    </ul>
+    <h2 class="mt-4">Recent Posts</h2>
+    <ul class="flex-column">
+      <li>
+        <a href="https://dede-20191130.github.io/learnerBlog/posts/2022/01/15/vba-question-012-aggregate-wss-content/" class="nav-link" title="[教えて！VBA] 第12回 各ワークシートのデータを集約して出力するにはどうすればいいの？？">[教えて！VBA] 第12回 各ワークシートのデータを集約して出力するにはどうすればいいの？？</a>
+      </li>
+      <li>
+        <a href="https://dede-20191130.github.io/learnerBlog/posts/2022/01/12/vba-question-011-save-named-file/" class="nav-link" title="[教えて！VBA] 第11回 マクロからファイルを新しく名付けて保存する際の注意点とは？？">[教えて！VBA] 第11回 マクロからファイルを新しく名付けて保存する際の注意点とは？？</a>
+      </li>
+      <li>
+        <a href="https://dede-20191130.github.io/learnerBlog/posts/2022/01/11/vba-question-010-prohibit-sheet-change/" class="nav-link" title="[教えて！VBA] 第10回 Excelのシートの移動・削除を禁止する方法 ＆ マクロ実行時だけ許可するにはどうすればいいの？？">[教えて！VBA] 第10回 Excelのシートの移動・削除を禁止する方法 ＆ マクロ実行時だけ許可するにはどうすればいいの？？</a>
+      </li>
+      <li>
+        <a href="https://dede-20191130.github.io/learnerBlog/posts/2022/01/10/vba-question-009-create-own-message-frm/" class="nav-link" title="[教えて！VBA] 第9回 フォントやボタンをカスタマイズできるメッセージボックスを作成するにはどうすればいいの？？">[教えて！VBA] 第9回 フォントやボタンをカスタマイズできるメッセージボックスを作成するにはどうすればいいの？？</a>
+      </li>
+      <li>
+        <a href="https://dede-20191130.github.io/learnerBlog/posts/2022/01/06/vba-question-008-keep-value-before-change/" class="nav-link" title="[教えて！VBA] 第8回 変更前のセルの値を保持/利用するにはどうすればいいの？？">[教えて！VBA] 第8回 変更前のセルの値を保持/利用するにはどうすればいいの？？</a>
+      </li>
+      <li>
+        <a href="https://dede-20191130.github.io/learnerBlog/posts/2022/01/02/vba-question-007-manipulate-folder-files/" class="nav-link" title="[教えて！VBA] 第7回 フォルダを開く（＋ファイルを操作する）にはどうすればいいの？？">[教えて！VBA] 第7回 フォルダを開く（＋ファイルを操作する）にはどうすればいいの？？</a>
+      </li>
+      <li>
+        <a href="https://dede-20191130.github.io/learnerBlog/posts/2022/01/01/vba-question-006-kinds-of-end-process/" class="nav-link" title="[教えて！VBA] 第6回 エクセルVBAマクロで、マクロを終了するにはどうすればいいの？？">[教えて！VBA] 第6回 エクセルVBAマクロで、マクロを終了するにはどうすればいいの？？</a>
+      </li>
+      <li>
+        <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/12/31/vba-question-005-select-first-worksheet/" class="nav-link" title="[教えて！VBA] 第5回 ブックの最初のシートの最初のセルを選択した状態にするにはどうすればいいの？？">[教えて！VBA] 第5回 ブックの最初のシートの最初のセルを選択した状態にするにはどうすればいいの？？</a>
+      </li>
+    </ul>
+    <div>
+      <h2 class="mt-4 taxonomy" id="archives-section">archives</h2>
+      <nav class="tags_nav">
+        
+        
+          
+          
+        <a href='https://dede-20191130.github.io/learnerBlog/archives/2022-01/' class="post_tag button button_translucent">
+          2022-01
+          <span class="button_tally">8</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/archives/2022/' class="post_tag button button_translucent">
+          2022
+          <span class="button_tally">8</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/archives/2021-12/' class="post_tag button button_translucent">
+          2021-12
+          <span class="button_tally">6</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/archives/2021-11/' class="post_tag button button_translucent">
+          2021-11
+          <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/archives/2021-10/' class="post_tag button button_translucent">
+          2021-10
+          <span class="button_tally">5</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/archives/2021-09/' class="post_tag button button_translucent">
+          2021-09
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/archives/2021-08/' class="post_tag button button_translucent">
+          2021-08
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/archives/2021-07/' class="post_tag button button_translucent">
+          2021-07
+          <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/archives/2021-03/' class="post_tag button button_translucent">
+          2021-03
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/archives/2021-02/' class="post_tag button button_translucent">
+          2021-02
+          <span class="button_tally">4</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/archives/2021-01/' class="post_tag button button_translucent">
+          2021-01
+          <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/archives/2021/' class="post_tag button button_translucent">
+          2021
+          <span class="button_tally">24</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/archives/2020-12/' class="post_tag button button_translucent">
+          2020-12
+          <span class="button_tally">6</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/archives/2020-11/' class="post_tag button button_translucent">
+          2020-11
+          <span class="button_tally">11</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/archives/2020-10/' class="post_tag button button_translucent">
+          2020-10
+          <span class="button_tally">4</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/archives/2020-07/' class="post_tag button button_translucent">
+          2020-07
+          <span class="button_tally">3</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/archives/2020/' class="post_tag button button_translucent">
+          2020
+          <span class="button_tally">24</span>
+        </a>
+        
+        
+        <br>
+        <div class="post_tags_toggle button"></div>
+        <div class="post_tags">
+          <div class="tags_list">
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/archives/2020/' class=" post_tag button button_translucent" data-position=24 title="2020">2020<span class="button_tally">24</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/archives/2020-07/' class=" post_tag button button_translucent" data-position=3 title="2020-07">2020-07<span class="button_tally">3</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/archives/2020-10/' class=" post_tag button button_translucent" data-position=4 title="2020-10">2020-10<span class="button_tally">4</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/archives/2020-11/' class=" post_tag button button_translucent" data-position=11 title="2020-11">2020-11<span class="button_tally">11</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/archives/2020-12/' class=" post_tag button button_translucent" data-position=6 title="2020-12">2020-12<span class="button_tally">6</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/archives/2021/' class=" post_tag button button_translucent" data-position=24 title="2021">2021<span class="button_tally">24</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/archives/2021-01/' class=" post_tag button button_translucent" data-position=2 title="2021-01">2021-01<span class="button_tally">2</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/archives/2021-02/' class=" post_tag button button_translucent" data-position=4 title="2021-02">2021-02<span class="button_tally">4</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/archives/2021-03/' class=" post_tag button button_translucent" data-position=1 title="2021-03">2021-03<span class="button_tally">1</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/archives/2021-07/' class=" post_tag button button_translucent" data-position=2 title="2021-07">2021-07<span class="button_tally">2</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/archives/2021-08/' class=" post_tag button button_translucent" data-position=1 title="2021-08">2021-08<span class="button_tally">1</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/archives/2021-09/' class=" post_tag button button_translucent" data-position=1 title="2021-09">2021-09<span class="button_tally">1</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/archives/2021-10/' class=" post_tag button button_translucent" data-position=5 title="2021-10">2021-10<span class="button_tally">5</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/archives/2021-11/' class=" post_tag button button_translucent" data-position=2 title="2021-11">2021-11<span class="button_tally">2</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/archives/2021-12/' class=" post_tag button button_translucent" data-position=6 title="2021-12">2021-12<span class="button_tally">6</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/archives/2022/' class=" post_tag button button_translucent" data-position=8 title="2022">2022<span class="button_tally">8</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/archives/2022-01/' class=" post_tag button button_translucent" data-position=8 title="2022-01">2022-01<span class="button_tally">8</span>
+            </a>
+            
+            <div class="tags_sort"><span title="sort alphabetically">[A~Z]</span><span title="sort by count">[0~9]</span>
+            </div>
+            <span class="tags_hide"><svg class="icon">
+            <use xlink:href="#closeme"></use>
+          </svg></span>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div>
+      <h2 class="mt-4 taxonomy" id="categories-section">Categories</h2>
+      <nav class="tags_nav">
+        
+        
+          
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/' class="post_tag button button_translucent">
+          プログラミング
+          <span class="button_tally">47</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/categories/%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3/' class="post_tag button button_translucent">
+          アプリケーション
+          <span class="button_tally">7</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/categories/podcast/' class="post_tag button button_translucent">
+          PODCAST
+          <span class="button_tally">3</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/categories/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/' class="post_tag button button_translucent">
+          トラブルシューティング
+          <span class="button_tally">3</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/categories/%E6%AD%B4%E5%8F%B2/' class="post_tag button button_translucent">
+          歴史
+          <span class="button_tally">3</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/categories/%E8%AA%B2%E9%A1%8C%E8%A7%A3%E6%B1%BA/' class="post_tag button button_translucent">
+          課題解決
+          <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/categories/%E9%9B%91%E8%A8%98/' class="post_tag button button_translucent">
+          雑記
+          <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/categories/%E5%B0%8F%E3%83%8D%E3%82%BF/' class="post_tag button button_translucent">
+          小ネタ
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/categories/%E5%B7%A5%E5%AD%A6/' class="post_tag button button_translucent">
+          工学
+          <span class="button_tally">1</span>
+        </a>
+        
+        
+      </nav>
+    </div>
+    <div>
+      <h2 class="mt-4 taxonomy" id="tags-section">Tags</h2>
+      <nav class="tags_nav">
+        
+        
+          
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/tags/vba/' class="post_tag button button_translucent">
+          VBA
+          <span class="button_tally">38</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/tags/excel/' class="post_tag button button_translucent">
+          EXCEL
+          <span class="button_tally">25</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C/' class="post_tag button button_translucent">
+          自作
+          <span class="button_tally">16</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/tags/access/' class="post_tag button button_translucent">
+          ACCESS
+          <span class="button_tally">12</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%83%89/' class="post_tag button button_translucent">
+          フロントエンド
+          <span class="button_tally">6</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/tags/javascript/' class="post_tag button button_translucent">
+          JAVASCRIPT
+          <span class="button_tally">5</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91/' class="post_tag button button_translucent">
+          オブジェクト指向
+          <span class="button_tally">5</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%83%84%E3%83%BC%E3%83%AB/' class="post_tag button button_translucent">
+          ツール
+          <span class="button_tally">5</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/tags/react/' class="post_tag button button_translucent">
+          REACT
+          <span class="button_tally">3</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/tags/typescript/' class="post_tag button button_translucent">
+          TYPESCRIPT
+          <span class="button_tally">3</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/tags/%E6%AD%B4%E5%8F%B2%E4%B8%80%E8%88%AC/' class="post_tag button button_translucent">
+          歴史一般
+          <span class="button_tally">3</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/tags/powershell/' class="post_tag button button_translucent">
+          POWERSHELL
+          <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/tags/excel%E9%96%A2%E6%95%B0/' class="post_tag button button_translucent">
+          EXCEL関数
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://dede-20191130.github.io/learnerBlog/tags/git/' class="post_tag button button_translucent">
+          GIT
+          <span class="button_tally">1</span>
+        </a>
+        
+        
+        <br>
+        <div class="post_tags_toggle button">All Tags</div>
+        <div class="post_tags">
+          <div class="tags_list">
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/tags/access/' class=" post_tag button button_translucent" data-position=12 title="access">ACCESS<span class="button_tally">12</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/tags/excel/' class=" post_tag button button_translucent" data-position=25 title="excel">EXCEL<span class="button_tally">25</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/tags/excel%E9%96%A2%E6%95%B0/' class=" post_tag button button_translucent" data-position=1 title="excel関数">EXCEL関数<span class="button_tally">1</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/tags/git/' class=" post_tag button button_translucent" data-position=1 title="git">GIT<span class="button_tally">1</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/tags/hugo/' class=" post_tag button button_translucent" data-position=1 title="hugo">HUGO<span class="button_tally">1</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/tags/javascript/' class=" post_tag button button_translucent" data-position=5 title="javascript">JAVASCRIPT<span class="button_tally">5</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/tags/powershell/' class=" post_tag button button_translucent" data-position=2 title="powershell">POWERSHELL<span class="button_tally">2</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/tags/python/' class=" post_tag button button_translucent" data-position=1 title="python">PYTHON<span class="button_tally">1</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/tags/react/' class=" post_tag button button_translucent" data-position=3 title="react">REACT<span class="button_tally">3</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/tags/typescript/' class=" post_tag button button_translucent" data-position=3 title="typescript">TYPESCRIPT<span class="button_tally">3</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/tags/vba/' class=" post_tag button button_translucent" data-position=38 title="vba">VBA<span class="button_tally">38</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91/' class=" post_tag button button_translucent" data-position=5 title="オブジェクト指向">オブジェクト指向<span class="button_tally">5</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%82%B7%E3%82%A7%E3%83%AB%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88/' class=" post_tag button button_translucent" data-position=1 title="シェルスクリプト">シェルスクリプト<span class="button_tally">1</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88/' class=" post_tag button button_translucent" data-position=1 title="スクリプト">スクリプト<span class="button_tally">1</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%83%84%E3%83%BC%E3%83%AB/' class=" post_tag button button_translucent" data-position=5 title="ツール">ツール<span class="button_tally">5</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%83%89/' class=" post_tag button button_translucent" data-position=6 title="フロントエンド">フロントエンド<span class="button_tally">6</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/tags/%E5%B7%A5%E5%AD%A6%E4%B8%80%E8%88%AC/' class=" post_tag button button_translucent" data-position=1 title="工学一般">工学一般<span class="button_tally">1</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/tags/%E6%AD%B4%E5%8F%B2%E4%B8%80%E8%88%AC/' class=" post_tag button button_translucent" data-position=3 title="歴史一般">歴史一般<span class="button_tally">3</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C/' class=" post_tag button button_translucent" data-position=16 title="自作">自作<span class="button_tally">16</span>
+            </a>
+            
+            
+            <a href='https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E5%8B%95%E5%8C%96/' class=" post_tag button button_translucent" data-position=1 title="自動化">自動化<span class="button_tally">1</span>
+            </a>
+            
+            <div class="tags_sort"><span title="sort alphabetically">[A~Z]</span><span title="sort by count">[0~9]</span>
+            </div>
+            <span class="tags_hide"><svg class="icon">
+            <use xlink:href="#closeme"></use>
+          </svg></span>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </section>
+</aside>
+
+  
+</div>
+    </main><svg width="0" height="0" class="hidden">
+  <symbol viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" id="facebook">
+    <path d="M437 0H75C33.648 0 0 33.648 0 75v362c0 41.352 33.648 75 75 75h151V331h-60v-90h60v-61c0-49.629 40.371-90 90-90h91v90h-91v61h91l-15 90h-76v181h121c41.352 0 75-33.648 75-75V75c0-41.352-33.648-75-75-75zm0 0"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18.001 18.001" id="twitter">
+    <path d="M15.891 4.013c.808-.496 1.343-1.173 1.605-2.034a8.68 8.68 0 0 1-2.351.861c-.703-.756-1.593-1.14-2.66-1.14-1.043 0-1.924.366-2.643 1.078a3.56 3.56 0 0 0-1.076 2.605c0 .309.039.585.117.819-3.076-.105-5.622-1.381-7.628-3.837-.34.601-.51 1.213-.51 1.846 0 1.301.549 2.332 1.645 3.089-.625-.053-1.176-.211-1.645-.47 0 .929.273 1.705.82 2.388a3.623 3.623 0 0 0 2.115 1.291c-.312.08-.641.118-.979.118-.312 0-.533-.026-.664-.083.23.757.664 1.371 1.291 1.841a3.652 3.652 0 0 0 2.152.743C4.148 14.173 2.625 14.69.902 14.69c-.422 0-.721-.006-.902-.038 1.697 1.102 3.586 1.649 5.676 1.649 2.139 0 4.029-.542 5.674-1.626 1.645-1.078 2.859-2.408 3.639-3.974a10.77 10.77 0 0 0 1.172-4.892v-.468a7.788 7.788 0 0 0 1.84-1.921 8.142 8.142 0 0 1-2.11.593z"
+      ></path>
+  </symbol>
+  <symbol aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="mail">
+    <path  d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="calendar">
+    <path d="M452 40h-24V0h-40v40H124V0H84v40H60C26.916 40 0 66.916 0 100v352c0 33.084 26.916 60 60 60h392c33.084 0 60-26.916 60-60V100c0-33.084-26.916-60-60-60zm20 412c0 11.028-8.972 20-20 20H60c-11.028 0-20-8.972-20-20V188h432v264zm0-304H40v-48c0-11.028 8.972-20 20-20h24v40h40V80h264v40h40V80h24c11.028 0 20 8.972 20 20v48z"></path>
+    <path d="M76 230h40v40H76zm80 0h40v40h-40zm80 0h40v40h-40zm80 0h40v40h-40zm80 0h40v40h-40zM76 310h40v40H76zm80 0h40v40h-40zm80 0h40v40h-40zm80 0h40v40h-40zM76 390h40v40H76zm80 0h40v40h-40zm80 0h40v40h-40zm80 0h40v40h-40zm80-80h40v40h-40z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="github">
+    <path d="M255.968 5.329C114.624 5.329 0 120.401 0 262.353c0 113.536 73.344 209.856 175.104 243.872 12.8 2.368 17.472-5.568 17.472-12.384 0-6.112-.224-22.272-.352-43.712-71.2 15.52-86.24-34.464-86.24-34.464-11.616-29.696-28.416-37.6-28.416-37.6-23.264-15.936 1.728-15.616 1.728-15.616 25.696 1.824 39.2 26.496 39.2 26.496 22.848 39.264 59.936 27.936 74.528 21.344 2.304-16.608 8.928-27.936 16.256-34.368-56.832-6.496-116.608-28.544-116.608-127.008 0-28.064 9.984-51.008 26.368-68.992-2.656-6.496-11.424-32.64 2.496-68 0 0 21.504-6.912 70.4 26.336 20.416-5.696 42.304-8.544 64.096-8.64 21.728.128 43.648 2.944 64.096 8.672 48.864-33.248 70.336-26.336 70.336-26.336 13.952 35.392 5.184 61.504 2.56 68 16.416 17.984 26.304 40.928 26.304 68.992 0 98.72-59.84 120.448-116.864 126.816 9.184 7.936 17.376 23.616 17.376 47.584 0 34.368-.32 62.08-.32 70.496 0 6.88 4.608 14.88 17.6 12.352C438.72 472.145 512 375.857 512 262.353 512 120.401 397.376 5.329 255.968 5.329z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212 212" id="gitlab">
+    <path d="M12.3 74.7h54L43.3 3c-1-3.6-6.4-3.6-7.6 0L12.3 74.8z" />
+    <path d="M12.3 74.7L.5 111c-1 3.2 0 6.8 3 8.8l101.6 74-92.5-119z"/>
+    <path d="M105 193.7l-38.6-119h-54l92.7 119z"/>
+    <path d="M105 193.7l38.7-119H66.4l38.7 119z"/>
+    <path d="M105 193.7l38.7-119H198l-93 119z"/>
+    <path d="M198 74.7l11.6 36.2c1 3 0 6.6-3 8.6l-101.5 74 93-119z"/>
+    <path d="M198 74.7h-54.3L167 3c1.2-3.6 6.4-3.6 7.6 0L198 74.8z"/> 
+  </symbol>
+  <symbol viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="rss">
+    <circle cx="3.429" cy="20.571" r="3.429"></circle>
+    <path d="M11.429 24h4.57C15.999 15.179 8.821 8.001 0 8v4.572c6.302.001 11.429 5.126 11.429 11.428z"></path>
+    <path d="M24 24C24 10.766 13.234 0 0 0v4.571c10.714 0 19.43 8.714 19.43 19.429z"></path>
+  </symbol>
+  <symbol viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" id="linkedin">
+    <path d="M437 0H75C33.648 0 0 33.648 0 75v362c0 41.352 33.648 75 75 75h362c41.352 0 75-33.648 75-75V75c0-41.352-33.648-75-75-75zM181 406h-60V196h60zm0-240h-60v-60h60zm210 240h-60V286c0-16.54-13.46-30-30-30s-30 13.46-30 30v120h-60V196h60v11.309C286.719 202.422 296.93 196 316 196c40.691.043 75 36.547 75 79.688zm0 0"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 612 612" id="arrow">
+    <path d="M604.501 440.509L325.398 134.956c-5.331-5.357-12.423-7.627-19.386-7.27-6.989-.357-14.056 1.913-19.387 7.27L7.499 440.509c-9.999 10.024-9.999 26.298 0 36.323s26.223 10.024 36.222 0l262.293-287.164L568.28 476.832c9.999 10.024 26.222 10.024 36.221 0 9.999-10.023 9.999-26.298 0-36.323z"></path>
+  </symbol>
+  <symbol viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" id="carly">
+    <path d="M504.971 239.029L448 182.059V84c0-46.317-37.682-84-84-84h-44c-13.255 0-24 10.745-24 24s10.745 24 24 24h44c19.851 0 36 16.149 36 36v108c0 6.365 2.529 12.47 7.029 16.971L454.059 256l-47.029 47.029A24.002 24.002 0 0 0 400 320v108c0 19.851-16.149 36-36 36h-44c-13.255 0-24 10.745-24 24s10.745 24 24 24h44c46.318 0 84-37.683 84-84v-98.059l56.971-56.971c9.372-9.372 9.372-24.568 0-33.941zM112 192V84c0-19.851 16.149-36 36-36h44c13.255 0 24-10.745 24-24S205.255 0 192 0h-44c-46.318 0-84 37.683-84 84v98.059l-56.971 56.97c-9.373 9.373-9.373 24.568 0 33.941L64 329.941V428c0 46.317 37.682 84 84 84h44c13.255 0 24-10.745 24-24s-10.745-24-24-24h-44c-19.851 0-36-16.149-36-36V320c0-6.365-2.529-12.47-7.029-16.971L57.941 256l47.029-47.029A24.002 24.002 0 0 0 112 192z"></path>
+  </symbol>
+  <symbol viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="copy">
+    <path d="M23 2.75A2.75 2.75 0 0 0 20.25 0H8.75A2.75 2.75 0 0 0 6 2.75v13.5A2.75 2.75 0 0 0 8.75 19h11.5A2.75 2.75 0 0 0 23 16.25zM18.25 14.5h-7.5a.75.75 0 0 1 0-1.5h7.5a.75.75 0 0 1 0 1.5zm0-3h-7.5a.75.75 0 0 1 0-1.5h7.5a.75.75 0 0 1 0 1.5zm0-3h-7.5a.75.75 0 0 1 0-1.5h7.5a.75.75 0 0 1 0 1.5z"></path>
+    <path d="M8.75 20.5a4.255 4.255 0 0 1-4.25-4.25V2.75c0-.086.02-.166.025-.25H3.75A2.752 2.752 0 0 0 1 5.25v16A2.752 2.752 0 0 0 3.75 24h12a2.752 2.752 0 0 0 2.75-2.75v-.75z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512.001 512.001" id="closeme">
+    <path d="M284.286 256.002L506.143 34.144c7.811-7.811 7.811-20.475 0-28.285-7.811-7.81-20.475-7.811-28.285 0L256 227.717 34.143 5.859c-7.811-7.811-20.475-7.811-28.285 0-7.81 7.811-7.811 20.475 0 28.285l221.857 221.857L5.858 477.859c-7.811 7.811-7.811 20.475 0 28.285a19.938 19.938 0 0 0 14.143 5.857 19.94 19.94 0 0 0 14.143-5.857L256 284.287l221.857 221.857c3.905 3.905 9.024 5.857 14.143 5.857s10.237-1.952 14.143-5.857c7.811-7.811 7.811-20.475 0-28.285L284.286 256.002z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="open-menu">
+    <path d="M492 236H20c-11.046 0-20 8.954-20 20s8.954 20 20 20h472c11.046 0 20-8.954 20-20s-8.954-20-20-20zm0-160H20C8.954 76 0 84.954 0 96s8.954 20 20 20h472c11.046 0 20-8.954 20-20s-8.954-20-20-20zm0 320H20c-11.046 0-20 8.954-20 20s8.954 20 20 20h472c11.046 0 20-8.954 20-20s-8.954-20-20-20z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="instagram">
+    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id=youtube>
+    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="stackoverflow">
+    <path d="M21 27v-8h3v11H0V19h3v8h18z"></path><path d="M17.1.2L15 1.8l7.9 10.6 2.1-1.6L17.1.2zm3.7 14.7L10.6 6.4l1.7-2 10.2 8.5-1.7 2zM7.2 12.3l12 5.6 1.1-2.4-12-5.6-1.1 2.4zm-1.8 6.8l13.56 1.96.17-2.38-13.26-2.55-.47 2.97zM19 25H5v-3h14v3z"></path>
+  </symbol>
+</svg>
+
+
+<footer class="footer">
+  <div class="footer_inner wrap pale">
+    <img src='https://dede-20191130.github.io/learnerBlog/icons/apple-touch-icon.png' class="icon icon_2 transparent" alt="学習者dedeのブログ ~プログラミング等~">
+    <p>Copyright&nbsp;<span class="year"></span>&nbsp;学習者DEDEのブログ ~プログラミング等~. All Rights Reserved</p><a class="to_top" href="#documentTop">
+  <svg class="icon">
+  <use xlink:href="#arrow"></use>
+</svg>
+</a>
+
+  </div>
+</footer>
+
+    <script type="text/javascript" src="https://dede-20191130.github.io/learnerBlog/js/bundle.min.b62660a3a4af8329304008285d59e1fc1db881782806c5a08ac786091f3f4ae6f5624adece7e7b5aae7daeb800eea292ff4b410134b444a2c4e317b9417d1168.js" integrity="sha512-tiZgo6SvgykwQAgoXVnh/B24gXgoBsWgiseGCR8/Sub1Ykrezn57Wq59rrgA7qKS/0tBATS0RKLE4xe5QX0RaA==" crossorigin="anonymous"></script>
+    
+  </body>
+</html>
