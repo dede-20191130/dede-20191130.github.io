@@ -1,9 +1,8 @@
 
 <!DOCTYPE html>
-<html lang="ja" data-figures="" class="home">
+<html lang="ja" data-figures="" class="page">
   <head>
-	<meta name="generator" content="Hugo 0.88.1" />
-<title>学習者dedeのブログ ~プログラミング等~</title>
+<title>[ReactJs] 居室内機器管理コンソール画面を作成してみました。 | 学習者dedeのブログ ~プログラミング等~</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,24 +14,24 @@
   gtag('config', 'UA-110309082-3');
 </script>
 
+  
 <meta property="og:locale" content="ja" />
 
-<meta property="og:type" content="website">
-<meta name="description" content="">
+<meta property="og:type" content="article">
+<meta name="description" content="この記事について かんたんな概要と結論 居室内機器の管理を行うコンソール画面をReactで作成しました。 ソースコードはこちらにあります。 デプロイ">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="@D20191130">
-<meta name="twitter:title" content="学習者dedeのブログ ~プログラミング等~" />
-<meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/" />
-<meta property="og:title" content="学習者dedeのブログ ~プログラミング等~" />
-<meta property="og:description" content="" />
+<meta name="twitter:title" content="[ReactJs] 居室内機器管理コンソール画面を作成してみました。" />
+<meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/posts/2022/01/23/room-apparatus-control-console/" />
+<meta property="og:title" content="[ReactJs] 居室内機器管理コンソール画面を作成してみました。" />
+<meta property="og:description" content="この記事について かんたんな概要と結論 居室内機器の管理を行うコンソール画面をReactで作成しました。 ソースコードはこちらにあります。 デプロイ" />
 <meta property="og:image" content="https://dede-20191130.github.io/learnerBlog/images/thumbnail.png" />
 
 <link rel="apple-touch-icon" sizes="180x180" href="https://dede-20191130.github.io/learnerBlog/icons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://dede-20191130.github.io/learnerBlog/icons/favicon-32x32.png">
 <link rel="manifest" href="https://dede-20191130.github.io/learnerBlog/icons/site.webmanifest">
 
-<link rel="canonical" href="https://dede-20191130.github.io/learnerBlog/">
-<link rel="alternate" type="application/rss+xml" href="https://dede-20191130.github.io/learnerBlog/index.xml" title="学習者dedeのブログ ~プログラミング等~" />
+<link rel="canonical" href="https://dede-20191130.github.io/learnerBlog/posts/2022/01/23/room-apparatus-control-console/">
 
     
 
@@ -70,7 +69,7 @@
       
         
 
-  <div class="nav_parent nav_active">
+  <div class="nav_parent">
     <a href="https://dede-20191130.github.io/learnerBlog/" class="nav_item" title="VBA">VBA <img src='https://dede-20191130.github.io/learnerBlog/icons/caret-icon.svg' alt="icon" class="nav_icon"></a>
     <div class="nav_sub">
       <span class="nav_child"></span>
@@ -122,39 +121,30 @@
 </header>
 
     <main>
-
   
-
 <div class="grid-inverse wrap content">
-  <ul class="posts" id="posts">
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/17/script-hugo-commit/" title="[Hugo] Hugoで生成されるデプロイ対象ファイルのコミットまでをスクリプトで一括処理にした">[Hugo] Hugoで生成されるデプロイ対象ファイルのコミットまでをスクリプトで一括処理にした</a>
-      </h3>
-      
+  <article class="post_content">
+    <h1 class="post_title">[ReactJs] 居室内機器管理コンソール画面を作成してみました。</h1>
   <div class="post_meta">
     <span><svg class="icon">
   <use xlink:href="#calendar"></use>
 </svg></span>
     <span class="post_date">
-      Nov 17, 2020</span>
-    <span class="post_time"> · 3 min read</span><span>&nbsp;· <a href='https://dede-20191130.github.io/learnerBlog/tags/hugo' title="Hugo" class="post_tag button button_translucent">Hugo
-        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/git' title="Git" class="post_tag button button_translucent">Git
-        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88' title="スクリプト" class="post_tag button button_translucent">スクリプト
-        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%82%B7%E3%82%A7%E3%83%AB%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88' title="シェルスクリプト" class="post_tag button button_translucent">シェルスクリプト
+      Jan 23, 2022</span>
+    <span class="post_time"> · 4 min read</span><span>&nbsp;· <a href='https://dede-20191130.github.io/learnerBlog/tags/typescript' title="TypeScript" class="post_tag button button_translucent">TypeScript
+        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/react' title="React" class="post_tag button button_translucent">React
+        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%83%89' title="フロントエンド" class="post_tag button button_translucent">フロントエンド
         </a>
     </span>
     <span class="page_only">&nbsp;·
   <div class="post_share">
     Share on:
-    <a href="https://twitter.com/intent/tweet?text=%5bHugo%5d%20Hugo%e3%81%a7%e7%94%9f%e6%88%90%e3%81%95%e3%82%8c%e3%82%8b%e3%83%87%e3%83%97%e3%83%ad%e3%82%a4%e5%af%be%e8%b1%a1%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e3%82%b3%e3%83%9f%e3%83%83%e3%83%88%e3%81%be%e3%81%a7%e3%82%92%e3%82%b9%e3%82%af%e3%83%aa%e3%83%97%e3%83%88%e3%81%a7%e4%b8%80%e6%8b%ac%e5%87%a6%e7%90%86%e3%81%ab%e3%81%97%e3%81%9f&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f11%2f17%2fscript-hugo-commit%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
+    <a href="https://twitter.com/intent/tweet?text=%5bReactJs%5d%20%e5%b1%85%e5%ae%a4%e5%86%85%e6%a9%9f%e5%99%a8%e7%ae%a1%e7%90%86%e3%82%b3%e3%83%b3%e3%82%bd%e3%83%bc%e3%83%ab%e7%94%bb%e9%9d%a2%e3%82%92%e4%bd%9c%e6%88%90%e3%81%97%e3%81%a6%e3%81%bf%e3%81%be%e3%81%97%e3%81%9f%e3%80%82&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2022%2f01%2f23%2froom-apparatus-control-console%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
       <svg class="icon">
   <use xlink:href="#twitter"></use>
 </svg>
     </a>
-    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f11%2f17%2fscript-hugo-commit%2f&t=%5bHugo%5d%20Hugo%e3%81%a7%e7%94%9f%e6%88%90%e3%81%95%e3%82%8c%e3%82%8b%e3%83%87%e3%83%97%e3%83%ad%e3%82%a4%e5%af%be%e8%b1%a1%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e3%82%b3%e3%83%9f%e3%83%83%e3%83%88%e3%81%be%e3%81%a7%e3%82%92%e3%82%b9%e3%82%af%e3%83%aa%e3%83%97%e3%83%88%e3%81%a7%e4%b8%80%e6%8b%ac%e5%87%a6%e7%90%86%e3%81%ab%e3%81%97%e3%81%9f" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
+    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2022%2f01%2f23%2froom-apparatus-control-console%2f&t=%5bReactJs%5d%20%e5%b1%85%e5%ae%a4%e5%86%85%e6%a9%9f%e5%99%a8%e7%ae%a1%e7%90%86%e3%82%b3%e3%83%b3%e3%82%bd%e3%83%bc%e3%83%ab%e7%94%bb%e9%9d%a2%e3%82%92%e4%bd%9c%e6%88%90%e3%81%97%e3%81%a6%e3%81%bf%e3%81%be%e3%81%97%e3%81%9f%e3%80%82" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
       <svg class="icon">
   <use xlink:href="#facebook"></use>
 </svg>
@@ -164,7 +154,7 @@
   <use xlink:href="#linkedin"></use>
 </svg>
     </a>
-    <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/17/script-hugo-commit/" title="Copy Link" class="link link_yank">
+    <a href="https://dede-20191130.github.io/learnerBlog/posts/2022/01/23/room-apparatus-control-console/" title="Copy Link" class="link link_yank">
       <svg class="icon">
   <use xlink:href="#copy"></use>
 </svg>
@@ -173,577 +163,225 @@
   </span>
   </div>
 
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">
-            
-              この記事について Hugoによるブログ記事作成のデプロイまでの流れ このブログはHugoという静的サイトジェネレータで管理している。 デプロイ先は
-            
-          </p>
-          <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/17/script-hugo-commit/" title="Read More" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/15/msoffice-form-capture/" title="[小ネタ] ExcelやAccessのフォームがWindows10の録画機能で録画できない。　そんなときは・・・">[小ネタ] ExcelやAccessのフォームがWindows10の録画機能で録画できない。　そんなときは・・・</a>
-      </h3>
-      
-  <div class="post_meta">
-    <span><svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg></span>
-    <span class="post_date">
-      Nov 15, 2020</span>
-    <span class="post_time"> · 1 min read</span>
-    <span class="page_only">&nbsp;·
-  <div class="post_share">
-    Share on:
-    <a href="https://twitter.com/intent/tweet?text=%5b%e5%b0%8f%e3%83%8d%e3%82%bf%5d%20Excel%e3%82%84Access%e3%81%ae%e3%83%95%e3%82%a9%e3%83%bc%e3%83%a0%e3%81%8cWindows10%e3%81%ae%e9%8c%b2%e7%94%bb%e6%a9%9f%e8%83%bd%e3%81%a7%e9%8c%b2%e7%94%bb%e3%81%a7%e3%81%8d%e3%81%aa%e3%81%84%e3%80%82%e3%80%80%e3%81%9d%e3%82%93%e3%81%aa%e3%81%a8%e3%81%8d%e3%81%af%e3%83%bb%e3%83%bb%e3%83%bb&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f11%2f15%2fmsoffice-form-capture%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#twitter"></use>
-</svg>
-    </a>
-    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f11%2f15%2fmsoffice-form-capture%2f&t=%5b%e5%b0%8f%e3%83%8d%e3%82%bf%5d%20Excel%e3%82%84Access%e3%81%ae%e3%83%95%e3%82%a9%e3%83%bc%e3%83%a0%e3%81%8cWindows10%e3%81%ae%e9%8c%b2%e7%94%bb%e6%a9%9f%e8%83%bd%e3%81%a7%e9%8c%b2%e7%94%bb%e3%81%a7%e3%81%8d%e3%81%aa%e3%81%84%e3%80%82%e3%80%80%e3%81%9d%e3%82%93%e3%81%aa%e3%81%a8%e3%81%8d%e3%81%af%e3%83%bb%e3%83%bb%e3%83%bb" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#facebook"></use>
-</svg>
-    </a>
-    <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#linkedin"></use>
-</svg>
-    </a>
-    <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/15/msoffice-form-capture/" title="Copy Link" class="link link_yank">
-      <svg class="icon">
-  <use xlink:href="#copy"></use>
-</svg>
-    </a>
-  </div>
-  </span>
-  </div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">
-            
-              この記事について Windows10には録画機能（名称：ゲームバー。Winキー+Gで起動）があり、 通常のアプリケーションであればこれで録画が可
-            
-          </p>
-          <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/15/msoffice-form-capture/" title="Read More" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/15/delete-record-button/" title="[Access VBA] サブフォーム上のレコードを挿入、削除する簡単なサンプル">[Access VBA] サブフォーム上のレコードを挿入、削除する簡単なサンプル</a>
-      </h3>
-      
-  <div class="post_meta">
-    <span><svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg></span>
-    <span class="post_date">
-      Nov 15, 2020</span>
-    <span class="post_time"> · 2 min read</span><span>&nbsp;· <a href='https://dede-20191130.github.io/learnerBlog/tags/access' title="Access" class="post_tag button button_translucent">Access
-        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/vba' title="VBA" class="post_tag button button_translucent">VBA
-        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C' title="自作" class="post_tag button button_translucent">自作
-        </a>
-    </span>
-    <span class="page_only">&nbsp;·
-  <div class="post_share">
-    Share on:
-    <a href="https://twitter.com/intent/tweet?text=%5bAccess%20VBA%5d%20%e3%82%b5%e3%83%96%e3%83%95%e3%82%a9%e3%83%bc%e3%83%a0%e4%b8%8a%e3%81%ae%e3%83%ac%e3%82%b3%e3%83%bc%e3%83%89%e3%82%92%e6%8c%bf%e5%85%a5%e3%80%81%e5%89%8a%e9%99%a4%e3%81%99%e3%82%8b%e7%b0%a1%e5%8d%98%e3%81%aa%e3%82%b5%e3%83%b3%e3%83%97%e3%83%ab&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f11%2f15%2fdelete-record-button%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#twitter"></use>
-</svg>
-    </a>
-    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f11%2f15%2fdelete-record-button%2f&t=%5bAccess%20VBA%5d%20%e3%82%b5%e3%83%96%e3%83%95%e3%82%a9%e3%83%bc%e3%83%a0%e4%b8%8a%e3%81%ae%e3%83%ac%e3%82%b3%e3%83%bc%e3%83%89%e3%82%92%e6%8c%bf%e5%85%a5%e3%80%81%e5%89%8a%e9%99%a4%e3%81%99%e3%82%8b%e7%b0%a1%e5%8d%98%e3%81%aa%e3%82%b5%e3%83%b3%e3%83%97%e3%83%ab" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#facebook"></use>
-</svg>
-    </a>
-    <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#linkedin"></use>
-</svg>
-    </a>
-    <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/15/delete-record-button/" title="Copy Link" class="link link_yank">
-      <svg class="icon">
-  <use xlink:href="#copy"></use>
-</svg>
-    </a>
-  </div>
-  </span>
-  </div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">
-            
-              この記事について 作成動機は、 下記の記事で起こっていたカレントレコードなしエラー(エラー番号:3021)のケースが サブフォームにおいても起こる
-            
-          </p>
-          <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/15/delete-record-button/" title="Read More" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/10/difference-between-emperor/" title="Podcastで語られていた西洋世界・中国・日本の皇帝の特徴と違い">Podcastで語られていた西洋世界・中国・日本の皇帝の特徴と違い</a>
-      </h3>
-      
-  <div class="post_meta">
-    <span><svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg></span>
-    <span class="post_date">
-      Nov 10, 2020</span>
-    <span class="post_time"> · 2 min read</span><span>&nbsp;· <a href='https://dede-20191130.github.io/learnerBlog/tags/%E6%AD%B4%E5%8F%B2%E4%B8%80%E8%88%AC' title="歴史一般" class="post_tag button button_translucent">歴史一般
-        </a>
-    </span>
-    <span class="page_only">&nbsp;·
-  <div class="post_share">
-    Share on:
-    <a href="https://twitter.com/intent/tweet?text=Podcast%e3%81%a7%e8%aa%9e%e3%82%89%e3%82%8c%e3%81%a6%e3%81%84%e3%81%9f%e8%a5%bf%e6%b4%8b%e4%b8%96%e7%95%8c%e3%83%bb%e4%b8%ad%e5%9b%bd%e3%83%bb%e6%97%a5%e6%9c%ac%e3%81%ae%e7%9a%87%e5%b8%9d%e3%81%ae%e7%89%b9%e5%be%b4%e3%81%a8%e9%81%95%e3%81%84&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f11%2f10%2fdifference-between-emperor%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#twitter"></use>
-</svg>
-    </a>
-    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f11%2f10%2fdifference-between-emperor%2f&t=Podcast%e3%81%a7%e8%aa%9e%e3%82%89%e3%82%8c%e3%81%a6%e3%81%84%e3%81%9f%e8%a5%bf%e6%b4%8b%e4%b8%96%e7%95%8c%e3%83%bb%e4%b8%ad%e5%9b%bd%e3%83%bb%e6%97%a5%e6%9c%ac%e3%81%ae%e7%9a%87%e5%b8%9d%e3%81%ae%e7%89%b9%e5%be%b4%e3%81%a8%e9%81%95%e3%81%84" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#facebook"></use>
-</svg>
-    </a>
-    <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#linkedin"></use>
-</svg>
-    </a>
-    <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/10/difference-between-emperor/" title="Copy Link" class="link link_yank">
-      <svg class="icon">
-  <use xlink:href="#copy"></use>
-</svg>
-    </a>
-  </div>
-  </span>
-  </div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">
-            
-              この記事について こちらのPodcast番組で 西洋の皇帝と東洋の皇帝について意味の違いや成り立ちが説明されていた。 オカモトの歴史実況中継 「王室
-            
-          </p>
-          <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/10/difference-between-emperor/" title="Read More" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/08/access-control-withevents/" title="[Access VBA] フォームのコントロールに対してWithEventsでイベントリスナークラスを作成する際に気をつけなければならないこと">[Access VBA] フォームのコントロールに対してWithEventsでイベントリスナークラスを作成する際に気をつけなければならないこと</a>
-      </h3>
-      
-  <div class="post_meta">
-    <span><svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg></span>
-    <span class="post_date">
-      Nov 8, 2020</span>
-    <span class="post_time"> · 7 min read</span><span>&nbsp;· <a href='https://dede-20191130.github.io/learnerBlog/tags/access' title="Access" class="post_tag button button_translucent">Access
-        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/vba' title="VBA" class="post_tag button button_translucent">VBA
-        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C' title="自作" class="post_tag button button_translucent">自作
-        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91' title="オブジェクト指向" class="post_tag button button_translucent">オブジェクト指向
-        </a>
-    </span>
-    <span class="page_only">&nbsp;·
-  <div class="post_share">
-    Share on:
-    <a href="https://twitter.com/intent/tweet?text=%5bAccess%20VBA%5d%20%e3%83%95%e3%82%a9%e3%83%bc%e3%83%a0%e3%81%ae%e3%82%b3%e3%83%b3%e3%83%88%e3%83%ad%e3%83%bc%e3%83%ab%e3%81%ab%e5%af%be%e3%81%97%e3%81%a6WithEvents%e3%81%a7%e3%82%a4%e3%83%99%e3%83%b3%e3%83%88%e3%83%aa%e3%82%b9%e3%83%8a%e3%83%bc%e3%82%af%e3%83%a9%e3%82%b9%e3%82%92%e4%bd%9c%e6%88%90%e3%81%99%e3%82%8b%e9%9a%9b%e3%81%ab%e6%b0%97%e3%82%92%e3%81%a4%e3%81%91%e3%81%aa%e3%81%91%e3%82%8c%e3%81%b0%e3%81%aa%e3%82%89%e3%81%aa%e3%81%84%e3%81%93%e3%81%a8&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f11%2f08%2faccess-control-withevents%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#twitter"></use>
-</svg>
-    </a>
-    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f11%2f08%2faccess-control-withevents%2f&t=%5bAccess%20VBA%5d%20%e3%83%95%e3%82%a9%e3%83%bc%e3%83%a0%e3%81%ae%e3%82%b3%e3%83%b3%e3%83%88%e3%83%ad%e3%83%bc%e3%83%ab%e3%81%ab%e5%af%be%e3%81%97%e3%81%a6WithEvents%e3%81%a7%e3%82%a4%e3%83%99%e3%83%b3%e3%83%88%e3%83%aa%e3%82%b9%e3%83%8a%e3%83%bc%e3%82%af%e3%83%a9%e3%82%b9%e3%82%92%e4%bd%9c%e6%88%90%e3%81%99%e3%82%8b%e9%9a%9b%e3%81%ab%e6%b0%97%e3%82%92%e3%81%a4%e3%81%91%e3%81%aa%e3%81%91%e3%82%8c%e3%81%b0%e3%81%aa%e3%82%89%e3%81%aa%e3%81%84%e3%81%93%e3%81%a8" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#facebook"></use>
-</svg>
-    </a>
-    <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#linkedin"></use>
-</svg>
-    </a>
-    <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/08/access-control-withevents/" title="Copy Link" class="link link_yank">
-      <svg class="icon">
-  <use xlink:href="#copy"></use>
-</svg>
-    </a>
-  </div>
-  </span>
-  </div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">
-            
-              この記事について Accessでフォーム上のコントロール（テキストボックス、コンボボックスなど）で、 イベント処理を共通化するためにWithEv
-            
-          </p>
-          <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/08/access-control-withevents/" title="Read More" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/05/own-excel-shortcut/" title="[Excel VBA] 個人的に作業がはかどった自作Excelショートカット">[Excel VBA] 個人的に作業がはかどった自作Excelショートカット</a>
-      </h3>
-      
-  <div class="post_meta">
-    <span><svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg></span>
-    <span class="post_date">
-      Nov 5, 2020</span>
-    <span class="post_time"> · 5 min read</span><span>&nbsp;· <a href='https://dede-20191130.github.io/learnerBlog/tags/excel' title="Excel" class="post_tag button button_translucent">Excel
-        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/vba' title="VBA" class="post_tag button button_translucent">VBA
-        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C' title="自作" class="post_tag button button_translucent">自作
-        </a>
-    </span>
-    <span class="page_only">&nbsp;·
-  <div class="post_share">
-    Share on:
-    <a href="https://twitter.com/intent/tweet?text=%5bExcel%20VBA%5d%20%e5%80%8b%e4%ba%ba%e7%9a%84%e3%81%ab%e4%bd%9c%e6%a5%ad%e3%81%8c%e3%81%af%e3%81%8b%e3%81%a9%e3%81%a3%e3%81%9f%e8%87%aa%e4%bd%9cExcel%e3%82%b7%e3%83%a7%e3%83%bc%e3%83%88%e3%82%ab%e3%83%83%e3%83%88&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f11%2f05%2fown-excel-shortcut%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#twitter"></use>
-</svg>
-    </a>
-    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f11%2f05%2fown-excel-shortcut%2f&t=%5bExcel%20VBA%5d%20%e5%80%8b%e4%ba%ba%e7%9a%84%e3%81%ab%e4%bd%9c%e6%a5%ad%e3%81%8c%e3%81%af%e3%81%8b%e3%81%a9%e3%81%a3%e3%81%9f%e8%87%aa%e4%bd%9cExcel%e3%82%b7%e3%83%a7%e3%83%bc%e3%83%88%e3%82%ab%e3%83%83%e3%83%88" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#facebook"></use>
-</svg>
-    </a>
-    <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#linkedin"></use>
-</svg>
-    </a>
-    <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/05/own-excel-shortcut/" title="Copy Link" class="link link_yank">
-      <svg class="icon">
-  <use xlink:href="#copy"></use>
-</svg>
-    </a>
-  </div>
-  </span>
-  </div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">
-            
-              この記事について Excelから文章を別のファイルや文書に移したり、 Excelのシート上で四角形や矢印などの図形の切り貼りや、図形でフローチャ
-            
-          </p>
-          <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/05/own-excel-shortcut/" title="Read More" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/03/learn-by-podcast/" title="Podcastを使っていろいろと勉強を始めたこと">Podcastを使っていろいろと勉強を始めたこと</a>
-      </h3>
-      
-  <div class="post_meta">
-    <span><svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg></span>
-    <span class="post_date">
-      Nov 3, 2020</span>
-    <span class="post_time"> · 2 min read</span><span>&nbsp;· <a href='https://dede-20191130.github.io/learnerBlog/tags/%E6%AD%B4%E5%8F%B2%E4%B8%80%E8%88%AC' title="歴史一般" class="post_tag button button_translucent">歴史一般
-        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/%E5%B7%A5%E5%AD%A6%E4%B8%80%E8%88%AC' title="工学一般" class="post_tag button button_translucent">工学一般
-        </a>
-    </span>
-    <span class="page_only">&nbsp;·
-  <div class="post_share">
-    Share on:
-    <a href="https://twitter.com/intent/tweet?text=Podcast%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%84%e3%82%8d%e3%81%84%e3%82%8d%e3%81%a8%e5%8b%89%e5%bc%b7%e3%82%92%e5%a7%8b%e3%82%81%e3%81%9f%e3%81%93%e3%81%a8&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f11%2f03%2flearn-by-podcast%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#twitter"></use>
-</svg>
-    </a>
-    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f11%2f03%2flearn-by-podcast%2f&t=Podcast%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%84%e3%82%8d%e3%81%84%e3%82%8d%e3%81%a8%e5%8b%89%e5%bc%b7%e3%82%92%e5%a7%8b%e3%82%81%e3%81%9f%e3%81%93%e3%81%a8" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#facebook"></use>
-</svg>
-    </a>
-    <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#linkedin"></use>
-</svg>
-    </a>
-    <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/03/learn-by-podcast/" title="Copy Link" class="link link_yank">
-      <svg class="icon">
-  <use xlink:href="#copy"></use>
-</svg>
-    </a>
-  </div>
-  </span>
-  </div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">
-            
-              この記事について 最近Podcastでけっこう面白い歴史の解説ラジオや 大学の講義を聞くことができると知った。 Podcastで勉強をし始めたこと
-            
-          </p>
-          <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/03/learn-by-podcast/" title="Read More" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/polymorphism-radiobutton/" title="[Excel VBA]ポリモーフィズムを用いて、IF文を使わずラジオボタンごとの処理分岐を行う">[Excel VBA]ポリモーフィズムを用いて、IF文を使わずラジオボタンごとの処理分岐を行う</a>
-      </h3>
-      
-  <div class="post_meta">
-    <span><svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg></span>
-    <span class="post_date">
-      Nov 1, 2020</span>
-    <span class="post_time"> · 5 min read</span><span>&nbsp;· <a href='https://dede-20191130.github.io/learnerBlog/tags/excel' title="Excel" class="post_tag button button_translucent">Excel
-        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/vba' title="VBA" class="post_tag button button_translucent">VBA
-        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C' title="自作" class="post_tag button button_translucent">自作
-        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91' title="オブジェクト指向" class="post_tag button button_translucent">オブジェクト指向
-        </a>
-    </span>
-    <span class="page_only">&nbsp;·
-  <div class="post_share">
-    Share on:
-    <a href="https://twitter.com/intent/tweet?text=%5bExcel%20VBA%5d%e3%83%9d%e3%83%aa%e3%83%a2%e3%83%bc%e3%83%95%e3%82%a3%e3%82%ba%e3%83%a0%e3%82%92%e7%94%a8%e3%81%84%e3%81%a6%e3%80%81IF%e6%96%87%e3%82%92%e4%bd%bf%e3%82%8f%e3%81%9a%e3%83%a9%e3%82%b8%e3%82%aa%e3%83%9c%e3%82%bf%e3%83%b3%e3%81%94%e3%81%a8%e3%81%ae%e5%87%a6%e7%90%86%e5%88%86%e5%b2%90%e3%82%92%e8%a1%8c%e3%81%86&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f11%2f01%2fpolymorphism-radiobutton%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#twitter"></use>
-</svg>
-    </a>
-    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f11%2f01%2fpolymorphism-radiobutton%2f&t=%5bExcel%20VBA%5d%e3%83%9d%e3%83%aa%e3%83%a2%e3%83%bc%e3%83%95%e3%82%a3%e3%82%ba%e3%83%a0%e3%82%92%e7%94%a8%e3%81%84%e3%81%a6%e3%80%81IF%e6%96%87%e3%82%92%e4%bd%bf%e3%82%8f%e3%81%9a%e3%83%a9%e3%82%b8%e3%82%aa%e3%83%9c%e3%82%bf%e3%83%b3%e3%81%94%e3%81%a8%e3%81%ae%e5%87%a6%e7%90%86%e5%88%86%e5%b2%90%e3%82%92%e8%a1%8c%e3%81%86" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#facebook"></use>
-</svg>
-    </a>
-    <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#linkedin"></use>
-</svg>
-    </a>
-    <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/polymorphism-radiobutton/" title="Copy Link" class="link link_yank">
-      <svg class="icon">
-  <use xlink:href="#copy"></use>
-</svg>
-    </a>
-  </div>
-  </span>
-  </div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">
-            
-              この記事について VBAにおいてポリモーフィズムの考え方によりコーディングを行う一例。 CallByName関数によるポリモーフィズムの考え方と
-            
-          </p>
-          <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/polymorphism-radiobutton/" title="Read More" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/excel-a1-tool/" title="[Excel VBA]選択フォルダ配下のエクセルブックの全シートでA1にカーソル移動させるツールを作成した">[Excel VBA]選択フォルダ配下のエクセルブックの全シートでA1にカーソル移動させるツールを作成した</a>
-      </h3>
-      
-  <div class="post_meta">
-    <span><svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg></span>
-    <span class="post_date">
-      Nov 1, 2020</span>
-    <span class="post_time"> · 1 min read</span><span>&nbsp;· <a href='https://dede-20191130.github.io/learnerBlog/tags/excel' title="Excel" class="post_tag button button_translucent">Excel
-        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/vba' title="VBA" class="post_tag button button_translucent">VBA
-        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C' title="自作" class="post_tag button button_translucent">自作
-        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%83%84%E3%83%BC%E3%83%AB' title="ツール" class="post_tag button button_translucent">ツール
-        </a>
-    </span>
-    <span class="page_only">&nbsp;·
-  <div class="post_share">
-    Share on:
-    <a href="https://twitter.com/intent/tweet?text=%5bExcel%20VBA%5d%e9%81%b8%e6%8a%9e%e3%83%95%e3%82%a9%e3%83%ab%e3%83%80%e9%85%8d%e4%b8%8b%e3%81%ae%e3%82%a8%e3%82%af%e3%82%bb%e3%83%ab%e3%83%96%e3%83%83%e3%82%af%e3%81%ae%e5%85%a8%e3%82%b7%e3%83%bc%e3%83%88%e3%81%a7A1%e3%81%ab%e3%82%ab%e3%83%bc%e3%82%bd%e3%83%ab%e7%a7%bb%e5%8b%95%e3%81%95%e3%81%9b%e3%82%8b%e3%83%84%e3%83%bc%e3%83%ab%e3%82%92%e4%bd%9c%e6%88%90%e3%81%97%e3%81%9f&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f11%2f01%2fexcel-a1-tool%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#twitter"></use>
-</svg>
-    </a>
-    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f11%2f01%2fexcel-a1-tool%2f&t=%5bExcel%20VBA%5d%e9%81%b8%e6%8a%9e%e3%83%95%e3%82%a9%e3%83%ab%e3%83%80%e9%85%8d%e4%b8%8b%e3%81%ae%e3%82%a8%e3%82%af%e3%82%bb%e3%83%ab%e3%83%96%e3%83%83%e3%82%af%e3%81%ae%e5%85%a8%e3%82%b7%e3%83%bc%e3%83%88%e3%81%a7A1%e3%81%ab%e3%82%ab%e3%83%bc%e3%82%bd%e3%83%ab%e7%a7%bb%e5%8b%95%e3%81%95%e3%81%9b%e3%82%8b%e3%83%84%e3%83%bc%e3%83%ab%e3%82%92%e4%bd%9c%e6%88%90%e3%81%97%e3%81%9f" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#facebook"></use>
-</svg>
-    </a>
-    <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#linkedin"></use>
-</svg>
-    </a>
-    <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/excel-a1-tool/" title="Copy Link" class="link link_yank">
-      <svg class="icon">
-  <use xlink:href="#copy"></use>
-</svg>
-    </a>
-  </div>
-  </span>
-  </div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">
-            
-              このツールについて 下記Qiita記事のプログラムを、フォルダ配下のExcelブックに対して再帰的に/非再帰的に適用できるように 機能をもたせた
-            
-          </p>
-          <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/excel-a1-tool/" title="Read More" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/10/30/ps-refinement-last/" title="[Powershell] Windowsで更新日時が〇〇以降のファイルのパスの一覧を取得するには">[Powershell] Windowsで更新日時が〇〇以降のファイルのパスの一覧を取得するには</a>
-      </h3>
-      
-  <div class="post_meta">
-    <span><svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg></span>
-    <span class="post_date">
-      Oct 30, 2020</span>
-    <span class="post_time"> · 1 min read</span><span>&nbsp;· <a href='https://dede-20191130.github.io/learnerBlog/tags/powershell' title="Powershell" class="post_tag button button_translucent">Powershell
-        </a>
-    </span>
-    <span class="page_only">&nbsp;·
-  <div class="post_share">
-    Share on:
-    <a href="https://twitter.com/intent/tweet?text=%5bPowershell%5d%20Windows%e3%81%a7%e6%9b%b4%e6%96%b0%e6%97%a5%e6%99%82%e3%81%8c%e3%80%87%e3%80%87%e4%bb%a5%e9%99%8d%e3%81%ae%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e3%83%91%e3%82%b9%e3%81%ae%e4%b8%80%e8%a6%a7%e3%82%92%e5%8f%96%e5%be%97%e3%81%99%e3%82%8b%e3%81%ab%e3%81%af&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f10%2f30%2fps-refinement-last%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#twitter"></use>
-</svg>
-    </a>
-    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2020%2f10%2f30%2fps-refinement-last%2f&t=%5bPowershell%5d%20Windows%e3%81%a7%e6%9b%b4%e6%96%b0%e6%97%a5%e6%99%82%e3%81%8c%e3%80%87%e3%80%87%e4%bb%a5%e9%99%8d%e3%81%ae%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e3%83%91%e3%82%b9%e3%81%ae%e4%b8%80%e8%a6%a7%e3%82%92%e5%8f%96%e5%be%97%e3%81%99%e3%82%8b%e3%81%ab%e3%81%af" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#facebook"></use>
-</svg>
-    </a>
-    <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#linkedin"></use>
-</svg>
-    </a>
-    <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/10/30/ps-refinement-last/" title="Copy Link" class="link link_yank">
-      <svg class="icon">
-  <use xlink:href="#copy"></use>
-</svg>
-    </a>
-  </div>
-  </span>
-  </div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">
-            
-              この記事について 普段と別のPC（Windows）での作業をする機会があった。 作業後にもとのPCに持っていく必要のある、差分あり（作業による変
-            
-          </p>
-          <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/10/30/ps-refinement-last/" title="Read More" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-    <li>
-    <ul class="pagination pagination-default">
-      <li class="page-item">
-        <a href="/learnerBlog/" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
-      </li>
-      <li class="page-item">
-        <a href="/learnerBlog/page/4/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
-      </li>
-      <li class="page-item">
-        <a href="/learnerBlog/page/2/" aria-label="Page 2" class="page-link" role="button">2</a>
-      </li>
-      <li class="page-item">
-        <a href="/learnerBlog/page/3/" aria-label="Page 3" class="page-link" role="button">3</a>
-      </li>
-      <li class="page-item">
-        <a href="/learnerBlog/page/4/" aria-label="Page 4" class="page-link" role="button">4</a>
-      </li>
-      <li class="page-item active">
-        <a href="#" aria-current="page" aria-label="Page 5" class="page-link" role="button">5</a>
-      </li>
-      <li class="page-item">
-        <a href="/learnerBlog/page/6/" aria-label="Page 6" class="page-link" role="button">6</a>
-      </li>
-      <li class="page-item">
-        <a href="/learnerBlog/page/6/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
-      </li>
-      <li class="page-item">
-        <a href="/learnerBlog/page/6/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
-      </li>
-    </ul>
+    
+    
+    <h2>Overview</h2>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#この記事について">この記事について</a></li>
+    <li><a href="#レスポンシブ対応について">レスポンシブ対応について</a></li>
+    <li><a href="#要件">要件</a>
+      <ul>
+        <li><a href="#概要">概要</a></li>
+        <li><a href="#画面構成">画面構成</a></li>
+        <li><a href="#api">API</a></li>
+      </ul>
     </li>
+    <li><a href="#機能">機能</a></li>
+    <li><a href="#画面">画面</a>
+      <ul>
+        <li><a href="#共通フレーム">共通フレーム</a></li>
+        <li><a href="#トップページ">トップページ</a></li>
+        <li><a href="#居室機器インデックスページ">居室機器インデックスページ</a></li>
+        <li><a href="#個別機器管理ページ">個別機器管理ページ</a></li>
+      </ul>
+    </li>
+    <li><a href="#実装">実装</a>
+      <ul>
+        <li><a href="#作成環境">作成環境</a></li>
+        <li><a href="#依存パッケージ">依存パッケージ</a></li>
+        <li><a href="#内容">内容</a></li>
+      </ul>
+    </li>
+    <li><a href="#デモvercelデプロイ">デモ（Vercelデプロイ）</a></li>
+    <li><a href="#終わりに">終わりに</a></li>
   </ul>
+</nav>
+    <p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1642950405/learnerBlog/room-apparatus-control-console/room-apparatus-control-console1_marzwp.png" alt=""></p>
+<h2 id="この記事について">この記事について</h2>
+
+
+
+<div class="box-with-title">
+    <p><span>かんたんな概要と結論</span></p>
+    <div class="inner">
+         
+    居室内機器の管理を行うコンソール画面をReactで作成しました。<br/>
+    ソースコードは<a href="https://github.com/dede-20191130/room-apparatus-control-console/">こちら</a>にあります。<br/>
+    デプロイ先は<a href="https://room-apparatus-control-console.vercel.app/top">こちら</a>です。
+
+    </div>
+</div>
+<p>こんにちは、dedeです。</p>
+<p>最近、<br>
+フロントエンド開発の練習として、<br>
+クラウドソーシングサイトなどにある案件の開発要望を見ています。</p>
+<p>そのときに、居室内機器管理コンソール画面の構築の要望を見かけたため、<br>
+似たような要望を想定して自分で作成してみることにしました。</p>
+<p>想定した要件や機能、<br>
+画面別の役割や実装内容について、<br>
+ご説明します。</p>
+<p><a href="https://github.com/dede-20191130/room-apparatus-control-console/"><span id="srcURL"><u>ソースコードはこちらにあります（GitHub）。</u></span></a></p>
+<h2 id="レスポンシブ対応について">レスポンシブ対応について</h2>
+<p>モバイル、タブレット機器、PCモニタのどの機器からの閲覧でも対応しています。<br>
+レスポンシブに関するブレークポイントは次のようになっています。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">機器</th>
+<th style="text-align:left">幅</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">モバイル</td>
+<td style="text-align:left">~520px</td>
+</tr>
+<tr>
+<td style="text-align:left">タブレット</td>
+<td style="text-align:left">520px~960px</td>
+</tr>
+<tr>
+<td style="text-align:left">PC</td>
+<td style="text-align:left">960px~</td>
+</tr>
+</tbody>
+</table>
+<h2 id="要件">要件</h2>
+<h3 id="概要">概要</h3>
+<p>Web画面のUI操作により、居室内の機器が制御されます。<br>
+居室内の機器の状態を画面にリアルタイムで表示し、定期的にAPIから情報を取得します。</p>
+<h3 id="画面構成">画面構成</h3>
+<p>共通部品は次の通りです。</p>
+<ul>
+<li>ヘッダー</li>
+<li>サイドバー</li>
+</ul>
+<p>個別ページは、<br>
+トップページ、<br>
+各居室の機器運転状態管理ページがあります。</p>
+<h3 id="api">API</h3>
+<p>本来ならば別途サーバ用意して<br>
+仮想的に居室内機器を運転させ、その運転状況を管理し、リクエストに対してレスポンスさせるべきだと思っています。</p>
+<p>しかしながら、今回はブラウザサイドメインの開発としているため、<br>
+擬似的にサーバにfetchしてデータを取得するAPIモックを構築しました。<br>
+（実際にはサーバは用意せず、ブラウザの<code>WebStorage</code>とデータをやり取りするだけです）。</p>
+<h2 id="機能">機能</h2>
+<ul>
+<li>居室内機器の運転データを表示。定期的に情報を最新化</li>
+<li>居室内機器の運転を開始/停止</li>
+<li>居室内機器の運転設定を変更</li>
+<li>全居室の機器の正常運転/エラー状況を一覧化</li>
+<li>エラー発生機器の復旧をブラウザから実行可能</li>
+</ul>
+<h2 id="画面">画面</h2>
+<h3 id="共通フレーム">共通フレーム</h3>
+<p>ヘッダーおよびサイドバーがあります。</p>
+<p>ヘッダーには運転状態インジケータランプ、および試験エラー発生ボタンがあります。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1642950405/learnerBlog/room-apparatus-control-console/room-apparatus-control-console2_bydw9f.png" alt="共通フレーム"></p>
+<h3 id="トップページ">トップページ</h3>
+<p>各室運転状況を表示するグリッドボックスが表示されます。<br>
+最大9室まで対応しています。</p>
+<p>正常時は緑色、エラー時は赤色として状況が表示されます。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1642950405/learnerBlog/room-apparatus-control-console/room-apparatus-control-console3_ehzcj2.png" alt="トップページ（PC）"></p>
+<p>モバイル機器での表示は下のようになります。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/c_scale,w_450/v1642950404/learnerBlog/room-apparatus-control-console/room-apparatus-control-console.vercel.app_room101_index_iPhone_12_Pro_qyawd4.png" alt="トップページ（モバイル）"></p>
+<h3 id="居室機器インデックスページ">居室機器インデックスページ</h3>
+<p>インデックスページでは、<br>
+一枚の居室画像の中に、<br>
+機器のアイコンをそれぞれ表示し、<br>
+状況が早わかりできます（緑色：正常。赤色：エラー）。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1642950406/learnerBlog/room-apparatus-control-console/room-apparatus-control-console4_slwoi7.png" alt="インデックスページ（PC）"></p>
+<p>モバイル機器での表示は下のようになります。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/c_scale,w_450/v1642950404/learnerBlog/room-apparatus-control-console/room-apparatus-control-console.vercel.app_room101_index_iPhone_12_Pro_2_patvng.png" alt="インデックスページ（モバイル）"></p>
+<h3 id="個別機器管理ページ">個別機器管理ページ</h3>
+<p>個別機器管理ページでは、<br>
+対象機器の設定項目ごとの設定値および現在値を一覧できます。</p>
+<p>設定変更する場合は<br>
+入力フォーム上に入力します。</p>
+<p>また、<br>
+エラー発生時には、<br>
+エラーの内容表示、および復旧の手続きを行うことができます。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/v1642950405/learnerBlog/room-apparatus-control-console/room-apparatus-control-console5_vgpb3g.png" alt="個別機器管理ページ（PC）"></p>
+<p>モバイル機器での表示は下のようになります。</p>
+<p><img src="https://res.cloudinary.com/ddxhi1rnh/image/upload/c_scale,w_450/v1642950404/learnerBlog/room-apparatus-control-console/room-apparatus-control-console.vercel.app_room101_index_iPhone_12_Pro_3_xtxazm.png" alt="個別機器管理ページ（モバイル）"></p>
+<h2 id="実装">実装</h2>
+<h3 id="作成環境">作成環境</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="ln">1</span>node v14.16.1
+<span class="ln">2</span>npm 6.14.12
+<span class="ln">3</span>create-react-app 
+</code></pre></div><h3 id="依存パッケージ">依存パッケージ</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="ln"> 1</span><span class="p">{</span>
+<span class="ln"> 2</span>    <span class="nt">&#34;dependencies&#34;</span><span class="p">:</span> <span class="p">{</span>
+<span class="ln"> 3</span>    <span class="nt">&#34;@types/node&#34;</span><span class="p">:</span> <span class="s2">&#34;^12.20.36&#34;</span><span class="p">,</span>
+<span class="ln"> 4</span>    <span class="nt">&#34;@types/react&#34;</span><span class="p">:</span> <span class="s2">&#34;^17.0.33&#34;</span><span class="p">,</span>
+<span class="ln"> 5</span>    <span class="nt">&#34;@types/react-dom&#34;</span><span class="p">:</span> <span class="s2">&#34;^17.0.10&#34;</span><span class="p">,</span>
+<span class="ln"> 6</span>    <span class="nt">&#34;@types/react-router-dom&#34;</span><span class="p">:</span> <span class="s2">&#34;^5.3.2&#34;</span><span class="p">,</span>
+<span class="ln"> 7</span>    <span class="nt">&#34;@types/styled-components&#34;</span><span class="p">:</span> <span class="s2">&#34;^5.1.18&#34;</span><span class="p">,</span>
+<span class="ln"> 8</span>    <span class="nt">&#34;fast-deep-equal&#34;</span><span class="p">:</span> <span class="s2">&#34;^3.1.3&#34;</span><span class="p">,</span>
+<span class="ln"> 9</span>    <span class="nt">&#34;react&#34;</span><span class="p">:</span> <span class="s2">&#34;^17.0.2&#34;</span><span class="p">,</span>
+<span class="ln">10</span>    <span class="nt">&#34;react-dom&#34;</span><span class="p">:</span> <span class="s2">&#34;^17.0.2&#34;</span><span class="p">,</span>
+<span class="ln">11</span>    <span class="nt">&#34;react-hook-form&#34;</span><span class="p">:</span> <span class="s2">&#34;^7.19.5&#34;</span><span class="p">,</span>
+<span class="ln">12</span>    <span class="nt">&#34;react-router-dom&#34;</span><span class="p">:</span> <span class="s2">&#34;^6.0.2&#34;</span><span class="p">,</span>
+<span class="ln">13</span>    <span class="nt">&#34;react-scripts&#34;</span><span class="p">:</span> <span class="s2">&#34;4.0.3&#34;</span><span class="p">,</span>
+<span class="ln">14</span>    <span class="nt">&#34;styled-components&#34;</span><span class="p">:</span> <span class="s2">&#34;^5.3.3&#34;</span><span class="p">,</span>
+<span class="ln">15</span>    <span class="nt">&#34;typescript&#34;</span><span class="p">:</span> <span class="s2">&#34;^4.4.4&#34;</span><span class="p">,</span>
+<span class="ln">16</span>    <span class="p">}</span>
+<span class="ln">17</span><span class="p">}</span>
+<span class="ln">18</span>
+</code></pre></div><h3 id="内容">内容</h3>
+<p>画面構築のライブラリは<em>ReactJs</em>により行っています。</p>
+<p>ページ遷移は<em>React Router</em>、スタイリングはCSS in JS（<em>Styled Components</em>）です。</p>
+<p>上記でも触れましたが、機器情報取得などのAPIに関しては、<br>
+簡単のためにAPIモックっぽいものを作ってすべてブラウザで完結するようにしています。</p>
+<h2 id="デモvercelデプロイ">デモ（Vercelデプロイ）</h2>
+<p><a href="https://room-apparatus-control-console.vercel.app/top">Vercelにデプロイしました。</a></p>
+<h2 id="終わりに">終わりに</h2>
+<p><em>Router</em>のルーティング設定やレスポンシブなデザイニングなど、<br>
+様々に小課題が現れては対応が必要だったため、<br>
+非常に勉強になりました。</p>
+<p>安全なプログラミングとハマりを防ぐために、<br>
+TypeScriptの型システムにもさらに精通する必要があると感じています。</p>
+
+     
+     
+     
+     <h3>関連記事</h3>
+     <ul>
+         
+         <li><a href="/learnerBlog/posts/2021/10/14/send-contact-form-react-router/">ご意見送信フォームを作成する③　[SPA by React Router]</a></li>
+         
+         <li><a href="/learnerBlog/posts/2021/10/08/send-contact-form-react/">ご意見送信フォームを作成する②　[React]</a></li>
+         
+         <li><a href="/learnerBlog/posts/2021/10/30/tuning-usecontext-for-obj/">[React Hook] レンダリングのチューニング ~オブジェクトをContextとして利用する場合 &amp; サンプルコード~</a></li>
+         
+         <li><a href="/learnerBlog/posts/2021/10/08/send-contact-form-plain-ts/">ご意見送信フォームを作成する①　[プレーンTypeScript]</a></li>
+         
+         <li><a href="/learnerBlog/posts/2021/10/27/wc-toggle-color-button/">[JavaScript] Web Componentsで明暗モード切替ボタンを作成する</a></li>
+         
+     </ul>
+     <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "learnerblog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </article>
 <aside class="sidebar">
   <section class="sidebar_inner">
         <h2>dede-20191130</h2>
@@ -766,9 +404,6 @@
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2022/01/23/room-apparatus-control-console/" class="nav-link" title="[ReactJs] 居室内機器管理コンソール画面を作成してみました。">[ReactJs] 居室内機器管理コンソール画面を作成してみました。</a>
-      </li>
-      <li>
         <a href="https://dede-20191130.github.io/learnerBlog/posts/2022/01/22/import-calc-error-value/" class="nav-link" title="[Access VBA] 数式エラーの発生しているExcelシートをテーブルに取り込むときの注意点とサンプルコード">[Access VBA] 数式エラーの発生しているExcelシートをテーブルに取り込むときの注意点とサンプルコード</a>
       </li>
       <li>
@@ -788,6 +423,9 @@
       </li>
       <li>
         <a href="https://dede-20191130.github.io/learnerBlog/posts/2022/01/02/vba-question-007-manipulate-folder-files/" class="nav-link" title="[教えて！VBA] 第7回 フォルダを開く（＋ファイルを操作する）にはどうすればいいの？？">[教えて！VBA] 第7回 フォルダを開く（＋ファイルを操作する）にはどうすればいいの？？</a>
+      </li>
+      <li>
+        <a href="https://dede-20191130.github.io/learnerBlog/posts/2022/01/01/vba-question-006-kinds-of-end-process/" class="nav-link" title="[教えて！VBA] 第6回 エクセルVBAマクロで、マクロを終了するにはどうすればいいの？？">[教えて！VBA] 第6回 エクセルVBAマクロで、マクロを終了するにはどうすればいいの？？</a>
       </li>
     </ul>
     <div>
@@ -1193,9 +831,8 @@
   </section>
 </aside>
 
+  
 </div>
-
-
     </main><svg width="0" height="0" class="hidden">
   <symbol viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" id="facebook">
     <path d="M437 0H75C33.648 0 0 33.648 0 75v362c0 41.352 33.648 75 75 75h151V331h-60v-90h60v-61c0-49.629 40.371-90 90-90h91v90h-91v61h91l-15 90h-76v181h121c41.352 0 75-33.648 75-75V75c0-41.352-33.648-75-75-75zm0 0"></path>

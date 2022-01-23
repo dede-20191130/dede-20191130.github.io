@@ -6,7 +6,165 @@
     <description>Recent content in フロントエンド on 学習者dedeのブログ ~プログラミング等~</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 30 Oct 2021 18:56:19 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/tags/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%83%89/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 Jan 2022 15:29:27 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/tags/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%83%89/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[ReactJs] 居室内機器管理コンソール画面を作成してみました。</title>
+      <link>https://dede-20191130.github.io/learnerBlog/posts/2022/01/23/room-apparatus-control-console/</link>
+      <pubDate>Sun, 23 Jan 2022 15:29:27 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/posts/2022/01/23/room-apparatus-control-console/</guid>
+      <description>
+        
+          &lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1642950405/learnerBlog/room-apparatus-control-console/room-apparatus-control-console1_marzwp.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
+
+
+
+&lt;div class=&#34;box-with-title&#34;&gt;
+    &lt;p&gt;&lt;span&gt;かんたんな概要と結論&lt;/span&gt;&lt;/p&gt;
+    &lt;div class=&#34;inner&#34;&gt;
+         
+    居室内機器の管理を行うコンソール画面をReactで作成しました。&lt;br/&gt;
+    ソースコードは&lt;a href=&#34;https://github.com/dede-20191130/room-apparatus-control-console/&#34;&gt;こちら&lt;/a&gt;にあります。&lt;br/&gt;
+    デプロイ先は&lt;a href=&#34;https://room-apparatus-control-console.vercel.app/top&#34;&gt;こちら&lt;/a&gt;です。
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;こんにちは、dedeです。&lt;/p&gt;
+&lt;p&gt;最近、&lt;br&gt;
+フロントエンド開発の練習として、&lt;br&gt;
+クラウドソーシングサイトなどにある案件の開発要望を見ています。&lt;/p&gt;
+&lt;p&gt;そのときに、居室内機器管理コンソール画面の構築の要望を見かけたため、&lt;br&gt;
+似たような要望を想定して自分で作成してみることにしました。&lt;/p&gt;
+&lt;p&gt;想定した要件や機能、&lt;br&gt;
+画面別の役割や実装内容について、&lt;br&gt;
+ご説明します。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/dede-20191130/room-apparatus-control-console/&#34;&gt;&lt;span id=&#34;srcURL&#34;&gt;&lt;u&gt;ソースコードはこちらにあります（GitHub）。&lt;/u&gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;レスポンシブ対応について&#34;&gt;レスポンシブ対応について&lt;/h2&gt;
+&lt;p&gt;モバイル、タブレット機器、PCモニタのどの機器からの閲覧でも対応しています。&lt;br&gt;
+レスポンシブに関するブレークポイントは次のようになっています。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;機器&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;幅&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;モバイル&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;~520px&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;タブレット&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;520px~960px&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;PC&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;960px~&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;要件&#34;&gt;要件&lt;/h2&gt;
+&lt;h3 id=&#34;概要&#34;&gt;概要&lt;/h3&gt;
+&lt;p&gt;Web画面のUI操作により、居室内の機器が制御されます。&lt;br&gt;
+居室内の機器の状態を画面にリアルタイムで表示し、定期的にAPIから情報を取得します。&lt;/p&gt;
+&lt;h3 id=&#34;画面構成&#34;&gt;画面構成&lt;/h3&gt;
+&lt;p&gt;共通部品は次の通りです。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ヘッダー&lt;/li&gt;
+&lt;li&gt;サイドバー&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;個別ページは、&lt;br&gt;
+トップページ、&lt;br&gt;
+各居室の機器運転状態管理ページがあります。&lt;/p&gt;
+&lt;h3 id=&#34;api&#34;&gt;API&lt;/h3&gt;
+&lt;p&gt;本来ならば別途サーバ用意して&lt;br&gt;
+仮想的に居室内機器を運転させ、その運転状況を管理し、リクエストに対してレスポンスさせるべきだと思っています。&lt;/p&gt;
+&lt;p&gt;しかしながら、今回はブラウザサイドメインの開発としているため、&lt;br&gt;
+擬似的にサーバにfetchしてデータを取得するAPIモックを構築しました。&lt;br&gt;
+（実際にはサーバは用意せず、ブラウザの&lt;code&gt;WebStorage&lt;/code&gt;とデータをやり取りするだけです）。&lt;/p&gt;
+&lt;h2 id=&#34;機能&#34;&gt;機能&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;居室内機器の運転データを表示。定期的に情報を最新化&lt;/li&gt;
+&lt;li&gt;居室内機器の運転を開始/停止&lt;/li&gt;
+&lt;li&gt;居室内機器の運転設定を変更&lt;/li&gt;
+&lt;li&gt;全居室の機器の正常運転/エラー状況を一覧化&lt;/li&gt;
+&lt;li&gt;エラー発生機器の復旧をブラウザから実行可能&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;画面&#34;&gt;画面&lt;/h2&gt;
+&lt;h3 id=&#34;共通フレーム&#34;&gt;共通フレーム&lt;/h3&gt;
+&lt;p&gt;ヘッダーおよびサイドバーがあります。&lt;/p&gt;
+&lt;p&gt;ヘッダーには運転状態インジケータランプ、および試験エラー発生ボタンがあります。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1642950405/learnerBlog/room-apparatus-control-console/room-apparatus-control-console2_bydw9f.png&#34; alt=&#34;共通フレーム&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;トップページ&#34;&gt;トップページ&lt;/h3&gt;
+&lt;p&gt;各室運転状況を表示するグリッドボックスが表示されます。&lt;br&gt;
+最大9室まで対応しています。&lt;/p&gt;
+&lt;p&gt;正常時は緑色、エラー時は赤色として状況が表示されます。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1642950405/learnerBlog/room-apparatus-control-console/room-apparatus-control-console3_ehzcj2.png&#34; alt=&#34;トップページ（PC）&#34;&gt;&lt;/p&gt;
+&lt;p&gt;モバイル機器での表示は下のようになります。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/c_scale,w_450/v1642950404/learnerBlog/room-apparatus-control-console/room-apparatus-control-console.vercel.app_room101_index_iPhone_12_Pro_qyawd4.png&#34; alt=&#34;トップページ（モバイル）&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;居室機器インデックスページ&#34;&gt;居室機器インデックスページ&lt;/h3&gt;
+&lt;p&gt;インデックスページでは、&lt;br&gt;
+一枚の居室画像の中に、&lt;br&gt;
+機器のアイコンをそれぞれ表示し、&lt;br&gt;
+状況が早わかりできます（緑色：正常。赤色：エラー）。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1642950406/learnerBlog/room-apparatus-control-console/room-apparatus-control-console4_slwoi7.png&#34; alt=&#34;インデックスページ（PC）&#34;&gt;&lt;/p&gt;
+&lt;p&gt;モバイル機器での表示は下のようになります。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/c_scale,w_450/v1642950404/learnerBlog/room-apparatus-control-console/room-apparatus-control-console.vercel.app_room101_index_iPhone_12_Pro_2_patvng.png&#34; alt=&#34;インデックスページ（モバイル）&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;個別機器管理ページ&#34;&gt;個別機器管理ページ&lt;/h3&gt;
+&lt;p&gt;個別機器管理ページでは、&lt;br&gt;
+対象機器の設定項目ごとの設定値および現在値を一覧できます。&lt;/p&gt;
+&lt;p&gt;設定変更する場合は&lt;br&gt;
+入力フォーム上に入力します。&lt;/p&gt;
+&lt;p&gt;また、&lt;br&gt;
+エラー発生時には、&lt;br&gt;
+エラーの内容表示、および復旧の手続きを行うことができます。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1642950405/learnerBlog/room-apparatus-control-console/room-apparatus-control-console5_vgpb3g.png&#34; alt=&#34;個別機器管理ページ（PC）&#34;&gt;&lt;/p&gt;
+&lt;p&gt;モバイル機器での表示は下のようになります。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/c_scale,w_450/v1642950404/learnerBlog/room-apparatus-control-console/room-apparatus-control-console.vercel.app_room101_index_iPhone_12_Pro_3_xtxazm.png&#34; alt=&#34;個別機器管理ページ（モバイル）&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;実装&#34;&gt;実装&lt;/h2&gt;
+&lt;h3 id=&#34;作成環境&#34;&gt;作成環境&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;node v14.16.1
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;npm 6.14.12
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;create-react-app 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;依存パッケージ&#34;&gt;依存パッケージ&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;#34;dependencies&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;#34;@types/node&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;^12.20.36&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;#34;@types/react&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;^17.0.33&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;#34;@types/react-dom&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;^17.0.10&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;#34;@types/react-router-dom&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;^5.3.2&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;#34;@types/styled-components&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;^5.1.18&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;#34;fast-deep-equal&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;^3.1.3&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;#34;react&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;^17.0.2&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;#34;react-dom&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;^17.0.2&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;#34;react-hook-form&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;^7.19.5&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;#34;react-router-dom&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;^6.0.2&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;#34;react-scripts&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;4.0.3&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;#34;styled-components&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;^5.3.3&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;#34;typescript&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;^4.4.4&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;内容&#34;&gt;内容&lt;/h3&gt;
+&lt;p&gt;画面構築のライブラリは&lt;em&gt;ReactJs&lt;/em&gt;により行っています。&lt;/p&gt;
+&lt;p&gt;ページ遷移は&lt;em&gt;React Router&lt;/em&gt;、スタイリングはCSS in JS（&lt;em&gt;Styled Components&lt;/em&gt;）です。&lt;/p&gt;
+&lt;p&gt;上記でも触れましたが、機器情報取得などのAPIに関しては、&lt;br&gt;
+簡単のためにAPIモックっぽいものを作ってすべてブラウザで完結するようにしています。&lt;/p&gt;
+&lt;h2 id=&#34;デモvercelデプロイ&#34;&gt;デモ（Vercelデプロイ）&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://room-apparatus-control-console.vercel.app/top&#34;&gt;Vercelにデプロイしました。&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;終わりに&#34;&gt;終わりに&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Router&lt;/em&gt;のルーティング設定やレスポンシブなデザイニングなど、&lt;br&gt;
+様々に小課題が現れては対応が必要だったため、&lt;br&gt;
+非常に勉強になりました。&lt;/p&gt;
+&lt;p&gt;安全なプログラミングとハマりを防ぐために、&lt;br&gt;
+TypeScriptの型システムにもさらに精通する必要があると感じています。&lt;/p&gt;
+
+        
+      </description>
+    </item>
+    
     <item>
       <title>[React Hook] レンダリングのチューニング ~オブジェクトをContextとして利用する場合 &amp; サンプルコード~</title>
       <link>https://dede-20191130.github.io/learnerBlog/posts/2021/10/30/tuning-usecontext-for-obj/</link>
