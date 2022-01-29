@@ -1,17 +1,17 @@
 
 [ja]
-  title = "学習者dedeのブログ ~プログラミング等~" # just for the sake of showing this is possible
-  LanguageName = "Japanese"
-  weight = 1
+LanguageName = "Japanese" 
+title = "学習者Dedeのブログ ~プログラミング等~" # just for the sake of showing this is possible
+weight = 1 
 
-# [en]
-#   title = "Clarity"
-#   LanguageName = "English"
-#   weight = 2
+[en]
+LanguageName = "English"
+title = "The learner Dede's Blog"
+weight = 2
+[en.params]
+introDescription = "Starting with VBA, I'm studying computer science."
 
 # [pt]
 #   title = "Claridade" # just for the sake of showing this is possible
 #   LanguageName = "Português"
 #   weight = 3
-
-  

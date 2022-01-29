@@ -11,40 +11,46 @@ other = "All Rights Reserved"
 other = "Share on"
 
 [featured_posts]
-other = "Featured Posts"
+other = "おすすめの投稿"
 
 [recent_posts]
-other = "Recent Posts"
+other = "最近の投稿"
 
 [404_title]
-other = "Lost"
+other = "記事がありません"
 
 [could_not_find]
-other = "We couldn't find the page you're looking for"
+other = "お探しのページが見つかりません。"
 
 [go_back]
-other = "Go Back"
+other = "戻る"
 
 [translations]
 other = "Translations"
 
 [categories]
-other = "Categories"
+other = "カテゴリ"
 
 [tags]
-other = "Tags"
+other = "タグ"
 
 [series]
 other = "Series"
 
 [all_categories]
-other = "All Categories"
+other = "すべてのカテゴリ"
 
 [all_tags]
-other = "All Tags"
+other = "すべてのタグ"
 
 [all_series]
 other = "All Series"
 
 [archives]
-other = "archives"
+other = "アーカイブ"
+
+[overview]
+other = "概要"
+
+[reading_time]
+other = "この記事は約{{ .ReadingTime }}分で読めます"

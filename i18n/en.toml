@@ -48,3 +48,9 @@ other = "All Series"
 
 [archives]
 other = "archives"
+
+[overview]
+other = "Overview"
+
+[reading_time]
+other = "{{ .ReadingTime }} min read"

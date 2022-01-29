@@ -1,0 +1,62 @@
+
+# Submenus are done this way: parent -> identifier
+[[main]]
+identifier = "VBA"
+name = "VBA"
+weight = -108
+[[main]]
+name = "How To VBA Series"
+parent = "VBA"
+url = "introductions/vba/vba-questions"
+[[main]]
+name = "Tools Created, etc."
+parent = "VBA"
+url = "introductions/vba/others"
+
+# [[main]]
+# name = "歴史"
+# url = "introductions/history"
+# weight = -107
+
+[[main]]
+name = "Archive"
+url = "my-archives/"
+weight = -106
+
+[[main]]
+name = "About"
+url = "about/"
+weight = -105
+
+# social menu links
+
+[[social]]
+name = "github"
+type = "social"
+url = "https://github.com/dede-20191130"
+weight = 1
+[[social]]
+name = "twitter"
+url = "https://twitter.com/D20191130"
+weight = 2
+[[social]]
+name = "linkedin"
+url = "https://www.linkedin.com/in/#"
+weight = 3
+[[social]]
+internal = true
+name = "rss"
+url = "index.xml"
+weight = 4
+
+# other supported social links
+# name = "youtube"
+# url = "https://www.youtube.com/#"
+# name = "facebook"
+# url = "https://facebook.com/#"
+# name = "instagram"
+# url = "https://instagram.com/#"
+# name = "stackoverflow"
+# url = "https://stackoverflow.com/#"
+# name = "gitlab"
+# url = "https://gitlab.com/#"
