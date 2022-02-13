@@ -20,7 +20,10 @@
             {{ range .Site.Taxonomies.archives.Alphabetical.Reverse }}
             <h3>{{ .Name }} </h3>
             <li class="post_content">
-                <a href="{{ $.Site.BaseURL }}archives/{{ .Name | urlize | lower }}">{{ .Count }} articles</a>
+                {{ $page_count:= .Count}}
+                {{- with $.Site.GetPage (printf "/archives/%s" (.Name | urlize | lower)) -}}
+                <a href="{{ .Permalink }}">{{ $page_count }} articles</a><br/>
+                {{ end }}
             </li>
             {{ end }}
         </ul>

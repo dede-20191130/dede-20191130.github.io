@@ -9,7 +9,7 @@
 {{- $bg := (path.Join "images" $image | absLangURL) }}
 <div class="grid-inverse wrap content">
     <article class="post">
-        <h3>アーカイブ：{{ .Title }}</h3>
+        <h3>{{ T "archives" }}: {{ .Title }}</h3>
         </pre>
         {{ range .Data.Pages }}
         <li>
