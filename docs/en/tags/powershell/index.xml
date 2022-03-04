@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Powershell on The learner Dede&#39;s Blog</title>
+    <link>https://dede-20191130.github.io/learnerBlog/en/tags/powershell/</link>
+    <description>Recent content in Powershell on The learner Dede&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sat, 19 Dec 2020 03:18:51 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/en/tags/powershell/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VBA &amp; POWERSHELL: THE TECHNIQUE TO EXTRACT A SPECIFIC STRING FROM MODULES, CLASSES OR SQL OF QUERIES IN ACCESS DATABASE</title>
+      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/12/19/grep-from-module-sql/</link>
+      <pubDate>Sat, 19 Dec 2020 03:18:51 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/12/19/grep-from-module-sql/</guid>
+      <description>
+        
+          
+&lt;div class=&#34;notices info&#34; style=&#34;border-radius: 10px;&#34;&gt;
+    &lt;div class=&#34;label&#34;&gt;Help me improve my English!&lt;/div&gt;
+    As you probably see, I&#39;m not a native English speaker.&lt;br /&gt;
+    If you find an English expression that feel incorrect or awkward, please let me know.&lt;br /&gt;&lt;br /&gt;
+    Message box of Disqus is &lt;a href=&#34;#disqus_thread&#34;&gt;under the article&lt;/a&gt;.&lt;br /&gt;
+    Or my E-Mail is &lt;a href=&#34;mailto:1044adad@gmail.com&#34;&gt;here&lt;/a&gt;.&lt;br /&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;about-this-article&#34;&gt;ABOUT THIS ARTICLE&lt;/h2&gt;
+&lt;p&gt;When creating a Access VBA tool, you may search and extract a specific string from modules, classes, or query source SQL,&lt;br&gt;
+mainly in order to refactor code or add a new feature.&lt;/p&gt;
+&lt;p&gt;For modules and classed, on VB Editor screen you can search it by pressing ctrl + F, but you can&#39;t get a list of matches and it&#39;s difficult to grasp the total result.&lt;br&gt;
+And, there is not a function to search a string from query source SQL in Access as of 2022.&lt;/p&gt;
+&lt;p&gt;Therefore, under Windows, I export each data as a file and then extract target string with powershell command like Linux&#39;s Grep command, as explained below.&lt;/p&gt;
+&lt;h2 id=&#34;creation-environment&#34;&gt;CREATION ENVIRONMENT&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Windows10 Home&lt;/li&gt;
+&lt;li&gt;MSOffice 2019&lt;/li&gt;
+&lt;li&gt;PowerShell 5.1&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;technique&#34;&gt;TECHNIQUE&lt;/h2&gt;
+&lt;h3 id=&#34;export-each-data-as-a-file&#34;&gt;EXPORT EACH DATA AS A FILE&lt;/h3&gt;
+&lt;h4 id=&#34;about&#34;&gt;ABOUT&lt;/h4&gt;
+&lt;p&gt;You can export all of modules and classes by running VBA function at once. To do so, you use &lt;code&gt;Export&lt;/code&gt; method of the VBComponent object.&lt;/p&gt;
+
+
+&lt;div class=&#34;inner-article&#34; style=&#34;color: #fb9700;&#34;&gt;
+    However, if you introduced Add-ins such as RubberDuck,&lt;br&gt;
+it may be easy to use its own export function.
+&lt;/div&gt;
+
+&lt;p&gt;And, through this function, you&#39;ll find query sources are exported as a sql file simultaneously.&lt;/p&gt;
+&lt;h4 id=&#34;code&#34;&gt;CODE&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt;  1&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;  2&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Function      :output codes of module and class, and query source SQLs
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;  3&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;  4&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;exportCodesSQLs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;  5&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;  6&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Consts
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;  7&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Const&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;exportCodesSQLs&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;  8&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;  9&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Vars
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 10&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;outputDir&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 11&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbcmp&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Object&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 12&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;fileName&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 13&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ext&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 14&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;qry&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;QueryDef&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 15&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;qName&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 16&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 17&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 18&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 19&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;On&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Error&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ErrorHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 20&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 21&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;outputDir&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt; 22&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;Access&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;CurrentProject&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Path&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt; 23&lt;/span&gt;        &lt;span class=&#34;s&#34;&gt;&amp;#34;\&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt; 24&lt;/span&gt;        &lt;span class=&#34;s&#34;&gt;&amp;#34;src_&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt; 25&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;Left&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Access&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;CurrentProject&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;InStrRev&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Access&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;CurrentProject&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;.&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 26&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Dir&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;outputDir&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbDirectory&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;MkDir&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;outputDir&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 27&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 28&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;output modules, classes
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 29&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;For&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Each&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbcmp&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;In&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;VBE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ActiveVBProject&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;VBComponents&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 30&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;With&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbcmp&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 31&lt;/span&gt;            &lt;span class=&#34;c&#34;&gt;&amp;#39;set extension
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 32&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;            &lt;span class=&#34;k&#34;&gt;Select&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Case&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Type&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 33&lt;/span&gt;            &lt;span class=&#34;k&#34;&gt;Case&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 34&lt;/span&gt;                &lt;span class=&#34;n&#34;&gt;ext&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;.bas&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 35&lt;/span&gt;            &lt;span class=&#34;k&#34;&gt;Case&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;100&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 36&lt;/span&gt;                &lt;span class=&#34;n&#34;&gt;ext&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;.cls&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 37&lt;/span&gt;            &lt;span class=&#34;k&#34;&gt;Case&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;3&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 38&lt;/span&gt;                &lt;span class=&#34;n&#34;&gt;ext&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;.frm&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 39&lt;/span&gt;            &lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Select&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 40&lt;/span&gt;                        
+&lt;span class=&#34;ln&#34;&gt; 41&lt;/span&gt;            &lt;span class=&#34;n&#34;&gt;fileName&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ext&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 42&lt;/span&gt;            &lt;span class=&#34;n&#34;&gt;fileName&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;gainStrNameSafe&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;fileName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c&#34;&gt;&amp;#39;replace some charactors which aren&amp;#39;t allowed to use for a file name.
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 43&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;            &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;fileName&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 44&lt;/span&gt;            
+&lt;span class=&#34;ln&#34;&gt; 45&lt;/span&gt;            &lt;span class=&#34;c&#34;&gt;&amp;#39;output
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 46&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;            &lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Export&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;outputDir&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;\&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;fileName&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 47&lt;/span&gt;            
+&lt;span class=&#34;ln&#34;&gt; 48&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;With&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 49&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Next&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbcmp&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 50&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 51&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;output query sources
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 52&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;With&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;CreateObject&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Scripting.FileSystemObject&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 53&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;For&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Each&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;qry&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;In&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;CurrentDb&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;QueryDefs&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 54&lt;/span&gt;            &lt;span class=&#34;k&#34;&gt;Do&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 55&lt;/span&gt;                &lt;span class=&#34;n&#34;&gt;qName&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;gainStrNameSafe&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;qry&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c&#34;&gt;&amp;#39;replace some charactors which aren&amp;#39;t allowed to use for a file name
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 56&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;                &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;qName&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 57&lt;/span&gt;                
+&lt;span class=&#34;ln&#34;&gt; 58&lt;/span&gt;                &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;qName&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;Like&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Msys*&amp;#34;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Do&lt;/span&gt; &lt;span class=&#34;c&#34;&gt;&amp;#39;exclude queries related MS system
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 59&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;                
+&lt;span class=&#34;ln&#34;&gt; 60&lt;/span&gt;                &lt;span class=&#34;k&#34;&gt;With&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;CreateTextFile&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;outputDir&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;\&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;qName&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;.sql&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 61&lt;/span&gt;                    &lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;write&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;qry&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SQL&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 62&lt;/span&gt;                    &lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Close&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 63&lt;/span&gt;                &lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;With&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 64&lt;/span&gt;            &lt;span class=&#34;k&#34;&gt;Loop&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;While&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;False&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 65&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;Next&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;qry&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 66&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;With&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 67&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 68&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 69&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 70&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 71&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 72&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;ErrorHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 73&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 74&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;MsgBox&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;An error has occurred and the macro will be terminated.&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt; 75&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt; 76&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;Func Name:&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt; 77&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt; 78&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;Error No.&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Number&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbNewLine&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt; 79&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Description&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbCritical&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Macro&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 80&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt; 81&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 82&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt; 83&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 84&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 85&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 86&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 87&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 88&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 89&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Function      :replace some charactors with a underscore and return replaced string. The charactors aren&amp;#39;t allowed to use for a file name.
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 90&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Arg           :target string
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 91&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Return        :replaced  string
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 92&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 93&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;gainStrNameSafe&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ByVal&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;s&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 94&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 95&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Consts
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 96&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Const&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;gainStrNameSafe&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 97&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 98&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Vars
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 99&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Variant&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;100&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;101&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;On&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Error&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ErrorHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;102&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;103&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;gainStrNameSafe&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;104&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;105&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;For&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Each&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;In&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Split&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;\,/,:,*,?,&amp;#34;&amp;#34;,&amp;lt;,&amp;gt;,|&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;,&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c&#34;&gt;&amp;#39;array of chars not to be used
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;106&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;s&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Replace&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;_&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;107&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Next&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;108&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;109&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;gainStrNameSafe&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;s&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;110&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;111&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;112&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;113&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Function&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;114&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;115&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;ErrorHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;116&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;117&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;MsgBox&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;An error has occurred and the macro will be terminated.&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;118&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;119&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;Func Name:&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;120&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;121&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;Error No.&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Number&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbNewLine&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;122&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Description&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbCritical&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Macro&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;123&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;124&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;125&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;126&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Function&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;After running &lt;code&gt;exportCodesSQLs&lt;/code&gt;,&lt;br&gt;
+you&#39;ll find all source files have been stored into &#39;src_ + Access file name&#39; folder&lt;br&gt;
+directly under the folder where the Access file is located.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1645968367/learnerBlog/Grep-From-Module-Sql/en/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-02-27_222415_lkhikd.png&#34; alt=&#34;Exported Files&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;extract-target-string-by-powershell-command&#34;&gt;EXTRACT TARGET STRING BY POWERSHELL COMMAND&lt;/h3&gt;
+&lt;h4 id=&#34;about-1&#34;&gt;ABOUT&lt;/h4&gt;
+&lt;p&gt;Launch PowerShell, and move the folder in which exported files are.&lt;/p&gt;
+&lt;p&gt;The following is a command to search a specific string like Linux&#39;s Grep command and show the list.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-PowerShell&#34; data-lang=&#34;PowerShell&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;Get-ChildItem&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;ForEach-Object&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;Write-Output&lt;/span&gt;  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$_&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Name&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;`r`n&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;------&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;Get-Content&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$_&lt;/span&gt;   &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;Select-String&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;here you write a string to be searched&amp;#34;&lt;/span&gt;  &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;ForEach-Object&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;Write-Output&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$_&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;lineNumber&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Tostring&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;:&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$_&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;Write-Output&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;------&amp;#34;&lt;/span&gt;  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;First the file name to be searched is displayed, then row number and the row&#39;s text which came up is displayed.&lt;br&gt;
+The command loops this for each file.&lt;/p&gt;
+&lt;h4 id=&#34;demo&#34;&gt;DEMO&lt;/h4&gt;
+&lt;p&gt;Suppose you want to search &#39;ITEM_CODE&#39; from all files and look at the result list,&lt;br&gt;
+execute the command as follows.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-PowerShell&#34; data-lang=&#34;PowerShell&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;Get-ChildItem&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;ForEach-Object&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;Write-Output&lt;/span&gt;  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$_&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Name&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;`r`n&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;------&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;Get-Content&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$_&lt;/span&gt;   &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;Select-String&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;ITEM_CODE&amp;#34;&lt;/span&gt;  &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;ForEach-Object&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;Write-Output&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$_&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;lineNumber&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Tostring&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;:&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$_&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;Write-Output&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;------&amp;#34;&lt;/span&gt;  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The result is:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1645968367/learnerBlog/Grep-From-Module-Sql/en/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-02-27_222459_e28fnt.png&#34; alt=&#34;Grep Result&#34;&gt;&lt;/p&gt;
+
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>POWERSHELL: THE WAY TO GET THE PATH LIST OF THE FILES WHICH HAVE BEEN UPDATED SINCE [SPECIFIED TIME].</title>
+      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/10/30/ps-refinement-last/</link>
+      <pubDate>Fri, 30 Oct 2020 00:00:04 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/10/30/ps-refinement-last/</guid>
+      <description>
+        
+          
+&lt;div class=&#34;notices info&#34; style=&#34;border-radius: 10px;&#34;&gt;
+    &lt;div class=&#34;label&#34;&gt;Help me improve my English!&lt;/div&gt;
+    As you probably see, I&#39;m not a native English speaker.&lt;br /&gt;
+    If you find an English expression that feel incorrect or awkward, please let me know.&lt;br /&gt;&lt;br /&gt;
+    Message box of Disqus is &lt;a href=&#34;#disqus_thread&#34;&gt;under the article&lt;/a&gt;.&lt;br /&gt;
+    Or my E-Mail is &lt;a href=&#34;mailto:1044adad@gmail.com&#34;&gt;here&lt;/a&gt;.&lt;br /&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;about-this-article&#34;&gt;ABOUT THIS ARTICLE&lt;/h2&gt;
+&lt;p&gt;I had a occation of working on a different PC (Windows) than usual.&lt;br&gt;
+After work, I needed to sort the files which had been updated and were to be brought to my original PC,&lt;br&gt;
+So I wanted the Powershell command which narrow down the files which had been updated after 9:00 today in a workspace folder.&lt;/p&gt;
+&lt;p&gt;If you can use version control apps such as Git in your environment, which manages change states automatically by commiting as appropriate, this articel is just a script practice of Powershell!&lt;/p&gt;
+&lt;h2 id=&#34;creation-environment&#34;&gt;CREATION ENVIRONMENT&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;PSVersion&lt;/td&gt;
+&lt;td&gt;5.1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;command&#34;&gt;COMMAND&lt;/h2&gt;
+&lt;p&gt;Output the information to the console.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Powershell&#34; data-lang=&#34;Powershell&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;ls &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;-r&lt;/span&gt;  &lt;span class=&#34;o&#34;&gt;-File&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;?{&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$_&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;LastWriteTime&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-gt&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;[Datetime]&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;10-11-2020 9:00:00&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;select &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;FullName&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Output to a file and make it easier to read.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Powershell&#34; data-lang=&#34;Powershell&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;ls &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;-r&lt;/span&gt;  &lt;span class=&#34;o&#34;&gt;-File&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;?{&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$_&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;LastWriteTime&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-gt&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;[Datetime]&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;10-11-2020 9:00:00&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;select &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;FullName&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;ft &lt;/span&gt; &lt;span class=&#34;n&#34;&gt;-A&lt;/span&gt;   &lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;C:\temp\output.txt&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;No Aliases Version.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Powershell&#34; data-lang=&#34;Powershell&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;Get-ChildItem&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;-Recurse&lt;/span&gt;  &lt;span class=&#34;o&#34;&gt;-File&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;Where-Object&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$_&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;LastWriteTime&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-gt&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;[Datetime]&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;2020/10/27 18:00:00&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;Select-Object&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FullName&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;Format-Table&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;-AutoSize&lt;/span&gt;   &lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;C:\temp\output.txt&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;explanation&#34;&gt;EXPLANATION&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Powershell&#34; data-lang=&#34;Powershell&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;Get-ChildItem&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;-Recurse&lt;/span&gt;  &lt;span class=&#34;o&#34;&gt;-File&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Recursively get the list of file information.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Powershell&#34; data-lang=&#34;Powershell&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$_&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;LastWriteTime&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-gt&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;[Datetime]&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;10-11-2020 9:00:00&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Cast A date String to Datetime type value and compare it with the last write time of the file.&lt;/p&gt;
+
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

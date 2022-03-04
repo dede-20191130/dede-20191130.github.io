@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>short-note on The learner Dede&#39;s Blog</title>
+    <link>https://dede-20191130.github.io/learnerBlog/en/categories/short-note/</link>
+    <description>Recent content in short-note on The learner Dede&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sun, 15 Nov 2020 02:41:13 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/en/categories/short-note/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WINDOWS10&#39;S VIDEO RECORDING APP CAN&#39;T RECORD FORMS OF EXCEL AND ACCESS. ABOUT IT WE SHOULD ...</title>
+      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/11/15/msoffice-form-capture/</link>
+      <pubDate>Sun, 15 Nov 2020 02:41:13 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/11/15/msoffice-form-capture/</guid>
+      <description>
+        
+          
+&lt;div class=&#34;notices info&#34; style=&#34;border-radius: 10px;&#34;&gt;
+    &lt;div class=&#34;label&#34;&gt;Help me improve my English!&lt;/div&gt;
+    As you probably see, I&#39;m not a native English speaker.&lt;br /&gt;
+    If you find an English expression that feel incorrect or awkward, please let me know.&lt;br /&gt;&lt;br /&gt;
+    Message box of Disqus is &lt;a href=&#34;#disqus_thread&#34;&gt;under the article&lt;/a&gt;.&lt;br /&gt;
+    Or my E-Mail is &lt;a href=&#34;mailto:1044adad@gmail.com&#34;&gt;here&lt;/a&gt;.&lt;br /&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;about-this-article&#34;&gt;ABOUT THIS ARTICLE&lt;/h2&gt;
+&lt;p&gt;Windows10 has a video recording app named Game Bar, and we can record normal application by it.&lt;/p&gt;
+&lt;p&gt;But, I found forms of Excel and Access can&#39;t be captured since they aren&#39;t regarded as screen!&lt;/p&gt;
+&lt;p&gt;So, I&#39;ve searched a solution, and I found it that recording function of PowerPoint is suitable for it. I&#39;m going to describe it.&lt;/p&gt;
+&lt;h2 id=&#34;how-to&#34;&gt;HOW TO&lt;/h2&gt;
+&lt;h3 id=&#34;i-launch-powerpoint&#34;&gt;i. LAUNCH POWERPOINT&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1645887348/learnerBlog/MSOffice-Form-Capture/en/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-02-26_235021_ffbwlx.png&#34; alt=&#34;PP&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;ii-record-tab---select-screen-recording&#34;&gt;ii. RECORD TAB -&amp;gt; SELECT SCREEN RECORDING&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1645887348/learnerBlog/MSOffice-Form-Capture/en/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-02-26_235053_uomhul.png&#34; alt=&#34;Record Button&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;iii-set-recording-range-and-push-start&#34;&gt;iii. SET RECORDING RANGE AND PUSH START&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1645887348/learnerBlog/MSOffice-Form-Capture/en/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-02-26_235315_x9u5db.png&#34; alt=&#34;Set Range&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;iv-save-the-video-temporary-saved-at-slide&#34;&gt;iv. SAVE THE VIDEO TEMPORARY SAVED AT SLIDE&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1645887349/learnerBlog/MSOffice-Form-Capture/en/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-02-26_235358_qa4qxa.png&#34; alt=&#34;Save&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;sample&#34;&gt;SAMPLE&lt;/h2&gt;
+&lt;p&gt;A Gif image in the following article is converted from a captured video using above method.&lt;br&gt;
+I used ffmpeg for gif conversion from mp4.&lt;/p&gt;
+
+
+
+
+
+
+&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/en/posts/2020/11/08/access-control-withevents/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Access VBA: THE THING YOU NEED TO BE AWARE OF WHEN CREATING EVENT LISTENER BY USING WITHEVENTS FOR FORM CONTROLS&lt;/a&gt;
+
+
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,611 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Trouble Shooting on The learner Dede&#39;s Blog</title>
+    <link>https://dede-20191130.github.io/learnerBlog/en/categories/trouble-shooting/</link>
+    <description>Recent content in Trouble Shooting on The learner Dede&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sun, 08 Nov 2020 10:26:29 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/en/categories/trouble-shooting/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Access VBA: THE THING YOU NEED TO BE AWARE OF WHEN CREATING EVENT LISTENER BY USING WITHEVENTS FOR FORM CONTROLS</title>
+      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/11/08/access-control-withevents/</link>
+      <pubDate>Sun, 08 Nov 2020 10:26:29 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/11/08/access-control-withevents/</guid>
+      <description>
+        
+          
+&lt;div class=&#34;notices info&#34; style=&#34;border-radius: 10px;&#34;&gt;
+    &lt;div class=&#34;label&#34;&gt;Help me improve my English!&lt;/div&gt;
+    As you probably see, I&#39;m not a native English speaker.&lt;br /&gt;
+    If you find an English expression that feel incorrect or awkward, please let me know.&lt;br /&gt;&lt;br /&gt;
+    Message box of Disqus is &lt;a href=&#34;#disqus_thread&#34;&gt;under the article&lt;/a&gt;.&lt;br /&gt;
+    Or my E-Mail is &lt;a href=&#34;mailto:1044adad@gmail.com&#34;&gt;here&lt;/a&gt;.&lt;br /&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;about-this-article&#34;&gt;ABOUT THIS ARTICLE&lt;/h2&gt;
+&lt;p&gt;I tried to create a event listener class by using &lt;code&gt;WithEvents&lt;/code&gt; statement to standardize event processing for controls on a forms in MSAccess.&lt;br&gt;
+At that time, when using the code which went well in MS Excel, I&#39;ve gotten the result that the class side events that I&#39;ve set up won&#39;t fire.&lt;/p&gt;
+&lt;p&gt;I would like to describe what happened and the two types of measures taken.&lt;/p&gt;
+&lt;p&gt;You can download the tool and view its source code from &lt;a href=&#34;https://github.com/dede-20191130/My_VBA_Tools/tree/master/Public/2020/11/Access-Control-WithEvents/en&#34;&gt;here&lt;/a&gt;!&lt;/p&gt;
+&lt;h2 id=&#34;what-i-created-first&#34;&gt;WHAT I CREATED FIRST&lt;/h2&gt;
+&lt;p&gt;I made the combobox control surrounded by a circle as follows not be input manually with the keyboard.&lt;/p&gt;
+&lt;p&gt;For standardization, the processing of combobox KeyDown event is delegated to a newly created event listener class (in case the number of controls increased in the future).&lt;/p&gt;
+&lt;p&gt;For verification, I have some of the combobox events pass a textbox its event information as a log.&lt;/p&gt;
+&lt;h3 id=&#34;screen&#34;&gt;SCREEN&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1644740250/learnerBlog/Access-Control-WithEvents/en/access-control-withevents_pm0hnb.png&#34; alt=&#34;Screen&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;the-role-of-each-object&#34;&gt;THE ROLE OF EACH OBJECT&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Explanation&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;cmb_withEventsTest&lt;/td&gt;
+&lt;td&gt;Combobox&lt;/td&gt;
+&lt;td&gt;Allow input only from the pullDown.&lt;br/&gt;Prohibit manual input&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;txt_EventLog&lt;/td&gt;
+&lt;td&gt;TextBox&lt;/td&gt;
+&lt;td&gt;display event log of the combobox&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;code&#34;&gt;CODE&lt;/h3&gt;
+&lt;p&gt;The code below &lt;span style=&#34;color: red; &#34;&gt;does not work&lt;/span&gt; as &lt;code&gt;myComboBox_KeyDown&lt;/code&gt; function is not fired.&lt;/p&gt;
+&lt;h4 id=&#34;main-fomr-module&#34;&gt;MAIN FOMR MODULE&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt;  1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Option&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Compare&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Database&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;  2&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Option&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Explicit&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;  3&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;  4&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;**************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;  5&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*MainForm
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;  6&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;**************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;  7&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;  8&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;Const
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;  9&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 10&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 11&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;Variable
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 12&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Private&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;objCmbListener&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;clsCmbListener&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 13&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 14&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 15&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Form_Load&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 16&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 17&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Const
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 18&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Const&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Form_Load&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 19&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 20&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Variable
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 21&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dicInfo&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Object&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 22&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 23&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;On&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Error&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ErrorHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 24&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 25&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;set Event Class
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 26&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;objCmbListener&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;New&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;clsCmbListener&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;objCmbListener&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ComboBox&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Me&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cmb_withEventsTest&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 27&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 28&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;set Event Log
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 29&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;M_EventLog&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;targetTxtBox&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Me&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;txt_EventLog&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 30&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 31&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 32&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 33&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 34&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 35&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;ErrorHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 36&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 37&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;MsgBox&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;An error has occurred and the macro will be terminated.&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt; 38&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt; 39&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;Func Name:&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt; 40&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt; 41&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;Error No.&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Number&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbNewLine&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt; 42&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Description&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbCritical&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Access-Control-WithEvents&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 43&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt; 44&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 45&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt; 46&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 47&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 48&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 49&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;cmb_withEventsTest_BeforeUpdate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Cancel&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Integer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 50&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 51&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Const
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 52&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Const&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;cmb_withEventsTest_BeforeUpdate&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 53&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 54&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Variable
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 55&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 56&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;On&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Error&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ErrorHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 57&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 58&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;do logging
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 59&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Not&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;M_EventLog&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;writeEventLogs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 60&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 61&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 62&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 63&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 64&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 65&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;ErrorHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 66&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 67&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;MsgBox&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;An error has occurred and the macro will be terminated.&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt; 68&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt; 69&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;Func Name:&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt; 70&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt; 71&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;Error No.&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Number&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbNewLine&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt; 72&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Description&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbCritical&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Access-Control-WithEvents&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 73&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt; 74&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 75&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt; 76&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 77&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 78&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;cmb_withEventsTest_AfterUpdate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 79&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 80&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Const
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 81&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Const&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;cmb_selectedRcd_AfterUpdate&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 82&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 83&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Variable
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 84&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 85&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;On&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Error&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ErrorHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 86&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 87&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;do logging
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 88&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Not&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;M_EventLog&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;writeEventLogs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 89&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Not&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;M_EventLog&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;writeEventLogs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Me&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cmb_withEventsTest&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Selected&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 90&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 91&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 92&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 93&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 94&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 95&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;ErrorHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 96&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 97&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;MsgBox&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;An error has occurred and the macro will be terminated.&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt; 98&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt; 99&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;Func Name:&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;100&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;101&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;Error No.&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Number&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbNewLine&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;102&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Description&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbCritical&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Access-Control-WithEvents&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;103&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;104&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;105&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;106&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h4 id=&#34;combobox-event-listener-class&#34;&gt;COMBOBOX EVENT LISTENER CLASS&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Option&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Compare&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Database&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Option&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Explicit&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;**************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Combobox Event Listener
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;**************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;Const
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;Variable
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;WithEvents&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;myComboBox&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Access&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ComboBox&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*getter/setter
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Property&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ComboBox&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ByRef&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cmb&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Access&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ComboBox&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;myComboBox&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cmb&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;myComboBox&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;OnKeyDown&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;[Event Procedure]&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Property&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Function ：disable keyboard input
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Arg(1)   ：key code
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Arg(2)   ：shft key pressed or not
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;myComboBox_KeyDown&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;KeyCode&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Integer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Shift&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Integer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;32&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Const
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;33&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Const&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;myComboBox_KeyDown&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;34&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;35&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Variable
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;36&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;37&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;On&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Error&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ErrorHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;38&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;39&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;prohibit entering (except fror Enter/Tab/Esc)
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;40&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;KeyCode&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbKeyReturn&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;41&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;KeyCode&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbKeyTab&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;42&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;KeyCode&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbKeyEscape&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;43&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;44&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;KeyCode&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;45&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;46&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Not&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;M_EventLog&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;writeEventLogs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;47&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;48&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;49&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;50&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;51&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;52&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;ErrorHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;53&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;54&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;MsgBox&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;An error has occurred and the macro will be terminated.&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;55&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;56&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;Func Name:&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;57&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;58&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;Error No.&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Number&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbNewLine&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;59&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Description&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbCritical&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Access-Control-WithEvents&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;60&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;61&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;62&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;63&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;64&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h4 id=&#34;event-log-module&#34;&gt;EVENT LOG MODULE&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Option&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Compare&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Database&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Option&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Explicit&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;**************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Event Log Module
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;**************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;Const
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;Variable
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;targetTxtBox&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Access&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;TextBox&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Function ：write the event log into the textbox specified in a module variable
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Arg(1)   ：the written string
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Return   ：True &amp;gt; normal termination; False &amp;gt; abnormal termination
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;writeEventLogs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ByVal&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;logTxt&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Boolean&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Const
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Const&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;writeEventLogs&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Variable
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;On&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Error&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ErrorHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;writeEventLogs&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;False&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;32&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;33&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Nz&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;targetTxtBox&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;targetTxtBox&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;targetTxtBox&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbNewLine&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;34&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;targetTxtBox&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;targetTxtBox&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;35&lt;/span&gt;                         &lt;span class=&#34;n&#34;&gt;Now&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;36&lt;/span&gt;                         &lt;span class=&#34;s&#34;&gt;&amp;#34; : &amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;37&lt;/span&gt;                         &lt;span class=&#34;n&#34;&gt;logTxt&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;38&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;39&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;writeEventLogs&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;True&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;40&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;41&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;42&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;43&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Function&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;44&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;45&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;ErrorHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;46&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;47&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;MsgBox&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;An error has occurred and the macro will be terminated.&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;48&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;49&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;Func Name:&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;50&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;51&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;Error No.&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Number&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbNewLine&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;52&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Description&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbCritical&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Access-Control-WithEvents&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;53&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;54&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;55&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;56&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Function&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;57&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;trouble&#34;&gt;TROUBLE&lt;/h2&gt;
+&lt;p&gt;The combobox KeyDown event is Supposed to be captured by &lt;code&gt;myComboBox_KeyDown&lt;/code&gt; function in &lt;code&gt;clsCmbListener&lt;/code&gt; class through the mechanism of &lt;code&gt;WithEvents&lt;/code&gt;,&lt;br&gt;
+and Keystrokes should be prohibited except for some keys such as Enter and Tab.&lt;/p&gt;
+&lt;p&gt;However, I saw the combobox allowing manual input.&lt;br&gt;
+
+
+&lt;video preload=&#34;metadata&#34; controls style=&#39;max-width: 600px;&#39;&gt;
+    
+    
+    &lt;source src=&#39;https://res.cloudinary.com/ddxhi1rnh/video/upload/v1644740250/learnerBlog/Access-Control-WithEvents/en/Media1_pkuc04.webm&#39; type=&#34;video/webm&#34;&gt;
+    
+    Your browser does not support the video tag.
+&lt;/video&gt;&lt;/p&gt;
+&lt;p&gt;Furthermore, since the log which indicates &lt;code&gt;myComboBox_KeyDown&lt;/code&gt; has called is not displayed in the textbox, &lt;code&gt;WithEvents&lt;/code&gt; is not working as expected in the first place.&lt;/p&gt;
+&lt;p&gt;In the case of MS Excel, above went well. So I pondered what to do for a while.&lt;/p&gt;
+&lt;h2 id=&#34;the-solution&#34;&gt;THE SOLUTION&lt;/h2&gt;
+&lt;h3 id=&#34;i-add-keydown-event-function-into-the-form-module-as-well&#34;&gt;i. ADD KEYDOWN EVENT FUNCTION INTO THE FORM MODULE AS WELL&lt;/h3&gt;
+&lt;h4 id=&#34;explanation&#34;&gt;EXPLANATION&lt;/h4&gt;
+&lt;p&gt;I added a function whose processing is empty.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Option&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Compare&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Database&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Option&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Explicit&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;**************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*MainForm
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;**************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;Const
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;Variable
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Private&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;objCmbListener&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;clsCmbListener&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;cmb_withEventsTest_KeyDown&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;KeyCode&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Integer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Shift&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Integer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;empty
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;By doing so, the KeyDown event turned to be called.&lt;br&gt;
+
+
+&lt;video preload=&#34;metadata&#34; controls style=&#39;max-width: 600px;&#39;&gt;
+    
+    
+    &lt;source src=&#39;https://res.cloudinary.com/ddxhi1rnh/video/upload/v1644740250/learnerBlog/Access-Control-WithEvents/en/Media2_hqxppr.webm&#39; type=&#34;video/webm&#34;&gt;
+    
+    Your browser does not support the video tag.
+&lt;/video&gt;&lt;/p&gt;
+&lt;h4 id=&#34;one-further-problem&#34;&gt;ONE FURTHER PROBLEM&lt;/h4&gt;
+&lt;p&gt;However, this way contains one further problem.&lt;/p&gt;
+&lt;p&gt;When above &lt;code&gt;cmb_withEventsTest_KeyDown&lt;/code&gt; function is truly empty, &lt;code&gt;VBE&lt;/code&gt; mechanism automatically delete the function during compiling phase because it&#39;s not necessary.&lt;/p&gt;
+&lt;p&gt;So, it has to have one comment row and escape the deletion, that makes the tool less maintainable.&lt;br&gt;
+Moreover, when others see this code, they might consider it unnecessary and delete it.&lt;/p&gt;
+&lt;h3 id=&#34;ii-set-event-procedure-to-the-onkeydown-property-of-the-combobox-instance&#34;&gt;ii. SET [EVENT PROCEDURE] TO THE ONKEYDOWN PROPERTY OF THE COMBOBOX INSTANCE&lt;/h3&gt;
+&lt;p&gt;The solution is taken from &lt;a href=&#34;https://stackoverflow.com/questions/23522230/creating-a-class-to-handle-access-form-control-events&#34;&gt;this stackoverflow&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;As above articel says, &lt;code&gt;[Event Procedure]&lt;/code&gt; is the key of the solving the problem.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;listener&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ct&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;OnClick&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;[Event Procedure]&amp;#34;&lt;/span&gt;  &lt;span class=&#34;c&#34;&gt;&amp;#39;&amp;lt;------- Assigned the event handler
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;I applied this logic to my own code.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;**************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Combobox Event Listener
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;**************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*getter/setter
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Property&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ComboBox&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ByRef&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cmb&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Access&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ComboBox&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;myComboBox&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cmb&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;myComboBox&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;OnKeyDown&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;[Event Procedure]&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Property&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;After that, my code started to work fine!&lt;/p&gt;
+
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>ACCESS VBA: SOLUTIONS OF THE PROBLEM THAT AUTOMATIC COLUMN WIDTH ADJUSTMENT DOES NOT WORK WHEN USING USER-DEFINED FUNCTIONS IN THE CONTROL SOURCE.</title>
+      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/10/13/access-controlsource/</link>
+      <pubDate>Tue, 13 Oct 2020 09:37:47 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/10/13/access-controlsource/</guid>
+      <description>
+        
+          
+&lt;div class=&#34;notices info&#34; style=&#34;border-radius: 10px;&#34;&gt;
+    &lt;div class=&#34;label&#34;&gt;Help me improve my English!&lt;/div&gt;
+    As you probably see, I&#39;m not a native English speaker.&lt;br /&gt;
+    If you find an English expression that feel incorrect or awkward, please let me know.&lt;br /&gt;&lt;br /&gt;
+    Message box of Disqus is &lt;a href=&#34;#disqus_thread&#34;&gt;under the article&lt;/a&gt;.&lt;br /&gt;
+    Or my E-Mail is &lt;a href=&#34;mailto:1044adad@gmail.com&#34;&gt;here&lt;/a&gt;.&lt;br /&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;about-this-article&#34;&gt;ABOUT THIS ARTICLE&lt;/h2&gt;
+&lt;p&gt;When using a datasheet type form in MSAccess,&lt;br&gt;
+in case we assign a user defined function which returns a string to the control source of textbox,&lt;br&gt;
+the problem happens that the Automatic adjustment of column width of the form doesn&#39;t work as expected.&lt;/p&gt;
+&lt;p&gt;For example, if a long string is returned from user defined function, the string doesn&#39;t fit in the field and is cut off.&lt;/p&gt;
+&lt;p&gt;As seen below, I have researched the solution.&lt;/p&gt;
+&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;
+&lt;p&gt;The timing of calling use defined function is later than the execution of &#39;Resize&#39; procedure of the Form,&lt;br&gt;
+So automatic adjustment for target Textbox by following process is not working.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Form_Resize&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;...code
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;ctl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ColumnWidth&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;2&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;7&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;...code
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;9&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Therefore, one of the following solutions must take place.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Create a function where &lt;code&gt;Control.ColumnWidth = -2&lt;/code&gt; is added to the conventional process of user defined function.&lt;/li&gt;
+&lt;li&gt;Assign the length explicitly when run &lt;code&gt;Resize&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;main&#34;&gt;MAIN&lt;/h2&gt;
+&lt;h3 id=&#34;premise&#34;&gt;PREMISE&lt;/h3&gt;
+&lt;p&gt;There is a table named T_01 like:&lt;br&gt;
+&lt;img src=&#34;./image01.png&#34; alt=&#34;T_01&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Suppose a following form named F_01, integrating above table, will be displayed.&lt;br&gt;
+&lt;img src=&#34;./image02.png&#34; alt=&#34;F_01&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Under these conditions, it is desired that the column widths of each column ID, _Name, and size are automatically adjusted.&lt;br&gt;
+Also, I would like to add a new &#39;size tyep&#39; text column, and store the string &amp;quot;This is &#39;X&#39; type for he/she&#39;s size.&amp;quot; which indicates the size symbol of S, M, or L for each value of size. The column is desired to be adjusted, too.&lt;/p&gt;
+&lt;h3 id=&#34;verification-environment&#34;&gt;VERIFICATION ENVIRONMENT&lt;/h3&gt;
+&lt;p&gt;Microsoft Access 2019&lt;/p&gt;
+&lt;h3 id=&#34;implement&#34;&gt;IMPLEMENT&lt;/h3&gt;
+&lt;p&gt;I&#39;ve assigned a column width for each textbox in &lt;code&gt;Resize&lt;/code&gt; procedure of subform.&lt;br&gt;
+For automatic adjustment, &lt;code&gt;ColumnWidth&lt;/code&gt; property is to be assign to -2.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Form_Resize&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Const
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Const&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Form_Resize&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Variable
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ctl&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Access&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Control&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;On&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Error&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ErrorHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;For&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Each&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ctl&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;In&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Me&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Controls&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ctl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ControlType&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;acTextBox&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;            &lt;span class=&#34;n&#34;&gt;ctl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ColumnWidth&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;2&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Next&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;ErrorHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;MsgBox&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;An error has occurred and the macro will be terminated.&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;Func Name:&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;Error No.&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Number&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbNewLine&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Description&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbCritical&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;TOOL_NAME&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;32&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Also, to the column of size type text, I would like to assign S, M, and L size symbol for each range of size value.&lt;/p&gt;
+&lt;p&gt;So I&#39;ve assigned following formula to the control source of the textbox and created the user defined function &lt;code&gt;getSizeType&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;# control source formula
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;=getSizeType([size])
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Function      :get size type
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*arg(1)        :size number
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*return        :size type
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;getSizeType&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ByVal&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sizeNum&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Long&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Const
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Const&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;getSizeType&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Variable
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;rtn&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;On&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Error&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ErrorHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;getSizeType&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;-169      :S
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;170-175   :M
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;-176      :L
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Select&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Case&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;True&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Case&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sizeNum&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;169&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;rtn&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;This is S type for he/she&amp;#39;s size.&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Case&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;176&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sizeNum&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;rtn&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;This is L type for he/she&amp;#39;s size.&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Case&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Else&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;rtn&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;This is M type for he/she&amp;#39;s size.&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Select&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;getSizeType&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;rtn&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;32&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;33&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;34&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Function&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;35&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;36&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;ErrorHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;37&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;38&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;MsgBox&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;An error has occurred and the macro will be terminated.&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;39&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;40&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;Func Name:&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;41&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;42&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;Error No.&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Number&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbNewLine&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;43&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Description&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbCritical&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;TOOL_NAME&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;44&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;45&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;46&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;47&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Function&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;trouble&#34;&gt;TROUBLE&lt;/h3&gt;
+&lt;h4 id=&#34;cutoff-of-screen&#34;&gt;CUTOFF OF SCREEN&lt;/h4&gt;
+&lt;p&gt;The column widths of the existing fields in the table, ID, _Name, and size, are adjusted correctly.&lt;br&gt;
+But column width of size type is cut off.&lt;/p&gt;
+&lt;p&gt;As its width is too long, I expected it would be adjusted in &lt;code&gt;Form_Resize()&lt;/code&gt;, but not working.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./image03.png&#34; alt=&#34;cutoff&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;cause-the-order-of-calling-functions&#34;&gt;CAUSE: THE ORDER OF CALLING FUNCTIONS&lt;/h4&gt;
+&lt;p&gt;When debugging that procedure,&lt;br&gt;
+it turned out that the calling order of functions was (1) subform Form_Resize → (2) parent form Form_Resize → (3) getSizeType.&lt;/p&gt;
+&lt;h3 id=&#34;solution&#34;&gt;SOLUTION&lt;/h3&gt;
+&lt;h4 id=&#34;1-modification-of-user-defined-function&#34;&gt;1. MODIFICATION OF USER DEFINED FUNCTION&lt;/h4&gt;
+&lt;p&gt;Since &lt;code&gt;Form_Resize()&lt;/code&gt; cannot handle it, it is necessary to add &lt;code&gt;Control.ColumnWidth = -2&lt;/code&gt; to the processing of the user defined function.&lt;/p&gt;
+&lt;p&gt;So I&#39;ve created a new function &lt;code&gt;getSizeTypeForSubF01Tb()&lt;/code&gt; which wraps &lt;code&gt;getSizeType()&lt;/code&gt;, and for comparison, created a new text box &#39;size type ver2&#39; with having another control source.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;# control source formula
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;=getSizeTypeForSubF01Tb([size],&amp;#34;txtSizeTypeVer2&amp;#34;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Function      :get size type for subF01
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*arg(1)        :size number
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*arg(2)        :control name
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*return        :size type
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;getSizeTypeForSubF01Tb&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ByVal&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sizeNum&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Long&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;ByVal&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ctlName&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Const
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Const&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;getSizeTypeForSubF01Tb&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Variable
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;rtn&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;On&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Error&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ErrorHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;getSizeTypeForSubF01Tb&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;rtn&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Module_ManageFormControls&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;getSizeType&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sizeNum&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Reconfigure the column width
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SysCmd&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;acSysCmdGetObjectState&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;acForm&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Form_F_01&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Form_SubF_01&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Controls&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ctlName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ColumnWidth&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;2&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;getSizeTypeForSubF01Tb&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;rtn&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Function&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;ErrorHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;32&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;MsgBox&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;An error has occurred and the macro will be terminated.&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;33&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;34&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;Func Name:&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;35&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;36&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;Error No.&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Number&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbNewLine&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;37&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Description&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbCritical&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;TOOL_NAME&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;38&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;39&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;40&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;41&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Function&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;As a result, Automatic column width adjustment now works for size type ver2 as well.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./image04.png&#34; alt=&#34;column width adjustment for size type ver2&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;2-assign-the-length-explicitly&#34;&gt;2. ASSIGN THE LENGTH EXPLICITLY&lt;/h4&gt;
+&lt;p&gt;Inside &lt;code&gt;Form_Resize()&lt;/code&gt;, I hardcoded the column width numbers of some of control after the column width auto-adjustment loop.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Form_Resize&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Const
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Const&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Form_Resize&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Variable
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ctl&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Access&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Control&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;On&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Error&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ErrorHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;the loop
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;For&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Each&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ctl&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;In&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Me&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Controls&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ctl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ControlType&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;acTextBox&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;            &lt;span class=&#34;n&#34;&gt;ctl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ColumnWidth&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;2&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Next&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;assign the column width of size type ver2 explicitly (more than 8 cm)
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Me&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;txtSizeTypeVer2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ColumnWidth&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;8&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;567&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Me&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;txtSizeTypeVer2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ColumnWidth&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;8&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;567&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;ErrorHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;MsgBox&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;An error has occurred and the macro will be terminated.&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;Func Name:&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;Error No.&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Number&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbNewLine&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;32&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Description&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbCritical&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;TOOL_NAME&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;33&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;34&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;35&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;36&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The automatic adjustment is fine as well.&lt;/p&gt;
+&lt;h4 id=&#34;comparison-of-1-and-2&#34;&gt;COMPARISON OF 1 AND 2&lt;/h4&gt;
+&lt;p&gt;Method 1 doesn&#39;t increase the function number, but with width to be hardcoded,&lt;br&gt;
+make the tool need to be maintained when the string returned by &lt;code&gt;getSizeType()&lt;/code&gt; changes.&lt;/p&gt;
+&lt;p&gt;Method 2 enables all the widths to be auto-adjusted,&lt;br&gt;
+but increases the function number and makes the processing of the control source a little complicated.&lt;/p&gt;
+
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

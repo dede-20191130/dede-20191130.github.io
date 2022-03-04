@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2020-07 on The learner Dede&#39;s Blog</title>
+    <link>https://dede-20191130.github.io/learnerBlog/en/archives/2020-07/</link>
+    <description>Recent content in 2020-07 on The learner Dede&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sat, 18 Jul 2020 18:30:28 +0000</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/en/archives/2020-07/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[EXCEL] I CREATED A MAIL CREATION TOOL WHICH IS NON-MACRO.</title>
+      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/07/18/create-nomarco-tool/</link>
+      <pubDate>Sat, 18 Jul 2020 18:30:28 +0000</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/07/18/create-nomarco-tool/</guid>
+      <description>
+        
+          
+&lt;div class=&#34;notices info&#34; style=&#34;border-radius: 10px;&#34;&gt;
+    &lt;div class=&#34;label&#34;&gt;Help me improve my English!&lt;/div&gt;
+    As you probably see, I&#39;m not a native English speaker.&lt;br /&gt;
+    If you find an English expression that feel incorrect or awkward, please let me know.&lt;br /&gt;&lt;br /&gt;
+    Message box of Disqus is &lt;a href=&#34;#disqus_thread&#34;&gt;under the article&lt;/a&gt;.&lt;br /&gt;
+    Or my E-Mail is &lt;a href=&#34;mailto:1044adad@gmail.com&#34;&gt;here&lt;/a&gt;.&lt;br /&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;about-this-article&#34;&gt;ABOUT THIS ARTICLE&lt;/h2&gt;
+&lt;p&gt;This article describes a Non-VBAMacro Excel tool I created before. It&#39;s for creating a E-mail.&lt;/p&gt;
+&lt;p&gt;You can download the tool from &lt;a href=&#34;https://github.com/dede-20191130/My_VBA_Tools/blob/master/%E9%9D%9E%E3%83%9E%E3%82%AF%E3%83%AD%E3%83%84%E3%83%BC%E3%83%AB/NOVBA0001_%E4%BD%9C%E6%A5%AD%E8%A8%98%E9%8C%B2%E7%AE%A1%E7%90%86%E7%B0%BF_%E5%85%BC_%E3%83%A1%E3%83%BC%E3%83%AB%E4%BD%9C%E6%88%90%E3%83%84%E3%83%BC%E3%83%AB/en/NOVBA0001_WorkLogger_and_EmailGenerator.xlsx&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;tool-overview&#34;&gt;TOOL OVERVIEW&lt;/h2&gt;
+&lt;p&gt;Record works and manage relevant data.&lt;br&gt;
+From the data, create a E-mail.&lt;/p&gt;
+&lt;h2 id=&#34;system-requirements&#34;&gt;SYSTEM REQUIREMENTS&lt;/h2&gt;
+&lt;p&gt;MS Office version 2003 or higher.&lt;/p&gt;
+&lt;h2 id=&#34;list-of-functionality&#34;&gt;LIST OF FUNCTIONALITY&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Input assistance function using pull-down&lt;/li&gt;
+&lt;li&gt;E-mail auto creation function&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;screen-images&#34;&gt;SCREEN IMAGES&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1644558137/learnerBlog/create-nomarco-tool/en/create-nomarco-tool_fvnrun.png&#34; alt=&#34;Input Field&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1644558137/learnerBlog/create-nomarco-tool/en/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-02-11_134404_mg96ao.png&#34; alt=&#34;auto input with pullDown&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1644558137/learnerBlog/create-nomarco-tool/en/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-02-11_134537_fq9xxk.png&#34; alt=&#34;E-mail auto-created&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;span-idvbaarticle-benefits-of-non-macro-toolspan&#34;&gt;&lt;span id=&#34;VBA&#34;&gt;ARTICLE: BENEFITS OF NON-MACRO TOOL&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/en/posts/2020/07/16/craete-estm/&#34;&gt;Here&lt;/a&gt; is the Article.&lt;/p&gt;
+
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>EXCEL VBA: I CREATED A QUOTATION CREATION TOOL.</title>
+      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/07/16/craete-estm/</link>
+      <pubDate>Thu, 16 Jul 2020 08:05:13 +0000</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/07/16/craete-estm/</guid>
+      <description>
+        
+          
+&lt;div class=&#34;notices info&#34; style=&#34;border-radius: 10px;&#34;&gt;
+    &lt;div class=&#34;label&#34;&gt;Help me improve my English!&lt;/div&gt;
+    As you probably see, I&#39;m not a native English speaker.&lt;br /&gt;
+    If you find an English expression that feel incorrect or awkward, please let me know.&lt;br /&gt;&lt;br /&gt;
+    Message box of Disqus is &lt;a href=&#34;#disqus_thread&#34;&gt;under the article&lt;/a&gt;.&lt;br /&gt;
+    Or my E-Mail is &lt;a href=&#34;mailto:1044adad@gmail.com&#34;&gt;here&lt;/a&gt;.&lt;br /&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;about-this-article&#34;&gt;ABOUT THIS ARTICLE&lt;/h2&gt;
+&lt;p&gt;This article describes a Excel tool for creating a quotaion.&lt;br&gt;
+You can download the tool from &lt;a href=&#34;https://github.com/dede-20191130/My_VBA_Tools/blob/master/T0001_01_%E8%A6%8B%E7%A9%8D%E6%9B%B8%E4%BD%9C%E6%88%90%E3%83%84%E3%83%BC%E3%83%AB_ExcelVer/en/T0001_01_Quotation_Creation_Tool_ExcelVer.xlsm&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;tool-overview&#34;&gt;TOOL OVERVIEW&lt;/h2&gt;
+&lt;p&gt;The tool creates one or more quotations.&lt;br&gt;
+The schemes is:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;A user inputs necessary data to each sheets.&lt;/li&gt;
+&lt;li&gt;The tool inserts the data to a template quotation sheet and creates a new book containing quotations.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;screen-images&#34;&gt;SCREEN IMAGES&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1644033527/learnerBlog/craete-estm/en/t0001-en01_absuqj.png&#34; alt=&#34;Setting Area&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1644033527/learnerBlog/craete-estm/en/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-02-05_113702_j8t63v.png&#34; alt=&#34;Creation Screen&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1644033526/learnerBlog/craete-estm/en/t0001-en02_cnkiyl.png&#34; alt=&#34;Quotation Sample&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;how-to-use&#34;&gt;HOW TO USE&lt;/h2&gt;
+&lt;h3 id=&#34;1-input&#34;&gt;1. INPUT&lt;/h3&gt;
+&lt;p&gt;Input the data to insert into the template quotation.&lt;/p&gt;
+&lt;h4 id=&#34;input-basic-data&#34;&gt;INPUT BASIC DATA&lt;/h4&gt;
+&lt;p&gt;Input common parameters between each quotation.&lt;/p&gt;
+&lt;p&gt;In the current tool, the following values can be set.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Tax rate&lt;/li&gt;
+&lt;li&gt;Unit of Quantity&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1644033526/learnerBlog/craete-estm/en/t0001-en03_grso9f.png&#34; alt=&#34;basic-data sheet&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;register-item-data&#34;&gt;REGISTER ITEM DATA&lt;/h4&gt;
+&lt;p&gt;Register items to use some quotaions.&lt;br&gt;
+If duplicated code is input in imte code column, alert message will be displayed and input code is removed.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1644033526/learnerBlog/craete-estm/en/t0001-en04_nol4av.png&#34; alt=&#34;item-data sheet&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;register-item-set-data&#34;&gt;REGISTER ITEM SET DATA&lt;/h4&gt;
+&lt;p&gt;Create data of item set that contains all items used in each quotation.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Input any ID in the item set data No. field (duplicated values allowed).&lt;/li&gt;
+&lt;li&gt;Select item code from a dropdown list which contains all codes input in item data sheet.&lt;/li&gt;
+&lt;li&gt;Input other data.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Repeat the above steps for the number of quotations you want to create.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1644033526/learnerBlog/craete-estm/en/t0001-en05_p3jybw.png&#34; alt=&#34;item-set-data sheet&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;register-quotation-data&#34;&gt;REGISTER QUOTATION DATA&lt;/h4&gt;
+&lt;p&gt;Input QTN(quotaion) No. and other setting item, for example, the name of the destination company, delivery date, and so on.&lt;/p&gt;
+&lt;p&gt;Select item set data number from a dropdown list which contains all numbers input in item set data sheet.&lt;/p&gt;
+&lt;p&gt;The required fields are from the QTN No. to the item set data No.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1644033526/learnerBlog/craete-estm/en/t0001-en06_dfrq5q.png&#34; alt=&#34;quotation-data sheet&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;2-create-quotations&#34;&gt;2. CREATE QUOTATIONS&lt;/h3&gt;
+&lt;h4 id=&#34;specify-the-target-data-number-range&#34;&gt;SPECIFY THE TARGET DATA NUMBER RANGE&lt;/h4&gt;
+&lt;p&gt;Push the Quotation Creation button,&lt;br&gt;
+and specify the QTN No. of target quotation on the displayed screen.&lt;/p&gt;
+&lt;p&gt;You can specify the range of numbers in the range of 1 to the max number input in the QTN No. column.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1644033527/learnerBlog/craete-estm/en/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-02-05_113702_j8t63v.png&#34; alt=&#34;specify the target number range&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;create&#34;&gt;CREATE&lt;/h4&gt;
+&lt;p&gt;Push the create button,&lt;br&gt;
+And new book containing the quotations is created in the folder the tool exists.&lt;/p&gt;
+&lt;p&gt;A name of the book is &#39;Quotations _ current time&#39;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1644033526/learnerBlog/craete-estm/en/t0001-en02_cnkiyl.png&#34; alt=&#34;new book for quotations&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;create-pdf-as-a-option&#34;&gt;CREATE PDF AS A OPTION&lt;/h4&gt;
+&lt;p&gt;In case that you enable a option of pdf creation,&lt;br&gt;
+PDF files corresponding with each quotation are created and stored in the same folder.&lt;/p&gt;
+&lt;h2 id=&#34;ps-access-version-of-the-tool&#34;&gt;P.S.: ACCESS VERSION OF THE TOOL&lt;/h2&gt;
+&lt;p&gt;in writing&lt;/p&gt;
+
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>TOOL DEVELOPMENT ON EXCEL: COMPARING BETWEEN TOOLS USING FUNCTION (NON-MACRO) AND TOOLS USING VBA MACRO</title>
+      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/07/16/cmpr-tools/</link>
+      <pubDate>Thu, 16 Jul 2020 06:14:50 +0000</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/07/16/cmpr-tools/</guid>
+      <description>
+        
+          
+&lt;div class=&#34;notices info&#34; style=&#34;border-radius: 10px;&#34;&gt;
+    &lt;div class=&#34;label&#34;&gt;Help me improve my English!&lt;/div&gt;
+    As you probably see, I&#39;m not a native English speaker.&lt;br /&gt;
+    If you find an English expression that feel incorrect or awkward, please let me know.&lt;br /&gt;&lt;br /&gt;
+    Message box of Disqus is &lt;a href=&#34;#disqus_thread&#34;&gt;under the article&lt;/a&gt;.&lt;br /&gt;
+    Or my E-Mail is &lt;a href=&#34;mailto:1044adad@gmail.com&#34;&gt;here&lt;/a&gt;.&lt;br /&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;about-this-article&#34;&gt;ABOUT THIS ARTICLE&lt;/h2&gt;
+&lt;p&gt;Let&#39;s assume you want to create tool by Excel that enables us to manage data or output some documents.&lt;br&gt;
+Broadly speaking, the following options may be considered.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;tool using Excel build-in function, not using VBA macro.&lt;/li&gt;
+&lt;li&gt;tool using VBA macro.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Each option has its advantages and disadvantages.&lt;br&gt;
+I&#39;d like to summarize them from my personal point of view.&lt;/p&gt;
+&lt;h2 id=&#34;summary-table&#34;&gt;SUMMARY TABLE&lt;/h2&gt;
+&lt;p&gt;First of all, I wrote summary table.&lt;/p&gt;
+&lt;div class=&#34;&#34;&gt;
+    &lt;div class=&#34;&#34;&gt;
+        &lt;table class=&#34;&#34;&gt;
+            &lt;tr&gt;
+                &lt;td&gt;
+                &lt;/td&gt;
+                &lt;td&gt;
+                    Tool using Excel func
+                &lt;/td&gt;
+                &lt;td&gt;
+                    Tool using VBA macro
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;
+                    Difficulty of development
+                &lt;/td&gt;
+                &lt;td&gt;
+                    Low
+                &lt;/td&gt;
+                &lt;td&gt;
+                    High
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;
+                    Degree of Freedom
+                &lt;/td&gt;
+                &lt;td&gt;
+                    Low
+                &lt;/td&gt;
+                &lt;td&gt;
+                    High
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr style=&#34;vertical-align: top;&#34;&gt;
+                &lt;td&gt;
+                    Things we can do
+                &lt;/td&gt;
+                &lt;td&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;Data management&lt;br/&gt; (manually input, working with databases)&lt;/li&gt;
+                        &lt;li&gt;Output products, for example ledger sheet
+                            &lt;ul&gt;
+                                &lt;li&gt;Print by printer&lt;/li&gt;
+                                &lt;li&gt;Output in PDF format&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;Mail Creation&lt;/li&gt;
+                        &lt;li&gt;File-path management&lt;/li&gt;
+                        &lt;li&gt;Web-sites-urls management&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/td&gt;
+                &lt;td&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;Data management
+                            &lt;ul&gt;
+                                &lt;li&gt;manually input&lt;/li&gt;
+                                &lt;li&gt;input on original input form&lt;/li&gt;
+                                &lt;li&gt;file reading, writing&lt;/li&gt;
+                                &lt;li&gt;working with databases&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;Output products, for example ledger sheet
+                            &lt;ul&gt;
+                                &lt;li&gt;Print by printer&lt;/li&gt;
+                                &lt;li&gt;Output in PDF format&lt;/li&gt;
+                                &lt;li&gt;CSV File&lt;/li&gt;
+                                &lt;li&gt;Any other format can be output&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            The following items at a more advanced level
+                            &lt;ul&gt;
+                                &lt;li&gt;Mail Creation&lt;/li&gt;
+                                &lt;li&gt;File-path management&lt;/li&gt;
+                                &lt;li&gt;Web-sites-urls management&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;Scraping web-sites&lt;/li&gt;
+                        &lt;li&gt;Request and Response for web-sites&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;
+                    Degree of improvement in the accuracy of the work
+                &lt;/td&gt;
+                &lt;td&gt;
+                    Low
+                &lt;/td&gt;
+                &lt;td&gt;
+                    High
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;
+                    Degree of improvement in work efficiency
+                &lt;/td&gt;
+                &lt;td&gt;
+                    Low
+                &lt;/td&gt;
+                &lt;td&gt;
+                    High
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;
+                    Stability of operation
+                &lt;/td&gt;
+                &lt;td&gt;
+                    High
+                &lt;/td&gt;
+                &lt;td&gt;
+                    Low
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;
+                    Maintainability
+                &lt;/td&gt;
+                &lt;td&gt;
+                    High
+                &lt;/td&gt;
+                &lt;td&gt;
+                    Low
+                &lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;comparison&#34;&gt;COMPARISON&lt;/h2&gt;
+&lt;h3 id=&#34;ease-of-creating&#34;&gt;EASE OF CREATING&lt;/h3&gt;
+&lt;p&gt;A tool using only Excel build-in function is easy of creating with basic knowledge of mathematical function.&lt;br&gt;
+When you are using IF function, VLOOKUP function, or OFFSET function, you need idea and knowledge of programming.&lt;/p&gt;
+&lt;p&gt;On the other hand, for creating a tool using VBA macro, programming work using Visual Basic is required.&lt;br&gt;
+So it&#39;s hard for inexperienced person of programming.&lt;/p&gt;
+&lt;h3 id=&#34;degree-of-freedom-and-things-we-can-do&#34;&gt;DEGREE OF FREEDOM AND THINGS WE CAN DO&lt;/h3&gt;
+&lt;p&gt;What Excel functions can do is limited to data management, formatting, input/output, document creation, output, and emailing etc.&lt;br&gt;
+It can&#39;t manipulate outer application.&lt;/p&gt;
+&lt;p&gt;For VBA macro, we can manipulate text file, binary file, of course MS Office Application.&lt;br&gt;
+You can even emulate keystrokes with the Sendkey function to control other applications.&lt;br&gt;
+When manipulating browser, you use Selenium.&lt;/p&gt;
+&lt;p&gt;There is so much you can do with VBA macro, but the more complex you try to make it, the more bugs and instability you will encounter.&lt;/p&gt;
+&lt;h3 id=&#34;benefits-of-automation&#34;&gt;BENEFITS OF AUTOMATION&lt;/h3&gt;
+&lt;p&gt;VBA macro tool, having high degree of freedom and ability of performing a series of tasks quickly and with precision, is maximize benefits of automation.&lt;/p&gt;
+&lt;h3 id=&#34;stability&#34;&gt;STABILITY&lt;/h3&gt;
+&lt;p&gt;The behavior of Excel functions is predetermined, so there is little lisk of bug in a processing assembled by Excel functions.&lt;br&gt;
+In addition to this, when using Excel function and error happening, the error will be displayed as &amp;quot;#VALUE!&amp;quot; in the cell where the function is entered.&lt;br&gt;
+So you can easily detect the error.&lt;/p&gt;
+&lt;p&gt;For VBA macro tool, depending on how to write the program, it may force Excel to close itself or contaminate the data in the text file on being edited.&lt;/p&gt;
+&lt;p&gt;For example, during editing text file, if Excel crashes with an error, What you don&#39;t expect may be written in text file.&lt;/p&gt;
+&lt;h3 id=&#34;maintainance&#34;&gt;MAINTAINANCE&lt;/h3&gt;
+&lt;p&gt;For maintaining vba macro, a person who can read vb code is needed.&lt;br&gt;
+So, in case that that person retires or moves, Nobody remaining may not be able to maintain the tool.&lt;/p&gt;
+&lt;p&gt;Therefore, it&#39;s important to create even simple documentation for its internal Specifications.&lt;/p&gt;
+&lt;h2 id=&#34;summary&#34;&gt;SUMMARY&lt;/h2&gt;
+&lt;p&gt;Non-macro tool has high maintainability and stability, but less benefit of automation.&lt;br&gt;
+When you created a tool using VBA macro, you&#39;d better keep the documentation of the specifications.&lt;/p&gt;
+
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

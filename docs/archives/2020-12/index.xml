@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>2020-12 on 学習者dedeのブログ ~プログラミング等~</title>
+    <title>2020-12 on 学習者Dedeのブログ ~プログラミング等~</title>
     <link>https://dede-20191130.github.io/learnerBlog/archives/2020-12/</link>
-    <description>Recent content in 2020-12 on 学習者dedeのブログ ~プログラミング等~</description>
+    <description>Recent content in 2020-12 on 学習者Dedeのブログ ~プログラミング等~</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Sat, 19 Dec 2020 03:18:51 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/archives/2020-12/index.xml" rel="self" type="application/rss+xml" />
@@ -1165,7 +1165,7 @@ MSOffice 2016&lt;/p&gt;
 hogeファイルは一枚目のシートのA1セルに「あいうえお」と記入されている。&lt;/p&gt;
 &lt;p&gt;bar.xlsxは二枚目のシートが存在する。&lt;/p&gt;
 &lt;h4 id=&#34;処理フロー図&#34;&gt;処理フロー図&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&#34;./dependence/%E9%96%A2%E6%95%B0%E5%87%A6%E7%90%86%E3%83%95%E3%83%AD%E3%83%BC.svg&#34; alt=&#34;関数処理フロー&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./dependence/dependence.svg&#34; alt=&#34;関数処理フロー&#34;&gt;&lt;/p&gt;
 &lt;h4 id=&#34;コード&#34;&gt;コード&lt;/h4&gt;
 &lt;h5 id=&#34;呼び出し元のsubプロシージャ&#34;&gt;呼び出し元のSubプロシージャ&lt;/h5&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************

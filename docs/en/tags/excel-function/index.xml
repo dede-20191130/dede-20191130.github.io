@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Excel Function on The learner Dede&#39;s Blog</title>
+    <link>https://dede-20191130.github.io/learnerBlog/en/tags/excel-function/</link>
+    <description>Recent content in Excel Function on The learner Dede&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Thu, 16 Jul 2020 06:14:50 +0000</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/en/tags/excel-function/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TOOL DEVELOPMENT ON EXCEL: COMPARING BETWEEN TOOLS USING FUNCTION (NON-MACRO) AND TOOLS USING VBA MACRO</title>
+      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/07/16/cmpr-tools/</link>
+      <pubDate>Thu, 16 Jul 2020 06:14:50 +0000</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/07/16/cmpr-tools/</guid>
+      <description>
+        
+          
+&lt;div class=&#34;notices info&#34; style=&#34;border-radius: 10px;&#34;&gt;
+    &lt;div class=&#34;label&#34;&gt;Help me improve my English!&lt;/div&gt;
+    As you probably see, I&#39;m not a native English speaker.&lt;br /&gt;
+    If you find an English expression that feel incorrect or awkward, please let me know.&lt;br /&gt;&lt;br /&gt;
+    Message box of Disqus is &lt;a href=&#34;#disqus_thread&#34;&gt;under the article&lt;/a&gt;.&lt;br /&gt;
+    Or my E-Mail is &lt;a href=&#34;mailto:1044adad@gmail.com&#34;&gt;here&lt;/a&gt;.&lt;br /&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;about-this-article&#34;&gt;ABOUT THIS ARTICLE&lt;/h2&gt;
+&lt;p&gt;Let&#39;s assume you want to create tool by Excel that enables us to manage data or output some documents.&lt;br&gt;
+Broadly speaking, the following options may be considered.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;tool using Excel build-in function, not using VBA macro.&lt;/li&gt;
+&lt;li&gt;tool using VBA macro.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Each option has its advantages and disadvantages.&lt;br&gt;
+I&#39;d like to summarize them from my personal point of view.&lt;/p&gt;
+&lt;h2 id=&#34;summary-table&#34;&gt;SUMMARY TABLE&lt;/h2&gt;
+&lt;p&gt;First of all, I wrote summary table.&lt;/p&gt;
+&lt;div class=&#34;&#34;&gt;
+    &lt;div class=&#34;&#34;&gt;
+        &lt;table class=&#34;&#34;&gt;
+            &lt;tr&gt;
+                &lt;td&gt;
+                &lt;/td&gt;
+                &lt;td&gt;
+                    Tool using Excel func
+                &lt;/td&gt;
+                &lt;td&gt;
+                    Tool using VBA macro
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;
+                    Difficulty of development
+                &lt;/td&gt;
+                &lt;td&gt;
+                    Low
+                &lt;/td&gt;
+                &lt;td&gt;
+                    High
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;
+                    Degree of Freedom
+                &lt;/td&gt;
+                &lt;td&gt;
+                    Low
+                &lt;/td&gt;
+                &lt;td&gt;
+                    High
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr style=&#34;vertical-align: top;&#34;&gt;
+                &lt;td&gt;
+                    Things we can do
+                &lt;/td&gt;
+                &lt;td&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;Data management&lt;br/&gt; (manually input, working with databases)&lt;/li&gt;
+                        &lt;li&gt;Output products, for example ledger sheet
+                            &lt;ul&gt;
+                                &lt;li&gt;Print by printer&lt;/li&gt;
+                                &lt;li&gt;Output in PDF format&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;Mail Creation&lt;/li&gt;
+                        &lt;li&gt;File-path management&lt;/li&gt;
+                        &lt;li&gt;Web-sites-urls management&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/td&gt;
+                &lt;td&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;Data management
+                            &lt;ul&gt;
+                                &lt;li&gt;manually input&lt;/li&gt;
+                                &lt;li&gt;input on original input form&lt;/li&gt;
+                                &lt;li&gt;file reading, writing&lt;/li&gt;
+                                &lt;li&gt;working with databases&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;Output products, for example ledger sheet
+                            &lt;ul&gt;
+                                &lt;li&gt;Print by printer&lt;/li&gt;
+                                &lt;li&gt;Output in PDF format&lt;/li&gt;
+                                &lt;li&gt;CSV File&lt;/li&gt;
+                                &lt;li&gt;Any other format can be output&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            The following items at a more advanced level
+                            &lt;ul&gt;
+                                &lt;li&gt;Mail Creation&lt;/li&gt;
+                                &lt;li&gt;File-path management&lt;/li&gt;
+                                &lt;li&gt;Web-sites-urls management&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;Scraping web-sites&lt;/li&gt;
+                        &lt;li&gt;Request and Response for web-sites&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;
+                    Degree of improvement in the accuracy of the work
+                &lt;/td&gt;
+                &lt;td&gt;
+                    Low
+                &lt;/td&gt;
+                &lt;td&gt;
+                    High
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;
+                    Degree of improvement in work efficiency
+                &lt;/td&gt;
+                &lt;td&gt;
+                    Low
+                &lt;/td&gt;
+                &lt;td&gt;
+                    High
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;
+                    Stability of operation
+                &lt;/td&gt;
+                &lt;td&gt;
+                    High
+                &lt;/td&gt;
+                &lt;td&gt;
+                    Low
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;
+                    Maintainability
+                &lt;/td&gt;
+                &lt;td&gt;
+                    High
+                &lt;/td&gt;
+                &lt;td&gt;
+                    Low
+                &lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;comparison&#34;&gt;COMPARISON&lt;/h2&gt;
+&lt;h3 id=&#34;ease-of-creating&#34;&gt;EASE OF CREATING&lt;/h3&gt;
+&lt;p&gt;A tool using only Excel build-in function is easy of creating with basic knowledge of mathematical function.&lt;br&gt;
+When you are using IF function, VLOOKUP function, or OFFSET function, you need idea and knowledge of programming.&lt;/p&gt;
+&lt;p&gt;On the other hand, for creating a tool using VBA macro, programming work using Visual Basic is required.&lt;br&gt;
+So it&#39;s hard for inexperienced person of programming.&lt;/p&gt;
+&lt;h3 id=&#34;degree-of-freedom-and-things-we-can-do&#34;&gt;DEGREE OF FREEDOM AND THINGS WE CAN DO&lt;/h3&gt;
+&lt;p&gt;What Excel functions can do is limited to data management, formatting, input/output, document creation, output, and emailing etc.&lt;br&gt;
+It can&#39;t manipulate outer application.&lt;/p&gt;
+&lt;p&gt;For VBA macro, we can manipulate text file, binary file, of course MS Office Application.&lt;br&gt;
+You can even emulate keystrokes with the Sendkey function to control other applications.&lt;br&gt;
+When manipulating browser, you use Selenium.&lt;/p&gt;
+&lt;p&gt;There is so much you can do with VBA macro, but the more complex you try to make it, the more bugs and instability you will encounter.&lt;/p&gt;
+&lt;h3 id=&#34;benefits-of-automation&#34;&gt;BENEFITS OF AUTOMATION&lt;/h3&gt;
+&lt;p&gt;VBA macro tool, having high degree of freedom and ability of performing a series of tasks quickly and with precision, is maximize benefits of automation.&lt;/p&gt;
+&lt;h3 id=&#34;stability&#34;&gt;STABILITY&lt;/h3&gt;
+&lt;p&gt;The behavior of Excel functions is predetermined, so there is little lisk of bug in a processing assembled by Excel functions.&lt;br&gt;
+In addition to this, when using Excel function and error happening, the error will be displayed as &amp;quot;#VALUE!&amp;quot; in the cell where the function is entered.&lt;br&gt;
+So you can easily detect the error.&lt;/p&gt;
+&lt;p&gt;For VBA macro tool, depending on how to write the program, it may force Excel to close itself or contaminate the data in the text file on being edited.&lt;/p&gt;
+&lt;p&gt;For example, during editing text file, if Excel crashes with an error, What you don&#39;t expect may be written in text file.&lt;/p&gt;
+&lt;h3 id=&#34;maintainance&#34;&gt;MAINTAINANCE&lt;/h3&gt;
+&lt;p&gt;For maintaining vba macro, a person who can read vb code is needed.&lt;br&gt;
+So, in case that that person retires or moves, Nobody remaining may not be able to maintain the tool.&lt;/p&gt;
+&lt;p&gt;Therefore, it&#39;s important to create even simple documentation for its internal Specifications.&lt;/p&gt;
+&lt;h2 id=&#34;summary&#34;&gt;SUMMARY&lt;/h2&gt;
+&lt;p&gt;Non-macro tool has high maintainability and stability, but less benefit of automation.&lt;br&gt;
+When you created a tool using VBA macro, you&#39;d better keep the documentation of the specifications.&lt;/p&gt;
+
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

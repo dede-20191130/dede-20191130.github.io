@@ -1,0 +1,47 @@
+@startuml "Dependencies Of Functions"
+
+skinparam{
+    BackgroundColor #fefefe
+}
+
+title "Dependencies Of Functions"
+participant main
+participant funcSample01
+entity "FilePath Sheet" as FPSt
+participant funcSample02
+participant "Each Book The Path Indicates" as WB
+
+
+main -> funcSample01: calls with non-existing sheet name as a argument
+activate funcSample01
+funcSample01 -> funcSample01: error occured
+funcSample01 --> main: <color:#118888>return Null
+deactivate funcSample01
+main -> main: 'Failed to retrieve the file path array.' message displayed
+
+main -> funcSample01: calls with 'FilePath' literal as a argument
+activate funcSample01
+funcSample01 -> FPSt: refer the raneg of target sheet
+FPSt --> funcSample01: get the array of file path sring
+funcSample01 --> main: return the array
+deactivate funcSample01
+
+loop each file path
+    main -> funcSample02: pass the file path
+    activate funcSample02
+    funcSample02 -> WB: open the Excel book
+    alt if A1 Cell already filled
+        funcSample02 -> main: <color:#118888>a custom error fired
+    else if A1 Cell is empty
+    funcSample02 -> WB: write the current time in A1 Cell of the first sheet
+    opt the second sheet exists
+        funcSample02 -> WB: write 'Complete' in A1 Cell of the second sheet
+    end
+    funcSample02 -> WB: save the book
+    end
+    funcSample02 -> WB: <color:#118888>close the book\n<color:#118888>it runs whether normal termination or not
+    deactivate funcSample02
+end
+
+
+@enduml

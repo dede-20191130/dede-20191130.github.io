@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>automation on The learner Dede&#39;s Blog</title>
+    <link>https://dede-20191130.github.io/learnerBlog/en/tags/automation/</link>
+    <description>Recent content in automation on The learner Dede&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sat, 18 Jul 2020 18:30:28 +0000</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/en/tags/automation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[EXCEL] I CREATED A MAIL CREATION TOOL WHICH IS NON-MACRO.</title>
+      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/07/18/create-nomarco-tool/</link>
+      <pubDate>Sat, 18 Jul 2020 18:30:28 +0000</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/07/18/create-nomarco-tool/</guid>
+      <description>
+        
+          
+&lt;div class=&#34;notices info&#34; style=&#34;border-radius: 10px;&#34;&gt;
+    &lt;div class=&#34;label&#34;&gt;Help me improve my English!&lt;/div&gt;
+    As you probably see, I&#39;m not a native English speaker.&lt;br /&gt;
+    If you find an English expression that feel incorrect or awkward, please let me know.&lt;br /&gt;&lt;br /&gt;
+    Message box of Disqus is &lt;a href=&#34;#disqus_thread&#34;&gt;under the article&lt;/a&gt;.&lt;br /&gt;
+    Or my E-Mail is &lt;a href=&#34;mailto:1044adad@gmail.com&#34;&gt;here&lt;/a&gt;.&lt;br /&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;about-this-article&#34;&gt;ABOUT THIS ARTICLE&lt;/h2&gt;
+&lt;p&gt;This article describes a Non-VBAMacro Excel tool I created before. It&#39;s for creating a E-mail.&lt;/p&gt;
+&lt;p&gt;You can download the tool from &lt;a href=&#34;https://github.com/dede-20191130/My_VBA_Tools/blob/master/%E9%9D%9E%E3%83%9E%E3%82%AF%E3%83%AD%E3%83%84%E3%83%BC%E3%83%AB/NOVBA0001_%E4%BD%9C%E6%A5%AD%E8%A8%98%E9%8C%B2%E7%AE%A1%E7%90%86%E7%B0%BF_%E5%85%BC_%E3%83%A1%E3%83%BC%E3%83%AB%E4%BD%9C%E6%88%90%E3%83%84%E3%83%BC%E3%83%AB/en/NOVBA0001_WorkLogger_and_EmailGenerator.xlsx&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;tool-overview&#34;&gt;TOOL OVERVIEW&lt;/h2&gt;
+&lt;p&gt;Record works and manage relevant data.&lt;br&gt;
+From the data, create a E-mail.&lt;/p&gt;
+&lt;h2 id=&#34;system-requirements&#34;&gt;SYSTEM REQUIREMENTS&lt;/h2&gt;
+&lt;p&gt;MS Office version 2003 or higher.&lt;/p&gt;
+&lt;h2 id=&#34;list-of-functionality&#34;&gt;LIST OF FUNCTIONALITY&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Input assistance function using pull-down&lt;/li&gt;
+&lt;li&gt;E-mail auto creation function&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;screen-images&#34;&gt;SCREEN IMAGES&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1644558137/learnerBlog/create-nomarco-tool/en/create-nomarco-tool_fvnrun.png&#34; alt=&#34;Input Field&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1644558137/learnerBlog/create-nomarco-tool/en/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-02-11_134404_mg96ao.png&#34; alt=&#34;auto input with pullDown&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1644558137/learnerBlog/create-nomarco-tool/en/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-02-11_134537_fq9xxk.png&#34; alt=&#34;E-mail auto-created&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;span-idvbaarticle-benefits-of-non-macro-toolspan&#34;&gt;&lt;span id=&#34;VBA&#34;&gt;ARTICLE: BENEFITS OF NON-MACRO TOOL&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/en/posts/2020/07/16/craete-estm/&#34;&gt;Here&lt;/a&gt; is the Article.&lt;/p&gt;
+
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

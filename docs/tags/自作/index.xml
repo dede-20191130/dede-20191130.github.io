@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>自作 on 学習者dedeのブログ ~プログラミング等~</title>
+    <title>自作 on 学習者Dedeのブログ ~プログラミング等~</title>
     <link>https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C/</link>
-    <description>Recent content in 自作 on 学習者dedeのブログ ~プログラミング等~</description>
+    <description>Recent content in 自作 on 学習者Dedeのブログ ~プログラミング等~</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Sun, 28 Feb 2021 00:34:49 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C/index.xml" rel="self" type="application/rss+xml" />
@@ -1216,7 +1216,7 @@ MSOffice 2016&lt;/p&gt;
 hogeファイルは一枚目のシートのA1セルに「あいうえお」と記入されている。&lt;/p&gt;
 &lt;p&gt;bar.xlsxは二枚目のシートが存在する。&lt;/p&gt;
 &lt;h4 id=&#34;処理フロー図&#34;&gt;処理フロー図&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&#34;./dependence/%E9%96%A2%E6%95%B0%E5%87%A6%E7%90%86%E3%83%95%E3%83%AD%E3%83%BC.svg&#34; alt=&#34;関数処理フロー&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./dependence/dependence.svg&#34; alt=&#34;関数処理フロー&#34;&gt;&lt;/p&gt;
 &lt;h4 id=&#34;コード&#34;&gt;コード&lt;/h4&gt;
 &lt;h5 id=&#34;呼び出し元のsubプロシージャ&#34;&gt;呼び出し元のSubプロシージャ&lt;/h5&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
@@ -4084,7 +4084,7 @@ exportTableDefTablesMainを実行する。&lt;/p&gt;
 関数（非マクロ）ツールとVBA使用ツールの比較&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;使用方法詳細&#34;&gt;使用方法詳細&lt;/h2&gt;
 &lt;p&gt;仕様、使用方法などは、&lt;br&gt;
-&lt;a href=&#34;https://github.com/dede-20191130/My_VBA_Tools/tree/master/T0001_%E8%A6%8B%E7%A9%8D%E6%9B%B8%E4%BD%9C%E6%88%90%E3%83%84%E3%83%BC%E3%83%AB&#34;&gt;こちら（Github）&lt;/a&gt;に記載しています。&lt;/p&gt;
+&lt;a href=&#34;https://github.com/dede-20191130/My_VBA_Tools/tree/master/%E9%9D%9E%E3%83%9E%E3%82%AF%E3%83%AD%E3%83%84%E3%83%BC%E3%83%AB/NOVBA0001_%E4%BD%9C%E6%A5%AD%E8%A8%98%E9%8C%B2%E7%AE%A1%E7%90%86%E7%B0%BF_%E5%85%BC_%E3%83%A1%E3%83%BC%E3%83%AB%E4%BD%9C%E6%88%90%E3%83%84%E3%83%BC%E3%83%AB&#34;&gt;こちら（Github）&lt;/a&gt;に記載しています。&lt;/p&gt;
 
         
       </description>
