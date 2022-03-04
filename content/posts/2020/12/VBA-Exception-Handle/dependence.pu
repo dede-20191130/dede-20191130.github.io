@@ -1,4 +1,9 @@
 @startuml
+
+skinparam{
+    BackgroundColor #fefefe
+}
+
 title 関数処理フロー
 participant subSample
 participant funcSample01
