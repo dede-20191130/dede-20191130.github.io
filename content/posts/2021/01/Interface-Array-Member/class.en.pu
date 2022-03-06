@@ -1,0 +1,22 @@
+@startuml "class"
+
+skinparam{
+    BackgroundColor #fefefe
+}
+
+interface clsAbsTeam<<Interface>>
+
+class clsAnalyzeTeam<<Class>>
+class clsNewTeam<<Class>>
+class M_Calling<<Module>><< (M,orchid) >>{
+    The module which has a function
+    to get information from team classes
+    ==
+}
+
+clsAbsTeam <|.. clsAnalyzeTeam
+clsAbsTeam <|.. clsNewTeam
+clsAnalyzeTeam -- M_Calling
+clsNewTeam -- M_Calling
+
+@enduml

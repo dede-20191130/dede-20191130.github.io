@@ -1,0 +1,53 @@
+@startuml "classWithFunc"
+
+skinparam{
+    BackgroundColor #fefefe
+}
+
+interface clsAbsTeam<<Interface>>{
+    ..setter..
+    +arrayMenberName(ByVal idx As Long, ByVal name As String)
+    ..getter..
+    +arrayMenberName(ByVal idx As Long):string
+    ==
+    ..Method..
+    +getMemberName(ByVal idx As Long)
+}
+
+class clsAnalyzeTeam<<Class>>{
+    ..Property..
+    -myArrayMenberName:string()
+    ..setter..
+    -clsAbsTeam_arrayMenberName(ByVal idx As Long, ByVal name As String)
+    ..getter..
+    -clsAbsTeam_arrayMenberName(ByVal idx As Long):string
+    ==
+    ..Method..
+    -getMemberName(ByVal idx As Long)
+}
+class clsNewTeam<<Class>>{
+    ..setter..
+    -clsAbsTeam_arrayMenberName(ByVal idx As Long, ByVal name As String)
+    ..getter..
+    -clsAbsTeam_arrayMenberName(ByVal idx As Long):string
+    ==
+    ..Method..
+    -getMemberName(ByVal idx As Long)
+}
+class M_Calling<<Module>><< (M,orchid) >>{
+    The module which has a function
+    to get information from team classes
+    ==
+    ..Function..
+    +void testFunc()
+    -outputSelectedMemberName(
+        ByVal collTeam As Collection, ByVal idx As Long
+    ):Boolean
+}
+
+clsAbsTeam <|.. clsAnalyzeTeam
+clsAbsTeam <|.. clsNewTeam
+clsAnalyzeTeam -- M_Calling
+clsNewTeam -- M_Calling
+
+@enduml
