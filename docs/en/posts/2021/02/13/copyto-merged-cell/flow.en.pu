@@ -1,0 +1,30 @@
+@startuml "PROCESSING FLOW"
+
+skinparam{
+    BackgroundColor #fefefe
+}
+
+title "PROCESSING FLOW"
+participant "Sub Procedure: copyToMergedCells" as sub
+entity "Data in Clipboard" as cDt
+entity "Array Containing Data" as arr
+entity "Selected Cell" as c
+participant redimPreserveFor1stDimension as f
+
+sub -> cDt:check if the data is in text format
+
+group data storing
+    cDt -> sub:get the data
+    sub -> f:use if it's necesarry to change the number \nof the first dimension of the array.
+    f -> sub
+    sub -> arr:move the data to 2-dimensional array
+end
+
+sub -> arr:Record the rows and columnswhose cells is all emnpty.\nIgnore them when pasting is done.
+
+group paste data
+    sub -> c:starting from the selected top left cell,\npaste the data in the array
+end
+
+
+@enduml

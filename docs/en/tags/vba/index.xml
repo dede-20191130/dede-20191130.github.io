@@ -6,7 +6,838 @@
     <description>Recent content in VBA on The learner Dede&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 19 Dec 2020 03:18:51 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/en/tags/vba/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 13 Feb 2021 11:32:30 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/en/tags/vba/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>EXCEL VBA: THE MARCO TO COPY DATA TO MERGED CELLS</title>
+      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2021/02/13/copyto-merged-cell/</link>
+      <pubDate>Sat, 13 Feb 2021 11:32:30 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2021/02/13/copyto-merged-cell/</guid>
+      <description>
+        
+          
+&lt;div class=&#34;notices info&#34; style=&#34;border-radius: 10px;&#34;&gt;
+    &lt;div class=&#34;label&#34;&gt;Help me improve my English!&lt;/div&gt;
+    As you probably see, I&#39;m not a native English speaker.&lt;br /&gt;
+    If you find an English expression that feel incorrect or awkward, please let me know.&lt;br /&gt;&lt;br /&gt;
+    Message box of Disqus is &lt;a href=&#34;#disqus_thread&#34;&gt;under the article&lt;/a&gt;.&lt;br /&gt;
+    Or my E-Mail is &lt;a href=&#34;mailto:1044adad@gmail.com&#34;&gt;here&lt;/a&gt;.&lt;br /&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;about-this-article&#34;&gt;ABOUT THIS ARTICLE&lt;/h2&gt;
+&lt;p&gt;In Excel, when copying data from normal cells to merged ones, we&#39;ll encounter a warning that says &#39;We can&#39;t do that to merged cells&#39; and are prohibited to do copy-paste.&lt;/p&gt;
+&lt;p&gt;For example, in image below we try to copy a green range of &#39;Valerie&#39;-&#39;Terry&#39; to Name column in the table, and then we&#39;ll get a error.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1646488044/learnerBlog/copyto-merged-cell/en/copyto-merged-cell1_purokp.png&#34; alt=&#34;Copy Trial&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1646488044/learnerBlog/copyto-merged-cell/en/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-03-05_222233_krcqmi.png&#34; alt=&#34;Get a Error&#34;&gt;&lt;/p&gt;
+&lt;p&gt;To avoid this, in advance the pasted cells must be th same merging-style as copied cells, or we must create a dedicated macro.&lt;br&gt;
+This article describes the latter.&lt;/p&gt;
+&lt;h2 id=&#34;creation-environment&#34;&gt;CREATION ENVIRONMENT&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;windows10&lt;/li&gt;
+&lt;li&gt;MSOffice 2016&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;requirement&#34;&gt;REQUIREMENT&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Before the macro runs, the user copy data of target cells to clipboard.&lt;br&gt;
+And after running the cells the user is selecting at that time will get data from clipboard.&lt;/li&gt;
+&lt;li&gt;It can work with any format-style of both copied or pasted cells.&lt;/li&gt;
+&lt;li&gt;In fact, the individual cell which make up a merged cell is empty except for top left cell.&lt;br&gt;
+So it&#39;s desiable for the macro to ignore empty cells.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;processing-flow&#34;&gt;PROCESSING FLOW&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1646488044/learnerBlog/copyto-merged-cell/en/PROCESSING_FLOW_q5lyek.svg&#34; alt=&#34;Processing Flow&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;codes&#34;&gt;CODES&lt;/h2&gt;
+&lt;h3 id=&#34;sub-procedure-copy_to_merged_cells&#34;&gt;SUB PROCEDURE: COPY_TO_MERGED_CELLS&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt;  1&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;  2&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Function : copy from cells to cells
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;  3&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;            both source cells and destination cells can be normal or merged
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;  4&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;  5&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;copyToMergedCells&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;  6&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;  7&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Consts
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;  8&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Const&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;copyToMergedCells&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;  9&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 10&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Vars
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 11&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Variant&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 12&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;row&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Long&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;row&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 13&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;col&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Long&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;col&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 14&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dicIgnoreRow&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Object&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dicIgnoreRow&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;CreateObject&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Scripting.Dictionary&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 15&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dicIgnoreCol&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Object&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dicIgnoreCol&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;CreateObject&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Scripting.Dictionary&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 16&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 17&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;On&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Error&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ErrorHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 18&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt; 19&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;check if the data is in text format.
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 20&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Application&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ClipboardFormats&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;xlClipboardFormatText&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;MsgBox&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;The data in the clipboard is not in text format.&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbExclamation&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 21&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt; 22&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;step 1. move data from clipboard to 2-dimensional array
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 23&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;   delimiter of rows   : vbCrLf (Carriage return &amp;amp; Line feed)
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 24&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;   delimiter of columns: vbTab (Tab key)
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 25&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;With&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;CreateObject&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;new:{1C3B4210-F441-11CE-B9EA-00AA006B1A69}&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 26&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt; 27&lt;/span&gt;        &lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;GetFromClipboard&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 28&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;d&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 29&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;ReDim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;To&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;To&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 30&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;For&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Each&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;c&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;In&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Split&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;GetText&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbCrLf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 31&lt;/span&gt;            &lt;span class=&#34;n&#34;&gt;row&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;row&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 32&lt;/span&gt;            &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;row&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;redimPreserveFor1stDimension&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;row&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 33&lt;/span&gt;            &lt;span class=&#34;c&#34;&gt;&amp;#39;currentCol: the index of the column currently being stored
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 34&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;            &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;currentCol&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Long&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;currentCol&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 35&lt;/span&gt;            &lt;span class=&#34;k&#34;&gt;For&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Each&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;d&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;In&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Split&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbTab&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 36&lt;/span&gt;                &lt;span class=&#34;n&#34;&gt;currentCol&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;currentCol&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 37&lt;/span&gt;                &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;currentCol&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;col&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 38&lt;/span&gt;                    &lt;span class=&#34;n&#34;&gt;col&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;col&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 39&lt;/span&gt;                    &lt;span class=&#34;k&#34;&gt;ReDim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Preserve&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;To&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;row&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;To&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;col&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 40&lt;/span&gt;                &lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 41&lt;/span&gt;                &lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;row&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;currentCol&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Trim&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;d&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 42&lt;/span&gt;            &lt;span class=&#34;k&#34;&gt;Next&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;d&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 43&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;Next&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;c&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 44&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;With&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 45&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 46&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;step 2. Record the rows and columnswhose cells is all emnpty
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 47&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;   Ignore them when pasting is done.
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 48&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 49&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;check rows
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 50&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Long&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 51&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;isIgnore&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Boolean&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 52&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;For&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;To&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;UBound&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 53&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;isIgnore&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;True&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 54&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;For&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;To&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;UBound&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 55&lt;/span&gt;            &lt;span class=&#34;c&#34;&gt;&amp;#39;the row isn&amp;#39;t ignored if target element isn&amp;#39;t empty
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 56&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;            &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Trim&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;isIgnore&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;False&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;For&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 57&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;Next&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 58&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;isIgnore&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dicIgnoreRow&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Add&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;True&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 59&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Next&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 60&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;check columns
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 61&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;For&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;To&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;UBound&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 62&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;isIgnore&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;True&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 63&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;For&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;To&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;UBound&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 64&lt;/span&gt;            &lt;span class=&#34;c&#34;&gt;&amp;#39;the column isn&amp;#39;t ignored if target element isn&amp;#39;t empty
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 65&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;            &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Trim&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;isIgnore&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;False&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;For&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 66&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;Next&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 67&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;isIgnore&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dicIgnoreCol&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Add&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;True&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 68&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Next&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 69&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 70&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;step 3. paste the array starting from the selected top left cell
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 71&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;k&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;l&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Long&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 72&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;r&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;tmp&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Range&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 73&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;r&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Selection&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 74&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;For&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;k&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;To&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;UBound&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Do&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 75&lt;/span&gt;        &lt;span class=&#34;c&#34;&gt;&amp;#39;continue if the row must be ignored
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 76&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dicIgnoreRow&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;exists&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;k&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Do&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 77&lt;/span&gt;        &lt;span class=&#34;c&#34;&gt;&amp;#39;store the current range object
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 78&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;Set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;tmp&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;r&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 79&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt; 80&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;For&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;l&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;To&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;UBound&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Do&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 81&lt;/span&gt;            &lt;span class=&#34;c&#34;&gt;&amp;#39;continue if the column must be ignored
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 82&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;            &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dicIgnoreCol&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;exists&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;l&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Do&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 83&lt;/span&gt;            &lt;span class=&#34;c&#34;&gt;&amp;#39;paste a value
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 84&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;            &lt;span class=&#34;n&#34;&gt;r&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;k&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;l&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 85&lt;/span&gt;            &lt;span class=&#34;c&#34;&gt;&amp;#39;move the paste destination cell one column to the right
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 86&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;            &lt;span class=&#34;k&#34;&gt;Set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;r&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;r&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Offset&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 87&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;Loop&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;While&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;False&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Next&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;l&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 88&lt;/span&gt;        &lt;span class=&#34;c&#34;&gt;&amp;#39;move the paste destination cell one row to the below
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 89&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;Set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;r&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;tmp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Offset&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 90&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Loop&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;While&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;False&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Next&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;k&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 91&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 92&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;Application&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;CutCopyMode&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;False&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 93&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 94&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 95&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 96&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 97&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 98&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;ErrorHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 99&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;100&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;MsgBox&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;An error has occurred and the macro will be terminated.&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;101&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;102&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;Func Name:&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;103&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;104&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;Error No.&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Number&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbNewLine&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;105&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Description&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbCritical&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Macro&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;106&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;107&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;108&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;109&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;110&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;function-procedure-redim_preserve_for_1st_dim&#34;&gt;FUNCTION PROCEDURE: REDIM_PRESERVE_FOR_1ST_DIM&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Function: expantion of Redim Preserve statement
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;           Redim Preserve statement can&amp;#39;t change the length of first dimension of 2-dimensional array.
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;           Thus the function works well in such case.
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Arg     : target array
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Arg     : upper limit on the number of elements in the first dimension 
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Return  : True &amp;gt; normal termination; False &amp;gt; abnormal termination
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;redimPreserveFor1stDimension&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ByVal&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Variant&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;ByVal&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sLen&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Long&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Variant&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Consts
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Const&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;redimPreserveFor1stDimension&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Vars
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;tspsedArr&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Variant&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;On&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Error&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Resume&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Next&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;transpose target array
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;tspsedArr&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;WorksheetFunction&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Transpose&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;step A. Redim the second dimension of the array to the length of argument number
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;ReDim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Preserve&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;tspsedArr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;To&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;UBound&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tspsedArr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;To&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sLen&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;redimPreserveFor1stDimension&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;WorksheetFunction&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Transpose&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tspsedArr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;step B. if the array is &amp;#39;1 * N&amp;#39; style, by being transposed it turns 1-dimensional array and a error occurs at the step A.
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;   Instead, at that case, the error will be ignored and the following process replaces it.
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Number&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;9&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;newArr&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Variant&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Long&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Clear&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;32&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;On&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Error&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ErrorHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;33&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;ReDim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;newArr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;To&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;UBound&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;To&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;34&lt;/span&gt;        &lt;span class=&#34;c&#34;&gt;&amp;#39;reflect a existing value to new array
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;35&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;For&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;To&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;UBound&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;36&lt;/span&gt;            &lt;span class=&#34;n&#34;&gt;newArr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;37&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;Next&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;38&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;redimPreserveFor1stDimension&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;newArr&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;39&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;40&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;41&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;42&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;43&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Function&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;44&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;45&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;ErrorHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;46&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;47&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;MsgBox&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;An error has occurred and the macro will be terminated.&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;48&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;49&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;Func Name:&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;50&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;51&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;Error No.&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Number&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbNewLine&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;52&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Description&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbCritical&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Macro&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;53&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;54&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;55&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;56&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Function&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;how-to-use&#34;&gt;HOW TO USE&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Copy the range you want.&lt;/li&gt;
+&lt;li&gt;Select the top left cell of the range in which you want to paste.&lt;/li&gt;
+&lt;li&gt;Run the function.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;demo&#34;&gt;DEMO&lt;/h2&gt;
+&lt;h3 id=&#34;i-form-normal-cells-to-merged-cells&#34;&gt;I. FORM NORMAL CELLS TO MERGED CELLS&lt;/h3&gt;
+&lt;p&gt;As you can see below,&lt;br&gt;
+after copying &#39;Valerie&#39;-&#39;Terry&#39; by pressing ctrk + c and so on, then select the Name cell of No.5 row and run the macro.&lt;br&gt;
+Then name cells will be filled with the data you copied.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1646488044/learnerBlog/copyto-merged-cell/en/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-03-05_224028_oncrje.png&#34; alt=&#34;Before Running&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1646488044/learnerBlog/copyto-merged-cell/en/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-03-05_224057_spahh9.png&#34; alt=&#34;After Running&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;ii-from-merged-cells-to-normal-cells&#34;&gt;II. FROM MERGED CELLS TO NORMAL CELLS&lt;/h3&gt;
+&lt;p&gt;As you can see below,&lt;br&gt;
+you can copy data from address column No1-4 and paste it to blue area.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1646488044/learnerBlog/copyto-merged-cell/en/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-03-05_224201_lssrwe.png&#34; alt=&#34;Before Running&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1646488045/learnerBlog/copyto-merged-cell/en/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-03-05_224221_qhw1o5.png&#34; alt=&#34;After Running&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;iii-from-merged-cells-to-merged-cells&#34;&gt;III. FROM MERGED CELLS TO MERGED CELLS&lt;/h3&gt;
+&lt;p&gt;Even if both range consist of merged cells, it works.&lt;/p&gt;
+&lt;p&gt;Data of the orange color area can be pasted to the range of Address cells of No.5-7.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1646488045/learnerBlog/copyto-merged-cell/en/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-03-05_224439_wsv4vr.png&#34; alt=&#34;Before Running&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1646488045/learnerBlog/copyto-merged-cell/en/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-03-05_224453_ayfbeb.png&#34; alt=&#34;After Running&#34;&gt;&lt;/p&gt;
+
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>EXCEL VBA: YOU MAY HAVE A ERROR ON CHANGING PRINTAREA DYNAMICALLY &amp; HOW TO AVOID IT</title>
+      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2021/01/15/change-pagesetup-printaria/</link>
+      <pubDate>Fri, 15 Jan 2021 23:38:43 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2021/01/15/change-pagesetup-printaria/</guid>
+      <description>
+        
+          
+&lt;div class=&#34;notices info&#34; style=&#34;border-radius: 10px;&#34;&gt;
+    &lt;div class=&#34;label&#34;&gt;Help me improve my English!&lt;/div&gt;
+    As you probably see, I&#39;m not a native English speaker.&lt;br /&gt;
+    If you find an English expression that feel incorrect or awkward, please let me know.&lt;br /&gt;&lt;br /&gt;
+    Message box of Disqus is &lt;a href=&#34;#disqus_thread&#34;&gt;under the article&lt;/a&gt;.&lt;br /&gt;
+    Or my E-Mail is &lt;a href=&#34;mailto:1044adad@gmail.com&#34;&gt;here&lt;/a&gt;.&lt;br /&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;about-this-article&#34;&gt;ABOUT THIS ARTICLE&lt;/h2&gt;
+&lt;p&gt;You may want your implementaion to change print area of a worksheet dynamically with &lt;code&gt;PageSetup.PrintArea&lt;/code&gt; according to some conditions.&lt;/p&gt;
+&lt;p&gt;At that time, you may be subjected to a unexpected error if you are not careful with 
+
+&lt;span style=&#34;color: #fb9700;&#34;&gt;
+    the Cell Reference Style
+&lt;/span&gt; of Excel App.&lt;/p&gt;
+&lt;p&gt;In this article, I&#39;d like to describe the case the error occurs and two methods how to avoid it.&lt;/p&gt;
+&lt;p&gt;You can download Excel file created for explanation, and view its source code from &lt;a href=&#34;https://github.com/dede-20191130/My_VBA_Tools/tree/master/Public/2021/01/Change-PageSetup-PrintAria/en&#34;&gt;&lt;span id=&#34;srcURL&#34;&gt;&lt;u&gt;here&lt;/u&gt;&lt;/span&gt;&lt;/a&gt;!&lt;/p&gt;
+&lt;h2 id=&#34;verification-environment&#34;&gt;VERIFICATION ENVIRONMENT&lt;/h2&gt;
+&lt;p&gt;Windows 10 Home(64bit)&lt;br&gt;
+MSOffice 2016&lt;/p&gt;
+&lt;h2 id=&#34;the-case&#34;&gt;THE CASE&lt;/h2&gt;
+&lt;h3 id=&#34;about&#34;&gt;ABOUT&lt;/h3&gt;
+&lt;p&gt;Let&#39;s assume that the worksheet of your Excel book has its print area set.&lt;/p&gt;
+&lt;p&gt;The program performs the processing to extend the area to one more line below.&lt;br&gt;
+e.g. If initial area is &lt;em&gt;$A$1:$E$5&lt;/em&gt;, after executing it&#39;ll chnage to &lt;em&gt;$A$1:$E$6&lt;/em&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;code&#34;&gt;CODE&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Function :it&amp;#39;s a function Before Modified
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*          extend PrintArea to one line below
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;changePrintAreaBeforeModified&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Consts
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Const&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;changePrintAreaBeforeModified&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Vars
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;prePrintAreaAddress&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;On&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Error&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ErrorHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;With&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ThisWorkbook&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Worksheets&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;        &lt;span class=&#34;c&#34;&gt;&amp;#39;Current Print Area Address
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;prePrintAreaAddress&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;PageSetup&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;PrintArea&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;        &lt;span class=&#34;c&#34;&gt;&amp;#39;extend PrintArea to one line below
+&lt;/span&gt;&lt;span class=&#34;hl&#34;&gt;&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;PageSetup&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;PrintArea&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;prePrintAreaAddress&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Resize&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;prePrintAreaAddress&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Rows&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Count&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Address&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;Debug&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Print&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;PageSetup&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;PrintArea&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;With&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;ErrorHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;32&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;33&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;MsgBox&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;An error has occurred and the macro will be terminated.&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;34&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;35&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;Func Name:&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;36&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;37&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;Error No.&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Number&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbNewLine&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;38&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Description&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbCritical&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SOURCE_NAME&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;39&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;40&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;41&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;42&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;a-error-occured-if-r1c1-used&#34;&gt;A ERROR OCCURED IF R1C1 USED&lt;/h2&gt;
+&lt;h3 id=&#34;detail&#34;&gt;DETAIL&lt;/h3&gt;
+&lt;p&gt;Above code works if you use A1 reference style.&lt;br&gt;
+But if you use R1C1 one, you&#39;ll get a error on the highlighted line.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1646442992/learnerBlog/Change-PageSetup-PrintAria/en/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-03-05_101428_q8fkbq.png&#34; alt=&#34;The Error&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;cause&#34;&gt;CAUSE&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;PrintArea&lt;/code&gt; property of &lt;code&gt;PageSetup&lt;/code&gt; object gets different addresses depending on application&#39;s reference style at the time the function is executed.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A1 style address string if A1 used&lt;/li&gt;
+&lt;li&gt;R1C1 style address string if R1C1 used&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And the address string that &lt;code&gt;Worksheet.Range&lt;/code&gt; requires must be A1 style, not allowed if R1C1 style.&lt;/p&gt;
+&lt;p&gt;Thus, &lt;code&gt;prePrintAreaAddress&lt;/code&gt; stores the R1C1 styled address and the error occurs when &lt;code&gt;Worksheet.Range&lt;/code&gt; gets &lt;code&gt;prePrintAreaAddress&lt;/code&gt; as a argument.&lt;/p&gt;
+&lt;h2 id=&#34;how-to-avoid&#34;&gt;HOW TO AVOID&lt;/h2&gt;
+&lt;h3 id=&#34;pattern-1-switch-applications-ref-style-itself&#34;&gt;PATTERN 1. SWITCH APPLICATION&#39;S REF STYLE ITSELF&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Function :it&amp;#39;s a function after midification of pattern No.1
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*          extend PrintArea to one line below
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;changePrintAreaModified01&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Consts
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Const&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;changePrintAreaModified01&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Vars
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;prePrintAreaAddress&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;currentStyle&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;XlReferenceStyle&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;On&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Error&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ErrorHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;With&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ThisWorkbook&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Worksheets&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;        &lt;span class=&#34;c&#34;&gt;&amp;#39;change the reference style to A1 style
+&lt;/span&gt;&lt;span class=&#34;hl&#34;&gt;&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;currentStyle&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Application&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ReferenceStyle&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#34;hl&#34;&gt;&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;Application&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ReferenceStyle&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;xlA1&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;        &lt;span class=&#34;c&#34;&gt;&amp;#39;Current Print Area Address
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;prePrintAreaAddress&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;PageSetup&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;PrintArea&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;        &lt;span class=&#34;c&#34;&gt;&amp;#39;extend PrintArea to one line below
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;PageSetup&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;PrintArea&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;prePrintAreaAddress&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Resize&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;prePrintAreaAddress&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Rows&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Count&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Address&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;Debug&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Print&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;PageSetup&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;PrintArea&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;        &lt;span class=&#34;c&#34;&gt;&amp;#39;restore the reference style
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;Application&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ReferenceStyle&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;currentStyle&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;32&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;33&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;With&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;34&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;35&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;36&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;37&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;38&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;39&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;ErrorHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;40&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;41&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;MsgBox&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;An error has occurred and the macro will be terminated.&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;42&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;43&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;Func Name:&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;44&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;45&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;Error No.&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Number&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbNewLine&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;46&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Description&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbCritical&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SOURCE_NAME&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;47&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;48&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;49&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;50&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;51&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Application&#39;s reference style is switched to A1 forcibly before setting &lt;code&gt;PrintArea&lt;/code&gt; and restored after it.&lt;/p&gt;
+&lt;p&gt;The disadvantage is that,&lt;br&gt;
+when there is a time-consuming process between switching or when the function is called many times,&lt;br&gt;
+the user may see a screen flicker during the process because of switching the ref-style.&lt;/p&gt;
+&lt;h3 id=&#34;pattern-2-modify-the-ref-style-of-the-objects-address-to-a1-style&#34;&gt;PATTERN 2. MODIFY THE REF STYLE OF THE OBJECT&#39;S ADDRESS TO A1 STYLE&lt;/h3&gt;
+&lt;p&gt;With &lt;code&gt;Application.ConvertFormula&lt;/code&gt;, the address string stored a variable can be changed to A1 ref-style without involving Application.ReferenceStyle.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Function :it&amp;#39;s a function after midification of pattern No.2
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*          extend PrintArea to one line below
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;changePrintAreaModified02&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Consts
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Const&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;changePrintAreaModified02&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Vars
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;prePrintAreaAddress&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;On&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Error&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ErrorHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;With&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ThisWorkbook&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Worksheets&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;        &lt;span class=&#34;c&#34;&gt;&amp;#39;Current Print Area Address
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;prePrintAreaAddress&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;PageSetup&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;PrintArea&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;        &lt;span class=&#34;c&#34;&gt;&amp;#39;modify the address of prePrintAreaAddress to xlR1C1 style
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;c&#34;&gt;&amp;#39;** it doesn&amp;#39;t change application&amp;#39;s reference style
+&lt;/span&gt;&lt;span class=&#34;hl&#34;&gt;&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Application&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ReferenceStyle&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;xlR1C1&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;prePrintAreaAddress&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Application&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ConvertFormula&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;prePrintAreaAddress&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;xlR1C1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;xlA1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;        &lt;span class=&#34;c&#34;&gt;&amp;#39;extend PrintArea to one line below
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;PageSetup&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;PrintArea&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;prePrintAreaAddress&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Resize&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;prePrintAreaAddress&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Rows&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Count&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Address&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;Debug&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Print&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;PageSetup&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;PrintArea&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;With&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;32&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;33&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;34&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;35&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;ErrorHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;36&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;37&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;MsgBox&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;An error has occurred and the macro will be terminated.&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;38&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;39&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;Func Name:&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;40&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;41&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;Error No.&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Number&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbNewLine&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;42&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Description&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbCritical&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SOURCE_NAME&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;43&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;44&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;45&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;46&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;47&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;at-the-end&#34;&gt;AT THE END&lt;/h2&gt;
+&lt;p&gt;THe latter resolution is more flexible and user-friendly, I think.&lt;/p&gt;
+
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>VBA: HOW TO USE ARRAYS AS A CLASS MEMBER WHEN USING INTERFACE INHERITANCE</title>
+      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2021/01/13/interface-array-member/</link>
+      <pubDate>Wed, 13 Jan 2021 19:49:08 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2021/01/13/interface-array-member/</guid>
+      <description>
+        
+          
+&lt;div class=&#34;notices info&#34; style=&#34;border-radius: 10px;&#34;&gt;
+    &lt;div class=&#34;label&#34;&gt;Help me improve my English!&lt;/div&gt;
+    As you probably see, I&#39;m not a native English speaker.&lt;br /&gt;
+    If you find an English expression that feel incorrect or awkward, please let me know.&lt;br /&gt;&lt;br /&gt;
+    Message box of Disqus is &lt;a href=&#34;#disqus_thread&#34;&gt;under the article&lt;/a&gt;.&lt;br /&gt;
+    Or my E-Mail is &lt;a href=&#34;mailto:1044adad@gmail.com&#34;&gt;here&lt;/a&gt;.&lt;br /&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;about-this-article&#34;&gt;ABOUT THIS ARTICLE&lt;/h2&gt;
+&lt;p&gt;In VBA we can do object-oriented programming with &lt;em&gt;interface&lt;/em&gt; feature.&lt;/p&gt;
+&lt;p&gt;But since there is one restriction against class variables as described below,&lt;br&gt;
+we&#39;ll encounter syntax errors when we set an array  accessible from the outside as a class variable in a class implementing interface.&lt;/p&gt;
+&lt;p&gt;In this article I&#39;d like to describe the case and how to avoid it.&lt;/p&gt;
+&lt;p&gt;You can download Excel file created for explanation and view its source code from &lt;a href=&#34;https://github.com/dede-20191130/My_VBA_Tools/tree/master/Public/2021/01/Interface-Array-Member/en&#34;&gt;&lt;span id=&#34;srcURL&#34;&gt;&lt;u&gt;here&lt;/u&gt;&lt;/span&gt;&lt;/a&gt;!&lt;/p&gt;
+&lt;h2 id=&#34;creation-environment&#34;&gt;CREATION ENVIRONMENT&lt;/h2&gt;
+&lt;p&gt;Windows 10 Home(64bit)&lt;br&gt;
+MSOffice 2016&lt;/p&gt;
+&lt;h2 id=&#34;what-the-construction-is&#34;&gt;WHAT THE CONSTRUCTION IS&lt;/h2&gt;
+&lt;h3 id=&#34;about&#34;&gt;ABOUT&lt;/h3&gt;
+&lt;p&gt;There are two team class &lt;code&gt;clsAnalysisTeam&lt;/code&gt; and &lt;code&gt;clsNewTeam&lt;/code&gt;, both implementing interface &lt;code&gt;clsAbsTeam&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Each team class has an array to store team member&#39;s name and the method to get member&#39;s name.&lt;/p&gt;
+&lt;h3 id=&#34;class-diagram&#34;&gt;CLASS DIAGRAM&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1646464425/learnerBlog/Interface-Array-Member/en/class_l3ufdu.svg&#34; alt=&#34;Class Diaglam Without Its Variables And Functions&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;error-occured&#34;&gt;ERROR OCCURED&lt;/h2&gt;
+&lt;h3 id=&#34;the-case&#34;&gt;THE CASE&lt;/h3&gt;
+&lt;p&gt;I wrote each class as follows:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Option&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Explicit&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;**************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Team Class Interface
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;**************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;Consts
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;Vars
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*getter/setter
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Property&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Let&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arrayMenberName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ByVal&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;idx&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Long&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;ByVal&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;name&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Property&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Property&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Get&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arrayMenberName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ByVal&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;idx&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Long&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Property&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;Functions
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;getMemberName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ByVal&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;idx&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Long&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Function&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Option&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Explicit&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Implements&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;clsAbsTeam&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;**************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Team Class:  Analysis Teram
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;**************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;Consts
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;Vars
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Function : get the menber name of index
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Arg      : index number of target member
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Return   : the name
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;clsAbsTeam_getMemberName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ByVal&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;idx&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Long&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Consts
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Vars
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;*** here name-returning process is inserted ***
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Function&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;32&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;33&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Function&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Option&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Explicit&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Implements&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;clsAbsTeam&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;**************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Team Class:  New Team
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;**************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;Consts
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;Vars
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Function : get the menber name of index, but new team has no member so it returns &amp;#39;no member&amp;#39;.
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Arg      : index number of target member
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Return   : the name
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;clsAbsTeam_getMemberName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ByVal&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;idx&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Long&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Consts
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Vars
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;*** here name-returning process is inserted ***
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Function&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;32&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;33&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Function&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;34&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then, in order to give the class an array to store the member&#39;s name,&lt;br&gt;
+I added an array variable which scope is &lt;em&gt;Public&lt;/em&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;**************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Team Class Interface
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;**************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;Consts
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;Vars
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arrayMenberName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;To&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;Functions
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;getMemberName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ByVal&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;idx&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Long&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Function&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then, the compile error which says,&lt;br&gt;
+
+
+&lt;span style=&#34;color: red;&#34;&gt;
+    Constants, fixed-length strings, arrays, user-defined types, and Declare statements not allowed as Public members of an object module
+&lt;/span&gt;&lt;br&gt;
+, apeears.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1646464425/learnerBlog/Interface-Array-Member/en/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-03-05_151929_eeqzkd.png&#34; alt=&#34;Compile Error&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;cause&#34;&gt;CAUSE&lt;/h3&gt;
+&lt;p&gt;The VB6 specification doesn&#39;t allow the variables of some types such as an array or user defined types to be set in class module.&lt;br&gt;
+Thus we should prepare the mechanism which enables these variables to get accessed from outer modules.&lt;/p&gt;
+&lt;h3 id=&#34;how-to-avoid&#34;&gt;HOW TO AVOID&lt;/h3&gt;
+&lt;p&gt;In interface module I defined only getter/setter functions,&lt;br&gt;
+and gave the implementing class an array variable for outer modules to access the array through getter/setter.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Option&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Explicit&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;**************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Team Class Interface
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;**************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;Consts
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;Vars
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*getter/setter
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Property&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Let&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arrayMenberName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ByVal&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;idx&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Long&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;ByVal&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;name&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Property&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Property&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Get&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arrayMenberName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ByVal&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;idx&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Long&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Property&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;Functions
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;getMemberName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ByVal&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;idx&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Long&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Function&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Option&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Explicit&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Implements&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;clsAbsTeam&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;**************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Team Class:  Analysis Teram
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;**************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;Consts
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;Vars
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Private&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;myArrayMenberName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;To&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;c&#34;&gt;&amp;#39;Max member number of 6
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*getter/setter
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Property&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Let&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;clsAbsTeam_arrayMenberName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ByVal&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;idx&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Long&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;ByVal&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;name&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;myArrayMenberName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;idx&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Property&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Property&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Get&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;clsAbsTeam_arrayMenberName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ByVal&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;idx&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Long&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;clsAbsTeam_arrayMenberName&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;myArrayMenberName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;idx&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Property&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Function : get the menber name of index
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Arg      : index number of target member
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;32&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Return   : the name
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;33&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;34&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;clsAbsTeam_getMemberName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ByVal&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;idx&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Long&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;35&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;36&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Consts
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;37&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;38&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Vars
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;39&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;40&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;clsAbsTeam_getMemberName&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;The &amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;idx&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;th team member is &amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;myArrayMenberName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;idx&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;41&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;42&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;43&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;44&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;45&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Function&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;46&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;47&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Function&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Option&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Explicit&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Implements&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;clsAbsTeam&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;**************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Team Class:  New Team
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;**************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;Consts
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;Vars
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*getter/setter
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Property&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Let&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;clsAbsTeam_arrayMenberName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ByVal&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;idx&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Long&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;ByVal&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;name&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;nothing to do
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Property&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Property&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Get&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;clsAbsTeam_arrayMenberName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ByVal&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;idx&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Long&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;clsAbsTeam_arrayMenberName&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;There is no member in this new team.&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Property&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Function : get the menber name of index, but new team has no member so it returns &amp;#39;no member&amp;#39;.
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Arg      : index number of target member
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Return   : the name
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;clsAbsTeam_getMemberName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ByVal&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;idx&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Long&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;32&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Consts
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;33&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;34&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Vars
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;35&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;36&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;clsAbsTeam_getMemberName&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;There is no member in this new team.&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;37&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;38&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;39&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;40&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;41&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Function&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;42&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;43&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Function&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;By writing above, we can avoid the compile error while setting an array to behave as expected in implementing class.&lt;/p&gt;
+&lt;p&gt;Incidentally, &lt;code&gt;clsNewTeam&lt;/code&gt; has no member and the class doesn&#39;t have to have an array variable.&lt;/p&gt;
+&lt;h2 id=&#34;sample&#34;&gt;SAMPLE&lt;/h2&gt;
+&lt;h3 id=&#34;class-diagram-revisit&#34;&gt;CLASS DIAGRAM REVISIT&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1646464425/learnerBlog/Interface-Array-Member/en/classWithFunc_w2ujj4.svg&#34; alt=&#34;Class Diaglam&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;calling-function-code&#34;&gt;CALLING FUNCTION CODE&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vb&#34; data-lang=&#34;vb&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Option&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Explicit&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;**************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Calling Module
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;**************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*FUnction:  operation testing function
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Arg     :
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Return  :  True &amp;gt; normal termination; False &amp;gt; abnormal termination
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;testFunc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Consts
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Const&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;testFunc&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Vars
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;team&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;clsAbsTeam&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;coll&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;New&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Collection&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;On&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Error&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ErrorHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;set names for analysis team members
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;team&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;New&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;clsAnalysisTeam&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;team&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arrayMenberName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;佐藤&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;team&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arrayMenberName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Mike&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;team&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arrayMenberName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Abdallah&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;add analysis team
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;add new team
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;32&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;coll&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Add&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;team&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;33&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;coll&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Add&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;New&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;clsNewTeam&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;34&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;35&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;output 3rd member&amp;#39;s name for each team
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;36&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;If&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Not&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;outputSelectedMemberName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;coll&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Then&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;37&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;38&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;39&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;40&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;41&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;42&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;ErrorHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;43&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;44&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;MsgBox&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;An error has occurred and the macro will be terminated.&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;45&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;46&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;Func Name: &amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;47&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;48&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;Error No.&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Number&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbNewLine&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;49&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Description&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbCritical&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Interface-Array-Member&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;50&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;51&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;52&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;53&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Sub&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;54&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;55&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;56&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;57&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*FUnction: Outputs the name of the member whose number is given by index
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;58&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Arg     : collection of the team. All of them implements clsAbsTeam.
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;59&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Arg     : the index number
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;60&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;*Return  : True &amp;gt; normal termination; False &amp;gt; abnormal termination
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;61&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&amp;#39;******************************************************************************************
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;62&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;outputSelectedMemberName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ByVal&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;collTeam&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Collection&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;ByVal&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;idx&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Long&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;Boolean&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;63&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;64&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Consts
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;65&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Const&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;outputSelectedMemberName&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;66&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;67&lt;/span&gt;    &lt;span class=&#34;c&#34;&gt;&amp;#39;Vars
+&lt;/span&gt;&lt;span class=&#34;ln&#34;&gt;68&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Dim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cntTeam&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;As&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;clsAbsTeam&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;69&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;70&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;On&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Error&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ErrorHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;71&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;72&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;outputSelectedMemberName&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;False&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;73&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;74&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;For&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Each&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cntTeam&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;In&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;collTeam&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;75&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;Debug&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Print&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cntTeam&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;getMemberName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;idx&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;76&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Next&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cntTeam&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;77&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;78&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;TruePoint&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;79&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;80&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;outputSelectedMemberName&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;True&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;81&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;82&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;83&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;84&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;Exit&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Function&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;85&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;86&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;ErrorHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;87&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;88&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;MsgBox&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;An error has occurred and the macro will be terminated.&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;89&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;90&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;Func Name: &amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FUNC_NAME&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;91&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;vbLf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;92&lt;/span&gt;           &lt;span class=&#34;s&#34;&gt;&amp;#34;Error No.&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Number&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbNewLine&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; _
+&lt;span class=&#34;ln&#34;&gt;93&lt;/span&gt;           &lt;span class=&#34;n&#34;&gt;Err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Description&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vbCritical&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Interface-Array-Member&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;94&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;95&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;GoTo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExitHandler&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;96&lt;/span&gt;        
+&lt;span class=&#34;ln&#34;&gt;97&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;End&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;Function&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;98&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;demo&#34;&gt;DEMO&lt;/h3&gt;
+&lt;p&gt;Run &lt;code&gt;testFunc&lt;/code&gt;, and the following data will be output in Immediate Window.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;The 3th team member is Mike
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;There is no member in this new team.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+        
+      </description>
+    </item>
+    
     <item>
       <title>VBA &amp; POWERSHELL: THE TECHNIQUE TO EXTRACT A SPECIFIC STRING FROM MODULES, CLASSES OR SQL OF QUERIES IN ACCESS DATABASE</title>
       <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/12/19/grep-from-module-sql/</link>
