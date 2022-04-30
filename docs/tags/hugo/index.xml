@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hugo on 学習者Dedeのブログ ~プログラミング等~</title>
-    <link>https://dede-20191130.github.io/learnerBlog/tags/hugo/</link>
+    <link>https://dede-20191130.github.io/tags/hugo/</link>
     <description>Recent content in Hugo on 学習者Dedeのブログ ~プログラミング等~</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Tue, 17 Nov 2020 10:00:34 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 Nov 2020 10:00:34 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Hugo] Hugoで生成されるデプロイ対象ファイルのコミットまでをスクリプトで一括処理にした</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/17/script-hugo-commit/</link>
+      <link>https://dede-20191130.github.io/posts/2020/11/17/script-hugo-commit/</link>
       <pubDate>Tue, 17 Nov 2020 10:00:34 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/17/script-hugo-commit/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/11/17/script-hugo-commit/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;

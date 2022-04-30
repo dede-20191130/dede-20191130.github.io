@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2020 on The learner Dede&#39;s Blog</title>
-    <link>https://dede-20191130.github.io/learnerBlog/en/archives/2020/</link>
+    <link>https://dede-20191130.github.io/en/archives/2020/</link>
     <description>Recent content in 2020 on The learner Dede&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 19 Dec 2020 03:18:51 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/en/archives/2020/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 19 Dec 2020 03:18:51 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/en/archives/2020/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>VBA &amp; POWERSHELL: THE TECHNIQUE TO EXTRACT A SPECIFIC STRING FROM MODULES, CLASSES OR SQL OF QUERIES IN ACCESS DATABASE</title>
-      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/12/19/grep-from-module-sql/</link>
+      <link>https://dede-20191130.github.io/en/posts/2020/12/19/grep-from-module-sql/</link>
       <pubDate>Sat, 19 Dec 2020 03:18:51 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/12/19/grep-from-module-sql/</guid>
+      <guid>https://dede-20191130.github.io/en/posts/2020/12/19/grep-from-module-sql/</guid>
       <description>
         
           
@@ -198,10 +198,10 @@ execute the command as follows.&lt;/p&gt;
     
     <item>
       <title>EXCEL VBA: A MACRO TO SEARCH AND REPLACE A TEXT OF SHAPES IN EXCEL BOOK</title>
-      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/12/11/search-shape-string/</link>
+      <link>https://dede-20191130.github.io/en/posts/2020/12/11/search-shape-string/</link>
       <pubDate>Fri, 11 Dec 2020 16:27:07 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/12/11/search-shape-string/</guid>
+      <guid>https://dede-20191130.github.io/en/posts/2020/12/11/search-shape-string/</guid>
       <description>
         
           
@@ -439,10 +439,10 @@ A question to ask if it performs entire searching.&lt;/p&gt;
     
     <item>
       <title>EXCEL VBA: TYPICAL PATTERNS FOR EXCEPTION HANDLING &amp; SAMPLE OF HOW TO USE</title>
-      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/12/05/vba-exception-handle/</link>
+      <link>https://dede-20191130.github.io/en/posts/2020/12/05/vba-exception-handle/</link>
       <pubDate>Sat, 05 Dec 2020 18:02:12 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/12/05/vba-exception-handle/</guid>
+      <guid>https://dede-20191130.github.io/en/posts/2020/12/05/vba-exception-handle/</guid>
       <description>
         
           
@@ -936,10 +936,10 @@ The position is already filled with &#39;FireBall&#39;, so a custom error messag
     
     <item>
       <title>VBA: THE BENEFIT OF USING CLASS AND THE WAY TO USE, WITH A SIMPLE SAMPLE PART 2</title>
-      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/11/22/excel-class-sample-02/</link>
+      <link>https://dede-20191130.github.io/en/posts/2020/11/22/excel-class-sample-02/</link>
       <pubDate>Sun, 22 Nov 2020 14:07:24 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/11/22/excel-class-sample-02/</guid>
+      <guid>https://dede-20191130.github.io/en/posts/2020/11/22/excel-class-sample-02/</guid>
       <description>
         
           
@@ -959,7 +959,7 @@ The position is already filled with &#39;FireBall&#39;, so a custom error messag
 
 
 
-&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/en/posts/2020/11/20/excel-class-sample-01/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VBA: THE BENEFIT OF USING CLASS AND THE WAY TO USE, WITH A SIMPLE SAMPLE PART 1&lt;/a&gt;
+&lt;a href=&#34;https://dede-20191130.github.io/en/posts/2020/11/20/excel-class-sample-01/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VBA: THE BENEFIT OF USING CLASS AND THE WAY TO USE, WITH A SIMPLE SAMPLE PART 1&lt;/a&gt;
 
 &lt;p&gt;Here, I&#39;m going to take anothier sample file and describe how to use class and the bbenefits in a different way from that in the previous article.&lt;br&gt;
 The sample class &lt;code&gt;clsCreateNewExcel&lt;/code&gt; will express the benefits from encapsulation and routine processing in initialization and termination processes, which are excluded from &lt;code&gt;TableCreater&lt;/code&gt; in the previous article.&lt;/p&gt;
@@ -1397,10 +1397,10 @@ Especially, in terms of Excel Application object, if you stored it to global var
     
     <item>
       <title>VBA: THE BENEFIT OF USING CLASS AND THE WAY TO USE, WITH A SIMPLE SAMPLE PART 1</title>
-      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/11/20/excel-class-sample-01/</link>
+      <link>https://dede-20191130.github.io/en/posts/2020/11/20/excel-class-sample-01/</link>
       <pubDate>Fri, 20 Nov 2020 23:47:25 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/11/20/excel-class-sample-01/</guid>
+      <guid>https://dede-20191130.github.io/en/posts/2020/11/20/excel-class-sample-01/</guid>
       <description>
         
           
@@ -1941,7 +1941,7 @@ So, I created a sequel of this article.&lt;/p&gt;
 
 
 
-&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/en/posts/2020/11/22/excel-class-sample-02/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VBA: THE BENEFIT OF USING CLASS AND THE WAY TO USE, WITH A SIMPLE SAMPLE PART 2&lt;/a&gt;
+&lt;a href=&#34;https://dede-20191130.github.io/en/posts/2020/11/22/excel-class-sample-02/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VBA: THE BENEFIT OF USING CLASS AND THE WAY TO USE, WITH A SIMPLE SAMPLE PART 2&lt;/a&gt;
 
 
         
@@ -1950,10 +1950,10 @@ So, I created a sequel of this article.&lt;/p&gt;
     
     <item>
       <title>WINDOWS10&#39;S VIDEO RECORDING APP CAN&#39;T RECORD FORMS OF EXCEL AND ACCESS. ABOUT IT WE SHOULD ...</title>
-      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/11/15/msoffice-form-capture/</link>
+      <link>https://dede-20191130.github.io/en/posts/2020/11/15/msoffice-form-capture/</link>
       <pubDate>Sun, 15 Nov 2020 02:41:13 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/11/15/msoffice-form-capture/</guid>
+      <guid>https://dede-20191130.github.io/en/posts/2020/11/15/msoffice-form-capture/</guid>
       <description>
         
           
@@ -1986,7 +1986,7 @@ I used ffmpeg for gif conversion from mp4.&lt;/p&gt;
 
 
 
-&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/en/posts/2020/11/08/access-control-withevents/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Access VBA: THE THING YOU NEED TO BE AWARE OF WHEN CREATING EVENT LISTENER BY USING WITHEVENTS FOR FORM CONTROLS&lt;/a&gt;
+&lt;a href=&#34;https://dede-20191130.github.io/en/posts/2020/11/08/access-control-withevents/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Access VBA: THE THING YOU NEED TO BE AWARE OF WHEN CREATING EVENT LISTENER BY USING WITHEVENTS FOR FORM CONTROLS&lt;/a&gt;
 
 
         
@@ -1995,10 +1995,10 @@ I used ffmpeg for gif conversion from mp4.&lt;/p&gt;
     
     <item>
       <title>Access VBA: A SIMPLE SAMPLE OF INSERTING AND DELETING A RECORD ON A SUBFORM</title>
-      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/11/15/delete-record-button/</link>
+      <link>https://dede-20191130.github.io/en/posts/2020/11/15/delete-record-button/</link>
       <pubDate>Sun, 15 Nov 2020 00:54:01 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/11/15/delete-record-button/</guid>
+      <guid>https://dede-20191130.github.io/en/posts/2020/11/15/delete-record-button/</guid>
       <description>
         
           
@@ -2044,10 +2044,10 @@ MSOffice 2019&lt;/p&gt;
     
     <item>
       <title>Access VBA: THE THING YOU NEED TO BE AWARE OF WHEN CREATING EVENT LISTENER BY USING WITHEVENTS FOR FORM CONTROLS</title>
-      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/11/08/access-control-withevents/</link>
+      <link>https://dede-20191130.github.io/en/posts/2020/11/08/access-control-withevents/</link>
       <pubDate>Sun, 08 Nov 2020 10:26:29 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/11/08/access-control-withevents/</guid>
+      <guid>https://dede-20191130.github.io/en/posts/2020/11/08/access-control-withevents/</guid>
       <description>
         
           
@@ -2402,10 +2402,10 @@ Moreover, when others see this code, they might consider it unnecessary and dele
     
     <item>
       <title>EXCEL VBA: HOMEMADE EXCEL SHORTCUTS TO IMPROVE WORK EFFICIENCY</title>
-      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/11/05/own-excel-shortcut/</link>
+      <link>https://dede-20191130.github.io/en/posts/2020/11/05/own-excel-shortcut/</link>
       <pubDate>Thu, 05 Nov 2020 00:48:58 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/11/05/own-excel-shortcut/</guid>
+      <guid>https://dede-20191130.github.io/en/posts/2020/11/05/own-excel-shortcut/</guid>
       <description>
         
           
@@ -2691,10 +2691,10 @@ probably there are a case that we want to move shapes to the front or back again
     
     <item>
       <title>EXCEL VBA: WITH POLYMORPHISM, BRANCHING A PROCESS WITHOUT USING IF STATEMENT</title>
-      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/11/01/polymorphism-radiobutton/</link>
+      <link>https://dede-20191130.github.io/en/posts/2020/11/01/polymorphism-radiobutton/</link>
       <pubDate>Sun, 01 Nov 2020 16:44:24 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/11/01/polymorphism-radiobutton/</guid>
+      <guid>https://dede-20191130.github.io/en/posts/2020/11/01/polymorphism-radiobutton/</guid>
       <description>
         
           
@@ -3008,7 +3008,7 @@ XX indicates a tag property string.&lt;/p&gt;
 
 
 
-&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/en/posts/2020/11/01/excel-a1-tool/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;EXCEL VBA: I CREATED A TOOL THAT ALL SELECTED EXCEL BOOK HAVE THEIR CURSOR MOVED TO A1.&lt;/a&gt;
+&lt;a href=&#34;https://dede-20191130.github.io/en/posts/2020/11/01/excel-a1-tool/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;EXCEL VBA: I CREATED A TOOL THAT ALL SELECTED EXCEL BOOK HAVE THEIR CURSOR MOVED TO A1.&lt;/a&gt;
 &lt;/p&gt;
 
         
@@ -3017,10 +3017,10 @@ XX indicates a tag property string.&lt;/p&gt;
     
     <item>
       <title>EXCEL VBA: I CREATED A TOOL THAT ALL SELECTED EXCEL BOOK HAVE THEIR CURSOR MOVED TO A1.</title>
-      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/11/01/excel-a1-tool/</link>
+      <link>https://dede-20191130.github.io/en/posts/2020/11/01/excel-a1-tool/</link>
       <pubDate>Sun, 01 Nov 2020 12:05:43 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/11/01/excel-a1-tool/</guid>
+      <guid>https://dede-20191130.github.io/en/posts/2020/11/01/excel-a1-tool/</guid>
       <description>
         
           
@@ -3066,10 +3066,10 @@ MSOffice 2016&lt;/p&gt;
     
     <item>
       <title>POWERSHELL: THE WAY TO GET THE PATH LIST OF THE FILES WHICH HAVE BEEN UPDATED SINCE [SPECIFIED TIME].</title>
-      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/10/30/ps-refinement-last/</link>
+      <link>https://dede-20191130.github.io/en/posts/2020/10/30/ps-refinement-last/</link>
       <pubDate>Fri, 30 Oct 2020 00:00:04 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/10/30/ps-refinement-last/</guid>
+      <guid>https://dede-20191130.github.io/en/posts/2020/10/30/ps-refinement-last/</guid>
       <description>
         
           
@@ -3119,10 +3119,10 @@ So I wanted the Powershell command which narrow down the files which had been up
     
     <item>
       <title>ACCESS VBA: I CREATED A TOOL EXPORTING TABLE DEFINITIONS DISPLAYED AT DESIGN VIEW IN A TABULAR FORMAT.</title>
-      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/10/27/access-tabledef-tool/</link>
+      <link>https://dede-20191130.github.io/en/posts/2020/10/27/access-tabledef-tool/</link>
       <pubDate>Tue, 27 Oct 2020 20:29:45 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/10/27/access-tabledef-tool/</guid>
+      <guid>https://dede-20191130.github.io/en/posts/2020/10/27/access-tabledef-tool/</guid>
       <description>
         
           
@@ -3134,7 +3134,7 @@ So I wanted the Powershell command which narrow down the files which had been up
     Or my E-Mail is &lt;a href=&#34;mailto:1044adad@gmail.com&#34;&gt;here&lt;/a&gt;.&lt;br /&gt;
 &lt;/div&gt;
 &lt;h2 id=&#34;about-this-article&#34;&gt;ABOUT THIS ARTICLE&lt;/h2&gt;
-&lt;p&gt;This is a tool version of the export function described in the &lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/en/posts/2020/10/25/access-tabledef/&#34;&gt;previous article&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This is a tool version of the export function described in the &lt;a href=&#34;https://dede-20191130.github.io/en/posts/2020/10/25/access-tabledef/&#34;&gt;previous article&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;By toolizing, it&#39;s no longer needed to open VBE and paste the functions.&lt;br&gt;
 And it enabled us to export definition information of other access database file.&lt;/p&gt;
 &lt;p&gt;You can download the tool and view its source code from &lt;a href=&#34;https://github.com/dede-20191130/My_VBA_Tools/tree/master/T0002_Access%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E5%AE%9A%E7%BE%A9%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%88%E3%83%84%E3%83%BC%E3%83%AB/en&#34;&gt;here&lt;/a&gt;!&lt;/p&gt;
@@ -3164,10 +3164,10 @@ With the file, you can overview the table definition information in a style that
     
     <item>
       <title>ACCESS VBA: I CREATED A FUNCTION EXPORTING TABLE DEFINITIONS DISPLAYED AT DESIGN VIEW IN A TABULAR FORMAT.</title>
-      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/10/25/access-tabledef/</link>
+      <link>https://dede-20191130.github.io/en/posts/2020/10/25/access-tabledef/</link>
       <pubDate>Sun, 25 Oct 2020 22:01:43 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/10/25/access-tabledef/</guid>
+      <guid>https://dede-20191130.github.io/en/posts/2020/10/25/access-tabledef/</guid>
       <description>
         
           
@@ -3200,7 +3200,7 @@ so it&#39;s difficult to grasp the table setting like in the design view.&lt;/p&
 
 
 
-&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/en/posts/2020/10/27/access-tabledef-tool/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ACCESS VBA: I CREATED A TOOL EXPORTING TABLE DEFINITIONS DISPLAYED AT DESIGN VIEW IN A TABULAR FORMAT.&lt;/a&gt;
+&lt;a href=&#34;https://dede-20191130.github.io/en/posts/2020/10/27/access-tabledef-tool/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ACCESS VBA: I CREATED A TOOL EXPORTING TABLE DEFINITIONS DISPLAYED AT DESIGN VIEW IN A TABULAR FORMAT.&lt;/a&gt;
 &lt;/p&gt;
 &lt;h2 id=&#34;creation-environment&#34;&gt;CREATION ENVIRONMENT&lt;/h2&gt;
 &lt;p&gt;Microsoft Office 2019&lt;/p&gt;
@@ -3695,10 +3695,10 @@ You can overview the definition information in a style that resembles the Design
     
     <item>
       <title>ACCESS VBA: SOLUTIONS OF THE PROBLEM THAT AUTOMATIC COLUMN WIDTH ADJUSTMENT DOES NOT WORK WHEN USING USER-DEFINED FUNCTIONS IN THE CONTROL SOURCE.</title>
-      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/10/13/access-controlsource/</link>
+      <link>https://dede-20191130.github.io/en/posts/2020/10/13/access-controlsource/</link>
       <pubDate>Tue, 13 Oct 2020 09:37:47 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/10/13/access-controlsource/</guid>
+      <guid>https://dede-20191130.github.io/en/posts/2020/10/13/access-controlsource/</guid>
       <description>
         
           
@@ -3937,10 +3937,10 @@ but increases the function number and makes the processing of the control source
     
     <item>
       <title>[EXCEL] I CREATED A MAIL CREATION TOOL WHICH IS NON-MACRO.</title>
-      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/07/18/create-nomarco-tool/</link>
+      <link>https://dede-20191130.github.io/en/posts/2020/07/18/create-nomarco-tool/</link>
       <pubDate>Sat, 18 Jul 2020 18:30:28 +0000</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/07/18/create-nomarco-tool/</guid>
+      <guid>https://dede-20191130.github.io/en/posts/2020/07/18/create-nomarco-tool/</guid>
       <description>
         
           
@@ -3969,7 +3969,7 @@ From the data, create a E-mail.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1644558137/learnerBlog/create-nomarco-tool/en/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-02-11_134404_mg96ao.png&#34; alt=&#34;auto input with pullDown&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1644558137/learnerBlog/create-nomarco-tool/en/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-02-11_134537_fq9xxk.png&#34; alt=&#34;E-mail auto-created&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;span-idvbaarticle-benefits-of-non-macro-toolspan&#34;&gt;&lt;span id=&#34;VBA&#34;&gt;ARTICLE: BENEFITS OF NON-MACRO TOOL&lt;/span&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/en/posts/2020/07/16/craete-estm/&#34;&gt;Here&lt;/a&gt; is the Article.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://dede-20191130.github.io/en/posts/2020/07/16/craete-estm/&#34;&gt;Here&lt;/a&gt; is the Article.&lt;/p&gt;
 
         
       </description>
@@ -3977,10 +3977,10 @@ From the data, create a E-mail.&lt;/p&gt;
     
     <item>
       <title>EXCEL VBA: I CREATED A QUOTATION CREATION TOOL.</title>
-      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/07/16/craete-estm/</link>
+      <link>https://dede-20191130.github.io/en/posts/2020/07/16/craete-estm/</link>
       <pubDate>Thu, 16 Jul 2020 08:05:13 +0000</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/07/16/craete-estm/</guid>
+      <guid>https://dede-20191130.github.io/en/posts/2020/07/16/craete-estm/</guid>
       <description>
         
           
@@ -4057,10 +4057,10 @@ PDF files corresponding with each quotation are created and stored in the same f
     
     <item>
       <title>TOOL DEVELOPMENT ON EXCEL: COMPARING BETWEEN TOOLS USING FUNCTION (NON-MACRO) AND TOOLS USING VBA MACRO</title>
-      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/07/16/cmpr-tools/</link>
+      <link>https://dede-20191130.github.io/en/posts/2020/07/16/cmpr-tools/</link>
       <pubDate>Thu, 16 Jul 2020 06:14:50 +0000</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/07/16/cmpr-tools/</guid>
+      <guid>https://dede-20191130.github.io/en/posts/2020/07/16/cmpr-tools/</guid>
       <description>
         
           

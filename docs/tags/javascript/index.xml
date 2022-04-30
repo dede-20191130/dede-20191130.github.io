@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Javascript on 学習者Dedeのブログ ~プログラミング等~</title>
-    <link>https://dede-20191130.github.io/learnerBlog/tags/javascript/</link>
+    <link>https://dede-20191130.github.io/tags/javascript/</link>
     <description>Recent content in Javascript on 学習者Dedeのブログ ~プログラミング等~</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 03 Nov 2021 22:20:40 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Nov 2021 22:20:40 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[JavaScript] 正規表現の実行速度検証デモ：量指定子に「Greedyな検索」と「Lazyな検索」を指定する場合</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/11/03/compare-greedy-lazy-quantifiers/</link>
+      <link>https://dede-20191130.github.io/posts/2021/11/03/compare-greedy-lazy-quantifiers/</link>
       <pubDate>Wed, 03 Nov 2021 22:20:40 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/11/03/compare-greedy-lazy-quantifiers/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/11/03/compare-greedy-lazy-quantifiers/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -157,10 +157,10 @@ Greedyな検索をする場合は、正規表現に工夫をしないと時間�
     
     <item>
       <title>[Javacript] 画像をワンクリックで別タブで開けるようにするブックマークレットを作成する</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/11/01/bookmarklet-img-other-tab/</link>
+      <link>https://dede-20191130.github.io/posts/2021/11/01/bookmarklet-img-other-tab/</link>
       <pubDate>Mon, 01 Nov 2021 13:36:23 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/11/01/bookmarklet-img-other-tab/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/11/01/bookmarklet-img-other-tab/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -239,10 +239,10 @@ Greedyな検索をする場合は、正規表現に工夫をしないと時間�
     
     <item>
       <title>[React Hook] レンダリングのチューニング ~オブジェクトをContextとして利用する場合 &amp; サンプルコード~</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/10/30/tuning-usecontext-for-obj/</link>
+      <link>https://dede-20191130.github.io/posts/2021/10/30/tuning-usecontext-for-obj/</link>
       <pubDate>Sat, 30 Oct 2021 18:56:19 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/10/30/tuning-usecontext-for-obj/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/10/30/tuning-usecontext-for-obj/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -410,10 +410,10 @@ EffectBoxのサイドエフェクト処理が走るようにできる。&lt;/p&g
     
     <item>
       <title>[JavaScript] Web Componentsで明暗モード切替ボタンを作成する</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/10/27/wc-toggle-color-button/</link>
+      <link>https://dede-20191130.github.io/posts/2021/10/27/wc-toggle-color-button/</link>
       <pubDate>Wed, 27 Oct 2021 10:01:42 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/10/27/wc-toggle-color-button/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/10/27/wc-toggle-color-button/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -702,10 +702,10 @@ Sass用のライブラリやCSS-in-JSのライブラリを用いてうまいこ�
     
     <item>
       <title>[Javascript] IE11でRadioボタングループのvalueを取得できない事象＆対策</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/07/27/ie11-radio-group-value/</link>
+      <link>https://dede-20191130.github.io/posts/2021/07/27/ie11-radio-group-value/</link>
       <pubDate>Tue, 27 Jul 2021 22:52:15 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/07/27/ie11-radio-group-value/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/07/27/ie11-radio-group-value/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -771,7 +771,7 @@ chrome他モダンブラウザでは想定通りの挙動だが、&lt;br&gt;
 &lt;/span&gt;ではどうもうまくいかない。&lt;/p&gt;
 &lt;h3 id=&#34;デモページ&#34;&gt;デモページ&lt;/h3&gt;
 &lt;p&gt;こちらに
-&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/posts/2021/07/28/ie11-radio-group-value-demo-ng/&#34;&gt;デモページ&lt;/a&gt;
+&lt;a href=&#34;https://dede-20191130.github.io/posts/2021/07/28/ie11-radio-group-value-demo-ng/&#34;&gt;デモページ&lt;/a&gt;
 があります。&lt;/p&gt;
 &lt;p&gt;対応ブラウザでは、選択したラジオに応じた県庁所在地が表示されます。&lt;/p&gt;
 &lt;h2 id=&#34;何が起こっているか&#34;&gt;何が起こっているか？&lt;/h2&gt;

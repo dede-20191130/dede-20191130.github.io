@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2021-10 on 学習者Dedeのブログ ~プログラミング等~</title>
-    <link>https://dede-20191130.github.io/learnerBlog/archives/2021-10/</link>
+    <link>https://dede-20191130.github.io/archives/2021-10/</link>
     <description>Recent content in 2021-10 on 学習者Dedeのブログ ~プログラミング等~</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 30 Oct 2021 18:56:19 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/archives/2021-10/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 30 Oct 2021 18:56:19 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/archives/2021-10/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[React Hook] レンダリングのチューニング ~オブジェクトをContextとして利用する場合 &amp; サンプルコード~</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/10/30/tuning-usecontext-for-obj/</link>
+      <link>https://dede-20191130.github.io/posts/2021/10/30/tuning-usecontext-for-obj/</link>
       <pubDate>Sat, 30 Oct 2021 18:56:19 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/10/30/tuning-usecontext-for-obj/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/10/30/tuning-usecontext-for-obj/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -180,10 +180,10 @@ EffectBoxのサイドエフェクト処理が走るようにできる。&lt;/p&g
     
     <item>
       <title>[JavaScript] Web Componentsで明暗モード切替ボタンを作成する</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/10/27/wc-toggle-color-button/</link>
+      <link>https://dede-20191130.github.io/posts/2021/10/27/wc-toggle-color-button/</link>
       <pubDate>Wed, 27 Oct 2021 10:01:42 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/10/27/wc-toggle-color-button/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/10/27/wc-toggle-color-button/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -472,10 +472,10 @@ Sass用のライブラリやCSS-in-JSのライブラリを用いてうまいこ�
     
     <item>
       <title>ご意見送信フォームを作成する③　[SPA by React Router]</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/10/14/send-contact-form-react-router/</link>
+      <link>https://dede-20191130.github.io/posts/2021/10/14/send-contact-form-react-router/</link>
       <pubDate>Thu, 14 Oct 2021 11:10:41 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/10/14/send-contact-form-react-router/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/10/14/send-contact-form-react-router/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -491,7 +491,7 @@ Sass用のライブラリやCSS-in-JSのライブラリを用いてうまいこ�
 
     &lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/posts/2021/10/08/send-contact-form-react/&#34;&gt;先日作成したReact製意見送信フォーム&lt;/a&gt;では、&lt;br&gt;
+&lt;p&gt;&lt;a href=&#34;https://dede-20191130.github.io/posts/2021/10/08/send-contact-form-react/&#34;&gt;先日作成したReact製意見送信フォーム&lt;/a&gt;では、&lt;br&gt;
 フォームのSubmit後にモーダルポップアップとして送信完了および結果の取得ボタンを表示していたが、&lt;br&gt;
 実はモーダル画面特有の問題を抱えていた。&lt;/p&gt;
 &lt;p&gt;問題：&lt;/p&gt;
@@ -500,7 +500,7 @@ Sass用のライブラリやCSS-in-JSのライブラリを用いてうまいこ�
 モーダル表示時、モーダル部分の要素のみフォーカスできるように固定しなければならない（Focus Trap）&lt;/li&gt;
 &lt;li&gt;（オプション）WAI-ARIA対応としてアクセシビリティ向上のために、モーダルのコンポーネントにaria属性の設定などが必要&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;上記のそれぞれの問題については&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/posts/2021/10/08/send-contact-form-react/&#34;&gt;こちら&lt;/a&gt;では対応していないので、&lt;br&gt;
+&lt;p&gt;上記のそれぞれの問題については&lt;a href=&#34;https://dede-20191130.github.io/posts/2021/10/08/send-contact-form-react/&#34;&gt;こちら&lt;/a&gt;では対応していないので、&lt;br&gt;
 モーダルを使うのをやめてSPA化して別のページにしてしまうことを考え、作成することとした。&lt;/p&gt;
 &lt;p&gt;SPA化のためには&lt;a href=&#34;https://reactrouter.com/web/guides/quick-start&#34;&gt;React Router&lt;/a&gt;を使用している。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/dede-20191130/send-contact-form-react-router&#34;&gt;&lt;span id=&#34;srcURL&#34;&gt;&lt;u&gt;ソースコードはこちらにあります（GitHub）。&lt;/u&gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
@@ -795,10 +795,10 @@ Appコンポーネントと各childコンポーネントとのデータのI/Oを
     
     <item>
       <title>ご意見送信フォームを作成する②　[React]</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/10/08/send-contact-form-react/</link>
+      <link>https://dede-20191130.github.io/posts/2021/10/08/send-contact-form-react/</link>
       <pubDate>Fri, 08 Oct 2021 22:50:26 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/10/08/send-contact-form-react/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/10/08/send-contact-form-react/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -814,7 +814,7 @@ Appコンポーネントと各childコンポーネントとのデータのI/Oを
 
     &lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/posts/2021/10/08/send-contact-form-plain-ts/&#34;&gt;先日作成した意見送信フォーム&lt;/a&gt;を、&lt;br&gt;
+&lt;p&gt;&lt;a href=&#34;https://dede-20191130.github.io/posts/2021/10/08/send-contact-form-plain-ts/&#34;&gt;先日作成した意見送信フォーム&lt;/a&gt;を、&lt;br&gt;
 Reactを用いてリファクタした。&lt;/p&gt;
 &lt;p&gt;その際に、React-Hook-Formというフォーム作成用ライブラリを用いると&lt;br&gt;
 短時間で高機能なフォームが作成できるという話を見たため、&lt;br&gt;
@@ -1272,10 +1272,10 @@ Reactを用いてリファクタした。&lt;/p&gt;
     
     <item>
       <title>ご意見送信フォームを作成する①　[プレーンTypeScript]</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/10/08/send-contact-form-plain-ts/</link>
+      <link>https://dede-20191130.github.io/posts/2021/10/08/send-contact-form-plain-ts/</link>
       <pubDate>Fri, 08 Oct 2021 11:42:48 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/10/08/send-contact-form-plain-ts/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/10/08/send-contact-form-plain-ts/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -1777,7 +1777,7 @@ Modelよりバリデーション結果を受け取る。&lt;/p&gt;
 Reactなどのフレームワークは使用せずにプレーンなTypescriptで実装した。&lt;/p&gt;
 &lt;p&gt;こうしてみると、各種フレームワークがどのような要望や要請をもとに作成されているのか&lt;br&gt;
 （フレームワークを使わないことによる作業のボトルネックはどこにあるか）が少しはわかるような気がする。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2021/10/08/send-contact-form-react/&#34;&gt;■Reactを使用したバージョンのフォームを作成しました。&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://dede-20191130.github.io/posts/2021/10/08/send-contact-form-react/&#34;&gt;■Reactを使用したバージョンのフォームを作成しました。&lt;/a&gt;&lt;/p&gt;
 
         
       </description>

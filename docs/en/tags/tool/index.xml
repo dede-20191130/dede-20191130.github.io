@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tool on The learner Dede&#39;s Blog</title>
-    <link>https://dede-20191130.github.io/learnerBlog/en/tags/tool/</link>
+    <link>https://dede-20191130.github.io/en/tags/tool/</link>
     <description>Recent content in tool on The learner Dede&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 01 Nov 2020 12:05:43 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/en/tags/tool/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 Nov 2020 12:05:43 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/en/tags/tool/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>EXCEL VBA: I CREATED A TOOL THAT ALL SELECTED EXCEL BOOK HAVE THEIR CURSOR MOVED TO A1.</title>
-      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/11/01/excel-a1-tool/</link>
+      <link>https://dede-20191130.github.io/en/posts/2020/11/01/excel-a1-tool/</link>
       <pubDate>Sun, 01 Nov 2020 12:05:43 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/11/01/excel-a1-tool/</guid>
+      <guid>https://dede-20191130.github.io/en/posts/2020/11/01/excel-a1-tool/</guid>
       <description>
         
           
@@ -58,10 +58,10 @@ MSOffice 2016&lt;/p&gt;
     
     <item>
       <title>ACCESS VBA: I CREATED A TOOL EXPORTING TABLE DEFINITIONS DISPLAYED AT DESIGN VIEW IN A TABULAR FORMAT.</title>
-      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/10/27/access-tabledef-tool/</link>
+      <link>https://dede-20191130.github.io/en/posts/2020/10/27/access-tabledef-tool/</link>
       <pubDate>Tue, 27 Oct 2020 20:29:45 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/10/27/access-tabledef-tool/</guid>
+      <guid>https://dede-20191130.github.io/en/posts/2020/10/27/access-tabledef-tool/</guid>
       <description>
         
           
@@ -73,7 +73,7 @@ MSOffice 2016&lt;/p&gt;
     Or my E-Mail is &lt;a href=&#34;mailto:1044adad@gmail.com&#34;&gt;here&lt;/a&gt;.&lt;br /&gt;
 &lt;/div&gt;
 &lt;h2 id=&#34;about-this-article&#34;&gt;ABOUT THIS ARTICLE&lt;/h2&gt;
-&lt;p&gt;This is a tool version of the export function described in the &lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/en/posts/2020/10/25/access-tabledef/&#34;&gt;previous article&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This is a tool version of the export function described in the &lt;a href=&#34;https://dede-20191130.github.io/en/posts/2020/10/25/access-tabledef/&#34;&gt;previous article&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;By toolizing, it&#39;s no longer needed to open VBE and paste the functions.&lt;br&gt;
 And it enabled us to export definition information of other access database file.&lt;/p&gt;
 &lt;p&gt;You can download the tool and view its source code from &lt;a href=&#34;https://github.com/dede-20191130/My_VBA_Tools/tree/master/T0002_Access%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E5%AE%9A%E7%BE%A9%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%88%E3%83%84%E3%83%BC%E3%83%AB/en&#34;&gt;here&lt;/a&gt;!&lt;/p&gt;
@@ -103,10 +103,10 @@ With the file, you can overview the table definition information in a style that
     
     <item>
       <title>[EXCEL] I CREATED A MAIL CREATION TOOL WHICH IS NON-MACRO.</title>
-      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/07/18/create-nomarco-tool/</link>
+      <link>https://dede-20191130.github.io/en/posts/2020/07/18/create-nomarco-tool/</link>
       <pubDate>Sat, 18 Jul 2020 18:30:28 +0000</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/07/18/create-nomarco-tool/</guid>
+      <guid>https://dede-20191130.github.io/en/posts/2020/07/18/create-nomarco-tool/</guid>
       <description>
         
           
@@ -135,7 +135,7 @@ From the data, create a E-mail.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1644558137/learnerBlog/create-nomarco-tool/en/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-02-11_134404_mg96ao.png&#34; alt=&#34;auto input with pullDown&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1644558137/learnerBlog/create-nomarco-tool/en/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-02-11_134537_fq9xxk.png&#34; alt=&#34;E-mail auto-created&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;span-idvbaarticle-benefits-of-non-macro-toolspan&#34;&gt;&lt;span id=&#34;VBA&#34;&gt;ARTICLE: BENEFITS OF NON-MACRO TOOL&lt;/span&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/en/posts/2020/07/16/craete-estm/&#34;&gt;Here&lt;/a&gt; is the Article.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://dede-20191130.github.io/en/posts/2020/07/16/craete-estm/&#34;&gt;Here&lt;/a&gt; is the Article.&lt;/p&gt;
 
         
       </description>
@@ -143,10 +143,10 @@ From the data, create a E-mail.&lt;/p&gt;
     
     <item>
       <title>EXCEL VBA: I CREATED A QUOTATION CREATION TOOL.</title>
-      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/07/16/craete-estm/</link>
+      <link>https://dede-20191130.github.io/en/posts/2020/07/16/craete-estm/</link>
       <pubDate>Thu, 16 Jul 2020 08:05:13 +0000</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/07/16/craete-estm/</guid>
+      <guid>https://dede-20191130.github.io/en/posts/2020/07/16/craete-estm/</guid>
       <description>
         
           

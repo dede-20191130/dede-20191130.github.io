@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2021-01 on 学習者Dedeのブログ ~プログラミング等~</title>
-    <link>https://dede-20191130.github.io/learnerBlog/archives/2021-01/</link>
+    <link>https://dede-20191130.github.io/archives/2021-01/</link>
     <description>Recent content in 2021-01 on 学習者Dedeのブログ ~プログラミング等~</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 15 Jan 2021 23:38:43 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/archives/2021-01/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 15 Jan 2021 23:38:43 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/archives/2021-01/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Excel VBA] PageSetup.PrintAreaによるシートの印刷範囲の変更を行うときにエラーになる場合＆その回避方法</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/01/15/change-pagesetup-printaria/</link>
+      <link>https://dede-20191130.github.io/posts/2021/01/15/change-pagesetup-printaria/</link>
       <pubDate>Fri, 15 Jan 2021 23:38:43 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/01/15/change-pagesetup-printaria/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/01/15/change-pagesetup-printaria/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -219,10 +219,10 @@ Range(prePrintAreaAddress)としてRangeオブジェクトに格納する時点�
     
     <item>
       <title>[VBA] インタフェース継承を使用する際にクラス変数として配列を使用する方法</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/01/13/interface-array-member/</link>
+      <link>https://dede-20191130.github.io/posts/2021/01/13/interface-array-member/</link>
       <pubDate>Wed, 13 Jan 2021 19:49:08 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/01/13/interface-array-member/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/01/13/interface-array-member/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;

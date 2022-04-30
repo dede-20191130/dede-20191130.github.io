@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2021-11 on 学習者Dedeのブログ ~プログラミング等~</title>
-    <link>https://dede-20191130.github.io/learnerBlog/archives/2021-11/</link>
+    <link>https://dede-20191130.github.io/archives/2021-11/</link>
     <description>Recent content in 2021-11 on 学習者Dedeのブログ ~プログラミング等~</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 03 Nov 2021 22:20:40 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/archives/2021-11/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Nov 2021 22:20:40 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/archives/2021-11/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[JavaScript] 正規表現の実行速度検証デモ：量指定子に「Greedyな検索」と「Lazyな検索」を指定する場合</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/11/03/compare-greedy-lazy-quantifiers/</link>
+      <link>https://dede-20191130.github.io/posts/2021/11/03/compare-greedy-lazy-quantifiers/</link>
       <pubDate>Wed, 03 Nov 2021 22:20:40 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/11/03/compare-greedy-lazy-quantifiers/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/11/03/compare-greedy-lazy-quantifiers/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -157,10 +157,10 @@ Greedyな検索をする場合は、正規表現に工夫をしないと時間�
     
     <item>
       <title>[Javacript] 画像をワンクリックで別タブで開けるようにするブックマークレットを作成する</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/11/01/bookmarklet-img-other-tab/</link>
+      <link>https://dede-20191130.github.io/posts/2021/11/01/bookmarklet-img-other-tab/</link>
       <pubDate>Mon, 01 Nov 2021 13:36:23 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/11/01/bookmarklet-img-other-tab/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/11/01/bookmarklet-img-other-tab/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;

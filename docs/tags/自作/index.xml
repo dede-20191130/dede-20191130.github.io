@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>自作 on 学習者Dedeのブログ ~プログラミング等~</title>
-    <link>https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C/</link>
+    <link>https://dede-20191130.github.io/tags/%E8%87%AA%E4%BD%9C/</link>
     <description>Recent content in 自作 on 学習者Dedeのブログ ~プログラミング等~</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 28 Feb 2021 00:34:49 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 Feb 2021 00:34:49 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/tags/%E8%87%AA%E4%BD%9C/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Access VBA] 見積書作成ツール（Accessバージョン）を作成した</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/02/28/create-estm-accessver/</link>
+      <link>https://dede-20191130.github.io/posts/2021/02/28/create-estm-accessver/</link>
       <pubDate>Sun, 28 Feb 2021 00:34:49 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/02/28/create-estm-accessver/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/02/28/create-estm-accessver/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -32,7 +32,7 @@ Excelベースの見積書作成ツールを作成した。&lt;/p&gt;
 
 
 
-&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2020/07/16/create-estm/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Excel VBA] 見積書作成ツールを作成した&lt;/a&gt;
+&lt;a href=&#34;https://dede-20191130.github.io/posts/2020/07/16/create-estm/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Excel VBA] 見積書作成ツールを作成した&lt;/a&gt;
 
 
     &lt;/div&gt;
@@ -74,7 +74,7 @@ Accessのほうが遥かに容易である。&lt;/li&gt;
 
 
 
-&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2021/03/17/create-estm-accessver-tool-screen/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Click To Show Slide Page&lt;/a&gt;
+&lt;a href=&#34;https://dede-20191130.github.io/posts/2021/03/17/create-estm-accessver-tool-screen/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Click To Show Slide Page&lt;/a&gt;
 
 ]&lt;/strong&gt;&lt;/p&gt;
 &lt;h2 id=&#34;機能紹介&#34;&gt;機能紹介&lt;/h2&gt;
@@ -85,7 +85,7 @@ Accessのほうが遥かに容易である。&lt;/li&gt;
 
 
 
-&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2021/03/24/create-estm-accessver-tool-faculty/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Click To Show Slide Page&lt;/a&gt;
+&lt;a href=&#34;https://dede-20191130.github.io/posts/2021/03/24/create-estm-accessver-tool-faculty/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Click To Show Slide Page&lt;/a&gt;
 
 ]&lt;/strong&gt;&lt;/p&gt;
 
@@ -95,10 +95,10 @@ Accessのほうが遥かに容易である。&lt;/li&gt;
     
     <item>
       <title>[Excel VBA] 結合セルにコピーペーストするマクロ</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/02/13/copyto-merged-cell/</link>
+      <link>https://dede-20191130.github.io/posts/2021/02/13/copyto-merged-cell/</link>
       <pubDate>Sat, 13 Feb 2021 11:32:30 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/02/13/copyto-merged-cell/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/02/13/copyto-merged-cell/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -345,10 +345,10 @@ name列にコピペできる。&lt;/p&gt;
     
     <item>
       <title>[VBA, PowerShell] Accessのモジュール・クラスやクエリのSQLから特定文字列を抽出するためのテクニック</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/12/19/grep-from-module-sql/</link>
+      <link>https://dede-20191130.github.io/posts/2020/12/19/grep-from-module-sql/</link>
       <pubDate>Sat, 19 Dec 2020 03:18:51 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/12/19/grep-from-module-sql/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/12/19/grep-from-module-sql/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -543,10 +543,10 @@ Accessファイルの置かれているディレクトリの「src_Accessファ�
     
     <item>
       <title>[VBA] 関数の引数を変更した場合にコンパイルエラーが多発するのを防ぐテクニック</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/12/06/alter-args-compile-err/</link>
+      <link>https://dede-20191130.github.io/posts/2020/12/06/alter-args-compile-err/</link>
       <pubDate>Sun, 06 Dec 2020 16:59:25 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/12/06/alter-args-compile-err/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/12/06/alter-args-compile-err/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -896,10 +896,10 @@ Optional（省略可能）ではない扱いであるため、&lt;br&gt;
     
     <item>
       <title>[VBA] 例外処理の典型的なパターン＆使用例サンプル</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/12/05/vba-exception-handle/</link>
+      <link>https://dede-20191130.github.io/posts/2020/12/05/vba-exception-handle/</link>
       <pubDate>Sat, 05 Dec 2020 18:02:12 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/12/05/vba-exception-handle/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/12/05/vba-exception-handle/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -1462,15 +1462,15 @@ hoge.xlsxを起動してA1セルに書き込もうとすると、&lt;br&gt;
     
     <item>
       <title>[VBA] クラスを利用するメリットと方法について &amp; 簡単なサンプル（２）</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/22/excel-class-sample-02/</link>
+      <link>https://dede-20191130.github.io/posts/2020/11/22/excel-class-sample-02/</link>
       <pubDate>Sun, 22 Nov 2020 14:07:24 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/22/excel-class-sample-02/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/11/22/excel-class-sample-02/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
 &lt;p&gt;この記事は、&lt;br&gt;
-&lt;a href=&#39;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2020/11/20/excel-class-sample-01/&#39;&gt;[VBA] クラスを利用するメリットと方法について &amp;amp; 簡単なサンプル（１）&lt;/a&gt;の続きの記事。&lt;br&gt;
+&lt;a href=&#39;https://dede-20191130.github.io/posts/2020/11/20/excel-class-sample-01/&#39;&gt;[VBA] クラスを利用するメリットと方法について &amp;amp; 簡単なサンプル（１）&lt;/a&gt;の続きの記事。&lt;br&gt;
 （１）とは違ったサンプルを用いて、前回とは違ったクラスの利用方法やそのメリットを記したい。&lt;/p&gt;
 &lt;p&gt;TableCreaterの例だと、カプセル化の恩恵や初期化処理・終了処理を必ず実行できることの恩恵が十分には表現できなかったように思えるため、&lt;br&gt;
 本記事のサンプル（clsCreateNewExcel）でそれらを表現しようと思う。&lt;/p&gt;
@@ -1962,10 +1962,10 @@ Excelアプリケーションの設定のリストアを行い、&lt;br&gt;
     
     <item>
       <title>[VBA] クラスを利用するメリットと方法について &amp; 簡単なサンプル（１）</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/20/excel-class-sample-01/</link>
+      <link>https://dede-20191130.github.io/posts/2020/11/20/excel-class-sample-01/</link>
       <pubDate>Fri, 20 Nov 2020 23:47:25 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/20/excel-class-sample-01/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/11/20/excel-class-sample-01/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -2492,7 +2492,7 @@ MSOffice 2016&lt;/p&gt;
 
 
 
-&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2020/11/22/excel-class-sample-02/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[VBA] クラスを利用するメリットと方法について &amp;amp; 簡単なサンプル（２）&lt;/a&gt;
+&lt;a href=&#34;https://dede-20191130.github.io/posts/2020/11/22/excel-class-sample-02/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[VBA] クラスを利用するメリットと方法について &amp;amp; 簡単なサンプル（２）&lt;/a&gt;
 &lt;/p&gt;
 
         
@@ -2501,10 +2501,10 @@ MSOffice 2016&lt;/p&gt;
     
     <item>
       <title>[Access VBA] サブフォーム上のレコードを挿入、削除する簡単なサンプル</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/15/delete-record-button/</link>
+      <link>https://dede-20191130.github.io/posts/2020/11/15/delete-record-button/</link>
       <pubDate>Sun, 15 Nov 2020 00:54:01 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/15/delete-record-button/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/11/15/delete-record-button/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -2542,10 +2542,10 @@ MSOffice 2019&lt;/p&gt;
     
     <item>
       <title>[Access VBA] フォームのコントロールに対してWithEventsでイベントリスナークラスを作成する際に気をつけなければならないこと</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/08/access-control-withevents/</link>
+      <link>https://dede-20191130.github.io/posts/2020/11/08/access-control-withevents/</link>
       <pubDate>Sun, 08 Nov 2020 10:26:29 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/08/access-control-withevents/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/11/08/access-control-withevents/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -2937,10 +2937,10 @@ VBEが不要とみなして自動的に削除してしまう。&lt;/p&gt;
     
     <item>
       <title>[Excel VBA] 個人的に作業がはかどった自作Excelショートカット</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/05/own-excel-shortcut/</link>
+      <link>https://dede-20191130.github.io/posts/2020/11/05/own-excel-shortcut/</link>
       <pubDate>Thu, 05 Nov 2020 00:48:58 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/05/own-excel-shortcut/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/11/05/own-excel-shortcut/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -3104,10 +3104,10 @@ Ctrl + Shift + K、M、Nなどが良いかもしれない。&lt;/p&gt;
     
     <item>
       <title>[Excel VBA]ポリモーフィズムを用いて、IF文を使わずラジオボタンごとの処理分岐を行う</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/polymorphism-radiobutton/</link>
+      <link>https://dede-20191130.github.io/posts/2020/11/01/polymorphism-radiobutton/</link>
       <pubDate>Sun, 01 Nov 2020 16:44:24 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/polymorphism-radiobutton/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/11/01/polymorphism-radiobutton/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -3429,10 +3429,10 @@ IFステートメントの使用無しで処理分岐を実行できる。&lt;/p
     
     <item>
       <title>[Excel VBA]選択フォルダ配下のエクセルブックの全シートでA1にカーソル移動させるツールを作成した</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/excel-a1-tool/</link>
+      <link>https://dede-20191130.github.io/posts/2020/11/01/excel-a1-tool/</link>
       <pubDate>Sun, 01 Nov 2020 12:05:43 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/excel-a1-tool/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/11/01/excel-a1-tool/</guid>
       <description>
         
           &lt;h2 id=&#34;このツールについて&#34;&gt;このツールについて&lt;/h2&gt;
@@ -3472,10 +3472,10 @@ MSOffice 2016&lt;/p&gt;
     
     <item>
       <title>[Access VBA] デザインビューのテーブル定義を表形式でエクスポートするAccessツールを作成した</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/10/27/access-tabledef-tool/</link>
+      <link>https://dede-20191130.github.io/posts/2020/10/27/access-tabledef-tool/</link>
       <pubDate>Tue, 27 Oct 2020 20:29:45 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/10/27/access-tabledef-tool/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/10/27/access-tabledef-tool/</guid>
       <description>
         
           &lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
@@ -3521,10 +3521,10 @@ MSOffice 2016&lt;/p&gt;
     
     <item>
       <title>[Access VBA] デザインビューのテーブル定義を表形式でエクスポートする関数を作成した</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/10/25/access-tabledef/</link>
+      <link>https://dede-20191130.github.io/posts/2020/10/25/access-tabledef/</link>
       <pubDate>Sun, 25 Oct 2020 22:01:43 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/10/25/access-tabledef/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/10/25/access-tabledef/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -3551,7 +3551,7 @@ MSOffice 2016&lt;/p&gt;
 
 
 
-&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2020/10/27/access-tabledef-tool/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Access VBA] デザインビューのテーブル定義を表形式でエクスポートするAccessツールを作成した&lt;/a&gt;
+&lt;a href=&#34;https://dede-20191130.github.io/posts/2020/10/27/access-tabledef-tool/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Access VBA] デザインビューのテーブル定義を表形式でエクスポートするAccessツールを作成した&lt;/a&gt;
 &lt;/p&gt;
 &lt;h2 id=&#34;作成環境&#34;&gt;作成環境&lt;/h2&gt;
 &lt;p&gt;Microsoft Office 2019&lt;/p&gt;
@@ -4062,10 +4062,10 @@ exportTableDefTablesMainを実行する。&lt;/p&gt;
     
     <item>
       <title>【Excel】非マクロのメール作成ツールを作成した</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/07/18/create-nomarco-tool/</link>
+      <link>https://dede-20191130.github.io/posts/2020/07/18/create-nomarco-tool/</link>
       <pubDate>Sat, 18 Jul 2020 18:30:28 +0000</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/07/18/create-nomarco-tool/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/07/18/create-nomarco-tool/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -4092,10 +4092,10 @@ exportTableDefTablesMainを実行する。&lt;/p&gt;
     
     <item>
       <title>[Excel VBA] 見積書作成ツールを作成した</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/07/16/create-estm/</link>
+      <link>https://dede-20191130.github.io/posts/2020/07/16/create-estm/</link>
       <pubDate>Thu, 16 Jul 2020 08:05:13 +0000</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/07/16/create-estm/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/07/16/create-estm/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -4144,7 +4144,7 @@ exportTableDefTablesMainを実行する。&lt;/p&gt;
 
 
 
-&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2021/02/28/create-estm-accessver/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Access VBA] 見積書作成ツール（Accessバージョン）を作成した&lt;/a&gt;
+&lt;a href=&#34;https://dede-20191130.github.io/posts/2021/02/28/create-estm-accessver/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Access VBA] 見積書作成ツール（Accessバージョン）を作成した&lt;/a&gt;
 
 
     &lt;/div&gt;

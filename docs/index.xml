@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>学習者Dedeのブログ ~プログラミング等~</title>
-    <link>https://dede-20191130.github.io/learnerBlog/</link>
+    <link>https://dede-20191130.github.io/</link>
     <description>Recent content on 学習者Dedeのブログ ~プログラミング等~</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 23 Jan 2022 15:29:27 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 Jan 2022 15:29:27 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[ReactJs] 居室内機器管理コンソール画面を作成してみました。</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2022/01/23/room-apparatus-control-console/</link>
+      <link>https://dede-20191130.github.io/posts/2022/01/23/room-apparatus-control-console/</link>
       <pubDate>Sun, 23 Jan 2022 15:29:27 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2022/01/23/room-apparatus-control-console/</guid>
+      <guid>https://dede-20191130.github.io/posts/2022/01/23/room-apparatus-control-console/</guid>
       <description>
         
           &lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1642950405/learnerBlog/room-apparatus-control-console/room-apparatus-control-console1_marzwp.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
@@ -167,10 +167,10 @@ TypeScriptの型システムにもさらに精通する必要があると感じ�
     
     <item>
       <title>[Access VBA] 数式エラーの発生しているExcelシートをテーブルに取り込むときの注意点とサンプルコード</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2022/01/22/import-calc-error-value/</link>
+      <link>https://dede-20191130.github.io/posts/2022/01/22/import-calc-error-value/</link>
       <pubDate>Sat, 22 Jan 2022 12:15:03 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2022/01/22/import-calc-error-value/</guid>
+      <guid>https://dede-20191130.github.io/posts/2022/01/22/import-calc-error-value/</guid>
       <description>
         
           &lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1642835775/learnerBlog/import-calc-error-value/import-calc-error-value1_ozm6gj.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
@@ -646,10 +646,10 @@ VBAマクロを扱う限り避けては通れない問題となるでしょう�
     
     <item>
       <title>[教えて！VBA] 第12回 各ワークシートのデータを集約して出力するにはどうすればいいの？？</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2022/01/15/vba-question-012-aggregate-wss-content/</link>
+      <link>https://dede-20191130.github.io/posts/2022/01/15/vba-question-012-aggregate-wss-content/</link>
       <pubDate>Sat, 15 Jan 2022 14:20:46 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2022/01/15/vba-question-012-aggregate-wss-content/</guid>
+      <guid>https://dede-20191130.github.io/posts/2022/01/15/vba-question-012-aggregate-wss-content/</guid>
       <description>
         
           &lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1642259173/learnerBlog/vba-question-012-aggregate-wss-content/aggregate-wss-content1_uyhlmz.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
@@ -696,7 +696,7 @@ Office 2016のExcel環境で検証済みです。&lt;/p&gt;
 オブジェクト指向のプログラミング言語です。&lt;/p&gt;
 &lt;p&gt;データは基本的にオブジェクト（データとそれに紐付く動作を一つにまとめたもの）として扱われます。&lt;br&gt;
 オブジェクトはクラスによって生成され、クラスはオブジェクトの雛形とみなすことができます。&lt;/p&gt;
-&lt;p&gt;詳しくは、&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2020/11/20/excel-class-sample-01/&#34;&gt;こちらの記事&lt;/a&gt;で紹介しました。&lt;/p&gt;
+&lt;p&gt;詳しくは、&lt;a href=&#34;https://dede-20191130.github.io/posts/2020/11/20/excel-class-sample-01/&#34;&gt;こちらの記事&lt;/a&gt;で紹介しました。&lt;/p&gt;
 
   &lt;/div&gt;
 
@@ -1198,10 +1198,10 @@ CSVとして保存する前にかならず行うべき処理です。&lt;/p&gt;
     
     <item>
       <title>[教えて！VBA] 第11回 マクロからファイルを新しく名付けて保存する際の注意点とは？？</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2022/01/12/vba-question-011-save-named-file/</link>
+      <link>https://dede-20191130.github.io/posts/2022/01/12/vba-question-011-save-named-file/</link>
       <pubDate>Wed, 12 Jan 2022 09:40:37 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2022/01/12/vba-question-011-save-named-file/</guid>
+      <guid>https://dede-20191130.github.io/posts/2022/01/12/vba-question-011-save-named-file/</guid>
       <description>
         
           &lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641975714/learnerBlog/vba-question-011-save-named-file/save-named-file_z2hxc1.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
@@ -1748,10 +1748,10 @@ VBAの環境でもSHA-256を利用することが可能になります。&lt;/p&
     
     <item>
       <title>[教えて！VBA] 第10回 Excelのシートの移動・削除を禁止する方法 ＆ マクロ実行時だけ許可するにはどうすればいいの？？</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2022/01/11/vba-question-010-prohibit-sheet-change/</link>
+      <link>https://dede-20191130.github.io/posts/2022/01/11/vba-question-010-prohibit-sheet-change/</link>
       <pubDate>Tue, 11 Jan 2022 13:47:44 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2022/01/11/vba-question-010-prohibit-sheet-change/</guid>
+      <guid>https://dede-20191130.github.io/posts/2022/01/11/vba-question-010-prohibit-sheet-change/</guid>
       <description>
         
           &lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641887344/learnerBlog/vba-question-010-prohibit-sheet-change/prohibit-sheet-change_levful.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
@@ -2012,10 +2012,10 @@ GOTOの機構（&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/post
     
     <item>
       <title>[教えて！VBA] 第9回 フォントやボタンをカスタマイズできるメッセージボックスを作成するにはどうすればいいの？？</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2022/01/10/vba-question-009-create-own-message-frm/</link>
+      <link>https://dede-20191130.github.io/posts/2022/01/10/vba-question-009-create-own-message-frm/</link>
       <pubDate>Mon, 10 Jan 2022 12:34:09 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2022/01/10/vba-question-009-create-own-message-frm/</guid>
+      <guid>https://dede-20191130.github.io/posts/2022/01/10/vba-question-009-create-own-message-frm/</guid>
       <description>
         
           &lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641804072/learnerBlog/vba-question-009-create-own-message-frm/create-own-message-frm_gauuok.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
@@ -2195,10 +2195,10 @@ VBAマクロの便利さをより向上させることができるでしょう�
     
     <item>
       <title>[教えて！VBA] 第8回 変更前のセルの値を保持/利用するにはどうすればいいの？？</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2022/01/06/vba-question-008-keep-value-before-change/</link>
+      <link>https://dede-20191130.github.io/posts/2022/01/06/vba-question-008-keep-value-before-change/</link>
       <pubDate>Thu, 06 Jan 2022 14:10:19 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2022/01/06/vba-question-008-keep-value-before-change/</guid>
+      <guid>https://dede-20191130.github.io/posts/2022/01/06/vba-question-008-keep-value-before-change/</guid>
       <description>
         
           &lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641629426/learnerBlog/vba-question-008-keep-value-before-change/keep-value-before-change_bdf1ed.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
@@ -2529,10 +2529,10 @@ Excel単独でも高度なアプリケーションのように&lt;br&gt;
     
     <item>
       <title>[教えて！VBA] 第7回 フォルダを開く（＋ファイルを操作する）にはどうすればいいの？？</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2022/01/02/vba-question-007-manipulate-folder-files/</link>
+      <link>https://dede-20191130.github.io/posts/2022/01/02/vba-question-007-manipulate-folder-files/</link>
       <pubDate>Sun, 02 Jan 2022 13:07:25 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2022/01/02/vba-question-007-manipulate-folder-files/</guid>
+      <guid>https://dede-20191130.github.io/posts/2022/01/02/vba-question-007-manipulate-folder-files/</guid>
       <description>
         
           &lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641189331/learnerBlog/vba-question-007-manipulate-folder-files/manipulate-folder-files_m8m4zz.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
@@ -2774,10 +2774,10 @@ mytext（拡張子txtのファイル）のみを対象として、&lt;br&gt;
     
     <item>
       <title>[教えて！VBA] 第6回 エクセルVBAマクロで、マクロを終了するにはどうすればいいの？？</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2022/01/01/vba-question-006-kinds-of-end-process/</link>
+      <link>https://dede-20191130.github.io/posts/2022/01/01/vba-question-006-kinds-of-end-process/</link>
       <pubDate>Sat, 01 Jan 2022 08:13:06 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2022/01/01/vba-question-006-kinds-of-end-process/</guid>
+      <guid>https://dede-20191130.github.io/posts/2022/01/01/vba-question-006-kinds-of-end-process/</guid>
       <description>
         
           &lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641001541/learnerBlog/vba-question-006-kinds-of-end-process/kinds-of-end-process_h8dftp.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
@@ -2934,10 +2934,10 @@ VBAマクロ全体を終了します。&lt;/p&gt;
     
     <item>
       <title>[教えて！VBA] 第5回 ブックの最初のシートの最初のセルを選択した状態にするにはどうすればいいの？？</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/12/31/vba-question-005-select-first-worksheet/</link>
+      <link>https://dede-20191130.github.io/posts/2021/12/31/vba-question-005-select-first-worksheet/</link>
       <pubDate>Fri, 31 Dec 2021 10:32:02 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/12/31/vba-question-005-select-first-worksheet/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/12/31/vba-question-005-select-first-worksheet/</guid>
       <description>
         
           &lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640920597/learnerBlog/vba-question-005-select-first-worksheet/select-first-worksheet_zrvw3w.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
@@ -3106,10 +3106,10 @@ VBAにおけるコレクションという存在と使用方法、&lt;br&gt;
     
     <item>
       <title>[教えて！VBA] 第4回 シート上の図形をコピーして他のセル上に貼り付けするにはどうすればいいの？？</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/12/30/vba-question-004-copypaste-shapes/</link>
+      <link>https://dede-20191130.github.io/posts/2021/12/30/vba-question-004-copypaste-shapes/</link>
       <pubDate>Thu, 30 Dec 2021 13:16:26 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/12/30/vba-question-004-copypaste-shapes/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/12/30/vba-question-004-copypaste-shapes/</guid>
       <description>
         
           &lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640865307/learnerBlog/vba-question-004-copypaste-shapes/copypaste-shapes_zbaepe.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
@@ -3385,10 +3385,10 @@ VBA上では次のように図形を参照できます。&lt;/p&gt;
     
     <item>
       <title>[Excel VBA] セルの文字色・背景色だけをコピーして貼り付けるマクロを作成しました</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/12/29/paste-only-colors/</link>
+      <link>https://dede-20191130.github.io/posts/2021/12/29/paste-only-colors/</link>
       <pubDate>Wed, 29 Dec 2021 10:24:02 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/12/29/paste-only-colors/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/12/29/paste-only-colors/</guid>
       <description>
         
           &lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640748357/learnerBlog/paste-only-colors/paste-only-colors_osfx92.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
@@ -3526,10 +3526,10 @@ VBA上では次のように図形を参照できます。&lt;/p&gt;
     
     <item>
       <title>[教えて！VBA] 第3回 Accessマクロで、テーブルのデータを全クリアするにはどうすればいいの？？</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/12/25/vba-question-003-clear-data-in-table/</link>
+      <link>https://dede-20191130.github.io/posts/2021/12/25/vba-question-003-clear-data-in-table/</link>
       <pubDate>Sat, 25 Dec 2021 09:57:26 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/12/25/vba-question-003-clear-data-in-table/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/12/25/vba-question-003-clear-data-in-table/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -3655,10 +3655,10 @@ Access利用の幅が広がるでしょう。&lt;/p&gt;
     
     <item>
       <title>[教えて！VBA] 第2回 一つのセルの値が「東京都」であることを条件として別のアクションを行うにはどうすればいいの？？</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/12/14/vba-question-002-chekc-single-cell/</link>
+      <link>https://dede-20191130.github.io/posts/2021/12/14/vba-question-002-chekc-single-cell/</link>
       <pubDate>Tue, 14 Dec 2021 11:53:35 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/12/14/vba-question-002-chekc-single-cell/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/12/14/vba-question-002-chekc-single-cell/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -3828,10 +3828,10 @@ Microsoftの公式を見てみると面白いかもしれません。&lt;/p&gt;
     
     <item>
       <title>[教えて！VBA] 第1回 処理の途中で待機時間（Sleep）を設けるにはどうすればいいの？？</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/12/12/vba-question-001-waiting/</link>
+      <link>https://dede-20191130.github.io/posts/2021/12/12/vba-question-001-waiting/</link>
       <pubDate>Sun, 12 Dec 2021 10:41:37 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/12/12/vba-question-001-waiting/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/12/12/vba-question-001-waiting/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -4010,10 +4010,10 @@ ExcelでもAccessでも（あるいはOutLookなどでも）、読み込みさ�
     
     <item>
       <title>[JavaScript] 正規表現の実行速度検証デモ：量指定子に「Greedyな検索」と「Lazyな検索」を指定する場合</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/11/03/compare-greedy-lazy-quantifiers/</link>
+      <link>https://dede-20191130.github.io/posts/2021/11/03/compare-greedy-lazy-quantifiers/</link>
       <pubDate>Wed, 03 Nov 2021 22:20:40 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/11/03/compare-greedy-lazy-quantifiers/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/11/03/compare-greedy-lazy-quantifiers/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -4158,10 +4158,10 @@ Greedyな検索をする場合は、正規表現に工夫をしないと時間�
     
     <item>
       <title>[Javacript] 画像をワンクリックで別タブで開けるようにするブックマークレットを作成する</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/11/01/bookmarklet-img-other-tab/</link>
+      <link>https://dede-20191130.github.io/posts/2021/11/01/bookmarklet-img-other-tab/</link>
       <pubDate>Mon, 01 Nov 2021 13:36:23 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/11/01/bookmarklet-img-other-tab/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/11/01/bookmarklet-img-other-tab/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -4240,10 +4240,10 @@ Greedyな検索をする場合は、正規表現に工夫をしないと時間�
     
     <item>
       <title>[React Hook] レンダリングのチューニング ~オブジェクトをContextとして利用する場合 &amp; サンプルコード~</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/10/30/tuning-usecontext-for-obj/</link>
+      <link>https://dede-20191130.github.io/posts/2021/10/30/tuning-usecontext-for-obj/</link>
       <pubDate>Sat, 30 Oct 2021 18:56:19 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/10/30/tuning-usecontext-for-obj/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/10/30/tuning-usecontext-for-obj/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -4411,10 +4411,10 @@ EffectBoxのサイドエフェクト処理が走るようにできる。&lt;/p&g
     
     <item>
       <title>[JavaScript] Web Componentsで明暗モード切替ボタンを作成する</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/10/27/wc-toggle-color-button/</link>
+      <link>https://dede-20191130.github.io/posts/2021/10/27/wc-toggle-color-button/</link>
       <pubDate>Wed, 27 Oct 2021 10:01:42 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/10/27/wc-toggle-color-button/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/10/27/wc-toggle-color-button/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -4703,10 +4703,10 @@ Sass用のライブラリやCSS-in-JSのライブラリを用いてうまいこ�
     
     <item>
       <title>ご意見送信フォームを作成する③　[SPA by React Router]</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/10/14/send-contact-form-react-router/</link>
+      <link>https://dede-20191130.github.io/posts/2021/10/14/send-contact-form-react-router/</link>
       <pubDate>Thu, 14 Oct 2021 11:10:41 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/10/14/send-contact-form-react-router/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/10/14/send-contact-form-react-router/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -4722,7 +4722,7 @@ Sass用のライブラリやCSS-in-JSのライブラリを用いてうまいこ�
 
     &lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/posts/2021/10/08/send-contact-form-react/&#34;&gt;先日作成したReact製意見送信フォーム&lt;/a&gt;では、&lt;br&gt;
+&lt;p&gt;&lt;a href=&#34;https://dede-20191130.github.io/posts/2021/10/08/send-contact-form-react/&#34;&gt;先日作成したReact製意見送信フォーム&lt;/a&gt;では、&lt;br&gt;
 フォームのSubmit後にモーダルポップアップとして送信完了および結果の取得ボタンを表示していたが、&lt;br&gt;
 実はモーダル画面特有の問題を抱えていた。&lt;/p&gt;
 &lt;p&gt;問題：&lt;/p&gt;
@@ -4731,7 +4731,7 @@ Sass用のライブラリやCSS-in-JSのライブラリを用いてうまいこ�
 モーダル表示時、モーダル部分の要素のみフォーカスできるように固定しなければならない（Focus Trap）&lt;/li&gt;
 &lt;li&gt;（オプション）WAI-ARIA対応としてアクセシビリティ向上のために、モーダルのコンポーネントにaria属性の設定などが必要&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;上記のそれぞれの問題については&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/posts/2021/10/08/send-contact-form-react/&#34;&gt;こちら&lt;/a&gt;では対応していないので、&lt;br&gt;
+&lt;p&gt;上記のそれぞれの問題については&lt;a href=&#34;https://dede-20191130.github.io/posts/2021/10/08/send-contact-form-react/&#34;&gt;こちら&lt;/a&gt;では対応していないので、&lt;br&gt;
 モーダルを使うのをやめてSPA化して別のページにしてしまうことを考え、作成することとした。&lt;/p&gt;
 &lt;p&gt;SPA化のためには&lt;a href=&#34;https://reactrouter.com/web/guides/quick-start&#34;&gt;React Router&lt;/a&gt;を使用している。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/dede-20191130/send-contact-form-react-router&#34;&gt;&lt;span id=&#34;srcURL&#34;&gt;&lt;u&gt;ソースコードはこちらにあります（GitHub）。&lt;/u&gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
@@ -5026,10 +5026,10 @@ Appコンポーネントと各childコンポーネントとのデータのI/Oを
     
     <item>
       <title>ご意見送信フォームを作成する②　[React]</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/10/08/send-contact-form-react/</link>
+      <link>https://dede-20191130.github.io/posts/2021/10/08/send-contact-form-react/</link>
       <pubDate>Fri, 08 Oct 2021 22:50:26 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/10/08/send-contact-form-react/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/10/08/send-contact-form-react/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -5045,7 +5045,7 @@ Appコンポーネントと各childコンポーネントとのデータのI/Oを
 
     &lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/posts/2021/10/08/send-contact-form-plain-ts/&#34;&gt;先日作成した意見送信フォーム&lt;/a&gt;を、&lt;br&gt;
+&lt;p&gt;&lt;a href=&#34;https://dede-20191130.github.io/posts/2021/10/08/send-contact-form-plain-ts/&#34;&gt;先日作成した意見送信フォーム&lt;/a&gt;を、&lt;br&gt;
 Reactを用いてリファクタした。&lt;/p&gt;
 &lt;p&gt;その際に、React-Hook-Formというフォーム作成用ライブラリを用いると&lt;br&gt;
 短時間で高機能なフォームが作成できるという話を見たため、&lt;br&gt;
@@ -5503,10 +5503,10 @@ Reactを用いてリファクタした。&lt;/p&gt;
     
     <item>
       <title>ご意見送信フォームを作成する①　[プレーンTypeScript]</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/10/08/send-contact-form-plain-ts/</link>
+      <link>https://dede-20191130.github.io/posts/2021/10/08/send-contact-form-plain-ts/</link>
       <pubDate>Fri, 08 Oct 2021 11:42:48 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/10/08/send-contact-form-plain-ts/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/10/08/send-contact-form-plain-ts/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -6008,7 +6008,7 @@ Modelよりバリデーション結果を受け取る。&lt;/p&gt;
 Reactなどのフレームワークは使用せずにプレーンなTypescriptで実装した。&lt;/p&gt;
 &lt;p&gt;こうしてみると、各種フレームワークがどのような要望や要請をもとに作成されているのか&lt;br&gt;
 （フレームワークを使わないことによる作業のボトルネックはどこにあるか）が少しはわかるような気がする。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2021/10/08/send-contact-form-react/&#34;&gt;■Reactを使用したバージョンのフォームを作成しました。&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://dede-20191130.github.io/posts/2021/10/08/send-contact-form-react/&#34;&gt;■Reactを使用したバージョンのフォームを作成しました。&lt;/a&gt;&lt;/p&gt;
 
         
       </description>
@@ -6016,10 +6016,10 @@ Reactなどのフレームワークは使用せずにプレーンなTypescript�
     
     <item>
       <title>[Access VBA] フォームのコントロール操作系の関数をどのようにユニットテストするかの方法メモ</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/09/04/access-change-control-test/</link>
+      <link>https://dede-20191130.github.io/posts/2021/09/04/access-change-control-test/</link>
       <pubDate>Sat, 04 Sep 2021 10:17:36 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/09/04/access-change-control-test/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/09/04/access-change-control-test/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -6459,10 +6459,10 @@ Mainフォーム上でテストするとMainフォーム自体の何かを変更
     
     <item>
       <title>[Access VBA] RequeryとRefreshの使い分けデモ　「単票フォームの編集」編</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/</link>
+      <link>https://dede-20191130.github.io/posts/2021/08/18/cut-sheet-requery-refresh/</link>
       <pubDate>Wed, 18 Aug 2021 15:06:36 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/08/18/cut-sheet-requery-refresh/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -6626,12 +6626,12 @@ Mainフォーム上でテストするとMainフォーム自体の何かを変更
     
     
     
-    &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/01-nothing-to-do.webm&#39; type=&#34;video/webm&#34;&gt;
+    &lt;source src=&#39;https://dede-20191130.github.io/posts/2021/08/18/cut-sheet-requery-refresh/01-nothing-to-do.webm&#39; type=&#34;video/webm&#34;&gt;
     
     
     
     
-    &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/01-nothing-to-do.mp4&#39; type=&#34;video/mp4&#34;&gt;
+    &lt;source src=&#39;https://dede-20191130.github.io/posts/2021/08/18/cut-sheet-requery-refresh/01-nothing-to-do.mp4&#39; type=&#34;video/mp4&#34;&gt;
     
     
     
@@ -6652,12 +6652,12 @@ Mainフォーム上でテストするとMainフォーム自体の何かを変更
     
     
     
-    &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/02-form-requery.webm&#39; type=&#34;video/webm&#34;&gt;
+    &lt;source src=&#39;https://dede-20191130.github.io/posts/2021/08/18/cut-sheet-requery-refresh/02-form-requery.webm&#39; type=&#34;video/webm&#34;&gt;
     
     
     
     
-    &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/02-form-requery.mp4&#39; type=&#34;video/mp4&#34;&gt;
+    &lt;source src=&#39;https://dede-20191130.github.io/posts/2021/08/18/cut-sheet-requery-refresh/02-form-requery.mp4&#39; type=&#34;video/mp4&#34;&gt;
     
     
     
@@ -6683,12 +6683,12 @@ Mainフォーム上でテストするとMainフォーム自体の何かを変更
     
     
     
-    &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/03-form-refresh.webm&#39; type=&#34;video/webm&#34;&gt;
+    &lt;source src=&#39;https://dede-20191130.github.io/posts/2021/08/18/cut-sheet-requery-refresh/03-form-refresh.webm&#39; type=&#34;video/webm&#34;&gt;
     
     
     
     
-    &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/03-form-refresh.mp4&#39; type=&#34;video/mp4&#34;&gt;
+    &lt;source src=&#39;https://dede-20191130.github.io/posts/2021/08/18/cut-sheet-requery-refresh/03-form-refresh.mp4&#39; type=&#34;video/mp4&#34;&gt;
     
     
     
@@ -6711,12 +6711,12 @@ Mainフォーム上でテストするとMainフォーム自体の何かを変更
     
     
     
-    &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/04-combobox-requery.webm&#39; type=&#34;video/webm&#34;&gt;
+    &lt;source src=&#39;https://dede-20191130.github.io/posts/2021/08/18/cut-sheet-requery-refresh/04-combobox-requery.webm&#39; type=&#34;video/webm&#34;&gt;
     
     
     
     
-    &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/04-combobox-requery.mp4&#39; type=&#34;video/mp4&#34;&gt;
+    &lt;source src=&#39;https://dede-20191130.github.io/posts/2021/08/18/cut-sheet-requery-refresh/04-combobox-requery.mp4&#39; type=&#34;video/mp4&#34;&gt;
     
     
     
@@ -6742,10 +6742,10 @@ Refreshが最も自然で使い勝手が良さそうな印象を受ける。&lt;
     
     <item>
       <title>[Javascript] IE11でRadioボタングループのvalueを取得できない事象＆対策</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/07/27/ie11-radio-group-value/</link>
+      <link>https://dede-20191130.github.io/posts/2021/07/27/ie11-radio-group-value/</link>
       <pubDate>Tue, 27 Jul 2021 22:52:15 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/07/27/ie11-radio-group-value/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/07/27/ie11-radio-group-value/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -6811,7 +6811,7 @@ chrome他モダンブラウザでは想定通りの挙動だが、&lt;br&gt;
 &lt;/span&gt;ではどうもうまくいかない。&lt;/p&gt;
 &lt;h3 id=&#34;デモページ&#34;&gt;デモページ&lt;/h3&gt;
 &lt;p&gt;こちらに
-&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/posts/2021/07/28/ie11-radio-group-value-demo-ng/&#34;&gt;デモページ&lt;/a&gt;
+&lt;a href=&#34;https://dede-20191130.github.io/posts/2021/07/28/ie11-radio-group-value-demo-ng/&#34;&gt;デモページ&lt;/a&gt;
 があります。&lt;/p&gt;
 &lt;p&gt;対応ブラウザでは、選択したラジオに応じた県庁所在地が表示されます。&lt;/p&gt;
 &lt;h2 id=&#34;何が起こっているか&#34;&gt;何が起こっているか？&lt;/h2&gt;
@@ -6872,10 +6872,10 @@ Radioボタンまわりのコードを書き換える必要がある。&lt;/p&gt
     
     <item>
       <title>[Excel VBA] 年度に関わらず営業日数を算出する方法について紹介</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/03/29/wsfunc-networkday/</link>
+      <link>https://dede-20191130.github.io/posts/2021/03/29/wsfunc-networkday/</link>
       <pubDate>Mon, 29 Mar 2021 16:04:41 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/03/29/wsfunc-networkday/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/03/29/wsfunc-networkday/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -7076,10 +7076,10 @@ Radioボタンまわりのコードを書き換える必要がある。&lt;/p&gt
     
     <item>
       <title>[Access VBA] 見積書作成ツール（Accessバージョン）を作成した</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/02/28/create-estm-accessver/</link>
+      <link>https://dede-20191130.github.io/posts/2021/02/28/create-estm-accessver/</link>
       <pubDate>Sun, 28 Feb 2021 00:34:49 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/02/28/create-estm-accessver/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/02/28/create-estm-accessver/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -7099,7 +7099,7 @@ Excelベースの見積書作成ツールを作成した。&lt;/p&gt;
 
 
 
-&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2020/07/16/create-estm/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Excel VBA] 見積書作成ツールを作成した&lt;/a&gt;
+&lt;a href=&#34;https://dede-20191130.github.io/posts/2020/07/16/create-estm/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Excel VBA] 見積書作成ツールを作成した&lt;/a&gt;
 
 
     &lt;/div&gt;
@@ -7141,7 +7141,7 @@ Accessのほうが遥かに容易である。&lt;/li&gt;
 
 
 
-&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2021/03/17/create-estm-accessver-tool-screen/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Click To Show Slide Page&lt;/a&gt;
+&lt;a href=&#34;https://dede-20191130.github.io/posts/2021/03/17/create-estm-accessver-tool-screen/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Click To Show Slide Page&lt;/a&gt;
 
 ]&lt;/strong&gt;&lt;/p&gt;
 &lt;h2 id=&#34;機能紹介&#34;&gt;機能紹介&lt;/h2&gt;
@@ -7152,7 +7152,7 @@ Accessのほうが遥かに容易である。&lt;/li&gt;
 
 
 
-&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2021/03/24/create-estm-accessver-tool-faculty/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Click To Show Slide Page&lt;/a&gt;
+&lt;a href=&#34;https://dede-20191130.github.io/posts/2021/03/24/create-estm-accessver-tool-faculty/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Click To Show Slide Page&lt;/a&gt;
 
 ]&lt;/strong&gt;&lt;/p&gt;
 
@@ -7162,23 +7162,23 @@ Accessのほうが遥かに容易である。&lt;/li&gt;
     
     <item>
       <title>Podcastの「歴史系番組」の比較＆おすすめの紹介</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/02/13/podcast-history-program/</link>
+      <link>https://dede-20191130.github.io/posts/2021/02/13/podcast-history-program/</link>
       <pubDate>Sat, 13 Feb 2021 22:49:28 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/02/13/podcast-history-program/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/02/13/podcast-history-program/</guid>
       <description>
         
           
 
 
 
-    &lt;link rel=&#34;stylesheet&#34; href=&#34;https://dede-20191130.github.io/learnerBlog/posts/2021/02/13/podcast-history-program/mycss.css&#34;&gt;&lt;/link&gt;
+    &lt;link rel=&#34;stylesheet&#34; href=&#34;https://dede-20191130.github.io/posts/2021/02/13/podcast-history-program/mycss.css&#34;&gt;&lt;/link&gt;
 
 
 &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
 &lt;p&gt;昨年10月くらいから、&lt;br&gt;
 ふと歴史を勉強しようと思ってPodcastの歴史系番組をよく聞いていた。&lt;br&gt;
-&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2020/11/03/learn-by-podcast/&#34;&gt;（その時の記事）&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&#34;https://dede-20191130.github.io/posts/2020/11/03/learn-by-podcast/&#34;&gt;（その時の記事）&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;それぞれの番組に様々な特色があり、&lt;br&gt;
 特に、日本史・世界史をある程度幅広く詳細に学びたい、&lt;br&gt;
 教科書の外の知識が知りたい、&lt;br&gt;
@@ -7384,10 +7384,10 @@ Accessのほうが遥かに容易である。&lt;/li&gt;
     
     <item>
       <title>[Excel VBA] 結合セルにコピーペーストするマクロ</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/02/13/copyto-merged-cell/</link>
+      <link>https://dede-20191130.github.io/posts/2021/02/13/copyto-merged-cell/</link>
       <pubDate>Sat, 13 Feb 2021 11:32:30 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/02/13/copyto-merged-cell/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/02/13/copyto-merged-cell/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -7634,10 +7634,10 @@ name列にコピペできる。&lt;/p&gt;
     
     <item>
       <title>[Python] 久しぶりにpythonスクリプトを作成した。[ファイル区分けスクリプト]</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/02/12/python-note-01/</link>
+      <link>https://dede-20191130.github.io/posts/2021/02/12/python-note-01/</link>
       <pubDate>Fri, 12 Feb 2021 23:23:50 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/02/12/python-note-01/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/02/12/python-note-01/</guid>
       <description>
         
           &lt;h2 id=&#34;about&#34;&gt;About&lt;/h2&gt;
@@ -7740,10 +7740,10 @@ IDEでの補完機能が弱い（動的型付けなので仕方ないが）こ�
     
     <item>
       <title>[Excel VBA] PageSetup.PrintAreaによるシートの印刷範囲の変更を行うときにエラーになる場合＆その回避方法</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/01/15/change-pagesetup-printaria/</link>
+      <link>https://dede-20191130.github.io/posts/2021/01/15/change-pagesetup-printaria/</link>
       <pubDate>Fri, 15 Jan 2021 23:38:43 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/01/15/change-pagesetup-printaria/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/01/15/change-pagesetup-printaria/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -7950,10 +7950,10 @@ Range(prePrintAreaAddress)としてRangeオブジェクトに格納する時点�
     
     <item>
       <title>[VBA] インタフェース継承を使用する際にクラス変数として配列を使用する方法</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/01/13/interface-array-member/</link>
+      <link>https://dede-20191130.github.io/posts/2021/01/13/interface-array-member/</link>
       <pubDate>Wed, 13 Jan 2021 19:49:08 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/01/13/interface-array-member/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/01/13/interface-array-member/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -8384,10 +8384,10 @@ Publicのスコープで宣言することができるのは標準モジュー�
     
     <item>
       <title>[VBA, PowerShell] Accessのモジュール・クラスやクエリのSQLから特定文字列を抽出するためのテクニック</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/12/19/grep-from-module-sql/</link>
+      <link>https://dede-20191130.github.io/posts/2020/12/19/grep-from-module-sql/</link>
       <pubDate>Sat, 19 Dec 2020 03:18:51 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/12/19/grep-from-module-sql/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/12/19/grep-from-module-sql/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -8582,10 +8582,10 @@ Accessファイルの置かれているディレクトリの「src_Accessファ�
     
     <item>
       <title>[VBA] Excelの複数シートをループを使わず一行の処理で非表示・再表示にすることはできる？？</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/12/12/sheet-array-visible/</link>
+      <link>https://dede-20191130.github.io/posts/2020/12/12/sheet-array-visible/</link>
       <pubDate>Sat, 12 Dec 2020 11:49:05 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/12/12/sheet-array-visible/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/12/12/sheet-array-visible/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -8642,10 +8642,10 @@ Visibleプロパティの特徴と考えるしかなさそう。&lt;/p&gt;
     
     <item>
       <title>[VBA] ブック内の図形内のテキストを検索・置換するマクロ（Qiitaの記事の拡張）</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/12/11/search-shape-string/</link>
+      <link>https://dede-20191130.github.io/posts/2020/12/11/search-shape-string/</link>
       <pubDate>Fri, 11 Dec 2020 16:27:07 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/12/11/search-shape-string/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/12/11/search-shape-string/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -8867,10 +8867,10 @@ Visibleプロパティの特徴と考えるしかなさそう。&lt;/p&gt;
     
     <item>
       <title>[VBA] 関数の引数を変更した場合にコンパイルエラーが多発するのを防ぐテクニック</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/12/06/alter-args-compile-err/</link>
+      <link>https://dede-20191130.github.io/posts/2020/12/06/alter-args-compile-err/</link>
       <pubDate>Sun, 06 Dec 2020 16:59:25 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/12/06/alter-args-compile-err/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/12/06/alter-args-compile-err/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -9220,10 +9220,10 @@ Optional（省略可能）ではない扱いであるため、&lt;br&gt;
     
     <item>
       <title>[VBA] 例外処理の典型的なパターン＆使用例サンプル</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/12/05/vba-exception-handle/</link>
+      <link>https://dede-20191130.github.io/posts/2020/12/05/vba-exception-handle/</link>
       <pubDate>Sat, 05 Dec 2020 18:02:12 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/12/05/vba-exception-handle/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/12/05/vba-exception-handle/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -9786,10 +9786,10 @@ hoge.xlsxを起動してA1セルに書き込もうとすると、&lt;br&gt;
     
     <item>
       <title>[雑記] 「無印良品」を英語でどう説明する？？</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/12/05/mujirushi/</link>
+      <link>https://dede-20191130.github.io/posts/2020/12/05/mujirushi/</link>
       <pubDate>Sat, 05 Dec 2020 01:30:30 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/12/05/mujirushi/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/12/05/mujirushi/</guid>
       <description>
         
           &lt;h2 id=&#34;無印良品はノーブランドか&#34;&gt;無印良品はノーブランドか？&lt;/h2&gt;
@@ -9852,15 +9852,15 @@ hoge.xlsxを起動してA1セルに書き込もうとすると、&lt;br&gt;
     
     <item>
       <title>[VBA] クラスを利用するメリットと方法について &amp; 簡単なサンプル（２）</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/22/excel-class-sample-02/</link>
+      <link>https://dede-20191130.github.io/posts/2020/11/22/excel-class-sample-02/</link>
       <pubDate>Sun, 22 Nov 2020 14:07:24 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/22/excel-class-sample-02/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/11/22/excel-class-sample-02/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
 &lt;p&gt;この記事は、&lt;br&gt;
-&lt;a href=&#39;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2020/11/20/excel-class-sample-01/&#39;&gt;[VBA] クラスを利用するメリットと方法について &amp;amp; 簡単なサンプル（１）&lt;/a&gt;の続きの記事。&lt;br&gt;
+&lt;a href=&#39;https://dede-20191130.github.io/posts/2020/11/20/excel-class-sample-01/&#39;&gt;[VBA] クラスを利用するメリットと方法について &amp;amp; 簡単なサンプル（１）&lt;/a&gt;の続きの記事。&lt;br&gt;
 （１）とは違ったサンプルを用いて、前回とは違ったクラスの利用方法やそのメリットを記したい。&lt;/p&gt;
 &lt;p&gt;TableCreaterの例だと、カプセル化の恩恵や初期化処理・終了処理を必ず実行できることの恩恵が十分には表現できなかったように思えるため、&lt;br&gt;
 本記事のサンプル（clsCreateNewExcel）でそれらを表現しようと思う。&lt;/p&gt;
@@ -10352,10 +10352,10 @@ Excelアプリケーションの設定のリストアを行い、&lt;br&gt;
     
     <item>
       <title>[VBA] クラスを利用するメリットと方法について &amp; 簡単なサンプル（１）</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/20/excel-class-sample-01/</link>
+      <link>https://dede-20191130.github.io/posts/2020/11/20/excel-class-sample-01/</link>
       <pubDate>Fri, 20 Nov 2020 23:47:25 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/20/excel-class-sample-01/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/11/20/excel-class-sample-01/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -10882,7 +10882,7 @@ MSOffice 2016&lt;/p&gt;
 
 
 
-&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2020/11/22/excel-class-sample-02/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[VBA] クラスを利用するメリットと方法について &amp;amp; 簡単なサンプル（２）&lt;/a&gt;
+&lt;a href=&#34;https://dede-20191130.github.io/posts/2020/11/22/excel-class-sample-02/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[VBA] クラスを利用するメリットと方法について &amp;amp; 簡単なサンプル（２）&lt;/a&gt;
 &lt;/p&gt;
 
         
@@ -10891,10 +10891,10 @@ MSOffice 2016&lt;/p&gt;
     
     <item>
       <title>[Hugo] Hugoで生成されるデプロイ対象ファイルのコミットまでをスクリプトで一括処理にした</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/17/script-hugo-commit/</link>
+      <link>https://dede-20191130.github.io/posts/2020/11/17/script-hugo-commit/</link>
       <pubDate>Tue, 17 Nov 2020 10:00:34 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/17/script-hugo-commit/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/11/17/script-hugo-commit/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -10974,10 +10974,10 @@ Hugoのconfigファイルでdocsディレクトリにhtmlファイル等を出�
     
     <item>
       <title>[小ネタ] ExcelやAccessのフォームがWindows10の録画機能で録画できない。　そんなときは・・・</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/15/msoffice-form-capture/</link>
+      <link>https://dede-20191130.github.io/posts/2020/11/15/msoffice-form-capture/</link>
       <pubDate>Sun, 15 Nov 2020 02:41:13 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/15/msoffice-form-capture/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/11/15/msoffice-form-capture/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -11011,10 +11011,10 @@ PowerPointの録画機能でフォームを録画できたため、ここに記�
     
     <item>
       <title>[Access VBA] サブフォーム上のレコードを挿入、削除する簡単なサンプル</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/15/delete-record-button/</link>
+      <link>https://dede-20191130.github.io/posts/2020/11/15/delete-record-button/</link>
       <pubDate>Sun, 15 Nov 2020 00:54:01 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/15/delete-record-button/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/11/15/delete-record-button/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -11052,10 +11052,10 @@ MSOffice 2019&lt;/p&gt;
     
     <item>
       <title>Podcastで語られていた西洋世界・中国・日本の皇帝の特徴と違い</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/10/difference-between-emperor/</link>
+      <link>https://dede-20191130.github.io/posts/2020/11/10/difference-between-emperor/</link>
       <pubDate>Tue, 10 Nov 2020 22:41:51 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/10/difference-between-emperor/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/11/10/difference-between-emperor/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -11123,10 +11123,10 @@ MSOffice 2019&lt;/p&gt;
     
     <item>
       <title>[Access VBA] フォームのコントロールに対してWithEventsでイベントリスナークラスを作成する際に気をつけなければならないこと</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/08/access-control-withevents/</link>
+      <link>https://dede-20191130.github.io/posts/2020/11/08/access-control-withevents/</link>
       <pubDate>Sun, 08 Nov 2020 10:26:29 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/08/access-control-withevents/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/11/08/access-control-withevents/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -11518,10 +11518,10 @@ VBEが不要とみなして自動的に削除してしまう。&lt;/p&gt;
     
     <item>
       <title>[Excel VBA] 個人的に作業がはかどった自作Excelショートカット</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/05/own-excel-shortcut/</link>
+      <link>https://dede-20191130.github.io/posts/2020/11/05/own-excel-shortcut/</link>
       <pubDate>Thu, 05 Nov 2020 00:48:58 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/05/own-excel-shortcut/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/11/05/own-excel-shortcut/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -11685,10 +11685,10 @@ Ctrl + Shift + K、M、Nなどが良いかもしれない。&lt;/p&gt;
     
     <item>
       <title>Podcastを使っていろいろと勉強を始めたこと</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/03/learn-by-podcast/</link>
+      <link>https://dede-20191130.github.io/posts/2020/11/03/learn-by-podcast/</link>
       <pubDate>Tue, 03 Nov 2020 00:59:01 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/03/learn-by-podcast/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/11/03/learn-by-podcast/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -11766,10 +11766,10 @@ Ctrl + Shift + K、M、Nなどが良いかもしれない。&lt;/p&gt;
     
     <item>
       <title>[Excel VBA]ポリモーフィズムを用いて、IF文を使わずラジオボタンごとの処理分岐を行う</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/polymorphism-radiobutton/</link>
+      <link>https://dede-20191130.github.io/posts/2020/11/01/polymorphism-radiobutton/</link>
       <pubDate>Sun, 01 Nov 2020 16:44:24 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/polymorphism-radiobutton/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/11/01/polymorphism-radiobutton/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -12091,10 +12091,10 @@ IFステートメントの使用無しで処理分岐を実行できる。&lt;/p
     
     <item>
       <title>[Excel VBA]選択フォルダ配下のエクセルブックの全シートでA1にカーソル移動させるツールを作成した</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/excel-a1-tool/</link>
+      <link>https://dede-20191130.github.io/posts/2020/11/01/excel-a1-tool/</link>
       <pubDate>Sun, 01 Nov 2020 12:05:43 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/excel-a1-tool/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/11/01/excel-a1-tool/</guid>
       <description>
         
           &lt;h2 id=&#34;このツールについて&#34;&gt;このツールについて&lt;/h2&gt;
@@ -12134,10 +12134,10 @@ MSOffice 2016&lt;/p&gt;
     
     <item>
       <title>[Powershell] Windowsで更新日時が〇〇以降のファイルのパスの一覧を取得するには</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/10/30/ps-refinement-last/</link>
+      <link>https://dede-20191130.github.io/posts/2020/10/30/ps-refinement-last/</link>
       <pubDate>Fri, 30 Oct 2020 00:00:04 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/10/30/ps-refinement-last/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/10/30/ps-refinement-last/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -12167,10 +12167,10 @@ MSOffice 2016&lt;/p&gt;
     
     <item>
       <title>[Access VBA] デザインビューのテーブル定義を表形式でエクスポートするAccessツールを作成した</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/10/27/access-tabledef-tool/</link>
+      <link>https://dede-20191130.github.io/posts/2020/10/27/access-tabledef-tool/</link>
       <pubDate>Tue, 27 Oct 2020 20:29:45 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/10/27/access-tabledef-tool/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/10/27/access-tabledef-tool/</guid>
       <description>
         
           &lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
@@ -12216,10 +12216,10 @@ MSOffice 2016&lt;/p&gt;
     
     <item>
       <title>[Access VBA] デザインビューのテーブル定義を表形式でエクスポートする関数を作成した</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/10/25/access-tabledef/</link>
+      <link>https://dede-20191130.github.io/posts/2020/10/25/access-tabledef/</link>
       <pubDate>Sun, 25 Oct 2020 22:01:43 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/10/25/access-tabledef/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/10/25/access-tabledef/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -12246,7 +12246,7 @@ MSOffice 2016&lt;/p&gt;
 
 
 
-&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2020/10/27/access-tabledef-tool/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Access VBA] デザインビューのテーブル定義を表形式でエクスポートするAccessツールを作成した&lt;/a&gt;
+&lt;a href=&#34;https://dede-20191130.github.io/posts/2020/10/27/access-tabledef-tool/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Access VBA] デザインビューのテーブル定義を表形式でエクスポートするAccessツールを作成した&lt;/a&gt;
 &lt;/p&gt;
 &lt;h2 id=&#34;作成環境&#34;&gt;作成環境&lt;/h2&gt;
 &lt;p&gt;Microsoft Office 2019&lt;/p&gt;
@@ -12757,10 +12757,10 @@ exportTableDefTablesMainを実行する。&lt;/p&gt;
     
     <item>
       <title>[Access VBA] コントロールソースにユーザ定義関数を用いると列幅の自動調整が想定通りに機能しない問題の解決</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/10/13/access-controlsource/</link>
+      <link>https://dede-20191130.github.io/posts/2020/10/13/access-controlsource/</link>
       <pubDate>Tue, 13 Oct 2020 09:37:47 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/10/13/access-controlsource/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/10/13/access-controlsource/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -13025,10 +13025,10 @@ getSizeTypeで返す文字列が変更した場合、メンテナンスの必要
     
     <item>
       <title>【Excel】非マクロのメール作成ツールを作成した</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/07/18/create-nomarco-tool/</link>
+      <link>https://dede-20191130.github.io/posts/2020/07/18/create-nomarco-tool/</link>
       <pubDate>Sat, 18 Jul 2020 18:30:28 +0000</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/07/18/create-nomarco-tool/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/07/18/create-nomarco-tool/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -13055,10 +13055,10 @@ getSizeTypeで返す文字列が変更した場合、メンテナンスの必要
     
     <item>
       <title>[Excel VBA] 見積書作成ツールを作成した</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/07/16/create-estm/</link>
+      <link>https://dede-20191130.github.io/posts/2020/07/16/create-estm/</link>
       <pubDate>Thu, 16 Jul 2020 08:05:13 +0000</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/07/16/create-estm/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/07/16/create-estm/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -13107,7 +13107,7 @@ getSizeTypeで返す文字列が変更した場合、メンテナンスの必要
 
 
 
-&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2021/02/28/create-estm-accessver/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Access VBA] 見積書作成ツール（Accessバージョン）を作成した&lt;/a&gt;
+&lt;a href=&#34;https://dede-20191130.github.io/posts/2021/02/28/create-estm-accessver/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Access VBA] 見積書作成ツール（Accessバージョン）を作成した&lt;/a&gt;
 
 
     &lt;/div&gt;
@@ -13119,10 +13119,10 @@ getSizeTypeで返す文字列が変更した場合、メンテナンスの必要
     
     <item>
       <title>Excelのツール開発：関数（非マクロ）ツールとVBA使用ツールの比較</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/07/16/cmpr-tools/</link>
+      <link>https://dede-20191130.github.io/posts/2020/07/16/cmpr-tools/</link>
       <pubDate>Thu, 16 Jul 2020 06:14:50 +0000</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/07/16/cmpr-tools/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/07/16/cmpr-tools/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;

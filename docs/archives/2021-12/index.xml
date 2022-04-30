@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2021-12 on 学習者Dedeのブログ ~プログラミング等~</title>
-    <link>https://dede-20191130.github.io/learnerBlog/archives/2021-12/</link>
+    <link>https://dede-20191130.github.io/archives/2021-12/</link>
     <description>Recent content in 2021-12 on 学習者Dedeのブログ ~プログラミング等~</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 31 Dec 2021 10:32:02 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/archives/2021-12/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 31 Dec 2021 10:32:02 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/archives/2021-12/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[教えて！VBA] 第5回 ブックの最初のシートの最初のセルを選択した状態にするにはどうすればいいの？？</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/12/31/vba-question-005-select-first-worksheet/</link>
+      <link>https://dede-20191130.github.io/posts/2021/12/31/vba-question-005-select-first-worksheet/</link>
       <pubDate>Fri, 31 Dec 2021 10:32:02 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/12/31/vba-question-005-select-first-worksheet/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/12/31/vba-question-005-select-first-worksheet/</guid>
       <description>
         
           &lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640920597/learnerBlog/vba-question-005-select-first-worksheet/select-first-worksheet_zrvw3w.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
@@ -181,10 +181,10 @@ VBAにおけるコレクションという存在と使用方法、&lt;br&gt;
     
     <item>
       <title>[教えて！VBA] 第4回 シート上の図形をコピーして他のセル上に貼り付けするにはどうすればいいの？？</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/12/30/vba-question-004-copypaste-shapes/</link>
+      <link>https://dede-20191130.github.io/posts/2021/12/30/vba-question-004-copypaste-shapes/</link>
       <pubDate>Thu, 30 Dec 2021 13:16:26 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/12/30/vba-question-004-copypaste-shapes/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/12/30/vba-question-004-copypaste-shapes/</guid>
       <description>
         
           &lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640865307/learnerBlog/vba-question-004-copypaste-shapes/copypaste-shapes_zbaepe.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
@@ -460,10 +460,10 @@ VBA上では次のように図形を参照できます。&lt;/p&gt;
     
     <item>
       <title>[Excel VBA] セルの文字色・背景色だけをコピーして貼り付けるマクロを作成しました</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/12/29/paste-only-colors/</link>
+      <link>https://dede-20191130.github.io/posts/2021/12/29/paste-only-colors/</link>
       <pubDate>Wed, 29 Dec 2021 10:24:02 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/12/29/paste-only-colors/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/12/29/paste-only-colors/</guid>
       <description>
         
           &lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640748357/learnerBlog/paste-only-colors/paste-only-colors_osfx92.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
@@ -601,10 +601,10 @@ VBA上では次のように図形を参照できます。&lt;/p&gt;
     
     <item>
       <title>[教えて！VBA] 第3回 Accessマクロで、テーブルのデータを全クリアするにはどうすればいいの？？</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/12/25/vba-question-003-clear-data-in-table/</link>
+      <link>https://dede-20191130.github.io/posts/2021/12/25/vba-question-003-clear-data-in-table/</link>
       <pubDate>Sat, 25 Dec 2021 09:57:26 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/12/25/vba-question-003-clear-data-in-table/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/12/25/vba-question-003-clear-data-in-table/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -730,10 +730,10 @@ Access利用の幅が広がるでしょう。&lt;/p&gt;
     
     <item>
       <title>[教えて！VBA] 第2回 一つのセルの値が「東京都」であることを条件として別のアクションを行うにはどうすればいいの？？</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/12/14/vba-question-002-chekc-single-cell/</link>
+      <link>https://dede-20191130.github.io/posts/2021/12/14/vba-question-002-chekc-single-cell/</link>
       <pubDate>Tue, 14 Dec 2021 11:53:35 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/12/14/vba-question-002-chekc-single-cell/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/12/14/vba-question-002-chekc-single-cell/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -903,10 +903,10 @@ Microsoftの公式を見てみると面白いかもしれません。&lt;/p&gt;
     
     <item>
       <title>[教えて！VBA] 第1回 処理の途中で待機時間（Sleep）を設けるにはどうすればいいの？？</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/12/12/vba-question-001-waiting/</link>
+      <link>https://dede-20191130.github.io/posts/2021/12/12/vba-question-001-waiting/</link>
       <pubDate>Sun, 12 Dec 2021 10:41:37 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/12/12/vba-question-001-waiting/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/12/12/vba-question-001-waiting/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;

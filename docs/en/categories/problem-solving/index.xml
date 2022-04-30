@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>problem-solving on The learner Dede&#39;s Blog</title>
-    <link>https://dede-20191130.github.io/learnerBlog/en/categories/problem-solving/</link>
+    <link>https://dede-20191130.github.io/en/categories/problem-solving/</link>
     <description>Recent content in problem-solving on The learner Dede&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 30 Oct 2020 00:00:04 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/en/categories/problem-solving/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 30 Oct 2020 00:00:04 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/en/categories/problem-solving/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>POWERSHELL: THE WAY TO GET THE PATH LIST OF THE FILES WHICH HAVE BEEN UPDATED SINCE [SPECIFIED TIME].</title>
-      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/10/30/ps-refinement-last/</link>
+      <link>https://dede-20191130.github.io/en/posts/2020/10/30/ps-refinement-last/</link>
       <pubDate>Fri, 30 Oct 2020 00:00:04 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/10/30/ps-refinement-last/</guid>
+      <guid>https://dede-20191130.github.io/en/posts/2020/10/30/ps-refinement-last/</guid>
       <description>
         
           
@@ -62,10 +62,10 @@ So I wanted the Powershell command which narrow down the files which had been up
     
     <item>
       <title>ACCESS VBA: I CREATED A FUNCTION EXPORTING TABLE DEFINITIONS DISPLAYED AT DESIGN VIEW IN A TABULAR FORMAT.</title>
-      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/10/25/access-tabledef/</link>
+      <link>https://dede-20191130.github.io/en/posts/2020/10/25/access-tabledef/</link>
       <pubDate>Sun, 25 Oct 2020 22:01:43 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/10/25/access-tabledef/</guid>
+      <guid>https://dede-20191130.github.io/en/posts/2020/10/25/access-tabledef/</guid>
       <description>
         
           
@@ -98,7 +98,7 @@ so it&#39;s difficult to grasp the table setting like in the design view.&lt;/p&
 
 
 
-&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/en/posts/2020/10/27/access-tabledef-tool/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ACCESS VBA: I CREATED A TOOL EXPORTING TABLE DEFINITIONS DISPLAYED AT DESIGN VIEW IN A TABULAR FORMAT.&lt;/a&gt;
+&lt;a href=&#34;https://dede-20191130.github.io/en/posts/2020/10/27/access-tabledef-tool/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ACCESS VBA: I CREATED A TOOL EXPORTING TABLE DEFINITIONS DISPLAYED AT DESIGN VIEW IN A TABULAR FORMAT.&lt;/a&gt;
 &lt;/p&gt;
 &lt;h2 id=&#34;creation-environment&#34;&gt;CREATION ENVIRONMENT&lt;/h2&gt;
 &lt;p&gt;Microsoft Office 2019&lt;/p&gt;

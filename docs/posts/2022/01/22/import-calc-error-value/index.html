@@ -22,16 +22,16 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="@D20191130">
 <meta name="twitter:title" content="[Access VBA] 数式エラーの発生しているExcelシートをテーブルに取り込むときの注意点とサンプルコード" />
-<meta property="og:url" content="https://dede-20191130.github.io/learnerBlog/posts/2022/01/22/import-calc-error-value/" />
+<meta property="og:url" content="https://dede-20191130.github.io/posts/2022/01/22/import-calc-error-value/" />
 <meta property="og:title" content="[Access VBA] 数式エラーの発生しているExcelシートをテーブルに取り込むときの注意点とサンプルコード" />
 <meta property="og:description" content="この記事について かんたんな概要と結論 数式エラーが発生しているセルに対しては、 エラーをキャッチし、代わりの値を設定するなどの対処が必要です。 こ" />
-<meta property="og:image" content="https://dede-20191130.github.io/learnerBlog/images/thumbnail.png" />
+<meta property="og:image" content="https://dede-20191130.github.io/images/thumbnail.png" />
 
-<link rel="apple-touch-icon" sizes="180x180" href="https://dede-20191130.github.io/learnerBlog/icons/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://dede-20191130.github.io/learnerBlog/icons/favicon-32x32.png">
-<link rel="manifest" href="https://dede-20191130.github.io/learnerBlog/icons/site.webmanifest">
+<link rel="apple-touch-icon" sizes="180x180" href="https://dede-20191130.github.io/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://dede-20191130.github.io/icons/favicon-32x32.png">
+<link rel="manifest" href="https://dede-20191130.github.io/icons/site.webmanifest">
 
-<link rel="canonical" href="https://dede-20191130.github.io/learnerBlog/posts/2022/01/22/import-calc-error-value/">
+<link rel="canonical" href="https://dede-20191130.github.io/posts/2022/01/22/import-calc-error-value/">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7973433462255104"
      crossorigin="anonymous"></script>
 
@@ -39,12 +39,12 @@
 
     
     
-    <link rel="preload" href="https://dede-20191130.github.io/learnerBlog/css/styles.2bee37a927b0e94abc64956bacfdbb7e4ebe4a162b6326d723e39a0bf58b0d3b6d44dcd382d691c574a17cdf85ebe0cb51b68bf263af7c6c2a15772707d0400f.css" integrity = "sha512-K&#43;43qSew6Uq8ZJVrrP27fk6&#43;ShYrYybXI&#43;OaC/WLDTttRNzTgtaRxXShfN&#43;F6&#43;DLUbaL8mOvfGwqFXcnB9BADw==" as="style" crossorigin="anonymous">
-    <link rel="preload" href="https://dede-20191130.github.io/learnerBlog/js/bundle.min.b62660a3a4af8329304008285d59e1fc1db881782806c5a08ac786091f3f4ae6f5624adece7e7b5aae7daeb800eea292ff4b410134b444a2c4e317b9417d1168.js" as="script" integrity=
-    "sha512-tiZgo6SvgykwQAgoXVnh/B24gXgoBsWgiseGCR8/Sub1Ykrezn57Wq59rrgA7qKS/0tBATS0RKLE4xe5QX0RaA==" crossorigin="anonymous">
+    <link rel="preload" href="https://dede-20191130.github.io/css/styles.2bee37a927b0e94abc64956bacfdbb7e4ebe4a162b6326d723e39a0bf58b0d3b6d44dcd382d691c574a17cdf85ebe0cb51b68bf263af7c6c2a15772707d0400f.css" integrity = "sha512-K&#43;43qSew6Uq8ZJVrrP27fk6&#43;ShYrYybXI&#43;OaC/WLDTttRNzTgtaRxXShfN&#43;F6&#43;DLUbaL8mOvfGwqFXcnB9BADw==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://dede-20191130.github.io/js/bundle.min.a68200d4645d649abd587ce73b21ae189f946f6460e4df4b4e6fa355897b2c61a72b3376940a44339756002d7aae7dc3234e9c554fb53dc2a40db6a852c44d6e.js" as="script" integrity=
+    "sha512-poIA1GRdZJq9WHznOyGuGJ&#43;Ub2Rg5N9LTm&#43;jVYl7LGGnKzN2lApEM5dWAC16rn3DI06cVU&#43;1PcKkDbaoUsRNbg==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://dede-20191130.github.io/learnerBlog/css/styles.2bee37a927b0e94abc64956bacfdbb7e4ebe4a162b6326d723e39a0bf58b0d3b6d44dcd382d691c574a17cdf85ebe0cb51b68bf263af7c6c2a15772707d0400f.css" integrity="sha512-K&#43;43qSew6Uq8ZJVrrP27fk6&#43;ShYrYybXI&#43;OaC/WLDTttRNzTgtaRxXShfN&#43;F6&#43;DLUbaL8mOvfGwqFXcnB9BADw==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://dede-20191130.github.io/css/styles.2bee37a927b0e94abc64956bacfdbb7e4ebe4a162b6326d723e39a0bf58b0d3b6d44dcd382d691c574a17cdf85ebe0cb51b68bf263af7c6c2a15772707d0400f.css" integrity="sha512-K&#43;43qSew6Uq8ZJVrrP27fk6&#43;ShYrYybXI&#43;OaC/WLDTttRNzTgtaRxXShfN&#43;F6&#43;DLUbaL8mOvfGwqFXcnB9BADw==" crossorigin="anonymous">
     
   </head>
   
@@ -55,7 +55,7 @@
   <body data-code="200" data-lines="true" id="documentTop">
 
 <header class="nav_header" >
-  <nav class="nav"><a href='https://dede-20191130.github.io/learnerBlog/' class="nav_brand nav_item" title="学習者Dedeのブログ ~プログラミング等~">学習者Dedeのブログ ~プログラミング等~
+  <nav class="nav"><a href='https://dede-20191130.github.io' class="nav_brand nav_item" title="学習者Dedeのブログ ~プログラミング等~">学習者Dedeのブログ ~プログラミング等~
   <div class="nav_close">
     <div><svg class="icon">
   <use xlink:href="#open-menu"></use>
@@ -72,21 +72,21 @@
         
 
   <div class="nav_parent">
-    <a href="https://dede-20191130.github.io/learnerBlog/" class="nav_item" title="VBA">VBA <img src='https://dede-20191130.github.io/learnerBlog/icons/caret-icon.svg' alt="icon" class="nav_icon"></a>
+    <a href="https://dede-20191130.github.io" class="nav_item" title="VBA">VBA <img src='https://dede-20191130.github.io/icons/caret-icon.svg' alt="icon" class="nav_icon"></a>
     <div class="nav_sub">
       <span class="nav_child"></span>
-        <a href="https://dede-20191130.github.io/learnerBlog/introductions/vba/vba-questions" class="nav_child nav_item" title="教えて！VBA シリーズ">教えて！VBA シリーズ</a>
-        <a href="https://dede-20191130.github.io/learnerBlog/introductions/vba/others" class="nav_child nav_item" title="過去作成ツールなど">過去作成ツールなど</a>
+        <a href="https://dede-20191130.github.io/introductions/vba/vba-questions" class="nav_child nav_item" title="教えて！VBA シリーズ">教えて！VBA シリーズ</a>
+        <a href="https://dede-20191130.github.io/introductions/vba/others" class="nav_child nav_item" title="過去作成ツールなど">過去作成ツールなど</a>
     </div>
   </div>
   <div class="nav_parent">
-    <a href="https://dede-20191130.github.io/learnerBlog/introductions/history" class="nav_item" title="歴史">歴史 </a>
+    <a href="https://dede-20191130.github.io/introductions/history" class="nav_item" title="歴史">歴史 </a>
   </div>
   <div class="nav_parent">
-    <a href="https://dede-20191130.github.io/learnerBlog/my-archives/" class="nav_item" title="アーカイブ">アーカイブ </a>
+    <a href="https://dede-20191130.github.io/my-archives/" class="nav_item" title="アーカイブ">アーカイブ </a>
   </div>
   <div class="nav_parent">
-    <a href="https://dede-20191130.github.io/learnerBlog/about/" class="nav_item" title="About">About </a>
+    <a href="https://dede-20191130.github.io/about/" class="nav_item" title="About">About </a>
   </div>
       
       <div class="nav_parent">
@@ -94,9 +94,9 @@
         <div class="nav_sub">
           <span class="nav_child"></span>
           
-          <a href="https://dede-20191130.github.io/learnerBlog/" class="nav_child nav_item">Japanese</a>
+          <a href="https://dede-20191130.github.io/" class="nav_child nav_item">Japanese</a>
           
-          <a href="https://dede-20191130.github.io/learnerBlog/en/" class="nav_child nav_item">English</a>
+          <a href="https://dede-20191130.github.io/en/" class="nav_child nav_item">English</a>
           
         </div>
       </div>
@@ -117,7 +117,7 @@
 </svg>
   </a>
     
-  <a href="https://dede-20191130.github.io/learnerBlog/index.xml">
+  <a href="https://dede-20191130.github.io/index.xml">
     <svg class="icon">
   <use xlink:href="#rss"></use>
 </svg>
@@ -143,19 +143,19 @@
 </svg></span>
     <span class="post_date">
       Jan 22, 2022</span>
-    <span class="post_time"> · この記事は約11分で読めます</span><span>&nbsp;· <a href='https://dede-20191130.github.io/learnerBlog/tags/vba' title="VBA" class="post_tag button button_translucent">VBA
-        </a><a href='https://dede-20191130.github.io/learnerBlog/tags/access' title="Access" class="post_tag button button_translucent">Access
+    <span class="post_time"> · この記事は約11分で読めます</span><span>&nbsp;· <a href='https://dede-20191130.github.io/tags/vba' title="VBA" class="post_tag button button_translucent">VBA
+        </a><a href='https://dede-20191130.github.io/tags/access' title="Access" class="post_tag button button_translucent">Access
         </a>
     </span>
     <span class="page_only">&nbsp;·
   <div class="post_share">
     Share on:
-    <a href="https://twitter.com/intent/tweet?text=%5bAccess%20VBA%5d%20%e6%95%b0%e5%bc%8f%e3%82%a8%e3%83%a9%e3%83%bc%e3%81%ae%e7%99%ba%e7%94%9f%e3%81%97%e3%81%a6%e3%81%84%e3%82%8bExcel%e3%82%b7%e3%83%bc%e3%83%88%e3%82%92%e3%83%86%e3%83%bc%e3%83%96%e3%83%ab%e3%81%ab%e5%8f%96%e3%82%8a%e8%be%bc%e3%82%80%e3%81%a8%e3%81%8d%e3%81%ae%e6%b3%a8%e6%84%8f%e7%82%b9%e3%81%a8%e3%82%b5%e3%83%b3%e3%83%97%e3%83%ab%e3%82%b3%e3%83%bc%e3%83%89&url=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2022%2f01%2f22%2fimport-calc-error-value%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
+    <a href="https://twitter.com/intent/tweet?text=%5bAccess%20VBA%5d%20%e6%95%b0%e5%bc%8f%e3%82%a8%e3%83%a9%e3%83%bc%e3%81%ae%e7%99%ba%e7%94%9f%e3%81%97%e3%81%a6%e3%81%84%e3%82%8bExcel%e3%82%b7%e3%83%bc%e3%83%88%e3%82%92%e3%83%86%e3%83%bc%e3%83%96%e3%83%ab%e3%81%ab%e5%8f%96%e3%82%8a%e8%be%bc%e3%82%80%e3%81%a8%e3%81%8d%e3%81%ae%e6%b3%a8%e6%84%8f%e7%82%b9%e3%81%a8%e3%82%b5%e3%83%b3%e3%83%97%e3%83%ab%e3%82%b3%e3%83%bc%e3%83%89&url=https%3a%2f%2fdede-20191130.github.io%2fposts%2f2022%2f01%2f22%2fimport-calc-error-value%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
       <svg class="icon">
   <use xlink:href="#twitter"></use>
 </svg>
     </a>
-    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2flearnerBlog%2fposts%2f2022%2f01%2f22%2fimport-calc-error-value%2f&t=%5bAccess%20VBA%5d%20%e6%95%b0%e5%bc%8f%e3%82%a8%e3%83%a9%e3%83%bc%e3%81%ae%e7%99%ba%e7%94%9f%e3%81%97%e3%81%a6%e3%81%84%e3%82%8bExcel%e3%82%b7%e3%83%bc%e3%83%88%e3%82%92%e3%83%86%e3%83%bc%e3%83%96%e3%83%ab%e3%81%ab%e5%8f%96%e3%82%8a%e8%be%bc%e3%82%80%e3%81%a8%e3%81%8d%e3%81%ae%e6%b3%a8%e6%84%8f%e7%82%b9%e3%81%a8%e3%82%b5%e3%83%b3%e3%83%97%e3%83%ab%e3%82%b3%e3%83%bc%e3%83%89" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
+    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdede-20191130.github.io%2fposts%2f2022%2f01%2f22%2fimport-calc-error-value%2f&t=%5bAccess%20VBA%5d%20%e6%95%b0%e5%bc%8f%e3%82%a8%e3%83%a9%e3%83%bc%e3%81%ae%e7%99%ba%e7%94%9f%e3%81%97%e3%81%a6%e3%81%84%e3%82%8bExcel%e3%82%b7%e3%83%bc%e3%83%88%e3%82%92%e3%83%86%e3%83%bc%e3%83%96%e3%83%ab%e3%81%ab%e5%8f%96%e3%82%8a%e8%be%bc%e3%82%80%e3%81%a8%e3%81%8d%e3%81%ae%e6%b3%a8%e6%84%8f%e7%82%b9%e3%81%a8%e3%82%b5%e3%83%b3%e3%83%97%e3%83%ab%e3%82%b3%e3%83%bc%e3%83%89" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
       <svg class="icon">
   <use xlink:href="#facebook"></use>
 </svg>
@@ -165,7 +165,7 @@
   <use xlink:href="#linkedin"></use>
 </svg>
     </a>
-    <a href="https://dede-20191130.github.io/learnerBlog/posts/2022/01/22/import-calc-error-value/" title="Copy Link" class="link link_yank">
+    <a href="https://dede-20191130.github.io/posts/2022/01/22/import-calc-error-value/" title="Copy Link" class="link link_yank">
       <svg class="icon">
   <use xlink:href="#copy"></use>
 </svg>
@@ -677,15 +677,15 @@ VBAマクロを扱う限り避けては通れない問題となるでしょう�
      <h3>関連記事</h3>
      <ul>
          
-         <li><a href="/learnerBlog/posts/2021/12/25/vba-question-003-clear-data-in-table/">[教えて！VBA] 第3回 Accessマクロで、テーブルのデータを全クリアするにはどうすればいいの？？</a></li>
+         <li><a href="/posts/2021/12/25/vba-question-003-clear-data-in-table/">[教えて！VBA] 第3回 Accessマクロで、テーブルのデータを全クリアするにはどうすればいいの？？</a></li>
          
-         <li><a href="/learnerBlog/posts/2021/09/04/access-change-control-test/">[Access VBA] フォームのコントロール操作系の関数をどのようにユニットテストするかの方法メモ</a></li>
+         <li><a href="/posts/2021/09/04/access-change-control-test/">[Access VBA] フォームのコントロール操作系の関数をどのようにユニットテストするかの方法メモ</a></li>
          
-         <li><a href="/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/">[Access VBA] RequeryとRefreshの使い分けデモ　「単票フォームの編集」編</a></li>
+         <li><a href="/posts/2021/08/18/cut-sheet-requery-refresh/">[Access VBA] RequeryとRefreshの使い分けデモ　「単票フォームの編集」編</a></li>
          
-         <li><a href="/learnerBlog/posts/2021/02/28/create-estm-accessver/">[Access VBA] 見積書作成ツール（Accessバージョン）を作成した</a></li>
+         <li><a href="/posts/2021/02/28/create-estm-accessver/">[Access VBA] 見積書作成ツール（Accessバージョン）を作成した</a></li>
          
-         <li><a href="/learnerBlog/posts/2020/12/19/grep-from-module-sql/">[VBA, PowerShell] Accessのモジュール・クラスやクエリのSQLから特定文字列を抽出するためのテクニック</a></li>
+         <li><a href="/posts/2020/12/19/grep-from-module-sql/">[VBA, PowerShell] Accessのモジュール・クラスやクエリのSQLから特定文字列を抽出するためのテクニック</a></li>
          
      </ul>
      <div id="disqus_thread"></div>
@@ -716,44 +716,44 @@ VBAマクロを扱う限り避けては通れない問題となるでしょう�
       <div class="author_bio">
         VBAから入り、プログラミング、コンピュータ科学等を勉強中。
       </div>
-      <a href='https://dede-20191130.github.io/learnerBlog/about/' class="button mt-1" role="button" title='Read More'>Read More</a>
+      <a href='https://dede-20191130.github.io/about/' class="button mt-1" role="button" title='Read More'>Read More</a>
     <h2 class="mt-4">おすすめの投稿</h2>
     <ul>
       <li>
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2021/02/13/copyto-merged-cell/" class="nav-link" title="[Excel VBA] 結合セルにコピーペーストするマクロ">[Excel VBA] 結合セルにコピーペーストするマクロ</a>
+        <a href="https://dede-20191130.github.io/posts/2021/02/13/copyto-merged-cell/" class="nav-link" title="[Excel VBA] 結合セルにコピーペーストするマクロ">[Excel VBA] 結合セルにコピーペーストするマクロ</a>
       </li>
       <li>
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/12/05/vba-exception-handle/" class="nav-link" title="[VBA] 例外処理の典型的なパターン＆使用例サンプル">[VBA] 例外処理の典型的なパターン＆使用例サンプル</a>
+        <a href="https://dede-20191130.github.io/posts/2020/12/05/vba-exception-handle/" class="nav-link" title="[VBA] 例外処理の典型的なパターン＆使用例サンプル">[VBA] 例外処理の典型的なパターン＆使用例サンプル</a>
       </li>
       <li>
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/20/excel-class-sample-01/" class="nav-link" title="[VBA] クラスを利用するメリットと方法について &amp; 簡単なサンプル（１）">[VBA] クラスを利用するメリットと方法について &amp; 簡単なサンプル（１）</a>
+        <a href="https://dede-20191130.github.io/posts/2020/11/20/excel-class-sample-01/" class="nav-link" title="[VBA] クラスを利用するメリットと方法について &amp; 簡単なサンプル（１）">[VBA] クラスを利用するメリットと方法について &amp; 簡単なサンプル（１）</a>
       </li>
     </ul>
     <h2 class="mt-4">最近の投稿</h2>
     <ul class="flex-column">
       <li>
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2022/01/23/room-apparatus-control-console/" class="nav-link" title="[ReactJs] 居室内機器管理コンソール画面を作成してみました。">[ReactJs] 居室内機器管理コンソール画面を作成してみました。</a>
+        <a href="https://dede-20191130.github.io/posts/2022/01/23/room-apparatus-control-console/" class="nav-link" title="[ReactJs] 居室内機器管理コンソール画面を作成してみました。">[ReactJs] 居室内機器管理コンソール画面を作成してみました。</a>
       </li>
       <li>
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2022/01/15/vba-question-012-aggregate-wss-content/" class="nav-link" title="[教えて！VBA] 第12回 各ワークシートのデータを集約して出力するにはどうすればいいの？？">[教えて！VBA] 第12回 各ワークシートのデータを集約して出力するにはどうすればいいの？？</a>
+        <a href="https://dede-20191130.github.io/posts/2022/01/15/vba-question-012-aggregate-wss-content/" class="nav-link" title="[教えて！VBA] 第12回 各ワークシートのデータを集約して出力するにはどうすればいいの？？">[教えて！VBA] 第12回 各ワークシートのデータを集約して出力するにはどうすればいいの？？</a>
       </li>
       <li>
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2022/01/12/vba-question-011-save-named-file/" class="nav-link" title="[教えて！VBA] 第11回 マクロからファイルを新しく名付けて保存する際の注意点とは？？">[教えて！VBA] 第11回 マクロからファイルを新しく名付けて保存する際の注意点とは？？</a>
+        <a href="https://dede-20191130.github.io/posts/2022/01/12/vba-question-011-save-named-file/" class="nav-link" title="[教えて！VBA] 第11回 マクロからファイルを新しく名付けて保存する際の注意点とは？？">[教えて！VBA] 第11回 マクロからファイルを新しく名付けて保存する際の注意点とは？？</a>
       </li>
       <li>
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2022/01/11/vba-question-010-prohibit-sheet-change/" class="nav-link" title="[教えて！VBA] 第10回 Excelのシートの移動・削除を禁止する方法 ＆ マクロ実行時だけ許可するにはどうすればいいの？？">[教えて！VBA] 第10回 Excelのシートの移動・削除を禁止する方法 ＆ マクロ実行時だけ許可するにはどうすればいいの？？</a>
+        <a href="https://dede-20191130.github.io/posts/2022/01/11/vba-question-010-prohibit-sheet-change/" class="nav-link" title="[教えて！VBA] 第10回 Excelのシートの移動・削除を禁止する方法 ＆ マクロ実行時だけ許可するにはどうすればいいの？？">[教えて！VBA] 第10回 Excelのシートの移動・削除を禁止する方法 ＆ マクロ実行時だけ許可するにはどうすればいいの？？</a>
       </li>
       <li>
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2022/01/10/vba-question-009-create-own-message-frm/" class="nav-link" title="[教えて！VBA] 第9回 フォントやボタンをカスタマイズできるメッセージボックスを作成するにはどうすればいいの？？">[教えて！VBA] 第9回 フォントやボタンをカスタマイズできるメッセージボックスを作成するにはどうすればいいの？？</a>
+        <a href="https://dede-20191130.github.io/posts/2022/01/10/vba-question-009-create-own-message-frm/" class="nav-link" title="[教えて！VBA] 第9回 フォントやボタンをカスタマイズできるメッセージボックスを作成するにはどうすればいいの？？">[教えて！VBA] 第9回 フォントやボタンをカスタマイズできるメッセージボックスを作成するにはどうすればいいの？？</a>
       </li>
       <li>
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2022/01/06/vba-question-008-keep-value-before-change/" class="nav-link" title="[教えて！VBA] 第8回 変更前のセルの値を保持/利用するにはどうすればいいの？？">[教えて！VBA] 第8回 変更前のセルの値を保持/利用するにはどうすればいいの？？</a>
+        <a href="https://dede-20191130.github.io/posts/2022/01/06/vba-question-008-keep-value-before-change/" class="nav-link" title="[教えて！VBA] 第8回 変更前のセルの値を保持/利用するにはどうすればいいの？？">[教えて！VBA] 第8回 変更前のセルの値を保持/利用するにはどうすればいいの？？</a>
       </li>
       <li>
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2022/01/02/vba-question-007-manipulate-folder-files/" class="nav-link" title="[教えて！VBA] 第7回 フォルダを開く（＋ファイルを操作する）にはどうすればいいの？？">[教えて！VBA] 第7回 フォルダを開く（＋ファイルを操作する）にはどうすればいいの？？</a>
+        <a href="https://dede-20191130.github.io/posts/2022/01/02/vba-question-007-manipulate-folder-files/" class="nav-link" title="[教えて！VBA] 第7回 フォルダを開く（＋ファイルを操作する）にはどうすればいいの？？">[教えて！VBA] 第7回 フォルダを開く（＋ファイルを操作する）にはどうすればいいの？？</a>
       </li>
       <li>
-        <a href="https://dede-20191130.github.io/learnerBlog/posts/2022/01/01/vba-question-006-kinds-of-end-process/" class="nav-link" title="[教えて！VBA] 第6回 エクセルVBAマクロで、マクロを終了するにはどうすればいいの？？">[教えて！VBA] 第6回 エクセルVBAマクロで、マクロを終了するにはどうすればいいの？？</a>
+        <a href="https://dede-20191130.github.io/posts/2022/01/01/vba-question-006-kinds-of-end-process/" class="nav-link" title="[教えて！VBA] 第6回 エクセルVBAマクロで、マクロを終了するにはどうすればいいの？？">[教えて！VBA] 第6回 エクセルVBAマクロで、マクロを終了するにはどうすればいいの？？</a>
       </li>
     </ul>
     <div>
@@ -763,87 +763,87 @@ VBAマクロを扱う限り避けては通れない問題となるでしょう�
         
           
           
-        <a href='https://dede-20191130.github.io/learnerBlog/archives/2022-01/' class="post_tag button button_translucent">
+        <a href='https://dede-20191130.github.io/archives/2022-01/' class="post_tag button button_translucent">
           2022-01
           <span class="button_tally">9</span>
         </a>
         
-        <a href='https://dede-20191130.github.io/learnerBlog/archives/2022/' class="post_tag button button_translucent">
+        <a href='https://dede-20191130.github.io/archives/2022/' class="post_tag button button_translucent">
           2022
           <span class="button_tally">9</span>
         </a>
         
-        <a href='https://dede-20191130.github.io/learnerBlog/archives/2021-12/' class="post_tag button button_translucent">
+        <a href='https://dede-20191130.github.io/archives/2021-12/' class="post_tag button button_translucent">
           2021-12
           <span class="button_tally">6</span>
         </a>
         
-        <a href='https://dede-20191130.github.io/learnerBlog/archives/2021-11/' class="post_tag button button_translucent">
+        <a href='https://dede-20191130.github.io/archives/2021-11/' class="post_tag button button_translucent">
           2021-11
           <span class="button_tally">2</span>
         </a>
         
-        <a href='https://dede-20191130.github.io/learnerBlog/archives/2021-10/' class="post_tag button button_translucent">
+        <a href='https://dede-20191130.github.io/archives/2021-10/' class="post_tag button button_translucent">
           2021-10
           <span class="button_tally">5</span>
         </a>
         
-        <a href='https://dede-20191130.github.io/learnerBlog/archives/2021-09/' class="post_tag button button_translucent">
+        <a href='https://dede-20191130.github.io/archives/2021-09/' class="post_tag button button_translucent">
           2021-09
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://dede-20191130.github.io/learnerBlog/archives/2021-08/' class="post_tag button button_translucent">
+        <a href='https://dede-20191130.github.io/archives/2021-08/' class="post_tag button button_translucent">
           2021-08
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://dede-20191130.github.io/learnerBlog/archives/2021-07/' class="post_tag button button_translucent">
+        <a href='https://dede-20191130.github.io/archives/2021-07/' class="post_tag button button_translucent">
           2021-07
           <span class="button_tally">2</span>
         </a>
         
-        <a href='https://dede-20191130.github.io/learnerBlog/archives/2021-03/' class="post_tag button button_translucent">
+        <a href='https://dede-20191130.github.io/archives/2021-03/' class="post_tag button button_translucent">
           2021-03
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://dede-20191130.github.io/learnerBlog/archives/2021-02/' class="post_tag button button_translucent">
+        <a href='https://dede-20191130.github.io/archives/2021-02/' class="post_tag button button_translucent">
           2021-02
           <span class="button_tally">4</span>
         </a>
         
-        <a href='https://dede-20191130.github.io/learnerBlog/archives/2021-01/' class="post_tag button button_translucent">
+        <a href='https://dede-20191130.github.io/archives/2021-01/' class="post_tag button button_translucent">
           2021-01
           <span class="button_tally">2</span>
         </a>
         
-        <a href='https://dede-20191130.github.io/learnerBlog/archives/2021/' class="post_tag button button_translucent">
+        <a href='https://dede-20191130.github.io/archives/2021/' class="post_tag button button_translucent">
           2021
           <span class="button_tally">24</span>
         </a>
         
-        <a href='https://dede-20191130.github.io/learnerBlog/archives/2020-12/' class="post_tag button button_translucent">
+        <a href='https://dede-20191130.github.io/archives/2020-12/' class="post_tag button button_translucent">
           2020-12
           <span class="button_tally">6</span>
         </a>
         
-        <a href='https://dede-20191130.github.io/learnerBlog/archives/2020-11/' class="post_tag button button_translucent">
+        <a href='https://dede-20191130.github.io/archives/2020-11/' class="post_tag button button_translucent">
           2020-11
           <span class="button_tally">11</span>
         </a>
         
-        <a href='https://dede-20191130.github.io/learnerBlog/archives/2020-10/' class="post_tag button button_translucent">
+        <a href='https://dede-20191130.github.io/archives/2020-10/' class="post_tag button button_translucent">
           2020-10
           <span class="button_tally">4</span>
         </a>
         
-        <a href='https://dede-20191130.github.io/learnerBlog/archives/2020-07/' class="post_tag button button_translucent">
+        <a href='https://dede-20191130.github.io/archives/2020-07/' class="post_tag button button_translucent">
           2020-07
           <span class="button_tally">3</span>
         </a>
         
-        <a href='https://dede-20191130.github.io/learnerBlog/archives/2020/' class="post_tag button button_translucent">
+        <a href='https://dede-20191130.github.io/archives/2020/' class="post_tag button button_translucent">
           2020
           <span class="button_tally">24</span>
         </a>
@@ -854,71 +854,71 @@ VBAマクロを扱う限り避けては通れない問題となるでしょう�
         <div class="post_tags">
           <div class="tags_list">
             
-            <a href='https://dede-20191130.github.io/learnerBlog/archives/2020/' class=" post_tag button button_translucent" data-position=24 title="2020">2020<span class="button_tally">24</span>
+            <a href='https://dede-20191130.github.io/archives/2020/' class=" post_tag button button_translucent" data-position=24 title="2020">2020<span class="button_tally">24</span>
             </a>
             
             
-            <a href='https://dede-20191130.github.io/learnerBlog/archives/2020-07/' class=" post_tag button button_translucent" data-position=3 title="2020-07">2020-07<span class="button_tally">3</span>
+            <a href='https://dede-20191130.github.io/archives/2020-07/' class=" post_tag button button_translucent" data-position=3 title="2020-07">2020-07<span class="button_tally">3</span>
             </a>
             
             
-            <a href='https://dede-20191130.github.io/learnerBlog/archives/2020-10/' class=" post_tag button button_translucent" data-position=4 title="2020-10">2020-10<span class="button_tally">4</span>
+            <a href='https://dede-20191130.github.io/archives/2020-10/' class=" post_tag button button_translucent" data-position=4 title="2020-10">2020-10<span class="button_tally">4</span>
             </a>
             
             
-            <a href='https://dede-20191130.github.io/learnerBlog/archives/2020-11/' class=" post_tag button button_translucent" data-position=11 title="2020-11">2020-11<span class="button_tally">11</span>
+            <a href='https://dede-20191130.github.io/archives/2020-11/' class=" post_tag button button_translucent" data-position=11 title="2020-11">2020-11<span class="button_tally">11</span>
             </a>
             
             
-            <a href='https://dede-20191130.github.io/learnerBlog/archives/2020-12/' class=" post_tag button button_translucent" data-position=6 title="2020-12">2020-12<span class="button_tally">6</span>
+            <a href='https://dede-20191130.github.io/archives/2020-12/' class=" post_tag button button_translucent" data-position=6 title="2020-12">2020-12<span class="button_tally">6</span>
             </a>
             
             
-            <a href='https://dede-20191130.github.io/learnerBlog/archives/2021/' class=" post_tag button button_translucent" data-position=24 title="2021">2021<span class="button_tally">24</span>
+            <a href='https://dede-20191130.github.io/archives/2021/' class=" post_tag button button_translucent" data-position=24 title="2021">2021<span class="button_tally">24</span>
             </a>
             
             
-            <a href='https://dede-20191130.github.io/learnerBlog/archives/2021-01/' class=" post_tag button button_translucent" data-position=2 title="2021-01">2021-01<span class="button_tally">2</span>
+            <a href='https://dede-20191130.github.io/archives/2021-01/' class=" post_tag button button_translucent" data-position=2 title="2021-01">2021-01<span class="button_tally">2</span>
             </a>
             
             
-            <a href='https://dede-20191130.github.io/learnerBlog/archives/2021-02/' class=" post_tag button button_translucent" data-position=4 title="2021-02">2021-02<span class="button_tally">4</span>
+            <a href='https://dede-20191130.github.io/archives/2021-02/' class=" post_tag button button_translucent" data-position=4 title="2021-02">2021-02<span class="button_tally">4</span>
             </a>
             
             
-            <a href='https://dede-20191130.github.io/learnerBlog/archives/2021-03/' class=" post_tag button button_translucent" data-position=1 title="2021-03">2021-03<span class="button_tally">1</span>
+            <a href='https://dede-20191130.github.io/archives/2021-03/' class=" post_tag button button_translucent" data-position=1 title="2021-03">2021-03<span class="button_tally">1</span>
             </a>
             
             
-            <a href='https://dede-20191130.github.io/learnerBlog/archives/2021-07/' class=" post_tag button button_translucent" data-position=2 title="2021-07">2021-07<span class="button_tally">2</span>
+            <a href='https://dede-20191130.github.io/archives/2021-07/' class=" post_tag button button_translucent" data-position=2 title="2021-07">2021-07<span class="button_tally">2</span>
             </a>
             
             
-            <a href='https://dede-20191130.github.io/learnerBlog/archives/2021-08/' class=" post_tag button button_translucent" data-position=1 title="2021-08">2021-08<span class="button_tally">1</span>
+            <a href='https://dede-20191130.github.io/archives/2021-08/' class=" post_tag button button_translucent" data-position=1 title="2021-08">2021-08<span class="button_tally">1</span>
             </a>
             
             
-            <a href='https://dede-20191130.github.io/learnerBlog/archives/2021-09/' class=" post_tag button button_translucent" data-position=1 title="2021-09">2021-09<span class="button_tally">1</span>
+            <a href='https://dede-20191130.github.io/archives/2021-09/' class=" post_tag button button_translucent" data-position=1 title="2021-09">2021-09<span class="button_tally">1</span>
             </a>
             
             
-            <a href='https://dede-20191130.github.io/learnerBlog/archives/2021-10/' class=" post_tag button button_translucent" data-position=5 title="2021-10">2021-10<span class="button_tally">5</span>
+            <a href='https://dede-20191130.github.io/archives/2021-10/' class=" post_tag button button_translucent" data-position=5 title="2021-10">2021-10<span class="button_tally">5</span>
             </a>
             
             
-            <a href='https://dede-20191130.github.io/learnerBlog/archives/2021-11/' class=" post_tag button button_translucent" data-position=2 title="2021-11">2021-11<span class="button_tally">2</span>
+            <a href='https://dede-20191130.github.io/archives/2021-11/' class=" post_tag button button_translucent" data-position=2 title="2021-11">2021-11<span class="button_tally">2</span>
             </a>
             
             
-            <a href='https://dede-20191130.github.io/learnerBlog/archives/2021-12/' class=" post_tag button button_translucent" data-position=6 title="2021-12">2021-12<span class="button_tally">6</span>
+            <a href='https://dede-20191130.github.io/archives/2021-12/' class=" post_tag button button_translucent" data-position=6 title="2021-12">2021-12<span class="button_tally">6</span>
             </a>
             
             
-            <a href='https://dede-20191130.github.io/learnerBlog/archives/2022/' class=" post_tag button button_translucent" data-position=9 title="2022">2022<span class="button_tally">9</span>
+            <a href='https://dede-20191130.github.io/archives/2022/' class=" post_tag button button_translucent" data-position=9 title="2022">2022<span class="button_tally">9</span>
             </a>
             
             
-            <a href='https://dede-20191130.github.io/learnerBlog/archives/2022-01/' class=" post_tag button button_translucent" data-position=9 title="2022-01">2022-01<span class="button_tally">9</span>
+            <a href='https://dede-20191130.github.io/archives/2022-01/' class=" post_tag button button_translucent" data-position=9 title="2022-01">2022-01<span class="button_tally">9</span>
             </a>
             
             <div class="tags_sort"><span title="sort alphabetically">[A~Z]</span><span title="sort by count">[0~9]</span>
@@ -937,47 +937,47 @@ VBAマクロを扱う限り避けては通れない問題となるでしょう�
         
           
         
-        <a href='https://dede-20191130.github.io/learnerBlog/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/' class="post_tag button button_translucent">
+        <a href='https://dede-20191130.github.io/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/' class="post_tag button button_translucent">
           プログラミング
           <span class="button_tally">48</span>
         </a>
         
-        <a href='https://dede-20191130.github.io/learnerBlog/categories/%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3/' class="post_tag button button_translucent">
+        <a href='https://dede-20191130.github.io/categories/%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3/' class="post_tag button button_translucent">
           アプリケーション
           <span class="button_tally">7</span>
         </a>
         
-        <a href='https://dede-20191130.github.io/learnerBlog/categories/podcast/' class="post_tag button button_translucent">
+        <a href='https://dede-20191130.github.io/categories/podcast/' class="post_tag button button_translucent">
           PODCAST
           <span class="button_tally">3</span>
         </a>
         
-        <a href='https://dede-20191130.github.io/learnerBlog/categories/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/' class="post_tag button button_translucent">
+        <a href='https://dede-20191130.github.io/categories/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/' class="post_tag button button_translucent">
           トラブルシューティング
           <span class="button_tally">3</span>
         </a>
         
-        <a href='https://dede-20191130.github.io/learnerBlog/categories/%E6%AD%B4%E5%8F%B2/' class="post_tag button button_translucent">
+        <a href='https://dede-20191130.github.io/categories/%E6%AD%B4%E5%8F%B2/' class="post_tag button button_translucent">
           歴史
           <span class="button_tally">3</span>
         </a>
         
-        <a href='https://dede-20191130.github.io/learnerBlog/categories/%E8%AA%B2%E9%A1%8C%E8%A7%A3%E6%B1%BA/' class="post_tag button button_translucent">
+        <a href='https://dede-20191130.github.io/categories/%E8%AA%B2%E9%A1%8C%E8%A7%A3%E6%B1%BA/' class="post_tag button button_translucent">
           課題解決
           <span class="button_tally">2</span>
         </a>
         
-        <a href='https://dede-20191130.github.io/learnerBlog/categories/%E9%9B%91%E8%A8%98/' class="post_tag button button_translucent">
+        <a href='https://dede-20191130.github.io/categories/%E9%9B%91%E8%A8%98/' class="post_tag button button_translucent">
           雑記
           <span class="button_tally">2</span>
         </a>
         
-        <a href='https://dede-20191130.github.io/learnerBlog/categories/%E5%B0%8F%E3%83%8D%E3%82%BF/' class="post_tag button button_translucent">
+        <a href='https://dede-20191130.github.io/categories/%E5%B0%8F%E3%83%8D%E3%82%BF/' class="post_tag button button_translucent">
           小ネタ
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://dede-20191130.github.io/learnerBlog/categories/%E5%B7%A5%E5%AD%A6/' class="post_tag button button_translucent">
+        <a href='https://dede-20191130.github.io/categories/%E5%B7%A5%E5%AD%A6/' class="post_tag button button_translucent">
           工学
           <span class="button_tally">1</span>
         </a>
@@ -992,72 +992,72 @@ VBAマクロを扱う限り避けては通れない問題となるでしょう�
         
           
         
-        <a href='https://dede-20191130.github.io/learnerBlog/tags/vba/' class="post_tag button button_translucent">
+        <a href='https://dede-20191130.github.io/tags/vba/' class="post_tag button button_translucent">
           VBA
           <span class="button_tally">38</span>
         </a>
         
-        <a href='https://dede-20191130.github.io/learnerBlog/tags/excel/' class="post_tag button button_translucent">
+        <a href='https://dede-20191130.github.io/tags/excel/' class="post_tag button button_translucent">
           EXCEL
           <span class="button_tally">25</span>
         </a>
         
-        <a href='https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C/' class="post_tag button button_translucent">
+        <a href='https://dede-20191130.github.io/tags/%E8%87%AA%E4%BD%9C/' class="post_tag button button_translucent">
           自作
           <span class="button_tally">16</span>
         </a>
         
-        <a href='https://dede-20191130.github.io/learnerBlog/tags/access/' class="post_tag button button_translucent">
+        <a href='https://dede-20191130.github.io/tags/access/' class="post_tag button button_translucent">
           ACCESS
           <span class="button_tally">12</span>
         </a>
         
-        <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%83%89/' class="post_tag button button_translucent">
+        <a href='https://dede-20191130.github.io/tags/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%83%89/' class="post_tag button button_translucent">
           フロントエンド
           <span class="button_tally">7</span>
         </a>
         
-        <a href='https://dede-20191130.github.io/learnerBlog/tags/javascript/' class="post_tag button button_translucent">
+        <a href='https://dede-20191130.github.io/tags/javascript/' class="post_tag button button_translucent">
           JAVASCRIPT
           <span class="button_tally">5</span>
         </a>
         
-        <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91/' class="post_tag button button_translucent">
+        <a href='https://dede-20191130.github.io/tags/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91/' class="post_tag button button_translucent">
           オブジェクト指向
           <span class="button_tally">5</span>
         </a>
         
-        <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%83%84%E3%83%BC%E3%83%AB/' class="post_tag button button_translucent">
+        <a href='https://dede-20191130.github.io/tags/%E3%83%84%E3%83%BC%E3%83%AB/' class="post_tag button button_translucent">
           ツール
           <span class="button_tally">5</span>
         </a>
         
-        <a href='https://dede-20191130.github.io/learnerBlog/tags/react/' class="post_tag button button_translucent">
+        <a href='https://dede-20191130.github.io/tags/react/' class="post_tag button button_translucent">
           REACT
           <span class="button_tally">4</span>
         </a>
         
-        <a href='https://dede-20191130.github.io/learnerBlog/tags/typescript/' class="post_tag button button_translucent">
+        <a href='https://dede-20191130.github.io/tags/typescript/' class="post_tag button button_translucent">
           TYPESCRIPT
           <span class="button_tally">4</span>
         </a>
         
-        <a href='https://dede-20191130.github.io/learnerBlog/tags/%E6%AD%B4%E5%8F%B2%E4%B8%80%E8%88%AC/' class="post_tag button button_translucent">
+        <a href='https://dede-20191130.github.io/tags/%E6%AD%B4%E5%8F%B2%E4%B8%80%E8%88%AC/' class="post_tag button button_translucent">
           歴史一般
           <span class="button_tally">3</span>
         </a>
         
-        <a href='https://dede-20191130.github.io/learnerBlog/tags/powershell/' class="post_tag button button_translucent">
+        <a href='https://dede-20191130.github.io/tags/powershell/' class="post_tag button button_translucent">
           POWERSHELL
           <span class="button_tally">2</span>
         </a>
         
-        <a href='https://dede-20191130.github.io/learnerBlog/tags/excel%E9%96%A2%E6%95%B0/' class="post_tag button button_translucent">
+        <a href='https://dede-20191130.github.io/tags/excel%E9%96%A2%E6%95%B0/' class="post_tag button button_translucent">
           EXCEL関数
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://dede-20191130.github.io/learnerBlog/tags/git/' class="post_tag button button_translucent">
+        <a href='https://dede-20191130.github.io/tags/git/' class="post_tag button button_translucent">
           GIT
           <span class="button_tally">1</span>
         </a>
@@ -1068,83 +1068,83 @@ VBAマクロを扱う限り避けては通れない問題となるでしょう�
         <div class="post_tags">
           <div class="tags_list">
             
-            <a href='https://dede-20191130.github.io/learnerBlog/tags/access/' class=" post_tag button button_translucent" data-position=12 title="access">ACCESS<span class="button_tally">12</span>
+            <a href='https://dede-20191130.github.io/tags/access/' class=" post_tag button button_translucent" data-position=12 title="access">ACCESS<span class="button_tally">12</span>
             </a>
             
             
-            <a href='https://dede-20191130.github.io/learnerBlog/tags/excel/' class=" post_tag button button_translucent" data-position=25 title="excel">EXCEL<span class="button_tally">25</span>
+            <a href='https://dede-20191130.github.io/tags/excel/' class=" post_tag button button_translucent" data-position=25 title="excel">EXCEL<span class="button_tally">25</span>
             </a>
             
             
-            <a href='https://dede-20191130.github.io/learnerBlog/tags/excel%E9%96%A2%E6%95%B0/' class=" post_tag button button_translucent" data-position=1 title="excel関数">EXCEL関数<span class="button_tally">1</span>
+            <a href='https://dede-20191130.github.io/tags/excel%E9%96%A2%E6%95%B0/' class=" post_tag button button_translucent" data-position=1 title="excel関数">EXCEL関数<span class="button_tally">1</span>
             </a>
             
             
-            <a href='https://dede-20191130.github.io/learnerBlog/tags/git/' class=" post_tag button button_translucent" data-position=1 title="git">GIT<span class="button_tally">1</span>
+            <a href='https://dede-20191130.github.io/tags/git/' class=" post_tag button button_translucent" data-position=1 title="git">GIT<span class="button_tally">1</span>
             </a>
             
             
-            <a href='https://dede-20191130.github.io/learnerBlog/tags/hugo/' class=" post_tag button button_translucent" data-position=1 title="hugo">HUGO<span class="button_tally">1</span>
+            <a href='https://dede-20191130.github.io/tags/hugo/' class=" post_tag button button_translucent" data-position=1 title="hugo">HUGO<span class="button_tally">1</span>
             </a>
             
             
-            <a href='https://dede-20191130.github.io/learnerBlog/tags/javascript/' class=" post_tag button button_translucent" data-position=5 title="javascript">JAVASCRIPT<span class="button_tally">5</span>
+            <a href='https://dede-20191130.github.io/tags/javascript/' class=" post_tag button button_translucent" data-position=5 title="javascript">JAVASCRIPT<span class="button_tally">5</span>
             </a>
             
             
-            <a href='https://dede-20191130.github.io/learnerBlog/tags/powershell/' class=" post_tag button button_translucent" data-position=2 title="powershell">POWERSHELL<span class="button_tally">2</span>
+            <a href='https://dede-20191130.github.io/tags/powershell/' class=" post_tag button button_translucent" data-position=2 title="powershell">POWERSHELL<span class="button_tally">2</span>
             </a>
             
             
-            <a href='https://dede-20191130.github.io/learnerBlog/tags/python/' class=" post_tag button button_translucent" data-position=1 title="python">PYTHON<span class="button_tally">1</span>
+            <a href='https://dede-20191130.github.io/tags/python/' class=" post_tag button button_translucent" data-position=1 title="python">PYTHON<span class="button_tally">1</span>
             </a>
             
             
-            <a href='https://dede-20191130.github.io/learnerBlog/tags/react/' class=" post_tag button button_translucent" data-position=4 title="react">REACT<span class="button_tally">4</span>
+            <a href='https://dede-20191130.github.io/tags/react/' class=" post_tag button button_translucent" data-position=4 title="react">REACT<span class="button_tally">4</span>
             </a>
             
             
-            <a href='https://dede-20191130.github.io/learnerBlog/tags/typescript/' class=" post_tag button button_translucent" data-position=4 title="typescript">TYPESCRIPT<span class="button_tally">4</span>
+            <a href='https://dede-20191130.github.io/tags/typescript/' class=" post_tag button button_translucent" data-position=4 title="typescript">TYPESCRIPT<span class="button_tally">4</span>
             </a>
             
             
-            <a href='https://dede-20191130.github.io/learnerBlog/tags/vba/' class=" post_tag button button_translucent" data-position=38 title="vba">VBA<span class="button_tally">38</span>
+            <a href='https://dede-20191130.github.io/tags/vba/' class=" post_tag button button_translucent" data-position=38 title="vba">VBA<span class="button_tally">38</span>
             </a>
             
             
-            <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91/' class=" post_tag button button_translucent" data-position=5 title="オブジェクト指向">オブジェクト指向<span class="button_tally">5</span>
+            <a href='https://dede-20191130.github.io/tags/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91/' class=" post_tag button button_translucent" data-position=5 title="オブジェクト指向">オブジェクト指向<span class="button_tally">5</span>
             </a>
             
             
-            <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%82%B7%E3%82%A7%E3%83%AB%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88/' class=" post_tag button button_translucent" data-position=1 title="シェルスクリプト">シェルスクリプト<span class="button_tally">1</span>
+            <a href='https://dede-20191130.github.io/tags/%E3%82%B7%E3%82%A7%E3%83%AB%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88/' class=" post_tag button button_translucent" data-position=1 title="シェルスクリプト">シェルスクリプト<span class="button_tally">1</span>
             </a>
             
             
-            <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88/' class=" post_tag button button_translucent" data-position=1 title="スクリプト">スクリプト<span class="button_tally">1</span>
+            <a href='https://dede-20191130.github.io/tags/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88/' class=" post_tag button button_translucent" data-position=1 title="スクリプト">スクリプト<span class="button_tally">1</span>
             </a>
             
             
-            <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%83%84%E3%83%BC%E3%83%AB/' class=" post_tag button button_translucent" data-position=5 title="ツール">ツール<span class="button_tally">5</span>
+            <a href='https://dede-20191130.github.io/tags/%E3%83%84%E3%83%BC%E3%83%AB/' class=" post_tag button button_translucent" data-position=5 title="ツール">ツール<span class="button_tally">5</span>
             </a>
             
             
-            <a href='https://dede-20191130.github.io/learnerBlog/tags/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%83%89/' class=" post_tag button button_translucent" data-position=7 title="フロントエンド">フロントエンド<span class="button_tally">7</span>
+            <a href='https://dede-20191130.github.io/tags/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%83%89/' class=" post_tag button button_translucent" data-position=7 title="フロントエンド">フロントエンド<span class="button_tally">7</span>
             </a>
             
             
-            <a href='https://dede-20191130.github.io/learnerBlog/tags/%E5%B7%A5%E5%AD%A6%E4%B8%80%E8%88%AC/' class=" post_tag button button_translucent" data-position=1 title="工学一般">工学一般<span class="button_tally">1</span>
+            <a href='https://dede-20191130.github.io/tags/%E5%B7%A5%E5%AD%A6%E4%B8%80%E8%88%AC/' class=" post_tag button button_translucent" data-position=1 title="工学一般">工学一般<span class="button_tally">1</span>
             </a>
             
             
-            <a href='https://dede-20191130.github.io/learnerBlog/tags/%E6%AD%B4%E5%8F%B2%E4%B8%80%E8%88%AC/' class=" post_tag button button_translucent" data-position=3 title="歴史一般">歴史一般<span class="button_tally">3</span>
+            <a href='https://dede-20191130.github.io/tags/%E6%AD%B4%E5%8F%B2%E4%B8%80%E8%88%AC/' class=" post_tag button button_translucent" data-position=3 title="歴史一般">歴史一般<span class="button_tally">3</span>
             </a>
             
             
-            <a href='https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C/' class=" post_tag button button_translucent" data-position=16 title="自作">自作<span class="button_tally">16</span>
+            <a href='https://dede-20191130.github.io/tags/%E8%87%AA%E4%BD%9C/' class=" post_tag button button_translucent" data-position=16 title="自作">自作<span class="button_tally">16</span>
             </a>
             
             
-            <a href='https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E5%8B%95%E5%8C%96/' class=" post_tag button button_translucent" data-position=1 title="自動化">自動化<span class="button_tally">1</span>
+            <a href='https://dede-20191130.github.io/tags/%E8%87%AA%E5%8B%95%E5%8C%96/' class=" post_tag button button_translucent" data-position=1 title="自動化">自動化<span class="button_tally">1</span>
             </a>
             
             <div class="tags_sort"><span title="sort alphabetically">[A~Z]</span><span title="sort by count">[0~9]</span>
@@ -1226,7 +1226,7 @@ VBAマクロを扱う限り避けては通れない問題となるでしょう�
 
 <footer class="footer">
   <div class="footer_inner wrap pale">
-    <img src='https://dede-20191130.github.io/learnerBlog/icons/apple-touch-icon.png' class="icon icon_2 transparent" alt="学習者Dedeのブログ ~プログラミング等~">
+    <img src='https://dede-20191130.github.io/icons/apple-touch-icon.png' class="icon icon_2 transparent" alt="学習者Dedeのブログ ~プログラミング等~">
     <p>Copyright&nbsp;<span class="year"></span>&nbsp;学習者DEDEのブログ ~プログラミング等~. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
@@ -1236,7 +1236,7 @@ VBAマクロを扱う限り避けては通れない問題となるでしょう�
   </div>
 </footer>
 
-    <script type="text/javascript" src="https://dede-20191130.github.io/learnerBlog/js/bundle.min.b62660a3a4af8329304008285d59e1fc1db881782806c5a08ac786091f3f4ae6f5624adece7e7b5aae7daeb800eea292ff4b410134b444a2c4e317b9417d1168.js" integrity="sha512-tiZgo6SvgykwQAgoXVnh/B24gXgoBsWgiseGCR8/Sub1Ykrezn57Wq59rrgA7qKS/0tBATS0RKLE4xe5QX0RaA==" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://dede-20191130.github.io/js/bundle.min.a68200d4645d649abd587ce73b21ae189f946f6460e4df4b4e6fa355897b2c61a72b3376940a44339756002d7aae7dc3234e9c554fb53dc2a40db6a852c44d6e.js" integrity="sha512-poIA1GRdZJq9WHznOyGuGJ&#43;Ub2Rg5N9LTm&#43;jVYl7LGGnKzN2lApEM5dWAC16rn3DI06cVU&#43;1PcKkDbaoUsRNbg==" crossorigin="anonymous"></script>
     
   </body>
 </html>

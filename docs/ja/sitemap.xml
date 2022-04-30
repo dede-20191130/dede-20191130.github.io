@@ -2,782 +2,782 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://dede-20191130.github.io/learnerBlog/archives/2022/</loc>
+    <loc>https://dede-20191130.github.io/archives/2022/</loc>
     <lastmod>2022-01-24T00:21:49+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/archives/2022-01/</loc>
+    <loc>https://dede-20191130.github.io/archives/2022-01/</loc>
     <lastmod>2022-01-24T00:21:49+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2022/01/23/room-apparatus-control-console/</loc>
+    <loc>https://dede-20191130.github.io/posts/2022/01/23/room-apparatus-control-console/</loc>
     <lastmod>2022-01-24T00:21:49+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/archives/</loc>
+    <loc>https://dede-20191130.github.io/archives/</loc>
     <lastmod>2022-03-06T23:53:40+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/archives/"
+                href="https://dede-20191130.github.io/en/archives/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/archives/"
+                href="https://dede-20191130.github.io/archives/"
                 />
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/categories/</loc>
+    <loc>https://dede-20191130.github.io/categories/</loc>
     <lastmod>2022-03-06T23:53:40+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/categories/"
+                href="https://dede-20191130.github.io/en/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/categories/"
+                href="https://dede-20191130.github.io/categories/"
                 />
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/</loc>
+    <loc>https://dede-20191130.github.io/posts/</loc>
     <lastmod>2022-03-06T23:53:40+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/posts/"
+                href="https://dede-20191130.github.io/en/posts/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/posts/"
+                href="https://dede-20191130.github.io/posts/"
                 />
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/tags/react/</loc>
+    <loc>https://dede-20191130.github.io/tags/react/</loc>
     <lastmod>2022-01-24T00:21:49+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/tags/</loc>
+    <loc>https://dede-20191130.github.io/tags/</loc>
     <lastmod>2022-03-06T23:53:40+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/tags/"
+                href="https://dede-20191130.github.io/en/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/tags/"
+                href="https://dede-20191130.github.io/tags/"
                 />
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/tags/typescript/</loc>
+    <loc>https://dede-20191130.github.io/tags/typescript/</loc>
     <lastmod>2022-01-24T00:21:49+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/tags/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%83%89/</loc>
+    <loc>https://dede-20191130.github.io/tags/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%83%89/</loc>
     <lastmod>2022-01-24T00:21:49+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</loc>
+    <loc>https://dede-20191130.github.io/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</loc>
     <lastmod>2022-03-06T23:53:40+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/</loc>
+    <loc>https://dede-20191130.github.io/</loc>
     <lastmod>2022-03-06T23:53:40+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/"
+                href="https://dede-20191130.github.io/en/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/"
+                href="https://dede-20191130.github.io/"
                 />
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2022/01/22/import-calc-error-value/</loc>
+    <loc>https://dede-20191130.github.io/posts/2022/01/22/import-calc-error-value/</loc>
     <lastmod>2022-01-23T11:24:35+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/tags/access/</loc>
+    <loc>https://dede-20191130.github.io/tags/access/</loc>
     <lastmod>2022-03-06T23:53:40+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/tags/access/"
+                href="https://dede-20191130.github.io/en/tags/access/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/tags/access/"
+                href="https://dede-20191130.github.io/tags/access/"
                 />
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/tags/vba/</loc>
+    <loc>https://dede-20191130.github.io/tags/vba/</loc>
     <lastmod>2022-03-06T23:53:40+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/tags/vba/"
+                href="https://dede-20191130.github.io/en/tags/vba/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/tags/vba/"
+                href="https://dede-20191130.github.io/tags/vba/"
                 />
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2022/01/15/vba-question-012-aggregate-wss-content/</loc>
+    <loc>https://dede-20191130.github.io/posts/2022/01/15/vba-question-012-aggregate-wss-content/</loc>
     <lastmod>2022-01-16T00:21:06+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/tags/excel/</loc>
+    <loc>https://dede-20191130.github.io/tags/excel/</loc>
     <lastmod>2022-03-06T23:53:40+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/tags/excel/"
+                href="https://dede-20191130.github.io/en/tags/excel/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/tags/excel/"
+                href="https://dede-20191130.github.io/tags/excel/"
                 />
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/introductions/vba/vba-questions/</loc>
-    <lastmod>2022-01-16T00:21:06+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/introductions/vba/vba-questions/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/introductions/vba/vba-questions/"
-                />
-  </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/introductions/</loc>
+    <loc>https://dede-20191130.github.io/introductions/vba/vba-questions/</loc>
     <lastmod>2022-01-16T00:21:06+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/introductions/"
+                href="https://dede-20191130.github.io/en/introductions/vba/vba-questions/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/introductions/"
+                href="https://dede-20191130.github.io/introductions/vba/vba-questions/"
                 />
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2022/01/12/vba-question-011-save-named-file/</loc>
+    <loc>https://dede-20191130.github.io/introductions/</loc>
+    <lastmod>2022-01-16T00:21:06+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://dede-20191130.github.io/en/introductions/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://dede-20191130.github.io/introductions/"
+                />
+  </url><url>
+    <loc>https://dede-20191130.github.io/posts/2022/01/12/vba-question-011-save-named-file/</loc>
     <lastmod>2022-01-15T13:57:40+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2022/01/11/vba-question-010-prohibit-sheet-change/</loc>
+    <loc>https://dede-20191130.github.io/posts/2022/01/11/vba-question-010-prohibit-sheet-change/</loc>
     <lastmod>2022-01-15T13:57:40+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2022/01/10/vba-question-009-create-own-message-frm/</loc>
+    <loc>https://dede-20191130.github.io/posts/2022/01/10/vba-question-009-create-own-message-frm/</loc>
     <lastmod>2022-01-15T13:57:40+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2022/01/06/vba-question-008-keep-value-before-change/</loc>
+    <loc>https://dede-20191130.github.io/posts/2022/01/06/vba-question-008-keep-value-before-change/</loc>
     <lastmod>2022-01-15T13:57:40+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2022/01/02/vba-question-007-manipulate-folder-files/</loc>
+    <loc>https://dede-20191130.github.io/posts/2022/01/02/vba-question-007-manipulate-folder-files/</loc>
     <lastmod>2022-01-15T13:57:40+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2022/01/01/vba-question-006-kinds-of-end-process/</loc>
+    <loc>https://dede-20191130.github.io/posts/2022/01/01/vba-question-006-kinds-of-end-process/</loc>
     <lastmod>2022-01-15T13:57:40+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/archives/2021/</loc>
+    <loc>https://dede-20191130.github.io/archives/2021/</loc>
     <lastmod>2022-03-06T23:53:40+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/archives/2021/"
+                href="https://dede-20191130.github.io/en/archives/2021/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/archives/2021/"
+                href="https://dede-20191130.github.io/archives/2021/"
                 />
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/archives/2021-12/</loc>
+    <loc>https://dede-20191130.github.io/archives/2021-12/</loc>
     <lastmod>2022-01-15T13:57:40+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2021/12/31/vba-question-005-select-first-worksheet/</loc>
+    <loc>https://dede-20191130.github.io/posts/2021/12/31/vba-question-005-select-first-worksheet/</loc>
     <lastmod>2022-01-15T13:57:40+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2021/12/30/vba-question-004-copypaste-shapes/</loc>
+    <loc>https://dede-20191130.github.io/posts/2021/12/30/vba-question-004-copypaste-shapes/</loc>
     <lastmod>2022-01-15T13:57:40+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2021/12/29/paste-only-colors/</loc>
+    <loc>https://dede-20191130.github.io/posts/2021/12/29/paste-only-colors/</loc>
     <lastmod>2022-01-15T13:57:40+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2021/12/25/vba-question-003-clear-data-in-table/</loc>
+    <loc>https://dede-20191130.github.io/posts/2021/12/25/vba-question-003-clear-data-in-table/</loc>
     <lastmod>2022-01-15T13:57:40+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2021/12/14/vba-question-002-chekc-single-cell/</loc>
+    <loc>https://dede-20191130.github.io/posts/2021/12/14/vba-question-002-chekc-single-cell/</loc>
     <lastmod>2022-01-15T13:57:40+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2021/12/12/vba-question-001-waiting/</loc>
+    <loc>https://dede-20191130.github.io/posts/2021/12/12/vba-question-001-waiting/</loc>
     <lastmod>2022-01-15T13:57:40+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/archives/2021-11/</loc>
+    <loc>https://dede-20191130.github.io/archives/2021-11/</loc>
     <lastmod>2021-11-04T01:24:18+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2021/11/03/compare-greedy-lazy-quantifiers/</loc>
+    <loc>https://dede-20191130.github.io/posts/2021/11/03/compare-greedy-lazy-quantifiers/</loc>
     <lastmod>2021-11-04T01:24:18+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/tags/javascript/</loc>
+    <loc>https://dede-20191130.github.io/tags/javascript/</loc>
     <lastmod>2021-11-04T01:24:18+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2021/11/01/bookmarklet-img-other-tab/</loc>
+    <loc>https://dede-20191130.github.io/posts/2021/11/01/bookmarklet-img-other-tab/</loc>
     <lastmod>2021-11-01T17:35:23+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/archives/2021-10/</loc>
+    <loc>https://dede-20191130.github.io/archives/2021-10/</loc>
     <lastmod>2021-10-30T23:25:22+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2021/10/30/tuning-usecontext-for-obj/</loc>
+    <loc>https://dede-20191130.github.io/posts/2021/10/30/tuning-usecontext-for-obj/</loc>
     <lastmod>2021-10-30T23:25:22+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2021/10/27/wc-toggle-color-button/</loc>
+    <loc>https://dede-20191130.github.io/posts/2021/10/27/wc-toggle-color-button/</loc>
     <lastmod>2021-10-27T15:34:45+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2021/10/14/send-contact-form-react-router/</loc>
+    <loc>https://dede-20191130.github.io/posts/2021/10/14/send-contact-form-react-router/</loc>
     <lastmod>2021-10-14T14:43:13+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2021/10/08/send-contact-form-react/</loc>
+    <loc>https://dede-20191130.github.io/posts/2021/10/08/send-contact-form-react/</loc>
     <lastmod>2021-10-09T10:29:21+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2021/10/08/send-contact-form-plain-ts/</loc>
+    <loc>https://dede-20191130.github.io/posts/2021/10/08/send-contact-form-plain-ts/</loc>
     <lastmod>2021-10-10T10:19:34+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/archives/2021-09/</loc>
+    <loc>https://dede-20191130.github.io/archives/2021-09/</loc>
     <lastmod>2021-09-16T11:46:32+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2021/09/04/access-change-control-test/</loc>
+    <loc>https://dede-20191130.github.io/posts/2021/09/04/access-change-control-test/</loc>
     <lastmod>2021-09-16T11:46:32+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/archives/2021-08/</loc>
+    <loc>https://dede-20191130.github.io/archives/2021-08/</loc>
     <lastmod>2021-09-04T09:03:26+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/</loc>
+    <loc>https://dede-20191130.github.io/posts/2021/08/18/cut-sheet-requery-refresh/</loc>
     <lastmod>2021-09-04T09:03:26+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/archives/2021-07/</loc>
+    <loc>https://dede-20191130.github.io/archives/2021-07/</loc>
     <lastmod>2021-07-30T11:59:19+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2021/07/28/ie11-radio-group-value-demo-ng/</loc>
+    <loc>https://dede-20191130.github.io/posts/2021/07/28/ie11-radio-group-value-demo-ng/</loc>
     <lastmod>2021-07-28T21:06:18+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2021/07/27/ie11-radio-group-value/</loc>
+    <loc>https://dede-20191130.github.io/posts/2021/07/27/ie11-radio-group-value/</loc>
     <lastmod>2021-07-30T11:59:19+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/archives/2021-03/</loc>
+    <loc>https://dede-20191130.github.io/archives/2021-03/</loc>
     <lastmod>2021-03-31T00:07:55+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2021/03/29/wsfunc-networkday/</loc>
+    <loc>https://dede-20191130.github.io/posts/2021/03/29/wsfunc-networkday/</loc>
     <lastmod>2021-03-31T00:07:55+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2021/03/24/create-estm-accessver-tool-faculty/</loc>
+    <loc>https://dede-20191130.github.io/posts/2021/03/24/create-estm-accessver-tool-faculty/</loc>
     <lastmod>2021-03-26T16:05:30+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2021/03/17/create-estm-accessver-tool-screen/</loc>
+    <loc>https://dede-20191130.github.io/posts/2021/03/17/create-estm-accessver-tool-screen/</loc>
     <lastmod>2021-03-24T15:28:58+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/archives/2021-02/</loc>
+    <loc>https://dede-20191130.github.io/archives/2021-02/</loc>
     <lastmod>2022-03-06T23:53:40+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/archives/2021-02/"
+                href="https://dede-20191130.github.io/en/archives/2021-02/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/archives/2021-02/"
+                href="https://dede-20191130.github.io/archives/2021-02/"
                 />
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2021/02/28/create-estm-accessver/</loc>
+    <loc>https://dede-20191130.github.io/posts/2021/02/28/create-estm-accessver/</loc>
     <lastmod>2022-03-06T23:53:40+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/categories/%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3/</loc>
+    <loc>https://dede-20191130.github.io/categories/%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3/</loc>
     <lastmod>2022-03-06T23:53:40+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/tags/%E3%83%84%E3%83%BC%E3%83%AB/</loc>
+    <loc>https://dede-20191130.github.io/tags/%E3%83%84%E3%83%BC%E3%83%AB/</loc>
     <lastmod>2022-03-06T23:53:40+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E4%BD%9C/</loc>
+    <loc>https://dede-20191130.github.io/tags/%E8%87%AA%E4%BD%9C/</loc>
     <lastmod>2022-03-06T23:53:40+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/categories/podcast/</loc>
+    <loc>https://dede-20191130.github.io/categories/podcast/</loc>
     <lastmod>2022-03-04T22:09:27+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2021/02/13/podcast-history-program/</loc>
+    <loc>https://dede-20191130.github.io/posts/2021/02/13/podcast-history-program/</loc>
     <lastmod>2021-10-09T21:31:41+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/categories/%E6%AD%B4%E5%8F%B2/</loc>
+    <loc>https://dede-20191130.github.io/categories/%E6%AD%B4%E5%8F%B2/</loc>
     <lastmod>2022-03-04T22:09:27+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/tags/%E6%AD%B4%E5%8F%B2%E4%B8%80%E8%88%AC/</loc>
+    <loc>https://dede-20191130.github.io/tags/%E6%AD%B4%E5%8F%B2%E4%B8%80%E8%88%AC/</loc>
     <lastmod>2022-03-04T22:09:27+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2021/02/13/copyto-merged-cell/</loc>
+    <loc>https://dede-20191130.github.io/posts/2021/02/13/copyto-merged-cell/</loc>
     <lastmod>2022-03-06T23:53:40+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/posts/2021/02/13/copyto-merged-cell/"
+                href="https://dede-20191130.github.io/en/posts/2021/02/13/copyto-merged-cell/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/posts/2021/02/13/copyto-merged-cell/"
+                href="https://dede-20191130.github.io/posts/2021/02/13/copyto-merged-cell/"
                 />
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2021/02/12/python-note-01/</loc>
+    <loc>https://dede-20191130.github.io/posts/2021/02/12/python-note-01/</loc>
     <lastmod>2022-03-06T23:53:40+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/tags/python/</loc>
+    <loc>https://dede-20191130.github.io/tags/python/</loc>
     <lastmod>2022-03-06T23:53:40+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/categories/%E9%9B%91%E8%A8%98/</loc>
+    <loc>https://dede-20191130.github.io/categories/%E9%9B%91%E8%A8%98/</loc>
     <lastmod>2022-03-06T23:53:40+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/introductions/history/</loc>
+    <loc>https://dede-20191130.github.io/introductions/history/</loc>
     <lastmod>2021-02-28T23:11:15+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/introductions/vba/others/</loc>
+    <loc>https://dede-20191130.github.io/introductions/vba/others/</loc>
     <lastmod>2022-01-15T13:57:40+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/introductions/vba/others/"
+                href="https://dede-20191130.github.io/en/introductions/vba/others/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/introductions/vba/others/"
+                href="https://dede-20191130.github.io/introductions/vba/others/"
                 />
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/archives/2021-01/</loc>
+    <loc>https://dede-20191130.github.io/archives/2021-01/</loc>
     <lastmod>2022-03-06T23:53:40+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/archives/2021-01/"
+                href="https://dede-20191130.github.io/en/archives/2021-01/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/archives/2021-01/"
+                href="https://dede-20191130.github.io/archives/2021-01/"
                 />
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2021/01/15/change-pagesetup-printaria/</loc>
+    <loc>https://dede-20191130.github.io/posts/2021/01/15/change-pagesetup-printaria/</loc>
     <lastmod>2022-03-06T23:53:40+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/posts/2021/01/15/change-pagesetup-printaria/"
+                href="https://dede-20191130.github.io/en/posts/2021/01/15/change-pagesetup-printaria/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/posts/2021/01/15/change-pagesetup-printaria/"
+                href="https://dede-20191130.github.io/posts/2021/01/15/change-pagesetup-printaria/"
                 />
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/categories/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/</loc>
+    <loc>https://dede-20191130.github.io/categories/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/</loc>
     <lastmod>2022-03-06T23:53:40+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2021/01/13/interface-array-member/</loc>
+    <loc>https://dede-20191130.github.io/posts/2021/01/13/interface-array-member/</loc>
     <lastmod>2022-03-06T23:53:40+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/posts/2021/01/13/interface-array-member/"
+                href="https://dede-20191130.github.io/en/posts/2021/01/13/interface-array-member/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/posts/2021/01/13/interface-array-member/"
+                href="https://dede-20191130.github.io/posts/2021/01/13/interface-array-member/"
                 />
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/tags/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91/</loc>
+    <loc>https://dede-20191130.github.io/tags/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91/</loc>
     <lastmod>2022-03-06T23:53:40+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/archives/2020/</loc>
+    <loc>https://dede-20191130.github.io/archives/2020/</loc>
     <lastmod>2022-03-04T22:09:27+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/archives/2020/"
+                href="https://dede-20191130.github.io/en/archives/2020/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/archives/2020/"
+                href="https://dede-20191130.github.io/archives/2020/"
                 />
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/archives/2020-12/</loc>
+    <loc>https://dede-20191130.github.io/archives/2020-12/</loc>
     <lastmod>2022-03-04T22:09:27+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/archives/2020-12/"
+                href="https://dede-20191130.github.io/en/archives/2020-12/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/archives/2020-12/"
+                href="https://dede-20191130.github.io/archives/2020-12/"
                 />
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2020/12/19/grep-from-module-sql/</loc>
+    <loc>https://dede-20191130.github.io/posts/2020/12/19/grep-from-module-sql/</loc>
     <lastmod>2022-03-04T22:09:27+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/posts/2020/12/19/grep-from-module-sql/"
+                href="https://dede-20191130.github.io/en/posts/2020/12/19/grep-from-module-sql/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/posts/2020/12/19/grep-from-module-sql/"
+                href="https://dede-20191130.github.io/posts/2020/12/19/grep-from-module-sql/"
                 />
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/tags/powershell/</loc>
+    <loc>https://dede-20191130.github.io/tags/powershell/</loc>
     <lastmod>2022-03-04T22:09:27+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/tags/powershell/"
+                href="https://dede-20191130.github.io/en/tags/powershell/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/tags/powershell/"
+                href="https://dede-20191130.github.io/tags/powershell/"
                 />
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2020/12/12/sheet-array-visible/</loc>
+    <loc>https://dede-20191130.github.io/posts/2020/12/12/sheet-array-visible/</loc>
     <lastmod>2022-03-04T22:09:27+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2020/12/11/search-shape-string/</loc>
+    <loc>https://dede-20191130.github.io/posts/2020/12/11/search-shape-string/</loc>
     <lastmod>2022-03-04T22:09:27+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/posts/2020/12/11/search-shape-string/"
+                href="https://dede-20191130.github.io/en/posts/2020/12/11/search-shape-string/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/posts/2020/12/11/search-shape-string/"
+                href="https://dede-20191130.github.io/posts/2020/12/11/search-shape-string/"
                 />
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2020/12/06/alter-args-compile-err/</loc>
+    <loc>https://dede-20191130.github.io/posts/2020/12/06/alter-args-compile-err/</loc>
     <lastmod>2021-02-19T23:08:59+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2020/12/05/vba-exception-handle/</loc>
+    <loc>https://dede-20191130.github.io/posts/2020/12/05/vba-exception-handle/</loc>
     <lastmod>2022-03-04T22:09:27+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/posts/2020/12/05/vba-exception-handle/"
+                href="https://dede-20191130.github.io/en/posts/2020/12/05/vba-exception-handle/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/posts/2020/12/05/vba-exception-handle/"
+                href="https://dede-20191130.github.io/posts/2020/12/05/vba-exception-handle/"
                 />
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2020/12/05/mujirushi/</loc>
+    <loc>https://dede-20191130.github.io/posts/2020/12/05/mujirushi/</loc>
     <lastmod>2021-02-12T23:22:06+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/archives/2020-11/</loc>
+    <loc>https://dede-20191130.github.io/archives/2020-11/</loc>
     <lastmod>2022-03-04T22:09:27+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/archives/2020-11/"
+                href="https://dede-20191130.github.io/en/archives/2020-11/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/archives/2020-11/"
+                href="https://dede-20191130.github.io/archives/2020-11/"
                 />
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2020/11/22/excel-class-sample-02/</loc>
+    <loc>https://dede-20191130.github.io/posts/2020/11/22/excel-class-sample-02/</loc>
     <lastmod>2022-03-04T22:09:27+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/posts/2020/11/22/excel-class-sample-02/"
+                href="https://dede-20191130.github.io/en/posts/2020/11/22/excel-class-sample-02/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/22/excel-class-sample-02/"
+                href="https://dede-20191130.github.io/posts/2020/11/22/excel-class-sample-02/"
                 />
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2020/11/20/excel-class-sample-01/</loc>
+    <loc>https://dede-20191130.github.io/posts/2020/11/20/excel-class-sample-01/</loc>
     <lastmod>2022-03-04T22:09:27+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/posts/2020/11/20/excel-class-sample-01/"
+                href="https://dede-20191130.github.io/en/posts/2020/11/20/excel-class-sample-01/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/20/excel-class-sample-01/"
+                href="https://dede-20191130.github.io/posts/2020/11/20/excel-class-sample-01/"
                 />
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2020/11/17/script-hugo-commit/</loc>
+    <loc>https://dede-20191130.github.io/posts/2020/11/17/script-hugo-commit/</loc>
     <lastmod>2022-03-04T22:09:27+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/tags/git/</loc>
+    <loc>https://dede-20191130.github.io/tags/git/</loc>
     <lastmod>2022-03-04T22:09:27+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/tags/hugo/</loc>
+    <loc>https://dede-20191130.github.io/tags/hugo/</loc>
     <lastmod>2022-03-04T22:09:27+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/tags/%E3%82%B7%E3%82%A7%E3%83%AB%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88/</loc>
+    <loc>https://dede-20191130.github.io/tags/%E3%82%B7%E3%82%A7%E3%83%AB%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88/</loc>
     <lastmod>2022-03-04T22:09:27+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/tags/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88/</loc>
+    <loc>https://dede-20191130.github.io/tags/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88/</loc>
     <lastmod>2022-03-04T22:09:27+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2020/11/15/msoffice-form-capture/</loc>
+    <loc>https://dede-20191130.github.io/posts/2020/11/15/msoffice-form-capture/</loc>
     <lastmod>2022-03-04T22:09:27+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/posts/2020/11/15/msoffice-form-capture/"
+                href="https://dede-20191130.github.io/en/posts/2020/11/15/msoffice-form-capture/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/15/msoffice-form-capture/"
+                href="https://dede-20191130.github.io/posts/2020/11/15/msoffice-form-capture/"
                 />
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/categories/%E5%B0%8F%E3%83%8D%E3%82%BF/</loc>
+    <loc>https://dede-20191130.github.io/categories/%E5%B0%8F%E3%83%8D%E3%82%BF/</loc>
     <lastmod>2022-03-04T22:09:27+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2020/11/15/delete-record-button/</loc>
+    <loc>https://dede-20191130.github.io/posts/2020/11/15/delete-record-button/</loc>
     <lastmod>2022-03-04T22:09:27+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/posts/2020/11/15/delete-record-button/"
+                href="https://dede-20191130.github.io/en/posts/2020/11/15/delete-record-button/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/15/delete-record-button/"
+                href="https://dede-20191130.github.io/posts/2020/11/15/delete-record-button/"
                 />
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2020/11/10/difference-between-emperor/</loc>
+    <loc>https://dede-20191130.github.io/posts/2020/11/10/difference-between-emperor/</loc>
     <lastmod>2022-03-04T22:09:27+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2020/11/08/access-control-withevents/</loc>
-    <lastmod>2022-03-04T22:09:27+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/posts/2020/11/08/access-control-withevents/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/08/access-control-withevents/"
-                />
-  </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2020/11/05/own-excel-shortcut/</loc>
+    <loc>https://dede-20191130.github.io/posts/2020/11/08/access-control-withevents/</loc>
     <lastmod>2022-03-04T22:09:27+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/posts/2020/11/05/own-excel-shortcut/"
+                href="https://dede-20191130.github.io/en/posts/2020/11/08/access-control-withevents/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/05/own-excel-shortcut/"
+                href="https://dede-20191130.github.io/posts/2020/11/08/access-control-withevents/"
                 />
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/my-archives/</loc>
+    <loc>https://dede-20191130.github.io/posts/2020/11/05/own-excel-shortcut/</loc>
+    <lastmod>2022-03-04T22:09:27+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://dede-20191130.github.io/en/posts/2020/11/05/own-excel-shortcut/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://dede-20191130.github.io/posts/2020/11/05/own-excel-shortcut/"
+                />
+  </url><url>
+    <loc>https://dede-20191130.github.io/my-archives/</loc>
     <lastmod>2022-02-13T10:37:20+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/my-archives/"
+                href="https://dede-20191130.github.io/en/my-archives/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/my-archives/"
+                href="https://dede-20191130.github.io/my-archives/"
                 />
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2020/11/03/learn-by-podcast/</loc>
+    <loc>https://dede-20191130.github.io/posts/2020/11/03/learn-by-podcast/</loc>
     <lastmod>2020-11-21T10:54:34+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/categories/%E5%B7%A5%E5%AD%A6/</loc>
+    <loc>https://dede-20191130.github.io/categories/%E5%B7%A5%E5%AD%A6/</loc>
     <lastmod>2020-11-21T10:54:34+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/tags/%E5%B7%A5%E5%AD%A6%E4%B8%80%E8%88%AC/</loc>
+    <loc>https://dede-20191130.github.io/tags/%E5%B7%A5%E5%AD%A6%E4%B8%80%E8%88%AC/</loc>
     <lastmod>2020-11-21T10:54:34+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/polymorphism-radiobutton/</loc>
+    <loc>https://dede-20191130.github.io/posts/2020/11/01/polymorphism-radiobutton/</loc>
     <lastmod>2022-03-04T22:09:27+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/posts/2020/11/01/polymorphism-radiobutton/"
+                href="https://dede-20191130.github.io/en/posts/2020/11/01/polymorphism-radiobutton/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/polymorphism-radiobutton/"
+                href="https://dede-20191130.github.io/posts/2020/11/01/polymorphism-radiobutton/"
                 />
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/excel-a1-tool/</loc>
+    <loc>https://dede-20191130.github.io/posts/2020/11/01/excel-a1-tool/</loc>
     <lastmod>2022-03-04T22:09:27+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/posts/2020/11/01/excel-a1-tool/"
+                href="https://dede-20191130.github.io/en/posts/2020/11/01/excel-a1-tool/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/excel-a1-tool/"
+                href="https://dede-20191130.github.io/posts/2020/11/01/excel-a1-tool/"
                 />
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/archives/2020-10/</loc>
+    <loc>https://dede-20191130.github.io/archives/2020-10/</loc>
     <lastmod>2022-02-13T10:37:20+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/archives/2020-10/"
+                href="https://dede-20191130.github.io/en/archives/2020-10/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/archives/2020-10/"
+                href="https://dede-20191130.github.io/archives/2020-10/"
                 />
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2020/10/30/ps-refinement-last/</loc>
+    <loc>https://dede-20191130.github.io/posts/2020/10/30/ps-refinement-last/</loc>
     <lastmod>2022-02-13T10:37:20+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/posts/2020/10/30/ps-refinement-last/"
+                href="https://dede-20191130.github.io/en/posts/2020/10/30/ps-refinement-last/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/posts/2020/10/30/ps-refinement-last/"
+                href="https://dede-20191130.github.io/posts/2020/10/30/ps-refinement-last/"
                 />
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/categories/%E8%AA%B2%E9%A1%8C%E8%A7%A3%E6%B1%BA/</loc>
+    <loc>https://dede-20191130.github.io/categories/%E8%AA%B2%E9%A1%8C%E8%A7%A3%E6%B1%BA/</loc>
     <lastmod>2022-02-13T10:37:20+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2020/10/27/access-tabledef-tool/</loc>
+    <loc>https://dede-20191130.github.io/posts/2020/10/27/access-tabledef-tool/</loc>
     <lastmod>2022-02-13T10:37:20+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/posts/2020/10/27/access-tabledef-tool/"
+                href="https://dede-20191130.github.io/en/posts/2020/10/27/access-tabledef-tool/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/posts/2020/10/27/access-tabledef-tool/"
+                href="https://dede-20191130.github.io/posts/2020/10/27/access-tabledef-tool/"
                 />
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2020/10/25/access-tabledef/</loc>
+    <loc>https://dede-20191130.github.io/posts/2020/10/25/access-tabledef/</loc>
     <lastmod>2022-02-13T10:37:20+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/posts/2020/10/25/access-tabledef/"
+                href="https://dede-20191130.github.io/en/posts/2020/10/25/access-tabledef/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/posts/2020/10/25/access-tabledef/"
+                href="https://dede-20191130.github.io/posts/2020/10/25/access-tabledef/"
                 />
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2020/10/13/access-controlsource/</loc>
+    <loc>https://dede-20191130.github.io/posts/2020/10/13/access-controlsource/</loc>
     <lastmod>2022-02-13T10:37:20+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/posts/2020/10/13/access-controlsource/"
+                href="https://dede-20191130.github.io/en/posts/2020/10/13/access-controlsource/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/posts/2020/10/13/access-controlsource/"
+                href="https://dede-20191130.github.io/posts/2020/10/13/access-controlsource/"
                 />
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/archives/2020-07/</loc>
+    <loc>https://dede-20191130.github.io/archives/2020-07/</loc>
     <lastmod>2022-02-13T10:37:20+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/archives/2020-07/"
+                href="https://dede-20191130.github.io/en/archives/2020-07/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/archives/2020-07/"
+                href="https://dede-20191130.github.io/archives/2020-07/"
                 />
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2020/07/18/create-nomarco-tool/</loc>
+    <loc>https://dede-20191130.github.io/posts/2020/07/18/create-nomarco-tool/</loc>
     <lastmod>2022-02-13T10:37:20+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/posts/2020/07/18/create-nomarco-tool/"
+                href="https://dede-20191130.github.io/en/posts/2020/07/18/create-nomarco-tool/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/posts/2020/07/18/create-nomarco-tool/"
+                href="https://dede-20191130.github.io/posts/2020/07/18/create-nomarco-tool/"
                 />
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/tags/%E8%87%AA%E5%8B%95%E5%8C%96/</loc>
+    <loc>https://dede-20191130.github.io/tags/%E8%87%AA%E5%8B%95%E5%8C%96/</loc>
     <lastmod>2022-02-13T10:37:20+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2020/07/16/create-estm/</loc>
+    <loc>https://dede-20191130.github.io/posts/2020/07/16/create-estm/</loc>
     <lastmod>2022-02-13T10:37:20+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/posts/2020/07/16/craete-estm/"
+                href="https://dede-20191130.github.io/en/posts/2020/07/16/craete-estm/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/posts/2020/07/16/create-estm/"
+                href="https://dede-20191130.github.io/posts/2020/07/16/create-estm/"
                 />
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/posts/2020/07/16/cmpr-tools/</loc>
+    <loc>https://dede-20191130.github.io/posts/2020/07/16/cmpr-tools/</loc>
     <lastmod>2022-02-13T10:37:20+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/posts/2020/07/16/cmpr-tools/"
+                href="https://dede-20191130.github.io/en/posts/2020/07/16/cmpr-tools/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/posts/2020/07/16/cmpr-tools/"
+                href="https://dede-20191130.github.io/posts/2020/07/16/cmpr-tools/"
                 />
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/tags/excel%E9%96%A2%E6%95%B0/</loc>
+    <loc>https://dede-20191130.github.io/tags/excel%E9%96%A2%E6%95%B0/</loc>
     <lastmod>2022-02-13T10:37:20+09:00</lastmod>
   </url><url>
-    <loc>https://dede-20191130.github.io/learnerBlog/about/</loc>
+    <loc>https://dede-20191130.github.io/about/</loc>
     <lastmod>2021-03-27T22:40:12+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dede-20191130.github.io/learnerBlog/en/about/"
+                href="https://dede-20191130.github.io/en/about/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://dede-20191130.github.io/learnerBlog/about/"
+                href="https://dede-20191130.github.io/about/"
                 />
   </url>
 </urlset>

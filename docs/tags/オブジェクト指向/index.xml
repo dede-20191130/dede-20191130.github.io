@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>オブジェクト指向 on 学習者Dedeのブログ ~プログラミング等~</title>
-    <link>https://dede-20191130.github.io/learnerBlog/tags/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91/</link>
+    <link>https://dede-20191130.github.io/tags/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91/</link>
     <description>Recent content in オブジェクト指向 on 学習者Dedeのブログ ~プログラミング等~</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 13 Jan 2021 19:49:08 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/tags/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 13 Jan 2021 19:49:08 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/tags/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[VBA] インタフェース継承を使用する際にクラス変数として配列を使用する方法</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/01/13/interface-array-member/</link>
+      <link>https://dede-20191130.github.io/posts/2021/01/13/interface-array-member/</link>
       <pubDate>Wed, 13 Jan 2021 19:49:08 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/01/13/interface-array-member/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/01/13/interface-array-member/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -443,15 +443,15 @@ Publicのスコープで宣言することができるのは標準モジュー�
     
     <item>
       <title>[VBA] クラスを利用するメリットと方法について &amp; 簡単なサンプル（２）</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/22/excel-class-sample-02/</link>
+      <link>https://dede-20191130.github.io/posts/2020/11/22/excel-class-sample-02/</link>
       <pubDate>Sun, 22 Nov 2020 14:07:24 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/22/excel-class-sample-02/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/11/22/excel-class-sample-02/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
 &lt;p&gt;この記事は、&lt;br&gt;
-&lt;a href=&#39;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2020/11/20/excel-class-sample-01/&#39;&gt;[VBA] クラスを利用するメリットと方法について &amp;amp; 簡単なサンプル（１）&lt;/a&gt;の続きの記事。&lt;br&gt;
+&lt;a href=&#39;https://dede-20191130.github.io/posts/2020/11/20/excel-class-sample-01/&#39;&gt;[VBA] クラスを利用するメリットと方法について &amp;amp; 簡単なサンプル（１）&lt;/a&gt;の続きの記事。&lt;br&gt;
 （１）とは違ったサンプルを用いて、前回とは違ったクラスの利用方法やそのメリットを記したい。&lt;/p&gt;
 &lt;p&gt;TableCreaterの例だと、カプセル化の恩恵や初期化処理・終了処理を必ず実行できることの恩恵が十分には表現できなかったように思えるため、&lt;br&gt;
 本記事のサンプル（clsCreateNewExcel）でそれらを表現しようと思う。&lt;/p&gt;
@@ -943,10 +943,10 @@ Excelアプリケーションの設定のリストアを行い、&lt;br&gt;
     
     <item>
       <title>[VBA] クラスを利用するメリットと方法について &amp; 簡単なサンプル（１）</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/20/excel-class-sample-01/</link>
+      <link>https://dede-20191130.github.io/posts/2020/11/20/excel-class-sample-01/</link>
       <pubDate>Fri, 20 Nov 2020 23:47:25 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/20/excel-class-sample-01/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/11/20/excel-class-sample-01/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -1473,7 +1473,7 @@ MSOffice 2016&lt;/p&gt;
 
 
 
-&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2020/11/22/excel-class-sample-02/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[VBA] クラスを利用するメリットと方法について &amp;amp; 簡単なサンプル（２）&lt;/a&gt;
+&lt;a href=&#34;https://dede-20191130.github.io/posts/2020/11/22/excel-class-sample-02/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[VBA] クラスを利用するメリットと方法について &amp;amp; 簡単なサンプル（２）&lt;/a&gt;
 &lt;/p&gt;
 
         
@@ -1482,10 +1482,10 @@ MSOffice 2016&lt;/p&gt;
     
     <item>
       <title>[Access VBA] フォームのコントロールに対してWithEventsでイベントリスナークラスを作成する際に気をつけなければならないこと</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/08/access-control-withevents/</link>
+      <link>https://dede-20191130.github.io/posts/2020/11/08/access-control-withevents/</link>
       <pubDate>Sun, 08 Nov 2020 10:26:29 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/08/access-control-withevents/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/11/08/access-control-withevents/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -1877,10 +1877,10 @@ VBEが不要とみなして自動的に削除してしまう。&lt;/p&gt;
     
     <item>
       <title>[Excel VBA]ポリモーフィズムを用いて、IF文を使わずラジオボタンごとの処理分岐を行う</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/polymorphism-radiobutton/</link>
+      <link>https://dede-20191130.github.io/posts/2020/11/01/polymorphism-radiobutton/</link>
       <pubDate>Sun, 01 Nov 2020 16:44:24 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/polymorphism-radiobutton/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/11/01/polymorphism-radiobutton/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>python on 学習者Dedeのブログ ~プログラミング等~</title>
-    <link>https://dede-20191130.github.io/learnerBlog/tags/python/</link>
+    <link>https://dede-20191130.github.io/tags/python/</link>
     <description>Recent content in python on 学習者Dedeのブログ ~プログラミング等~</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 12 Feb 2021 23:23:50 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 12 Feb 2021 23:23:50 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Python] 久しぶりにpythonスクリプトを作成した。[ファイル区分けスクリプト]</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/02/12/python-note-01/</link>
+      <link>https://dede-20191130.github.io/posts/2021/02/12/python-note-01/</link>
       <pubDate>Fri, 12 Feb 2021 23:23:50 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/02/12/python-note-01/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/02/12/python-note-01/</guid>
       <description>
         
           &lt;h2 id=&#34;about&#34;&gt;About&lt;/h2&gt;

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Trouble Shooting on The learner Dede&#39;s Blog</title>
-    <link>https://dede-20191130.github.io/learnerBlog/en/categories/trouble-shooting/</link>
+    <link>https://dede-20191130.github.io/en/categories/trouble-shooting/</link>
     <description>Recent content in Trouble Shooting on The learner Dede&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 15 Jan 2021 23:38:43 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/en/categories/trouble-shooting/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 15 Jan 2021 23:38:43 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/en/categories/trouble-shooting/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>EXCEL VBA: YOU MAY HAVE A ERROR ON CHANGING PRINTAREA DYNAMICALLY &amp; HOW TO AVOID IT</title>
-      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2021/01/15/change-pagesetup-printaria/</link>
+      <link>https://dede-20191130.github.io/en/posts/2021/01/15/change-pagesetup-printaria/</link>
       <pubDate>Fri, 15 Jan 2021 23:38:43 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2021/01/15/change-pagesetup-printaria/</guid>
+      <guid>https://dede-20191130.github.io/en/posts/2021/01/15/change-pagesetup-printaria/</guid>
       <description>
         
           
@@ -211,10 +211,10 @@ the user may see a screen flicker during the process because of switching the re
     
     <item>
       <title>Access VBA: THE THING YOU NEED TO BE AWARE OF WHEN CREATING EVENT LISTENER BY USING WITHEVENTS FOR FORM CONTROLS</title>
-      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/11/08/access-control-withevents/</link>
+      <link>https://dede-20191130.github.io/en/posts/2020/11/08/access-control-withevents/</link>
       <pubDate>Sun, 08 Nov 2020 10:26:29 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/11/08/access-control-withevents/</guid>
+      <guid>https://dede-20191130.github.io/en/posts/2020/11/08/access-control-withevents/</guid>
       <description>
         
           
@@ -569,10 +569,10 @@ Moreover, when others see this code, they might consider it unnecessary and dele
     
     <item>
       <title>ACCESS VBA: SOLUTIONS OF THE PROBLEM THAT AUTOMATIC COLUMN WIDTH ADJUSTMENT DOES NOT WORK WHEN USING USER-DEFINED FUNCTIONS IN THE CONTROL SOURCE.</title>
-      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/10/13/access-controlsource/</link>
+      <link>https://dede-20191130.github.io/en/posts/2020/10/13/access-controlsource/</link>
       <pubDate>Tue, 13 Oct 2020 09:37:47 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/10/13/access-controlsource/</guid>
+      <guid>https://dede-20191130.github.io/en/posts/2020/10/13/access-controlsource/</guid>
       <description>
         
           

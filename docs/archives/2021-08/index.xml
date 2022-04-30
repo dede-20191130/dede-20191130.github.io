@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2021-08 on 学習者Dedeのブログ ~プログラミング等~</title>
-    <link>https://dede-20191130.github.io/learnerBlog/archives/2021-08/</link>
+    <link>https://dede-20191130.github.io/archives/2021-08/</link>
     <description>Recent content in 2021-08 on 学習者Dedeのブログ ~プログラミング等~</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 18 Aug 2021 15:06:36 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/archives/2021-08/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 18 Aug 2021 15:06:36 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/archives/2021-08/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Access VBA] RequeryとRefreshの使い分けデモ　「単票フォームの編集」編</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/</link>
+      <link>https://dede-20191130.github.io/posts/2021/08/18/cut-sheet-requery-refresh/</link>
       <pubDate>Wed, 18 Aug 2021 15:06:36 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/08/18/cut-sheet-requery-refresh/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -176,12 +176,12 @@
     
     
     
-    &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/01-nothing-to-do.webm&#39; type=&#34;video/webm&#34;&gt;
+    &lt;source src=&#39;https://dede-20191130.github.io/posts/2021/08/18/cut-sheet-requery-refresh/01-nothing-to-do.webm&#39; type=&#34;video/webm&#34;&gt;
     
     
     
     
-    &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/01-nothing-to-do.mp4&#39; type=&#34;video/mp4&#34;&gt;
+    &lt;source src=&#39;https://dede-20191130.github.io/posts/2021/08/18/cut-sheet-requery-refresh/01-nothing-to-do.mp4&#39; type=&#34;video/mp4&#34;&gt;
     
     
     
@@ -202,12 +202,12 @@
     
     
     
-    &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/02-form-requery.webm&#39; type=&#34;video/webm&#34;&gt;
+    &lt;source src=&#39;https://dede-20191130.github.io/posts/2021/08/18/cut-sheet-requery-refresh/02-form-requery.webm&#39; type=&#34;video/webm&#34;&gt;
     
     
     
     
-    &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/02-form-requery.mp4&#39; type=&#34;video/mp4&#34;&gt;
+    &lt;source src=&#39;https://dede-20191130.github.io/posts/2021/08/18/cut-sheet-requery-refresh/02-form-requery.mp4&#39; type=&#34;video/mp4&#34;&gt;
     
     
     
@@ -233,12 +233,12 @@
     
     
     
-    &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/03-form-refresh.webm&#39; type=&#34;video/webm&#34;&gt;
+    &lt;source src=&#39;https://dede-20191130.github.io/posts/2021/08/18/cut-sheet-requery-refresh/03-form-refresh.webm&#39; type=&#34;video/webm&#34;&gt;
     
     
     
     
-    &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/03-form-refresh.mp4&#39; type=&#34;video/mp4&#34;&gt;
+    &lt;source src=&#39;https://dede-20191130.github.io/posts/2021/08/18/cut-sheet-requery-refresh/03-form-refresh.mp4&#39; type=&#34;video/mp4&#34;&gt;
     
     
     
@@ -261,12 +261,12 @@
     
     
     
-    &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/04-combobox-requery.webm&#39; type=&#34;video/webm&#34;&gt;
+    &lt;source src=&#39;https://dede-20191130.github.io/posts/2021/08/18/cut-sheet-requery-refresh/04-combobox-requery.webm&#39; type=&#34;video/webm&#34;&gt;
     
     
     
     
-    &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/04-combobox-requery.mp4&#39; type=&#34;video/mp4&#34;&gt;
+    &lt;source src=&#39;https://dede-20191130.github.io/posts/2021/08/18/cut-sheet-requery-refresh/04-combobox-requery.mp4&#39; type=&#34;video/mp4&#34;&gt;
     
     
     

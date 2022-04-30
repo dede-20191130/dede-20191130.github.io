@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2021 on 学習者Dedeのブログ ~プログラミング等~</title>
-    <link>https://dede-20191130.github.io/learnerBlog/archives/2021/</link>
+    <link>https://dede-20191130.github.io/archives/2021/</link>
     <description>Recent content in 2021 on 学習者Dedeのブログ ~プログラミング等~</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 31 Dec 2021 10:32:02 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/archives/2021/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 31 Dec 2021 10:32:02 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/archives/2021/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[教えて！VBA] 第5回 ブックの最初のシートの最初のセルを選択した状態にするにはどうすればいいの？？</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/12/31/vba-question-005-select-first-worksheet/</link>
+      <link>https://dede-20191130.github.io/posts/2021/12/31/vba-question-005-select-first-worksheet/</link>
       <pubDate>Fri, 31 Dec 2021 10:32:02 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/12/31/vba-question-005-select-first-worksheet/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/12/31/vba-question-005-select-first-worksheet/</guid>
       <description>
         
           &lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640920597/learnerBlog/vba-question-005-select-first-worksheet/select-first-worksheet_zrvw3w.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
@@ -181,10 +181,10 @@ VBAにおけるコレクションという存在と使用方法、&lt;br&gt;
     
     <item>
       <title>[教えて！VBA] 第4回 シート上の図形をコピーして他のセル上に貼り付けするにはどうすればいいの？？</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/12/30/vba-question-004-copypaste-shapes/</link>
+      <link>https://dede-20191130.github.io/posts/2021/12/30/vba-question-004-copypaste-shapes/</link>
       <pubDate>Thu, 30 Dec 2021 13:16:26 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/12/30/vba-question-004-copypaste-shapes/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/12/30/vba-question-004-copypaste-shapes/</guid>
       <description>
         
           &lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640865307/learnerBlog/vba-question-004-copypaste-shapes/copypaste-shapes_zbaepe.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
@@ -460,10 +460,10 @@ VBA上では次のように図形を参照できます。&lt;/p&gt;
     
     <item>
       <title>[Excel VBA] セルの文字色・背景色だけをコピーして貼り付けるマクロを作成しました</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/12/29/paste-only-colors/</link>
+      <link>https://dede-20191130.github.io/posts/2021/12/29/paste-only-colors/</link>
       <pubDate>Wed, 29 Dec 2021 10:24:02 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/12/29/paste-only-colors/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/12/29/paste-only-colors/</guid>
       <description>
         
           &lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1640748357/learnerBlog/paste-only-colors/paste-only-colors_osfx92.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
@@ -601,10 +601,10 @@ VBA上では次のように図形を参照できます。&lt;/p&gt;
     
     <item>
       <title>[教えて！VBA] 第3回 Accessマクロで、テーブルのデータを全クリアするにはどうすればいいの？？</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/12/25/vba-question-003-clear-data-in-table/</link>
+      <link>https://dede-20191130.github.io/posts/2021/12/25/vba-question-003-clear-data-in-table/</link>
       <pubDate>Sat, 25 Dec 2021 09:57:26 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/12/25/vba-question-003-clear-data-in-table/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/12/25/vba-question-003-clear-data-in-table/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -730,10 +730,10 @@ Access利用の幅が広がるでしょう。&lt;/p&gt;
     
     <item>
       <title>[教えて！VBA] 第2回 一つのセルの値が「東京都」であることを条件として別のアクションを行うにはどうすればいいの？？</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/12/14/vba-question-002-chekc-single-cell/</link>
+      <link>https://dede-20191130.github.io/posts/2021/12/14/vba-question-002-chekc-single-cell/</link>
       <pubDate>Tue, 14 Dec 2021 11:53:35 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/12/14/vba-question-002-chekc-single-cell/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/12/14/vba-question-002-chekc-single-cell/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -903,10 +903,10 @@ Microsoftの公式を見てみると面白いかもしれません。&lt;/p&gt;
     
     <item>
       <title>[教えて！VBA] 第1回 処理の途中で待機時間（Sleep）を設けるにはどうすればいいの？？</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/12/12/vba-question-001-waiting/</link>
+      <link>https://dede-20191130.github.io/posts/2021/12/12/vba-question-001-waiting/</link>
       <pubDate>Sun, 12 Dec 2021 10:41:37 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/12/12/vba-question-001-waiting/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/12/12/vba-question-001-waiting/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -1085,10 +1085,10 @@ ExcelでもAccessでも（あるいはOutLookなどでも）、読み込みさ�
     
     <item>
       <title>[JavaScript] 正規表現の実行速度検証デモ：量指定子に「Greedyな検索」と「Lazyな検索」を指定する場合</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/11/03/compare-greedy-lazy-quantifiers/</link>
+      <link>https://dede-20191130.github.io/posts/2021/11/03/compare-greedy-lazy-quantifiers/</link>
       <pubDate>Wed, 03 Nov 2021 22:20:40 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/11/03/compare-greedy-lazy-quantifiers/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/11/03/compare-greedy-lazy-quantifiers/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -1233,10 +1233,10 @@ Greedyな検索をする場合は、正規表現に工夫をしないと時間�
     
     <item>
       <title>[Javacript] 画像をワンクリックで別タブで開けるようにするブックマークレットを作成する</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/11/01/bookmarklet-img-other-tab/</link>
+      <link>https://dede-20191130.github.io/posts/2021/11/01/bookmarklet-img-other-tab/</link>
       <pubDate>Mon, 01 Nov 2021 13:36:23 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/11/01/bookmarklet-img-other-tab/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/11/01/bookmarklet-img-other-tab/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -1315,10 +1315,10 @@ Greedyな検索をする場合は、正規表現に工夫をしないと時間�
     
     <item>
       <title>[React Hook] レンダリングのチューニング ~オブジェクトをContextとして利用する場合 &amp; サンプルコード~</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/10/30/tuning-usecontext-for-obj/</link>
+      <link>https://dede-20191130.github.io/posts/2021/10/30/tuning-usecontext-for-obj/</link>
       <pubDate>Sat, 30 Oct 2021 18:56:19 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/10/30/tuning-usecontext-for-obj/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/10/30/tuning-usecontext-for-obj/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -1486,10 +1486,10 @@ EffectBoxのサイドエフェクト処理が走るようにできる。&lt;/p&g
     
     <item>
       <title>[JavaScript] Web Componentsで明暗モード切替ボタンを作成する</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/10/27/wc-toggle-color-button/</link>
+      <link>https://dede-20191130.github.io/posts/2021/10/27/wc-toggle-color-button/</link>
       <pubDate>Wed, 27 Oct 2021 10:01:42 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/10/27/wc-toggle-color-button/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/10/27/wc-toggle-color-button/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -1778,10 +1778,10 @@ Sass用のライブラリやCSS-in-JSのライブラリを用いてうまいこ�
     
     <item>
       <title>ご意見送信フォームを作成する③　[SPA by React Router]</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/10/14/send-contact-form-react-router/</link>
+      <link>https://dede-20191130.github.io/posts/2021/10/14/send-contact-form-react-router/</link>
       <pubDate>Thu, 14 Oct 2021 11:10:41 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/10/14/send-contact-form-react-router/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/10/14/send-contact-form-react-router/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -1797,7 +1797,7 @@ Sass用のライブラリやCSS-in-JSのライブラリを用いてうまいこ�
 
     &lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/posts/2021/10/08/send-contact-form-react/&#34;&gt;先日作成したReact製意見送信フォーム&lt;/a&gt;では、&lt;br&gt;
+&lt;p&gt;&lt;a href=&#34;https://dede-20191130.github.io/posts/2021/10/08/send-contact-form-react/&#34;&gt;先日作成したReact製意見送信フォーム&lt;/a&gt;では、&lt;br&gt;
 フォームのSubmit後にモーダルポップアップとして送信完了および結果の取得ボタンを表示していたが、&lt;br&gt;
 実はモーダル画面特有の問題を抱えていた。&lt;/p&gt;
 &lt;p&gt;問題：&lt;/p&gt;
@@ -1806,7 +1806,7 @@ Sass用のライブラリやCSS-in-JSのライブラリを用いてうまいこ�
 モーダル表示時、モーダル部分の要素のみフォーカスできるように固定しなければならない（Focus Trap）&lt;/li&gt;
 &lt;li&gt;（オプション）WAI-ARIA対応としてアクセシビリティ向上のために、モーダルのコンポーネントにaria属性の設定などが必要&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;上記のそれぞれの問題については&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/posts/2021/10/08/send-contact-form-react/&#34;&gt;こちら&lt;/a&gt;では対応していないので、&lt;br&gt;
+&lt;p&gt;上記のそれぞれの問題については&lt;a href=&#34;https://dede-20191130.github.io/posts/2021/10/08/send-contact-form-react/&#34;&gt;こちら&lt;/a&gt;では対応していないので、&lt;br&gt;
 モーダルを使うのをやめてSPA化して別のページにしてしまうことを考え、作成することとした。&lt;/p&gt;
 &lt;p&gt;SPA化のためには&lt;a href=&#34;https://reactrouter.com/web/guides/quick-start&#34;&gt;React Router&lt;/a&gt;を使用している。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/dede-20191130/send-contact-form-react-router&#34;&gt;&lt;span id=&#34;srcURL&#34;&gt;&lt;u&gt;ソースコードはこちらにあります（GitHub）。&lt;/u&gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
@@ -2101,10 +2101,10 @@ Appコンポーネントと各childコンポーネントとのデータのI/Oを
     
     <item>
       <title>ご意見送信フォームを作成する②　[React]</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/10/08/send-contact-form-react/</link>
+      <link>https://dede-20191130.github.io/posts/2021/10/08/send-contact-form-react/</link>
       <pubDate>Fri, 08 Oct 2021 22:50:26 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/10/08/send-contact-form-react/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/10/08/send-contact-form-react/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -2120,7 +2120,7 @@ Appコンポーネントと各childコンポーネントとのデータのI/Oを
 
     &lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/posts/2021/10/08/send-contact-form-plain-ts/&#34;&gt;先日作成した意見送信フォーム&lt;/a&gt;を、&lt;br&gt;
+&lt;p&gt;&lt;a href=&#34;https://dede-20191130.github.io/posts/2021/10/08/send-contact-form-plain-ts/&#34;&gt;先日作成した意見送信フォーム&lt;/a&gt;を、&lt;br&gt;
 Reactを用いてリファクタした。&lt;/p&gt;
 &lt;p&gt;その際に、React-Hook-Formというフォーム作成用ライブラリを用いると&lt;br&gt;
 短時間で高機能なフォームが作成できるという話を見たため、&lt;br&gt;
@@ -2578,10 +2578,10 @@ Reactを用いてリファクタした。&lt;/p&gt;
     
     <item>
       <title>ご意見送信フォームを作成する①　[プレーンTypeScript]</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/10/08/send-contact-form-plain-ts/</link>
+      <link>https://dede-20191130.github.io/posts/2021/10/08/send-contact-form-plain-ts/</link>
       <pubDate>Fri, 08 Oct 2021 11:42:48 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/10/08/send-contact-form-plain-ts/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/10/08/send-contact-form-plain-ts/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -3083,7 +3083,7 @@ Modelよりバリデーション結果を受け取る。&lt;/p&gt;
 Reactなどのフレームワークは使用せずにプレーンなTypescriptで実装した。&lt;/p&gt;
 &lt;p&gt;こうしてみると、各種フレームワークがどのような要望や要請をもとに作成されているのか&lt;br&gt;
 （フレームワークを使わないことによる作業のボトルネックはどこにあるか）が少しはわかるような気がする。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2021/10/08/send-contact-form-react/&#34;&gt;■Reactを使用したバージョンのフォームを作成しました。&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://dede-20191130.github.io/posts/2021/10/08/send-contact-form-react/&#34;&gt;■Reactを使用したバージョンのフォームを作成しました。&lt;/a&gt;&lt;/p&gt;
 
         
       </description>
@@ -3091,10 +3091,10 @@ Reactなどのフレームワークは使用せずにプレーンなTypescript�
     
     <item>
       <title>[Access VBA] フォームのコントロール操作系の関数をどのようにユニットテストするかの方法メモ</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/09/04/access-change-control-test/</link>
+      <link>https://dede-20191130.github.io/posts/2021/09/04/access-change-control-test/</link>
       <pubDate>Sat, 04 Sep 2021 10:17:36 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/09/04/access-change-control-test/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/09/04/access-change-control-test/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -3534,10 +3534,10 @@ Mainフォーム上でテストするとMainフォーム自体の何かを変更
     
     <item>
       <title>[Access VBA] RequeryとRefreshの使い分けデモ　「単票フォームの編集」編</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/</link>
+      <link>https://dede-20191130.github.io/posts/2021/08/18/cut-sheet-requery-refresh/</link>
       <pubDate>Wed, 18 Aug 2021 15:06:36 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/08/18/cut-sheet-requery-refresh/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -3701,12 +3701,12 @@ Mainフォーム上でテストするとMainフォーム自体の何かを変更
     
     
     
-    &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/01-nothing-to-do.webm&#39; type=&#34;video/webm&#34;&gt;
+    &lt;source src=&#39;https://dede-20191130.github.io/posts/2021/08/18/cut-sheet-requery-refresh/01-nothing-to-do.webm&#39; type=&#34;video/webm&#34;&gt;
     
     
     
     
-    &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/01-nothing-to-do.mp4&#39; type=&#34;video/mp4&#34;&gt;
+    &lt;source src=&#39;https://dede-20191130.github.io/posts/2021/08/18/cut-sheet-requery-refresh/01-nothing-to-do.mp4&#39; type=&#34;video/mp4&#34;&gt;
     
     
     
@@ -3727,12 +3727,12 @@ Mainフォーム上でテストするとMainフォーム自体の何かを変更
     
     
     
-    &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/02-form-requery.webm&#39; type=&#34;video/webm&#34;&gt;
+    &lt;source src=&#39;https://dede-20191130.github.io/posts/2021/08/18/cut-sheet-requery-refresh/02-form-requery.webm&#39; type=&#34;video/webm&#34;&gt;
     
     
     
     
-    &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/02-form-requery.mp4&#39; type=&#34;video/mp4&#34;&gt;
+    &lt;source src=&#39;https://dede-20191130.github.io/posts/2021/08/18/cut-sheet-requery-refresh/02-form-requery.mp4&#39; type=&#34;video/mp4&#34;&gt;
     
     
     
@@ -3758,12 +3758,12 @@ Mainフォーム上でテストするとMainフォーム自体の何かを変更
     
     
     
-    &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/03-form-refresh.webm&#39; type=&#34;video/webm&#34;&gt;
+    &lt;source src=&#39;https://dede-20191130.github.io/posts/2021/08/18/cut-sheet-requery-refresh/03-form-refresh.webm&#39; type=&#34;video/webm&#34;&gt;
     
     
     
     
-    &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/03-form-refresh.mp4&#39; type=&#34;video/mp4&#34;&gt;
+    &lt;source src=&#39;https://dede-20191130.github.io/posts/2021/08/18/cut-sheet-requery-refresh/03-form-refresh.mp4&#39; type=&#34;video/mp4&#34;&gt;
     
     
     
@@ -3786,12 +3786,12 @@ Mainフォーム上でテストするとMainフォーム自体の何かを変更
     
     
     
-    &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/04-combobox-requery.webm&#39; type=&#34;video/webm&#34;&gt;
+    &lt;source src=&#39;https://dede-20191130.github.io/posts/2021/08/18/cut-sheet-requery-refresh/04-combobox-requery.webm&#39; type=&#34;video/webm&#34;&gt;
     
     
     
     
-    &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/04-combobox-requery.mp4&#39; type=&#34;video/mp4&#34;&gt;
+    &lt;source src=&#39;https://dede-20191130.github.io/posts/2021/08/18/cut-sheet-requery-refresh/04-combobox-requery.mp4&#39; type=&#34;video/mp4&#34;&gt;
     
     
     
@@ -3817,10 +3817,10 @@ Refreshが最も自然で使い勝手が良さそうな印象を受ける。&lt;
     
     <item>
       <title>[Javascript] IE11でRadioボタングループのvalueを取得できない事象＆対策</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/07/27/ie11-radio-group-value/</link>
+      <link>https://dede-20191130.github.io/posts/2021/07/27/ie11-radio-group-value/</link>
       <pubDate>Tue, 27 Jul 2021 22:52:15 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/07/27/ie11-radio-group-value/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/07/27/ie11-radio-group-value/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -3886,7 +3886,7 @@ chrome他モダンブラウザでは想定通りの挙動だが、&lt;br&gt;
 &lt;/span&gt;ではどうもうまくいかない。&lt;/p&gt;
 &lt;h3 id=&#34;デモページ&#34;&gt;デモページ&lt;/h3&gt;
 &lt;p&gt;こちらに
-&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/posts/2021/07/28/ie11-radio-group-value-demo-ng/&#34;&gt;デモページ&lt;/a&gt;
+&lt;a href=&#34;https://dede-20191130.github.io/posts/2021/07/28/ie11-radio-group-value-demo-ng/&#34;&gt;デモページ&lt;/a&gt;
 があります。&lt;/p&gt;
 &lt;p&gt;対応ブラウザでは、選択したラジオに応じた県庁所在地が表示されます。&lt;/p&gt;
 &lt;h2 id=&#34;何が起こっているか&#34;&gt;何が起こっているか？&lt;/h2&gt;
@@ -3947,10 +3947,10 @@ Radioボタンまわりのコードを書き換える必要がある。&lt;/p&gt
     
     <item>
       <title>[Excel VBA] 年度に関わらず営業日数を算出する方法について紹介</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/03/29/wsfunc-networkday/</link>
+      <link>https://dede-20191130.github.io/posts/2021/03/29/wsfunc-networkday/</link>
       <pubDate>Mon, 29 Mar 2021 16:04:41 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/03/29/wsfunc-networkday/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/03/29/wsfunc-networkday/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -4151,10 +4151,10 @@ Radioボタンまわりのコードを書き換える必要がある。&lt;/p&gt
     
     <item>
       <title>[Access VBA] 見積書作成ツール（Accessバージョン）を作成した</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/02/28/create-estm-accessver/</link>
+      <link>https://dede-20191130.github.io/posts/2021/02/28/create-estm-accessver/</link>
       <pubDate>Sun, 28 Feb 2021 00:34:49 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/02/28/create-estm-accessver/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/02/28/create-estm-accessver/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -4174,7 +4174,7 @@ Excelベースの見積書作成ツールを作成した。&lt;/p&gt;
 
 
 
-&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2020/07/16/create-estm/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Excel VBA] 見積書作成ツールを作成した&lt;/a&gt;
+&lt;a href=&#34;https://dede-20191130.github.io/posts/2020/07/16/create-estm/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Excel VBA] 見積書作成ツールを作成した&lt;/a&gt;
 
 
     &lt;/div&gt;
@@ -4216,7 +4216,7 @@ Accessのほうが遥かに容易である。&lt;/li&gt;
 
 
 
-&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2021/03/17/create-estm-accessver-tool-screen/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Click To Show Slide Page&lt;/a&gt;
+&lt;a href=&#34;https://dede-20191130.github.io/posts/2021/03/17/create-estm-accessver-tool-screen/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Click To Show Slide Page&lt;/a&gt;
 
 ]&lt;/strong&gt;&lt;/p&gt;
 &lt;h2 id=&#34;機能紹介&#34;&gt;機能紹介&lt;/h2&gt;
@@ -4227,7 +4227,7 @@ Accessのほうが遥かに容易である。&lt;/li&gt;
 
 
 
-&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2021/03/24/create-estm-accessver-tool-faculty/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Click To Show Slide Page&lt;/a&gt;
+&lt;a href=&#34;https://dede-20191130.github.io/posts/2021/03/24/create-estm-accessver-tool-faculty/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Click To Show Slide Page&lt;/a&gt;
 
 ]&lt;/strong&gt;&lt;/p&gt;
 
@@ -4237,23 +4237,23 @@ Accessのほうが遥かに容易である。&lt;/li&gt;
     
     <item>
       <title>Podcastの「歴史系番組」の比較＆おすすめの紹介</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/02/13/podcast-history-program/</link>
+      <link>https://dede-20191130.github.io/posts/2021/02/13/podcast-history-program/</link>
       <pubDate>Sat, 13 Feb 2021 22:49:28 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/02/13/podcast-history-program/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/02/13/podcast-history-program/</guid>
       <description>
         
           
 
 
 
-    &lt;link rel=&#34;stylesheet&#34; href=&#34;https://dede-20191130.github.io/learnerBlog/posts/2021/02/13/podcast-history-program/mycss.css&#34;&gt;&lt;/link&gt;
+    &lt;link rel=&#34;stylesheet&#34; href=&#34;https://dede-20191130.github.io/posts/2021/02/13/podcast-history-program/mycss.css&#34;&gt;&lt;/link&gt;
 
 
 &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
 &lt;p&gt;昨年10月くらいから、&lt;br&gt;
 ふと歴史を勉強しようと思ってPodcastの歴史系番組をよく聞いていた。&lt;br&gt;
-&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2020/11/03/learn-by-podcast/&#34;&gt;（その時の記事）&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&#34;https://dede-20191130.github.io/posts/2020/11/03/learn-by-podcast/&#34;&gt;（その時の記事）&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;それぞれの番組に様々な特色があり、&lt;br&gt;
 特に、日本史・世界史をある程度幅広く詳細に学びたい、&lt;br&gt;
 教科書の外の知識が知りたい、&lt;br&gt;
@@ -4459,10 +4459,10 @@ Accessのほうが遥かに容易である。&lt;/li&gt;
     
     <item>
       <title>[Excel VBA] 結合セルにコピーペーストするマクロ</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/02/13/copyto-merged-cell/</link>
+      <link>https://dede-20191130.github.io/posts/2021/02/13/copyto-merged-cell/</link>
       <pubDate>Sat, 13 Feb 2021 11:32:30 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/02/13/copyto-merged-cell/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/02/13/copyto-merged-cell/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -4709,10 +4709,10 @@ name列にコピペできる。&lt;/p&gt;
     
     <item>
       <title>[Python] 久しぶりにpythonスクリプトを作成した。[ファイル区分けスクリプト]</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/02/12/python-note-01/</link>
+      <link>https://dede-20191130.github.io/posts/2021/02/12/python-note-01/</link>
       <pubDate>Fri, 12 Feb 2021 23:23:50 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/02/12/python-note-01/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/02/12/python-note-01/</guid>
       <description>
         
           &lt;h2 id=&#34;about&#34;&gt;About&lt;/h2&gt;
@@ -4815,10 +4815,10 @@ IDEでの補完機能が弱い（動的型付けなので仕方ないが）こ�
     
     <item>
       <title>[Excel VBA] PageSetup.PrintAreaによるシートの印刷範囲の変更を行うときにエラーになる場合＆その回避方法</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/01/15/change-pagesetup-printaria/</link>
+      <link>https://dede-20191130.github.io/posts/2021/01/15/change-pagesetup-printaria/</link>
       <pubDate>Fri, 15 Jan 2021 23:38:43 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/01/15/change-pagesetup-printaria/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/01/15/change-pagesetup-printaria/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -5025,10 +5025,10 @@ Range(prePrintAreaAddress)としてRangeオブジェクトに格納する時点�
     
     <item>
       <title>[VBA] インタフェース継承を使用する際にクラス変数として配列を使用する方法</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/01/13/interface-array-member/</link>
+      <link>https://dede-20191130.github.io/posts/2021/01/13/interface-array-member/</link>
       <pubDate>Wed, 13 Jan 2021 19:49:08 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/01/13/interface-array-member/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/01/13/interface-array-member/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;

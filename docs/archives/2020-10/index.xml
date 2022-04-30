@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2020-10 on 学習者Dedeのブログ ~プログラミング等~</title>
-    <link>https://dede-20191130.github.io/learnerBlog/archives/2020-10/</link>
+    <link>https://dede-20191130.github.io/archives/2020-10/</link>
     <description>Recent content in 2020-10 on 学習者Dedeのブログ ~プログラミング等~</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 30 Oct 2020 00:00:04 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/archives/2020-10/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 30 Oct 2020 00:00:04 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/archives/2020-10/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Powershell] Windowsで更新日時が〇〇以降のファイルのパスの一覧を取得するには</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/10/30/ps-refinement-last/</link>
+      <link>https://dede-20191130.github.io/posts/2020/10/30/ps-refinement-last/</link>
       <pubDate>Fri, 30 Oct 2020 00:00:04 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/10/30/ps-refinement-last/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/10/30/ps-refinement-last/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -42,10 +42,10 @@
     
     <item>
       <title>[Access VBA] デザインビューのテーブル定義を表形式でエクスポートするAccessツールを作成した</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/10/27/access-tabledef-tool/</link>
+      <link>https://dede-20191130.github.io/posts/2020/10/27/access-tabledef-tool/</link>
       <pubDate>Tue, 27 Oct 2020 20:29:45 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/10/27/access-tabledef-tool/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/10/27/access-tabledef-tool/</guid>
       <description>
         
           &lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
@@ -91,10 +91,10 @@
     
     <item>
       <title>[Access VBA] デザインビューのテーブル定義を表形式でエクスポートする関数を作成した</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/10/25/access-tabledef/</link>
+      <link>https://dede-20191130.github.io/posts/2020/10/25/access-tabledef/</link>
       <pubDate>Sun, 25 Oct 2020 22:01:43 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/10/25/access-tabledef/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/10/25/access-tabledef/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -121,7 +121,7 @@
 
 
 
-&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2020/10/27/access-tabledef-tool/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Access VBA] デザインビューのテーブル定義を表形式でエクスポートするAccessツールを作成した&lt;/a&gt;
+&lt;a href=&#34;https://dede-20191130.github.io/posts/2020/10/27/access-tabledef-tool/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Access VBA] デザインビューのテーブル定義を表形式でエクスポートするAccessツールを作成した&lt;/a&gt;
 &lt;/p&gt;
 &lt;h2 id=&#34;作成環境&#34;&gt;作成環境&lt;/h2&gt;
 &lt;p&gt;Microsoft Office 2019&lt;/p&gt;
@@ -632,10 +632,10 @@ exportTableDefTablesMainを実行する。&lt;/p&gt;
     
     <item>
       <title>[Access VBA] コントロールソースにユーザ定義関数を用いると列幅の自動調整が想定通りに機能しない問題の解決</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/10/13/access-controlsource/</link>
+      <link>https://dede-20191130.github.io/posts/2020/10/13/access-controlsource/</link>
       <pubDate>Tue, 13 Oct 2020 09:37:47 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/10/13/access-controlsource/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/10/13/access-controlsource/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2021-01 on The learner Dede&#39;s Blog</title>
-    <link>https://dede-20191130.github.io/learnerBlog/en/archives/2021-01/</link>
+    <link>https://dede-20191130.github.io/en/archives/2021-01/</link>
     <description>Recent content in 2021-01 on The learner Dede&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 15 Jan 2021 23:38:43 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/en/archives/2021-01/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 15 Jan 2021 23:38:43 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/en/archives/2021-01/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>EXCEL VBA: YOU MAY HAVE A ERROR ON CHANGING PRINTAREA DYNAMICALLY &amp; HOW TO AVOID IT</title>
-      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2021/01/15/change-pagesetup-printaria/</link>
+      <link>https://dede-20191130.github.io/en/posts/2021/01/15/change-pagesetup-printaria/</link>
       <pubDate>Fri, 15 Jan 2021 23:38:43 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2021/01/15/change-pagesetup-printaria/</guid>
+      <guid>https://dede-20191130.github.io/en/posts/2021/01/15/change-pagesetup-printaria/</guid>
       <description>
         
           
@@ -211,10 +211,10 @@ the user may see a screen flicker during the process because of switching the re
     
     <item>
       <title>VBA: HOW TO USE ARRAYS AS A CLASS MEMBER WHEN USING INTERFACE INHERITANCE</title>
-      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2021/01/13/interface-array-member/</link>
+      <link>https://dede-20191130.github.io/en/posts/2021/01/13/interface-array-member/</link>
       <pubDate>Wed, 13 Jan 2021 19:49:08 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2021/01/13/interface-array-member/</guid>
+      <guid>https://dede-20191130.github.io/en/posts/2021/01/13/interface-array-member/</guid>
       <description>
         
           

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Excel on The learner Dede&#39;s Blog</title>
-    <link>https://dede-20191130.github.io/learnerBlog/en/tags/excel/</link>
+    <link>https://dede-20191130.github.io/en/tags/excel/</link>
     <description>Recent content in Excel on The learner Dede&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 13 Feb 2021 11:32:30 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/en/tags/excel/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 13 Feb 2021 11:32:30 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/en/tags/excel/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>EXCEL VBA: THE MARCO TO COPY DATA TO MERGED CELLS</title>
-      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2021/02/13/copyto-merged-cell/</link>
+      <link>https://dede-20191130.github.io/en/posts/2021/02/13/copyto-merged-cell/</link>
       <pubDate>Sat, 13 Feb 2021 11:32:30 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2021/02/13/copyto-merged-cell/</guid>
+      <guid>https://dede-20191130.github.io/en/posts/2021/02/13/copyto-merged-cell/</guid>
       <description>
         
           
@@ -244,10 +244,10 @@ you can copy data from address column No1-4 and paste it to blue area.&lt;/p&gt;
     
     <item>
       <title>EXCEL VBA: YOU MAY HAVE A ERROR ON CHANGING PRINTAREA DYNAMICALLY &amp; HOW TO AVOID IT</title>
-      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2021/01/15/change-pagesetup-printaria/</link>
+      <link>https://dede-20191130.github.io/en/posts/2021/01/15/change-pagesetup-printaria/</link>
       <pubDate>Fri, 15 Jan 2021 23:38:43 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2021/01/15/change-pagesetup-printaria/</guid>
+      <guid>https://dede-20191130.github.io/en/posts/2021/01/15/change-pagesetup-printaria/</guid>
       <description>
         
           
@@ -446,10 +446,10 @@ the user may see a screen flicker during the process because of switching the re
     
     <item>
       <title>EXCEL VBA: A MACRO TO SEARCH AND REPLACE A TEXT OF SHAPES IN EXCEL BOOK</title>
-      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/12/11/search-shape-string/</link>
+      <link>https://dede-20191130.github.io/en/posts/2020/12/11/search-shape-string/</link>
       <pubDate>Fri, 11 Dec 2020 16:27:07 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/12/11/search-shape-string/</guid>
+      <guid>https://dede-20191130.github.io/en/posts/2020/12/11/search-shape-string/</guid>
       <description>
         
           
@@ -687,10 +687,10 @@ A question to ask if it performs entire searching.&lt;/p&gt;
     
     <item>
       <title>EXCEL VBA: TYPICAL PATTERNS FOR EXCEPTION HANDLING &amp; SAMPLE OF HOW TO USE</title>
-      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/12/05/vba-exception-handle/</link>
+      <link>https://dede-20191130.github.io/en/posts/2020/12/05/vba-exception-handle/</link>
       <pubDate>Sat, 05 Dec 2020 18:02:12 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/12/05/vba-exception-handle/</guid>
+      <guid>https://dede-20191130.github.io/en/posts/2020/12/05/vba-exception-handle/</guid>
       <description>
         
           
@@ -1184,10 +1184,10 @@ The position is already filled with &#39;FireBall&#39;, so a custom error messag
     
     <item>
       <title>VBA: THE BENEFIT OF USING CLASS AND THE WAY TO USE, WITH A SIMPLE SAMPLE PART 2</title>
-      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/11/22/excel-class-sample-02/</link>
+      <link>https://dede-20191130.github.io/en/posts/2020/11/22/excel-class-sample-02/</link>
       <pubDate>Sun, 22 Nov 2020 14:07:24 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/11/22/excel-class-sample-02/</guid>
+      <guid>https://dede-20191130.github.io/en/posts/2020/11/22/excel-class-sample-02/</guid>
       <description>
         
           
@@ -1207,7 +1207,7 @@ The position is already filled with &#39;FireBall&#39;, so a custom error messag
 
 
 
-&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/en/posts/2020/11/20/excel-class-sample-01/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VBA: THE BENEFIT OF USING CLASS AND THE WAY TO USE, WITH A SIMPLE SAMPLE PART 1&lt;/a&gt;
+&lt;a href=&#34;https://dede-20191130.github.io/en/posts/2020/11/20/excel-class-sample-01/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VBA: THE BENEFIT OF USING CLASS AND THE WAY TO USE, WITH A SIMPLE SAMPLE PART 1&lt;/a&gt;
 
 &lt;p&gt;Here, I&#39;m going to take anothier sample file and describe how to use class and the bbenefits in a different way from that in the previous article.&lt;br&gt;
 The sample class &lt;code&gt;clsCreateNewExcel&lt;/code&gt; will express the benefits from encapsulation and routine processing in initialization and termination processes, which are excluded from &lt;code&gt;TableCreater&lt;/code&gt; in the previous article.&lt;/p&gt;
@@ -1645,10 +1645,10 @@ Especially, in terms of Excel Application object, if you stored it to global var
     
     <item>
       <title>VBA: THE BENEFIT OF USING CLASS AND THE WAY TO USE, WITH A SIMPLE SAMPLE PART 1</title>
-      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/11/20/excel-class-sample-01/</link>
+      <link>https://dede-20191130.github.io/en/posts/2020/11/20/excel-class-sample-01/</link>
       <pubDate>Fri, 20 Nov 2020 23:47:25 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/11/20/excel-class-sample-01/</guid>
+      <guid>https://dede-20191130.github.io/en/posts/2020/11/20/excel-class-sample-01/</guid>
       <description>
         
           
@@ -2189,7 +2189,7 @@ So, I created a sequel of this article.&lt;/p&gt;
 
 
 
-&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/en/posts/2020/11/22/excel-class-sample-02/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VBA: THE BENEFIT OF USING CLASS AND THE WAY TO USE, WITH A SIMPLE SAMPLE PART 2&lt;/a&gt;
+&lt;a href=&#34;https://dede-20191130.github.io/en/posts/2020/11/22/excel-class-sample-02/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VBA: THE BENEFIT OF USING CLASS AND THE WAY TO USE, WITH A SIMPLE SAMPLE PART 2&lt;/a&gt;
 
 
         
@@ -2198,10 +2198,10 @@ So, I created a sequel of this article.&lt;/p&gt;
     
     <item>
       <title>EXCEL VBA: HOMEMADE EXCEL SHORTCUTS TO IMPROVE WORK EFFICIENCY</title>
-      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/11/05/own-excel-shortcut/</link>
+      <link>https://dede-20191130.github.io/en/posts/2020/11/05/own-excel-shortcut/</link>
       <pubDate>Thu, 05 Nov 2020 00:48:58 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/11/05/own-excel-shortcut/</guid>
+      <guid>https://dede-20191130.github.io/en/posts/2020/11/05/own-excel-shortcut/</guid>
       <description>
         
           
@@ -2487,10 +2487,10 @@ probably there are a case that we want to move shapes to the front or back again
     
     <item>
       <title>EXCEL VBA: WITH POLYMORPHISM, BRANCHING A PROCESS WITHOUT USING IF STATEMENT</title>
-      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/11/01/polymorphism-radiobutton/</link>
+      <link>https://dede-20191130.github.io/en/posts/2020/11/01/polymorphism-radiobutton/</link>
       <pubDate>Sun, 01 Nov 2020 16:44:24 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/11/01/polymorphism-radiobutton/</guid>
+      <guid>https://dede-20191130.github.io/en/posts/2020/11/01/polymorphism-radiobutton/</guid>
       <description>
         
           
@@ -2804,7 +2804,7 @@ XX indicates a tag property string.&lt;/p&gt;
 
 
 
-&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/en/posts/2020/11/01/excel-a1-tool/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;EXCEL VBA: I CREATED A TOOL THAT ALL SELECTED EXCEL BOOK HAVE THEIR CURSOR MOVED TO A1.&lt;/a&gt;
+&lt;a href=&#34;https://dede-20191130.github.io/en/posts/2020/11/01/excel-a1-tool/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;EXCEL VBA: I CREATED A TOOL THAT ALL SELECTED EXCEL BOOK HAVE THEIR CURSOR MOVED TO A1.&lt;/a&gt;
 &lt;/p&gt;
 
         
@@ -2813,10 +2813,10 @@ XX indicates a tag property string.&lt;/p&gt;
     
     <item>
       <title>EXCEL VBA: I CREATED A TOOL THAT ALL SELECTED EXCEL BOOK HAVE THEIR CURSOR MOVED TO A1.</title>
-      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/11/01/excel-a1-tool/</link>
+      <link>https://dede-20191130.github.io/en/posts/2020/11/01/excel-a1-tool/</link>
       <pubDate>Sun, 01 Nov 2020 12:05:43 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/11/01/excel-a1-tool/</guid>
+      <guid>https://dede-20191130.github.io/en/posts/2020/11/01/excel-a1-tool/</guid>
       <description>
         
           
@@ -2862,10 +2862,10 @@ MSOffice 2016&lt;/p&gt;
     
     <item>
       <title>[EXCEL] I CREATED A MAIL CREATION TOOL WHICH IS NON-MACRO.</title>
-      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/07/18/create-nomarco-tool/</link>
+      <link>https://dede-20191130.github.io/en/posts/2020/07/18/create-nomarco-tool/</link>
       <pubDate>Sat, 18 Jul 2020 18:30:28 +0000</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/07/18/create-nomarco-tool/</guid>
+      <guid>https://dede-20191130.github.io/en/posts/2020/07/18/create-nomarco-tool/</guid>
       <description>
         
           
@@ -2894,7 +2894,7 @@ From the data, create a E-mail.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1644558137/learnerBlog/create-nomarco-tool/en/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-02-11_134404_mg96ao.png&#34; alt=&#34;auto input with pullDown&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1644558137/learnerBlog/create-nomarco-tool/en/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2022-02-11_134537_fq9xxk.png&#34; alt=&#34;E-mail auto-created&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;span-idvbaarticle-benefits-of-non-macro-toolspan&#34;&gt;&lt;span id=&#34;VBA&#34;&gt;ARTICLE: BENEFITS OF NON-MACRO TOOL&lt;/span&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/en/posts/2020/07/16/craete-estm/&#34;&gt;Here&lt;/a&gt; is the Article.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://dede-20191130.github.io/en/posts/2020/07/16/craete-estm/&#34;&gt;Here&lt;/a&gt; is the Article.&lt;/p&gt;
 
         
       </description>
@@ -2902,10 +2902,10 @@ From the data, create a E-mail.&lt;/p&gt;
     
     <item>
       <title>EXCEL VBA: I CREATED A QUOTATION CREATION TOOL.</title>
-      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/07/16/craete-estm/</link>
+      <link>https://dede-20191130.github.io/en/posts/2020/07/16/craete-estm/</link>
       <pubDate>Thu, 16 Jul 2020 08:05:13 +0000</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/07/16/craete-estm/</guid>
+      <guid>https://dede-20191130.github.io/en/posts/2020/07/16/craete-estm/</guid>
       <description>
         
           
@@ -2982,10 +2982,10 @@ PDF files corresponding with each quotation are created and stored in the same f
     
     <item>
       <title>TOOL DEVELOPMENT ON EXCEL: COMPARING BETWEEN TOOLS USING FUNCTION (NON-MACRO) AND TOOLS USING VBA MACRO</title>
-      <link>https://dede-20191130.github.io/learnerBlog/en/posts/2020/07/16/cmpr-tools/</link>
+      <link>https://dede-20191130.github.io/en/posts/2020/07/16/cmpr-tools/</link>
       <pubDate>Thu, 16 Jul 2020 06:14:50 +0000</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/en/posts/2020/07/16/cmpr-tools/</guid>
+      <guid>https://dede-20191130.github.io/en/posts/2020/07/16/cmpr-tools/</guid>
       <description>
         
           

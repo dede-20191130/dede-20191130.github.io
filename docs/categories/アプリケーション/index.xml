@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>アプリケーション on 学習者Dedeのブログ ~プログラミング等~</title>
-    <link>https://dede-20191130.github.io/learnerBlog/categories/%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3/</link>
+    <link>https://dede-20191130.github.io/categories/%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3/</link>
     <description>Recent content in アプリケーション on 学習者Dedeのブログ ~プログラミング等~</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 28 Feb 2021 00:34:49 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/categories/%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 Feb 2021 00:34:49 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/categories/%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Access VBA] 見積書作成ツール（Accessバージョン）を作成した</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/02/28/create-estm-accessver/</link>
+      <link>https://dede-20191130.github.io/posts/2021/02/28/create-estm-accessver/</link>
       <pubDate>Sun, 28 Feb 2021 00:34:49 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/02/28/create-estm-accessver/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/02/28/create-estm-accessver/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -32,7 +32,7 @@ Excelベースの見積書作成ツールを作成した。&lt;/p&gt;
 
 
 
-&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2020/07/16/create-estm/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Excel VBA] 見積書作成ツールを作成した&lt;/a&gt;
+&lt;a href=&#34;https://dede-20191130.github.io/posts/2020/07/16/create-estm/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Excel VBA] 見積書作成ツールを作成した&lt;/a&gt;
 
 
     &lt;/div&gt;
@@ -74,7 +74,7 @@ Accessのほうが遥かに容易である。&lt;/li&gt;
 
 
 
-&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2021/03/17/create-estm-accessver-tool-screen/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Click To Show Slide Page&lt;/a&gt;
+&lt;a href=&#34;https://dede-20191130.github.io/posts/2021/03/17/create-estm-accessver-tool-screen/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Click To Show Slide Page&lt;/a&gt;
 
 ]&lt;/strong&gt;&lt;/p&gt;
 &lt;h2 id=&#34;機能紹介&#34;&gt;機能紹介&lt;/h2&gt;
@@ -85,7 +85,7 @@ Accessのほうが遥かに容易である。&lt;/li&gt;
 
 
 
-&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2021/03/24/create-estm-accessver-tool-faculty/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Click To Show Slide Page&lt;/a&gt;
+&lt;a href=&#34;https://dede-20191130.github.io/posts/2021/03/24/create-estm-accessver-tool-faculty/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Click To Show Slide Page&lt;/a&gt;
 
 ]&lt;/strong&gt;&lt;/p&gt;
 
@@ -95,10 +95,10 @@ Accessのほうが遥かに容易である。&lt;/li&gt;
     
     <item>
       <title>[Excel VBA] 個人的に作業がはかどった自作Excelショートカット</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/05/own-excel-shortcut/</link>
+      <link>https://dede-20191130.github.io/posts/2020/11/05/own-excel-shortcut/</link>
       <pubDate>Thu, 05 Nov 2020 00:48:58 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/05/own-excel-shortcut/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/11/05/own-excel-shortcut/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -262,10 +262,10 @@ Ctrl + Shift + K、M、Nなどが良いかもしれない。&lt;/p&gt;
     
     <item>
       <title>[Excel VBA]選択フォルダ配下のエクセルブックの全シートでA1にカーソル移動させるツールを作成した</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/excel-a1-tool/</link>
+      <link>https://dede-20191130.github.io/posts/2020/11/01/excel-a1-tool/</link>
       <pubDate>Sun, 01 Nov 2020 12:05:43 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/01/excel-a1-tool/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/11/01/excel-a1-tool/</guid>
       <description>
         
           &lt;h2 id=&#34;このツールについて&#34;&gt;このツールについて&lt;/h2&gt;
@@ -305,10 +305,10 @@ MSOffice 2016&lt;/p&gt;
     
     <item>
       <title>[Access VBA] デザインビューのテーブル定義を表形式でエクスポートするAccessツールを作成した</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/10/27/access-tabledef-tool/</link>
+      <link>https://dede-20191130.github.io/posts/2020/10/27/access-tabledef-tool/</link>
       <pubDate>Tue, 27 Oct 2020 20:29:45 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/10/27/access-tabledef-tool/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/10/27/access-tabledef-tool/</guid>
       <description>
         
           &lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
@@ -354,10 +354,10 @@ MSOffice 2016&lt;/p&gt;
     
     <item>
       <title>【Excel】非マクロのメール作成ツールを作成した</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/07/18/create-nomarco-tool/</link>
+      <link>https://dede-20191130.github.io/posts/2020/07/18/create-nomarco-tool/</link>
       <pubDate>Sat, 18 Jul 2020 18:30:28 +0000</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/07/18/create-nomarco-tool/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/07/18/create-nomarco-tool/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -384,10 +384,10 @@ MSOffice 2016&lt;/p&gt;
     
     <item>
       <title>[Excel VBA] 見積書作成ツールを作成した</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/07/16/create-estm/</link>
+      <link>https://dede-20191130.github.io/posts/2020/07/16/create-estm/</link>
       <pubDate>Thu, 16 Jul 2020 08:05:13 +0000</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/07/16/create-estm/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/07/16/create-estm/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -436,7 +436,7 @@ MSOffice 2016&lt;/p&gt;
 
 
 
-&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2021/02/28/create-estm-accessver/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Access VBA] 見積書作成ツール（Accessバージョン）を作成した&lt;/a&gt;
+&lt;a href=&#34;https://dede-20191130.github.io/posts/2021/02/28/create-estm-accessver/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Access VBA] 見積書作成ツール（Accessバージョン）を作成した&lt;/a&gt;
 
 
     &lt;/div&gt;
@@ -448,10 +448,10 @@ MSOffice 2016&lt;/p&gt;
     
     <item>
       <title>Excelのツール開発：関数（非マクロ）ツールとVBA使用ツールの比較</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/07/16/cmpr-tools/</link>
+      <link>https://dede-20191130.github.io/posts/2020/07/16/cmpr-tools/</link>
       <pubDate>Thu, 16 Jul 2020 06:14:50 +0000</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/07/16/cmpr-tools/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/07/16/cmpr-tools/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;

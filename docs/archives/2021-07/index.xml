@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2021-07 on 学習者Dedeのブログ ~プログラミング等~</title>
-    <link>https://dede-20191130.github.io/learnerBlog/archives/2021-07/</link>
+    <link>https://dede-20191130.github.io/archives/2021-07/</link>
     <description>Recent content in 2021-07 on 学習者Dedeのブログ ~プログラミング等~</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 28 Jul 2021 19:14:46 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/archives/2021-07/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 28 Jul 2021 19:14:46 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/archives/2021-07/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Javascript] IE11でRadioボタングループのvalueを取得できない事象＆対策</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/07/27/ie11-radio-group-value/</link>
+      <link>https://dede-20191130.github.io/posts/2021/07/27/ie11-radio-group-value/</link>
       <pubDate>Tue, 27 Jul 2021 22:52:15 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/07/27/ie11-radio-group-value/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/07/27/ie11-radio-group-value/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -78,7 +78,7 @@ chrome他モダンブラウザでは想定通りの挙動だが、&lt;br&gt;
 &lt;/span&gt;ではどうもうまくいかない。&lt;/p&gt;
 &lt;h3 id=&#34;デモページ&#34;&gt;デモページ&lt;/h3&gt;
 &lt;p&gt;こちらに
-&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/posts/2021/07/28/ie11-radio-group-value-demo-ng/&#34;&gt;デモページ&lt;/a&gt;
+&lt;a href=&#34;https://dede-20191130.github.io/posts/2021/07/28/ie11-radio-group-value-demo-ng/&#34;&gt;デモページ&lt;/a&gt;
 があります。&lt;/p&gt;
 &lt;p&gt;対応ブラウザでは、選択したラジオに応じた県庁所在地が表示されます。&lt;/p&gt;
 &lt;h2 id=&#34;何が起こっているか&#34;&gt;何が起こっているか？&lt;/h2&gt;

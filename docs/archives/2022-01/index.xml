@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2022-01 on 学習者Dedeのブログ ~プログラミング等~</title>
-    <link>https://dede-20191130.github.io/learnerBlog/archives/2022-01/</link>
+    <link>https://dede-20191130.github.io/archives/2022-01/</link>
     <description>Recent content in 2022-01 on 学習者Dedeのブログ ~プログラミング等~</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 23 Jan 2022 15:29:27 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/archives/2022-01/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 Jan 2022 15:29:27 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/archives/2022-01/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[ReactJs] 居室内機器管理コンソール画面を作成してみました。</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2022/01/23/room-apparatus-control-console/</link>
+      <link>https://dede-20191130.github.io/posts/2022/01/23/room-apparatus-control-console/</link>
       <pubDate>Sun, 23 Jan 2022 15:29:27 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2022/01/23/room-apparatus-control-console/</guid>
+      <guid>https://dede-20191130.github.io/posts/2022/01/23/room-apparatus-control-console/</guid>
       <description>
         
           &lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1642950405/learnerBlog/room-apparatus-control-console/room-apparatus-control-console1_marzwp.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
@@ -167,10 +167,10 @@ TypeScriptの型システムにもさらに精通する必要があると感じ�
     
     <item>
       <title>[Access VBA] 数式エラーの発生しているExcelシートをテーブルに取り込むときの注意点とサンプルコード</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2022/01/22/import-calc-error-value/</link>
+      <link>https://dede-20191130.github.io/posts/2022/01/22/import-calc-error-value/</link>
       <pubDate>Sat, 22 Jan 2022 12:15:03 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2022/01/22/import-calc-error-value/</guid>
+      <guid>https://dede-20191130.github.io/posts/2022/01/22/import-calc-error-value/</guid>
       <description>
         
           &lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1642835775/learnerBlog/import-calc-error-value/import-calc-error-value1_ozm6gj.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
@@ -646,10 +646,10 @@ VBAマクロを扱う限り避けては通れない問題となるでしょう�
     
     <item>
       <title>[教えて！VBA] 第12回 各ワークシートのデータを集約して出力するにはどうすればいいの？？</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2022/01/15/vba-question-012-aggregate-wss-content/</link>
+      <link>https://dede-20191130.github.io/posts/2022/01/15/vba-question-012-aggregate-wss-content/</link>
       <pubDate>Sat, 15 Jan 2022 14:20:46 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2022/01/15/vba-question-012-aggregate-wss-content/</guid>
+      <guid>https://dede-20191130.github.io/posts/2022/01/15/vba-question-012-aggregate-wss-content/</guid>
       <description>
         
           &lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1642259173/learnerBlog/vba-question-012-aggregate-wss-content/aggregate-wss-content1_uyhlmz.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
@@ -696,7 +696,7 @@ Office 2016のExcel環境で検証済みです。&lt;/p&gt;
 オブジェクト指向のプログラミング言語です。&lt;/p&gt;
 &lt;p&gt;データは基本的にオブジェクト（データとそれに紐付く動作を一つにまとめたもの）として扱われます。&lt;br&gt;
 オブジェクトはクラスによって生成され、クラスはオブジェクトの雛形とみなすことができます。&lt;/p&gt;
-&lt;p&gt;詳しくは、&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2020/11/20/excel-class-sample-01/&#34;&gt;こちらの記事&lt;/a&gt;で紹介しました。&lt;/p&gt;
+&lt;p&gt;詳しくは、&lt;a href=&#34;https://dede-20191130.github.io/posts/2020/11/20/excel-class-sample-01/&#34;&gt;こちらの記事&lt;/a&gt;で紹介しました。&lt;/p&gt;
 
   &lt;/div&gt;
 
@@ -1198,10 +1198,10 @@ CSVとして保存する前にかならず行うべき処理です。&lt;/p&gt;
     
     <item>
       <title>[教えて！VBA] 第11回 マクロからファイルを新しく名付けて保存する際の注意点とは？？</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2022/01/12/vba-question-011-save-named-file/</link>
+      <link>https://dede-20191130.github.io/posts/2022/01/12/vba-question-011-save-named-file/</link>
       <pubDate>Wed, 12 Jan 2022 09:40:37 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2022/01/12/vba-question-011-save-named-file/</guid>
+      <guid>https://dede-20191130.github.io/posts/2022/01/12/vba-question-011-save-named-file/</guid>
       <description>
         
           &lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641975714/learnerBlog/vba-question-011-save-named-file/save-named-file_z2hxc1.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
@@ -1748,10 +1748,10 @@ VBAの環境でもSHA-256を利用することが可能になります。&lt;/p&
     
     <item>
       <title>[教えて！VBA] 第10回 Excelのシートの移動・削除を禁止する方法 ＆ マクロ実行時だけ許可するにはどうすればいいの？？</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2022/01/11/vba-question-010-prohibit-sheet-change/</link>
+      <link>https://dede-20191130.github.io/posts/2022/01/11/vba-question-010-prohibit-sheet-change/</link>
       <pubDate>Tue, 11 Jan 2022 13:47:44 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2022/01/11/vba-question-010-prohibit-sheet-change/</guid>
+      <guid>https://dede-20191130.github.io/posts/2022/01/11/vba-question-010-prohibit-sheet-change/</guid>
       <description>
         
           &lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641887344/learnerBlog/vba-question-010-prohibit-sheet-change/prohibit-sheet-change_levful.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
@@ -2012,10 +2012,10 @@ GOTOの機構（&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/post
     
     <item>
       <title>[教えて！VBA] 第9回 フォントやボタンをカスタマイズできるメッセージボックスを作成するにはどうすればいいの？？</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2022/01/10/vba-question-009-create-own-message-frm/</link>
+      <link>https://dede-20191130.github.io/posts/2022/01/10/vba-question-009-create-own-message-frm/</link>
       <pubDate>Mon, 10 Jan 2022 12:34:09 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2022/01/10/vba-question-009-create-own-message-frm/</guid>
+      <guid>https://dede-20191130.github.io/posts/2022/01/10/vba-question-009-create-own-message-frm/</guid>
       <description>
         
           &lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641804072/learnerBlog/vba-question-009-create-own-message-frm/create-own-message-frm_gauuok.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
@@ -2195,10 +2195,10 @@ VBAマクロの便利さをより向上させることができるでしょう�
     
     <item>
       <title>[教えて！VBA] 第8回 変更前のセルの値を保持/利用するにはどうすればいいの？？</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2022/01/06/vba-question-008-keep-value-before-change/</link>
+      <link>https://dede-20191130.github.io/posts/2022/01/06/vba-question-008-keep-value-before-change/</link>
       <pubDate>Thu, 06 Jan 2022 14:10:19 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2022/01/06/vba-question-008-keep-value-before-change/</guid>
+      <guid>https://dede-20191130.github.io/posts/2022/01/06/vba-question-008-keep-value-before-change/</guid>
       <description>
         
           &lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641629426/learnerBlog/vba-question-008-keep-value-before-change/keep-value-before-change_bdf1ed.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
@@ -2529,10 +2529,10 @@ Excel単独でも高度なアプリケーションのように&lt;br&gt;
     
     <item>
       <title>[教えて！VBA] 第7回 フォルダを開く（＋ファイルを操作する）にはどうすればいいの？？</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2022/01/02/vba-question-007-manipulate-folder-files/</link>
+      <link>https://dede-20191130.github.io/posts/2022/01/02/vba-question-007-manipulate-folder-files/</link>
       <pubDate>Sun, 02 Jan 2022 13:07:25 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2022/01/02/vba-question-007-manipulate-folder-files/</guid>
+      <guid>https://dede-20191130.github.io/posts/2022/01/02/vba-question-007-manipulate-folder-files/</guid>
       <description>
         
           &lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641189331/learnerBlog/vba-question-007-manipulate-folder-files/manipulate-folder-files_m8m4zz.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
@@ -2774,10 +2774,10 @@ mytext（拡張子txtのファイル）のみを対象として、&lt;br&gt;
     
     <item>
       <title>[教えて！VBA] 第6回 エクセルVBAマクロで、マクロを終了するにはどうすればいいの？？</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2022/01/01/vba-question-006-kinds-of-end-process/</link>
+      <link>https://dede-20191130.github.io/posts/2022/01/01/vba-question-006-kinds-of-end-process/</link>
       <pubDate>Sat, 01 Jan 2022 08:13:06 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2022/01/01/vba-question-006-kinds-of-end-process/</guid>
+      <guid>https://dede-20191130.github.io/posts/2022/01/01/vba-question-006-kinds-of-end-process/</guid>
       <description>
         
           &lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1641001541/learnerBlog/vba-question-006-kinds-of-end-process/kinds-of-end-process_h8dftp.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;

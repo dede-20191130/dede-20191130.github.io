@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Access on 学習者Dedeのブログ ~プログラミング等~</title>
-    <link>https://dede-20191130.github.io/learnerBlog/tags/access/</link>
+    <link>https://dede-20191130.github.io/tags/access/</link>
     <description>Recent content in Access on 学習者Dedeのブログ ~プログラミング等~</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 22 Jan 2022 12:15:03 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/learnerBlog/tags/access/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 22 Jan 2022 12:15:03 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/tags/access/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Access VBA] 数式エラーの発生しているExcelシートをテーブルに取り込むときの注意点とサンプルコード</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2022/01/22/import-calc-error-value/</link>
+      <link>https://dede-20191130.github.io/posts/2022/01/22/import-calc-error-value/</link>
       <pubDate>Sat, 22 Jan 2022 12:15:03 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2022/01/22/import-calc-error-value/</guid>
+      <guid>https://dede-20191130.github.io/posts/2022/01/22/import-calc-error-value/</guid>
       <description>
         
           &lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1642835775/learnerBlog/import-calc-error-value/import-calc-error-value1_ozm6gj.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
@@ -488,10 +488,10 @@ VBAマクロを扱う限り避けては通れない問題となるでしょう�
     
     <item>
       <title>[教えて！VBA] 第3回 Accessマクロで、テーブルのデータを全クリアするにはどうすればいいの？？</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/12/25/vba-question-003-clear-data-in-table/</link>
+      <link>https://dede-20191130.github.io/posts/2021/12/25/vba-question-003-clear-data-in-table/</link>
       <pubDate>Sat, 25 Dec 2021 09:57:26 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/12/25/vba-question-003-clear-data-in-table/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/12/25/vba-question-003-clear-data-in-table/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -617,10 +617,10 @@ Access利用の幅が広がるでしょう。&lt;/p&gt;
     
     <item>
       <title>[Access VBA] フォームのコントロール操作系の関数をどのようにユニットテストするかの方法メモ</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/09/04/access-change-control-test/</link>
+      <link>https://dede-20191130.github.io/posts/2021/09/04/access-change-control-test/</link>
       <pubDate>Sat, 04 Sep 2021 10:17:36 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/09/04/access-change-control-test/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/09/04/access-change-control-test/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -1060,10 +1060,10 @@ Mainフォーム上でテストするとMainフォーム自体の何かを変更
     
     <item>
       <title>[Access VBA] RequeryとRefreshの使い分けデモ　「単票フォームの編集」編</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/</link>
+      <link>https://dede-20191130.github.io/posts/2021/08/18/cut-sheet-requery-refresh/</link>
       <pubDate>Wed, 18 Aug 2021 15:06:36 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/08/18/cut-sheet-requery-refresh/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -1227,12 +1227,12 @@ Mainフォーム上でテストするとMainフォーム自体の何かを変更
     
     
     
-    &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/01-nothing-to-do.webm&#39; type=&#34;video/webm&#34;&gt;
+    &lt;source src=&#39;https://dede-20191130.github.io/posts/2021/08/18/cut-sheet-requery-refresh/01-nothing-to-do.webm&#39; type=&#34;video/webm&#34;&gt;
     
     
     
     
-    &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/01-nothing-to-do.mp4&#39; type=&#34;video/mp4&#34;&gt;
+    &lt;source src=&#39;https://dede-20191130.github.io/posts/2021/08/18/cut-sheet-requery-refresh/01-nothing-to-do.mp4&#39; type=&#34;video/mp4&#34;&gt;
     
     
     
@@ -1253,12 +1253,12 @@ Mainフォーム上でテストするとMainフォーム自体の何かを変更
     
     
     
-    &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/02-form-requery.webm&#39; type=&#34;video/webm&#34;&gt;
+    &lt;source src=&#39;https://dede-20191130.github.io/posts/2021/08/18/cut-sheet-requery-refresh/02-form-requery.webm&#39; type=&#34;video/webm&#34;&gt;
     
     
     
     
-    &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/02-form-requery.mp4&#39; type=&#34;video/mp4&#34;&gt;
+    &lt;source src=&#39;https://dede-20191130.github.io/posts/2021/08/18/cut-sheet-requery-refresh/02-form-requery.mp4&#39; type=&#34;video/mp4&#34;&gt;
     
     
     
@@ -1284,12 +1284,12 @@ Mainフォーム上でテストするとMainフォーム自体の何かを変更
     
     
     
-    &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/03-form-refresh.webm&#39; type=&#34;video/webm&#34;&gt;
+    &lt;source src=&#39;https://dede-20191130.github.io/posts/2021/08/18/cut-sheet-requery-refresh/03-form-refresh.webm&#39; type=&#34;video/webm&#34;&gt;
     
     
     
     
-    &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/03-form-refresh.mp4&#39; type=&#34;video/mp4&#34;&gt;
+    &lt;source src=&#39;https://dede-20191130.github.io/posts/2021/08/18/cut-sheet-requery-refresh/03-form-refresh.mp4&#39; type=&#34;video/mp4&#34;&gt;
     
     
     
@@ -1312,12 +1312,12 @@ Mainフォーム上でテストするとMainフォーム自体の何かを変更
     
     
     
-    &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/04-combobox-requery.webm&#39; type=&#34;video/webm&#34;&gt;
+    &lt;source src=&#39;https://dede-20191130.github.io/posts/2021/08/18/cut-sheet-requery-refresh/04-combobox-requery.webm&#39; type=&#34;video/webm&#34;&gt;
     
     
     
     
-    &lt;source src=&#39;https://dede-20191130.github.io/learnerBlog/posts/2021/08/18/cut-sheet-requery-refresh/04-combobox-requery.mp4&#39; type=&#34;video/mp4&#34;&gt;
+    &lt;source src=&#39;https://dede-20191130.github.io/posts/2021/08/18/cut-sheet-requery-refresh/04-combobox-requery.mp4&#39; type=&#34;video/mp4&#34;&gt;
     
     
     
@@ -1343,10 +1343,10 @@ Refreshが最も自然で使い勝手が良さそうな印象を受ける。&lt;
     
     <item>
       <title>[Access VBA] 見積書作成ツール（Accessバージョン）を作成した</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2021/02/28/create-estm-accessver/</link>
+      <link>https://dede-20191130.github.io/posts/2021/02/28/create-estm-accessver/</link>
       <pubDate>Sun, 28 Feb 2021 00:34:49 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2021/02/28/create-estm-accessver/</guid>
+      <guid>https://dede-20191130.github.io/posts/2021/02/28/create-estm-accessver/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -1366,7 +1366,7 @@ Excelベースの見積書作成ツールを作成した。&lt;/p&gt;
 
 
 
-&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2020/07/16/create-estm/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Excel VBA] 見積書作成ツールを作成した&lt;/a&gt;
+&lt;a href=&#34;https://dede-20191130.github.io/posts/2020/07/16/create-estm/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Excel VBA] 見積書作成ツールを作成した&lt;/a&gt;
 
 
     &lt;/div&gt;
@@ -1408,7 +1408,7 @@ Accessのほうが遥かに容易である。&lt;/li&gt;
 
 
 
-&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2021/03/17/create-estm-accessver-tool-screen/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Click To Show Slide Page&lt;/a&gt;
+&lt;a href=&#34;https://dede-20191130.github.io/posts/2021/03/17/create-estm-accessver-tool-screen/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Click To Show Slide Page&lt;/a&gt;
 
 ]&lt;/strong&gt;&lt;/p&gt;
 &lt;h2 id=&#34;機能紹介&#34;&gt;機能紹介&lt;/h2&gt;
@@ -1419,7 +1419,7 @@ Accessのほうが遥かに容易である。&lt;/li&gt;
 
 
 
-&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2021/03/24/create-estm-accessver-tool-faculty/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Click To Show Slide Page&lt;/a&gt;
+&lt;a href=&#34;https://dede-20191130.github.io/posts/2021/03/24/create-estm-accessver-tool-faculty/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Click To Show Slide Page&lt;/a&gt;
 
 ]&lt;/strong&gt;&lt;/p&gt;
 
@@ -1429,10 +1429,10 @@ Accessのほうが遥かに容易である。&lt;/li&gt;
     
     <item>
       <title>[VBA, PowerShell] Accessのモジュール・クラスやクエリのSQLから特定文字列を抽出するためのテクニック</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/12/19/grep-from-module-sql/</link>
+      <link>https://dede-20191130.github.io/posts/2020/12/19/grep-from-module-sql/</link>
       <pubDate>Sat, 19 Dec 2020 03:18:51 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/12/19/grep-from-module-sql/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/12/19/grep-from-module-sql/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -1627,15 +1627,15 @@ Accessファイルの置かれているディレクトリの「src_Accessファ�
     
     <item>
       <title>[VBA] クラスを利用するメリットと方法について &amp; 簡単なサンプル（２）</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/22/excel-class-sample-02/</link>
+      <link>https://dede-20191130.github.io/posts/2020/11/22/excel-class-sample-02/</link>
       <pubDate>Sun, 22 Nov 2020 14:07:24 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/22/excel-class-sample-02/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/11/22/excel-class-sample-02/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
 &lt;p&gt;この記事は、&lt;br&gt;
-&lt;a href=&#39;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2020/11/20/excel-class-sample-01/&#39;&gt;[VBA] クラスを利用するメリットと方法について &amp;amp; 簡単なサンプル（１）&lt;/a&gt;の続きの記事。&lt;br&gt;
+&lt;a href=&#39;https://dede-20191130.github.io/posts/2020/11/20/excel-class-sample-01/&#39;&gt;[VBA] クラスを利用するメリットと方法について &amp;amp; 簡単なサンプル（１）&lt;/a&gt;の続きの記事。&lt;br&gt;
 （１）とは違ったサンプルを用いて、前回とは違ったクラスの利用方法やそのメリットを記したい。&lt;/p&gt;
 &lt;p&gt;TableCreaterの例だと、カプセル化の恩恵や初期化処理・終了処理を必ず実行できることの恩恵が十分には表現できなかったように思えるため、&lt;br&gt;
 本記事のサンプル（clsCreateNewExcel）でそれらを表現しようと思う。&lt;/p&gt;
@@ -2127,10 +2127,10 @@ Excelアプリケーションの設定のリストアを行い、&lt;br&gt;
     
     <item>
       <title>[Access VBA] サブフォーム上のレコードを挿入、削除する簡単なサンプル</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/15/delete-record-button/</link>
+      <link>https://dede-20191130.github.io/posts/2020/11/15/delete-record-button/</link>
       <pubDate>Sun, 15 Nov 2020 00:54:01 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/15/delete-record-button/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/11/15/delete-record-button/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -2168,10 +2168,10 @@ MSOffice 2019&lt;/p&gt;
     
     <item>
       <title>[Access VBA] フォームのコントロールに対してWithEventsでイベントリスナークラスを作成する際に気をつけなければならないこと</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/11/08/access-control-withevents/</link>
+      <link>https://dede-20191130.github.io/posts/2020/11/08/access-control-withevents/</link>
       <pubDate>Sun, 08 Nov 2020 10:26:29 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/11/08/access-control-withevents/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/11/08/access-control-withevents/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -2563,10 +2563,10 @@ VBEが不要とみなして自動的に削除してしまう。&lt;/p&gt;
     
     <item>
       <title>[Access VBA] デザインビューのテーブル定義を表形式でエクスポートするAccessツールを作成した</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/10/27/access-tabledef-tool/</link>
+      <link>https://dede-20191130.github.io/posts/2020/10/27/access-tabledef-tool/</link>
       <pubDate>Tue, 27 Oct 2020 20:29:45 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/10/27/access-tabledef-tool/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/10/27/access-tabledef-tool/</guid>
       <description>
         
           &lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
@@ -2612,10 +2612,10 @@ VBEが不要とみなして自動的に削除してしまう。&lt;/p&gt;
     
     <item>
       <title>[Access VBA] デザインビューのテーブル定義を表形式でエクスポートする関数を作成した</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/10/25/access-tabledef/</link>
+      <link>https://dede-20191130.github.io/posts/2020/10/25/access-tabledef/</link>
       <pubDate>Sun, 25 Oct 2020 22:01:43 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/10/25/access-tabledef/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/10/25/access-tabledef/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
@@ -2642,7 +2642,7 @@ VBEが不要とみなして自動的に削除してしまう。&lt;/p&gt;
 
 
 
-&lt;a href=&#34;https://dede-20191130.github.io/learnerBlog/learnerBlog/posts/2020/10/27/access-tabledef-tool/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Access VBA] デザインビューのテーブル定義を表形式でエクスポートするAccessツールを作成した&lt;/a&gt;
+&lt;a href=&#34;https://dede-20191130.github.io/posts/2020/10/27/access-tabledef-tool/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Access VBA] デザインビューのテーブル定義を表形式でエクスポートするAccessツールを作成した&lt;/a&gt;
 &lt;/p&gt;
 &lt;h2 id=&#34;作成環境&#34;&gt;作成環境&lt;/h2&gt;
 &lt;p&gt;Microsoft Office 2019&lt;/p&gt;
@@ -3153,10 +3153,10 @@ exportTableDefTablesMainを実行する。&lt;/p&gt;
     
     <item>
       <title>[Access VBA] コントロールソースにユーザ定義関数を用いると列幅の自動調整が想定通りに機能しない問題の解決</title>
-      <link>https://dede-20191130.github.io/learnerBlog/posts/2020/10/13/access-controlsource/</link>
+      <link>https://dede-20191130.github.io/posts/2020/10/13/access-controlsource/</link>
       <pubDate>Tue, 13 Oct 2020 09:37:47 +0900</pubDate>
       
-      <guid>https://dede-20191130.github.io/learnerBlog/posts/2020/10/13/access-controlsource/</guid>
+      <guid>https://dede-20191130.github.io/posts/2020/10/13/access-controlsource/</guid>
       <description>
         
           &lt;h2 id=&#34;この記事について&#34;&gt;この記事について&lt;/h2&gt;
