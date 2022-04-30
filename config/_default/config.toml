@@ -1,6 +1,10 @@
 # set `baseurl` to your root domain
-# if you set it to "/" share icons won't work properly on production
-baseURL = "https://dede-20191130.github.io/learnerBlog/"
+# if you set it to "/" share icons won't work properly on poduction
+
+# remove path param 'learnerblog'
+# baseURL = "https://dede-20191130.github.io/learnerBlog/"
+baseURL = "https://dede-20191130.github.io"
+
 languageCode = "ja"
 # title = "Clarity"  # Edit directly from config/_default/languages.toml # alternatively, uncomment this and remove `title` entry from the aforemention file.
 # title = "学習者dedeのブログ ~プログラミング等~"
