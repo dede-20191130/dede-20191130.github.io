@@ -6,7 +6,26 @@
     <description>Recent content in programming on The learner Dede&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 22 May 2022 20:03:42 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/en/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 Sep 2022 23:25:06 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/en/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CODE SAMPLES, USING JS GENERATOR, GENERATING FIBONACCI NUMBERS AND PRIME NUMBERS IN NODEJS</title>
+      <link>https://dede-20191130.github.io/en/posts/2022/09/10/js-generator-fib-prime/</link>
+      <pubDate>Sat, 10 Sep 2022 23:25:06 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/en/posts/2022/09/10/js-generator-fib-prime/</guid>
+      <description>
+        
+          &lt;h2 id=&#34;about-this-article&#34;&gt;ABOUT THIS ARTICLE&lt;/h2&gt;
+&lt;p&gt;A simple samples of some Math calculation using Generator in Javascript.&lt;/p&gt;
+&lt;h2 id=&#34;creation-environment&#34;&gt;CREATION ENVIRONMENT&lt;/h2&gt;
+&lt;p&gt;Node.js v16.16.0&lt;/p&gt;
+&lt;h2 id=&#34;code&#34;&gt;CODE&lt;/h2&gt;
+&lt;script src=&#34;https://gist.github.com/dede-20191130/ab2509a4e17bbd1eac14ef0f1516b957.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://gist.github.com/dede-20191130/dbd2a536d46fcfc9c25957798458f248.js&#34;&gt;&lt;/script&gt;
+        
+      </description>
+    </item>
+    
     <item>
       <title>SCRIPT FOR SCRIPT_AUTO_RUNNER TO MAKE SICP TEXTBOOK MORE READABLE</title>
       <link>https://dede-20191130.github.io/en/posts/2022/05/22/sicp-restyle/</link>

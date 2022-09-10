@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>programming on 学習者Dedeのブログ ~プログラミング等~</title>
+    <link>https://dede-20191130.github.io/categories/programming/</link>
+    <description>Recent content in programming on 学習者Dedeのブログ ~プログラミング等~</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sat, 10 Sep 2022 23:25:06 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Node.js] ジェネレータを利用してフィボナッチ数列や素数の数列を計算する簡単なサンプル</title>
+      <link>https://dede-20191130.github.io/posts/2022/09/10/js-generator-fib-prime/</link>
+      <pubDate>Sat, 10 Sep 2022 23:25:06 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/posts/2022/09/10/js-generator-fib-prime/</guid>
+      <description>
+        
+          &lt;h2 id=&#34;about-this-article&#34;&gt;ABOUT THIS ARTICLE&lt;/h2&gt;
+&lt;p&gt;Node.jsのジェネレータを利用して、いくつかの数学的な計算処理を行うサンプルです。&lt;/p&gt;
+&lt;h2 id=&#34;creation-environment&#34;&gt;CREATION ENVIRONMENT&lt;/h2&gt;
+&lt;p&gt;Node.js v16.16.0&lt;/p&gt;
+&lt;h2 id=&#34;code&#34;&gt;CODE&lt;/h2&gt;
+&lt;script src=&#34;https://gist.github.com/dede-20191130/ab2509a4e17bbd1eac14ef0f1516b957.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://gist.github.com/dede-20191130/dbd2a536d46fcfc9c25957798458f248.js&#34;&gt;&lt;/script&gt;
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>
