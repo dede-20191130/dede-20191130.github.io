@@ -54,3 +54,6 @@ other = "Overview"
 
 [reading_time]
 other = "{{ .ReadingTime }} min read"
+
+[see_also]
+other = "See Also"

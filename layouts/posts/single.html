@@ -25,7 +25,7 @@
      <!-- add see-also -->
      {{ $related := .Site.RegularPages.Related . | first 5 }}
      {{ with $related }}
-     <h3>関連記事</h3>
+     <h3>{{ T "see_also" }}</h3>
      <ul>
          {{ range . }}
          <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>

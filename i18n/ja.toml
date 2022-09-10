@@ -54,3 +54,6 @@ other = "概要"
 
 [reading_time]
 other = "この記事は約{{ .ReadingTime }}分で読めます"
+
+[see_also]
+other = "関連記事"
