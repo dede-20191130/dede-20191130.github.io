@@ -3,7 +3,7 @@ title: "CODE SAMPLES, USING JS GENERATOR, GENERATING FIBONACCI NUMBERS AND PRIME
 author: dede-20191130
 date: 2022-09-10T23:25:06+09:00
 slug: js-generator-fib-prime
-draft: true
+draft: false
 toc: true
 featured: false
 tags: ["javascript","node.js"]
