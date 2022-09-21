@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://dede-20191130.github.io/en/archives/2022/</loc>
-    <lastmod>2022-09-10T23:57:58+09:00</lastmod>
+    <lastmod>2022-09-21T15:08:51+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
@@ -16,7 +16,7 @@
                 />
   </url><url>
     <loc>https://dede-20191130.github.io/en/archives/2022-09/</loc>
-    <lastmod>2022-09-10T23:57:58+09:00</lastmod>
+    <lastmod>2022-09-21T15:08:51+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
@@ -29,7 +29,7 @@
                 />
   </url><url>
     <loc>https://dede-20191130.github.io/en/archives/</loc>
-    <lastmod>2022-09-10T23:57:58+09:00</lastmod>
+    <lastmod>2022-09-21T15:08:51+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
@@ -42,7 +42,7 @@
                 />
   </url><url>
     <loc>https://dede-20191130.github.io/en/categories/</loc>
-    <lastmod>2022-09-10T23:57:58+09:00</lastmod>
+    <lastmod>2022-09-21T15:08:51+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
@@ -52,6 +52,64 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://dede-20191130.github.io/en/categories/"
+                />
+  </url><url>
+    <loc>https://dede-20191130.github.io/en/posts/</loc>
+    <lastmod>2022-09-21T15:08:51+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://dede-20191130.github.io/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://dede-20191130.github.io/en/posts/"
+                />
+  </url><url>
+    <loc>https://dede-20191130.github.io/en/categories/programming/</loc>
+    <lastmod>2022-09-21T15:08:51+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://dede-20191130.github.io/categories/programming/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://dede-20191130.github.io/en/categories/programming/"
+                />
+  </url><url>
+    <loc>https://dede-20191130.github.io/en/tags/racket/</loc>
+    <lastmod>2022-09-21T15:08:51+09:00</lastmod>
+  </url><url>
+    <loc>https://dede-20191130.github.io/en/posts/2022/09/21/racket-do-loop-sample/</loc>
+    <lastmod>2022-09-21T15:08:51+09:00</lastmod>
+  </url><url>
+    <loc>https://dede-20191130.github.io/en/tags/</loc>
+    <lastmod>2022-09-21T15:08:51+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://dede-20191130.github.io/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://dede-20191130.github.io/en/tags/"
+                />
+  </url><url>
+    <loc>https://dede-20191130.github.io/en/</loc>
+    <lastmod>2022-09-21T15:08:51+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://dede-20191130.github.io/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://dede-20191130.github.io/en/"
                 />
   </url><url>
     <loc>https://dede-20191130.github.io/en/posts/2022/09/10/js-generator-fib-prime/</loc>
@@ -91,58 +149,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://dede-20191130.github.io/en/tags/node.js/"
-                />
-  </url><url>
-    <loc>https://dede-20191130.github.io/en/posts/</loc>
-    <lastmod>2022-09-10T23:57:58+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://dede-20191130.github.io/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://dede-20191130.github.io/en/posts/"
-                />
-  </url><url>
-    <loc>https://dede-20191130.github.io/en/categories/programming/</loc>
-    <lastmod>2022-09-10T23:57:58+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://dede-20191130.github.io/categories/programming/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://dede-20191130.github.io/en/categories/programming/"
-                />
-  </url><url>
-    <loc>https://dede-20191130.github.io/en/tags/</loc>
-    <lastmod>2022-09-10T23:57:58+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://dede-20191130.github.io/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://dede-20191130.github.io/en/tags/"
-                />
-  </url><url>
-    <loc>https://dede-20191130.github.io/en/</loc>
-    <lastmod>2022-09-10T23:57:58+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://dede-20191130.github.io/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://dede-20191130.github.io/en/"
                 />
   </url><url>
     <loc>https://dede-20191130.github.io/en/archives/2022-05/</loc>

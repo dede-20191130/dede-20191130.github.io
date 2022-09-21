@@ -6,7 +6,26 @@
     <description>Recent content in programming on The learner Dede&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 10 Sep 2022 23:25:06 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/en/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 21 Sep 2022 14:58:56 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/en/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RACKET DO-LOOP SYNTAX SAMPLES</title>
+      <link>https://dede-20191130.github.io/en/posts/2022/09/21/racket-do-loop-sample/</link>
+      <pubDate>Wed, 21 Sep 2022 14:58:56 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/en/posts/2022/09/21/racket-do-loop-sample/</guid>
+      <description>
+        
+          &lt;h2 id=&#34;about-this-article&#34;&gt;ABOUT THIS ARTICLE&lt;/h2&gt;
+&lt;p&gt;Racket&#39;s official documents has do-loop syntax description &lt;a href=&#34;https://docs.racket-lang.org/reference/for.html#%28form._%28%28lib._racket%2Fprivate%2Fmore-scheme..rkt%29._do%29%29&#34;&gt;[link]&lt;/a&gt;.&lt;br&gt;
+But the description has no samples to aid our understanding. So I created some samples.&lt;/p&gt;
+&lt;h2 id=&#34;environment&#34;&gt;ENVIRONMENT&lt;/h2&gt;
+&lt;p&gt;Operation has been tested in Racket v8.5.&lt;/p&gt;
+&lt;h2 id=&#34;samples&#34;&gt;SAMPLES&lt;/h2&gt;
+&lt;script src=&#34;https://gist.github.com/dede-20191130/129ccdb88f9aba941ff9774acdcdbd15.js&#34;&gt;&lt;/script&gt;
+        
+      </description>
+    </item>
+    
     <item>
       <title>CODE SAMPLES, USING JS GENERATOR, GENERATING FIBONACCI NUMBERS AND PRIME NUMBERS IN NODEJS</title>
       <link>https://dede-20191130.github.io/en/posts/2022/09/10/js-generator-fib-prime/</link>
