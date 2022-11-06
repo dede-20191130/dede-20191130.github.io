@@ -9,6 +9,9 @@ introDescription = "VBAから入り、プログラミング、コンピュータ
 # Google analytics Id
 ga_analytics = "G-KLQ2XHYMSK"
 
+# Google Search Console
+ga_verify = "zrtkyxCqkW9nfvb3oFn-uZqOhVxblcJaEcD6E_Jur_A"
+
 # Baidu analytics Id
 # baidu_analytics = "XXXXXXXX"
 
