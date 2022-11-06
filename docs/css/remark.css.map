@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "remark.css",
-	"sourceRoot": "C:/Users/dede2/OneDrive/デスクトップ/開発/Webサイト/静的サイト/ブログ/01_学習者のブログ/learner",
+	"sourceRoot": "C:/Users/dede2/Develop/Web-Site/static-site/blog/01-Learner-Blog/learner",
 	"sources": [
 		"assets/scss/remark.scss",
 		"assets/scss/popup.scss"
