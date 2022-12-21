@@ -6,7 +6,26 @@
     <description>Recent content on The learner Dede&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 21 Sep 2022 14:58:56 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/en/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 21 Dec 2022 15:10:56 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RACKET REMOVE PROCEDURE FOR MUTABLE LISTS</title>
+      <link>https://dede-20191130.github.io/en/posts/2022/12/21/racket-mutable-remove-proc/</link>
+      <pubDate>Wed, 21 Dec 2022 15:10:56 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/en/posts/2022/12/21/racket-mutable-remove-proc/</guid>
+      <description>
+        
+          &lt;h2 id=&#34;about-this-article&#34;&gt;ABOUT THIS ARTICLE&lt;/h2&gt;
+&lt;p&gt;Racket&#39;s buildin library has remove procedure for immutable lists &lt;a href=&#34;https://docs.racket-lang.org/reference/pairs.html#%28def._%28%28lib._racket%2Fprivate%2Flist..rkt%29._remove%29%29&#34;&gt;[link]&lt;/a&gt;.&lt;br&gt;
+But the one for mutable lists is missing, so I created and test with some codes.&lt;/p&gt;
+&lt;h2 id=&#34;environment&#34;&gt;ENVIRONMENT&lt;/h2&gt;
+&lt;p&gt;Operation has been tested in Racket v8.5.&lt;/p&gt;
+&lt;h2 id=&#34;samples&#34;&gt;SAMPLES&lt;/h2&gt;
+&lt;script src=&#34;https://gist.github.com/dede-20191130/7166dd592d02bb3e2966add1574e0072.js&#34;&gt;&lt;/script&gt;
+        
+      </description>
+    </item>
+    
     <item>
       <title>RACKET DO-LOOP SYNTAX SAMPLES</title>
       <link>https://dede-20191130.github.io/en/posts/2022/09/21/racket-do-loop-sample/</link>
