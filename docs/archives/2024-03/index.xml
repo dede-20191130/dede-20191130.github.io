@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2024-03 on 学習者Dedeのブログ ~プログラミング等~</title>
+    <link>https://dede-20191130.github.io/archives/2024-03/</link>
+    <description>Recent content in 2024-03 on 学習者Dedeのブログ ~プログラミング等~</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Thu, 14 Mar 2024 11:55:04 +0900</lastBuildDate><atom:link href="https://dede-20191130.github.io/archives/2024-03/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Test Beautiful Pics</title>
+      <link>https://dede-20191130.github.io/posts/2024/03/14/test-beautiful-pics/</link>
+      <pubDate>Thu, 14 Mar 2024 11:55:04 +0900</pubDate>
+      
+      <guid>https://dede-20191130.github.io/posts/2024/03/14/test-beautiful-pics/</guid>
+      <description>
+        
+          &lt;p&gt;Google検索のインデックステスト用&lt;/p&gt;
+&lt;p&gt;美しい写真。Cloudinaryから。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1645881747/sample.jpg&#34; alt=&#34;beautiful1&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1639783795/samples/sheep.jpg&#34; alt=&#34;beautiful2&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/ddxhi1rnh/image/upload/v1639783801/samples/imagecon-group.jpg&#34; alt=&#34;beautiful3&#34;&gt;&lt;/p&gt;
+
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>
