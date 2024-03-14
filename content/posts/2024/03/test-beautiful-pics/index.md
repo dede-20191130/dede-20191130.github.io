@@ -3,7 +3,7 @@ title: "Test Beautiful Pics"
 author: dede-20191130
 date: 2024-03-14T11:55:04+09:00
 slug: test-beautiful-pics
-draft: true
+draft: false
 toc: true
 featured: false
 tags: []
