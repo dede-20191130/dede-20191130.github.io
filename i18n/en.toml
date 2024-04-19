@@ -57,3 +57,6 @@ other = "{{ .ReadingTime }} min read"
 
 [see_also]
 other = "See Also"
+
+[blog_move]
+other = "My Blog has been moved"

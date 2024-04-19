@@ -57,3 +57,6 @@ other = "この記事は約{{ .ReadingTime }}分で読めます"
 
 [see_also]
 other = "関連記事"
+
+[blog_move]
+other = "ブログを移転しました"

@@ -6,8 +6,8 @@ $breakpoints: (
     "md": "screen and (min-width: 768px)",
     "lg": "screen and (min-width: 1024px)",
     "xl": "screen and (min-width: 1440px)",
-) !default;
-$adjusted-color-yellow:#fcff37;
+    ) !default;
+$adjusted-color-yellow: #fcff37;
 
 // mixins
 @mixin mq($breakpoint) {
@@ -22,6 +22,7 @@ code {
         padding: 0 0.3rem;
         font-weight: 600;
         background-color: #fffbd6;
+
         // 親要素をスタイル判定条件に利用
         // https://www.qoosky.io/techs/ca7f68faa6#part-aa5c8249f93236d9
         html[data-mode="dim"] & {
@@ -47,10 +48,12 @@ code {
         }
     }
 }
+
 //// dark mode
 html[data-mode="dim"] {
     #TableOfContents {
         background-color: #353535;
+
         li {
             a {
                 color: $adjusted-color-yellow;
@@ -61,7 +64,8 @@ html[data-mode="dim"] {
 
 // article adjustment
 article.post_content {
-    > a,
+
+    >a,
     p,
     div.inner-article,
     div.box-with-title,
@@ -89,8 +93,9 @@ article.post_content {
     h5,
     h6 {
         border-bottom: solid 1px black;
+
         html[data-mode="dim"] & {
-            border-bottom-color:$adjusted-color-yellow;
+            border-bottom-color: $adjusted-color-yellow;
         }
     }
 
@@ -98,13 +103,15 @@ article.post_content {
         border-width: 2px;
         border-color: #a2a2a2;
         border-style: solid;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-    }
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+            0 3px 10px 0 rgba(0, 0, 0, 0.19
+        );
+}
 
-    video {
-        // responsive
-        width: 100%;
-    }
+video {
+    // responsive
+    width: 100%;
+}
 }
 
 // Image style
@@ -117,6 +124,7 @@ article.post_content {
     position: relative;
     margin: 2rem 0 1.5rem 0;
     overflow-wrap: break-word;
+
     @include mq(lg) {
         max-width: 80%;
     }
@@ -144,6 +152,7 @@ article.post_content {
         }
     }
 }
+
 html[data-mode="dim"] {
     .box-with-title {
         span {
@@ -169,4 +178,9 @@ html[data-mode="dim"] {
     .ml-#{$i} {
         margin-left: #{$i * 0.1}rem;
     }
+}
+
+// add for blog relocation announcement
+.content {
+    padding-top: 10rem;
 }
