@@ -184,3 +184,12 @@ html[data-mode="dim"] {
 .content {
     padding-top: 10rem;
 }
+
+// hide the title text when the menu opened
+html.jsopen nav>a.nav_brand {
+    visibility: hidden;
+}
+
+html.jsopen nav>a.nav_brand>.nav_close {
+    visibility: visible;
+}
